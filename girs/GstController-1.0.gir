@@ -730,13 +730,13 @@ All functions are MT-safe.</doc>
                    c:identifier="gst_interpolation_control_source_new">
         <doc xml:space="preserve"
              filename="libs/gst/controller/gstinterpolationcontrolsource.c"
-             line="641">This returns a new, unbound #GstInterpolationControlSource.</doc>
+             line="642">This returns a new, unbound #GstInterpolationControlSource.</doc>
         <source-position filename="libs/gst/controller/gstinterpolationcontrolsource.h"
                          line="98"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/controller/gstinterpolationcontrolsource.c"
-               line="646">a new, unbound #GstInterpolationControlSource.</doc>
+               line="647">a new, unbound #GstInterpolationControlSource.</doc>
           <type name="Gst.ControlSource" c:type="GstControlSource*"/>
         </return-value>
       </constructor>

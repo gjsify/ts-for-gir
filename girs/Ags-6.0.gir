@@ -388,7 +388,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="AgsApplicationContext"
            glib:get-type="ags_application_context_get_type"
            glib:type-struct="ApplicationContextClass">
-      <source-position filename="object/ags_application_context.h" line="116"/>
+      <source-position filename="object/ags_application_context.h" line="122"/>
       <implements name="Connectable"/>
       <constructor name="new"
                    c:identifier="ags_application_context_new"
@@ -397,7 +397,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1166">Create a new instance of #AgsApplicationContext</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="138"/>
+                         line="144"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -432,7 +432,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1140">Get your application context instance.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="137"/>
+                         line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -445,7 +445,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1020">Signal to load and parse configuration.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="105"/>
+                         line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -464,7 +464,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1045">Prepare @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="107"/>
+                         line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -483,7 +483,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1121">Calls exit()</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="115"/>
+                         line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -504,7 +504,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1095">Notification to register your types.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="110"/>
+                         line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -523,7 +523,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1070">Setup @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="108"/>
+                         line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -544,7 +544,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1020">Signal to load and parse configuration.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="128"/>
+                         line="134"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -565,7 +565,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1045">Prepare @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="130"/>
+                         line="136"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -586,7 +586,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1121">Calls exit()</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="135"/>
+                         line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -607,7 +607,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1095">Notification to register your types.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="133"/>
+                         line="139"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -628,7 +628,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="950">Enable a feature of #AgsApplicationContext.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="123"/>
+                         line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -656,7 +656,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1070">Setup @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="131"/>
+                         line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -677,7 +677,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="914">Test @flags to be set on @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="121"/>
+                         line="127"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -708,7 +708,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="982">Disable a feature of AgsApplicationContext.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="125"/>
+                         line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -863,14 +863,14 @@ your application context.</doc>
     <record name="ApplicationContextClass"
             c:type="AgsApplicationContextClass"
             glib:is-gtype-struct-for="ApplicationContext">
-      <source-position filename="object/ags_application_context.h" line="116"/>
+      <source-position filename="object/ags_application_context.h" line="122"/>
       <field name="gobject">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load_config">
         <callback name="load_config">
           <source-position filename="object/ags_application_context.h"
-                           line="105"/>
+                           line="111"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -887,7 +887,7 @@ your application context.</doc>
       <field name="prepare">
         <callback name="prepare">
           <source-position filename="object/ags_application_context.h"
-                           line="107"/>
+                           line="113"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -904,7 +904,7 @@ your application context.</doc>
       <field name="setup">
         <callback name="setup">
           <source-position filename="object/ags_application_context.h"
-                           line="108"/>
+                           line="114"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -921,7 +921,7 @@ your application context.</doc>
       <field name="register_types">
         <callback name="register_types">
           <source-position filename="object/ags_application_context.h"
-                           line="110"/>
+                           line="116"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -938,7 +938,7 @@ your application context.</doc>
       <field name="read">
         <callback name="read">
           <source-position filename="object/ags_application_context.h"
-                           line="112"/>
+                           line="118"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -958,7 +958,7 @@ your application context.</doc>
       <field name="write" introspectable="0">
         <callback name="write" introspectable="0">
           <source-position filename="object/ags_application_context.h"
-                           line="113"/>
+                           line="119"/>
           <return-value>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </return-value>
@@ -978,7 +978,7 @@ your application context.</doc>
       <field name="quit">
         <callback name="quit">
           <source-position filename="object/ags_application_context.h"
-                           line="115"/>
+                           line="121"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -999,7 +999,7 @@ your application context.</doc>
               c:type="AgsApplicationContextFlags">
       <doc xml:space="preserve"
            filename="object/ags_application_context.h"
-           line="58">Enum values to control the behavior or indicate internal state of #AgsApplicationContext by
+           line="64">Enum values to control the behavior or indicate internal state of #AgsApplicationContext by
 enable/disable as flags.</doc>
       <member name="application_context_types_registered"
               value="1"
@@ -1008,7 +1008,7 @@ enable/disable as flags.</doc>
               glib:name="AGS_APPLICATION_CONTEXT_TYPES_REGISTERED">
         <doc xml:space="preserve"
              filename="object/ags_application_context.h"
-             line="60">indicates the types have been registered</doc>
+             line="66">indicates the types have been registered</doc>
       </member>
     </bitfield>
     <class name="AuthSecurityContext"
@@ -6787,12 +6787,12 @@ enable/disable as flags.</doc>
       <constructor name="new" c:identifier="ags_config_new" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="990">Create a new instance of #AgsConfig.</doc>
+             line="997">Create a new instance of #AgsConfig.</doc>
         <source-position filename="object/ags_config.h" line="95"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="995">the new #AgsConfig.</doc>
+               line="1002">the new #AgsConfig.</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </constructor>
@@ -6801,43 +6801,43 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="965">Get config instance.</doc>
+             line="972">Get config instance.</doc>
         <source-position filename="object/ags_config.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="970">the config instance</doc>
+               line="977">the config instance</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </function>
       <virtual-method name="get_value" invoker="get_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="897">Retrieve config by @group and @key.</doc>
+             line="904">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="75"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="905">the property's value</doc>
+               line="912">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="899">the #AgsConfig</doc>
+                 line="906">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="900">the config group identifier</doc>
+                 line="907">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="901">the key of the property</doc>
+                 line="908">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6864,7 +6864,7 @@ enable/disable as flags.</doc>
       <virtual-method name="set_value" invoker="set_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="846">Set config by @group and @key, applying @value.</doc>
+             line="853">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6873,25 +6873,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="848">the #AgsConfig</doc>
+                 line="855">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="849">the config group identifier</doc>
+                 line="856">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="850">the key of the property</doc>
+                 line="857">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="851">the value to set</doc>
+                 line="858">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6899,7 +6899,7 @@ enable/disable as flags.</doc>
       <method name="clear" c:identifier="ags_config_clear" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="926">Clears configuration.</doc>
+             line="933">Clears configuration.</doc>
         <source-position filename="object/ags_config.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6908,7 +6908,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="928">the #AgsConfig</doc>
+                 line="935">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6918,31 +6918,31 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="897">Retrieve config by @group and @key.</doc>
+             line="904">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="905">the property's value</doc>
+               line="912">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="899">the #AgsConfig</doc>
+                 line="906">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="900">the config group identifier</doc>
+                 line="907">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="901">the key of the property</doc>
+                 line="908">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7044,7 +7044,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="846">Set config by @group and @key, applying @value.</doc>
+             line="853">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7053,25 +7053,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="848">the #AgsConfig</doc>
+                 line="855">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="849">the config group identifier</doc>
+                 line="856">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="850">the key of the property</doc>
+                 line="857">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="851">the value to set</doc>
+                 line="858">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7218,25 +7218,25 @@ enable/disable as flags.</doc>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="848">the #AgsConfig</doc>
+                   line="855">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="849">the config group identifier</doc>
+                   line="856">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="850">the key of the property</doc>
+                   line="857">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="value" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="851">the value to set</doc>
+                   line="858">the value to set</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -7248,26 +7248,26 @@ enable/disable as flags.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="905">the property's value</doc>
+                 line="912">the property's value</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="899">the #AgsConfig</doc>
+                   line="906">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="900">the config group identifier</doc>
+                   line="907">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="901">the key of the property</doc>
+                   line="908">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -9747,6 +9747,12 @@ otherwise if %TRUE convert back to original format.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <constant name="DEFAULT_BUNDLE_ID"
+              value="org.nongnu.gsequencer.gsequencer"
+              c:type="AGS_DEFAULT_BUNDLE_ID">
+      <source-position filename="object/ags_application_context.h" line="56"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
     <constant name="DEFAULT_CONFIG"
               value="ags.conf"
               c:type="AGS_DEFAULT_CONFIG">
@@ -9807,6 +9813,9 @@ otherwise if %TRUE convert back to original format.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </field>
       <field name="destroy_func">
+        <doc xml:space="preserve"
+             filename="thread/ags_destroy_worker.h"
+             line="66">the destroy function</doc>
         <callback name="destroy_func">
           <source-position filename="thread/ags_destroy_worker.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -10350,37 +10359,37 @@ otherwise if %TRUE convert back to original format.</doc>
       <constructor name="new" c:identifier="ags_file_new" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2568">Creates an #AgsFile</doc>
+             line="2566">Creates an #AgsFile</doc>
         <source-position filename="file/ags_file.h" line="265"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="2573">a new #AgsFile</doc>
+               line="2571">a new #AgsFile</doc>
           <type name="File" c:type="AgsFile*"/>
         </return-value>
       </constructor>
       <function name="str2md5" c:identifier="ags_file_str2md5" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="930">Compute MD5 sums of a buffer.</doc>
+             line="928">Compute MD5 sums of a buffer.</doc>
         <source-position filename="file/ags_file.h" line="181"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="937">the md5 checksum</doc>
+               line="935">the md5 checksum</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="932">the string buffer</doc>
+                 line="930">the string buffer</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="content_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="933">the length of the string</doc>
+                 line="931">the length of the string</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -10388,7 +10397,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <virtual-method name="open" invoker="open" version="3.0.0" throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1832">Opens the file specified by :filename property.</doc>
+             line="1830">Opens the file specified by :filename property.</doc>
         <source-position filename="file/ags_file.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10397,7 +10406,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1834">the #AgsFile</doc>
+                 line="1832">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10408,7 +10417,7 @@ otherwise if %TRUE convert back to original format.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1895">Opens the file provided by @data.</doc>
+             line="1893">Opens the file provided by @data.</doc>
         <source-position filename="file/ags_file.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10417,19 +10426,19 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1897">the #AgsFile</doc>
+                 line="1895">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1898">a buffer containing the XML document</doc>
+                 line="1896">a buffer containing the XML document</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1899">the buffer length</doc>
+                 line="1897">the buffer length</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -10437,7 +10446,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <virtual-method name="read" invoker="read" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2352">Read XML document from disk.</doc>
+             line="2350">Read XML document from disk.</doc>
         <source-position filename="file/ags_file.h" line="153"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10446,7 +10455,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2354">the #AgsFile</doc>
+                 line="2352">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10465,7 +10474,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <virtual-method name="read_start" invoker="read_start" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2446">Update or start the application.</doc>
+             line="2444">Update or start the application.</doc>
         <source-position filename="file/ags_file.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10474,7 +10483,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2448">the #AgsFile</doc>
+                 line="2446">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10485,7 +10494,7 @@ otherwise if %TRUE convert back to original format.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1947">Opens the file specified by :filename property in read-write mode.</doc>
+             line="1945">Opens the file specified by :filename property in read-write mode.</doc>
         <source-position filename="file/ags_file.h" line="145"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10494,13 +10503,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1949">the #AgsFile</doc>
+                 line="1947">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="create" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1950">if %TRUE create the file as needed</doc>
+                 line="1948">if %TRUE create the file as needed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10508,7 +10517,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <virtual-method name="write" invoker="write" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2129">Write the XML document to disk.</doc>
+             line="2127">Write the XML document to disk.</doc>
         <source-position filename="file/ags_file.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10517,7 +10526,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2131">the #AgsFile</doc>
+                 line="2129">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10538,7 +10547,7 @@ otherwise if %TRUE convert back to original format.</doc>
                       version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2271">Resolve references to XPath expressions.</doc>
+             line="2269">Resolve references to XPath expressions.</doc>
         <source-position filename="file/ags_file.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10547,7 +10556,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2273">the #AgsFile</doc>
+                 line="2271">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10557,7 +10566,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="954">Adds @id_ref to @file.</doc>
+             line="952">Adds @id_ref to @file.</doc>
         <source-position filename="file/ags_file.h" line="183"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10566,13 +10575,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="956">the @AgsFile</doc>
+                 line="954">the @AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="id_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="957">a reference</doc>
+                 line="955">a reference</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -10582,7 +10591,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1212">Add @file_launch for later invoking.</doc>
+             line="1210">Add @file_launch for later invoking.</doc>
         <source-position filename="file/ags_file.h" line="191"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10591,13 +10600,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1214">the #AgsFile</doc>
+                 line="1212">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="file_launch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1215">a #AgsFileLaunch</doc>
+                 line="1213">a #AgsFileLaunch</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -10607,7 +10616,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1177">Add @file_lookup for later invoking.</doc>
+             line="1175">Add @file_lookup for later invoking.</doc>
         <source-position filename="file/ags_file.h" line="189"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10616,13 +10625,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1179">the #AgsFile</doc>
+                 line="1177">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="file_lookup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1180">a #AgsFileLookup</doc>
+                 line="1178">a #AgsFileLookup</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -10630,7 +10639,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <method name="close" c:identifier="ags_file_close" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2024">Closes @file.</doc>
+             line="2022">Closes @file.</doc>
         <source-position filename="file/ags_file.h" line="246"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10639,7 +10648,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2026">the #AgsFile</doc>
+                 line="2024">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10649,25 +10658,25 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="989">Find a reference by its XML node.</doc>
+             line="987">Find a reference by its XML node.</doc>
         <source-position filename="file/ags_file.h" line="185"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="996">the matching #GObject</doc>
+               line="994">the matching #GObject</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="991">the @AgsFile</doc>
+                 line="989">the @AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="992">a XML node</doc>
+                 line="990">a XML node</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
         </parameters>
@@ -10677,19 +10686,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1115">Find a reference matching @ref.</doc>
+             line="1113">Find a reference matching @ref.</doc>
         <source-position filename="file/ags_file.h" line="187"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1122">the matching #GObject</doc>
+               line="1120">the matching #GObject</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1117">the #AgsFile</doc>
+                 line="1115">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="ref"
@@ -10698,7 +10707,7 @@ otherwise if %TRUE convert back to original format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1118">a %gpointer</doc>
+                 line="1116">a %gpointer</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10708,25 +10717,25 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1052">Lookup a reference by @xpath.</doc>
+             line="1050">Lookup a reference by @xpath.</doc>
         <source-position filename="file/ags_file.h" line="186"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1059">the matching #GObject</doc>
+               line="1057">the matching #GObject</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1054">the #AgsFile</doc>
+                 line="1052">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="xpath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1055">a XPath expression</doc>
+                 line="1053">a XPath expression</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -10737,19 +10746,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="856">Get audio encoding of @file.</doc>
+             line="854">Get audio encoding of @file.</doc>
         <source-position filename="file/ags_file.h" line="175"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="862">the audio encoding</doc>
+               line="860">the audio encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="858">the #AgsFile</doc>
+                 line="856">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10760,19 +10769,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="808">Get audio format of @file.</doc>
+             line="806">Get audio format of @file.</doc>
         <source-position filename="file/ags_file.h" line="171"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="814">the audio format</doc>
+               line="812">the audio format</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="810">the #AgsFile</doc>
+                 line="808">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10783,19 +10792,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="760">Get encoding of @file.</doc>
+             line="758">Get encoding of @file.</doc>
         <source-position filename="file/ags_file.h" line="167"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="766">the encoding</doc>
+               line="764">the encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="762">the #AgsFile</doc>
+                 line="760">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10806,19 +10815,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="712">Get filename of @file.</doc>
+             line="710">Get filename of @file.</doc>
         <source-position filename="file/ags_file.h" line="163"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="718">the filename</doc>
+               line="716">the filename</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="714">the #AgsFile</doc>
+                 line="712">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10829,19 +10838,19 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="904">Get xml doc of @file.</doc>
+             line="902">Get xml doc of @file.</doc>
         <source-position filename="file/ags_file.h" line="179"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="910">the #xmlDoc-struct</doc>
+               line="908">the #xmlDoc-struct</doc>
           <type name="libxml2.Doc" c:type="xmlDoc*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="906">the #AgsFile</doc>
+                 line="904">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10852,7 +10861,7 @@ otherwise if %TRUE convert back to original format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1832">Opens the file specified by :filename property.</doc>
+             line="1830">Opens the file specified by :filename property.</doc>
         <source-position filename="file/ags_file.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10861,7 +10870,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1834">the #AgsFile</doc>
+                 line="1832">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10871,7 +10880,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1972">Opens the file specified by @filename property.</doc>
+             line="1970">Opens the file specified by @filename property.</doc>
         <source-position filename="file/ags_file.h" line="244"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10880,13 +10889,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1974">the #AgsFile</doc>
+                 line="1972">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1975">a path</doc>
+                 line="1973">a path</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -10897,7 +10906,7 @@ otherwise if %TRUE convert back to original format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1895">Opens the file provided by @data.</doc>
+             line="1893">Opens the file provided by @data.</doc>
         <source-position filename="file/ags_file.h" line="237"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10906,19 +10915,19 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1897">the #AgsFile</doc>
+                 line="1895">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1898">a buffer containing the XML document</doc>
+                 line="1896">a buffer containing the XML document</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1899">the buffer length</doc>
+                 line="1897">the buffer length</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -10926,7 +10935,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <method name="read" c:identifier="ags_file_read" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2352">Read XML document from disk.</doc>
+             line="2350">Read XML document from disk.</doc>
         <source-position filename="file/ags_file.h" line="253"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10935,7 +10944,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2354">the #AgsFile</doc>
+                 line="2352">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -10991,7 +11000,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2446">Update or start the application.</doc>
+             line="2444">Update or start the application.</doc>
         <source-position filename="file/ags_file.h" line="255"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11000,7 +11009,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2448">the #AgsFile</doc>
+                 line="2446">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -11011,7 +11020,7 @@ otherwise if %TRUE convert back to original format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1947">Opens the file specified by :filename property in read-write mode.</doc>
+             line="1945">Opens the file specified by :filename property in read-write mode.</doc>
         <source-position filename="file/ags_file.h" line="240"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11020,13 +11029,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1949">the #AgsFile</doc>
+                 line="1947">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="create" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1950">if %TRUE create the file as needed</doc>
+                 line="1948">if %TRUE create the file as needed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11037,7 +11046,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="834">Set @audio_encoding of @file.</doc>
+             line="832">Set @audio_encoding of @file.</doc>
         <source-position filename="file/ags_file.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11046,13 +11055,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="836">the #AgsFile</doc>
+                 line="834">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="audio_encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="837">the audio encoding</doc>
+                 line="835">the audio encoding</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11063,7 +11072,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="786">Set @audio_format of @file.</doc>
+             line="784">Set @audio_format of @file.</doc>
         <source-position filename="file/ags_file.h" line="169"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11072,13 +11081,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="788">the #AgsFile</doc>
+                 line="786">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="audio_format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="789">the audio format</doc>
+                 line="787">the audio format</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11089,7 +11098,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="738">Set @encoding of @file.</doc>
+             line="736">Set @encoding of @file.</doc>
         <source-position filename="file/ags_file.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11098,13 +11107,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="740">the #AgsFile</doc>
+                 line="738">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="741">the encoding</doc>
+                 line="739">the encoding</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11115,7 +11124,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="690">Set @filename of @file.</doc>
+             line="688">Set @filename of @file.</doc>
         <source-position filename="file/ags_file.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11124,13 +11133,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="692">the #AgsFile</doc>
+                 line="690">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="693">the filename</doc>
+                 line="691">the filename</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11141,7 +11150,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.6.17">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="882">Set @xml_doc of @file.</doc>
+             line="880">Set @xml_doc of @file.</doc>
         <source-position filename="file/ags_file.h" line="177"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11150,13 +11159,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="884">the #AgsFile</doc>
+                 line="882">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="xml_doc" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="885">the #xmlDoc-struct</doc>
+                 line="883">the #xmlDoc-struct</doc>
             <type name="libxml2.Doc" c:type="xmlDoc*"/>
           </parameter>
         </parameters>
@@ -11164,7 +11173,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <method name="write" c:identifier="ags_file_write" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2129">Write the XML document to disk.</doc>
+             line="2127">Write the XML document to disk.</doc>
         <source-position filename="file/ags_file.h" line="249"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11173,7 +11182,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2131">the #AgsFile</doc>
+                 line="2129">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -11229,7 +11238,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="2271">Resolve references to XPath expressions.</doc>
+             line="2269">Resolve references to XPath expressions.</doc>
         <source-position filename="file/ags_file.h" line="251"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11238,7 +11247,7 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="2273">the #AgsFile</doc>
+                 line="2271">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
         </parameters>
@@ -11248,7 +11257,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1417">Set root element @root_node of @doc.</doc>
+             line="1415">Set root element @root_node of @doc.</doc>
         <source-position filename="file/ags_file.h" line="205"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11257,19 +11266,19 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1419">the #AgsFile</doc>
+                 line="1417">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1420">the parent #xmlNode-struct</doc>
+                 line="1418">the parent #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
           <parameter name="child" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1421">the child #xmlNode-struct</doc>
+                 line="1419">the child #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
         </parameters>
@@ -11279,25 +11288,25 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1681">Get content of @node.</doc>
+             line="1679">Get content of @node.</doc>
         <source-position filename="file/ags_file.h" line="227"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1688">the content of #xmlNode-struct</doc>
+               line="1686">the content of #xmlNode-struct</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1683">the #AgsFile</doc>
+                 line="1681">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1684">the #xmlNode-struct</doc>
+                 line="1682">the #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
         </parameters>
@@ -11323,25 +11332,25 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1442">Get node name of @node.</doc>
+             line="1440">Get node name of @node.</doc>
         <source-position filename="file/ags_file.h" line="209"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1449">the node name of #xmlNode-struct</doc>
+               line="1447">the node name of #xmlNode-struct</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1444">the #AgsFile</doc>
+                 line="1442">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1445">the #xmlNode-struct</doc>
+                 line="1443">the #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
         </parameters>
@@ -11383,31 +11392,31 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1558">Get property of @node.</doc>
+             line="1556">Get property of @node.</doc>
         <source-position filename="file/ags_file.h" line="219"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1566">the property of #xmlNode-struct</doc>
+               line="1564">the property of #xmlNode-struct</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1560">the #AgsFile</doc>
+                 line="1558">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1561">the #xmlNode-struct</doc>
+                 line="1559">the #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
           <parameter name="prop_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1562">property name</doc>
+                 line="1560">property name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11417,25 +11426,25 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1361">Get root element of @doc.</doc>
+             line="1359">Get root element of @doc.</doc>
         <source-position filename="file/ags_file.h" line="200"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1368">the root element of #xmlDoc-struct</doc>
+               line="1366">the root element of #xmlDoc-struct</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1363">the #AgsFile</doc>
+                 line="1361">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1364">the #xmlDoc-struct</doc>
+                 line="1362">the #xmlDoc-struct</doc>
             <type name="libxml2.Doc" c:type="xmlDoc*"/>
           </parameter>
         </parameters>
@@ -11446,25 +11455,25 @@ otherwise if %TRUE convert back to original format.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1247">Create #xmlDoc-struct.</doc>
+             line="1245">Create #xmlDoc-struct.</doc>
         <source-position filename="file/ags_file.h" line="194"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1254">the newly created #xmlDoc-struct</doc>
+               line="1252">the newly created #xmlDoc-struct</doc>
           <type name="libxml2.Doc" c:type="xmlDoc*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1249">the #AgsFile</doc>
+                 line="1247">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1250">the version</doc>
+                 line="1248">the version</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11475,31 +11484,31 @@ otherwise if %TRUE convert back to original format.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1310">Create #xmlNode-struct.</doc>
+             line="1308">Create #xmlNode-struct.</doc>
         <source-position filename="file/ags_file.h" line="197"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="file/ags_file.c"
-               line="1318">the newly created #xmlNode-struct</doc>
+               line="1316">the newly created #xmlNode-struct</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1312">the #AgsFile</doc>
+                 line="1310">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="xml_namespace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1313">the XML namespace</doc>
+                 line="1311">the XML namespace</doc>
             <type c:type="xmlNs*"/>
           </parameter>
           <parameter name="node_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1314">the XML node name</doc>
+                 line="1312">the XML node name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11509,7 +11518,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1733">Set content of @node.</doc>
+             line="1731">Set content of @node.</doc>
         <source-position filename="file/ags_file.h" line="229"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11518,25 +11527,25 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1735">the #AgsFile</doc>
+                 line="1733">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1736">the #xmlNode-struct</doc>
+                 line="1734">the #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
           <parameter name="content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1737">the content</doc>
+                 line="1735">the content</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="is_cdata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1738">if content is CDATA</doc>
+                 line="1736">if content is CDATA</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11546,7 +11555,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1614">Set property of @node.</doc>
+             line="1612">Set property of @node.</doc>
         <source-position filename="file/ags_file.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11555,25 +11564,25 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1616">the #AgsFile</doc>
+                 line="1614">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1617">the #xmlNode-struct</doc>
+                 line="1615">the #xmlNode-struct</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
           <parameter name="prop_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1618">property name</doc>
+                 line="1616">property name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="prop_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1619">property value</doc>
+                 line="1617">property value</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -11583,7 +11592,7 @@ otherwise if %TRUE convert back to original format.</doc>
               version="4.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="1388">Set root element @root_node of @doc.</doc>
+             line="1386">Set root element @root_node of @doc.</doc>
         <source-position filename="file/ags_file.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11592,19 +11601,19 @@ otherwise if %TRUE convert back to original format.</doc>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1390">the #AgsFile</doc>
+                 line="1388">the #AgsFile</doc>
             <type name="File" c:type="AgsFile*"/>
           </instance-parameter>
           <parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1391">the #xmlDoc-struct</doc>
+                 line="1389">the #xmlDoc-struct</doc>
             <type name="libxml2.Doc" c:type="xmlDoc*"/>
           </parameter>
           <parameter name="root_node" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="1392">the #xmlNode-struct as root node</doc>
+                 line="1390">the #xmlNode-struct as root node</doc>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </parameter>
         </parameters>
@@ -11618,7 +11627,7 @@ otherwise if %TRUE convert back to original format.</doc>
                 default-value="base64">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="242">The encoding to use for embedding audio data.</doc>
+             line="240">The encoding to use for embedding audio data.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="audio-format"
@@ -11630,7 +11639,7 @@ otherwise if %TRUE convert back to original format.</doc>
                 default-value="raw">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="226">The format of embedded audio data.</doc>
+             line="224">The format of embedded audio data.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="encoding"
@@ -11642,7 +11651,7 @@ otherwise if %TRUE convert back to original format.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="210">The charset encoding to use.</doc>
+             line="208">The charset encoding to use.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="filename"
@@ -11654,7 +11663,7 @@ otherwise if %TRUE convert back to original format.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="194">The assigned filename to open and read from.</doc>
+             line="192">The assigned filename to open and read from.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="xml-doc"
@@ -11665,7 +11674,7 @@ otherwise if %TRUE convert back to original format.</doc>
                 getter="get_xml_doc">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="258">The assigned xml-doc.</doc>
+             line="256">The assigned xml-doc.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <field name="gobject">
@@ -11766,7 +11775,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <glib:signal name="open" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="286">Open @file with appropriate filename.</doc>
+             line="284">Open @file with appropriate filename.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11777,7 +11786,7 @@ otherwise if %TRUE convert back to original format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="289">a #GError-struct pointer to return error</doc>
+                 line="287">a #GError-struct pointer to return error</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -11785,7 +11794,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <glib:signal name="open-from-data" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="305">Open @file from a buffer containing the file.</doc>
+             line="303">Open @file from a buffer containing the file.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11793,13 +11802,13 @@ otherwise if %TRUE convert back to original format.</doc>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="308">the buffer containing the file</doc>
+                 line="306">the buffer containing the file</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="309">the buffer length</doc>
+                 line="307">the buffer length</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="error"
@@ -11808,7 +11817,7 @@ otherwise if %TRUE convert back to original format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="file/ags_file.c"
-                 line="310">a #GError-struct pointer to return error</doc>
+                 line="308">a #GError-struct pointer to return error</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -11816,7 +11825,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <glib:signal name="read" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="393">Read a XML document from disk with specified filename.</doc>
+             line="391">Read a XML document from disk with specified filename.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11824,7 +11833,7 @@ otherwise if %TRUE convert back to original format.</doc>
       <glib:signal name="read-resolve" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="410">Resolve XPath expressions to their counterpart the newly created
+             line="408">Resolve XPath expressions to their counterpart the newly created
 instances refering to.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11833,7 +11842,7 @@ instances refering to.</doc>
       <glib:signal name="read-start" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="428">Hook after reading XML document to update or start the application.</doc>
+             line="426">Hook after reading XML document to update or start the application.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11857,7 +11866,7 @@ instances refering to.</doc>
       <glib:signal name="write" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="349">Write XML Document to disk.</doc>
+             line="347">Write XML Document to disk.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -11870,7 +11879,7 @@ instances refering to.</doc>
       <glib:signal name="write-resolve" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="file/ags_file.c"
-             line="375">Resolve references and generate thus XPath expressions just
+             line="373">Resolve references and generate thus XPath expressions just
 before writing to disk.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11894,7 +11903,7 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1834">the #AgsFile</doc>
+                   line="1832">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
           </parameters>
@@ -11910,19 +11919,19 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1897">the #AgsFile</doc>
+                   line="1895">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
             <parameter name="data" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1898">a buffer containing the XML document</doc>
+                   line="1896">a buffer containing the XML document</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="length" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1899">the buffer length</doc>
+                   line="1897">the buffer length</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -11938,13 +11947,13 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1949">the #AgsFile</doc>
+                   line="1947">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
             <parameter name="create" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="1950">if %TRUE create the file as needed</doc>
+                   line="1948">if %TRUE create the file as needed</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -11960,7 +11969,7 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="2131">the #AgsFile</doc>
+                   line="2129">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
           </parameters>
@@ -11989,7 +11998,7 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="2273">the #AgsFile</doc>
+                   line="2271">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
           </parameters>
@@ -12005,7 +12014,7 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="2354">the #AgsFile</doc>
+                   line="2352">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
           </parameters>
@@ -12034,7 +12043,7 @@ before writing to disk.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="file/ags_file.c"
-                   line="2448">the #AgsFile</doc>
+                   line="2446">the #AgsFile</doc>
               <type name="File" c:type="AgsFile*"/>
             </parameter>
           </parameters>
@@ -20929,7 +20938,7 @@ all available message queues.</doc>
       </parameters>
     </function-macro>
     <record name="RegexMatch" c:type="AgsRegexMatch">
-      <source-position filename="lib/ags_regex_util.h" line="115"/>
+      <source-position filename="lib/ags_regex_util.h" line="117"/>
       <field name="start_match_offset" introspectable="0" writable="1">
         <type c:type="regoff_t"/>
       </field>
@@ -20942,7 +20951,7 @@ all available message queues.</doc>
             glib:type-name="AgsRegexUtil"
             glib:get-type="ags_regex_util_get_type"
             c:symbol-prefix="regex_util">
-      <source-position filename="lib/ags_regex_util.h" line="109"/>
+      <source-position filename="lib/ags_regex_util.h" line="111"/>
       <field name="app_encoding" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -20973,31 +20982,31 @@ all available message queues.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="258">Compile @regex_str by respecting @compile_flags.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="136"/>
+             line="264">Compile @regex_str by respecting @compile_flags.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="267">%TRUE on success, otherwise %FALSE</doc>
+               line="273">%TRUE on success, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="260">the #AgsRegexUtil</doc>
+                 line="266">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="regex_str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="261">the regular expression</doc>
+                 line="267">the regular expression</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="compile_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="262">the compile flags</doc>
+                 line="268">the compile flags</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -21005,19 +21014,19 @@ all available message queues.</doc>
       <method name="copy" c:identifier="ags_regex_util_copy" version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="158">Create a copy of @ptr.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="127"/>
+             line="164">Create a copy of @ptr.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="129"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="164">a pointer of the new #AgsRegexUtil-struct</doc>
+               line="170">a pointer of the new #AgsRegexUtil-struct</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="160">the #AgsRegexUtil</doc>
+                 line="166">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
         </parameters>
@@ -21028,43 +21037,43 @@ all available message queues.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="514">Execute @regex_util and fill @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="157"/>
+             line="520">Execute @regex_util and fill @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="525">%TRUE on success, otherwise %FALSE</doc>
+               line="531">%TRUE on success, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="516">the #AgsRegexUtil</doc>
+                 line="522">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="517">the input string</doc>
+                 line="523">the input string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="match_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="518">the match count</doc>
+                 line="524">the match count</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="519">the regex match</doc>
+                 line="525">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
           <parameter name="execute_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="520">the execute flags</doc>
+                 line="526">the execute flags</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -21075,43 +21084,43 @@ all available message queues.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="580">Execute @regex_util and fill @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="162"/>
+             line="586">Execute @regex_util and fill @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="164"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="591">%TRUE on success, otherwise %FALSE</doc>
+               line="597">%TRUE on success, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="582">the #AgsRegexUtil</doc>
+                 line="588">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="583">the input string</doc>
+                 line="589">the input string</doc>
             <type name="gunichar" c:type="const gunichar*"/>
           </parameter>
           <parameter name="match_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="584">the match count</doc>
+                 line="590">the match count</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="585">the regex match</doc>
+                 line="591">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
           <parameter name="execute_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="586">the execute flags</doc>
+                 line="592">the execute flags</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -21122,43 +21131,43 @@ all available message queues.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="663">Execute @regex_util and fill @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="167"/>
+             line="669">Execute @regex_util and fill @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="169"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="674">%TRUE on success, otherwise %FALSE</doc>
+               line="680">%TRUE on success, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="665">the #AgsRegexUtil</doc>
+                 line="671">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="666">the input string</doc>
+                 line="672">the input string</doc>
             <type name="guint16" c:type="const gunichar2*"/>
           </parameter>
           <parameter name="match_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="667">the match count</doc>
+                 line="673">the match count</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="668">the regex match</doc>
+                 line="674">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
           <parameter name="execute_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="669">the execute flags</doc>
+                 line="675">the execute flags</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -21166,8 +21175,8 @@ all available message queues.</doc>
       <method name="free" c:identifier="ags_regex_util_free" version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="181">Free the memory of @ptr.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="128"/>
+             line="187">Free the memory of @ptr.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -21175,7 +21184,7 @@ all available message queues.</doc>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="183">the #AgsRegexUtil</doc>
+                 line="189">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
         </parameters>
@@ -21185,19 +21194,19 @@ all available message queues.</doc>
               version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="210">Get application encoding of @regex_util.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="131"/>
+             line="216">Get application encoding of @regex_util.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="216">the application encoding</doc>
+               line="222">the application encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="212">the #AgsRegexUtil-struct</doc>
+                 line="218">the #AgsRegexUtil-struct</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
         </parameters>
@@ -21207,19 +21216,19 @@ all available message queues.</doc>
               version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="234">Get encoding of @regex_util.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="133"/>
+             line="240">Get encoding of @regex_util.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="135"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="240">the encoding</doc>
+               line="246">the encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="236">the #AgsRegexUtil-struct</doc>
+                 line="242">the #AgsRegexUtil-struct</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
         </parameters>
@@ -21230,25 +21239,25 @@ all available message queues.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="421">Allocate #AgsRegexMatch-struct array.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="141"/>
+             line="427">Allocate #AgsRegexMatch-struct array.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="143"/>
         <return-value>
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="428">the new allocated #AgsRegexMatch-struct array</doc>
+               line="434">the new allocated #AgsRegexMatch-struct array</doc>
           <type name="RegexMatch" c:type="AgsRegexMatch*"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="423">the #AgsRegexUtil</doc>
+                 line="429">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="match_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="424">the match count</doc>
+                 line="430">the match count</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -21259,31 +21268,31 @@ all available message queues.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="444">Copy @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="144"/>
+             line="450">Copy @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="146"/>
         <return-value>
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="452">the newly allocated #AgsRegexMatch</doc>
+               line="458">the newly allocated #AgsRegexMatch</doc>
           <type name="RegexMatch" c:type="AgsRegexMatch*"/>
         </return-value>
         <parameters>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="446">the #AgsRegexUtil</doc>
+                 line="452">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="447">the regex match</doc>
+                 line="453">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
           <parameter name="match_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="448">the match count</doc>
+                 line="454">the match count</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -21293,8 +21302,8 @@ all available message queues.</doc>
               version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="471">Free @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="147"/>
+             line="477">Free @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -21302,13 +21311,13 @@ all available message queues.</doc>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="473">the #AgsRegexUtil</doc>
+                 line="479">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="474">the regex match</doc>
+                 line="480">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
         </parameters>
@@ -21318,8 +21327,8 @@ all available message queues.</doc>
               version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="487">Get offset of @match.</doc>
-        <source-position filename="lib/ags_regex_util.h" line="151"/>
+             line="493">Get offset of @match.</doc>
+        <source-position filename="lib/ags_regex_util.h" line="153"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -21327,19 +21336,19 @@ all available message queues.</doc>
           <instance-parameter name="regex_util" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="489">the #AgsRegexUtil</doc>
+                 line="495">the #AgsRegexUtil</doc>
             <type name="RegexUtil" c:type="AgsRegexUtil*"/>
           </instance-parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="490">the regex match</doc>
+                 line="496">the regex match</doc>
             <type name="RegexMatch" c:type="AgsRegexMatch*"/>
           </parameter>
           <parameter name="nth_match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="491">the match position</doc>
+                 line="497">the match position</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="start_match_offset"
@@ -21348,7 +21357,7 @@ all available message queues.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="492">the start match offset</doc>
+                 line="498">the start match offset</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="end_match_offset"
@@ -21357,7 +21366,7 @@ all available message queues.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="493">the end match offset</doc>
+                 line="499">the end match offset</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -21367,31 +21376,37 @@ all available message queues.</doc>
                 version="6.3.2">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="107">Allocate #AgsRegexUtil-struct</doc>
-        <source-position filename="lib/ags_regex_util.h" line="123"/>
+             line="109">Allocate #AgsRegexUtil-struct</doc>
+        <source-position filename="lib/ags_regex_util.h" line="125"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="114">a new #AgsRegexUtil-struct</doc>
+               line="118">a new #AgsRegexUtil-struct</doc>
           <type name="RegexUtil" c:type="AgsRegexUtil*"/>
         </return-value>
         <parameters>
           <parameter name="app_encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="109">the application encoding</doc>
+                 line="111">the application encoding</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_regex_util.c"
-                 line="110">the input encoding</doc>
+                 line="112">the input encoding</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="is_unichar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_regex_util.c"
+                 line="113">is gunichar</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="is_unichar2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_regex_util.c"
+                 line="114">is gunichar2</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -21442,7 +21457,7 @@ enable/disable as flags.</doc>
     <enumeration name="RegexUtilError"
                  c:type="AgsRegexUtilError"
                  glib:error-domain="ags-regex-util-error-quark">
-      <source-position filename="lib/ags_regex_util.h" line="91"/>
+      <source-position filename="lib/ags_regex_util.h" line="93"/>
       <member name="bad_back_reference"
               value="0"
               c:identifier="AGS_REGEX_UTIL_ERROR_BAD_BACK_REFERENCE">
@@ -22374,6 +22389,15 @@ enable/disable as flags.</doc>
       <source-position filename="lib/ags_solver_matrix.h" line="38"/>
       <parameters>
         <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SOLVER_PATH"
+                    c:identifier="AGS_SOLVER_PATH"
+                    introspectable="0">
+      <source-position filename="lib/ags_solver_path.h" line="29"/>
+      <parameters>
+        <parameter name="ptr">
         </parameter>
       </parameters>
     </function-macro>
@@ -26020,18 +26044,18 @@ enable/disable as flags.</doc>
            glib:type-name="AgsSolverMatrix"
            glib:get-type="ags_solver_matrix_get_type"
            glib:type-struct="SolverMatrixClass">
-      <source-position filename="lib/ags_solver_matrix.h" line="63"/>
+      <source-position filename="lib/ags_solver_matrix.h" line="65"/>
       <constructor name="new"
                    c:identifier="ags_solver_matrix_new"
                    version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="1383">Instantiate a new #AgsSolverMatrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="92"/>
+             line="1418">Instantiate a new #AgsSolverMatrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="98"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_solver_matrix.c"
-               line="1388">the new instance</doc>
+               line="1423">the new instance</doc>
           <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
         </return-value>
       </constructor>
@@ -26040,8 +26064,8 @@ enable/disable as flags.</doc>
               version="3.9.3">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="1077">Eliminate one column of @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="86"/>
+             line="1180">Eliminate one column of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26049,25 +26073,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1079">the #AgsSolverMatrix</doc>
+                 line="1182">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
           <parameter name="nth_column" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1080">the nth column</doc>
+                 line="1183">the nth column</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="nth_row_a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1081">the nth row as a</doc>
+                 line="1184">the nth row as a</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="nth_row_b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1082">the nth row as b</doc>
+                 line="1185">the nth row as b</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -26075,7 +26099,7 @@ enable/disable as flags.</doc>
       <method name="get_column_count"
               c:identifier="ags_solver_matrix_get_column_count"
               glib:get-property="column-count">
-        <source-position filename="lib/ags_solver_matrix.h" line="73"/>
+        <source-position filename="lib/ags_solver_matrix.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -26091,19 +26115,45 @@ enable/disable as flags.</doc>
               version="3.9.3">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="350">Get row count of @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="71"/>
+             line="399">Get row count of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_solver_matrix.c"
-               line="356">the row count</doc>
+               line="405">the row count</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="352">the #AgsSolverMatrix</doc>
+                 line="401">the #AgsSolverMatrix</doc>
+            <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_solver_path"
+              c:identifier="ags_solver_matrix_get_solver_path"
+              glib:get-property="solver-path"
+              version="6.7.1"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_matrix.c"
+             line="455">Get solver path of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="77"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_matrix.c"
+               line="461">the #GList-struct containing #AgsSolverPath</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_matrix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_matrix.c"
+                 line="457">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
         </parameters>
@@ -26114,19 +26164,19 @@ enable/disable as flags.</doc>
               version="3.9.3">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="378">Get column count of @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="67"/>
+             line="427">Get column count of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_solver_matrix.c"
-               line="384">the column count</doc>
+               line="433">the column count</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="380">the #AgsSolverMatrix</doc>
+                 line="429">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
         </parameters>
@@ -26136,8 +26186,8 @@ enable/disable as flags.</doc>
               version="3.2.0">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="956">Insert @solver_vector to @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="80"/>
+             line="1059">Insert @solver_vector to @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26145,19 +26195,19 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="958">the #AgsSolverMatrix</doc>
+                 line="1061">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
           <parameter name="solver_vector" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="959">the #AgsSolverVector</doc>
+                 line="1062">the #AgsSolverVector</doc>
             <type name="SolverVector" c:type="AgsSolverVector*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="960">the position</doc>
+                 line="1063">the position</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -26167,8 +26217,8 @@ enable/disable as flags.</doc>
               version="3.9.3">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="567">Parse @source_function and apply to @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="77"/>
+             line="666">Parse @source_function and apply to @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26176,13 +26226,13 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="569">the #AgsSolverMatrix</doc>
+                 line="668">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
           <parameter name="source_function" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="570">the normalized source function</doc>
+                 line="669">the normalized source function</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -26192,8 +26242,8 @@ enable/disable as flags.</doc>
               version="3.2.0">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="1012">Remove @solver_vector from @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="83"/>
+             line="1115">Remove @solver_vector from @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26201,14 +26251,43 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1014">the #AgsSolverMatrix</doc>
+                 line="1117">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
           <parameter name="solver_vector" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1015">the #AgsSolverVector</doc>
+                 line="1118">the #AgsSolverVector</doc>
             <type name="SolverVector" c:type="AgsSolverVector*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_solver_path"
+              c:identifier="ags_solver_matrix_set_solver_path"
+              glib:set-property="solver-path"
+              version="6.7.1"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_matrix.c"
+             line="483">Get column count of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_matrix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_matrix.c"
+                 line="485">the #AgsSolverMatrix</doc>
+            <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
+          </instance-parameter>
+          <parameter name="solver_path" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_matrix.c"
+                 line="486">the solver path</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
           </parameter>
         </parameters>
       </method>
@@ -26218,8 +26297,8 @@ enable/disable as flags.</doc>
               version="3.9.3">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="328">Set @source_function of @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="68"/>
+             line="377">Set @source_function of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26227,13 +26306,13 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="330">the #AgsSolverMatrix</doc>
+                 line="379">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
           <parameter name="source_function" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="331">the source function</doc>
+                 line="380">the source function</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -26243,8 +26322,8 @@ enable/disable as flags.</doc>
               version="5.3.4">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="1316">Default solve.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="90"/>
+             line="1383">Default solve.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26252,7 +26331,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="1318">the #AgsSolverMatrix</doc>
+                 line="1385">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
         </parameters>
@@ -26262,19 +26341,19 @@ enable/disable as flags.</doc>
               version="5.5.1">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="406">To string of @solver_matrix.</doc>
-        <source-position filename="lib/ags_solver_matrix.h" line="75"/>
+             line="505">To string of @solver_matrix.</doc>
+        <source-position filename="lib/ags_solver_matrix.h" line="81"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_solver_matrix.c"
-               line="412">the new string representation</doc>
+               line="511">the new string representation</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="solver_matrix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_solver_matrix.c"
-                 line="408">the #AgsSolverMatrix</doc>
+                 line="507">the #AgsSolverMatrix</doc>
             <type name="SolverMatrix" c:type="AgsSolverMatrix*"/>
           </instance-parameter>
         </parameters>
@@ -26286,7 +26365,7 @@ enable/disable as flags.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="149">The column count of the term table.</doc>
+             line="147">The column count of the term table.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="row-count"
@@ -26296,8 +26375,19 @@ enable/disable as flags.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="130">The row count of the term table.</doc>
+             line="128">The row count of the term table.</doc>
         <type name="guint" c:type="guint"/>
+      </property>
+      <property name="solver-path"
+                version="6.7.1"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_solver_path"
+                getter="get_solver_path">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_matrix.c"
+             line="165">The assigned solver path.</doc>
+        <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="source-function"
                 version="3.9.3"
@@ -26308,7 +26398,7 @@ enable/disable as flags.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/ags_solver_matrix.c"
-             line="114">The assigned source-function.</doc>
+             line="112">The assigned source-function.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="gobject">
@@ -26335,14 +26425,247 @@ enable/disable as flags.</doc>
       <field name="column_count">
         <type name="guint" c:type="guint"/>
       </field>
+      <field name="solver_path">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
     </class>
     <record name="SolverMatrixClass"
             c:type="AgsSolverMatrixClass"
             glib:is-gtype-struct-for="SolverMatrix">
-      <source-position filename="lib/ags_solver_matrix.h" line="63"/>
+      <source-position filename="lib/ags_solver_matrix.h" line="65"/>
       <field name="gobject">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
+    </record>
+    <record name="SolverPath"
+            c:type="AgsSolverPath"
+            glib:type-name="AgsSolverPath"
+            glib:get-type="ags_solver_path_get_type"
+            c:symbol-prefix="solver_path">
+      <source-position filename="lib/ags_solver_path.h" line="38"/>
+      <field name="nth_column" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="nth_row_a" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="nth_row_b" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <method name="copy" c:identifier="ags_solver_path_copy" version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="81">Create a copy of @ptr.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="46"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="87">a pointer of the new #AgsSolverPath-struct</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ptr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="83">the original #AgsSolverPath-struct</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="ags_solver_path_free" version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="109">Free the memory of @ptr.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ptr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="111">the #AgsSolverPath-struct</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nth_column"
+              c:identifier="ags_solver_path_get_nth_column"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="123">Get nth-column of @solver_path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="129">nth-column as unsigned integer</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="125">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nth_row_a"
+              c:identifier="ags_solver_path_get_nth_row_a"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="158">Get nth-row a of @solver_path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="164">nth-row a as unsigned integer</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="160">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nth_row_b"
+              c:identifier="ags_solver_path_get_nth_row_b"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="193">Get nth-row b of solver path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="199">nth-row b as unsigned integer</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="195">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_nth_column"
+              c:identifier="ags_solver_path_set_nth_column"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="141">Set nth-column of @solver_path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="143">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+          <parameter name="nth_column" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="144">the nth-column to set</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_nth_row_a"
+              c:identifier="ags_solver_path_set_nth_row_a"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="176">Set nth-row a of @solver_path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="178">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+          <parameter name="nth_row_a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="179">the nth-row a to set</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_nth_row_b"
+              c:identifier="ags_solver_path_set_nth_row_b"
+              version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="211">Set nth-row b of @solver_path.</doc>
+        <source-position filename="lib/ags_solver_path.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="solver_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="213">the #AgsSolverPath</doc>
+            <type name="SolverPath" c:type="AgsSolverPath*"/>
+          </instance-parameter>
+          <parameter name="nth_row_b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="214">the nth-row b to set</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <function name="alloc"
+                c:identifier="ags_solver_path_alloc"
+                version="6.7.1">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="53">Allocate #AgsSolverPath-struct</doc>
+        <source-position filename="lib/ags_solver_path.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="61">a new #AgsSolverPath-struct</doc>
+          <type name="SolverPath" c:type="AgsSolverPath*"/>
+        </return-value>
+        <parameters>
+          <parameter name="nth_column" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="55">the nth-column</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="nth_row_a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="56">nth-row a</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="nth_row_b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/ags_solver_path.c"
+                 line="57">nth-row b</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
     </record>
     <class name="SolverPolynomial"
            c:symbol-prefix="solver_polynomial"
@@ -36677,7 +37000,7 @@ enable/disable as sync tic flags.</doc>
           <doc xml:space="preserve"
                filename="thread/ags_timestamp.c"
                line="233">the unix time as time_t value</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="timestamp" transfer-ownership="none">
@@ -36759,7 +37082,7 @@ enable/disable as sync tic flags.</doc>
             <doc xml:space="preserve"
                  filename="thread/ags_timestamp.c"
                  line="264">the unix time value</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -39258,25 +39581,25 @@ enable/disable as sync_flags.</doc>
       <method name="compare" c:identifier="ags_uuid_compare" version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="129">Compare @a with @b.</doc>
+             line="135">Compare @a with @b.</doc>
         <source-position filename="lib/ags_uuid.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="136">0 on success, otherwise a value less or greater than 0</doc>
+               line="142">0 on success, otherwise a value less or greater than 0</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="131">an #AgsUUID</doc>
+                 line="137">an #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="132">another #AgsUUID</doc>
+                 line="138">another #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </parameter>
         </parameters>
@@ -39284,19 +39607,19 @@ enable/disable as sync_flags.</doc>
       <method name="copy" c:identifier="ags_uuid_copy" version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="72">Create a copy of @ptr.</doc>
+             line="78">Create a copy of @ptr.</doc>
         <source-position filename="lib/ags_uuid.h" line="44"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="78">a pointer of the new #AgsUUID</doc>
+               line="84">a pointer of the new #AgsUUID</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="74">the original #AgsUUID</doc>
+                 line="80">the original #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </instance-parameter>
         </parameters>
@@ -39304,7 +39627,7 @@ enable/disable as sync_flags.</doc>
       <method name="free" c:identifier="ags_uuid_free" version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="93">Free the memory of @ptr.</doc>
+             line="99">Free the memory of @ptr.</doc>
         <source-position filename="lib/ags_uuid.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -39313,7 +39636,7 @@ enable/disable as sync_flags.</doc>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="95">the #AgsUUID</doc>
+                 line="101">the #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </instance-parameter>
         </parameters>
@@ -39321,7 +39644,7 @@ enable/disable as sync_flags.</doc>
       <method name="generate" c:identifier="ags_uuid_generate" version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="107">Generate random UUID.</doc>
+             line="113">Generate random UUID.</doc>
         <source-position filename="lib/ags_uuid.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -39330,7 +39653,7 @@ enable/disable as sync_flags.</doc>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="109">the #AgsUUID</doc>
+                 line="115">the #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </instance-parameter>
         </parameters>
@@ -39340,19 +39663,19 @@ enable/disable as sync_flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="152">Get string representation of @ptr.</doc>
+             line="158">Get string representation of @ptr.</doc>
         <source-position filename="lib/ags_uuid.h" line="52"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="158">the UUID as string if @ptr not %NULL, else %NULL</doc>
+               line="164">the UUID as string if @ptr not %NULL, else %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="154">the #AgsUUID</doc>
+                 line="160">the #AgsUUID</doc>
             <type name="UUID" c:type="AgsUUID*"/>
           </instance-parameter>
         </parameters>
@@ -39360,12 +39683,12 @@ enable/disable as sync_flags.</doc>
       <function name="alloc" c:identifier="ags_uuid_alloc" version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="52">Allocate #AgsUUID.</doc>
+             line="58">Allocate #AgsUUID.</doc>
         <source-position filename="lib/ags_uuid.h" line="42"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="57">a new #AgsUUID</doc>
+               line="63">a new #AgsUUID</doc>
           <type name="UUID" c:type="AgsUUID*"/>
         </return-value>
       </function>
@@ -39374,19 +39697,19 @@ enable/disable as sync_flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="178">Retrieve #AgsUUID by parsing @str.</doc>
+             line="184">Retrieve #AgsUUID by parsing @str.</doc>
         <source-position filename="lib/ags_uuid.h" line="53"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="184">the new #AgsUUID on success, otherwise %NULL</doc>
+               line="190">the new #AgsUUID on success, otherwise %NULL</doc>
           <type name="UUID" c:type="AgsUUID*"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_uuid.c"
-                 line="180">the UUID as string</doc>
+                 line="186">the UUID as string</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -40360,7 +40683,7 @@ give it the responsibility to destroy your objects.</doc>
     <docsection name="ags_file">
       <doc xml:space="preserve"
            filename="file/ags_file.c"
-           line="74">The #AgsFile is an object to read or write files using XML. It
+           line="72">The #AgsFile is an object to read or write files using XML. It
 is the persisting layer of Advanced Gtk+ Sequencer.
 
 The application encoding used is either C.UTF-8 or taken from LANG environment
@@ -40421,7 +40744,7 @@ generic processing.</doc>
     <docsection name="ags_id_generator">
       <doc xml:space="preserve"
            filename="util/ags_id_generator.c"
-           line="26">Functions related to UUID.</doc>
+           line="32">Functions related to UUID.</doc>
     </docsection>
     <docsection name="ags_list_util">
       <doc xml:space="preserve"
@@ -40584,7 +40907,12 @@ password files.</doc>
     <docsection name="ags_solver_matrix">
       <doc xml:space="preserve"
            filename="lib/ags_solver_matrix.c"
-           line="47">The #AgsSolverMatrix contains the solver vectors.</doc>
+           line="44">The #AgsSolverMatrix contains the solver vectors.</doc>
+    </docsection>
+    <docsection name="ags_solver_path">
+      <doc xml:space="preserve"
+           filename="lib/ags_solver_path.c"
+           line="24">Boxed type of solver_path data type.</doc>
     </docsection>
     <docsection name="ags_solver_polynomial">
       <doc xml:space="preserve"
@@ -40745,7 +41073,7 @@ into XML.</doc>
     <docsection name="ags_uuid">
       <doc xml:space="preserve"
            filename="lib/ags_uuid.c"
-           line="27">Boxed type of uuid_t data type.</doc>
+           line="33">Boxed type of uuid_t data type.</doc>
     </docsection>
     <docsection name="ags_worker_thread">
       <doc xml:space="preserve"
@@ -44990,12 +45318,12 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="util/ags_id_generator.c"
-           line="38">Creates a new string containing an UUID.</doc>
+           line="44">Creates a new string containing an UUID.</doc>
       <source-position filename="util/ags_id_generator.h" line="28"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="util/ags_id_generator.c"
-             line="43">the UUID as string</doc>
+             line="49">the UUID as string</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
     </function>
@@ -45916,31 +46244,37 @@ the locale to C and then reverts it.</doc>
               version="6.3.2">
       <doc xml:space="preserve"
            filename="lib/ags_regex_util.c"
-           line="107">Allocate #AgsRegexUtil-struct</doc>
-      <source-position filename="lib/ags_regex_util.h" line="123"/>
+           line="109">Allocate #AgsRegexUtil-struct</doc>
+      <source-position filename="lib/ags_regex_util.h" line="125"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_regex_util.c"
-             line="114">a new #AgsRegexUtil-struct</doc>
+             line="118">a new #AgsRegexUtil-struct</doc>
         <type name="RegexUtil" c:type="AgsRegexUtil*"/>
       </return-value>
       <parameters>
         <parameter name="app_encoding" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="109">the application encoding</doc>
+               line="111">the application encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
         <parameter name="encoding" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_regex_util.c"
-               line="110">the input encoding</doc>
+               line="112">the input encoding</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
         <parameter name="is_unichar" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_regex_util.c"
+               line="113">is gunichar</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="is_unichar2" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_regex_util.c"
+               line="114">is gunichar2</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -45994,6 +46328,41 @@ the locale to C and then reverts it.</doc>
                filename="lib/ags_regex.c"
                line="110">error flags</doc>
           <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="solver_path_alloc"
+              c:identifier="ags_solver_path_alloc"
+              moved-to="SolverPath.alloc"
+              version="6.7.1">
+      <doc xml:space="preserve"
+           filename="lib/ags_solver_path.c"
+           line="53">Allocate #AgsSolverPath-struct</doc>
+      <source-position filename="lib/ags_solver_path.h" line="42"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="lib/ags_solver_path.c"
+             line="61">a new #AgsSolverPath-struct</doc>
+        <type name="SolverPath" c:type="AgsSolverPath*"/>
+      </return-value>
+      <parameters>
+        <parameter name="nth_column" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="55">the nth-column</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="nth_row_a" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="56">nth-row a</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="nth_row_b" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/ags_solver_path.c"
+               line="57">nth-row b</doc>
+          <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
     </function>
@@ -46394,12 +46763,12 @@ giving you the result as string.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_uuid.c"
-           line="52">Allocate #AgsUUID.</doc>
+           line="58">Allocate #AgsUUID.</doc>
       <source-position filename="lib/ags_uuid.h" line="42"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="57">a new #AgsUUID</doc>
+             line="63">a new #AgsUUID</doc>
         <type name="UUID" c:type="AgsUUID*"/>
       </return-value>
     </function>
@@ -46409,19 +46778,19 @@ giving you the result as string.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_uuid.c"
-           line="178">Retrieve #AgsUUID by parsing @str.</doc>
+           line="184">Retrieve #AgsUUID by parsing @str.</doc>
       <source-position filename="lib/ags_uuid.h" line="53"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_uuid.c"
-             line="184">the new #AgsUUID on success, otherwise %NULL</doc>
+             line="190">the new #AgsUUID on success, otherwise %NULL</doc>
         <type name="UUID" c:type="AgsUUID*"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_uuid.c"
-               line="180">the UUID as string</doc>
+               line="186">the UUID as string</doc>
           <type name="utf8" c:type="gchar*"/>
         </parameter>
       </parameters>

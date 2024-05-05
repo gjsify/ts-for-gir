@@ -40,19 +40,28 @@ documented herein.</doc>
                 c:identifier="hex_buffer_util_get_file_size">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
-             line="427">Utility function to obtain the size of a #GFile.</doc>
+             line="431">Utility function to obtain the size of a #GFile.
+
+Since 4.6, this function will return an unspecified negative value if the
+file size was unable to be obtained, as opposed to 0 as it previously did.
+This is to distinguish between valid zero-length files and files for which
+the size was not able to be obtained (eg, if it was unreadable). In the
+future, these negative values may be defined as specific enums which have a
+more specific meaning. But presently and going forward, testing for a
+negative value is sufficient to determine that the file size was
+unobtainable.</doc>
         <source-position filename="src/hex-buffer-iface.h" line="148"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-buffer-iface.c"
-               line="433">the size of the file, in bytes</doc>
+               line="446">the size of the file, in bytes</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-buffer-iface.c"
-                 line="429">file to obtain size of</doc>
+                 line="433">file to obtain size of</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -185,7 +194,7 @@ with g_free().</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="read" invoker="read">
+      <virtual-method name="read" invoker="read" glib:async-func="read_async">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="167">Read the #GFile, previously set, into the buffer. This method will block
@@ -204,7 +213,10 @@ until the operation is complete. For a non-blocking version, use
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="read_async" invoker="read_async">
+      <virtual-method name="read_async"
+                      invoker="read_async"
+                      glib:finish-func="read_finish"
+                      glib:sync-func="read">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="188">Read the #GFile, previously set, into the buffer. This is the non-blocking
@@ -311,13 +323,13 @@ g_free() after being passed to this method, to avoid a memory leak.</doc>
                  line="117">amount of bytes to replace/overwrite (if any)</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
-          <parameter name="data" transfer-ownership="full">
+          <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-buffer-iface.c"
-                 line="118">a pointer to the data being
-  provided</doc>
+                 line="118">a pointer to
+  the data being provided</doc>
             <array length="1" zero-terminated="0" c:type="char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
         </parameters>
@@ -339,7 +351,7 @@ you can read it into the buffer with [method@Hex.Buffer.read] or
           <instance-parameter name="self" transfer-ownership="none">
             <type name="Buffer" c:type="HexBuffer*"/>
           </instance-parameter>
-          <parameter name="file" transfer-ownership="none">
+          <parameter name="file" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-buffer-iface.c"
                  line="147">the file to be utilized by the buffer</doc>
@@ -347,7 +359,9 @@ you can read it into the buffer with [method@Hex.Buffer.read] or
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="write_to_file" invoker="write_to_file">
+      <virtual-method name="write_to_file"
+                      invoker="write_to_file"
+                      glib:async-func="write_to_file_async">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="240">Write the buffer to the #GFile specified. This operation will block. For a
@@ -371,7 +385,10 @@ non-blocking version, use [method@Hex.Buffer.write_to_file_async].</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="write_to_file_async" invoker="write_to_file_async">
+      <virtual-method name="write_to_file_async"
+                      invoker="write_to_file_async"
+                      glib:finish-func="write_to_file_finish"
+                      glib:sync-func="write_to_file">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="261">Write the buffer to the #GFile specified. This is the non-blocking
@@ -521,7 +538,9 @@ with g_free().</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="read" c:identifier="hex_buffer_read">
+      <method name="read"
+              c:identifier="hex_buffer_read"
+              glib:async-func="read_async">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="167">Read the #GFile, previously set, into the buffer. This method will block
@@ -540,7 +559,10 @@ until the operation is complete. For a non-blocking version, use
           </instance-parameter>
         </parameters>
       </method>
-      <method name="read_async" c:identifier="hex_buffer_read_async">
+      <method name="read_async"
+              c:identifier="hex_buffer_read_async"
+              glib:finish-func="read_finish"
+              glib:sync-func="read">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="188">Read the #GFile, previously set, into the buffer. This is the non-blocking
@@ -648,13 +670,13 @@ g_free() after being passed to this method, to avoid a memory leak.</doc>
                  line="117">amount of bytes to replace/overwrite (if any)</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
-          <parameter name="data" transfer-ownership="full">
+          <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-buffer-iface.c"
-                 line="118">a pointer to the data being
-  provided</doc>
+                 line="118">a pointer to
+  the data being provided</doc>
             <array length="1" zero-terminated="0" c:type="char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
         </parameters>
@@ -678,7 +700,7 @@ you can read it into the buffer with [method@Hex.Buffer.read] or
           <instance-parameter name="self" transfer-ownership="none">
             <type name="Buffer" c:type="HexBuffer*"/>
           </instance-parameter>
-          <parameter name="file" transfer-ownership="none">
+          <parameter name="file" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-buffer-iface.c"
                  line="147">the file to be utilized by the buffer</doc>
@@ -686,7 +708,9 @@ you can read it into the buffer with [method@Hex.Buffer.read] or
           </parameter>
         </parameters>
       </method>
-      <method name="write_to_file" c:identifier="hex_buffer_write_to_file">
+      <method name="write_to_file"
+              c:identifier="hex_buffer_write_to_file"
+              glib:async-func="write_to_file_async">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="240">Write the buffer to the #GFile specified. This operation will block. For a
@@ -711,7 +735,9 @@ non-blocking version, use [method@Hex.Buffer.write_to_file_async].</doc>
         </parameters>
       </method>
       <method name="write_to_file_async"
-              c:identifier="hex_buffer_write_to_file_async">
+              c:identifier="hex_buffer_write_to_file_async"
+              glib:finish-func="write_to_file_finish"
+              glib:sync-func="write_to_file">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
              line="261">Write the buffer to the #GFile specified. This is the non-blocking
@@ -888,13 +914,13 @@ with g_free().</doc>
                    line="117">amount of bytes to replace/overwrite (if any)</doc>
               <type name="gsize" c:type="size_t"/>
             </parameter>
-            <parameter name="data" transfer-ownership="full">
+            <parameter name="data" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/hex-buffer-iface.c"
-                   line="118">a pointer to the data being
-  provided</doc>
+                   line="118">a pointer to
+  the data being provided</doc>
               <array length="2" zero-terminated="0" c:type="char*">
-                <type name="utf8" c:type="char"/>
+                <type name="gint8"/>
               </array>
             </parameter>
           </parameters>
@@ -926,7 +952,7 @@ with g_free().</doc>
             <parameter name="self" transfer-ownership="none">
               <type name="Buffer" c:type="HexBuffer*"/>
             </parameter>
-            <parameter name="file" transfer-ownership="none">
+            <parameter name="file" transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="src/hex-buffer-iface.c"
                    line="147">the file to be utilized by the buffer</doc>
@@ -1256,19 +1282,24 @@ pre-cast as the #HexBuffer type.</doc>
            glib:type-struct="DocumentClass">
       <doc xml:space="preserve"
            filename="src/hex-document.c"
-           line="139">`HexDocument` is an object which allows raw data to be loaded,
+           line="153">`HexDocument` is an object which allows raw data to be loaded,
 saved and manipulated, intended primarily to be used with the `HexWidget`
 widget.</doc>
       <source-position filename="src/hex-document.h" line="43"/>
       <constructor name="new" c:identifier="hex_document_new">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="475">Create a new empty [class@Hex.Document] object.</doc>
+             line="492">Create a new empty [class@Hex.Document] object.
+
+Since 4.6, the HEX_BUFFER environment variable can optionally be set to
+specify which backend should be tried first as the default. Otherwise, the
+`mmap` buffer will be attempted to be loaded if available, and if it is not,
+it will fall back to the `malloc` buffer backend.</doc>
         <source-position filename="src/hex-document.h" line="155"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="480">a new [class@Hex.Document] object.</doc>
+               line="502">a new [class@Hex.Document] object.</doc>
           <type name="Document" c:type="HexDocument*"/>
         </return-value>
       </constructor>
@@ -1276,12 +1307,12 @@ widget.</doc>
                    c:identifier="hex_document_new_from_file">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="517">A convenience method to create a new [class@Hex.Document] from file.</doc>
+             line="552">A convenience method to create a new [class@Hex.Document] from file.</doc>
         <source-position filename="src/hex-document.h" line="156"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="523">a [class@Hex.Document] pre-loaded with a #GFile ready for a
+               line="558">a [class@Hex.Document] pre-loaded with a #GFile ready for a
 `read` operation, or %NULL if the operation failed.</doc>
           <type name="Document" c:type="HexDocument*"/>
         </return-value>
@@ -1289,7 +1320,7 @@ widget.</doc>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="519">a #GFile pointing to a valid file on the system</doc>
+                 line="554">a #GFile pointing to a valid file on the system</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1297,19 +1328,19 @@ widget.</doc>
       <method name="can_redo" c:identifier="hex_document_can_redo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1861">Determine whether a redo operation is possible.</doc>
+             line="1895">Determine whether a redo operation is possible.</doc>
         <source-position filename="src/hex-document.h" line="227"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1867">%TRUE if a redo operation is possible; %FALSE otherwise</doc>
+               line="1901">%TRUE if a redo operation is possible; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1863">a [class@Hex.Document] object</doc>
+                 line="1897">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -1317,19 +1348,19 @@ widget.</doc>
       <method name="can_undo" c:identifier="hex_document_can_undo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1842">Determine whether an undo operation is possible.</doc>
+             line="1876">Determine whether an undo operation is possible.</doc>
         <source-position filename="src/hex-document.h" line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1848">%TRUE if an undo operation is possible; %FALSE otherwise</doc>
+               line="1882">%TRUE if an undo operation is possible; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1844">a [class@Hex.Document] object</doc>
+                 line="1878">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -1337,7 +1368,7 @@ widget.</doc>
       <method name="changed" c:identifier="hex_document_changed">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="992">Convenience method to emit the [signal@Hex.Document::document-changed]
+             line="1026">Convenience method to emit the [signal@Hex.Document::document-changed]
 signal. This method is mostly only useful for widgets utilizing
 #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="187"/>
@@ -1348,7 +1379,7 @@ signal. This method is mostly only useful for widgets utilizing
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="994">a [class@Hex.Document] object</doc>
+                 line="1028">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="change_data"
@@ -1357,13 +1388,13 @@ signal. This method is mostly only useful for widgets utilizing
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="995">pointer to a [struct@Hex.ChangeData] structure</doc>
+                 line="1029">pointer to a [struct@Hex.ChangeData] structure</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="push_undo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="996">whether the undo stack should be pushed to</doc>
+                 line="1030">whether the undo stack should be pushed to</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1373,7 +1404,7 @@ signal. This method is mostly only useful for widgets utilizing
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1342">0 if the comparison is an exact match; otherwise, a non-zero
+               line="1376">0 if the comparison is an exact match; otherwise, a non-zero
   value comparable to strcmp().</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -1381,28 +1412,28 @@ signal. This method is mostly only useful for widgets utilizing
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1336">a [class@Hex.Document] object</doc>
+                 line="1370">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1337">a pointer to the data to compare to data within
-  the #HexDocument</doc>
+                 line="1371">a pointer to the data to
+  compare to data within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1339">offset position of the #HexDocument data to compare with @what</doc>
+                 line="1373">offset position of the #HexDocument data to compare with @what</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1340">size of the #HexDocument data to compare with @what, in bytes</doc>
+                 line="1374">size of the #HexDocument data to compare with @what, in bytes</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
         </parameters>
@@ -1412,7 +1443,7 @@ signal. This method is mostly only useful for widgets utilizing
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1224">Full version of [method@Hex.Document.compare_data] to allow data
+             line="1258">Full version of [method@Hex.Document.compare_data] to allow data
 comparisons broader than byte-for-byte matches only. However, it is
 less convenient than the above since it requires the caller to allocate
 and free a #HexDocumentFindData structure.</doc>
@@ -1420,7 +1451,7 @@ and free a #HexDocumentFindData structure.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1235">0 if the comparison is an exact match; otherwise, a non-zero
+               line="1269">0 if the comparison is an exact match; otherwise, a non-zero
   value is returned.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -1431,13 +1462,13 @@ and free a #HexDocumentFindData structure.</doc>
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1226">a #HexDocumentFindData structure</doc>
+                 line="1260">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1227">offset position of the #HexDocument data to compare with the
+                 line="1261">offset position of the #HexDocument data to compare with the
   string contained in the `find_data` structure</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
@@ -1446,7 +1477,7 @@ and free a #HexDocumentFindData structure.</doc>
       <method name="delete_data" c:identifier="hex_document_delete_data">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="682">Delete data at `offset` of `length` within the buffer.</doc>
+             line="717">Delete data at `offset` of `length` within the buffer.</doc>
         <source-position filename="src/hex-document.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1455,25 +1486,25 @@ and free a #HexDocumentFindData structure.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="684">a [class@Hex.Document] object</doc>
+                 line="719">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="685">offset in bytes within the payload</doc>
+                 line="720">offset in bytes within the payload</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="686">length in bytes of the data to be set</doc>
+                 line="721">length in bytes of the data to be set</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="undoable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="687">whether the operation should be undoable</doc>
+                 line="722">whether the operation should be undoable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1481,62 +1512,62 @@ and free a #HexDocumentFindData structure.</doc>
       <method name="export_html" c:identifier="hex_document_export_html">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1041">Export the #HexDocument to HTML.</doc>
+             line="1075">Export the #HexDocument to HTML.</doc>
         <source-position filename="src/hex-document.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1055">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1089">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1043">a [class@Hex.Document] object</doc>
+                 line="1077">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="html_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1044">path to the directory in which the HTML file will be saved</doc>
+                 line="1078">path to the directory in which the HTML file will be saved</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="base_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1045">the base name of the filename to be saved, without the .html
+                 line="1079">the base name of the filename to be saved, without the .html
   extension.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1047">starting offset byte of the payload in the range to save</doc>
+                 line="1081">starting offset byte of the payload in the range to save</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1048">ending offset byte of the payload in the range to save</doc>
+                 line="1082">ending offset byte of the payload in the range to save</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="cpl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1049">columns per line</doc>
+                 line="1083">columns per line</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="lpp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1050">lines per page</doc>
+                 line="1084">lines per page</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="cpw" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1051">characters per word (for grouping of nibbles)</doc>
+                 line="1085">characters per word (for grouping of nibbles)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1544,7 +1575,7 @@ and free a #HexDocumentFindData structure.</doc>
       <method name="find_backward" c:identifier="hex_document_find_backward">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1616">Find a string backwards in a #HexDocument.
+             line="1650">Find a string backwards in a #HexDocument.
 
 This method will block. For a non-blocking version, use
 [method@Hex.Document.find_backward_async], which is also recommended
@@ -1554,7 +1585,7 @@ of found/not-found strings to be passed back to the interface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1632">%TRUE if @what was found by the requested operation; %FALSE
+               line="1666">%TRUE if @what was found by the requested operation; %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1562,28 +1593,28 @@ of found/not-found strings to be passed back to the interface.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1618">a [class@Hex.Document] object</doc>
+                 line="1652">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1619">starting offset byte of the payload to commence the search</doc>
+                 line="1653">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1620">a pointer to the data to search within the
-  #HexDocument</doc>
+                 line="1654">a pointer to the data to
+  search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1622">length in bytes of the data to be searched for</doc>
+                 line="1656">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1592,7 +1623,7 @@ of found/not-found strings to be passed back to the interface.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1623">offset of the found string, if the method returns %TRUE</doc>
+                 line="1657">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -1601,7 +1632,7 @@ of found/not-found strings to be passed back to the interface.</doc>
               c:identifier="hex_document_find_backward_async">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1688">Non-blocking version of [method@Hex.Document.find_backward]. This is the
+             line="1722">Non-blocking version of [method@Hex.Document.find_backward]. This is the
 function that should generally be used by a GUI client to find a string
 backwards in a #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="215"/>
@@ -1612,28 +1643,28 @@ backwards in a #HexDocument.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1690">a [class@Hex.Document] object</doc>
+                 line="1724">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1691">starting offset byte of the payload to commence the search</doc>
+                 line="1725">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1692">a pointer to the data to search within the
-  #HexDocument</doc>
+                 line="1726">a pointer to the data to
+  search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1694">length in bytes of the data to be searched for</doc>
+                 line="1728">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1642,20 +1673,20 @@ backwards in a #HexDocument.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1695">offset of the found string, if the method returns %TRUE</doc>
+                 line="1729">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
           <parameter name="found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1696">message intended to be displayed by the client if the string
+                 line="1730">message intended to be displayed by the client if the string
   is found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="not_found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1698">message intended to be displayed by the client if the string
+                 line="1732">message intended to be displayed by the client if the string
   is not found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -1673,7 +1704,7 @@ backwards in a #HexDocument.</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1700">function to be called when the operation is
+                 line="1734">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1690,7 +1721,7 @@ backwards in a #HexDocument.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1579">Full version of [method@Hex.Document.find_backward] which allows for
+             line="1613">Full version of [method@Hex.Document.find_backward] which allows for
 more flexibility than the above, which is only for a byte-by-byte exact
 match. However, it is less convenient to call since the caller must
 create and and free a #HexDocumentFindData structure manually.
@@ -1701,7 +1732,7 @@ This method will block. For a non-blocking version, use
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1591">%TRUE if the search string contained in `find_data` was found by
+               line="1625">%TRUE if the search string contained in `find_data` was found by
   the requested operation; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1712,7 +1743,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1581">a #HexDocumentFindData structure</doc>
+                 line="1615">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
         </parameters>
@@ -1722,7 +1753,7 @@ This method will block. For a non-blocking version, use
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1674">Non-blocking version of [method@Hex.Document.find_backward_full].</doc>
+             line="1708">Non-blocking version of [method@Hex.Document.find_backward_full].</doc>
         <source-position filename="src/hex-document.h" line="219"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1734,7 +1765,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1676">a #HexDocumentFindData structure</doc>
+                 line="1710">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1743,7 +1774,7 @@ This method will block. For a non-blocking version, use
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1677">a #GCancellable</doc>
+                 line="1711">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1754,7 +1785,7 @@ This method will block. For a non-blocking version, use
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1678">function to be called when the operation is
+                 line="1712">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1769,26 +1800,26 @@ This method will block. For a non-blocking version, use
       <method name="find_finish" c:identifier="hex_document_find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1442">Obtain the result of a completed asynchronous find operation (forwards or
+             line="1476">Obtain the result of a completed asynchronous find operation (forwards or
 backwards).</doc>
         <source-position filename="src/hex-document.h" line="224"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1450">a pointer to a [struct@Hex.DocumentFindData] structure, or %NULL</doc>
+               line="1484">a pointer to a [struct@Hex.DocumentFindData] structure, or %NULL</doc>
           <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1444">a [class@Hex.Document] object</doc>
+                 line="1478">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1445">result of the task</doc>
+                 line="1479">result of the task</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1796,7 +1827,7 @@ backwards).</doc>
       <method name="find_forward" c:identifier="hex_document_find_forward">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1403">Find a string forwards in a #HexDocument.
+             line="1437">Find a string forwards in a #HexDocument.
 
 This method will block. For a non-blocking version, use
 [method@Hex.Document.find_forward_async], which is also recommended
@@ -1806,7 +1837,7 @@ of found/not-found strings to be passed back to the interface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1419">%TRUE if @what was found by the requested operation; %FALSE
+               line="1453">%TRUE if @what was found by the requested operation; %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1814,28 +1845,28 @@ of found/not-found strings to be passed back to the interface.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1405">a [class@Hex.Document] object</doc>
+                 line="1439">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1406">starting offset byte of the payload to commence the search</doc>
+                 line="1440">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1407">a pointer to the data to search within the
-  #HexDocument</doc>
+                 line="1441">a pointer to the data to
+  search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1409">length in bytes of the data to be searched for</doc>
+                 line="1443">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1844,7 +1875,7 @@ of found/not-found strings to be passed back to the interface.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1410">offset of the found string, if the method returns %TRUE</doc>
+                 line="1444">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -1853,7 +1884,7 @@ of found/not-found strings to be passed back to the interface.</doc>
               c:identifier="hex_document_find_forward_async">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1527">Non-blocking version of [method@Hex.Document.find_forward]. This is the
+             line="1561">Non-blocking version of [method@Hex.Document.find_forward]. This is the
 function that should generally be used by a GUI client to find a string
 forwards in a #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="201"/>
@@ -1864,28 +1895,28 @@ forwards in a #HexDocument.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1529">a [class@Hex.Document] object</doc>
+                 line="1563">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1530">starting offset byte of the payload to commence the search</doc>
+                 line="1564">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1531">a pointer to the data to search within the
-  #HexDocument</doc>
+                 line="1565">a pointer to the data to
+  search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1533">length in bytes of the data to be searched for</doc>
+                 line="1567">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1894,20 +1925,20 @@ forwards in a #HexDocument.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1534">offset of the found string, if the method returns %TRUE</doc>
+                 line="1568">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
           <parameter name="found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1535">message intended to be displayed by the client if the string
+                 line="1569">message intended to be displayed by the client if the string
   is found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="not_found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1537">message intended to be displayed by the client if the string
+                 line="1571">message intended to be displayed by the client if the string
   is not found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -1925,7 +1956,7 @@ forwards in a #HexDocument.</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1539">function to be called when the operation is
+                 line="1573">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1942,7 +1973,7 @@ forwards in a #HexDocument.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1362">Full version of [method@Hex.Document.find_forward] which allows for
+             line="1396">Full version of [method@Hex.Document.find_forward] which allows for
 more flexibility than the above, which is only for a byte-by-byte exact
 match. However, it is less convenient to call since the caller must
 create and and free a #HexDocumentFindData structure manually.
@@ -1953,7 +1984,7 @@ This method will block. For a non-blocking version, use
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1374">%TRUE if the search string contained in `find_data` was found by
+               line="1408">%TRUE if the search string contained in `find_data` was found by
   the requested operation; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1964,7 +1995,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1364">a #HexDocumentFindData structure</doc>
+                 line="1398">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
         </parameters>
@@ -1974,7 +2005,7 @@ This method will block. For a non-blocking version, use
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1513">Non-blocking version of [method@Hex.Document.find_forward_full].</doc>
+             line="1547">Non-blocking version of [method@Hex.Document.find_forward_full].</doc>
         <source-position filename="src/hex-document.h" line="206"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1986,7 +2017,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1515">a #HexDocumentFindData structure</doc>
+                 line="1549">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1995,7 +2026,7 @@ This method will block. For a non-blocking version, use
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1516">a #GCancellable</doc>
+                 line="1550">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2006,7 +2037,7 @@ This method will block. For a non-blocking version, use
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1517">function to be called when the operation is
+                 line="1551">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2023,12 +2054,12 @@ This method will block. For a non-blocking version, use
               glib:get-property="buffer">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1895">Get the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
+             line="1929">Get the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="232"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1901">a pointer to the [iface@Hex.Buffer] connected
+               line="1935">a pointer to the [iface@Hex.Buffer] connected
 with the #HexDocument, or %NULL if no such interface is so connected.</doc>
           <type name="Buffer" c:type="HexBuffer*"/>
         </return-value>
@@ -2036,7 +2067,7 @@ with the #HexDocument, or %NULL if no such interface is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1897">a [class@Hex.Document] object</doc>
+                 line="1931">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2046,12 +2077,12 @@ with the #HexDocument, or %NULL if no such interface is so connected.</doc>
               glib:get-property="file">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1912">Get the #GFile connected with the #HexDocument.</doc>
+             line="1946">Get the #GFile connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="229"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1918">the #GFile connected with the #HexDocument,
+               line="1952">the #GFile connected with the #HexDocument,
 or %NULL if no such object is so connected.</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -2059,7 +2090,7 @@ or %NULL if no such object is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1914">a [class@Hex.Document] object</doc>
+                 line="1948">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2078,12 +2109,12 @@ or %NULL if no such object is so connected.</doc>
       <method name="get_undo_data" c:identifier="hex_document_get_undo_data">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1880">Get the undo data at the top of the undo stack of a #HexDocument, if any.</doc>
+             line="1914">Get the undo data at the top of the undo stack of a #HexDocument, if any.</doc>
         <source-position filename="src/hex-document.h" line="231"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1886">a pointer to the [struct@Hex.ChangeData]
+               line="1920">a pointer to the [struct@Hex.ChangeData]
   structure at the top of the undo stack, or %NULL</doc>
           <type name="ChangeData" c:type="HexChangeData*"/>
         </return-value>
@@ -2091,7 +2122,7 @@ or %NULL if no such object is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1882">a [class@Hex.Document] object</doc>
+                 line="1916">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2099,27 +2130,29 @@ or %NULL if no such object is so connected.</doc>
       <method name="has_changed" c:identifier="hex_document_has_changed">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1010">Method to check whether the #HexDocument has changed.</doc>
+             line="1044">Method to check whether the #HexDocument has changed.</doc>
         <source-position filename="src/hex-document.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1016">%TRUE if the document has changed, %FALSE otherwise</doc>
+               line="1050">%TRUE if the document has changed, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1012">a [class@Hex.Document] object</doc>
+                 line="1046">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="read_async" c:identifier="hex_document_read_async">
+      <method name="read_async"
+              c:identifier="hex_document_read_async"
+              glib:finish-func="read_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="764">Read the #GFile into the buffer connected to the #HexDocument object.
+             line="799">Read the #GFile into the buffer connected to the #HexDocument object.
 
 This method is mostly a wrapper around [method@Hex.Buffer.read_async]
 but will allow additional steps and appropriate signals to be emitted
@@ -2133,7 +2166,7 @@ the operation completes.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="766">a [class@Hex.Document] object</doc>
+                 line="801">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -2142,7 +2175,7 @@ the operation completes.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="767">a #GCancellable</doc>
+                 line="802">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2153,7 +2186,7 @@ the operation completes.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="768">function to be called when the operation is
+                 line="803">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2170,7 +2203,7 @@ the operation completes.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="698">Obtain the result of a completed file read operation.
+             line="733">Obtain the result of a completed file read operation.
 
 This method is mostly a wrapper around [method@Hex.Buffer.read_finish]
 but takes some additional steps and emits the appropriate signals
@@ -2183,20 +2216,20 @@ operation.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="715">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="750">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="700">a [class@Hex.Document] object</doc>
+                 line="735">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="701">result of the task</doc>
+                 line="736">result of the task</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2204,19 +2237,19 @@ operation.</doc>
       <method name="redo" c:identifier="hex_document_redo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1776">Perform a redo operation.</doc>
+             line="1810">Perform a redo operation.</doc>
         <source-position filename="src/hex-document.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1782">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1816">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1778">a [class@Hex.Document] object</doc>
+                 line="1812">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2227,25 +2260,25 @@ operation.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1929">Set the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
+             line="1963">Set the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="233"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1936">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1970">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1931">a [class@Hex.Document] object</doc>
+                 line="1965">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
-          <parameter name="buf" transfer-ownership="none">
+          <parameter name="buf" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1932">[iface@Hex.Buffer]</doc>
+                 line="1966">[iface@Hex.Buffer]</doc>
             <type name="Buffer" c:type="HexBuffer*"/>
           </parameter>
         </parameters>
@@ -2253,7 +2286,7 @@ operation.</doc>
       <method name="set_byte" c:identifier="hex_document_set_byte">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="599">Set a particular byte of a #HexDocument at position `offset` within
+             line="634">Set a particular byte of a #HexDocument at position `offset` within
 the payload.</doc>
         <source-position filename="src/hex-document.h" line="159"/>
         <return-value transfer-ownership="none">
@@ -2263,32 +2296,32 @@ the payload.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="601">a [class@Hex.Document] object</doc>
+                 line="636">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="val" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="602">a character to set the byte as</doc>
+                 line="637">a character to set the byte as</doc>
             <type name="gchar" c:type="char"/>
           </parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="603">offset in bytes within the payload</doc>
+                 line="638">offset in bytes within the payload</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="insert" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="604">%TRUE if the operation should be insert mode, %FALSE if in
+                 line="639">%TRUE if the operation should be insert mode, %FALSE if in
   overwrite mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="undoable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="606">whether the operation should be undoable</doc>
+                 line="641">whether the operation should be undoable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2296,7 +2329,7 @@ the payload.</doc>
       <method name="set_data" c:identifier="hex_document_set_data">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="640">A convenience wrapper for [method@Hex.Buffer.set_data]. See the
+             line="675">A convenience wrapper for [method@Hex.Buffer.set_data]. See the
 description of that method for details.</doc>
         <source-position filename="src/hex-document.h" line="157"/>
         <return-value transfer-ownership="none">
@@ -2306,40 +2339,40 @@ description of that method for details.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="642">a [class@Hex.Document] object</doc>
+                 line="677">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="643">offset in bytes within the payload</doc>
+                 line="678">offset in bytes within the payload</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="644">length in bytes of the data to be set</doc>
+                 line="679">length in bytes of the data to be set</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="rep_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="645">amount of bytes to replace/overwrite (if any)</doc>
+                 line="680">amount of bytes to replace/overwrite (if any)</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
-          <parameter name="data" transfer-ownership="full">
+          <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="646">a pointer to the data being
+                 line="681">a pointer to the data being
   provided</doc>
             <array length="1" zero-terminated="0" c:type="char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="undoable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="648">whether the operation should be undoable</doc>
+                 line="683">whether the operation should be undoable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2349,25 +2382,25 @@ description of that method for details.</doc>
               glib:set-property="file">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="488">Set the file of a [class@Hex.Document] object by #GFile.</doc>
+             line="510">Set the file of a [class@Hex.Document] object by #GFile.</doc>
         <source-position filename="src/hex-document.h" line="230"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="495">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="517">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="490">a [class@Hex.Document] object</doc>
+                 line="512">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="491">a #GFile pointing to a valid file on the system</doc>
+                 line="513">a #GFile pointing to a valid file on the system</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -2375,7 +2408,7 @@ description of that method for details.</doc>
       <method name="set_max_undo" c:identifier="hex_document_set_max_undo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1024">Set the maximum size of the #HexDocument undo stack.</doc>
+             line="1058">Set the maximum size of the #HexDocument undo stack.</doc>
         <source-position filename="src/hex-document.h" line="189"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2384,13 +2417,13 @@ description of that method for details.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1026">a [class@Hex.Document] object</doc>
+                 line="1060">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="max_undo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1027">the new maximum size of the undo stack</doc>
+                 line="1061">the new maximum size of the undo stack</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -2398,7 +2431,7 @@ description of that method for details.</doc>
       <method name="set_nibble" c:identifier="hex_document_set_nibble">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="544">Set a particular nibble of a #HexDocument.</doc>
+             line="579">Set a particular nibble of a #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2407,39 +2440,39 @@ description of that method for details.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="546">a [class@Hex.Document] object</doc>
+                 line="581">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="val" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="547">a character to set the nibble as</doc>
+                 line="582">a character to set the nibble as</doc>
             <type name="gchar" c:type="char"/>
           </parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="548">offset in bytes within the payload</doc>
+                 line="583">offset in bytes within the payload</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="lower_nibble" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="549">%TRUE if targetting the lower nibble (2nd hex digit) %FALSE
+                 line="584">%TRUE if targetting the lower nibble (2nd hex digit) %FALSE
   if targetting the upper nibble (1st hex digit)</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="insert" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="551">%TRUE if the operation should be insert mode, %FALSE if in
+                 line="586">%TRUE if the operation should be insert mode, %FALSE if in
   overwrite mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="undoable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="553">whether the operation should be undoable</doc>
+                 line="588">whether the operation should be undoable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2447,48 +2480,53 @@ description of that method for details.</doc>
       <method name="undo" c:identifier="hex_document_undo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1710">Perform an undo operation.</doc>
+             line="1744">Perform an undo operation.</doc>
         <source-position filename="src/hex-document.h" line="190"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1716">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1750">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1712">a [class@Hex.Document] object</doc>
+                 line="1746">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="write" c:identifier="hex_document_write">
+      <method name="write"
+              c:identifier="hex_document_write"
+              glib:async-func="write_async">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="815">Write the buffer to the pre-existing #GFile connected to the #HexDocument
+             line="849">Write the buffer to the pre-existing #GFile connected to the #HexDocument
 object. This can be used for a 'Save (in place)' operation.</doc>
         <source-position filename="src/hex-document.h" line="172"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="822">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="856">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="817">a [class@Hex.Document] object</doc>
+                 line="851">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="write_async" c:identifier="hex_document_write_async">
+      <method name="write_async"
+              c:identifier="hex_document_write_async"
+              glib:finish-func="write_finish"
+              glib:sync-func="write">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="911">Write the buffer to the pre-existing #GFile connected to the #HexDocument
+             line="945">Write the buffer to the pre-existing #GFile connected to the #HexDocument
 object. This can be used for a 'Save (in place)' operation. This is the
 non-blocking version of [method@Hex.Document.write].
 
@@ -2504,7 +2542,7 @@ value in your #GAsyncReadyCallback function.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="913">a [class@Hex.Document] object</doc>
+                 line="947">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -2513,7 +2551,7 @@ value in your #GAsyncReadyCallback function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="914">a #GCancellable</doc>
+                 line="948">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2524,7 +2562,7 @@ value in your #GAsyncReadyCallback function.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="915">function to be called when the operation is
+                 line="949">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2541,7 +2579,7 @@ value in your #GAsyncReadyCallback function.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="850">Obtain the result of a completed write-to-file operation.
+             line="884">Obtain the result of a completed write-to-file operation.
 
 Currently, this method is mostly a wrapper around
 [method@Hex.Buffer.write_to_file_finish].
@@ -2554,20 +2592,20 @@ operation.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="867">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="901">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="852">a [class@Hex.Document] object</doc>
+                 line="886">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="853">result of the task</doc>
+                 line="887">result of the task</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2575,27 +2613,27 @@ operation.</doc>
       <method name="write_to_file" c:identifier="hex_document_write_to_file">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="798">Write the buffer to `file`. This can be used for a 'Save As' operation.
+             line="832">Write the buffer to `file`. This can be used for a 'Save As' operation.
 
 This operation will block.</doc>
         <source-position filename="src/hex-document.h" line="173"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="807">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="841">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="800">a [class@Hex.Document] object</doc>
+                 line="834">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="801">#GFile to be written to</doc>
+                 line="835">#GFile to be written to</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -2604,7 +2642,7 @@ This operation will block.</doc>
               c:identifier="hex_document_write_to_file_async">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="956">Write the buffer to `file` asynchronously. This can be used for a 'Save As'
+             line="990">Write the buffer to `file` asynchronously. This can be used for a 'Save As'
 operation.  This is the non-blocking version of
 [method@Hex.Document.write_to_file].
 
@@ -2619,13 +2657,13 @@ value in your #GAsyncReadyCallback function.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="958">a [class@Hex.Document] object</doc>
+                 line="992">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="959">#GFile to be written to</doc>
+                 line="993">#GFile to be written to</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2634,7 +2672,7 @@ value in your #GAsyncReadyCallback function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="960">a #GCancellable</doc>
+                 line="994">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2645,7 +2683,7 @@ value in your #GAsyncReadyCallback function.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="961">function to be called when the operation is
+                 line="995">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2761,10 +2799,10 @@ value in your #GAsyncReadyCallback function.</doc>
       <field name="what" writable="1">
         <doc xml:space="preserve"
              filename="src/hex-document.h"
-             line="79">a pointer to the data to search within the
-  #HexDocument</doc>
+             line="79">a pointer to the data to
+  search within the #HexDocument</doc>
         <array length="3" zero-terminated="0" c:type="const char*">
-          <type name="utf8" c:type="char"/>
+          <type name="gint8"/>
         </array>
       </field>
       <field name="len" writable="1">
@@ -2890,7 +2928,7 @@ only useful for language bindings.</doc>
            glib:type-struct="WidgetClass">
       <doc xml:space="preserve"
            filename="src/gtkhex.c"
-           line="147">#HexWidget is a widget which can display #HexDocument data as a
+           line="344">#HexWidget is a widget which can display #HexDocument data as a
 side-by-side representation of offets, hexadecimal nibbles, and ASCII
 characters.</doc>
       <source-position filename="src/gtkhex.h" line="64"/>
@@ -2900,29 +2938,75 @@ characters.</doc>
       <constructor name="new" c:identifier="hex_widget_new">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3245">Create a new #HexWidget object.</doc>
-        <source-position filename="src/gtkhex.h" line="74"/>
+             line="3477">Create a new `HexWidget` object.</doc>
+        <source-position filename="src/gtkhex.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3252">a newly created #HexWidget object, or %NULL</doc>
+               line="3484">a newly created `HexWidget` object, or %NULL</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
-          <parameter name="owner" transfer-ownership="none">
+          <parameter name="owner" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3247">the [class@Hex.Document] object to be associated with the
-  newly created #HexWidget</doc>
+                 line="3479">the [class@Hex.Document] object to be associated
+  with the newly created `HexWidget`</doc>
             <type name="Document" c:type="HexDocument*"/>
           </parameter>
         </parameters>
       </constructor>
+      <method name="add_mark" c:identifier="hex_widget_add_mark" version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4101">Add a mark for a `HexWidget` object at the specified absolute `start` and
+`end` offsets.
+
+Although the mark obtains an index within the widget internally, this index
+numeral is private and is not retrievable. As a result, it is recommended
+that applications wishing to manipulate marks retain the pointer returned by
+this function, and implement their own tracking mechanism for the marks.</doc>
+        <source-position filename="src/gtkhex.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gtkhex.c"
+               line="4116">A pointer to a `HexWidgetMark` object, owned by
+the `HexWidget`.</doc>
+          <type name="WidgetMark" c:type="HexWidgetMark*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4103">The start offset of the mark</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4104">The start offset of the mark</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+          <parameter name="color"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4105">A custom color to set for the mark, or `NULL` to use the
+  default</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="clear_selection" c:identifier="hex_widget_clear_selection">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3379">Clear the selection (if any). Any autohighlights will remain intact.</doc>
-        <source-position filename="src/gtkhex.h" line="101"/>
+             line="3609">Clear the selection (if any). Any autohighlights will remain intact.</doc>
+        <source-position filename="src/gtkhex.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2936,8 +3020,8 @@ characters.</doc>
               c:identifier="hex_widget_copy_to_clipboard">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3262">Copy selection to clipboard.</doc>
-        <source-position filename="src/gtkhex.h" line="95"/>
+             line="3494">Copy selection to clipboard.</doc>
+        <source-position filename="src/gtkhex.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2951,8 +3035,8 @@ characters.</doc>
               c:identifier="hex_widget_cut_to_clipboard">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3273">Cut selection to clipboard.</doc>
-        <source-position filename="src/gtkhex.h" line="96"/>
+             line="3505">Cut selection to clipboard.</doc>
+        <source-position filename="src/gtkhex.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2966,8 +3050,8 @@ characters.</doc>
               c:identifier="hex_widget_delete_autohighlight">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3807">Delete the requested autohighlight.</doc>
-        <source-position filename="src/gtkhex.h" line="110"/>
+             line="4028">Delete the requested autohighlight.</doc>
+        <source-position filename="src/gtkhex.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2978,8 +3062,30 @@ characters.</doc>
           <parameter name="ahl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3809">the autohighlight to be deleted</doc>
+                 line="4030">the autohighlight to be deleted</doc>
             <type name="WidgetAutoHighlight" c:type="HexWidgetAutoHighlight*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete_mark"
+              c:identifier="hex_widget_delete_mark"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4141">Delete a `HexWidgetMark` from a `HexWidget`.</doc>
+        <source-position filename="src/gtkhex.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+          <parameter name="mark" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4143">The `HexWidgetMark` to delete</doc>
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
           </parameter>
         </parameters>
       </method>
@@ -2987,8 +3093,8 @@ characters.</doc>
               c:identifier="hex_widget_delete_selection">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3390">Delete the current selection. The resulting action will be undoable.</doc>
-        <source-position filename="src/gtkhex.h" line="102"/>
+             line="3620">Delete the current selection. The resulting action will be undoable.</doc>
+        <source-position filename="src/gtkhex.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3001,12 +3107,12 @@ characters.</doc>
       <method name="get_adjustment" c:identifier="hex_widget_get_adjustment">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3844">Get the [class@Gtk.Adjustment] of the #HexWidget.</doc>
-        <source-position filename="src/gtkhex.h" line="112"/>
+             line="4190">Get the [class@Gtk.Adjustment] of the #HexWidget.</doc>
+        <source-position filename="src/gtkhex.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3849">#GtkAdjustment of the widget.</doc>
+               line="4195">#GtkAdjustment of the widget.</doc>
           <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
         </return-value>
         <parameters>
@@ -3018,8 +3124,8 @@ characters.</doc>
       <method name="get_byte" c:identifier="hex_widget_get_byte">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3632">Get the value of the byte at requested offset position.</doc>
-        <source-position filename="src/gtkhex.h" line="81"/>
+             line="3854">Get the value of the byte at requested offset position.</doc>
+        <source-position filename="src/gtkhex.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="guint8" c:type="guchar"/>
         </return-value>
@@ -3030,7 +3136,7 @@ characters.</doc>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3634">index of the requested byte within the whole of the buffer</doc>
+                 line="3856">index of the requested byte within the whole of the buffer</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -3038,12 +3144,12 @@ characters.</doc>
       <method name="get_cursor" c:identifier="hex_widget_get_cursor">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3616">Get the cursor position.</doc>
-        <source-position filename="src/gtkhex.h" line="80"/>
+             line="3838">Get the cursor position.</doc>
+        <source-position filename="src/gtkhex.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3621">the cursor position, as index within the whole of the buffer</doc>
+               line="3843">the cursor position, as index within the whole of the buffer</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
@@ -3057,12 +3163,12 @@ characters.</doc>
               glib:get-property="document">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3859">Get the [class@Hex.Document] owned by the #HexWidget.</doc>
-        <source-position filename="src/gtkhex.h" line="113"/>
+             line="4205">Get the [class@Hex.Document] owned by the #HexWidget.</doc>
+        <source-position filename="src/gtkhex.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3864">the #HexDocument owned by the #HexWidget, or
+               line="4210">the #HexDocument owned by the #HexWidget, or
   %NULL.</doc>
           <type name="Document" c:type="HexDocument*"/>
         </return-value>
@@ -3072,15 +3178,35 @@ characters.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_group_type" c:identifier="hex_widget_get_group_type">
+      <method name="get_fade_zeroes"
+              c:identifier="hex_widget_get_fade_zeroes"
+              glib:get-property="fade-zeroes"
+              version="4.8">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3891">Get the group type of the data of the #HexWidget.</doc>
-        <source-position filename="src/gtkhex.h" line="84"/>
+             line="4253">Retrieve whether zeroes (`00`) are faded in the hex display.</doc>
+        <source-position filename="src/gtkhex.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3896">the group type of the data of the #HexWidget, by
+               line="4258">`TRUE` if zeroes are faded; `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_group_type" c:identifier="hex_widget_get_group_type">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4237">Get the group type of the data of the #HexWidget.</doc>
+        <source-position filename="src/gtkhex.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gtkhex.c"
+               line="4242">the group type of the data of the #HexWidget, by
   [enum@Hex.WidgetGroupType]</doc>
           <type name="WidgetGroupType" c:type="HexWidgetGroupType"/>
         </return-value>
@@ -3093,12 +3219,12 @@ characters.</doc>
       <method name="get_insert_mode" c:identifier="hex_widget_get_insert_mode">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3875">Get whether the widget is insert mode.</doc>
-        <source-position filename="src/gtkhex.h" line="90"/>
+             line="4221">Get whether the widget is insert mode.</doc>
+        <source-position filename="src/gtkhex.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3880">%TRUE if the #HexWidget is in insert mode; %FALSE if it is in
+               line="4226">%TRUE if the #HexWidget is in insert mode; %FALSE if it is in
   overwrite mode.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3111,12 +3237,12 @@ characters.</doc>
       <method name="get_selection" c:identifier="hex_widget_get_selection">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3346">Get the current widget selection (highlights).</doc>
-        <source-position filename="src/gtkhex.h" line="100"/>
+             line="3576">Get the current widget selection (highlights).</doc>
+        <source-position filename="src/gtkhex.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3355">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="3585">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3129,7 +3255,7 @@ characters.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3348">where to store the start of the current selection, as offset
+                 line="3578">where to store the start of the current selection, as offset
   by byte within the buffer</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
@@ -3139,9 +3265,31 @@ characters.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3350">where to store the end of the current selection, as offset by
+                 line="3580">where to store the end of the current selection, as offset by
   byte within the buffer</doc>
             <type name="gint64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="goto_mark"
+              c:identifier="hex_widget_goto_mark"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4159">Jump the cursor in the `HexWidget` specified to the mark in question.</doc>
+        <source-position filename="src/gtkhex.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+          <parameter name="mark" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4161">The mark to jump to</doc>
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
           </parameter>
         </parameters>
       </method>
@@ -3149,12 +3297,13 @@ characters.</doc>
               c:identifier="hex_widget_insert_autohighlight">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3788">Insert an auto-highlight of a given search string.</doc>
-        <source-position filename="src/gtkhex.h" line="106"/>
-        <return-value transfer-ownership="full">
+             line="4007">Insert an auto-highlight of a given search string.</doc>
+        <source-position filename="src/gtkhex.h" line="112"/>
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3795">a newly created [struct@Hex.WidgetAutoHighlight] structure</doc>
+               line="4015">a newly created [struct@Hex.WidgetAutoHighlight]
+  structure, owned by the `HexWidget`</doc>
           <type name="WidgetAutoHighlight" c:type="HexWidgetAutoHighlight*"/>
         </return-value>
         <parameters>
@@ -3164,15 +3313,16 @@ characters.</doc>
           <parameter name="search" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3790">search string to auto-highlight</doc>
+                 line="4009">search
+  string to auto-highlight</doc>
             <array length="1" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3791">length of the @search string</doc>
+                 line="4011">length of the @search string</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3182,14 +3332,15 @@ characters.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3748">Full version of [method@Hex.Widget.insert_autohighlight] which allows
+             line="3970">Full version of [method@Hex.Widget.insert_autohighlight] which allows
 for specifying string match types for auto-highlights over and above
 exact byte-for-byte string matches.</doc>
-        <source-position filename="src/gtkhex.h" line="108"/>
-        <return-value transfer-ownership="full">
+        <source-position filename="src/gtkhex.h" line="114"/>
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/gtkhex.c"
-               line="3758">a newly created [struct@Hex.WidgetAutoHighlight] structure</doc>
+               line="3981">a newly created [struct@Hex.WidgetAutoHighlight]
+  structure, owned by the `HexWidget`</doc>
           <type name="WidgetAutoHighlight" c:type="HexWidgetAutoHighlight*"/>
         </return-value>
         <parameters>
@@ -3199,21 +3350,22 @@ exact byte-for-byte string matches.</doc>
           <parameter name="search" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3750">search string to auto-highlight</doc>
+                 line="3972">search
+  string to auto-highlight</doc>
             <array length="1" zero-terminated="0" c:type="const char*">
-              <type name="utf8" c:type="char"/>
+              <type name="gint8"/>
             </array>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3751">length of the @search string</doc>
+                 line="3974">length of the @search string</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3752">#HexSearchFlags to specify match type</doc>
+                 line="3975">#HexSearchFlags to specify match type</doc>
             <type name="SearchFlags" c:type="HexSearchFlags"/>
           </parameter>
         </parameters>
@@ -3222,7 +3374,7 @@ exact byte-for-byte string matches.</doc>
               c:identifier="hex_widget_paste_from_clipboard">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3284">Paste clipboard data to widget at position of cursor.
+             line="3516">Paste clipboard data to widget at position of cursor.
 
 Since 4.6, the behaviour of this method has changed. With 4.4 and earlier,
 paste operations always inserted data into the payload, even if insert mode
@@ -3232,7 +3384,7 @@ Commencing in 4.6, if insert mode is not enabled, data will be overwritten
 by default with a paste operation, and possibly truncated in the event the
 payload is not large enough to absorb the paste data. This is to avoid
 increasing the payload size of a hex document when insert mode is disabled.</doc>
-        <source-position filename="src/gtkhex.h" line="97"/>
+        <source-position filename="src/gtkhex.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3245,8 +3397,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <method name="set_cursor" c:identifier="hex_widget_set_cursor">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3480">Move cursor to @index.</doc>
-        <source-position filename="src/gtkhex.h" line="76"/>
+             line="3710">Move cursor to @index.</doc>
+        <source-position filename="src/gtkhex.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3257,7 +3409,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3482">where the cursor should be moved to, as offset by byte within
+                 line="3712">where the cursor should be moved to, as offset by byte within
   the buffer</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
@@ -3267,8 +3419,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
               c:identifier="hex_widget_set_cursor_by_row_and_col">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3554">Move the cursor by row and column, as absolute values.</doc>
-        <source-position filename="src/gtkhex.h" line="77"/>
+             line="3780">Move the cursor by row and column, as absolute values.</doc>
+        <source-position filename="src/gtkhex.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3279,23 +3431,46 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="col_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3556">column to which the cursor should be moved</doc>
+                 line="3782">column to which the cursor should be moved</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="line_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3557">line to which the cursor should be moved, by absolute value, within
+                 line="3783">line to which the cursor should be moved, by absolute value, within
   the whole buffer (not just the currently visible part)</doc>
             <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fade_zeroes"
+              c:identifier="hex_widget_set_fade_zeroes"
+              glib:set-property="fade-zeroes"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4270">Set whether zeroes (`00`) are faded in the hex display.</doc>
+        <source-position filename="src/gtkhex.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+          <parameter name="fade" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4272">Whether zeroes (`00` in the hex display) should be faded</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_geometry" c:identifier="hex_widget_set_geometry">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3831">Set the geometry of the widget to specified dimensions.</doc>
-        <source-position filename="src/gtkhex.h" line="93"/>
+             line="4177">Set the geometry of the widget to specified dimensions.</doc>
+        <source-position filename="src/gtkhex.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3306,13 +3481,13 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="cpl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3833">columns per line which should be displayed, or 0 for default</doc>
+                 line="4179">columns per line which should be displayed, or 0 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="vis_lines" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3834">number of lines which should be displayed, or 0 for default</doc>
+                 line="4180">number of lines which should be displayed, or 0 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3320,8 +3495,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <method name="set_group_type" c:identifier="hex_widget_set_group_type">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3649">Set the group type of the #HexWidget.</doc>
-        <source-position filename="src/gtkhex.h" line="83"/>
+             line="3871">Set the group type of the #HexWidget.</doc>
+        <source-position filename="src/gtkhex.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3332,7 +3507,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="gt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3651">group type</doc>
+                 line="3873">group type</doc>
             <type name="WidgetGroupType" c:type="HexWidgetGroupType"/>
           </parameter>
         </parameters>
@@ -3340,8 +3515,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <method name="set_insert_mode" c:identifier="hex_widget_set_insert_mode">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3727">Set whether the #HexWidget should be in insert or overwrite mode.</doc>
-        <source-position filename="src/gtkhex.h" line="91"/>
+             line="3949">Set whether the #HexWidget should be in insert or overwrite mode.</doc>
+        <source-position filename="src/gtkhex.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3352,17 +3527,45 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="insert" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3729">%TRUE if insert mode should be enabled, %FALSE if overwrite mode
+                 line="3951">%TRUE if insert mode should be enabled, %FALSE if overwrite mode
   should be enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mark_custom_color"
+              c:identifier="hex_widget_set_mark_custom_color"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="4050">Set a custom color for a `HexWidgetMark` object.</doc>
+        <source-position filename="src/gtkhex.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Widget" c:type="HexWidget*"/>
+          </instance-parameter>
+          <parameter name="mark" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4052">The `HexWidgetMark` for which the custom color will be set</doc>
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="4053">The custom color to be set for the mark</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_nibble" c:identifier="hex_widget_set_nibble">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3450">Move the cursor to upper nibble or lower nibble of the current byte.</doc>
-        <source-position filename="src/gtkhex.h" line="78"/>
+             line="3680">Move the cursor to upper nibble or lower nibble of the current byte.</doc>
+        <source-position filename="src/gtkhex.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3373,7 +3576,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="lower_nibble" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3452">%TRUE if the lower nibble of the current byte should be
+                 line="3682">%TRUE if the lower nibble of the current byte should be
   selected; %FALSE for the upper nibble</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3382,8 +3585,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <method name="set_selection" c:identifier="hex_widget_set_selection">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3304">Set the widget selection (highlights).</doc>
-        <source-position filename="src/gtkhex.h" line="99"/>
+             line="3536">Set the widget selection (highlights).</doc>
+        <source-position filename="src/gtkhex.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3394,13 +3597,13 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3306">starting offset by byte within the buffer</doc>
+                 line="3538">starting offset by byte within the buffer</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3307">ending offset by byte within the buffer</doc>
+                 line="3539">ending offset by byte within the buffer</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -3410,8 +3613,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
               version="4.2">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3707">Set whether the ASCII column of the widget should be shown.</doc>
-        <source-position filename="src/gtkhex.h" line="88"/>
+             line="3929">Set whether the ASCII column of the widget should be shown.</doc>
+        <source-position filename="src/gtkhex.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3422,7 +3625,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3709">%TRUE if the ASCII column should be shown, %FALSE if it should
+                 line="3931">%TRUE if the ASCII column should be shown, %FALSE if it should
   be hidden</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3433,8 +3636,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
               version="4.2">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3687">Set whether the hex column of the widget should be shown.</doc>
-        <source-position filename="src/gtkhex.h" line="87"/>
+             line="3909">Set whether the hex column of the widget should be shown.</doc>
+        <source-position filename="src/gtkhex.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3445,7 +3648,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3689">%TRUE if the hex column should be shown, %FALSE if it should
+                 line="3911">%TRUE if the hex column should be shown, %FALSE if it should
   be hidden</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3454,8 +3657,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <method name="show_offsets" c:identifier="hex_widget_show_offsets">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3671">Set whether the offsets column of the widget should be shown.</doc>
-        <source-position filename="src/gtkhex.h" line="86"/>
+             line="3893">Set whether the offsets column of the widget should be shown.</doc>
+        <source-position filename="src/gtkhex.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3466,7 +3669,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/gtkhex.c"
-                 line="3673">%TRUE if the offsets column should be shown, %FALSE if it should
+                 line="3895">%TRUE if the offsets column should be shown, %FALSE if it should
   be hidden</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3477,8 +3680,8 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
               version="4.4">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="3417">Set the current selection to zero. The resulting action will be undoable.</doc>
-        <source-position filename="src/gtkhex.h" line="103"/>
+             line="3647">Set the current selection to zero. The resulting action will be undoable.</doc>
+        <source-position filename="src/gtkhex.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3489,16 +3692,33 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
         </parameters>
       </method>
       <property name="document"
+                version="4.2"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
                 getter="get_document">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="2902">`HexDocument` affiliated with and owned by the `HexWidget`.</doc>
         <type name="Document"/>
+      </property>
+      <property name="fade-zeroes"
+                version="4.8"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_fade_zeroes"
+                getter="get_fade_zeroes"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="2913">Whether zeroes (`00`) will be faded on the hex side of the `HexWidget`.</doc>
+        <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="copy-clipboard" when="first">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="2768">Emitted when a copy-to-clipboard operation has occurred.</doc>
+             line="2987">Emitted when a copy-to-clipboard operation has occurred.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3506,7 +3726,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <glib:signal name="cursor-moved" when="first">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="2718">Emitted when the cursor has moved.</doc>
+             line="2937">Emitted when the cursor has moved.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3514,7 +3734,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <glib:signal name="cut-clipboard" when="first">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="2753">Emitted when a cut-to-clipboard operation has occurred.</doc>
+             line="2972">Emitted when a cut-to-clipboard operation has occurred.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3522,7 +3742,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <glib:signal name="data-changed" when="first">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="2739">Emitted when data has changed.</doc>
+             line="2958">Emitted when data has changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3535,7 +3755,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
       <glib:signal name="paste-clipboard" when="first">
         <doc xml:space="preserve"
              filename="src/gtkhex.c"
-             line="2783">Emitted when a paste-from-clipboard operation has occurred.</doc>
+             line="3002">Emitted when a paste-from-clipboard operation has occurred.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3549,7 +3769,7 @@ increasing the payload size of a hex document when insert mode is disabled.</doc
             c:symbol-prefix="widget_autohighlight">
       <doc xml:space="preserve"
            filename="src/gtkhex.c"
-           line="88">A structure used to automatically highlight all visible occurrences
+           line="84">A structure used to automatically highlight all visible occurrences
 of a given string.</doc>
       <source-position filename="src/gtkhex.h" line="70"/>
     </record>
@@ -3587,24 +3807,162 @@ of a given string.</doc>
              line="49">group data by quadword (64-bit)</doc>
       </member>
     </enumeration>
+    <class name="WidgetMark"
+           c:symbol-prefix="widget_mark"
+           c:type="HexWidgetMark"
+           parent="GObject.Object"
+           glib:type-name="HexWidgetMark"
+           glib:get-type="hex_widget_mark_get_type"
+           glib:type-struct="WidgetMarkClass">
+      <doc xml:space="preserve"
+           filename="src/gtkhex.c"
+           line="121">`HexWidgetMark` is a `GObject` which contains the metadata associated with a
+mark for a hex document.
+
+To instantiate a `HexWidgetMark` object, use the [method@HexWidget.add_mark]
+method.</doc>
+      <source-position filename="src/gtkhex.h" line="73"/>
+      <method name="get_custom_color"
+              c:identifier="hex_widget_mark_get_custom_color"
+              glib:get-property="custom-color"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="159">Obtains the custom color associated with a `HexWidgetMark` object, if
+any.</doc>
+        <source-position filename="src/gtkhex.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mark" transfer-ownership="none">
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
+          </instance-parameter>
+          <parameter name="color"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gtkhex.c"
+                 line="161">A `GdkRGBA` structure to be set with the custom color
+  associated with the `HexWidgetMark`, if applicable</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_end_offset"
+              c:identifier="hex_widget_mark_get_end_offset"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="208">Obtains the end offset of a `HexWidgetMark`.</doc>
+        <source-position filename="src/gtkhex.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gtkhex.c"
+               line="213">The end offset of the mark</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mark" transfer-ownership="none">
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_have_custom_color"
+              c:identifier="hex_widget_mark_get_have_custom_color"
+              glib:get-property="have-custom-color"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="141">Returns whether the `HexWidgetMark` has a custom color associated with it.</doc>
+        <source-position filename="src/gtkhex.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gtkhex.c"
+               line="146">`TRUE` if the `HexWidgetMark` has a custom color associated with
+  it; `FALSE` otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mark" transfer-ownership="none">
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_start_offset"
+              c:identifier="hex_widget_mark_get_start_offset"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="191">Obtains the start offset of a `HexWidgetMark`.</doc>
+        <source-position filename="src/gtkhex.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gtkhex.c"
+               line="196">The start offset of the mark</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mark" transfer-ownership="none">
+            <type name="WidgetMark" c:type="HexWidgetMark*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="custom-color"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_custom_color">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="296">The custom color of the `HexWidgetMark`, if applicable.</doc>
+        <type name="Gdk.RGBA"/>
+      </property>
+      <property name="have-custom-color"
+                transfer-ownership="none"
+                getter="get_have_custom_color"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/gtkhex.c"
+             line="287">Whether the `HexWidgetMark` has a custom color.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="WidgetMarkClass"
+            c:type="HexWidgetMarkClass"
+            glib:is-gtype-struct-for="WidgetMark">
+      <source-position filename="src/gtkhex.h" line="73"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <function name="buffer_util_get_file_size"
               c:identifier="hex_buffer_util_get_file_size"
               moved-to="Buffer.util_get_file_size">
       <doc xml:space="preserve"
            filename="src/hex-buffer-iface.c"
-           line="427">Utility function to obtain the size of a #GFile.</doc>
+           line="431">Utility function to obtain the size of a #GFile.
+
+Since 4.6, this function will return an unspecified negative value if the
+file size was unable to be obtained, as opposed to 0 as it previously did.
+This is to distinguish between valid zero-length files and files for which
+the size was not able to be obtained (eg, if it was unreadable). In the
+future, these negative values may be defined as specific enums which have a
+more specific meaning. But presently and going forward, testing for a
+negative value is sufficient to determine that the file size was
+unobtainable.</doc>
       <source-position filename="src/hex-buffer-iface.h" line="148"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/hex-buffer-iface.c"
-             line="433">the size of the file, in bytes</doc>
+             line="446">the size of the file, in bytes</doc>
         <type name="gint64" c:type="gint64"/>
       </return-value>
       <parameters>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-buffer-iface.c"
-               line="429">file to obtain size of</doc>
+               line="433">file to obtain size of</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>

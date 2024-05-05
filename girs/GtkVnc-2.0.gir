@@ -188,7 +188,7 @@ being rendered.</doc>
 and displaying its contents
 
 The widget will initially be in a disconnected state</doc>
-        <source-position filename="src/vncdisplay.h" line="88"/>
+        <source-position filename="src/vncdisplay.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -202,7 +202,7 @@ The widget will initially be in a disconnected state</doc>
              filename="src/vncdisplay.c"
              line="3757">Get the array of command line option entries containing
 VNC specific otions</doc>
-        <source-position filename="src/vncdisplay.h" line="164"/>
+        <source-position filename="src/vncdisplay.h" line="163"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -218,7 +218,7 @@ VNC specific otions</doc>
              filename="src/vncdisplay.c"
              line="3735">Get a command line option group containing VNC specific
 options.</doc>
-        <source-position filename="src/vncdisplay.h" line="163"/>
+        <source-position filename="src/vncdisplay.h" line="162"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -275,7 +275,7 @@ options.</doc>
       </virtual-method>
       <method name="client_cut_text"
               c:identifier="vnc_display_client_cut_text">
-        <source-position filename="src/vncdisplay.h" line="127"/>
+        <source-position filename="src/vncdisplay.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -295,7 +295,7 @@ options.</doc>
 is closed. The actual close will complete asynchronously
 and the "vnc-disconnected" signal will be emitted once
 complete.</doc>
-        <source-position filename="src/vncdisplay.h" line="95"/>
+        <source-position filename="src/vncdisplay.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -315,7 +315,7 @@ complete.</doc>
 If @enable is FALSE, immediately ungrab the pointer.
 This overrides any automatic grabs that may have
 been done.</doc>
-        <source-position filename="src/vncdisplay.h" line="159"/>
+        <source-position filename="src/vncdisplay.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -341,7 +341,7 @@ been done.</doc>
              filename="src/vncdisplay.c"
              line="3488">Determine whether widget size is used to request
 rsize of the remote desktop</doc>
-        <source-position filename="src/vncdisplay.h" line="139"/>
+        <source-position filename="src/vncdisplay.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -364,7 +364,7 @@ rsize of the remote desktop</doc>
              filename="src/vncdisplay.c"
              line="2215">Get the VNC connection object associated with the
 display</doc>
-        <source-position filename="src/vncdisplay.h" line="97"/>
+        <source-position filename="src/vncdisplay.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -386,7 +386,7 @@ display</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3455">Get the desired colour depth</doc>
-        <source-position filename="src/vncdisplay.h" line="154"/>
+        <source-position filename="src/vncdisplay.h" line="153"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -409,7 +409,7 @@ display</doc>
              filename="src/vncdisplay.c"
              line="3471">Determine whether the widget size is being forced
 to match the desktop size</doc>
-        <source-position filename="src/vncdisplay.h" line="136"/>
+        <source-position filename="src/vncdisplay.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -431,7 +431,7 @@ to match the desktop size</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3059">Get the current grab key sequence</doc>
-        <source-position filename="src/vncdisplay.h" line="105"/>
+        <source-position filename="src/vncdisplay.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -455,7 +455,7 @@ to match the desktop size</doc>
              line="3190">Get the height of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="124"/>
+        <source-position filename="src/vncdisplay.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -478,7 +478,7 @@ emitted</doc>
              filename="src/vncdisplay.c"
              line="3522">Determine whether the framebuffer aspect ratio is preserved
 when scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="145"/>
+        <source-position filename="src/vncdisplay.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -500,7 +500,7 @@ when scaling.</doc>
              filename="src/vncdisplay.c"
              line="3640">Determine if the keyboard will be grabbed when the
 widget has input focus.</doc>
-        <source-position filename="src/vncdisplay.h" line="116"/>
+        <source-position filename="src/vncdisplay.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -523,7 +523,7 @@ widget has input focus.</doc>
              filename="src/vncdisplay.c"
              line="3573">Determine whether lossy framebuffer update encodings
 are permitted</doc>
-        <source-position filename="src/vncdisplay.h" line="130"/>
+        <source-position filename="src/vncdisplay.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -547,7 +547,7 @@ are permitted</doc>
              line="3208">Get the name of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="125"/>
+        <source-position filename="src/vncdisplay.h" line="124"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -567,7 +567,7 @@ emitted</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3132">Take a screenshot of the display.</doc>
-        <source-position filename="src/vncdisplay.h" line="121"/>
+        <source-position filename="src/vncdisplay.h" line="120"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -589,7 +589,7 @@ emitted</doc>
              filename="src/vncdisplay.c"
              line="3623">Determine if the mouse pointer will be grabbed
 on first click</doc>
-        <source-position filename="src/vncdisplay.h" line="113"/>
+        <source-position filename="src/vncdisplay.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -610,7 +610,7 @@ on first click</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3607">Determine if a local pointer will be shown</doc>
-        <source-position filename="src/vncdisplay.h" line="110"/>
+        <source-position filename="src/vncdisplay.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -633,7 +633,7 @@ on first click</doc>
              filename="src/vncdisplay.c"
              line="3657">Determine if the widget will operate in read-only
 mode, denying keyboard/mouse inputs</doc>
-        <source-position filename="src/vncdisplay.h" line="119"/>
+        <source-position filename="src/vncdisplay.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -655,7 +655,7 @@ mode, denying keyboard/mouse inputs</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3539">Determine the current rotation angle of the remote desktop.</doc>
-        <source-position filename="src/vncdisplay.h" line="148"/>
+        <source-position filename="src/vncdisplay.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -679,7 +679,7 @@ mode, denying keyboard/mouse inputs</doc>
              line="3555">Determine whether the widget is permitted to
 scale the remote desktop to fit the current
 widget size.</doc>
-        <source-position filename="src/vncdisplay.h" line="133"/>
+        <source-position filename="src/vncdisplay.h" line="132"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -702,7 +702,7 @@ widget size.</doc>
              filename="src/vncdisplay.c"
              line="3590">Determine if other clients are permitted to
 share the VNC connection</doc>
-        <source-position filename="src/vncdisplay.h" line="151"/>
+        <source-position filename="src/vncdisplay.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -725,7 +725,7 @@ share the VNC connection</doc>
              filename="src/vncdisplay.c"
              line="3505">Determine whether pixels are smoothly interpolated when
 scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="142"/>
+        <source-position filename="src/vncdisplay.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -749,7 +749,7 @@ scaling.</doc>
              line="3172">Get the width of the remote desktop. This is only
 valid after the "vnc-initialized" signal has been
 emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="123"/>
+        <source-position filename="src/vncdisplay.h" line="122"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -771,7 +771,7 @@ emitted</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="3703">Determine the current constant scaling factor.</doc>
-        <source-position filename="src/vncdisplay.h" line="157"/>
+        <source-position filename="src/vncdisplay.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -791,7 +791,7 @@ emitted</doc>
         <doc xml:space="preserve"
              filename="src/vncdisplay.c"
              line="2167">Check if the connection for the display is currently open</doc>
-        <source-position filename="src/vncdisplay.h" line="94"/>
+        <source-position filename="src/vncdisplay.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -814,7 +814,7 @@ emitted</doc>
              line="3719">Determine if the pointer is operating in absolute
 mode. This is only valid after the "vnc-initialized"
 signal has been emitted</doc>
-        <source-position filename="src/vncdisplay.h" line="161"/>
+        <source-position filename="src/vncdisplay.h" line="160"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -843,7 +843,7 @@ For example, if @addr points to a proxy server, then
 endpoint. This will be used by some authentication
 schemes, for example x509 certificate validation
 against @hostname.</doc>
-        <source-position filename="src/vncdisplay.h" line="92"/>
+        <source-position filename="src/vncdisplay.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -883,7 +883,7 @@ vnc_display_open_fd_with_hostname instead, to
 provide the remote hostname. This allows use of
 x509 based authentication which requires a hostname
 to be available.</doc>
-        <source-position filename="src/vncdisplay.h" line="90"/>
+        <source-position filename="src/vncdisplay.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -914,7 +914,7 @@ to be available.</doc>
 host that the @fd provides a connection to. This
 will be used by some authentication schemes, for
 example x509 certificate validation against @hostname.</doc>
-        <source-position filename="src/vncdisplay.h" line="91"/>
+        <source-position filename="src/vncdisplay.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -950,7 +950,7 @@ example x509 certificate validation against @hostname.</doc>
              filename="src/vncdisplay.c"
              line="2132">Open a TCP connection to the remote desktop at @host
 listening on @port.</doc>
-        <source-position filename="src/vncdisplay.h" line="93"/>
+        <source-position filename="src/vncdisplay.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -979,7 +979,7 @@ listening on @port.</doc>
         </parameters>
       </method>
       <method name="request_update" c:identifier="vnc_display_request_update">
-        <source-position filename="src/vncdisplay.h" line="166"/>
+        <source-position filename="src/vncdisplay.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -997,7 +997,7 @@ key press events will be sent first and then all
 the key release events.
 
 @keyvals should contain the X11 key value constants</doc>
-        <source-position filename="src/vncdisplay.h" line="99"/>
+        <source-position filename="src/vncdisplay.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1035,7 +1035,7 @@ needed
 If @kind is VNC_DISPLAY_KEY_EVENT_CLICK then all
 the key press events will be sent first, followed
 by all the key release events.</doc>
-        <source-position filename="src/vncdisplay.h" line="100"/>
+        <source-position filename="src/vncdisplay.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1075,7 +1075,7 @@ by all the key release events.</doc>
 button state to @button_mask.  This method will only
 work if the desktop is using absolute pointer mode. It
 will be a no-op if in relative pointer mode.</doc>
-        <source-position filename="src/vncdisplay.h" line="103"/>
+        <source-position filename="src/vncdisplay.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1116,7 +1116,7 @@ into requests to resize the remote desktop. Resizing of
 the remote desktop is not guaranteed to be honoured by
 servers, but when it is, it will avoid the need to do
 scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="138"/>
+        <source-position filename="src/vncdisplay.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1142,7 +1142,7 @@ scaling.</doc>
 @type to the string @data.
 
 @type is one of the VncConnectionCredential enum vlaues</doc>
-        <source-position filename="src/vncdisplay.h" line="107"/>
+        <source-position filename="src/vncdisplay.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -1179,7 +1179,7 @@ scaling.</doc>
 depths will require greater network bandwidth. The
 colour depth must be set prior to connecting to the
 remote server</doc>
-        <source-position filename="src/vncdisplay.h" line="153"/>
+        <source-position filename="src/vncdisplay.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1208,7 +1208,7 @@ remote desktop size. If the widget size does not match
 the remote desktop size, and scaling is disabled, some
 of the remote desktop may be hidden, or black borders
 may be drawn.</doc>
-        <source-position filename="src/vncdisplay.h" line="135"/>
+        <source-position filename="src/vncdisplay.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1234,7 +1234,7 @@ may be drawn.</doc>
              filename="src/vncdisplay.c"
              line="3031">Set the sequence of keys that must be pressed to
 activate keyborad and pointer grab</doc>
-        <source-position filename="src/vncdisplay.h" line="104"/>
+        <source-position filename="src/vncdisplay.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1260,7 +1260,7 @@ activate keyborad and pointer grab</doc>
              filename="src/vncdisplay.c"
              line="3384">Set whether the aspect ratio of the framebuffer is preserved
 when scaling.</doc>
-        <source-position filename="src/vncdisplay.h" line="144"/>
+        <source-position filename="src/vncdisplay.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1287,7 +1287,7 @@ when scaling.</doc>
 has focus. Grabbing the keyboard allows it to intercept
 special key sequences, ensuring they get sent to the
 remote desktop, rather than intepreted locally.</doc>
-        <source-position filename="src/vncdisplay.h" line="115"/>
+        <source-position filename="src/vncdisplay.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1316,7 +1316,7 @@ framebuffer update encodings. Lossy encodings can
 improve performance by lowering network bandwidth
 requirements, with a cost that the display received
 by the client will not be pixel perfect</doc>
-        <source-position filename="src/vncdisplay.h" line="129"/>
+        <source-position filename="src/vncdisplay.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1341,7 +1341,7 @@ by the client will not be pixel perfect</doc>
              filename="src/vncdisplay.c"
              line="3013">Set whether the widget will automatically grab the mouse
 pointer upon a button click</doc>
-        <source-position filename="src/vncdisplay.h" line="112"/>
+        <source-position filename="src/vncdisplay.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1367,7 +1367,7 @@ pointer upon a button click</doc>
              line="2992">If @enable is TRUE, then a local mouse cursor will be
 made visible. If @enable is FALSE, the local mouse
 cursor will be hidden.</doc>
-        <source-position filename="src/vncdisplay.h" line="109"/>
+        <source-position filename="src/vncdisplay.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1395,7 +1395,7 @@ cursor will be hidden.</doc>
 read-only mode, keyboard and mouse events will not be
 sent to the remote desktop server. The widget will merely
 display activity from the server.</doc>
-        <source-position filename="src/vncdisplay.h" line="118"/>
+        <source-position filename="src/vncdisplay.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1421,7 +1421,7 @@ display activity from the server.</doc>
              filename="src/vncdisplay.c"
              line="3411">Set the rotation angle to view the display of the remote desktop, in
 clockwise direction.</doc>
-        <source-position filename="src/vncdisplay.h" line="147"/>
+        <source-position filename="src/vncdisplay.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1448,7 +1448,7 @@ clockwise direction.</doc>
              line="3279">Set whether the remote desktop contents is automatically
 scaled to fit the available widget size, or whether it
 will be rendered at 1:1 size</doc>
-        <source-position filename="src/vncdisplay.h" line="132"/>
+        <source-position filename="src/vncdisplay.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vncdisplay.c"
@@ -1479,7 +1479,7 @@ will be rendered at 1:1 size</doc>
 allow allow this client to co-exist with other existing
 clients. A FALSE value will cause other clients to be
 dropped</doc>
-        <source-position filename="src/vncdisplay.h" line="150"/>
+        <source-position filename="src/vncdisplay.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1505,7 +1505,7 @@ dropped</doc>
              filename="src/vncdisplay.c"
              line="3357">Set whether pixels are smoothly interpolated when scaling,
 to avoid aliasing.</doc>
-        <source-position filename="src/vncdisplay.h" line="141"/>
+        <source-position filename="src/vncdisplay.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1540,7 +1540,7 @@ scaled to fit the widget regardless of the zoom level.
 
 In both cases, when the remote desktop size changes, the
 widget preferred size will reflect the zoom level.</doc>
-        <source-position filename="src/vncdisplay.h" line="156"/>
+        <source-position filename="src/vncdisplay.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1926,12 +1926,6 @@ widget preferred size will reflect the zoom level.</doc>
               c:identifier="VNC_DISPLAY_CREDENTIAL_CLIENTNAME"
               glib:nick="clientname"
               glib:name="VNC_DISPLAY_CREDENTIAL_CLIENTNAME">
-      </member>
-      <member name="ca_cert_data"
-              value="3"
-              c:identifier="VNC_DISPLAY_CREDENTIAL_CA_CERT_DATA"
-              glib:nick="ca-cert-data"
-              glib:name="VNC_DISPLAY_CREDENTIAL_CA_CERT_DATA">
       </member>
     </enumeration>
     <enumeration name="DisplayDepthColor"

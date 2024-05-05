@@ -120,7 +120,7 @@ notation.</doc>
                  c:type="CoglAttributeType">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="671">Data types for the components of a vertex attribute.</doc>
+           line="670">Data types for the components of a vertex attribute.</doc>
       <member name="byte"
               value="5120"
               c:identifier="COGL_ATTRIBUTE_TYPE_BYTE"
@@ -128,7 +128,7 @@ notation.</doc>
               glib:name="COGL_ATTRIBUTE_TYPE_BYTE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="673">Data is the same size of a byte</doc>
+             line="672">Data is the same size of a byte</doc>
       </member>
       <member name="unsigned_byte"
               value="5121"
@@ -137,7 +137,7 @@ notation.</doc>
               glib:name="COGL_ATTRIBUTE_TYPE_UNSIGNED_BYTE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="674">Data is the same size of an
+             line="673">Data is the same size of an
   unsigned byte</doc>
       </member>
       <member name="short"
@@ -147,7 +147,7 @@ notation.</doc>
               glib:name="COGL_ATTRIBUTE_TYPE_SHORT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="676">Data is the same size of a short integer</doc>
+             line="675">Data is the same size of a short integer</doc>
       </member>
       <member name="unsigned_short"
               value="5123"
@@ -156,7 +156,7 @@ notation.</doc>
               glib:name="COGL_ATTRIBUTE_TYPE_UNSIGNED_SHORT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="677">Data is the same size of
+             line="676">Data is the same size of
   an unsigned short integer</doc>
       </member>
       <member name="float"
@@ -166,7 +166,7 @@ notation.</doc>
               glib:name="COGL_ATTRIBUTE_TYPE_FLOAT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="679">Data is the same size of a float</doc>
+             line="678">Data is the same size of a float</doc>
       </member>
     </enumeration>
     <constant name="BGR_BIT" value="32" c:type="COGL_BGR_BIT">
@@ -309,7 +309,7 @@ will be used directly.</doc>
                  c:type="CoglBlendStringError">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="609">Error enumeration for the blend strings parser</doc>
+           line="608">Error enumeration for the blend strings parser</doc>
       <member name="parse_error"
               value="0"
               c:identifier="COGL_BLEND_STRING_ERROR_PARSE_ERROR"
@@ -317,7 +317,7 @@ will be used directly.</doc>
               glib:name="COGL_BLEND_STRING_ERROR_PARSE_ERROR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="611">Generic parse error</doc>
+             line="610">Generic parse error</doc>
       </member>
       <member name="argument_parse_error"
               value="1"
@@ -326,7 +326,7 @@ will be used directly.</doc>
               glib:name="COGL_BLEND_STRING_ERROR_ARGUMENT_PARSE_ERROR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="612">Argument parse error</doc>
+             line="611">Argument parse error</doc>
       </member>
       <member name="invalid_error"
               value="2"
@@ -335,7 +335,7 @@ will be used directly.</doc>
               glib:name="COGL_BLEND_STRING_ERROR_INVALID_ERROR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="613">Internal parser error</doc>
+             line="612">Internal parser error</doc>
       </member>
       <member name="gpu_unsupported_error"
               value="3"
@@ -344,11 +344,11 @@ will be used directly.</doc>
               glib:name="COGL_BLEND_STRING_ERROR_GPU_UNSUPPORTED_ERROR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="614">Blend string not
+             line="613">Blend string not
   supported by the GPU</doc>
       </member>
       <function name="quark" c:identifier="cogl_blend_string_error_quark">
-        <source-position filename="cogl-types.h" line="629"/>
+        <source-position filename="cogl-types.h" line="628"/>
         <return-value transfer-ownership="none">
           <type name="guint32" c:type="uint32_t"/>
         </return-value>
@@ -361,7 +361,7 @@ will be used directly.</doc>
               c:type="CoglBufferBit">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="896">Types of auxiliary buffers</doc>
+           line="895">Types of auxiliary buffers</doc>
       <member name="color"
               value="1"
               c:identifier="COGL_BUFFER_BIT_COLOR"
@@ -369,7 +369,7 @@ will be used directly.</doc>
               glib:name="COGL_BUFFER_BIT_COLOR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="898">Selects the primary color buffer</doc>
+             line="897">Selects the primary color buffer</doc>
       </member>
       <member name="depth"
               value="2"
@@ -378,7 +378,7 @@ will be used directly.</doc>
               glib:name="COGL_BUFFER_BIT_DEPTH">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="899">Selects the depth buffer</doc>
+             line="898">Selects the depth buffer</doc>
       </member>
       <member name="stencil"
               value="4"
@@ -387,7 +387,7 @@ will be used directly.</doc>
               glib:name="COGL_BUFFER_BIT_STENCIL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="900">Selects the stencil buffer</doc>
+             line="899">Selects the stencil buffer</doc>
       </member>
     </bitfield>
     <bitfield name="BufferTarget"
@@ -397,7 +397,7 @@ will be used directly.</doc>
               c:type="CoglBufferTarget">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="477">Target flags for FBOs.</doc>
+           line="476">Target flags for FBOs.</doc>
       <member name="window_buffer"
               value="2"
               c:identifier="COGL_WINDOW_BUFFER"
@@ -405,7 +405,7 @@ will be used directly.</doc>
               glib:name="COGL_WINDOW_BUFFER">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="479">FIXME</doc>
+             line="478">FIXME</doc>
       </member>
       <member name="offscreen_buffer"
               value="4"
@@ -414,7 +414,7 @@ will be used directly.</doc>
               glib:name="COGL_OFFSCREEN_BUFFER">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="480">FIXME</doc>
+             line="479">FIXME</doc>
       </member>
     </bitfield>
     <record name="Color"
@@ -425,10 +425,10 @@ will be used directly.</doc>
             c:symbol-prefix="color">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="492">A structure for holding a color definition. The contents of
+           line="491">A structure for holding a color definition. The contents of
 the CoglColor structure are private and should never by accessed
 directly.</doc>
-      <source-position filename="cogl-types.h" line="519"/>
+      <source-position filename="cogl-types.h" line="518"/>
       <field name="private_member_red" readable="0" private="1">
         <type name="guint8" c:type="uint8_t"/>
       </field>
@@ -1444,7 +1444,7 @@ values into a #CoglColor.</doc>
               c:type="CoglColorMask">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="855">Defines a bit mask of color channels. This can be used with
+           line="854">Defines a bit mask of color channels. This can be used with
 cogl_pipeline_set_color_mask() for example to define which color
 channels should be written to the current framebuffer when
 drawing something.</doc>
@@ -1455,7 +1455,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_NONE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="857">None of the color channels are masked</doc>
+             line="856">None of the color channels are masked</doc>
       </member>
       <member name="red"
               value="1"
@@ -1464,7 +1464,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_RED">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="858">Masks the red color channel</doc>
+             line="857">Masks the red color channel</doc>
       </member>
       <member name="green"
               value="2"
@@ -1473,7 +1473,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_GREEN">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="859">Masks the green color channel</doc>
+             line="858">Masks the green color channel</doc>
       </member>
       <member name="blue"
               value="4"
@@ -1482,7 +1482,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_BLUE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="860">Masks the blue color channel</doc>
+             line="859">Masks the blue color channel</doc>
       </member>
       <member name="alpha"
               value="8"
@@ -1491,7 +1491,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_ALPHA">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="861">Masks the alpha color channel</doc>
+             line="860">Masks the alpha color channel</doc>
       </member>
       <member name="all"
               value="15"
@@ -1500,7 +1500,7 @@ drawing something.</doc>
               glib:name="COGL_COLOR_MASK_ALL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="862">All of the color channels are masked</doc>
+             line="861">All of the color channels are masked</doc>
       </member>
     </bitfield>
     <constant name="DEPTH_BIT" value="256" c:type="COGL_DEPTH_BIT">
@@ -1513,7 +1513,7 @@ drawing something.</doc>
                  c:type="CoglDepthTestFunction">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="751">When using depth testing one of these functions is used to compare
+           line="750">When using depth testing one of these functions is used to compare
 the depth of an incoming fragment against the depth value currently
 stored in the depth buffer. The function is changed using
 cogl_depth_state_set_test_function().
@@ -1527,7 +1527,7 @@ cogl_depth_state_set_test_enabled())</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_NEVER">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="753">Never passes.</doc>
+             line="752">Never passes.</doc>
       </member>
       <member name="less"
               value="513"
@@ -1536,7 +1536,7 @@ cogl_depth_state_set_test_enabled())</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_LESS">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="754">Passes if the fragment's depth
+             line="753">Passes if the fragment's depth
 value is less than the value currently in the depth buffer.</doc>
       </member>
       <member name="equal"
@@ -1546,7 +1546,7 @@ value is less than the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_EQUAL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="756">Passes if the fragment's depth
+             line="755">Passes if the fragment's depth
 value is equal to the value currently in the depth buffer.</doc>
       </member>
       <member name="lequal"
@@ -1556,7 +1556,7 @@ value is equal to the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_LEQUAL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="758">Passes if the fragment's depth
+             line="757">Passes if the fragment's depth
 value is less or equal to the value currently in the depth buffer.</doc>
       </member>
       <member name="greater"
@@ -1566,7 +1566,7 @@ value is less or equal to the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_GREATER">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="760">Passes if the fragment's depth
+             line="759">Passes if the fragment's depth
 value is greater than the value currently in the depth buffer.</doc>
       </member>
       <member name="notequal"
@@ -1576,7 +1576,7 @@ value is greater than the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_NOTEQUAL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="762">Passes if the fragment's depth
+             line="761">Passes if the fragment's depth
 value is not equal to the value currently in the depth buffer.</doc>
       </member>
       <member name="gequal"
@@ -1586,7 +1586,7 @@ value is not equal to the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_GEQUAL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="764">Passes if the fragment's depth
+             line="763">Passes if the fragment's depth
 value greater than or equal to the value currently in the depth buffer.</doc>
       </member>
       <member name="always"
@@ -1596,7 +1596,7 @@ value greater than or equal to the value currently in the depth buffer.</doc>
               glib:name="COGL_DEPTH_TEST_FUNCTION_ALWAYS">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="766">Always passes.</doc>
+             line="765">Always passes.</doc>
       </member>
     </enumeration>
     <record name="Euler" c:type="CoglEuler" disguised="1" opaque="1">
@@ -2256,12 +2256,6 @@ the fractional part without rounding.</doc>
              line="441">Whether #CoglFramebuffer support rendering the
     depth buffer to a texture.</doc>
       </member>
-      <member name="shader_texture_lod"
-              value="33554432"
-              c:identifier="COGL_FEATURE_SHADER_TEXTURE_LOD"
-              glib:nick="shader-texture-lod"
-              glib:name="COGL_FEATURE_SHADER_TEXTURE_LOD">
-      </member>
     </bitfield>
     <enumeration name="FilterReturn"
                  stability="Unstable"
@@ -2270,7 +2264,7 @@ the fractional part without rounding.</doc>
                  c:type="CoglFilterReturn">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="793">Return values for the #CoglXlibFilterFunc and #CoglWin32FilterFunc functions.</doc>
+           line="792">Return values for the #CoglXlibFilterFunc and #CoglWin32FilterFunc functions.</doc>
       <member name="continue"
               value="0"
               c:identifier="COGL_FILTER_CONTINUE"
@@ -2278,7 +2272,7 @@ the fractional part without rounding.</doc>
               glib:name="COGL_FILTER_CONTINUE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="795">The event was not handled, continues the
+             line="794">The event was not handled, continues the
                        processing</doc>
       </member>
       <member name="remove"
@@ -2288,7 +2282,7 @@ the fractional part without rounding.</doc>
               glib:name="COGL_FILTER_REMOVE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="797">Remove the event, stops the processing</doc>
+             line="796">Remove the event, stops the processing</doc>
       </member>
     </enumeration>
     <class name="Fixed"
@@ -2529,7 +2523,7 @@ on fpu-less arm than libc pow(2, x).</doc>
                  c:type="CoglFogMode">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="566">The fog mode determines the equation used to calculate the fogging blend
+           line="565">The fog mode determines the equation used to calculate the fogging blend
 factor while fogging is enabled. The simplest %COGL_FOG_MODE_LINEAR mode
 determines f as:
 
@@ -2546,7 +2540,7 @@ coordinates from the origin.</doc>
               glib:name="COGL_FOG_MODE_LINEAR">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="568">Calculates the fog blend factor as:
+             line="567">Calculates the fog blend factor as:
 |[
   f = end - eye_distance / end - start
 ]|</doc>
@@ -2558,7 +2552,7 @@ coordinates from the origin.</doc>
               glib:name="COGL_FOG_MODE_EXPONENTIAL">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="572">Calculates the fog blend factor as:
+             line="571">Calculates the fog blend factor as:
 |[
   f = e ^ -(density * eye_distance)
 ]|</doc>
@@ -2570,7 +2564,7 @@ coordinates from the origin.</doc>
               glib:name="COGL_FOG_MODE_EXPONENTIAL_SQUARED">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="576">Calculates the fog blend factor as:
+             line="575">Calculates the fog blend factor as:
 |[
   f = e ^ -(density * eye_distance)^2
 ]|</doc>
@@ -2593,7 +2587,7 @@ actual arguments and return type may be different.</doc>
                  c:type="CoglIndicesType">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="693">You should aim to use the smallest data type that gives you enough
+           line="692">You should aim to use the smallest data type that gives you enough
 range, since it reduces the size of your index array and can help
 reduce the demand on memory bandwidth.
 
@@ -2609,7 +2603,7 @@ advertized.</doc>
               glib:name="COGL_INDICES_TYPE_UNSIGNED_BYTE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="695">Your indices are unsigned bytes</doc>
+             line="694">Your indices are unsigned bytes</doc>
       </member>
       <member name="short"
               value="1"
@@ -2618,7 +2612,7 @@ advertized.</doc>
               glib:name="COGL_INDICES_TYPE_UNSIGNED_SHORT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="696">Your indices are unsigned shorts</doc>
+             line="695">Your indices are unsigned shorts</doc>
       </member>
       <member name="int"
               value="2"
@@ -2627,7 +2621,7 @@ advertized.</doc>
               glib:name="COGL_INDICES_TYPE_UNSIGNED_INT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="697">Your indices are unsigned ints</doc>
+             line="696">Your indices are unsigned ints</doc>
       </member>
     </enumeration>
     <function-macro name="MATERIAL"
@@ -6040,7 +6034,7 @@ internally and convert the texture data if necessary.</doc>
               c:type="CoglReadPixelsFlags">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="912">Flags for cogl_framebuffer_read_pixels_into_bitmap()</doc>
+           line="911">Flags for cogl_framebuffer_read_pixels_into_bitmap()</doc>
       <member name="color_buffer"
               value="1"
               c:identifier="COGL_READ_PIXELS_COLOR_BUFFER"
@@ -6048,7 +6042,7 @@ internally and convert the texture data if necessary.</doc>
               glib:name="COGL_READ_PIXELS_COLOR_BUFFER">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="914">Read from the color buffer</doc>
+             line="913">Read from the color buffer</doc>
       </member>
     </bitfield>
     <enumeration name="RendererError"
@@ -6148,7 +6142,7 @@ resulting error is &lt; 5%</doc>
                  c:type="CoglStereoMode">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="924">Represents how draw should affect the two buffers
+           line="923">Represents how draw should affect the two buffers
 of a stereo framebuffer. See cogl_framebuffer_set_stereo_mode().</doc>
       <member name="both"
               value="0"
@@ -6157,7 +6151,7 @@ of a stereo framebuffer. See cogl_framebuffer_set_stereo_mode().</doc>
               glib:name="COGL_STEREO_BOTH">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="926">draw to both stereo buffers</doc>
+             line="925">draw to both stereo buffers</doc>
       </member>
       <member name="left"
               value="1"
@@ -6166,7 +6160,7 @@ of a stereo framebuffer. See cogl_framebuffer_set_stereo_mode().</doc>
               glib:name="COGL_STEREO_LEFT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="927">draw only to the left stereo buffer</doc>
+             line="926">draw only to the left stereo buffer</doc>
       </member>
       <member name="right"
               value="2"
@@ -6175,7 +6169,7 @@ of a stereo framebuffer. See cogl_framebuffer_set_stereo_mode().</doc>
               glib:name="COGL_STEREO_RIGHT">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="928">draw only to the left stereo buffer</doc>
+             line="927">draw only to the left stereo buffer</doc>
       </member>
     </enumeration>
     <enumeration name="SystemError"
@@ -6186,7 +6180,7 @@ of a stereo framebuffer. See cogl_framebuffer_set_stereo_mode().</doc>
                  c:type="CoglSystemError">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="633">Error enumeration for Cogl
+           line="632">Error enumeration for Cogl
 
 The @COGL_SYSTEM_ERROR_UNSUPPORTED error can be thrown for a
 variety of reasons. For example:
@@ -6212,7 +6206,7 @@ this enum should also be considered experimental.</doc>
               glib:name="COGL_SYSTEM_ERROR_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="635">You tried to use a feature or
+             line="634">You tried to use a feature or
    configuration not currently available.</doc>
       </member>
       <member name="cogl_system_error_no_memory"
@@ -6222,7 +6216,7 @@ this enum should also be considered experimental.</doc>
               glib:name="COGL_SYSTEM_ERROR_NO_MEMORY">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="637">You tried to allocate a resource
+             line="636">You tried to allocate a resource
    such as a texture and there wasn't enough memory.</doc>
       </member>
     </enumeration>
@@ -6303,7 +6297,7 @@ this enum should also be considered experimental.</doc>
       <method name="allocate" c:identifier="cogl_texture_allocate" throws="1">
         <doc xml:space="preserve"
              filename="cogl-texture.h"
-             line="509">Explicitly allocates the storage for the given @texture which
+             line="500">Explicitly allocates the storage for the given @texture which
 allows you to be sure that there is enough memory for the
 texture and if not then the error can be handled gracefully.
 
@@ -6311,11 +6305,11 @@ texture and if not then the error can be handled gracefully.
 since the texture will be implicitly allocated when data is set on
 the texture, or if the texture is attached to a #CoglOffscreen
 framebuffer and rendered too.&lt;/note&gt;</doc>
-        <source-position filename="cogl-texture.h" line="528"/>
+        <source-position filename="cogl-texture.h" line="519"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="cogl-texture.h"
-               line="523">%TRUE if the texture was successfully allocated,
+               line="514">%TRUE if the texture was successfully allocated,
               otherwise %FALSE and @error will be updated if it
               wasn't %NULL.</doc>
           <type name="Bool" c:type="CoglBool"/>
@@ -6324,38 +6318,9 @@ framebuffer and rendered too.&lt;/note&gt;</doc>
           <instance-parameter name="texture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="cogl-texture.h"
-                 line="511">A #CoglTexture</doc>
+                 line="502">A #CoglTexture</doc>
             <type name="Texture" c:type="CoglTexture*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="copy_sub_image" c:identifier="cogl_texture_copy_sub_image">
-        <source-position filename="cogl-texture.h" line="403"/>
-        <return-value transfer-ownership="none">
-          <type name="Bool" c:type="CoglBool"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="texture" transfer-ownership="none">
-            <type name="Texture" c:type="CoglTexture*"/>
-          </instance-parameter>
-          <parameter name="xoffset" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="yoffset" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="x" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="y" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="width" transfer-ownership="none">
-            <type name="gsize" c:type="size_t"/>
-          </parameter>
-          <parameter name="height" transfer-ownership="none">
-            <type name="gsize" c:type="size_t"/>
-          </parameter>
         </parameters>
       </method>
       <method name="get_components"
@@ -6882,7 +6847,7 @@ specified)</doc>
               c:type="CoglTextureFlags">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="543">Flags to pass to the cogl_texture_new_* family of functions.</doc>
+           line="542">Flags to pass to the cogl_texture_new_* family of functions.</doc>
       <member name="none"
               value="0"
               c:identifier="COGL_TEXTURE_NONE"
@@ -6890,7 +6855,7 @@ specified)</doc>
               glib:name="COGL_TEXTURE_NONE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="545">No flags specified</doc>
+             line="544">No flags specified</doc>
       </member>
       <member name="no_auto_mipmap"
               value="1"
@@ -6899,7 +6864,7 @@ specified)</doc>
               glib:name="COGL_TEXTURE_NO_AUTO_MIPMAP">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="546">Disables the automatic generation of
+             line="545">Disables the automatic generation of
   the mipmap pyramid from the base level image whenever it is
   updated. The mipmaps are only generated when the texture is
   rendered with a mipmap filter so it should be free to leave out
@@ -6912,7 +6877,7 @@ specified)</doc>
               glib:name="COGL_TEXTURE_NO_SLICING">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="551">Disables the slicing of the texture</doc>
+             line="550">Disables the slicing of the texture</doc>
       </member>
       <member name="no_atlas"
               value="4"
@@ -6921,7 +6886,7 @@ specified)</doc>
               glib:name="COGL_TEXTURE_NO_ATLAS">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="552">Disables the insertion of the texture inside
+             line="551">Disables the insertion of the texture inside
   the texture atlas used by Cogl</doc>
       </member>
     </bitfield>
@@ -6966,42 +6931,42 @@ specified)</doc>
     <record name="TextureVertex" c:type="CoglTextureVertex">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="522">Used to specify vertex information when calling cogl_polygon()</doc>
-      <source-position filename="cogl-types.h" line="540"/>
+           line="521">Used to specify vertex information when calling cogl_polygon()</doc>
+      <source-position filename="cogl-types.h" line="539"/>
       <field name="x" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="524">Model x-coordinate</doc>
+             line="523">Model x-coordinate</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <field name="y" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="525">Model y-coordinate</doc>
+             line="524">Model y-coordinate</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <field name="z" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="526">Model z-coordinate</doc>
+             line="525">Model z-coordinate</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <field name="tx" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="527">Texture x-coordinate</doc>
+             line="526">Texture x-coordinate</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <field name="ty" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="528">Texture y-coordinate</doc>
+             line="527">Texture y-coordinate</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <field name="color" writable="1">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="529">The color to use at this vertex. This is ignored if
+             line="528">The color to use at this vertex. This is ignored if
   use_color is %FALSE when calling cogl_polygon()</doc>
         <type name="Color" c:type="CoglColor"/>
       </field>
@@ -7013,7 +6978,7 @@ specified)</doc>
                  c:type="CoglVerticesMode">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="715">Different ways of interpreting vertices when drawing.</doc>
+           line="714">Different ways of interpreting vertices when drawing.</doc>
       <member name="points"
               value="0"
               c:identifier="COGL_VERTICES_MODE_POINTS"
@@ -7021,7 +6986,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_POINTS">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="717">FIXME, equivalent to
+             line="716">FIXME, equivalent to
 &lt;constant&gt;GL_POINTS&lt;/constant&gt;</doc>
       </member>
       <member name="lines"
@@ -7031,7 +6996,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_LINES">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="719">FIXME, equivalent to &lt;constant&gt;GL_LINES&lt;/constant&gt;</doc>
+             line="718">FIXME, equivalent to &lt;constant&gt;GL_LINES&lt;/constant&gt;</doc>
       </member>
       <member name="line_loop"
               value="2"
@@ -7040,7 +7005,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_LINE_LOOP">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="720">FIXME, equivalent to
+             line="719">FIXME, equivalent to
 &lt;constant&gt;GL_LINE_LOOP&lt;/constant&gt;</doc>
       </member>
       <member name="line_strip"
@@ -7050,7 +7015,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_LINE_STRIP">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="722">FIXME, equivalent to
+             line="721">FIXME, equivalent to
 &lt;constant&gt;GL_LINE_STRIP&lt;/constant&gt;</doc>
       </member>
       <member name="triangles"
@@ -7060,7 +7025,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_TRIANGLES">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="724">FIXME, equivalent to
+             line="723">FIXME, equivalent to
 &lt;constant&gt;GL_TRIANGLES&lt;/constant&gt;</doc>
       </member>
       <member name="triangle_strip"
@@ -7070,7 +7035,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_TRIANGLE_STRIP">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="726">FIXME, equivalent to
+             line="725">FIXME, equivalent to
 &lt;constant&gt;GL_TRIANGLE_STRIP&lt;/constant&gt;</doc>
       </member>
       <member name="triangle_fan"
@@ -7080,7 +7045,7 @@ specified)</doc>
               glib:name="COGL_VERTICES_MODE_TRIANGLE_FAN">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="728">FIXME, equivalent to &lt;constant&gt;GL_TRIANGLE_FAN&lt;/constant&gt;</doc>
+             line="727">FIXME, equivalent to &lt;constant&gt;GL_TRIANGLE_FAN&lt;/constant&gt;</doc>
       </member>
     </enumeration>
     <enumeration name="Winding"
@@ -7089,7 +7054,7 @@ specified)</doc>
                  c:type="CoglWinding">
       <doc xml:space="preserve"
            filename="cogl-types.h"
-           line="881">Enum used to represent the two directions of rotation. This can be
+           line="880">Enum used to represent the two directions of rotation. This can be
 used to set the front face for culling by calling
 cogl_pipeline_set_front_face_winding().</doc>
       <member name="clockwise"
@@ -7099,7 +7064,7 @@ cogl_pipeline_set_front_face_winding().</doc>
               glib:name="COGL_WINDING_CLOCKWISE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="883">Vertices are in a clockwise order</doc>
+             line="882">Vertices are in a clockwise order</doc>
       </member>
       <member name="counter_clockwise"
               value="1"
@@ -7108,7 +7073,7 @@ cogl_pipeline_set_front_face_winding().</doc>
               glib:name="COGL_WINDING_COUNTER_CLOCKWISE">
         <doc xml:space="preserve"
              filename="cogl-types.h"
-             line="884">Vertices are in a counter-clockwise order</doc>
+             line="883">Vertices are in a counter-clockwise order</doc>
       </member>
     </enumeration>
     <enumeration name="WinsysFeature"
@@ -7208,7 +7173,7 @@ cogl_pipeline_set_front_face_winding().</doc>
       </parameters>
     </callback>
     <record name="_ColorSizeCheck" c:type="_CoglColorSizeCheck">
-      <source-position filename="cogl-types.h" line="520"/>
+      <source-position filename="cogl-types.h" line="519"/>
       <field name="compile_time_assert_CoglColor_size" writable="1">
         <array zero-terminated="0" fixed-size="-1">
           <type name="gchar" c:type="char"/>
@@ -7225,7 +7190,7 @@ cogl_pipeline_set_front_face_winding().</doc>
     </record>
     <record name="_TextureVertexSizeCheck"
             c:type="_CoglTextureVertexSizeCheck">
-      <source-position filename="cogl-types.h" line="541"/>
+      <source-position filename="cogl-types.h" line="540"/>
       <field name="compile_time_assert_CoglTextureVertex_size" writable="1">
         <array zero-terminated="0" fixed-size="-1">
           <type name="gchar" c:type="char"/>
@@ -7392,7 +7357,7 @@ OpenGL.</doc>
     <function name="blend_string_error_quark"
               c:identifier="cogl_blend_string_error_quark"
               moved-to="BlendStringError.quark">
-      <source-position filename="cogl-types.h" line="629"/>
+      <source-position filename="cogl-types.h" line="628"/>
       <return-value transfer-ownership="none">
         <type name="guint32" c:type="uint32_t"/>
       </return-value>

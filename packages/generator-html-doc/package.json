@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/generator-html-doc",
-  "version": "4.0.0-beta.3",
+  "version": "4.0.0-beta.5",
   "description": "HTML Documentation generator for ts-for-gir",
   "module": "lib/index.js",
   "main": "lib/index.js",

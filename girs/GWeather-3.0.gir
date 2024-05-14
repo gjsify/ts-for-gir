@@ -1,0 +1,4242 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="gweather-3.0"/>
+  <c:include name="libgweather/gweather.h"/>
+  <namespace name="GWeather"
+             version="3.0"
+             shared-library="libgweather-3.so.16"
+             c:identifier-prefixes="GWeather"
+             c:symbol-prefixes="gweather">
+    <alias name="MoonLatitude" c:type="GWeatherMoonLatitude">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="295">The moon declension, in degrees.</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="300"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </alias>
+    <alias name="MoonPhase" c:type="GWeatherMoonPhase">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="287">The current phase of the moon, represented as degrees,
+where 0 is the new moon, 90 is the first quarter, etc.</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="293"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </alias>
+    <enumeration name="ConditionPhenomenon"
+                 glib:type-name="GWeatherConditionPhenomenon"
+                 glib:get-type="gweather_phenomenon_get_type"
+                 c:type="GWeatherConditionPhenomenon">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="190">The current or forecasted significant phenomenon.</doc>
+      <member name="invalid"
+              value="-1"
+              c:identifier="GWEATHER_PHENOMENON_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_PHENOMENON_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="192">value not available</doc>
+      </member>
+      <member name="none"
+              value="0"
+              c:identifier="GWEATHER_PHENOMENON_NONE"
+              glib:nick="none"
+              glib:name="GWEATHER_PHENOMENON_NONE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="193">no significant phenomenon</doc>
+      </member>
+      <member name="drizzle"
+              value="1"
+              c:identifier="GWEATHER_PHENOMENON_DRIZZLE"
+              glib:nick="drizzle"
+              glib:name="GWEATHER_PHENOMENON_DRIZZLE">
+      </member>
+      <member name="rain"
+              value="2"
+              c:identifier="GWEATHER_PHENOMENON_RAIN"
+              glib:nick="rain"
+              glib:name="GWEATHER_PHENOMENON_RAIN">
+      </member>
+      <member name="snow"
+              value="3"
+              c:identifier="GWEATHER_PHENOMENON_SNOW"
+              glib:nick="snow"
+              glib:name="GWEATHER_PHENOMENON_SNOW">
+      </member>
+      <member name="snow_grains"
+              value="4"
+              c:identifier="GWEATHER_PHENOMENON_SNOW_GRAINS"
+              glib:nick="snow-grains"
+              glib:name="GWEATHER_PHENOMENON_SNOW_GRAINS">
+      </member>
+      <member name="ice_crystals"
+              value="5"
+              c:identifier="GWEATHER_PHENOMENON_ICE_CRYSTALS"
+              glib:nick="ice-crystals"
+              glib:name="GWEATHER_PHENOMENON_ICE_CRYSTALS">
+      </member>
+      <member name="ice_pellets"
+              value="6"
+              c:identifier="GWEATHER_PHENOMENON_ICE_PELLETS"
+              glib:nick="ice-pellets"
+              glib:name="GWEATHER_PHENOMENON_ICE_PELLETS">
+      </member>
+      <member name="hail"
+              value="7"
+              c:identifier="GWEATHER_PHENOMENON_HAIL"
+              glib:nick="hail"
+              glib:name="GWEATHER_PHENOMENON_HAIL">
+      </member>
+      <member name="small_hail"
+              value="8"
+              c:identifier="GWEATHER_PHENOMENON_SMALL_HAIL"
+              glib:nick="small-hail"
+              glib:name="GWEATHER_PHENOMENON_SMALL_HAIL">
+      </member>
+      <member name="unknown_precipitation"
+              value="9"
+              c:identifier="GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION"
+              glib:nick="unknown-precipitation"
+              glib:name="GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION">
+      </member>
+      <member name="mist"
+              value="10"
+              c:identifier="GWEATHER_PHENOMENON_MIST"
+              glib:nick="mist"
+              glib:name="GWEATHER_PHENOMENON_MIST">
+      </member>
+      <member name="fog"
+              value="11"
+              c:identifier="GWEATHER_PHENOMENON_FOG"
+              glib:nick="fog"
+              glib:name="GWEATHER_PHENOMENON_FOG">
+      </member>
+      <member name="smoke"
+              value="12"
+              c:identifier="GWEATHER_PHENOMENON_SMOKE"
+              glib:nick="smoke"
+              glib:name="GWEATHER_PHENOMENON_SMOKE">
+      </member>
+      <member name="volcanic_ash"
+              value="13"
+              c:identifier="GWEATHER_PHENOMENON_VOLCANIC_ASH"
+              glib:nick="volcanic-ash"
+              glib:name="GWEATHER_PHENOMENON_VOLCANIC_ASH">
+      </member>
+      <member name="sand"
+              value="14"
+              c:identifier="GWEATHER_PHENOMENON_SAND"
+              glib:nick="sand"
+              glib:name="GWEATHER_PHENOMENON_SAND">
+      </member>
+      <member name="haze"
+              value="15"
+              c:identifier="GWEATHER_PHENOMENON_HAZE"
+              glib:nick="haze"
+              glib:name="GWEATHER_PHENOMENON_HAZE">
+      </member>
+      <member name="spray"
+              value="16"
+              c:identifier="GWEATHER_PHENOMENON_SPRAY"
+              glib:nick="spray"
+              glib:name="GWEATHER_PHENOMENON_SPRAY">
+      </member>
+      <member name="dust"
+              value="17"
+              c:identifier="GWEATHER_PHENOMENON_DUST"
+              glib:nick="dust"
+              glib:name="GWEATHER_PHENOMENON_DUST">
+      </member>
+      <member name="squall"
+              value="18"
+              c:identifier="GWEATHER_PHENOMENON_SQUALL"
+              glib:nick="squall"
+              glib:name="GWEATHER_PHENOMENON_SQUALL">
+      </member>
+      <member name="sandstorm"
+              value="19"
+              c:identifier="GWEATHER_PHENOMENON_SANDSTORM"
+              glib:nick="sandstorm"
+              glib:name="GWEATHER_PHENOMENON_SANDSTORM">
+      </member>
+      <member name="duststorm"
+              value="20"
+              c:identifier="GWEATHER_PHENOMENON_DUSTSTORM"
+              glib:nick="duststorm"
+              glib:name="GWEATHER_PHENOMENON_DUSTSTORM">
+      </member>
+      <member name="funnel_cloud"
+              value="21"
+              c:identifier="GWEATHER_PHENOMENON_FUNNEL_CLOUD"
+              glib:nick="funnel-cloud"
+              glib:name="GWEATHER_PHENOMENON_FUNNEL_CLOUD">
+      </member>
+      <member name="tornado"
+              value="22"
+              c:identifier="GWEATHER_PHENOMENON_TORNADO"
+              glib:nick="tornado"
+              glib:name="GWEATHER_PHENOMENON_TORNADO">
+      </member>
+      <member name="dust_whirls"
+              value="23"
+              c:identifier="GWEATHER_PHENOMENON_DUST_WHIRLS"
+              glib:nick="dust-whirls"
+              glib:name="GWEATHER_PHENOMENON_DUST_WHIRLS">
+      </member>
+      <member name="last"
+              value="24"
+              c:identifier="GWEATHER_PHENOMENON_LAST"
+              glib:nick="last"
+              glib:name="GWEATHER_PHENOMENON_LAST">
+      </member>
+    </enumeration>
+    <enumeration name="ConditionQualifier"
+                 glib:type-name="GWeatherConditionQualifier"
+                 glib:get-type="gweather_qualifier_get_type"
+                 c:type="GWeatherConditionQualifier">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="231">An additional modifier applied to a #GWeatherConditionPhenomenon to
+describe the current or forecasted weather conditions.
+The exact meaning of each qualifier is described at
+http://www.weather.com/glossary/ and
+http://www.crh.noaa.gov/arx/wx.tbl.php</doc>
+      <member name="invalid"
+              value="-1"
+              c:identifier="GWEATHER_QUALIFIER_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_QUALIFIER_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="233">value not available</doc>
+      </member>
+      <member name="none"
+              value="0"
+              c:identifier="GWEATHER_QUALIFIER_NONE"
+              glib:nick="none"
+              glib:name="GWEATHER_QUALIFIER_NONE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="234">no qualifier for the phenomenon</doc>
+      </member>
+      <member name="vicinity"
+              value="1"
+              c:identifier="GWEATHER_QUALIFIER_VICINITY"
+              glib:nick="vicinity"
+              glib:name="GWEATHER_QUALIFIER_VICINITY">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="235">phenomenon happening in the proximity
+                              of the location, not in the actual location</doc>
+      </member>
+      <member name="light"
+              value="2"
+              c:identifier="GWEATHER_QUALIFIER_LIGHT"
+              glib:nick="light"
+              glib:name="GWEATHER_QUALIFIER_LIGHT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="237">phenomenon is light or predicted to be light</doc>
+      </member>
+      <member name="moderate"
+              value="3"
+              c:identifier="GWEATHER_QUALIFIER_MODERATE"
+              glib:nick="moderate"
+              glib:name="GWEATHER_QUALIFIER_MODERATE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="238">phenomenon is moderate or predicted to be
+                              moderate</doc>
+      </member>
+      <member name="heavy"
+              value="4"
+              c:identifier="GWEATHER_QUALIFIER_HEAVY"
+              glib:nick="heavy"
+              glib:name="GWEATHER_QUALIFIER_HEAVY">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="240">phenomenon is heavy or predicted to be heavy</doc>
+      </member>
+      <member name="shallow"
+              value="5"
+              c:identifier="GWEATHER_QUALIFIER_SHALLOW"
+              glib:nick="shallow"
+              glib:name="GWEATHER_QUALIFIER_SHALLOW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="241">shallow fog (only valid with
+                             %GWEATHER_PHENOMENON_FOG)</doc>
+      </member>
+      <member name="patches"
+              value="6"
+              c:identifier="GWEATHER_QUALIFIER_PATCHES"
+              glib:nick="patches"
+              glib:name="GWEATHER_QUALIFIER_PATCHES">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="243">patches of fog (only valid with
+                             %GWEATHER_PHENOMENON_FOG)</doc>
+      </member>
+      <member name="partial"
+              value="7"
+              c:identifier="GWEATHER_QUALIFIER_PARTIAL"
+              glib:nick="partial"
+              glib:name="GWEATHER_QUALIFIER_PARTIAL">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="245">partial fog (only valid with
+                            %GWEATHER_PHENOMENON_FOG)</doc>
+      </member>
+      <member name="thunderstorm"
+              value="8"
+              c:identifier="GWEATHER_QUALIFIER_THUNDERSTORM"
+              glib:nick="thunderstorm"
+              glib:name="GWEATHER_QUALIFIER_THUNDERSTORM">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="247">phenomenon will be a thunderstorm
+                                  and/or will include lightning</doc>
+      </member>
+      <member name="blowing"
+              value="9"
+              c:identifier="GWEATHER_QUALIFIER_BLOWING"
+              glib:nick="blowing"
+              glib:name="GWEATHER_QUALIFIER_BLOWING">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="249">phenomenon is blowing (valid with
+                             %GWEATHER_PHENOMENON_SNOW, %GWEATHER_PHENOMENON_SAND,
+                             %GWEATHER_PHENOMENON_SPRAY, %GWEATHER_PHENOMENON_DUST)</doc>
+      </member>
+      <member name="showers"
+              value="10"
+              c:identifier="GWEATHER_QUALIFIER_SHOWERS"
+              glib:nick="showers"
+              glib:name="GWEATHER_QUALIFIER_SHOWERS">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="252">phenomenon is heavy and involves showers</doc>
+      </member>
+      <member name="drifting"
+              value="11"
+              c:identifier="GWEATHER_QUALIFIER_DRIFTING"
+              glib:nick="drifting"
+              glib:name="GWEATHER_QUALIFIER_DRIFTING">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="253">phenomenon is moving across (valid
+                              with %GWEATHER_PHENOMENON_SAND and
+                              %GWEATHER_PHENOMENON_DUST)</doc>
+      </member>
+      <member name="freezing"
+              value="12"
+              c:identifier="GWEATHER_QUALIFIER_FREEZING"
+              glib:nick="freezing"
+              glib:name="GWEATHER_QUALIFIER_FREEZING">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="256">phenomenon is freezing and involves ice</doc>
+      </member>
+      <member name="last"
+              value="13"
+              c:identifier="GWEATHER_QUALIFIER_LAST"
+              glib:nick="last"
+              glib:name="GWEATHER_QUALIFIER_LAST">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="257">maximum value of the enumeration.</doc>
+      </member>
+    </enumeration>
+    <record name="Conditions" c:type="GWeatherConditions">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="320">A convenient way to describe the current or forecast
+weather phenomenon, if significant, and its associated
+modifier. If the value is not significant, the weather conditions
+are described by gweather_info_get_sky() instead.
+
+In general it is discouraged to use this value directly to compute
+the forecast icon: applications should instead use
+gweather_info_get_icon_name() or
+gweather_info_get_symbolic_icon_name().</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="340"/>
+      <field name="significant" writable="1">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="322">%TRUE if the struct contains usable data, %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="phenomenon" writable="1">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="323">the main weather phenomenon</doc>
+        <type name="ConditionPhenomenon" c:type="GWeatherConditionPhenomenon"/>
+      </field>
+      <field name="qualifier" writable="1">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="324">a modifier for @phenomenon</doc>
+        <type name="ConditionQualifier" c:type="GWeatherConditionQualifier"/>
+      </field>
+      <method name="to_string" c:identifier="gweather_conditions_to_string">
+        <source-position filename="libgweather/gweather-weather.h" line="342"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="conditions" transfer-ownership="none">
+            <type name="Conditions" c:type="GWeatherConditions*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string_full"
+              c:identifier="gweather_conditions_to_string_full">
+        <source-position filename="libgweather/gweather-weather.h" line="343"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="conditions" transfer-ownership="none">
+            <type name="Conditions" c:type="GWeatherConditions*"/>
+          </instance-parameter>
+          <parameter name="options" transfer-ownership="none">
+            <type name="FormatOptions" c:type="GWeatherFormatOptions"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="DistanceUnit"
+                 glib:type-name="GWeatherDistanceUnit"
+                 glib:get-type="gweather_distance_unit_get_type"
+                 c:type="GWeatherDistanceUnit">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-enums.h"
+           line="96">The measure unit to use for sky visibility values, when retrieved
+by gweather_info_get_value_visibility().</doc>
+      <member name="invalid"
+              value="0"
+              c:identifier="GWEATHER_DISTANCE_UNIT_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_DISTANCE_UNIT_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="98">invalid unit</doc>
+      </member>
+      <member name="default"
+              value="1"
+              c:identifier="GWEATHER_DISTANCE_UNIT_DEFAULT"
+              glib:nick="default"
+              glib:name="GWEATHER_DISTANCE_UNIT_DEFAULT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="99">the user preferred distance unit</doc>
+      </member>
+      <member name="meters"
+              value="2"
+              c:identifier="GWEATHER_DISTANCE_UNIT_METERS"
+              glib:nick="meters"
+              glib:name="GWEATHER_DISTANCE_UNIT_METERS">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="100">meters</doc>
+      </member>
+      <member name="km"
+              value="3"
+              c:identifier="GWEATHER_DISTANCE_UNIT_KM"
+              glib:nick="km"
+              glib:name="GWEATHER_DISTANCE_UNIT_KM">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="101">kilometers (= 1000 meters)</doc>
+      </member>
+      <member name="miles"
+              value="4"
+              c:identifier="GWEATHER_DISTANCE_UNIT_MILES"
+              glib:nick="miles"
+              glib:name="GWEATHER_DISTANCE_UNIT_MILES">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="102">miles</doc>
+      </member>
+    </enumeration>
+    <callback name="FilterFunc" c:type="GWeatherFilterFunc">
+      <source-position filename="libgweather/gweather-location.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <bitfield name="FormatOptions"
+              glib:type-name="GWeatherFormatOptions"
+              glib:get-type="gweather_format_options_get_type"
+              c:type="GWeatherFormatOptions">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-enums.h"
+           line="115">Format options to influence the returned string of the
+gweather_*_to_string_full() functions.</doc>
+      <member name="default"
+              value="0"
+              c:identifier="GWEATHER_FORMAT_OPTION_DEFAULT"
+              glib:nick="default"
+              glib:name="GWEATHER_FORMAT_OPTION_DEFAULT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="117">The default string format</doc>
+      </member>
+      <member name="sentence_capitalization"
+              value="1"
+              c:identifier="GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION"
+              glib:nick="sentence-capitalization"
+              glib:name="GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="118">Capitalize as if the string
+                                                 was starting a sentence</doc>
+      </member>
+      <member name="no_capitalization"
+              value="2"
+              c:identifier="GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION"
+              glib:nick="no-capitalization"
+              glib:name="GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="120">Capitalize as if the string was
+                                           appearing within a sentence</doc>
+      </member>
+    </bitfield>
+    <function-macro name="IS_LOCATION_ENTRY"
+                    c:identifier="GWEATHER_IS_LOCATION_ENTRY"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOCATION_ENTRY_CLASS"
+                    c:identifier="GWEATHER_IS_LOCATION_ENTRY_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TIMEZONE_MENU"
+                    c:identifier="GWEATHER_IS_TIMEZONE_MENU"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TIMEZONE_MENU_CLASS"
+                    c:identifier="GWEATHER_IS_TIMEZONE_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Info"
+           c:symbol-prefix="info"
+           c:type="GWeatherInfo"
+           parent="GObject.Object"
+           glib:type-name="GWeatherInfo"
+           glib:get-type="gweather_info_get_type"
+           glib:type-struct="InfoClass">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.c"
+           line="43">#GWeatherInfo provides a handy way to access weather conditions
+and forecasts from a #GWeatherLocation, aggregating multiple
+different web services.
+
+It includes also astronomical data such as sunrise times and
+moon phases.</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="53"/>
+      <constructor name="new" c:identifier="gweather_info_new">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2452">Builds a new #GWeatherInfo that will provide weather information about
+@location.
+
+Since version 40, this does not automatically call gweather_info_update().
+gweather_info_update() must be called manually once all the necessary set up
+has been made, such as setting the enabled providers.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2463">a new #GWeatherInfo</doc>
+          <type name="Info" c:type="GWeatherInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2454">the desidered #GWeatherLocation (%NULL for default)</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="store_cache" c:identifier="gweather_info_store_cache">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="660">Ensures that any data cached from the network is stored to disk.
+Calling this is not necessary, as the cache will be saved when
+the last reference to a #GWeatherInfo will be dropped.
+On the other hand, it must be called if there is any chance that
+the application will be closed without unreffing all objects, such
+as when using a language binding that employs a GC.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+      <method name="abort" c:identifier="gweather_info_abort">
+        <source-position filename="libgweather/gweather-weather.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_apparent" c:identifier="gweather_info_get_apparent">
+        <source-position filename="libgweather/gweather-weather.h" line="91"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application_id"
+              c:identifier="gweather_info_get_application_id"
+              glib:get-property="application-id">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2231">Get the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+of the application fetching the weather.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2238">the application ID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2233">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_attribution"
+              c:identifier="gweather_info_get_attribution">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="1359">Some weather services require the application showing the
+data to include an attribution text, possibly including links
+to the service website.
+This must be shown prominently toghether with the data.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1368">the required attribution text, in Pango
+         markup form, or %NULL if not required</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1361">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_conditions"
+              c:identifier="gweather_info_get_conditions">
+        <source-position filename="libgweather/gweather-weather.h" line="81"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_contact_info"
+              c:identifier="gweather_info_get_contact_info"
+              glib:get-property="contact-info">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2276">Get the contact information of the application fetching the weather.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2282">the contact information</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2278">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dew" c:identifier="gweather_info_get_dew">
+        <source-position filename="libgweather/gweather-weather.h" line="86"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled_providers"
+              c:identifier="gweather_info_get_enabled_providers"
+              glib:get-property="enabled-providers">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2183">Gets the bitmask of enabled #GWeatherProvider weather
+providers.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="Provider" c:type="GWeatherProvider"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2185">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_forecast_list"
+              c:identifier="gweather_info_get_forecast_list">
+        <source-position filename="libgweather/gweather-weather.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1329">list
+of GWeatherInfo* objects for the forecast.
+The list is owned by the 'info' object thus is alive as long
+as the 'info'. The 'update' property is the date/time when the
+forecast info is used for.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="Info"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1327">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_humidity" c:identifier="gweather_info_get_humidity">
+        <source-position filename="libgweather/gweather-weather.h" line="87"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name" c:identifier="gweather_info_get_icon_name">
+        <source-position filename="libgweather/gweather-weather.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location"
+              c:identifier="gweather_info_get_location"
+              glib:get-property="location">
+        <source-position filename="libgweather/gweather-weather.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="Location" c:type="const GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location_name"
+              c:identifier="gweather_info_get_location_name">
+        <source-position filename="libgweather/gweather-weather.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pressure" c:identifier="gweather_info_get_pressure">
+        <source-position filename="libgweather/gweather-weather.h" line="89"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_radar" c:identifier="gweather_info_get_radar">
+        <source-position filename="libgweather/gweather-weather.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1350">what?</doc>
+          <type name="GdkPixbuf.PixbufAnimation" c:type="GdkPixbufAnimation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1348">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sky" c:identifier="gweather_info_get_sky">
+        <source-position filename="libgweather/gweather-weather.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sunrise" c:identifier="gweather_info_get_sunrise">
+        <source-position filename="libgweather/gweather-weather.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sunset" c:identifier="gweather_info_get_sunset">
+        <source-position filename="libgweather/gweather-weather.h" line="93"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_symbolic_icon_name"
+              c:identifier="gweather_info_get_symbolic_icon_name">
+        <source-position filename="libgweather/gweather-weather.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_temp" c:identifier="gweather_info_get_temp">
+        <source-position filename="libgweather/gweather-weather.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_temp_max" c:identifier="gweather_info_get_temp_max">
+        <source-position filename="libgweather/gweather-weather.h" line="85"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_temp_min" c:identifier="gweather_info_get_temp_min">
+        <source-position filename="libgweather/gweather-weather.h" line="84"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_temp_summary"
+              c:identifier="gweather_info_get_temp_summary">
+        <source-position filename="libgweather/gweather-weather.h" line="98"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_upcoming_moonphases"
+              c:identifier="gweather_info_get_upcoming_moonphases">
+        <source-position filename="libgweather/gweather-weather.h" line="316"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/weather-moon.c"
+               line="214">gboolean indicating success or failure</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/weather-moon.c"
+                 line="208">a #GWeatherInfo containing the time_t of interest</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="phases"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/weather-moon.c"
+                 line="209">An array of four
+   time_t values that will hold the returned values.
+   The values are estimates of the time of the next new, quarter, full and
+   three-quarter moons.</doc>
+            <array zero-terminated="0" c:type="time_t*" fixed-size="4">
+              <type name="gulong"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_update" c:identifier="gweather_info_get_update">
+        <source-position filename="libgweather/gweather-weather.h" line="79"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value_apparent"
+              c:identifier="gweather_info_get_value_apparent">
+        <source-position filename="libgweather/gweather-weather.h" line="309"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1921">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1917">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1918">the desired unit, as a #GWeatherTemperatureUnit</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1919">the apparent temperature</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_conditions"
+              c:identifier="gweather_info_get_value_conditions">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="1794">Fills out @phenomenon and @qualifier with current weather conditions.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="304"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1801">TRUE is out arguments are valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1796">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="phenomenon"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1797">a location for a #GWeatherConditionPhenomenon.</doc>
+            <type name="ConditionPhenomenon"
+                  c:type="GWeatherConditionPhenomenon*"/>
+          </parameter>
+          <parameter name="qualifier"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1798">a location for a #GWeatherConditionQualifier.</doc>
+            <type name="ConditionQualifier"
+                  c:type="GWeatherConditionQualifier*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_dew" c:identifier="gweather_info_get_value_dew">
+        <source-position filename="libgweather/gweather-weather.h" line="308"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1894">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1890">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1891">the desired unit, as a #GWeatherTemperatureUnit</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1892">the dew point</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_moonphase"
+              c:identifier="gweather_info_get_value_moonphase">
+        <source-position filename="libgweather/gweather-weather.h" line="315"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2010">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2006">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2007">the current moon phase</doc>
+            <type name="MoonPhase" c:type="GWeatherMoonPhase*"/>
+          </parameter>
+          <parameter name="lat"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2008">the moon declension</doc>
+            <type name="MoonLatitude" c:type="GWeatherMoonLatitude*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_pressure"
+              c:identifier="gweather_info_get_value_pressure">
+        <source-position filename="libgweather/gweather-weather.h" line="311"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2071">TRUE if @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2067">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2068">the desired unit, as a #GWeatherPressureUnit</doc>
+            <type name="PressureUnit" c:type="GWeatherPressureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2069">forecasted pressure, expressed in @unit</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_sky" c:identifier="gweather_info_get_value_sky">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="1769">Fills out @sky with current sky conditions.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="303"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1775">TRUE is @sky is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1771">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="sky"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1772">a location for a #GWeatherSky.</doc>
+            <type name="Sky" c:type="GWeatherSky*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_sunrise"
+              c:identifier="gweather_info_get_value_sunrise">
+        <source-position filename="libgweather/gweather-weather.h" line="313"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1963">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1960">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1961">the time of sunrise</doc>
+            <type name="gulong" c:type="time_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_sunset"
+              c:identifier="gweather_info_get_value_sunset">
+        <source-position filename="libgweather/gweather-weather.h" line="314"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1986">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1983">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1984">the time of sunset</doc>
+            <type name="gulong" c:type="time_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_temp"
+              c:identifier="gweather_info_get_value_temp">
+        <source-position filename="libgweather/gweather-weather.h" line="305"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1834">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1830">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1831">the desired unit, as a #GWeatherTemperatureUnit</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1832">the temperature value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_temp_max"
+              c:identifier="gweather_info_get_value_temp_max">
+        <source-position filename="libgweather/gweather-weather.h" line="307"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1874">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1870">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1871">the desired unit, as a #GWeatherTemperatureUnit</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1872">the maximum temperature value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_temp_min"
+              c:identifier="gweather_info_get_value_temp_min">
+        <source-position filename="libgweather/gweather-weather.h" line="306"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1854">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1850">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1851">the desired unit, as a #GWeatherTemperatureUnit</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1852">the minimum temperature value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_update"
+              c:identifier="gweather_info_get_value_update">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="1935">Note that @value may be 0 if @info has not yet been updated.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="302"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1942">TRUE is @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1937">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1938">the time @info was last updated</doc>
+            <type name="glong" c:type="time_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_visibility"
+              c:identifier="gweather_info_get_value_visibility">
+        <source-position filename="libgweather/gweather-weather.h" line="312"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2093">TRUE if @value is valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2089">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2090">the desired unit, as a #GWeatherDistanceUnit</doc>
+            <type name="DistanceUnit" c:type="GWeatherDistanceUnit"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2091">forecasted visibility, expressed in @unit</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_wind"
+              c:identifier="gweather_info_get_value_wind">
+        <source-position filename="libgweather/gweather-weather.h" line="310"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="2039">TRUE if @speed and @direction are valid, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2034">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2035">the desired unit, as a #GWeatherSpeedUnit</doc>
+            <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
+          </parameter>
+          <parameter name="speed"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2036">forecasted wind speed</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="direction"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2037">forecasted wind direction</doc>
+            <type name="WindDirection" c:type="GWeatherWindDirection*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_visibility"
+              c:identifier="gweather_info_get_visibility">
+        <source-position filename="libgweather/gweather-weather.h" line="90"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_weather_summary"
+              c:identifier="gweather_info_get_weather_summary">
+        <source-position filename="libgweather/gweather-weather.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1394">a summary for current weather conditions.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1392">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_wind" c:identifier="gweather_info_get_wind">
+        <source-position filename="libgweather/gweather-weather.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_daytime" c:identifier="gweather_info_is_daytime">
+        <source-position filename="libgweather/gweather-weather.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1422">Whether it is daytime (that is, if the sun is visible)
+  or not at the location and the point of time referred by @info.
+  This is mostly equivalent to comparing the return value
+  of gweather_info_get_value_sunrise() and
+  gweather_info_get_value_sunset(), but it accounts also
+  for midnight sun and polar night, for locations within
+  the Artic and Antartic circles.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1420">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_valid" c:identifier="gweather_info_is_valid">
+        <source-position filename="libgweather/gweather-weather.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="network_error" c:identifier="gweather_info_network_error">
+        <source-position filename="libgweather/gweather-weather.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_sun_event"
+              c:identifier="gweather_info_next_sun_event">
+        <source-position filename="libgweather/gweather-weather.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_application_id"
+              c:identifier="gweather_info_set_application_id"
+              glib:set-property="application-id">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2248">Sets the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+of the application fetching the weather. It is a requirement
+for using any of the online weather providers.
+
+If the application uses #GApplication, then the application ID
+will be automatically filled in.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2250">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="application_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2251">the application ID to set</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_contact_info"
+              c:identifier="gweather_info_set_contact_info"
+              glib:set-property="contact-info">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2292">Sets the contact information for the application fetching the
+weather. It is a requirement for using any of the online
+weather providers as it allows API providers to contact application
+developers in case of terms of use breaches.
+
+The contact information should be an email address, or the full
+URL to an online contact form which weather providers can use
+to contact the application developer. Avoid using bug tracker
+URLs which require creating accounts.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2294">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="contact_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2295">the contact information for the application</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled_providers"
+              c:identifier="gweather_info_set_enabled_providers"
+              glib:set-property="enabled-providers">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2199">Sets the enabled providers for fetching the weather. Note
+that it is up to the application developer to make sure that
+the terms of use for each service are respected.
+
+Online providers will not be enabled if the application ID is
+not set to a valid value.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2201">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="providers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2202">a bitmask of #GWeatherProvider</doc>
+            <type name="Provider" c:type="GWeatherProvider"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_location"
+              c:identifier="gweather_info_set_location"
+              glib:set-property="location">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2164">Changes @info to report weather for @location.
+Note that this will clear any forecast or current conditions from
+@info, you must call gweather_info_update() to obtain the new data.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2166">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+          <parameter name="location"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="2167">a location for which weather is desired</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update" c:identifier="gweather_info_update">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="682">Requests a reload of weather conditions and forecast data from
+enabled network services.
+This call does no synchronous IO: rather, the result is delivered
+by emitting the #GWeatherInfo::updated signal.
+Note that if no network services are enabled, the signal will not
+be emitted. See #GWeatherInfo:enabled-providers for details.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="684">a #GWeatherInfo</doc>
+            <type name="Info" c:type="GWeatherInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="application-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_application_id"
+                getter="get_application_id">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="contact-info"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_contact_info"
+                getter="get_contact_info">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="enabled-providers"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enabled_providers"
+                getter="get_enabled_providers">
+        <type name="Provider"/>
+      </property>
+      <property name="location"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_location"
+                getter="get_location">
+        <type name="Location"/>
+      </property>
+      <glib:signal name="updated" when="first">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="2432">This signal is emitted after the initial fetch of the weather
+data from upstream services, and after every successful call
+to @gweather_info_update().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="InfoClass"
+            c:type="GWeatherInfoClass"
+            glib:is-gtype-struct-for="Info">
+      <source-position filename="libgweather/gweather-weather.h" line="53"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="LOCATION_ENTRY"
+                    c:identifier="GWEATHER_LOCATION_ENTRY"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOCATION_ENTRY_CLASS"
+                    c:identifier="GWEATHER_LOCATION_ENTRY_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOCATION_ENTRY_GET_CLASS"
+                    c:identifier="GWEATHER_LOCATION_ENTRY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="LOCATION_ENTRY_H"
+              value="1"
+              c:type="GWEATHER_LOCATION_ENTRY_H">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="22"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="Location"
+            c:type="GWeatherLocation"
+            glib:type-name="GWeatherLocation"
+            glib:get-type="gweather_location_get_type"
+            c:symbol-prefix="location">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-location.c"
+           line="54">A #GWeatherLocation represents a "location" of some type known to
+libgweather; anything from a single weather station to the entire
+world. See #GWeatherLocationLevel for information about how the
+hierarchy of locations works.</doc>
+      <source-position filename="libgweather/gweather-location.h" line="34"/>
+      <constructor name="new_detached"
+                   c:identifier="gweather_location_new_detached">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1824">Construct a new location from the given data, supplementing
+any missing information from the static database.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="118"/>
+        <return-value transfer-ownership="full">
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1826">the user visible location name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="icao"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1827">the ICAO code of the location</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="latitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1828">the latitude of the location</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="longitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1829">the longitude of the location</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="deserialize" c:identifier="gweather_location_deserialize">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1782">This call undoes the effect of gweather_location_serialize(), that
+is, it turns a #GVariant into a #GWeatherLocation. The conversion
+happens in the context of @world (i.e, for a city or weather station,
+the resulting location will be attached to a administrative division,
+country and region as appropriate).</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="115"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1793">the deserialized location.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="world" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1784">a world-level #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="serialized" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1785">the #GVariant representing the #GWeatherLocation</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="detect_nearest_city"
+              c:identifier="gweather_location_detect_nearest_city"
+              version="3.12">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="922">Initializes geocode reversing to find place for (@lat, @lon) coordinates. Calls the callback
+function passed by user when the result is ready.
+
+@loc must be at most a %GWEATHER_LOCATION_ADM1 location.
+This restriction may be lifted in a future version.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="924">The parent location, which will be searched recursively</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="925">Latitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="lon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="926">Longitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="927">optional, NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="928">callback function for GAsyncReadyCallback argument for GAsyncResult</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="929">user data passed to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="gweather_location_equal">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1422">Compares two #GWeatherLocation and sees if they represent the same
+place.
+It is only legal to call this for cities, weather stations or
+detached locations.
+Note that this function only checks for geographical characteristics,
+such as coordinates and METAR code. It is still possible that the two
+locations belong to different worlds (in which case care must be
+taken when passing them GWeatherLocationEntry and GWeatherInfo), or
+if one is them is detached it could have a custom name.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1437">%TRUE if the two locations represent the same place as
+         far as libgweather can tell, and %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="one" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1424">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="two" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1425">another #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_by_country_code"
+              c:identifier="gweather_location_find_by_country_code">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1393">Retrieves the country identified by the specified ISO 3166 code,
+if present in the database.
+
+Prior to version 40 no reference was returned.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="108"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1403">a country level #GWeatherLocation, or %NULL.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="world" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1395">a #GWeatherLocation at the world</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="country_code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1396">a country code</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_by_station_code"
+              c:identifier="gweather_location_find_by_station_code">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1359">Retrieves the weather station identifier by @station_code.
+Note that multiple instances of the same weather station can exist
+in the database, and this function will return any of them, so this
+not usually what you want.
+
+See gweather_location_deserialize() to recover a stored #GWeatherLocation.
+
+Prior to version 40 no reference was returned.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="106"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1373">a weather station level #GWeatherLocation for @station_code,
+         or %NULL if none exists in the database.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="world" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1361">a #GWeatherLocation at the world level</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="station_code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1362">a 4 letter METAR code</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_nearest_city"
+              c:identifier="gweather_location_find_nearest_city"
+              version="3.12">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="772">Finds the nearest city to the passed latitude and
+longitude, among the descendants of @loc.
+
+@loc must be at most a %GWEATHER_LOCATION_ADM1 location.
+This restriction may be lifted in a future version.
+
+Note that this function does not check if (@lat, @lon) fall inside
+@loc, or are in the same region and timezone as the return value.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="787">the city closest to (@lat, @lon), in the
+         region or administrative district of @loc.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="774">The parent location, which will be searched recursively</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="775">Latitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="lon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="776">Longitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_nearest_city_full"
+              c:identifier="gweather_location_find_nearest_city_full"
+              version="3.12">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="821">Finds the nearest city to the passed latitude and
+longitude, among the descendants of @loc.
+
+Supports the use of own filter function to filter out locations.
+Geocoding should be done on the application side if needed.
+
+@loc must be at most a %GWEATHER_LOCATION_ADM1 location.
+This restriction may be lifted in a future version.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="79"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="840">the city closest to (@lat, @lon), in the
+         region or administrative district of @loc with validation of filter function.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="823">The parent location, which will be searched recursively</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="824">Latitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="lon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="825">Longitude, in degrees</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="notified"
+                     closure="3"
+                     destroy="4">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="826">returns true to continue check for
+                                      the location and false to filter the location out</doc>
+            <type name="FilterFunc" c:type="GWeatherFilterFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="828">for customization</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="829">to destroy user_data</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free_timezones"
+              c:identifier="gweather_location_free_timezones">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1199">Frees the array of timezones returned by
+gweather_location_get_timezones().</doc>
+        <source-position filename="libgweather/gweather-location.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1201">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="zones" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1202">an array returned from gweather_location_get_timezones()</doc>
+            <type name="Timezone" c:type="GWeatherTimezone**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_children"
+              c:identifier="gweather_location_get_children"
+              deprecated="1"
+              deprecated-version="40.">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="645">Gets an array of @loc's children; this is owned by @loc and will
+not remain valid if @loc is freed.</doc>
+        <doc-deprecated xml:space="preserve">Use gweather_location_next_child() instead to avoid high
+memory consumption</doc-deprecated>
+        <source-position filename="libgweather/gweather-location.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="652">@loc's
+children. (May be empty, but will not be %NULL.)</doc>
+          <array c:type="GWeatherLocation**">
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="647">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_city_name"
+              c:identifier="gweather_location_get_city_name">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1244">For a %GWEATHER_LOCATION_CITY or %GWEATHER_LOCATION_DETACHED location,
+this is equivalent to gweather_location_get_name().
+For a %GWEATHER_LOCATION_WEATHER_STATION location, it is equivalent to
+calling gweather_location_get_name() on the location's parent. For
+other locations it will return %NULL.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="103"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1254">@loc's city name, or %NULL</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1246">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_code" c:identifier="gweather_location_get_code">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1221">Gets the METAR station code associated with a
+%GWEATHER_LOCATION_WEATHER_STATION location.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="102"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1228">@loc's METAR station code, or %NULL</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1223">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_coords" c:identifier="gweather_location_get_coords">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1013">Gets @loc's coordinates; you must check
+gweather_location_has_coords() before calling this.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1015">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="latitude"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1016">on return will contain @loc's latitude</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="longitude"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1017">on return will contain @loc's longitude</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_country" c:identifier="gweather_location_get_country">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1057">Gets the ISO 3166 country code of @loc (or %NULL if @loc is a
+region- or world-level location)</doc>
+        <source-position filename="libgweather/gweather-location.h" line="94"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1064">@loc's country code (or %NULL if @loc
+is a region- or world-level location)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1059">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_country_name"
+              c:identifier="gweather_location_get_country_name">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1278">Gets the country name of loc.
+For a %GWEATHER_LOCATION_COUNTRY location, this is equivalent to
+gweather_location_get_name().
+For a %GWEATHER_LOCATION_REGION and GWEATHER_LOCATION_WORLD location it
+will return %NULL.
+For other locations it will find the parent %GWEATHER_LOCATION_COUNTRY
+and return its name.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="104"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1290">@loc's country name, or %NULL</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1280">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_distance"
+              c:identifier="gweather_location_get_distance">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1035">Determines the distance in kilometers between @loc and @loc2.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1042">the distance between @loc and @loc2.</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1037">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="loc2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1038">a second #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_english_name"
+              c:identifier="gweather_location_get_english_name"
+              version="3.36">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="404">Gets @loc's English name.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="410">@loc's English name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="406">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_english_sort_name"
+              c:identifier="gweather_location_get_english_sort_name"
+              version="3.38">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="427">Gets @loc's english "sort name", which is the english name after having
+g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
+called on it. You can use this to sort locations, or to comparing
+user input against a location name.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="436">@loc's English name for sorting</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="429">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_level" c:identifier="gweather_location_get_level">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="459">Gets @loc's level, from %GWEATHER_LOCATION_WORLD, to
+%GWEATHER_LOCATION_WEATHER_STATION.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="466">@loc's level</doc>
+          <type name="LocationLevel" c:type="GWeatherLocationLevel"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="461">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gweather_location_get_name">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="339">Gets @loc's name, localized into the current language.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="345">@loc's name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="341">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gweather_location_get_parent">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="511">Gets @loc's parent location.
+
+Prior to version 40 no reference was returned.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="63"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="519">@loc's parent, or %NULL
+if @loc is a %GWEATHER_LOCATION_WORLD node.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="513">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sort_name"
+              c:identifier="gweather_location_get_sort_name">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="373">Gets @loc's "sort name", which is the name after having
+g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
+called on it. You can use this to sort locations, or to comparing
+user input against a location name.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="382">@loc's sort name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="375">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timezone"
+              c:identifier="gweather_location_get_timezone">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1087">Gets the timezone associated with @loc, if known.
+
+The timezone is owned either by @loc or by one of its parents.
+FIXME.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="96"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1096">@loc's timezone, or
+%NULL</doc>
+          <type name="Timezone" c:type="GWeatherTimezone*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1089">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timezone_str"
+              c:identifier="gweather_location_get_timezone_str">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1119">Gets the timezone associated with @loc, if known, as a string.
+
+The timezone string is owned either by @loc or by one of its
+parents, do not free it.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="97"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1128">@loc's timezone as
+a string, or %NULL</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1121">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timezones"
+              c:identifier="gweather_location_get_timezones">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1175">Gets an array of all timezones associated with any location under
+@loc. You can use gweather_location_free_timezones() to free this
+array.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="98"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1183">an array
+of timezones. May be empty but will not be %NULL.</doc>
+          <array c:type="GWeatherTimezone**">
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1177">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_coords" c:identifier="gweather_location_has_coords">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="998">Checks if @loc has valid latitude and longitude.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1004">%TRUE if @loc has valid latitude and longitude.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1000">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_child"
+              c:identifier="gweather_location_next_child"
+              version="40">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="543">Allows iterating all children. Pass %NULL to get the first child,
+and any child to get the next one. Note that the reference to @child
+is taken, meaning iterating all children is as simple as:
+
+|[&lt;!-- language="C" --&gt;
+  g_autoptr(GWeatherLocation) child = NULL;
+  while ((child = gweather_location_next_child (location, child)))
+    {
+       // Do something with child
+    }
+]|</doc>
+        <source-position filename="libgweather/gweather-location.h" line="65"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="560">The next child, or %NULL</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="545">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+          <parameter name="child"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="546">The child</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="gweather_location_ref">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="265">Adds 1 to @loc's reference count.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="271">@loc</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="267">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize" c:identifier="gweather_location_serialize">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="1756">Transforms a #GWeatherLocation into a #GVariant, in a way that
+calling gweather_location_deserialize() will hold an equivalent
+#GWeatherLocation.
+The resulting variant can then be stored into GSettings or on disk.
+This call is only valid for cities, weather stations and detached
+locations.
+The format of the resulting #GVariant is private to libgweather,
+and it is subject to change. You should use the "v" format in GSettings,
+to ensure maximum compatibility with future versions of the library.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="1770">the serialization of @location.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="1758">a city, weather station or detached #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="gweather_location_unref">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="282">Subtracts 1 from @loc's reference count, and frees it if the
+reference count reaches 0.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="284">a #GWeatherLocation</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="detect_nearest_city_finish"
+                c:identifier="gweather_location_detect_nearest_city_finish"
+                throws="1">
+        <source-position filename="libgweather/gweather-location.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_world" c:identifier="gweather_location_get_world">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="189">Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
+representing a hierarchy containing all of the locations from
+Locations.xml.
+
+Prior to version 40 no reference was returned.</doc>
+        <source-position filename="libgweather/gweather-location.h" line="52"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="198">a %GWEATHER_LOCATION_WORLD
+location, or %NULL if Locations.xml could not be found or could not be parsed.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+      </function>
+    </record>
+    <class name="LocationEntry"
+           c:symbol-prefix="location_entry"
+           c:type="GWeatherLocationEntry"
+           parent="Gtk.SearchEntry"
+           glib:type-name="GWeatherLocationEntry"
+           glib:get-type="gweather_location_entry_get_type"
+           glib:type-struct="LocationEntryClass">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-location-entry.c"
+           line="32">A subclass of #GtkSearchEntry that provides autocompletion on
+#GWeatherLocation&lt;!-- --&gt;s</doc>
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="51"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.CellEditable"/>
+      <implements name="Gtk.Editable"/>
+      <constructor name="new" c:identifier="gweather_location_entry_new">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location-entry.c"
+             line="862">Creates a new #GWeatherLocationEntry.
+
+@top will normally be the location returned from
+gweather_location_get_world(), but you can create an entry that
+only accepts a smaller set of locations if you want.</doc>
+        <source-position filename="libgweather/gweather-location-entry.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location-entry.c"
+               line="872">the new #GWeatherLocationEntry</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="top" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="864">the top-level location for the entry.</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_location"
+              c:identifier="gweather_location_entry_get_location"
+              glib:get-property="location">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location-entry.c"
+             line="405">Gets the location that was set by a previous call to
+gweather_location_entry_set_location() or was selected by the user.</doc>
+        <source-position filename="libgweather/gweather-location-entry.h"
+                         line="57"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location-entry.c"
+               line="412">the selected location
+(which you must unref when you are done with it), or %NULL if no
+location is selected.</doc>
+          <type name="Location" c:type="GWeatherLocation*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="407">a #GWeatherLocationEntry</doc>
+            <type name="LocationEntry" c:type="GWeatherLocationEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_custom_text"
+              c:identifier="gweather_location_entry_has_custom_text">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location-entry.c"
+             line="427">Checks whether or not @entry's text has been modified by the user.
+Note that this does not mean that no location is associated with @entry.
+gweather_location_entry_get_location() should be used for this.</doc>
+        <source-position filename="libgweather/gweather-location-entry.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location-entry.c"
+               line="435">%TRUE if @entry's text was modified by the user, or %FALSE if
+it's set to the default text of a location.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="429">a #GWeatherLocationEntry</doc>
+            <type name="LocationEntry" c:type="GWeatherLocationEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_city" c:identifier="gweather_location_entry_set_city">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location-entry.c"
+             line="446">Sets @entry's location to a city with the given @code, and given
+@city_name, if non-%NULL. If there is no matching city, sets
+@entry's location to %NULL.</doc>
+        <source-position filename="libgweather/gweather-location-entry.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location-entry.c"
+               line="456">%TRUE if @entry's location could be set to a matching city,
+%FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="448">a #GWeatherLocationEntry</doc>
+            <type name="LocationEntry" c:type="GWeatherLocationEntry*"/>
+          </instance-parameter>
+          <parameter name="city_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="449">the city name, or %NULL</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="450">the METAR station code</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_location"
+              c:identifier="gweather_location_entry_set_location"
+              glib:set-property="location">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location-entry.c"
+             line="358">Sets @entry's location to @loc, and updates the text of the
+entry accordingly.
+Note that if the database contains a location that compares
+equal to @loc, that will be chosen in place of @loc.</doc>
+        <source-position filename="libgweather/gweather-location-entry.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="360">a #GWeatherLocationEntry</doc>
+            <type name="LocationEntry" c:type="GWeatherLocationEntry*"/>
+          </instance-parameter>
+          <parameter name="loc"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location-entry.c"
+                 line="361">a #GWeatherLocation in @entry, or %NULL to
+clear @entry</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="location"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_location"
+                getter="get_location">
+        <type name="Location"/>
+      </property>
+      <property name="show-named-timezones"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="top"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Location"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.SearchEntry" c:type="GtkSearchEntry"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="LocationEntryPrivate"
+              c:type="GWeatherLocationEntryPrivate*"/>
+      </field>
+    </class>
+    <record name="LocationEntryClass"
+            c:type="GWeatherLocationEntryClass"
+            glib:is-gtype-struct-for="LocationEntry">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="51"/>
+      <field name="parent_class">
+        <type name="Gtk.SearchEntryClass" c:type="GtkSearchEntryClass"/>
+      </field>
+    </record>
+    <record name="LocationEntryPrivate"
+            c:type="GWeatherLocationEntryPrivate"
+            disguised="1">
+      <source-position filename="libgweather/gweather-location-entry.h"
+                       line="33"/>
+    </record>
+    <enumeration name="LocationLevel"
+                 glib:type-name="GWeatherLocationLevel"
+                 glib:get-type="gweather_location_level_get_type"
+                 c:type="GWeatherLocationLevel">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-location.c"
+           line="64">The size/scope of a particular #GWeatherLocation.
+
+Locations form a hierarchy, with a %GWEATHER_LOCATION_WORLD
+location at the top, divided into regions or countries, and so on.
+Countries may or may not be divided into "adm1"s, and "adm1"s may
+or may not be divided into "adm2"s. A city will have at least one,
+and possibly several, weather stations inside it. Weather stations
+will never appear outside of cities.
+
+Building a database with gweather_location_get_world() will never
+create detached instances, but deserializing might.</doc>
+      <member name="world"
+              value="0"
+              c:identifier="GWEATHER_LOCATION_WORLD"
+              glib:nick="world"
+              glib:name="GWEATHER_LOCATION_WORLD">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="66">A location representing the entire world.</doc>
+      </member>
+      <member name="region"
+              value="1"
+              c:identifier="GWEATHER_LOCATION_REGION"
+              glib:nick="region"
+              glib:name="GWEATHER_LOCATION_REGION">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="67">A location representing a continent or
+other top-level region.</doc>
+      </member>
+      <member name="country"
+              value="2"
+              c:identifier="GWEATHER_LOCATION_COUNTRY"
+              glib:nick="country"
+              glib:name="GWEATHER_LOCATION_COUNTRY">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="69">A location representing a "country" (or
+other geographic unit that has an ISO-3166 country code)</doc>
+      </member>
+      <member name="adm1"
+              value="3"
+              c:identifier="GWEATHER_LOCATION_ADM1"
+              glib:nick="adm1"
+              glib:name="GWEATHER_LOCATION_ADM1">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="71">A location representing a "first-level
+administrative division"; ie, a state, province, or similar
+division.</doc>
+      </member>
+      <member name="city"
+              value="4"
+              c:identifier="GWEATHER_LOCATION_CITY"
+              glib:nick="city"
+              glib:name="GWEATHER_LOCATION_CITY">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="74">A location representing a city</doc>
+      </member>
+      <member name="weather_station"
+              value="5"
+              c:identifier="GWEATHER_LOCATION_WEATHER_STATION"
+              glib:nick="weather-station"
+              glib:name="GWEATHER_LOCATION_WEATHER_STATION">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="75">A location representing a
+weather station.</doc>
+      </member>
+      <member name="detached"
+              value="6"
+              c:identifier="GWEATHER_LOCATION_DETACHED"
+              glib:nick="detached"
+              glib:name="GWEATHER_LOCATION_DETACHED">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="77">A location that is detached from the
+database, for example because it was loaded from external storage
+and could not be fully recovered. The parent of this location is
+the nearest weather station.</doc>
+      </member>
+      <member name="named_timezone"
+              value="7"
+              c:identifier="GWEATHER_LOCATION_NAMED_TIMEZONE"
+              glib:nick="named-timezone"
+              glib:name="GWEATHER_LOCATION_NAMED_TIMEZONE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="81">A location representing a named
+or special timezone in the world, such as UTC</doc>
+      </member>
+      <function name="to_string"
+                c:identifier="gweather_location_level_to_string">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="475">Returns the location level as a string, useful for debugging
+purposes.</doc>
+        <source-position filename="libgweather/gweather-location.h"
+                         line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="482">a string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-location.c"
+                 line="477">a #GWeatherLocationLevel</doc>
+            <type name="LocationLevel" c:type="GWeatherLocationLevel"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <enumeration name="PressureUnit"
+                 glib:type-name="GWeatherPressureUnit"
+                 glib:get-type="gweather_pressure_unit_get_type"
+                 c:type="GWeatherPressureUnit">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-enums.h"
+           line="70">The measure unit to use for atmospheric pressure values, when
+retrieved by gweather_info_get_value_pressure().</doc>
+      <member name="invalid"
+              value="0"
+              c:identifier="GWEATHER_PRESSURE_UNIT_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_PRESSURE_UNIT_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="72">invalid unit</doc>
+      </member>
+      <member name="default"
+              value="1"
+              c:identifier="GWEATHER_PRESSURE_UNIT_DEFAULT"
+              glib:nick="default"
+              glib:name="GWEATHER_PRESSURE_UNIT_DEFAULT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="73">the user preferred pressure unit</doc>
+      </member>
+      <member name="kpa"
+              value="2"
+              c:identifier="GWEATHER_PRESSURE_UNIT_KPA"
+              glib:nick="kpa"
+              glib:name="GWEATHER_PRESSURE_UNIT_KPA">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="74">kiloPascal (* 10^3 Pa)</doc>
+      </member>
+      <member name="hpa"
+              value="3"
+              c:identifier="GWEATHER_PRESSURE_UNIT_HPA"
+              glib:nick="hpa"
+              glib:name="GWEATHER_PRESSURE_UNIT_HPA">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="75">hectoPascal (* 10^2 Pa); also known
+                             as millibars, but formatted differently</doc>
+      </member>
+      <member name="mb"
+              value="4"
+              c:identifier="GWEATHER_PRESSURE_UNIT_MB"
+              glib:nick="mb"
+              glib:name="GWEATHER_PRESSURE_UNIT_MB">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="77">millibars; same as %GWEATHER_PRESSURE_UNIT_HPA</doc>
+      </member>
+      <member name="mm_hg"
+              value="5"
+              c:identifier="GWEATHER_PRESSURE_UNIT_MM_HG"
+              glib:nick="mm-hg"
+              glib:name="GWEATHER_PRESSURE_UNIT_MM_HG">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="78">millimeters of mercury</doc>
+      </member>
+      <member name="inch_hg"
+              value="6"
+              c:identifier="GWEATHER_PRESSURE_UNIT_INCH_HG"
+              glib:nick="inch-hg"
+              glib:name="GWEATHER_PRESSURE_UNIT_INCH_HG">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="79">inches of mercury</doc>
+      </member>
+      <member name="atm"
+              value="7"
+              c:identifier="GWEATHER_PRESSURE_UNIT_ATM"
+              glib:nick="atm"
+              glib:name="GWEATHER_PRESSURE_UNIT_ATM">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="80">atmospheres</doc>
+      </member>
+    </enumeration>
+    <bitfield name="Provider"
+              glib:type-name="GWeatherProvider"
+              glib:get-type="gweather_provider_get_type"
+              c:type="GWeatherProvider">
+      <member name="none"
+              value="0"
+              c:identifier="GWEATHER_PROVIDER_NONE"
+              glib:nick="none"
+              glib:name="GWEATHER_PROVIDER_NONE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="34">no provider, no weather information available</doc>
+      </member>
+      <member name="metar"
+              value="1"
+              c:identifier="GWEATHER_PROVIDER_METAR"
+              glib:nick="metar"
+              glib:name="GWEATHER_PROVIDER_METAR">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="35">METAR office, providing current conditions worldwide</doc>
+      </member>
+      <member name="iwin"
+              value="4"
+              c:identifier="GWEATHER_PROVIDER_IWIN"
+              glib:nick="iwin"
+              glib:name="GWEATHER_PROVIDER_IWIN">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="36">US weather office, providing 7 days of forecast</doc>
+      </member>
+      <member name="yahoo"
+              value="8"
+              c:identifier="GWEATHER_PROVIDER_YAHOO"
+              glib:nick="yahoo"
+              glib:name="GWEATHER_PROVIDER_YAHOO">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="37">Yahoo Weather Service, removed in 3.27.1</doc>
+      </member>
+      <member name="met_no"
+              value="16"
+              c:identifier="GWEATHER_PROVIDER_MET_NO"
+              glib:nick="met-no"
+              glib:name="GWEATHER_PROVIDER_MET_NO">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="38">MET.no service, worldwide but requires attribution and a subscription to the [API users mailing-list](https://lists.met.no/mailman/listinfo/api-users).</doc>
+      </member>
+      <member name="owm"
+              value="32"
+              c:identifier="GWEATHER_PROVIDER_OWM"
+              glib:nick="owm"
+              glib:name="GWEATHER_PROVIDER_OWM">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="39">OpenWeatherMap, worldwide and possibly more reliable, but requires attribution and is limited in the number of queries</doc>
+      </member>
+      <member name="all"
+              value="61"
+              c:identifier="GWEATHER_PROVIDER_ALL"
+              glib:nick="all"
+              glib:name="GWEATHER_PROVIDER_ALL">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="40">enable all available providers</doc>
+      </member>
+    </bitfield>
+    <enumeration name="Sky"
+                 glib:type-name="GWeatherSky"
+                 glib:get-type="gweather_sky_get_type"
+                 c:type="GWeatherSky">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="161">The sky and cloud visibility. In general it is discouraged to
+use this value directly to compute the forecast icon: applications
+should instead use gweather_info_get_icon_name() or
+gweather_info_get_symbolic_icon_name().</doc>
+      <member name="invalid"
+              value="-1"
+              c:identifier="GWEATHER_SKY_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_SKY_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="163">value not available</doc>
+      </member>
+      <member name="clear"
+              value="0"
+              c:identifier="GWEATHER_SKY_CLEAR"
+              glib:nick="clear"
+              glib:name="GWEATHER_SKY_CLEAR">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="164">sky completely clear, no clouds visible</doc>
+      </member>
+      <member name="broken"
+              value="1"
+              c:identifier="GWEATHER_SKY_BROKEN"
+              glib:nick="broken"
+              glib:name="GWEATHER_SKY_BROKEN">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="165">sky mostly clear, few clouds</doc>
+      </member>
+      <member name="scattered"
+              value="2"
+              c:identifier="GWEATHER_SKY_SCATTERED"
+              glib:nick="scattered"
+              glib:name="GWEATHER_SKY_SCATTERED">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="166">sky mostly clear, patches of clouds</doc>
+      </member>
+      <member name="few"
+              value="3"
+              c:identifier="GWEATHER_SKY_FEW"
+              glib:nick="few"
+              glib:name="GWEATHER_SKY_FEW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="167">few clouds, sky cloudy but patches of sky visible</doc>
+      </member>
+      <member name="overcast"
+              value="4"
+              c:identifier="GWEATHER_SKY_OVERCAST"
+              glib:nick="overcast"
+              glib:name="GWEATHER_SKY_OVERCAST">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="168">sky completely clouded, sun not visible</doc>
+      </member>
+      <member name="last"
+              value="5"
+              c:identifier="GWEATHER_SKY_LAST"
+              glib:nick="last"
+              glib:name="GWEATHER_SKY_LAST">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="169">the maximum value for the enumeration</doc>
+      </member>
+      <function name="to_string" c:identifier="gweather_sky_to_string">
+        <source-position filename="libgweather/gweather-weather.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="sky" transfer-ownership="none">
+            <type name="Sky" c:type="GWeatherSky"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="to_string_full"
+                c:identifier="gweather_sky_to_string_full">
+        <source-position filename="libgweather/gweather-weather.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="sky" transfer-ownership="none">
+            <type name="Sky" c:type="GWeatherSky"/>
+          </parameter>
+          <parameter name="options" transfer-ownership="none">
+            <type name="FormatOptions" c:type="GWeatherFormatOptions"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <enumeration name="SpeedUnit"
+                 glib:type-name="GWeatherSpeedUnit"
+                 glib:get-type="gweather_speed_unit_get_type"
+                 c:type="GWeatherSpeedUnit">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-enums.h"
+           line="47">The measure unit to use for wind speed values, when retrieved by
+gweather_info_get_value_wind().</doc>
+      <member name="invalid"
+              value="0"
+              c:identifier="GWEATHER_SPEED_UNIT_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_SPEED_UNIT_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="49">invalid unit</doc>
+      </member>
+      <member name="default"
+              value="1"
+              c:identifier="GWEATHER_SPEED_UNIT_DEFAULT"
+              glib:nick="default"
+              glib:name="GWEATHER_SPEED_UNIT_DEFAULT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="50">the user preferred speed unit</doc>
+      </member>
+      <member name="ms"
+              value="2"
+              c:identifier="GWEATHER_SPEED_UNIT_MS"
+              glib:nick="ms"
+              glib:name="GWEATHER_SPEED_UNIT_MS">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="51">meters per second</doc>
+      </member>
+      <member name="kph"
+              value="3"
+              c:identifier="GWEATHER_SPEED_UNIT_KPH"
+              glib:nick="kph"
+              glib:name="GWEATHER_SPEED_UNIT_KPH">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="52">kilometers per hour</doc>
+      </member>
+      <member name="mph"
+              value="4"
+              c:identifier="GWEATHER_SPEED_UNIT_MPH"
+              glib:nick="mph"
+              glib:name="GWEATHER_SPEED_UNIT_MPH">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="53">miles per hour</doc>
+      </member>
+      <member name="knots"
+              value="5"
+              c:identifier="GWEATHER_SPEED_UNIT_KNOTS"
+              glib:nick="knots"
+              glib:name="GWEATHER_SPEED_UNIT_KNOTS">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="54">knots</doc>
+      </member>
+      <member name="bft"
+              value="6"
+              c:identifier="GWEATHER_SPEED_UNIT_BFT"
+              glib:nick="bft"
+              glib:name="GWEATHER_SPEED_UNIT_BFT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="55">Beaufort scale</doc>
+      </member>
+      <function name="to_string" c:identifier="gweather_speed_unit_to_string">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="1138">Creates a human-readable, localized representation of @unit</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="348"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="1140">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
+            <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <function-macro name="TIMEZONE_MENU"
+                    c:identifier="GWEATHER_TIMEZONE_MENU"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_MENU_CLASS"
+                    c:identifier="GWEATHER_TIMEZONE_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_MENU_GET_CLASS"
+                    c:identifier="GWEATHER_TIMEZONE_MENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="TIMEZONE_MENU_H"
+              value="1"
+              c:type="GWEATHER_TIMEZONE_MENU_H">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="22"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <enumeration name="TemperatureUnit"
+                 glib:type-name="GWeatherTemperatureUnit"
+                 glib:get-type="gweather_temperature_unit_get_type"
+                 c:type="GWeatherTemperatureUnit">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-enums.h"
+           line="28">The measure unit to use for temperature values, when retrieved by
+the gweather_info_get_value_temp() family of functions.</doc>
+      <member name="invalid"
+              value="0"
+              c:identifier="GWEATHER_TEMP_UNIT_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_TEMP_UNIT_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="30">invalid unit</doc>
+      </member>
+      <member name="default"
+              value="1"
+              c:identifier="GWEATHER_TEMP_UNIT_DEFAULT"
+              glib:nick="default"
+              glib:name="GWEATHER_TEMP_UNIT_DEFAULT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="31">the user preferred temperature unit</doc>
+      </member>
+      <member name="kelvin"
+              value="2"
+              c:identifier="GWEATHER_TEMP_UNIT_KELVIN"
+              glib:nick="kelvin"
+              glib:name="GWEATHER_TEMP_UNIT_KELVIN">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="32">Kelvin (absolute) temperature scale</doc>
+      </member>
+      <member name="centigrade"
+              value="3"
+              c:identifier="GWEATHER_TEMP_UNIT_CENTIGRADE"
+              glib:nick="centigrade"
+              glib:name="GWEATHER_TEMP_UNIT_CENTIGRADE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="33">Celsius temperature scale</doc>
+      </member>
+      <member name="fahrenheit"
+              value="4"
+              c:identifier="GWEATHER_TEMP_UNIT_FAHRENHEIT"
+              glib:nick="fahrenheit"
+              glib:name="GWEATHER_TEMP_UNIT_FAHRENHEIT">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-enums.h"
+             line="34">Fahrenheit temperature scale</doc>
+      </member>
+      <function name="to_real"
+                c:identifier="gweather_temperature_unit_to_real">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.c"
+             line="898">Resolve @unit into a real temperature unit, potentially considering
+locale defaults.</doc>
+        <source-position filename="libgweather/gweather-weather.h" line="346"/>
+        <return-value transfer-ownership="none">
+          <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+        </return-value>
+        <parameters>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-weather.c"
+                 line="900">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
+            <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <record name="Timezone"
+            c:type="GWeatherTimezone"
+            glib:type-name="GWeatherTimezone"
+            glib:get-type="gweather_timezone_get_type"
+            c:symbol-prefix="timezone">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-timezone.c"
+           line="30">A timezone.
+
+Timezones are global to the GWeather world (as obtained by
+gweather_location_get_world()); they can be gotten by passing
+gweather_timezone_get_by_tzid() with a tzid like "America/New_York"
+or "Europe/London".</doc>
+      <source-position filename="libgweather/gweather-timezone.h" line="32"/>
+      <method name="get_dst_offset"
+              c:identifier="gweather_timezone_get_dst_offset">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="394">Gets @zone's daylight/summer time offset from UTC, in minutes. Eg,
+a value of 120 would indicate "GMT+2". This is only meaningful if
+gweather_timezone_has_dst() returns %TRUE.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="402">@zone's daylight/summer time offset, in minutes</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="396">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gweather_timezone_get_name">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="301">Gets @zone's name; a translated, user-presentable string.
+
+Note that the returned name might not be unique among timezones,
+and may not make sense to the user unless it is presented along
+with the timezone's country's name (or in some context where the
+country is obvious).</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="312">@zone's name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="303">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_offset" c:identifier="gweather_timezone_get_offset">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="363">Gets @zone's standard offset from UTC, in minutes. Eg, a value of
+120 would indicate "GMT+2".</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="370">@zone's standard offset, in minutes</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="365">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tzid" c:identifier="gweather_timezone_get_tzid">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="342">Gets @zone's tzdata identifier, eg "America/New_York".</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="348">@zone's tzid</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="344">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_dst" c:identifier="gweather_timezone_has_dst">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="379">Checks if @zone observes daylight/summer time for part of the year.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="385">%TRUE if @zone observes daylight/summer time.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="381">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="gweather_timezone_ref">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="224">Adds 1 to @zone's reference count.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="230">@zone</doc>
+          <type name="Timezone" c:type="GWeatherTimezone*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="226">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="gweather_timezone_unref">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="241">Subtracts 1 from @zone's reference count and frees it if it reaches 0.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zone" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="243">a #GWeatherTimezone</doc>
+            <type name="Timezone" c:type="GWeatherTimezone*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="get_by_tzid"
+                c:identifier="gweather_timezone_get_by_tzid"
+                version="3.12">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="192">Get the #GWeatherTimezone for @tzid.
+
+Prior to version 40 no reference was returned.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="200">A #GWeatherTimezone.</doc>
+          <type name="Timezone" c:type="GWeatherTimezone*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tzid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone.c"
+                 line="194">A timezone identifier, like "America/New_York" or "Europe/London"</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_utc" c:identifier="gweather_timezone_get_utc">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="277">Gets the UTC timezone.</doc>
+        <source-position filename="libgweather/gweather-timezone.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="282">a #GWeatherTimezone for UTC, or %NULL on error.</doc>
+          <type name="Timezone" c:type="GWeatherTimezone*"/>
+        </return-value>
+      </function>
+    </record>
+    <class name="TimezoneMenu"
+           c:symbol-prefix="timezone_menu"
+           c:type="GWeatherTimezoneMenu"
+           parent="Gtk.ComboBox"
+           glib:type-name="GWeatherTimezoneMenu"
+           glib:get-type="gweather_timezone_menu_get_type"
+           glib:type-struct="TimezoneMenuClass">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-timezone-menu.c"
+           line="30">A #GtkComboBox subclass for choosing a #GWeatherTimezone</doc>
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="51"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.CellEditable"/>
+      <implements name="Gtk.CellLayout"/>
+      <constructor name="new" c:identifier="gweather_timezone_menu_new">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone-menu.c"
+             line="326">Creates a new #GWeatherTimezoneMenu.
+
+@top will normally be the location returned from
+gweather_location_get_world(), but you can create a menu that
+contains the timezones from a smaller set of locations if you want.</doc>
+        <source-position filename="libgweather/gweather-timezone-menu.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone-menu.c"
+               line="336">the new #GWeatherTimezoneMenu</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="top" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone-menu.c"
+                 line="328">the top-level location for the menu.</doc>
+            <type name="Location" c:type="GWeatherLocation*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_tzid"
+              c:identifier="gweather_timezone_menu_get_tzid"
+              glib:get-property="tzid">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone-menu.c"
+             line="402">Gets @menu's timezone id.</doc>
+        <source-position filename="libgweather/gweather-timezone-menu.h"
+                         line="57"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone-menu.c"
+               line="408">@menu's tzid, or %NULL if no timezone
+is selected.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone-menu.c"
+                 line="404">a #GWeatherTimezoneMenu</doc>
+            <type name="TimezoneMenu" c:type="GWeatherTimezoneMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_tzid"
+              c:identifier="gweather_timezone_menu_set_tzid"
+              glib:set-property="tzid">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone-menu.c"
+             line="375">Sets @menu to the given @tzid. If @tzid is %NULL, sets @menu to
+"Unknown".</doc>
+        <source-position filename="libgweather/gweather-timezone-menu.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone-menu.c"
+                 line="377">a #GWeatherTimezoneMenu</doc>
+            <type name="TimezoneMenu" c:type="GWeatherTimezoneMenu*"/>
+          </instance-parameter>
+          <parameter name="tzid"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgweather/gweather-timezone-menu.c"
+                 line="378">a tzdata id (eg, "America/New_York")</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="top"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Location"/>
+      </property>
+      <property name="tzid"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_tzid"
+                getter="get_tzid">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.ComboBox" c:type="GtkComboBox"/>
+      </field>
+      <field name="zone" readable="0" private="1">
+        <type name="Timezone" c:type="GWeatherTimezone*"/>
+      </field>
+    </class>
+    <record name="TimezoneMenuClass"
+            c:type="GWeatherTimezoneMenuClass"
+            glib:is-gtype-struct-for="TimezoneMenu">
+      <source-position filename="libgweather/gweather-timezone-menu.h"
+                       line="51"/>
+      <field name="parent_class">
+        <type name="Gtk.ComboBoxClass" c:type="GtkComboBoxClass"/>
+      </field>
+    </record>
+    <enumeration name="WindDirection"
+                 glib:type-name="GWeatherWindDirection"
+                 glib:get-type="gweather_wind_direction_get_type"
+                 c:type="GWeatherWindDirection">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.h"
+           line="109">The direction of the prevailing wind. Composite values
+such as north-north-east indicate a direction between the
+two component value (north and north-east).</doc>
+      <member name="invalid"
+              value="-1"
+              c:identifier="GWEATHER_WIND_INVALID"
+              glib:nick="invalid"
+              glib:name="GWEATHER_WIND_INVALID">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="111">value not available</doc>
+      </member>
+      <member name="variable"
+              value="0"
+              c:identifier="GWEATHER_WIND_VARIABLE"
+              glib:nick="variable"
+              glib:name="GWEATHER_WIND_VARIABLE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="112">variable throughout the day</doc>
+      </member>
+      <member name="n"
+              value="1"
+              c:identifier="GWEATHER_WIND_N"
+              glib:nick="n"
+              glib:name="GWEATHER_WIND_N">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="113">north</doc>
+      </member>
+      <member name="nne"
+              value="2"
+              c:identifier="GWEATHER_WIND_NNE"
+              glib:nick="nne"
+              glib:name="GWEATHER_WIND_NNE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="114">north-north-east</doc>
+      </member>
+      <member name="ne"
+              value="3"
+              c:identifier="GWEATHER_WIND_NE"
+              glib:nick="ne"
+              glib:name="GWEATHER_WIND_NE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="115">north-east</doc>
+      </member>
+      <member name="ene"
+              value="4"
+              c:identifier="GWEATHER_WIND_ENE"
+              glib:nick="ene"
+              glib:name="GWEATHER_WIND_ENE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="116">east-north-east</doc>
+      </member>
+      <member name="e"
+              value="5"
+              c:identifier="GWEATHER_WIND_E"
+              glib:nick="e"
+              glib:name="GWEATHER_WIND_E">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="117">east</doc>
+      </member>
+      <member name="ese"
+              value="6"
+              c:identifier="GWEATHER_WIND_ESE"
+              glib:nick="ese"
+              glib:name="GWEATHER_WIND_ESE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="118">east-south-east</doc>
+      </member>
+      <member name="se"
+              value="7"
+              c:identifier="GWEATHER_WIND_SE"
+              glib:nick="se"
+              glib:name="GWEATHER_WIND_SE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="119">south-east</doc>
+      </member>
+      <member name="sse"
+              value="8"
+              c:identifier="GWEATHER_WIND_SSE"
+              glib:nick="sse"
+              glib:name="GWEATHER_WIND_SSE">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="120">south-south-east</doc>
+      </member>
+      <member name="s"
+              value="9"
+              c:identifier="GWEATHER_WIND_S"
+              glib:nick="s"
+              glib:name="GWEATHER_WIND_S">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="121">south</doc>
+      </member>
+      <member name="ssw"
+              value="10"
+              c:identifier="GWEATHER_WIND_SSW"
+              glib:nick="ssw"
+              glib:name="GWEATHER_WIND_SSW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="122">south-south-west</doc>
+      </member>
+      <member name="sw"
+              value="11"
+              c:identifier="GWEATHER_WIND_SW"
+              glib:nick="sw"
+              glib:name="GWEATHER_WIND_SW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="123">south-west</doc>
+      </member>
+      <member name="wsw"
+              value="12"
+              c:identifier="GWEATHER_WIND_WSW"
+              glib:nick="wsw"
+              glib:name="GWEATHER_WIND_WSW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="124">west-south-west</doc>
+      </member>
+      <member name="w"
+              value="13"
+              c:identifier="GWEATHER_WIND_W"
+              glib:nick="w"
+              glib:name="GWEATHER_WIND_W">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="125">west</doc>
+      </member>
+      <member name="wnw"
+              value="14"
+              c:identifier="GWEATHER_WIND_WNW"
+              glib:nick="wnw"
+              glib:name="GWEATHER_WIND_WNW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="126">west-north-west</doc>
+      </member>
+      <member name="nw"
+              value="15"
+              c:identifier="GWEATHER_WIND_NW"
+              glib:nick="nw"
+              glib:name="GWEATHER_WIND_NW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="127">north-west</doc>
+      </member>
+      <member name="nnw"
+              value="16"
+              c:identifier="GWEATHER_WIND_NNW"
+              glib:nick="nnw"
+              glib:name="GWEATHER_WIND_NNW">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="128">north-north-west</doc>
+      </member>
+      <member name="last"
+              value="17"
+              c:identifier="GWEATHER_WIND_LAST"
+              glib:nick="last"
+              glib:name="GWEATHER_WIND_LAST">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-weather.h"
+             line="129">maximum value for the enumeration</doc>
+      </member>
+      <function name="to_string"
+                c:identifier="gweather_wind_direction_to_string">
+        <source-position filename="libgweather/gweather-weather.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="wind" transfer-ownership="none">
+            <type name="WindDirection" c:type="GWeatherWindDirection"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="to_string_full"
+                c:identifier="gweather_wind_direction_to_string_full">
+        <source-position filename="libgweather/gweather-weather.h" line="158"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="wind" transfer-ownership="none">
+            <type name="WindDirection" c:type="GWeatherWindDirection"/>
+          </parameter>
+          <parameter name="options" transfer-ownership="none">
+            <type name="FormatOptions" c:type="GWeatherFormatOptions"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <function name="location_detect_nearest_city_finish"
+              c:identifier="gweather_location_detect_nearest_city_finish"
+              moved-to="Location.detect_nearest_city_finish"
+              throws="1">
+      <source-position filename="libgweather/gweather-location.h" line="92"/>
+      <return-value transfer-ownership="full">
+        <type name="Location" c:type="GWeatherLocation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="result" transfer-ownership="none">
+          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="location_get_world"
+              c:identifier="gweather_location_get_world"
+              moved-to="Location.get_world">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-location.c"
+           line="189">Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
+representing a hierarchy containing all of the locations from
+Locations.xml.
+
+Prior to version 40 no reference was returned.</doc>
+      <source-position filename="libgweather/gweather-location.h" line="52"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="198">a %GWEATHER_LOCATION_WORLD
+location, or %NULL if Locations.xml could not be found or could not be parsed.</doc>
+        <type name="Location" c:type="GWeatherLocation*"/>
+      </return-value>
+    </function>
+    <function name="location_level_to_string"
+              c:identifier="gweather_location_level_to_string"
+              moved-to="LocationLevel.to_string">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-location.c"
+           line="475">Returns the location level as a string, useful for debugging
+purposes.</doc>
+      <source-position filename="libgweather/gweather-location.h" line="123"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-location.c"
+             line="482">a string</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="level" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-location.c"
+               line="477">a #GWeatherLocationLevel</doc>
+          <type name="LocationLevel" c:type="GWeatherLocationLevel"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="sky_to_string"
+              c:identifier="gweather_sky_to_string"
+              moved-to="Sky.to_string">
+      <source-position filename="libgweather/gweather-weather.h" line="186"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="sky" transfer-ownership="none">
+          <type name="Sky" c:type="GWeatherSky"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="sky_to_string_full"
+              c:identifier="gweather_sky_to_string_full"
+              moved-to="Sky.to_string_full">
+      <source-position filename="libgweather/gweather-weather.h" line="187"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="sky" transfer-ownership="none">
+          <type name="Sky" c:type="GWeatherSky"/>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <type name="FormatOptions" c:type="GWeatherFormatOptions"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="speed_unit_to_string"
+              c:identifier="gweather_speed_unit_to_string"
+              moved-to="SpeedUnit.to_string">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.c"
+           line="1138">Creates a human-readable, localized representation of @unit</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="348"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="unit" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="1140">a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT</doc>
+          <type name="SpeedUnit" c:type="GWeatherSpeedUnit"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="temperature_unit_to_real"
+              c:identifier="gweather_temperature_unit_to_real"
+              moved-to="TemperatureUnit.to_real">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-weather.c"
+           line="898">Resolve @unit into a real temperature unit, potentially considering
+locale defaults.</doc>
+      <source-position filename="libgweather/gweather-weather.h" line="346"/>
+      <return-value transfer-ownership="none">
+        <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+      </return-value>
+      <parameters>
+        <parameter name="unit" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-weather.c"
+               line="900">a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT</doc>
+          <type name="TemperatureUnit" c:type="GWeatherTemperatureUnit"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="timezone_get_by_tzid"
+              c:identifier="gweather_timezone_get_by_tzid"
+              moved-to="Timezone.get_by_tzid"
+              version="3.12">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-timezone.c"
+           line="192">Get the #GWeatherTimezone for @tzid.
+
+Prior to version 40 no reference was returned.</doc>
+      <source-position filename="libgweather/gweather-timezone.h" line="49"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="200">A #GWeatherTimezone.</doc>
+        <type name="Timezone" c:type="GWeatherTimezone*"/>
+      </return-value>
+      <parameters>
+        <parameter name="tzid" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgweather/gweather-timezone.c"
+               line="194">A timezone identifier, like "America/New_York" or "Europe/London"</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="timezone_get_utc"
+              c:identifier="gweather_timezone_get_utc"
+              moved-to="Timezone.get_utc">
+      <doc xml:space="preserve"
+           filename="libgweather/gweather-timezone.c"
+           line="277">Gets the UTC timezone.</doc>
+      <source-position filename="libgweather/gweather-timezone.h" line="48"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgweather/gweather-timezone.c"
+             line="282">a #GWeatherTimezone for UTC, or %NULL on error.</doc>
+        <type name="Timezone" c:type="GWeatherTimezone*"/>
+      </return-value>
+    </function>
+    <function name="wind_direction_to_string"
+              c:identifier="gweather_wind_direction_to_string"
+              moved-to="WindDirection.to_string">
+      <source-position filename="libgweather/gweather-weather.h" line="157"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="wind" transfer-ownership="none">
+          <type name="WindDirection" c:type="GWeatherWindDirection"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="wind_direction_to_string_full"
+              c:identifier="gweather_wind_direction_to_string_full"
+              moved-to="WindDirection.to_string_full">
+      <source-position filename="libgweather/gweather-weather.h" line="158"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="wind" transfer-ownership="none">
+          <type name="WindDirection" c:type="GWeatherWindDirection"/>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <type name="FormatOptions" c:type="GWeatherFormatOptions"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,969 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Polkit" version="1.0"/>
+  <package name="polkit-agent-1"/>
+  <c:include name="polkitagent/polkitagent.h"/>
+  <namespace name="PolkitAgent"
+             version="1.0"
+             shared-library="libpolkit-agent-1.so.0"
+             c:identifier-prefixes="PolkitAgent"
+             c:symbol-prefixes="polkit_agent">
+    <class name="Listener"
+           c:symbol-prefix="listener"
+           c:type="PolkitAgentListener"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="PolkitAgentListener"
+           glib:get-type="polkit_agent_listener_get_type"
+           glib:type-struct="ListenerClass">
+      <doc xml:space="preserve"
+           filename="polkitagentlistener.c"
+           line="28">#PolkitAgentListener is an abstract base class used for implementing authentication
+agents. To implement an authentication agent, simply subclass #PolkitAgentListener and
+implement the @initiate_authentication and @initiate_authentication_finish methods.
+
+Typically authentication agents use #PolkitAgentSession to
+authenticate users (via passwords) and communicate back the
+authentication result to the PolicyKit daemon.
+
+To register a #PolkitAgentListener with the PolicyKit daemon, use
+polkit_agent_listener_register() or
+polkit_agent_listener_register_with_options().</doc>
+      <source-position filename="polkitagentlistener.h" line="93"/>
+      <function name="unregister"
+                c:identifier="polkit_agent_listener_unregister">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="508">Unregisters @listener.</doc>
+        <source-position filename="polkitagentlistener.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="registration_handle"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="510">A handle obtained from polkit_agent_listener_register().</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="initiate_authentication"
+                      invoker="initiate_authentication">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="742">Called on a registered authentication agent (see
+polkit_agent_listener_register()) when the user owning the session
+needs to prove he is one of the identities listed in @identities.
+
+When the user is done authenticating (for example by dismissing an
+authentication dialog or by successfully entering a password or
+otherwise proving the user is one of the identities in
+@identities), @callback will be invoked. The caller then calls
+polkit_agent_listener_initiate_authentication_finish() to get the
+result.
+
+#PolkitAgentListener derived subclasses imlementing this method
+&lt;emphasis&gt;MUST&lt;/emphasis&gt; not ignore @cancellable; callers of this
+function can and will use it. Additionally, @callback must be
+invoked in the &lt;link
+linkend="g-main-context-push-thread-default"&gt;thread-default main
+loop&lt;/link&gt; of the thread that this method is called from.</doc>
+        <source-position filename="polkitagentlistener.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="744">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="action_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="745">The action to authenticate for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="746">The message to present to the user.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="747">A themed icon name representing the action or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="details" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="748">Details describing the action.</doc>
+            <type name="Polkit.Details" c:type="PolkitDetails*"/>
+          </parameter>
+          <parameter name="cookie" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="749">The cookie for the authentication request.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="identities" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="750">A list of #PolkitIdentity objects that the user can choose to authenticate as.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Polkit.Identity"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="751">A #GCancellable.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="8">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="752">Function to call when the user is done authenticating.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="8">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="753">Data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="initiate_authentication_finish"
+                      invoker="initiate_authentication_finish"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="804">Finishes an authentication request from the PolicyKit daemon, see
+polkit_agent_listener_initiate_authentication() for details.</doc>
+        <source-position filename="polkitagentlistener.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="813">%TRUE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="806">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="807">A #GAsyncResult obtained from the #GAsyncReadyCallback function passed to polkit_agent_listener_initiate_authentication().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="initiate_authentication"
+              c:identifier="polkit_agent_listener_initiate_authentication">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="742">Called on a registered authentication agent (see
+polkit_agent_listener_register()) when the user owning the session
+needs to prove he is one of the identities listed in @identities.
+
+When the user is done authenticating (for example by dismissing an
+authentication dialog or by successfully entering a password or
+otherwise proving the user is one of the identities in
+@identities), @callback will be invoked. The caller then calls
+polkit_agent_listener_initiate_authentication_finish() to get the
+result.
+
+#PolkitAgentListener derived subclasses imlementing this method
+&lt;emphasis&gt;MUST&lt;/emphasis&gt; not ignore @cancellable; callers of this
+function can and will use it. Additionally, @callback must be
+invoked in the &lt;link
+linkend="g-main-context-push-thread-default"&gt;thread-default main
+loop&lt;/link&gt; of the thread that this method is called from.</doc>
+        <source-position filename="polkitagentlistener.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="744">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="action_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="745">The action to authenticate for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="746">The message to present to the user.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="747">A themed icon name representing the action or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="details" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="748">Details describing the action.</doc>
+            <type name="Polkit.Details" c:type="PolkitDetails*"/>
+          </parameter>
+          <parameter name="cookie" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="749">The cookie for the authentication request.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="identities" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="750">A list of #PolkitIdentity objects that the user can choose to authenticate as.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Polkit.Identity"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="751">A #GCancellable.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="8">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="752">Function to call when the user is done authenticating.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="753">Data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="initiate_authentication_finish"
+              c:identifier="polkit_agent_listener_initiate_authentication_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="804">Finishes an authentication request from the PolicyKit daemon, see
+polkit_agent_listener_initiate_authentication() for details.</doc>
+        <source-position filename="polkitagentlistener.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="813">%TRUE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="806">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="807">A #GAsyncResult obtained from the #GAsyncReadyCallback function passed to polkit_agent_listener_initiate_authentication().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="register"
+              c:identifier="polkit_agent_listener_register"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="467">Registers @listener with the PolicyKit daemon as an authentication
+agent for @subject. This is implemented by registering a D-Bus
+object at @object_path on the unique name assigned by the system
+message bus.
+
+Whenever the PolicyKit daemon needs to authenticate a processes
+that is related to @subject, the methods
+polkit_agent_listener_initiate_authentication() and
+polkit_agent_listener_initiate_authentication_finish() will be
+invoked on @listener.
+
+Note that registration of an authentication agent can fail; for
+example another authentication agent may already be registered for
+@subject.
+
+Note that the calling thread is blocked until a reply is received.</doc>
+        <source-position filename="polkitagentlistener.h" line="130"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="493">%NULL if @error is set, otherwise a
+registration handle that can be used with
+polkit_agent_listener_unregister().</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="469">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="470">A set of flags from the #PolkitAgentRegisterFlags enumeration.</doc>
+            <type name="RegisterFlags" c:type="PolkitAgentRegisterFlags"/>
+          </parameter>
+          <parameter name="subject" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="471">The subject to become an authentication agent for, typically a #PolkitUnixSession object.</doc>
+            <type name="Polkit.Subject" c:type="PolkitSubject*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="472">The D-Bus object path to use for the authentication agent or %NULL for the default object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="473">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="register_with_options"
+              c:identifier="polkit_agent_listener_register_with_options"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.c"
+             line="366">Like polkit_agent_listener_register() but takes options to influence registration. See the
+&lt;link linkend="eggdbus-method-org.freedesktop.PolicyKit1.Authority.RegisterAuthenticationAgentWithOptions"&gt;RegisterAuthenticationAgentWithOptions()&lt;/link&gt; D-Bus method for details.</doc>
+        <source-position filename="polkitagentlistener.h" line="137"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="379">%NULL if @error is set, otherwise a
+registration handle that can be used with
+polkit_agent_listener_unregister().</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="listener" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="368">A #PolkitAgentListener.</doc>
+            <type name="Listener" c:type="PolkitAgentListener*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="369">A set of flags from the #PolkitAgentRegisterFlags enumeration.</doc>
+            <type name="RegisterFlags" c:type="PolkitAgentRegisterFlags"/>
+          </parameter>
+          <parameter name="subject" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="370">The subject to become an authentication agent for, typically a #PolkitUnixSession object.</doc>
+            <type name="Polkit.Subject" c:type="PolkitSubject*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="371">The D-Bus object path to use for the authentication agent or %NULL for the default object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="372">A #GVariant with options or %NULL.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="373">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ListenerClass"
+            c:type="PolkitAgentListenerClass"
+            glib:is-gtype-struct-for="Listener">
+      <doc xml:space="preserve"
+           filename="polkitagentlistener.h"
+           line="54">VFuncs that authentication agents needs to implement.</doc>
+      <source-position filename="polkitagentlistener.h" line="93"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.h"
+             line="56">The parent class.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="initiate_authentication">
+        <callback name="initiate_authentication">
+          <source-position filename="polkitagentlistener.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="listener" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="744">A #PolkitAgentListener.</doc>
+              <type name="Listener" c:type="PolkitAgentListener*"/>
+            </parameter>
+            <parameter name="action_id" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="745">The action to authenticate for.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="746">The message to present to the user.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="icon_name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="747">A themed icon name representing the action or %NULL.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="details" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="748">Details describing the action.</doc>
+              <type name="Polkit.Details" c:type="PolkitDetails*"/>
+            </parameter>
+            <parameter name="cookie" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="749">The cookie for the authentication request.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="identities" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="750">A list of #PolkitIdentity objects that the user can choose to authenticate as.</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Polkit.Identity"/>
+              </type>
+            </parameter>
+            <parameter name="cancellable"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="751">A #GCancellable.</doc>
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="9">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="752">Function to call when the user is done authenticating.</doc>
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="9">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="753">Data to pass to @callback.</doc>
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="initiate_authentication_finish">
+        <callback name="initiate_authentication_finish" throws="1">
+          <source-position filename="polkitagentlistener.h" line="79"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentlistener.c"
+                 line="813">%TRUE if @error is set.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="listener" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="806">A #PolkitAgentListener.</doc>
+              <type name="Listener" c:type="PolkitAgentListener*"/>
+            </parameter>
+            <parameter name="res" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="polkitagentlistener.c"
+                   line="807">A #GAsyncResult obtained from the #GAsyncReadyCallback function passed to polkit_agent_listener_initiate_authentication().</doc>
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_polkit_reserved0" introspectable="0">
+        <callback name="_polkit_reserved0">
+          <source-position filename="polkitagentlistener.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved1" introspectable="0">
+        <callback name="_polkit_reserved1">
+          <source-position filename="polkitagentlistener.h" line="86"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved2" introspectable="0">
+        <callback name="_polkit_reserved2">
+          <source-position filename="polkitagentlistener.h" line="87"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved3" introspectable="0">
+        <callback name="_polkit_reserved3">
+          <source-position filename="polkitagentlistener.h" line="88"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved4" introspectable="0">
+        <callback name="_polkit_reserved4">
+          <source-position filename="polkitagentlistener.h" line="89"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved5" introspectable="0">
+        <callback name="_polkit_reserved5">
+          <source-position filename="polkitagentlistener.h" line="90"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved6" introspectable="0">
+        <callback name="_polkit_reserved6">
+          <source-position filename="polkitagentlistener.h" line="91"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_polkit_reserved7" introspectable="0">
+        <callback name="_polkit_reserved7">
+          <source-position filename="polkitagentlistener.h" line="92"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <bitfield name="RegisterFlags"
+              glib:type-name="PolkitAgentRegisterFlags"
+              glib:get-type="polkit_agent_register_flags_get_type"
+              c:type="PolkitAgentRegisterFlags">
+      <doc xml:space="preserve"
+           filename="polkitagentlistener.h"
+           line="117">Flags used in polkit_agent_listener_register().</doc>
+      <member name="none"
+              value="0"
+              c:identifier="POLKIT_AGENT_REGISTER_FLAGS_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.h"
+             line="119">No flags are set.</doc>
+      </member>
+      <member name="run_in_thread"
+              value="1"
+              c:identifier="POLKIT_AGENT_REGISTER_FLAGS_RUN_IN_THREAD"
+              glib:nick="run-in-thread">
+        <doc xml:space="preserve"
+             filename="polkitagentlistener.h"
+             line="120">Run the listener in a dedicated thread.</doc>
+      </member>
+    </bitfield>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="PolkitAgentSession"
+           parent="GObject.Object"
+           glib:type-name="PolkitAgentSession"
+           glib:get-type="polkit_agent_session_get_type"
+           glib:type-struct="SessionClass">
+      <doc xml:space="preserve"
+           filename="polkitagentsession.c"
+           line="22">The #PolkitAgentSession class is an abstraction used for interacting with the
+native authentication system (for example PAM) for obtaining authorizations.
+This class is typically used together with instances that are derived from
+the #PolkitAgentListener abstract base class.
+
+To perform the actual authentication, #PolkitAgentSession uses a trusted suid helper.
+The authentication conversation is done through a pipe. This is transparent; the user
+only need to handle the
+#PolkitAgentSession::request,
+#PolkitAgentSession::show-info,
+#PolkitAgentSession::show-error and
+#PolkitAgentSession::completed
+signals and invoke polkit_agent_session_response() in response to requests.
+
+If the user successfully authenticates, the authentication helper will invoke
+a method on the PolicyKit daemon (see polkit_authority_authentication_agent_response_sync())
+with the given @cookie. Upon receiving a positive response from the PolicyKit daemon (via
+the authentication helper), the #PolkitAgentSession::completed signal will be emitted
+with the @gained_authorization paramter set to %TRUE.
+
+If the user is unable to authenticate, the #PolkitAgentSession::completed signal will
+be emitted with the @gained_authorization paramter set to %FALSE.</doc>
+      <source-position filename="polkitagentsession.h" line="42"/>
+      <constructor name="new" c:identifier="polkit_agent_session_new">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="331">Creates a new authentication session.
+
+The caller should connect to the
+#PolkitAgentSession::request,
+#PolkitAgentSession::show-info,
+#PolkitAgentSession::show-error and
+#PolkitAgentSession::completed
+signals and then call polkit_agent_session_initiate() to initiate the authentication session.</doc>
+        <source-position filename="polkitagentsession.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="polkitagentsession.c"
+               line="345">A #PolkitAgentSession. Free with g_object_unref().</doc>
+          <type name="Session" c:type="PolkitAgentSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="identity" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="333">The identity to authenticate.</doc>
+            <type name="Polkit.Identity" c:type="PolkitIdentity*"/>
+          </parameter>
+          <parameter name="cookie" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="334">The cookie obtained from the PolicyKit daemon</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="cancel" c:identifier="polkit_agent_session_cancel">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="652">Cancels an authentication session. This will make @session emit the #PolkitAgentSession::completed
+signal.</doc>
+        <source-position filename="polkitagentsession.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="654">A #PolkitAgentSession.</doc>
+            <type name="Session" c:type="PolkitAgentSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="initiate" c:identifier="polkit_agent_session_initiate">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="550">Initiates the authentication session. Before calling this method,
+make sure to connect to the various signals. The signals will be
+emitted in the &lt;link
+linkend="g-main-context-push-thread-default"&gt;thread-default main
+loop&lt;/link&gt; that this method is invoked from.
+
+Use polkit_agent_session_cancel() to cancel the session.</doc>
+        <source-position filename="polkitagentsession.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="552">A #PolkitAgentSession.</doc>
+            <type name="Session" c:type="PolkitAgentSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="response" c:identifier="polkit_agent_session_response">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="522">Function for providing response to requests received
+via the #PolkitAgentSession::request signal.</doc>
+        <source-position filename="polkitagentsession.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="524">A #PolkitAgentSession.</doc>
+            <type name="Session" c:type="PolkitAgentSession*"/>
+          </instance-parameter>
+          <parameter name="response" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="525">Response from the user, typically a password.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="cookie"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="232">The cookie obtained from the PolicyKit daemon</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="identity"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="215">The identity to authenticate.</doc>
+        <type name="Polkit.Identity"/>
+      </property>
+      <glib:signal name="completed" when="last">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="308">Emitted when the authentication session has been completed or
+cancelled. The @gained_authorization parameter is %TRUE only if
+the user successfully authenticated.
+
+Upon receiving this signal, the user should free @session using g_object_unref().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="gained_authorization" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="311">%TRUE only if the authorization was successfully obtained.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="request" when="last">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="249">Emitted when the user is requested to answer a question.
+
+When the response has been collected from the user, call polkit_agent_session_response().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="request" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="252">The request to show the user, e.g. "name: " or "password: ".</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="echo_on" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="253">%TRUE if the response to the request SHOULD be echoed on the
+          screen, %FALSE if the response MUST NOT be echoed to the screen.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="show-error" when="last">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="290">Emitted when there is information related to an error condition to be displayed to the user.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="293">An error string to display to the user.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="show-info" when="last">
+        <doc xml:space="preserve"
+             filename="polkitagentsession.c"
+             line="272">Emitted when there is information to be displayed to the user.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="polkitagentsession.c"
+                 line="275">A string to display to the user.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="SessionClass"
+            c:type="PolkitAgentSessionClass"
+            disguised="1"
+            glib:is-gtype-struct-for="Session">
+      <source-position filename="polkitagentsession.h" line="42"/>
+    </record>
+    <class name="TextListener"
+           c:symbol-prefix="text_listener"
+           c:type="PolkitAgentTextListener"
+           parent="Listener"
+           glib:type-name="PolkitAgentTextListener"
+           glib:get-type="polkit_agent_text_listener_get_type">
+      <doc xml:space="preserve"
+           filename="polkitagenttextlistener.c"
+           line="40">#PolkitAgentTextListener is an #PolkitAgentListener implementation
+that interacts with the user using a textual interface.</doc>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="polkit_agent_text_listener_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="polkitagenttextlistener.c"
+             line="126">Creates a new #PolkitAgentTextListener for authenticating the user
+via an textual interface on the controlling terminal
+(e.g. &lt;filename&gt;/dev/tty&lt;/filename&gt;). This can fail if e.g. the
+current process has no controlling terminal.</doc>
+        <source-position filename="polkitagenttextlistener.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="polkitagenttextlistener.c"
+               line="136">A #PolkitAgentTextListener or %NULL if @error is set. Free with g_object_unref() when done with it.</doc>
+          <type name="Listener" c:type="PolkitAgentListener*"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="polkitagenttextlistener.c"
+                 line="128">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <function name="register_listener"
+              c:identifier="polkit_agent_register_listener"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="polkitagentlistener.c"
+           line="535">(deprecated)</doc>
+      <source-position filename="polkitagentlistener.h" line="112"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="listener" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="537">A #PolkitAgentListener.</doc>
+          <type name="Listener" c:type="PolkitAgentListener*"/>
+        </parameter>
+        <parameter name="subject" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="538">The subject to become an authentication agent for, typically a #PolkitUnixSession object.</doc>
+          <type name="Polkit.Subject" c:type="PolkitSubject*"/>
+        </parameter>
+        <parameter name="object_path" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="polkitagentlistener.c"
+               line="539">The D-Bus object path to use for the authentication agent or %NULL for the default object path.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

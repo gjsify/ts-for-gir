@@ -1,0 +1,2225 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <package name="libepc-1.0"/>
+  <c:include name="libepc/consumer.h,libepc/contents.h,libepc/dispatcher.h,libepc/protocol.h,libepc/publisher.h,libepc/service-info.h,libepc/service-monitor.h,libepc/service-type.h,libepc/shell.h,libepc/tls.h,libepc/enums.h,libepc/marshal.h"/>
+  <namespace name="Epc"
+             version="1.0"
+             shared-library="libepc-1.0.so.3"
+             c:identifier-prefixes="Epc"
+             c:symbol-prefixes="epc">
+    <enumeration name="AddressFamily"
+                 glib:type-name="EpcAddressFamily"
+                 glib:get-type="epc_address_family_get_type"
+                 c:type="EpcAddressFamily">
+      <doc xml:whitespace="preserve">The address family to use for contacting network services.</doc>
+      <member name="unspec"
+              value="0"
+              c:identifier="EPC_ADDRESS_UNSPEC"
+              glib:nick="unspec"/>
+      <member name="ipv4"
+              value="2"
+              c:identifier="EPC_ADDRESS_IPV4"
+              glib:nick="ipv4"/>
+      <member name="ipv6"
+              value="10"
+              c:identifier="EPC_ADDRESS_IPV6"
+              glib:nick="ipv6"/>
+      <function name="get_class"
+                c:identifier="epc_address_family_get_class"
+                introspectable="0">
+        <return-value>
+          <type name="GObject.EnumClass" c:type="GEnumClass*"/>
+        </return-value>
+      </function>
+      <function name="to_string" c:identifier="epc_address_family_to_string">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="AddressFamily" c:type="EpcAddressFamily"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <record name="AuthContext" c:type="EpcAuthContext" disguised="1">
+      <method name="check_password"
+              c:identifier="epc_auth_context_check_password">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_key" c:identifier="epc_auth_context_get_key">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_password" c:identifier="epc_auth_context_get_password">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_publisher"
+              c:identifier="epc_auth_context_get_publisher"
+              introspectable="0">
+        <return-value>
+          <type name="Publisher" c:type="EpcPublisher*"/>
+        </return-value>
+      </method>
+    </record>
+    <bitfield name="AuthFlags"
+              glib:type-name="EpcAuthFlags"
+              glib:get-type="epc_auth_flags_get_type"
+              c:type="EpcAuthFlags">
+      <doc xml:whitespace="preserve">These flags specify the authentication behaviour of an #EpcPublisher.</doc>
+      <member name="default"
+              value="0"
+              c:identifier="EPC_AUTH_DEFAULT"
+              glib:nick="default"/>
+      <member name="password_text_needed"
+              value="1"
+              c:identifier="EPC_AUTH_PASSWORD_TEXT_NEEDED"
+              glib:nick="password-text-needed"/>
+      <function name="get_class"
+                c:identifier="epc_auth_flags_get_class"
+                introspectable="0">
+        <return-value>
+          <type name="GObject.FlagsClass" c:type="GFlagsClass*"/>
+        </return-value>
+      </function>
+      <function name="to_string" c:identifier="epc_auth_flags_to_string">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="AuthFlags" c:type="EpcAuthFlags"/>
+          </parameter>
+        </parameters>
+      </function>
+    </bitfield>
+    <callback name="AuthHandler" c:type="EpcAuthHandler">
+      <doc xml:whitespace="preserve">Functions implementing this callback shall return %TRUE when the
+credentials provided by the authentication request grant access
+to the resource described by @context.
+
+The @username is %NULL when no creditials were passed, and anonymous access
+is tried.
+
+See also #epc_publisher_set_auth_flags. When EPC_AUTH_DEFAULT is used, 
+you should call #epc_auth_context_check_password
+to verify that the password passed in the request matches the known password
+for that user. In this case there is no way to retrieve the password from 
+the #EpcAuthContext because the network protocol transfers just a hash code, 
+not the actual password.
+
+However, when EPC_AUTH_PASSWORD_TEXT_NEEDED is used, you should call 
+epc_auth_context_get_password() and then do your own authentication check. 
+For instance, you might need to delegate the authentication to some other 
+code or server, such as a database server.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">%TRUE when access is granted, and %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #EpcAuthContext</doc>
+          <type name="AuthContext" c:type="EpcAuthContext*"/>
+        </parameter>
+        <parameter name="username" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the username provided for authentication, or %NULL</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="2">
+          <doc xml:whitespace="preserve">user data set when the signal handler was installed</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="CollisionHandling"
+                 glib:type-name="EpcCollisionHandling"
+                 glib:get-type="epc_collision_handling_get_type"
+                 c:type="EpcCollisionHandling">
+      <doc xml:whitespace="preserve">Various strategies for handling service name collisions.</doc>
+      <member name="ignore"
+              value="0"
+              c:identifier="EPC_COLLISIONS_IGNORE"
+              glib:nick="ignore"/>
+      <member name="change_name"
+              value="1"
+              c:identifier="EPC_COLLISIONS_CHANGE_NAME"
+              glib:nick="change-name"/>
+      <member name="unique_service"
+              value="2"
+              c:identifier="EPC_COLLISIONS_UNIQUE_SERVICE"
+              glib:nick="unique-service"/>
+      <function name="get_class"
+                c:identifier="epc_collision_handling_get_class"
+                introspectable="0">
+        <return-value>
+          <type name="GObject.EnumClass" c:type="GEnumClass*"/>
+        </return-value>
+      </function>
+      <function name="to_string"
+                c:identifier="epc_collision_handling_to_string">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <class name="Consumer"
+           c:symbol-prefix="consumer"
+           c:type="EpcConsumer"
+           parent="GObject.Object"
+           glib:type-name="EpcConsumer"
+           glib:get-type="epc_consumer_get_type"
+           glib:type-struct="ConsumerClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcConsumer class.</doc>
+      <constructor name="new" c:identifier="epc_consumer_new">
+        <return-value transfer-ownership="full">
+          <type name="Consumer" c:type="EpcConsumer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_name"
+                   c:identifier="epc_consumer_new_for_name">
+        <return-value transfer-ownership="full">
+          <type name="Consumer" c:type="EpcConsumer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_name_full"
+                   c:identifier="epc_consumer_new_for_name_full">
+        <return-value transfer-ownership="full">
+          <type name="Consumer" c:type="EpcConsumer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="authenticate">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="realm" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="publisher_resolved">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+          <parameter name="hostname" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_password" c:identifier="epc_consumer_get_password">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_protocol" c:identifier="epc_consumer_get_protocol">
+        <return-value transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </return-value>
+      </method>
+      <method name="get_username" c:identifier="epc_consumer_get_username">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="is_publisher_resolved"
+              c:identifier="epc_consumer_is_publisher_resolved">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="list"
+              c:identifier="epc_consumer_list"
+              introspectable="0"
+              throws="1">
+        <return-value>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup"
+              c:identifier="epc_consumer_lookup"
+              introspectable="0"
+              throws="1">
+        <return-value>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="resolve_publisher"
+              c:identifier="epc_consumer_resolve_publisher">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="timeout" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_password" c:identifier="epc_consumer_set_password">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_protocol" c:identifier="epc_consumer_set_protocol">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_username" c:identifier="epc_consumer_set_username">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="username" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="domain"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="hostname"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="password"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="port"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gint"/>
+      </property>
+      <property name="protocol"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="Protocol"/>
+      </property>
+      <property name="username"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ConsumerPrivate" c:type="EpcConsumerPrivate*"/>
+      </field>
+      <glib:signal name="authenticate" when="last">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="publisher-resolved" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ConsumerClass"
+            c:type="EpcConsumerClass"
+            glib:is-gtype-struct-for="Consumer">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcConsumer class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="authenticate">
+        <callback name="authenticate">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="consumer" transfer-ownership="none">
+              <type name="Consumer" c:type="EpcConsumer*"/>
+            </parameter>
+            <parameter name="realm" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="publisher_resolved">
+        <callback name="publisher_resolved">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="consumer" transfer-ownership="none">
+              <type name="Consumer" c:type="EpcConsumer*"/>
+            </parameter>
+            <parameter name="protocol" transfer-ownership="none">
+              <type name="Protocol" c:type="EpcProtocol"/>
+            </parameter>
+            <parameter name="hostname" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="port" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ConsumerPrivate" c:type="EpcConsumerPrivate" disguised="1">
+    </record>
+    <record name="Contents"
+            c:type="EpcContents"
+            glib:type-name="EpcContents"
+            glib:get-type="epc_contents_get_type"
+            c:symbol-prefix="contents">
+      <constructor name="new" c:identifier="epc_contents_new">
+        <return-value transfer-ownership="full">
+          <type name="Contents" c:type="EpcContents*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+          <parameter name="destroy_data"
+                     transfer-ownership="none"
+                     scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_dup" c:identifier="epc_contents_new_dup">
+        <return-value transfer-ownership="full">
+          <type name="Contents" c:type="EpcContents*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="gpointer" c:type="gconstpointer"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="stream_new" c:identifier="epc_contents_stream_new">
+        <return-value transfer-ownership="full">
+          <type name="Contents" c:type="EpcContents*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="2"
+                     destroy="3">
+            <type name="ContentsReadFunc" c:type="EpcContentsReadFunc"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy_data"
+                     transfer-ownership="none"
+                     scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_data"
+              c:identifier="epc_contents_get_data"
+              introspectable="0">
+        <return-value>
+          <type name="gpointer" c:type="gconstpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_type" c:identifier="epc_contents_get_mime_type">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="is_stream" c:identifier="epc_contents_is_stream">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="ref" c:identifier="epc_contents_ref">
+        <return-value transfer-ownership="full">
+          <type name="Contents" c:type="EpcContents*"/>
+        </return-value>
+      </method>
+      <method name="stream_read"
+              c:identifier="epc_contents_stream_read"
+              introspectable="0">
+        <return-value>
+          <type name="gpointer" c:type="gconstpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="epc_contents_unref">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <callback name="ContentsHandler" c:type="EpcContentsHandler">
+      <doc xml:whitespace="preserve">This callback is used to generate custom contents published with the
+#epc_publisher_add_handler function. The arguments passed are the same as
+passed to #epc_publisher_add_handler. The #EpcPublisher will decrease the
+reference count of the returned buffer after deliving it. It's valid to
+return %NULL in situations were no contents can be generated.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">The #EpcContents buffer for this publication, or %NULL.</doc>
+        <type name="Contents" c:type="EpcContents*"/>
+      </return-value>
+      <parameters>
+        <parameter name="publisher" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #EpcPublisher</doc>
+          <type name="Publisher" c:type="EpcPublisher*"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the unique key</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="2">
+          <doc xml:whitespace="preserve">user data set when the signal handler was installed</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ContentsReadFunc" c:type="EpcContentsReadFunc">
+      <doc xml:whitespace="preserve">This callback is used to retrieve the next chunk of data for a streaming
+contents buffer created with #epc_contents_stream_read.
+
+Return %FALSE when the buffer has reached its end, and no more data is
+available. Also return %FALSE, when the buffer size passed in @length is
+not sufficient. Copy your minimal buffer size to @length in that situation.
+
+The library might pass %NULL for @buffer on the first call to start buffer
+size negotation.
+
+See also: #epc_contents_stream_new, #epc_contents_stream_read</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">Returns %TRUE when the next chunk could be read, and %FALSE on error.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="contents" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #EpcContents buffer</doc>
+          <type name="Contents" c:type="EpcContents*"/>
+        </parameter>
+        <parameter name="buffer" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a location for storing the contents, or %NULL</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="length" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a location for passing and storing the contents length in bytes.</doc>
+          <type name="gsize" c:type="gsize*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="3">
+          <doc xml:whitespace="preserve">the user_data passed to #epc_contents_stream_new</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="Dispatcher"
+           c:symbol-prefix="dispatcher"
+           c:type="EpcDispatcher"
+           parent="GObject.Object"
+           glib:type-name="EpcDispatcher"
+           glib:get-type="epc_dispatcher_get_type"
+           glib:type-struct="DispatcherClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcDispatcher class.</doc>
+      <constructor name="new" c:identifier="epc_dispatcher_new">
+        <return-value transfer-ownership="full">
+          <type name="Dispatcher" c:type="EpcDispatcher*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_service"
+              c:identifier="epc_dispatcher_add_service"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AddressFamily" c:type="EpcAddressFamily"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_service_subtype"
+              c:identifier="epc_dispatcher_add_service_subtype">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="subtype" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_collision_handling"
+              c:identifier="epc_dispatcher_get_collision_handling">
+        <return-value transfer-ownership="none">
+          <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+        </return-value>
+      </method>
+      <method name="get_cookie" c:identifier="epc_dispatcher_get_cookie">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="epc_dispatcher_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="reset" c:identifier="epc_dispatcher_reset">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="run" c:identifier="epc_dispatcher_run" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_collision_handling"
+              c:identifier="epc_dispatcher_set_collision_handling">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="method" transfer-ownership="none">
+            <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cookie" c:identifier="epc_dispatcher_set_cookie">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cookie" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="epc_dispatcher_set_name">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_service_details"
+              c:identifier="epc_dispatcher_set_service_details"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collision-handling"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="CollisionHandling"/>
+      </property>
+      <property name="cookie"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DispatcherPrivate" c:type="EpcDispatcherPrivate*"/>
+      </field>
+    </class>
+    <record name="DispatcherClass"
+            c:type="EpcDispatcherClass"
+            glib:is-gtype-struct-for="Dispatcher">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcDispatcher class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="DispatcherPrivate"
+            c:type="EpcDispatcherPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="Protocol"
+                 glib:type-name="EpcProtocol"
+                 glib:get-type="epc_protocol_get_type"
+                 c:type="EpcProtocol">
+      <doc xml:whitespace="preserve">The transport protocols supported by libepc.</doc>
+      <member name="unknown"
+              value="0"
+              c:identifier="EPC_PROTOCOL_UNKNOWN"
+              glib:nick="unknown"/>
+      <member name="http"
+              value="1"
+              c:identifier="EPC_PROTOCOL_HTTP"
+              glib:nick="http"/>
+      <member name="https"
+              value="2"
+              c:identifier="EPC_PROTOCOL_HTTPS"
+              glib:nick="https"/>
+      <function name="build_uri" c:identifier="epc_protocol_build_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+          <parameter name="hostname" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_name" c:identifier="epc_protocol_from_name">
+        <return-value transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="fallback" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_class"
+                c:identifier="epc_protocol_get_class"
+                introspectable="0">
+        <return-value>
+          <type name="GObject.EnumClass" c:type="GEnumClass*"/>
+        </return-value>
+      </function>
+      <function name="get_service_type"
+                c:identifier="epc_protocol_get_service_type">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_uri_scheme"
+                c:identifier="epc_protocol_get_uri_scheme">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="to_string" c:identifier="epc_protocol_to_string">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <class name="Publisher"
+           c:symbol-prefix="publisher"
+           c:type="EpcPublisher"
+           parent="GObject.Object"
+           glib:type-name="EpcPublisher"
+           glib:get-type="epc_publisher_get_type"
+           glib:type-struct="PublisherClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcPublisher class.</doc>
+      <constructor name="new" c:identifier="epc_publisher_new">
+        <return-value transfer-ownership="full">
+          <type name="Publisher" c:type="EpcPublisher*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="expand_name"
+                c:identifier="epc_publisher_expand_name"
+                throws="1">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add" c:identifier="epc_publisher_add">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="gpointer" c:type="gconstpointer"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_bookmark" c:identifier="epc_publisher_add_bookmark">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_file" c:identifier="epc_publisher_add_file">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_handler" c:identifier="epc_publisher_add_handler">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="handler"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="2"
+                     destroy="3">
+            <type name="ContentsHandler" c:type="EpcContentsHandler"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy_data"
+                     transfer-ownership="none"
+                     scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_auth_flags"
+              c:identifier="epc_publisher_get_auth_flags">
+        <return-value transfer-ownership="none">
+          <type name="AuthFlags" c:type="EpcAuthFlags"/>
+        </return-value>
+      </method>
+      <method name="get_certificate_file"
+              c:identifier="epc_publisher_get_certificate_file">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_collision_handling"
+              c:identifier="epc_publisher_get_collision_handling">
+        <return-value transfer-ownership="none">
+          <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+        </return-value>
+      </method>
+      <method name="get_contents_path"
+              c:identifier="epc_publisher_get_contents_path">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_path" c:identifier="epc_publisher_get_path">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_private_key_file"
+              c:identifier="epc_publisher_get_private_key_file">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_protocol" c:identifier="epc_publisher_get_protocol">
+        <return-value transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </return-value>
+      </method>
+      <method name="get_service_cookie"
+              c:identifier="epc_publisher_get_service_cookie">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_service_domain"
+              c:identifier="epc_publisher_get_service_domain">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_service_name"
+              c:identifier="epc_publisher_get_service_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_uri" c:identifier="epc_publisher_get_uri" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_key" c:identifier="epc_publisher_has_key">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list" c:identifier="epc_publisher_list" introspectable="0">
+        <return-value>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup"
+              c:identifier="epc_publisher_lookup"
+              introspectable="0">
+        <return-value>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="quit" c:identifier="epc_publisher_quit">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="remove" c:identifier="epc_publisher_remove">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="run" c:identifier="epc_publisher_run" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="run_async"
+              c:identifier="epc_publisher_run_async"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_auth_flags"
+              c:identifier="epc_publisher_set_auth_flags">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AuthFlags" c:type="EpcAuthFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_auth_handler"
+              c:identifier="epc_publisher_set_auth_handler">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="handler"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="2"
+                     destroy="3">
+            <type name="AuthHandler" c:type="EpcAuthHandler"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy_data"
+                     transfer-ownership="none"
+                     scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_collision_handling"
+              c:identifier="epc_publisher_set_collision_handling">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="method" transfer-ownership="none">
+            <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_contents_path"
+              c:identifier="epc_publisher_set_contents_path">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_credentials"
+              c:identifier="epc_publisher_set_credentials">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="certfile" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="keyfile" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_protocol" c:identifier="epc_publisher_set_protocol">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_service_cookie"
+              c:identifier="epc_publisher_set_service_cookie">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cookie" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_service_name"
+              c:identifier="epc_publisher_set_service_name">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="auth-flags"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="AuthFlags"/>
+      </property>
+      <property name="certificate-file"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="collision-handling"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="CollisionHandling"/>
+      </property>
+      <property name="contents-path"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="private-key-file"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="protocol"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="Protocol"/>
+      </property>
+      <property name="service-cookie"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="service-domain"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="service-name"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PublisherPrivate" c:type="EpcPublisherPrivate*"/>
+      </field>
+    </class>
+    <record name="PublisherClass"
+            c:type="EpcPublisherClass"
+            glib:is-gtype-struct-for="Publisher">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcPublisher class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="PublisherPrivate" c:type="EpcPublisherPrivate" disguised="1">
+    </record>
+    <constant name="SERVICE_TYPE_HTTP"
+              value="_easy-publish-http._tcp"
+              c:type="EPC_SERVICE_TYPE_HTTP">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SERVICE_TYPE_HTTPS"
+              value="_easy-publish-https._tcp"
+              c:type="EPC_SERVICE_TYPE_HTTPS">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="ServiceInfo"
+            c:type="EpcServiceInfo"
+            glib:type-name="EpcServiceInfo"
+            glib:get-type="epc_service_info_get_type"
+            c:symbol-prefix="service_info">
+      <constructor name="new"
+                   c:identifier="epc_service_info_new"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="details" transfer-ownership="none">
+            <type c:type="AvahiStringList*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full"
+                   c:identifier="epc_service_info_new_full"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="details" transfer-ownership="none">
+            <type c:type="AvahiStringList*"/>
+          </parameter>
+          <parameter name="address" transfer-ownership="none">
+            <type c:type="AvahiAddress*"/>
+          </parameter>
+          <parameter name="ifname" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_address"
+              c:identifier="epc_service_info_get_address"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type c:type="AvahiAddress*"/>
+        </return-value>
+      </method>
+      <method name="get_address_family"
+              c:identifier="epc_service_info_get_address_family">
+        <return-value transfer-ownership="none">
+          <type name="AddressFamily" c:type="EpcAddressFamily"/>
+        </return-value>
+      </method>
+      <method name="get_detail" c:identifier="epc_service_info_get_detail">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_host" c:identifier="epc_service_info_get_host">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_interface"
+              c:identifier="epc_service_info_get_interface">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_port" c:identifier="epc_service_info_get_port">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="get_service_type"
+              c:identifier="epc_service_info_get_service_type">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="ref" c:identifier="epc_service_info_ref">
+        <return-value transfer-ownership="full">
+          <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+        </return-value>
+      </method>
+      <method name="unref" c:identifier="epc_service_info_unref">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <class name="ServiceMonitor"
+           c:symbol-prefix="service_monitor"
+           c:type="EpcServiceMonitor"
+           parent="GObject.Object"
+           glib:type-name="EpcServiceMonitor"
+           glib:get-type="epc_service_monitor_get_type"
+           glib:type-struct="ServiceMonitorClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcServiceMonitor class.</doc>
+      <constructor name="new"
+                   c:identifier="epc_service_monitor_new"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="application" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="first_protocol" transfer-ownership="none">
+            <type name="Protocol" c:type="EpcProtocol"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_types"
+                   c:identifier="epc_service_monitor_new_for_types"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_types_strv"
+                   c:identifier="epc_service_monitor_new_for_types_strv">
+        <return-value transfer-ownership="full">
+          <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="types" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="scanning_done">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="service_found">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="service_removed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_skip_our_own"
+              c:identifier="epc_service_monitor_get_skip_our_own">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_skip_our_own"
+              c:identifier="epc_service_monitor_set_skip_our_own">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="setting" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="domain"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="service-types"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="skip-our-own"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ServiceMonitorPrivate" c:type="EpcServiceMonitorPrivate*"/>
+      </field>
+      <glib:signal name="scanning-done" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="service-found" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="ServiceInfo"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="service-removed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ServiceMonitorClass"
+            c:type="EpcServiceMonitorClass"
+            glib:is-gtype-struct-for="ServiceMonitor">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcServiceMonitor class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="service_found">
+        <callback name="service_found">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="monitor" transfer-ownership="none">
+              <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="info" transfer-ownership="none">
+              <type name="ServiceInfo" c:type="EpcServiceInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="service_removed">
+        <callback name="service_removed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="monitor" transfer-ownership="none">
+              <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="scanning_done">
+        <callback name="scanning_done">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="monitor" transfer-ownership="none">
+              <type name="ServiceMonitor" c:type="EpcServiceMonitor*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ServiceMonitorPrivate"
+            c:type="EpcServiceMonitorPrivate"
+            disguised="1">
+    </record>
+    <record name="ShellProgressHooks" c:type="EpcShellProgressHooks">
+      <doc xml:whitespace="preserve">This table is used by #epc_shell_set_progress_hooks to install functions
+allowing the library to provide feedback during processing.
+
+See also: #epc_progress_window_install</doc>
+      <field name="begin">
+        <callback name="begin">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="title" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="user_data" transfer-ownership="none" closure="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="update">
+        <callback name="update">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="percentage" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="user_data" transfer-ownership="none" closure="2">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="end">
+        <callback name="end">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="user_data" transfer-ownership="none" closure="0">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="reserved2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="reserved3" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="reserved4" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <constant name="TLS_SECONDS_PER_DAY"
+              value="0"
+              c:type="EPC_TLS_SECONDS_PER_DAY">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TLS_SECONDS_PER_HOUR"
+              value="0"
+              c:type="EPC_TLS_SECONDS_PER_HOUR">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TLS_SECONDS_PER_MINUTE"
+              value="60"
+              c:type="EPC_TLS_SECONDS_PER_MINUTE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function name="address_family_to_string"
+              c:identifier="epc_address_family_to_string"
+              moved-to="AddressFamily.to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="AddressFamily" c:type="EpcAddressFamily"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="auth_flags_to_string"
+              c:identifier="epc_auth_flags_to_string"
+              moved-to="AuthFlags.to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="AuthFlags" c:type="EpcAuthFlags"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="avahi_error_quark" c:identifier="epc_avahi_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="collision_handling_to_string"
+              c:identifier="epc_collision_handling_to_string"
+              moved-to="CollisionHandling.to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="CollisionHandling" c:type="EpcCollisionHandling"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="http_error_quark" c:identifier="epc_http_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="protocol_build_uri"
+              c:identifier="epc_protocol_build_uri"
+              moved-to="Protocol.build_uri">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+        <parameter name="hostname" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="port" transfer-ownership="none">
+          <type name="guint16" c:type="guint16"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="protocol_from_name"
+              c:identifier="epc_protocol_from_name"
+              moved-to="Protocol.from_name">
+      <return-value transfer-ownership="none">
+        <type name="Protocol" c:type="EpcProtocol"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="fallback" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="protocol_get_service_type"
+              c:identifier="epc_protocol_get_service_type"
+              moved-to="Protocol.get_service_type">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="protocol_get_uri_scheme"
+              c:identifier="epc_protocol_get_uri_scheme"
+              moved-to="Protocol.get_uri_scheme">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="protocol_to_string"
+              c:identifier="epc_protocol_to_string"
+              moved-to="Protocol.to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_type_get_base"
+              c:identifier="epc_service_type_get_base">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_type_get_protocol"
+              c:identifier="epc_service_type_get_protocol">
+      <return-value transfer-ownership="none">
+        <type name="Protocol" c:type="EpcProtocol"/>
+      </return-value>
+      <parameters>
+        <parameter name="service_type" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_type_list_supported"
+              c:identifier="epc_service_type_list_supported"
+              introspectable="0">
+      <return-value>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="application" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_type_new" c:identifier="epc_service_type_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="Protocol" c:type="EpcProtocol"/>
+        </parameter>
+        <parameter name="application" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_create_avahi_entry_group"
+              c:identifier="epc_shell_create_avahi_entry_group"
+              introspectable="0">
+      <return-value>
+        <type c:type="AvahiEntryGroup*"/>
+      </return-value>
+      <parameters>
+        <parameter name="callback" transfer-ownership="none">
+          <type c:type="AvahiEntryGroupCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_create_service_browser"
+              c:identifier="epc_shell_create_service_browser"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type c:type="AvahiServiceBrowser*"/>
+      </return-value>
+      <parameters>
+        <parameter name="interface" transfer-ownership="none">
+          <type c:type="AvahiIfIndex"/>
+        </parameter>
+        <parameter name="protocol" transfer-ownership="none">
+          <type c:type="AvahiProtocol"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type c:type="AvahiLookupFlags"/>
+        </parameter>
+        <parameter name="callback" transfer-ownership="none">
+          <type c:type="AvahiServiceBrowserCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_get_debug_level"
+              c:identifier="epc_shell_get_debug_level">
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="shell_get_host_name"
+              c:identifier="epc_shell_get_host_name"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+    </function>
+    <function name="shell_progress_begin"
+              c:identifier="epc_shell_progress_begin">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="title" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_progress_end" c:identifier="epc_shell_progress_end">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="shell_progress_update"
+              c:identifier="epc_shell_progress_update">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="percentage" transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_restart_avahi_client"
+              c:identifier="epc_shell_restart_avahi_client">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="strloc" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_set_progress_hooks"
+              c:identifier="epc_shell_set_progress_hooks">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="hooks" transfer-ownership="none">
+          <type name="ShellProgressHooks" c:type="EpcShellProgressHooks*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="destroy_data" transfer-ownership="none" scope="async">
+          <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_watch_avahi_client_state"
+              c:identifier="epc_shell_watch_avahi_client_state"
+              introspectable="0"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="callback" transfer-ownership="none">
+          <type c:type="AvahiClientCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="destroy_data" transfer-ownership="none" scope="async">
+          <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shell_watch_remove" c:identifier="epc_shell_watch_remove">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_certificate_load"
+              c:identifier="epc_tls_certificate_load"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type c:type="gnutls_x509_crt_t"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_certificate_new"
+              c:identifier="epc_tls_certificate_new"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type c:type="gnutls_x509_crt_t"/>
+      </return-value>
+      <parameters>
+        <parameter name="hostname" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="validity" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <type c:type="gnutls_x509_privkey_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_certificate_save"
+              c:identifier="epc_tls_certificate_save"
+              introspectable="0"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="certificate" transfer-ownership="none">
+          <type c:type="gnutls_x509_crt_t"/>
+        </parameter>
+        <parameter name="filename" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_error_quark" c:identifier="epc_tls_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="tls_get_certificate_filename"
+              c:identifier="epc_tls_get_certificate_filename">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="hostname" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_get_private_key_filename"
+              c:identifier="epc_tls_get_private_key_filename">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="hostname" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_get_server_credentials"
+              c:identifier="epc_tls_get_server_credentials"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="hostname" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="crtfile" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="keyfile" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_private_key_load"
+              c:identifier="epc_tls_private_key_load"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type c:type="gnutls_x509_privkey_t"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="tls_private_key_new"
+              c:identifier="epc_tls_private_key_new"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type c:type="gnutls_x509_privkey_t"/>
+      </return-value>
+    </function>
+    <function name="tls_private_key_save"
+              c:identifier="epc_tls_private_key_save"
+              introspectable="0"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="key" transfer-ownership="none">
+          <type c:type="gnutls_x509_privkey_t"/>
+        </parameter>
+        <parameter name="filename" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

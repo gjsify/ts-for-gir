@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <package name="gtk+-3.0"/>
+  <namespace name="CryptUI"
+             version="0.0"
+             shared-library="libcryptui.so.0"
+             c:identifier-prefixes="CryptUI"
+             c:symbol-prefixes="crypt_ui">
+    <enumeration name="EncType" c:type="CryptUIEncType">
+      <doc xml:space="preserve"
+           filename="cryptui.h"
+           line="33">Used in key properties to indicate what kind of key it is
+
+Never ever change a values already present. These values are used
+across applications, DBus etc...</doc>
+      <source-position filename="cryptui.h" line="54"/>
+      <member name="none" value="0" c:identifier="CRYPTUI_ENCTYPE_NONE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="35">the key is none of the below types</doc>
+      </member>
+      <member name="symmetric"
+              value="1"
+              c:identifier="CRYPTUI_ENCTYPE_SYMMETRIC">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="36">the key's type is symmetric</doc>
+      </member>
+      <member name="public" value="2" c:identifier="CRYPTUI_ENCTYPE_PUBLIC">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="37">the key's type is public</doc>
+      </member>
+      <member name="private" value="3" c:identifier="CRYPTUI_ENCTYPE_PRIVATE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="38">the key's type is private</doc>
+      </member>
+      <member name="maxvalue"
+              value="4"
+              c:identifier="CRYPTUI_ENCTYPE_MAXVALUE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="39">for internal use only</doc>
+      </member>
+    </enumeration>
+    <record name="KeyChooser" c:type="CryptUIKeyChooser">
+      <source-position filename="cryptui-key-chooser.h" line="51"/>
+      <field name="parent" writable="1">
+        <type name="Gtk.VBox" c:type="GtkVBox"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="KeyChooserPriv" c:type="CryptUIKeyChooserPriv*"/>
+      </field>
+    </record>
+    <record name="KeyChooserClass" c:type="CryptUIKeyChooserClass">
+      <source-position filename="cryptui-key-chooser.h" line="60"/>
+      <field name="parent_class" writable="1">
+        <type name="Gtk.VBoxClass" c:type="GtkVBoxClass"/>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="cryptui-key-chooser.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chooser" transfer-ownership="none">
+              <type name="KeyChooser" c:type="CryptUIKeyChooser*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="KeyChooserMode" c:type="CryptUIKeyChooserMode">
+      <source-position filename="cryptui-key-chooser.h" line="33"/>
+      <member name="recipients"
+              value="1"
+              c:identifier="CRYPTUI_KEY_CHOOSER_RECIPIENTS">
+      </member>
+      <member name="signer"
+              value="2"
+              c:identifier="CRYPTUI_KEY_CHOOSER_SIGNER">
+      </member>
+      <member name="support_symmetric"
+              value="4"
+              c:identifier="CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC">
+      </member>
+      <member name="mustsign"
+              value="16"
+              c:identifier="CRYPTUI_KEY_CHOOSER_MUSTSIGN">
+      </member>
+    </enumeration>
+    <record name="KeyChooserPriv"
+            c:type="CryptUIKeyChooserPriv"
+            disguised="1"
+            opaque="1">
+      <source-position filename="cryptui-key-chooser.h" line="43"/>
+    </record>
+    <enumeration name="KeyFlags" c:type="CryptUIKeyFlags">
+      <doc xml:space="preserve"
+           filename="cryptui.h"
+           line="56">Used in key properties to indicate a key's status.  These values are
+logically OR'd together.
+
+Never ever change a values already present. These values are used
+across applications, DBus etc...</doc>
+      <source-position filename="cryptui.h" line="82"/>
+      <member name="is_valid" value="1" c:identifier="CRYPTUI_FLAG_IS_VALID">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="58">whether the key is valid</doc>
+      </member>
+      <member name="can_encrypt"
+              value="2"
+              c:identifier="CRYPTUI_FLAG_CAN_ENCRYPT">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="59">whether the key can encrypt</doc>
+      </member>
+      <member name="can_sign" value="4" c:identifier="CRYPTUI_FLAG_CAN_SIGN">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="60">whether the key can sign</doc>
+      </member>
+      <member name="expired" value="256" c:identifier="CRYPTUI_FLAG_EXPIRED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="61">whether the key is expired</doc>
+      </member>
+      <member name="revoked" value="512" c:identifier="CRYPTUI_FLAG_REVOKED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="62">whether the key is revoked</doc>
+      </member>
+      <member name="disabled"
+              value="1024"
+              c:identifier="CRYPTUI_FLAG_DISABLED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="63">whether the key is disabled</doc>
+      </member>
+      <member name="trusted" value="4096" c:identifier="CRYPTUI_FLAG_TRUSTED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="64">whether the key is trusted</doc>
+      </member>
+      <member name="exportable"
+              value="1048576"
+              c:identifier="CRYPTUI_FLAG_EXPORTABLE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="65">whether the key is exportable</doc>
+      </member>
+    </enumeration>
+    <record name="KeyStore" c:type="CryptUIKeyStore">
+      <source-position filename="cryptui-key-store.h" line="46"/>
+      <field name="parent" writable="1">
+        <type name="Gtk.TreeModelSort" c:type="GtkTreeModelSort"/>
+      </field>
+      <field name="ckset" writable="1">
+        <type name="Keyset" c:type="CryptUIKeyset*"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="KeyStorePriv" c:type="CryptUIKeyStorePriv*"/>
+      </field>
+    </record>
+    <record name="KeyStoreClass" c:type="CryptUIKeyStoreClass">
+      <source-position filename="cryptui-key-store.h" line="50"/>
+      <field name="parent_class" writable="1">
+        <type name="Gtk.TreeModelSortClass" c:type="GtkTreeModelSortClass"/>
+      </field>
+    </record>
+    <callback name="KeyStoreFilterFunc" c:type="CryptUIKeyStoreFilterFunc">
+      <source-position filename="cryptui-key-store.h" line="59"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="ckset" transfer-ownership="none">
+          <type name="Keyset" c:type="CryptUIKeyset*"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="KeyStoreMode" c:type="CryptUIKeyStoreMode">
+      <source-position filename="cryptui-key-store.h" line="56"/>
+      <member name="all" value="0" c:identifier="CRYPTUI_KEY_STORE_MODE_ALL">
+      </member>
+      <member name="selected"
+              value="1"
+              c:identifier="CRYPTUI_KEY_STORE_MODE_SELECTED">
+      </member>
+      <member name="results"
+              value="2"
+              c:identifier="CRYPTUI_KEY_STORE_MODE_RESULTS">
+      </member>
+    </enumeration>
+    <record name="KeyStorePriv"
+            c:type="CryptUIKeyStorePriv"
+            disguised="1"
+            opaque="1">
+      <source-position filename="cryptui-key-store.h" line="35"/>
+    </record>
+    <record name="Keyset" c:type="CryptUIKeyset">
+      <source-position filename="cryptui-keyset.h" line="34"/>
+      <field name="parent" writable="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="KeysetPrivate" c:type="CryptUIKeysetPrivate*"/>
+      </field>
+    </record>
+    <record name="KeysetClass" c:type="CryptUIKeysetClass">
+      <source-position filename="cryptui-keyset.h" line="49"/>
+      <field name="parent_class" writable="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="added">
+        <callback name="added">
+          <source-position filename="cryptui-keyset.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="keyset" transfer-ownership="none">
+              <type name="Keyset" c:type="CryptUIKeyset*"/>
+            </parameter>
+            <parameter name="key" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="removed">
+        <callback name="removed">
+          <source-position filename="cryptui-keyset.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="keyset" transfer-ownership="none">
+              <type name="Keyset" c:type="CryptUIKeyset*"/>
+            </parameter>
+            <parameter name="key" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="closure" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="cryptui-keyset.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="keyset" transfer-ownership="none">
+              <type name="Keyset" c:type="CryptUIKeyset*"/>
+            </parameter>
+            <parameter name="key" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="closure" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="KeysetPrivate"
+            c:type="CryptUIKeysetPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="cryptui-keyset.h" line="27"/>
+    </record>
+    <enumeration name="Location" c:type="CryptUILocation">
+      <doc xml:space="preserve"
+           filename="cryptui.h"
+           line="84">Indicates where a key is located.
+
+Never ever change a values already present. These values are used
+across applications, DBus etc...</doc>
+      <source-position filename="cryptui.h" line="103"/>
+      <member name="invalid" value="0" c:identifier="CRYPTUI_LOC_INVALID">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="86">An invalid key</doc>
+      </member>
+      <member name="missing" value="10" c:identifier="CRYPTUI_LOC_MISSING">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="87">A key we don't know anything about</doc>
+      </member>
+      <member name="searching" value="20" c:identifier="CRYPTUI_LOC_SEARCHING">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="88">A key we're searching for but haven't found yet</doc>
+      </member>
+      <member name="remote" value="50" c:identifier="CRYPTUI_LOC_REMOTE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="89">A key that we've found is present remotely</doc>
+      </member>
+      <member name="local" value="100" c:identifier="CRYPTUI_LOC_LOCAL">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="90">A key on the local machine</doc>
+      </member>
+    </enumeration>
+    <enumeration name="Validity" c:type="CryptUIValidity">
+      <doc xml:space="preserve"
+           filename="cryptui.h"
+           line="105">What the validity of the key is.
+
+Never ever change a values already present. These values are used
+across applications, DBus etc...</doc>
+      <source-position filename="cryptui.h" line="128"/>
+      <member name="revoked"
+              value="-3"
+              c:identifier="CRYPTUI_VALIDITY_REVOKED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="107">the key is revoked</doc>
+      </member>
+      <member name="disabled"
+              value="-2"
+              c:identifier="CRYPTUI_VALIDITY_DISABLED">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="108">the key is disabled</doc>
+      </member>
+      <member name="never" value="-1" c:identifier="CRYPTUI_VALIDITY_NEVER">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="109">the key has never been valid</doc>
+      </member>
+      <member name="unknown" value="0" c:identifier="CRYPTUI_VALIDITY_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="110">the key's validity is unknown</doc>
+      </member>
+      <member name="marginal"
+              value="1"
+              c:identifier="CRYPTUI_VALIDITY_MARGINAL">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="111">the key's validity is marginal</doc>
+      </member>
+      <member name="full" value="5" c:identifier="CRYPTUI_VALIDITY_FULL">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="112">the key's validity is full</doc>
+      </member>
+      <member name="ultimate"
+              value="10"
+              c:identifier="CRYPTUI_VALIDITY_ULTIMATE">
+        <doc xml:space="preserve"
+             filename="cryptui.h"
+             line="113">the key's validity is ultimate</doc>
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

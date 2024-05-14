@@ -1,0 +1,3602 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="libxml2" version="2.0"/>
+  <namespace name="Farstream"
+             version="0.1"
+             shared-library="libfarstream-0.1.so.0"
+             c:identifier-prefixes="fs_,Fs"
+             c:symbol-prefixes="fs_,fs">
+    <constant name="CODEC_FORMAT"
+              value="%d: %s %s clock:%d channels:%d params:%p"
+              c:type="FS_CODEC_FORMAT">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="CODEC_ID_ANY" value="-1" c:type="FS_CODEC_ID_ANY">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="CODEC_ID_DISABLE" value="-2" c:type="FS_CODEC_ID_DISABLE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="Candidate"
+            c:type="FsCandidate"
+            glib:type-name="FsCandidate"
+            glib:get-type="fs_candidate_get_type"
+            c:symbol-prefix="candidate">
+      <doc xml:whitespace="preserve">Struct to hold information about ICE-19 compliant candidates</doc>
+      <field name="foundation" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="component_id" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="ip" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="port" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="base_ip" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="base_port" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="proto" writable="1">
+        <type name="NetworkProtocol" c:type="FsNetworkProtocol"/>
+      </field>
+      <field name="priority" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="CandidateType" c:type="FsCandidateType"/>
+      </field>
+      <field name="username" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="password" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="ttl" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <constructor name="new" c:identifier="fs_candidate_new">
+        <doc xml:whitespace="preserve">Allocates a new #FsCandidate, the rest of the fields can be optionally
+filled manually.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly-allocated #FsCandidate</doc>
+          <type name="Candidate" c:type="FsCandidate*"/>
+        </return-value>
+        <parameters>
+          <parameter name="foundation" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The foundation of the candidate</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="component_id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The component this candidate is for</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The type of candidate</doc>
+            <type name="CandidateType" c:type="FsCandidateType"/>
+          </parameter>
+          <parameter name="proto" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The protocol this component is for</doc>
+            <type name="NetworkProtocol" c:type="FsNetworkProtocol"/>
+          </parameter>
+          <parameter name="ip" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The IP address of this component (can be NULL for local candidate to mean any address)</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the UDP/TCP port</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy" c:identifier="fs_candidate_copy">
+        <doc xml:whitespace="preserve">Copies a #FsCandidate and its contents.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #FsCandidate</doc>
+          <type name="Candidate" c:type="FsCandidate*"/>
+        </return-value>
+      </method>
+      <method name="destroy" c:identifier="fs_candidate_destroy">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <glib:boxed glib:name="CandidateList"
+                c:symbol-prefix="candidate_list"
+                glib:type-name="FsCandidateList"
+                glib:get-type="fs_candidate_list_get_type">
+      <function name="copy" c:identifier="fs_candidate_list_copy">
+        <doc xml:whitespace="preserve">Copies a GList of #FsCandidate and its contents</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new GList of #FsCandidate</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="candidate_list" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A GList of #FsCandidate</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="destroy"
+                c:identifier="fs_candidate_list_destroy"
+                introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="candidate_list" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+    </glib:boxed>
+    <enumeration name="CandidateType"
+                 glib:type-name="FsCandidateType"
+                 glib:get-type="fs_candidate_type_get_type"
+                 c:type="FsCandidateType">
+      <doc xml:whitespace="preserve">An enum for the type of candidate used/reported</doc>
+      <member name="host"
+              value="0"
+              c:identifier="FS_CANDIDATE_TYPE_HOST"
+              glib:nick="host"/>
+      <member name="srflx"
+              value="1"
+              c:identifier="FS_CANDIDATE_TYPE_SRFLX"
+              glib:nick="srflx"/>
+      <member name="prflx"
+              value="2"
+              c:identifier="FS_CANDIDATE_TYPE_PRFLX"
+              glib:nick="prflx"/>
+      <member name="relay"
+              value="3"
+              c:identifier="FS_CANDIDATE_TYPE_RELAY"
+              glib:nick="relay"/>
+      <member name="multicast"
+              value="4"
+              c:identifier="FS_CANDIDATE_TYPE_MULTICAST"
+              glib:nick="multicast"/>
+    </enumeration>
+    <record name="Codec"
+            c:type="FsCodec"
+            glib:type-name="FsCodec"
+            glib:get-type="fs_codec_get_type"
+            c:symbol-prefix="codec">
+      <doc xml:whitespace="preserve">This structure reprensents one codec that can be offered or received</doc>
+      <field name="id" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="encoding_name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="media_type" writable="1">
+        <type name="MediaType" c:type="FsMediaType"/>
+      </field>
+      <field name="clock_rate" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="channels" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="minimum_reporting_interval" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="optional_params" writable="1">
+        <type name="GLib.List" c:type="GList*">
+          <type name="CodecParameter"/>
+        </type>
+      </field>
+      <field name="feedback_params" writable="1">
+        <type name="GLib.List" c:type="GList*">
+          <type name="FeedbackParameter"/>
+        </type>
+      </field>
+      <constructor name="new" c:identifier="fs_codec_new">
+        <doc xml:whitespace="preserve">Allocates and initializes a #FsCodec structure</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">A newly allocated #FsCodec</doc>
+          <type name="Codec" c:type="FsCodec*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">codec identifier, if RTP this should be based on IETF RTP payload types</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="encoding_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Name of media type this encodes</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="media_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsMediaType for type of codec</doc>
+            <type name="MediaType" c:type="FsMediaType"/>
+          </parameter>
+          <parameter name="clock_rate" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The clock rate this codec encodes at, if applicable</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_feedback_parameter"
+              c:identifier="fs_codec_add_feedback_parameter">
+        <doc xml:whitespace="preserve">This function adds an new feedback parameter to a #FsCodec</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The type of the feedback parameter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="subtype" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The subtype of the feedback parameter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="extra_params" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The extra_params of the feeback parameter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_optional_parameter"
+              c:identifier="fs_codec_add_optional_parameter">
+        <doc xml:whitespace="preserve">This function adds an new optional parameter to a #FsCodec</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the optional parameter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The extra_params of the optional parameter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="are_equal" c:identifier="fs_codec_are_equal">
+        <doc xml:whitespace="preserve">Compare two codecs, it will declare two codecs to be identical even
+if their optional parameters are in a different order. %NULL encoding names
+are ignored.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE of the codecs are identical, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="codec2" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Second codec</doc>
+            <type name="Codec" c:type="FsCodec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="fs_codec_copy">
+        <doc xml:whitespace="preserve">Copies a #FsCodec structure.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a copy of the codec</doc>
+          <type name="Codec" c:type="FsCodec*"/>
+        </return-value>
+      </method>
+      <method name="destroy" c:identifier="fs_codec_destroy">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="get_feedback_parameter"
+              c:identifier="fs_codec_get_feedback_parameter">
+        <doc xml:whitespace="preserve">Finds the #FsFeedbackParameter in the #FsCodec that has the requested
+subtype, type and extra_params. One of which must be non-NULL;</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the #FsFeedbackParameter from the #FsCodec or %NULL</doc>
+          <type name="FeedbackParameter" c:type="FsFeedbackParameter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The subtype of the parameter to search for or %NULL for any type</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="subtype" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The subtype of the parameter to search for or %NULL for any subtype</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="extra_params" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The extra_params of the parameter to search for or %NULL for any extra_params</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_optional_parameter"
+              c:identifier="fs_codec_get_optional_parameter">
+        <doc xml:whitespace="preserve">Finds the #FsCodecParameter in the #FsCodec that has the requested name
+and, if not %NULL, the requested value</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #FsCodecParameter from the #FsCodec or %NULL</doc>
+          <type name="CodecParameter" c:type="FsCodecParameter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the parameter to search for</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The value of the parameter to search for or %NULL for any value</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_feedback_parameter"
+              c:identifier="fs_codec_remove_feedback_parameter">
+        <doc xml:whitespace="preserve">Removes an optional parameter from a codec.
+
+NULL param will do nothing.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a pointer to the #GList element to remove that contains a #FsFeedbackParameter</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FeedbackParameter"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_optional_parameter"
+              c:identifier="fs_codec_remove_optional_parameter">
+        <doc xml:whitespace="preserve">Removes an optional parameter from a codec.
+
+NULL param will do nothing.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="param" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a pointer to the #FsCodecParameter to remove</doc>
+            <type name="CodecParameter" c:type="FsCodecParameter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_string" c:identifier="fs_codec_to_string">
+        <doc xml:whitespace="preserve">Returns a newly-allocated string representing the codec</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the newly-allocated string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+    </record>
+    <glib:boxed glib:name="CodecGList"
+                c:symbol-prefix="codec_list"
+                glib:type-name="FsCodecGList"
+                glib:get-type="fs_codec_list_get_type">
+      <function name="are_equal" c:identifier="fs_codec_list_are_equal">
+        <doc xml:whitespace="preserve">Verifies if two glist of fscodecs are identical</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if they are identical, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="list1" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+          <parameter name="list2" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="copy" c:identifier="fs_codec_list_copy">
+        <doc xml:whitespace="preserve">Copies a list of #FsCodec structures.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">The new list.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="codec_list" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GList of #FsCodec to copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="destroy"
+                c:identifier="fs_codec_list_destroy"
+                introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="codec_list" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_keyfile"
+                c:identifier="fs_codec_list_from_keyfile"
+                throws="1">
+        <doc xml:whitespace="preserve">Reads the content of a #GKeyFile of the following format into
+a #GList of #FsCodec structures.
+
+
+Example:
+|[
+[audio/codec1]
+clock-rate=8000
+
+[audio/codec1:1]
+clock-rate=16000
+
+[audio/codec2]
+one_param=QCIF
+another_param=WOW
+
+[video/codec3]
+wierd_param=42
+feedback:nack/pli=1
+feedback:tfrc=
+]|</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">The #GList of #FsCodec or %NULL if the keyfile was empty or an error occured.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Name of the #GKeyFile to read the codecs parameters from</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </glib:boxed>
+    <record name="CodecParameter"
+            c:type="FsCodecParameter"
+            glib:type-name="FsCodecParameter"
+            glib:get-type="fs_codec_parameter_get_type"
+            c:symbol-prefix="codec_parameter">
+      <doc xml:whitespace="preserve">Used to store arbitary parameters for a codec</doc>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="value" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <method name="copy" c:identifier="fs_codec_parameter_copy">
+        <return-value transfer-ownership="full">
+          <type name="CodecParameter" c:type="FsCodecParameter*"/>
+        </return-value>
+      </method>
+      <method name="free" c:identifier="fs_codec_parameter_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <enumeration name="ComponentType"
+                 glib:type-name="FsComponentType"
+                 glib:get-type="fs_component_type_get_type"
+                 c:type="FsComponentType">
+      <doc xml:whitespace="preserve">This enum contains the component IDs defined in ICE-19</doc>
+      <member name="none"
+              value="0"
+              c:identifier="FS_COMPONENT_NONE"
+              glib:nick="none"/>
+      <member name="rtp"
+              value="1"
+              c:identifier="FS_COMPONENT_RTP"
+              glib:nick="rtp"/>
+      <member name="rtcp"
+              value="2"
+              c:identifier="FS_COMPONENT_RTCP"
+              glib:nick="rtcp"/>
+    </enumeration>
+    <class name="Conference"
+           c:symbol-prefix="conference"
+           c:type="FsConference"
+           parent="Gst.Bin"
+           glib:type-name="FsConference"
+           glib:get-type="fs_conference_get_type"
+           glib:type-struct="ConferenceClass">
+      <doc xml:whitespace="preserve">The #FsConference structure, all the members are private</doc>
+      <implements name="Gst.ChildProxy"/>
+      <virtual-method name="new_participant"
+                      invoker="new_participant"
+                      throws="1">
+        <doc xml:whitespace="preserve">Create a new Farstream Participant for the type of the given conference.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsParticipant that has been created. The #FsParticipant is owned by the user and he must unref it when he is done with it.</doc>
+          <type name="Participant" c:type="FsParticipant*"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="new_session" invoker="new_session" throws="1">
+        <doc xml:whitespace="preserve">Create a new Farstream session for the given conference.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsSession that has been created. The #FsSession must be unref'd by the user when closing the session.</doc>
+          <type name="Session" c:type="FsSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="media_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsMediaType of the new session</doc>
+            <type name="MediaType" c:type="FsMediaType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="new_participant"
+              c:identifier="fs_conference_new_participant"
+              throws="1">
+        <doc xml:whitespace="preserve">Create a new Farstream Participant for the type of the given conference.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsParticipant that has been created. The #FsParticipant is owned by the user and he must unref it when he is done with it.</doc>
+          <type name="Participant" c:type="FsParticipant*"/>
+        </return-value>
+      </method>
+      <method name="new_session"
+              c:identifier="fs_conference_new_session"
+              throws="1">
+        <doc xml:whitespace="preserve">Create a new Farstream session for the given conference.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsSession that has been created. The #FsSession must be unref'd by the user when closing the session.</doc>
+          <type name="Session" c:type="FsSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="media_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsMediaType of the new session</doc>
+            <type name="MediaType" c:type="FsMediaType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gst.Bin" c:type="GstBin"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="ConferenceClass"
+            c:type="FsConferenceClass"
+            glib:is-gtype-struct-for="Conference">
+      <doc xml:whitespace="preserve">#FsConferenceClass class structure.</doc>
+      <field name="parent">
+        <type name="Gst.BinClass" c:type="GstBinClass"/>
+      </field>
+      <field name="new_session">
+        <callback name="new_session" throws="1">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">the new #FsSession that has been created. The #FsSession must be unref'd by the user when closing the session.</doc>
+            <type name="Session" c:type="FsSession*"/>
+          </return-value>
+          <parameters>
+            <parameter name="conference" transfer-ownership="none">
+              <type name="Conference" c:type="FsConference*"/>
+            </parameter>
+            <parameter name="media_type" transfer-ownership="none">
+              <doc xml:whitespace="preserve">#FsMediaType of the new session</doc>
+              <type name="MediaType" c:type="FsMediaType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_participant">
+        <callback name="new_participant" throws="1">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">the new #FsParticipant that has been created. The #FsParticipant is owned by the user and he must unref it when he is done with it.</doc>
+            <type name="Participant" c:type="FsParticipant*"/>
+          </return-value>
+          <parameters>
+            <parameter name="conference" transfer-ownership="none">
+              <type name="Conference" c:type="FsConference*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="DTMFEvent"
+                 glib:type-name="FsDTMFEvent"
+                 glib:get-type="fs_dtmf_event_get_type"
+                 c:type="FsDTMFEvent">
+      <doc xml:whitespace="preserve">An enum that represents the different DTMF event that can be sent to a
+#FsSession. The values corresponds those those defined in RFC 4733
+The rest of the possibles values are in the IANA registry at:
+http://www.iana.org/assignments/audio-telephone-event-registry</doc>
+      <member name="0" value="0" c:identifier="FS_DTMF_EVENT_0" glib:nick="0"/>
+      <member name="1" value="1" c:identifier="FS_DTMF_EVENT_1" glib:nick="1"/>
+      <member name="2" value="2" c:identifier="FS_DTMF_EVENT_2" glib:nick="2"/>
+      <member name="3" value="3" c:identifier="FS_DTMF_EVENT_3" glib:nick="3"/>
+      <member name="4" value="4" c:identifier="FS_DTMF_EVENT_4" glib:nick="4"/>
+      <member name="5" value="5" c:identifier="FS_DTMF_EVENT_5" glib:nick="5"/>
+      <member name="6" value="6" c:identifier="FS_DTMF_EVENT_6" glib:nick="6"/>
+      <member name="7" value="7" c:identifier="FS_DTMF_EVENT_7" glib:nick="7"/>
+      <member name="8" value="8" c:identifier="FS_DTMF_EVENT_8" glib:nick="8"/>
+      <member name="9" value="9" c:identifier="FS_DTMF_EVENT_9" glib:nick="9"/>
+      <member name="star"
+              value="10"
+              c:identifier="FS_DTMF_EVENT_STAR"
+              glib:nick="star"/>
+      <member name="pound"
+              value="11"
+              c:identifier="FS_DTMF_EVENT_POUND"
+              glib:nick="pound"/>
+      <member name="a"
+              value="12"
+              c:identifier="FS_DTMF_EVENT_A"
+              glib:nick="a"/>
+      <member name="b"
+              value="13"
+              c:identifier="FS_DTMF_EVENT_B"
+              glib:nick="b"/>
+      <member name="c"
+              value="14"
+              c:identifier="FS_DTMF_EVENT_C"
+              glib:nick="c"/>
+      <member name="d"
+              value="15"
+              c:identifier="FS_DTMF_EVENT_D"
+              glib:nick="d"/>
+    </enumeration>
+    <enumeration name="DTMFMethod"
+                 glib:type-name="FsDTMFMethod"
+                 glib:get-type="fs_dtmf_method_get_type"
+                 c:type="FsDTMFMethod">
+      <doc xml:whitespace="preserve">An enum that represents the different ways a DTMF event can be sent</doc>
+      <member name="rtp_rfc4733"
+              value="1"
+              c:identifier="FS_DTMF_METHOD_RTP_RFC4733"
+              glib:nick="rtp-rfc4733"/>
+      <member name="sound"
+              value="2"
+              c:identifier="FS_DTMF_METHOD_SOUND"
+              glib:nick="sound"/>
+    </enumeration>
+    <class name="ElementAddedNotifier"
+           c:symbol-prefix="element_added_notifier"
+           c:type="FsElementAddedNotifier"
+           parent="GObject.Object"
+           glib:type-name="FsElementAddedNotifier"
+           glib:get-type="fs_element_added_notifier_get_type"
+           glib:type-struct="ElementAddedNotifierClass">
+      <doc xml:whitespace="preserve">All members are private</doc>
+      <constructor name="new" c:identifier="fs_element_added_notifier_new">
+        <doc xml:whitespace="preserve">Creates a new #FsElementAddedNotifier object</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the newly-created #FsElementAddedNotifier</doc>
+          <type name="ElementAddedNotifier" c:type="FsElementAddedNotifier*"/>
+        </return-value>
+      </constructor>
+      <method name="add" c:identifier="fs_element_added_notifier_add">
+        <doc xml:whitespace="preserve">Add a #GstBin to on which the #FsElementAddedNotifier::element-added signal
+will be called on every element and sub-element present and added in the
+future.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="bin" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #GstBin to watch to added elements</doc>
+            <type name="Gst.Bin" c:type="GstBin*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="fs_element_added_notifier_remove">
+        <doc xml:whitespace="preserve">Stop watching the passed bin and its subbins.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the #GstBin was being watched, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="bin" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #GstBin to stop watching</doc>
+            <type name="Gst.Bin" c:type="GstBin*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_default_properties"
+              c:identifier="fs_element_added_notifier_set_default_properties">
+        <doc xml:whitespace="preserve">Same as first calling fs_utils_get_default_element_properties() and using
+the result with
+fs_element_added_notifier_set_properties_from_keyfile() .
+
+This is binding friendly (since GKeyFile doesn't have a boxed type).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="element" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Element for which to set the default codec preferences</doc>
+            <type name="Gst.Element" c:type="GstElement*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_properties_from_file"
+              c:identifier="fs_element_added_notifier_set_properties_from_file"
+              throws="1">
+        <doc xml:whitespace="preserve">Same as fs_element_added_notifier_set_properties_from_keyfile() but using
+the name of the file to load instead of the #GKeyFile directly.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the file was successfully loaded, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the keyfile to use</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_properties_from_keyfile"
+              c:identifier="fs_element_added_notifier_set_properties_from_keyfile">
+        <doc xml:whitespace="preserve">Using a #GKeyFile where the groups are the element's type or name
+and the key=value are the property and its value, this function
+will set the properties on the elements added to this object after
+this function has been called.  It will take ownership of the
+GKeyFile structure. It will first try the group as the element type, if that
+does not match, it will check its name.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="keyfile" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GKeyFile</doc>
+            <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ElementAddedNotifierPrivate"
+              c:type="FsElementAddedNotifierPrivate*"/>
+      </field>
+      <glib:signal name="element-added" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when an element is added to a #GstBin that was added
+to this object or one of its sub-bins.
+Be careful, there is no guarantee that this will be emitted on your
+main thread, it will be emitted in the thread that added the element.
+The bin may be %NULL if this is the top-level bin.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="bin" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The #GstBin to which this object was added</doc>
+            <type name="Gst.Bin"/>
+          </parameter>
+          <parameter name="element" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The #GstElement that was added</doc>
+            <type name="Gst.Element"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ElementAddedNotifierClass"
+            c:type="FsElementAddedNotifierClass"
+            glib:is-gtype-struct-for="ElementAddedNotifier">
+      <doc xml:whitespace="preserve">All members are private</doc>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ElementAddedNotifierPrivate"
+            c:type="FsElementAddedNotifierPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="Error"
+                 glib:type-name="FsError"
+                 glib:get-type="fs_error_get_type"
+                 c:type="FsError"
+                 glib:error-domain="fs-error">
+      <doc xml:whitespace="preserve">This is the enum of error numbers that will come either on the "error"
+signal, from the Gst Bus or for error in the FS_ERROR domain in GErrors</doc>
+      <member name="construction"
+              value="1"
+              c:identifier="FS_ERROR_CONSTRUCTION"
+              glib:nick="construction"/>
+      <member name="internal"
+              value="2"
+              c:identifier="FS_ERROR_INTERNAL"
+              glib:nick="internal"/>
+      <member name="invalid_arguments"
+              value="100"
+              c:identifier="FS_ERROR_INVALID_ARGUMENTS"
+              glib:nick="invalid-arguments"/>
+      <member name="network"
+              value="101"
+              c:identifier="FS_ERROR_NETWORK"
+              glib:nick="network"/>
+      <member name="not_implemented"
+              value="102"
+              c:identifier="FS_ERROR_NOT_IMPLEMENTED"
+              glib:nick="not-implemented"/>
+      <member name="negotiation_failed"
+              value="103"
+              c:identifier="FS_ERROR_NEGOTIATION_FAILED"
+              glib:nick="negotiation-failed"/>
+      <member name="unknown_codec"
+              value="104"
+              c:identifier="FS_ERROR_UNKNOWN_CODEC"
+              glib:nick="unknown-codec"/>
+      <member name="no_codecs"
+              value="105"
+              c:identifier="FS_ERROR_NO_CODECS"
+              glib:nick="no-codecs"/>
+      <member name="no_codecs_left"
+              value="106"
+              c:identifier="FS_ERROR_NO_CODECS_LEFT"
+              glib:nick="no-codecs-left"/>
+      <member name="connection_failed"
+              value="107"
+              c:identifier="FS_ERROR_CONNECTION_FAILED"
+              glib:nick="connection-failed"/>
+      <member name="disposed"
+              value="108"
+              c:identifier="FS_ERROR_DISPOSED"
+              glib:nick="disposed"/>
+      <member name="already_exists"
+              value="109"
+              c:identifier="FS_ERROR_ALREADY_EXISTS"
+              glib:nick="already-exists"/>
+      <function name="quark" c:identifier="fs_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="FeedbackParameter"
+            c:type="FsFeedbackParameter"
+            glib:type-name="FsFeedbackParameter"
+            glib:get-type="fs_feedback_parameter_get_type"
+            c:symbol-prefix="feedback_parameter">
+      <doc xml:whitespace="preserve">Use to store feedback parameters</doc>
+      <field name="type" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="subtype" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="extra_params" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <method name="copy" c:identifier="fs_feedback_parameter_copy">
+        <return-value transfer-ownership="full">
+          <type name="FeedbackParameter" c:type="FsFeedbackParameter*"/>
+        </return-value>
+      </method>
+      <method name="free" c:identifier="fs_feedback_parameter_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <enumeration name="MediaType"
+                 glib:type-name="FsMediaType"
+                 glib:get-type="fs_media_type_get_type"
+                 c:type="FsMediaType">
+      <doc xml:whitespace="preserve">Enum used to signify the media type of a codec or stream.</doc>
+      <member name="audio"
+              value="0"
+              c:identifier="FS_MEDIA_TYPE_AUDIO"
+              glib:nick="audio"/>
+      <member name="video"
+              value="1"
+              c:identifier="FS_MEDIA_TYPE_VIDEO"
+              glib:nick="video"/>
+      <member name="last"
+              value="1"
+              c:identifier="FS_MEDIA_TYPE_LAST"
+              glib:nick="last"/>
+      <function name="to_string" c:identifier="fs_media_type_to_string">
+        <doc xml:whitespace="preserve">Gives a user-printable string representing the media type</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a static string representing the media type</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="media_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A media type</doc>
+            <type name="MediaType" c:type="FsMediaType"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <enumeration name="NetworkProtocol"
+                 glib:type-name="FsNetworkProtocol"
+                 glib:get-type="fs_network_protocol_get_type"
+                 c:type="FsNetworkProtocol">
+      <doc xml:whitespace="preserve">An enum for the base IP protocol</doc>
+      <member name="udp"
+              value="0"
+              c:identifier="FS_NETWORK_PROTOCOL_UDP"
+              glib:nick="udp"/>
+      <member name="tcp"
+              value="1"
+              c:identifier="FS_NETWORK_PROTOCOL_TCP"
+              glib:nick="tcp"/>
+    </enumeration>
+    <class name="Participant"
+           c:symbol-prefix="participant"
+           c:type="FsParticipant"
+           parent="Gst.Object"
+           abstract="1"
+           glib:type-name="FsParticipant"
+           glib:get-type="fs_participant_get_type"
+           glib:type-struct="ParticipantClass">
+      <doc xml:whitespace="preserve">All members are private (access them using the properties)</doc>
+      <field name="parent">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="mutex" readable="0" private="1">
+        <type name="GLib.Mutex" c:type="GMutex*"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ParticipantPrivate" c:type="FsParticipantPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="ParticipantClass"
+            c:type="FsParticipantClass"
+            glib:is-gtype-struct-for="Participant">
+      <doc xml:whitespace="preserve">The FsParticipant class has no virtual methods to implement,
+but you may want to override the properties or attach more date to it</doc>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ParticipantPrivate" c:type="FsParticipantPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ParticipantPrivate"
+            c:type="FsParticipantPrivate"
+            disguised="1">
+    </record>
+    <class name="Plugin"
+           c:symbol-prefix="plugin"
+           c:type="FsPlugin"
+           parent="GObject.TypeModule"
+           glib:type-name="FsPlugin"
+           glib:get-type="fs_plugin_get_type"
+           glib:type-struct="PluginClass">
+      <doc xml:whitespace="preserve">This structure represents a plugin, it is opaque.</doc>
+      <implements name="GObject.TypePlugin"/>
+      <function name="create"
+                c:identifier="fs_plugin_create"
+                introspectable="0">
+        <doc xml:whitespace="preserve">Loads the appropriate plugin if necessary and creates a GObject of
+the requested type</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">The object created (or NULL if there is an error)</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the plugin to load</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="type_suffix" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The type of plugin to load (normally "transmitter")</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:whitespace="preserve">location of a #GError, or NULL if no error occured</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="first_property_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the first property to be set on the object</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_valist"
+                c:identifier="fs_plugin_create_valist"
+                introspectable="0">
+        <doc xml:whitespace="preserve">Loads the appropriate plugin if necessary and creates a GObject of
+the requested type</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">The object created (or NULL if there is an error)</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the plugin to load</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="type_suffix" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The type of plugin to load (normally "transmitter")</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:whitespace="preserve">location of a #GError, or NULL if no error occured</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="first_property_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the first property to be set on the object</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="var_args" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The rest of the arguments</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_available" c:identifier="fs_plugin_list_available">
+        <doc xml:whitespace="preserve">Gets the list of all available plugins of a certain type</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly allocated NULL terminated array of strings or %NULL if no strings were found. It should be freed with g_strfreev().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="type_suffix" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Get list of plugins with this type suffix</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <field name="parent">
+        <type name="GObject.TypeModule" c:type="GTypeModule"/>
+      </field>
+      <field name="type" readable="0" private="1">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <field name="name" readable="0" private="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PluginPrivate" c:type="FsPluginPrivate*"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="PluginClass"
+            c:type="FsPluginClass"
+            glib:is-gtype-struct-for="Plugin">
+      <field name="parent_class">
+        <type name="GObject.TypeModuleClass" c:type="GTypeModuleClass"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="PluginPrivate" c:type="FsPluginPrivate" disguised="1">
+    </record>
+    <constant name="RTP_HEADER_EXTENSION_FORMAT"
+              value="%d: (%s) %s"
+              c:type="FS_RTP_HEADER_EXTENSION_FORMAT">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <glib:boxed glib:name="RtpHeaderExtension"
+                c:symbol-prefix="rtp_header_extension"
+                glib:type-name="FsRtpHeaderExtension"
+                glib:get-type="fs_rtp_header_extension_get_type">
+      <constructor name="new" c:identifier="fs_rtp_header_extension_new">
+        <doc xml:whitespace="preserve">Creates a new #FsRtpHeaderExtension</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #FsRtpHeaderExtension</doc>
+          <type name="RtpHeaderExtension" c:type="FsRtpHeaderExtension*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The identifier of the RTP header extension</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the direction in which this extension can be used</doc>
+            <type name="StreamDirection" c:type="FsStreamDirection"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The URI that defines this extension</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="are_equal"
+              c:identifier="fs_rtp_header_extension_are_equal">
+        <doc xml:whitespace="preserve">Compares two #FsRtpHeaderExtension structures</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if they are identical, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="extension2" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The second #FsRtpHeaderExtension</doc>
+            <type name="RtpHeaderExtension" c:type="FsRtpHeaderExtension*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="fs_rtp_header_extension_copy">
+        <return-value transfer-ownership="full">
+          <type name="RtpHeaderExtension" c:type="FsRtpHeaderExtension*"/>
+        </return-value>
+      </method>
+      <method name="destroy" c:identifier="fs_rtp_header_extension_destroy">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </glib:boxed>
+    <glib:boxed glib:name="RtpHeaderExtensionGList"
+                c:symbol-prefix="rtp_header_extension_list"
+                glib:type-name="FsRtpHeaderExtensionGList"
+                glib:get-type="fs_rtp_header_extension_list_get_type">
+      <function name="copy" c:identifier="fs_rtp_header_extension_list_copy">
+        <doc xml:whitespace="preserve">Does a deep copy of a #GList of #FsRtpHeaderExtension</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #GList of #FsRtpHeaderExtension</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="RtpHeaderExtension"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="extensions" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsRtpHeaderExtension</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="RtpHeaderExtension"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="destroy"
+                c:identifier="fs_rtp_header_extension_list_destroy"
+                introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="extensions" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_keyfile"
+                c:identifier="fs_rtp_header_extension_list_from_keyfile"
+                throws="1">
+        <doc xml:whitespace="preserve">Reads the content of a #GKeyFile of the following format into a
+#GList of #FsRtpHeaderExtension structures.
+
+The groups have a format "rtp-hdrext:audio:XXX" or
+"rtp-hdrext:video:XXX" where XXX is a unique string (per media type).
+
+The valid keys are:
+&lt;itemizedlist&gt;
+ &lt;listitem&gt;id: a int between in the 1-255 and 4096-4351 ranges&lt;/listitem&gt;
+ &lt;listitem&gt;uri: a URI describing the RTP Header Extension&lt;/listitem&gt;
+ &lt;listitem&gt;direction (optional): To only send or receive a RTP Header
+     Extension, possible values are "send", "receive", "none" or "both".
+     Defaults to "both"&lt;/listitem&gt;
+&lt;/itemizedlist&gt;
+
+Example:
+|[
+[rtp-hdrext:audio:a]
+id=1
+uri=urn:ietf:params:rtp-hdrext:toffset
+
+[rtp-hdrext:audio:abc]
+id=3
+uri=urn:ietf:params:rtp-hdrext:ntp-64
+direction=receive
+]|</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #GList of #FsRtpHeaderExtension that must be freed with fs_rtp_header_extension_list_destroy()</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="RtpHeaderExtension"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Name of the #GKeyFile to read the RTP Header Extensions from</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="media_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The media type for which to get header extensions</doc>
+            <type name="MediaType" c:type="FsMediaType"/>
+          </parameter>
+        </parameters>
+      </function>
+    </glib:boxed>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="FsSession"
+           parent="Gst.Object"
+           abstract="1"
+           glib:type-name="FsSession"
+           glib:get-type="fs_session_get_type"
+           glib:type-struct="SessionClass">
+      <doc xml:whitespace="preserve">All members are private, access them using methods and properties</doc>
+      <virtual-method name="codecs_need_resend" invoker="codecs_need_resend">
+        <doc xml:whitespace="preserve">Some codec updates need to be reliably transmitted to the other side
+because they contain important parameters required to decode the media.
+Other codec updates, caused by user action, don't.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">A new #GList of #FsCodec that need to be resent or %NULL if there are none. This list must be freed with fs_codec_list_destroy().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="old_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Codecs previously retrieved from the #FsSession:codecs property</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+          <parameter name="new_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Codecs recently retrieved from the #FsSession:codecs property</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_stream_transmitter_type"
+                      invoker="get_stream_transmitter_type">
+        <doc xml:whitespace="preserve">Returns the GType of the stream transmitter, bindings can use it
+to validate/convert the parameters passed to fs_session_new_stream().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">The #GType of the stream transmitter</doc>
+          <type name="GType" c:type="GType"/>
+        </return-value>
+        <parameters>
+          <parameter name="transmitter" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the transmitter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="list_transmitters" invoker="list_transmitters">
+        <doc xml:whitespace="preserve">Get the list of all available transmitters for this session.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly-allocagted %NULL terminated array of named of transmitters or %NULL if no transmitter is needed for this type of session. It should be freed with g_strfreev().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="new_stream" invoker="new_stream" throws="1">
+        <doc xml:whitespace="preserve">This function creates a stream for the given participant into the active session.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsStream that has been created. User must unref the #FsStream when the stream is ended. If an error occured, returns NULL.</doc>
+          <type name="Stream" c:type="FsStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="participant" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsParticipant of a participant for the new stream</doc>
+            <type name="Participant" c:type="FsParticipant*"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsStreamDirection describing the direction of the new stream that will be created for this participant</doc>
+            <type name="StreamDirection" c:type="FsStreamDirection"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_codec_preferences"
+                      invoker="set_codec_preferences"
+                      throws="1">
+        <doc xml:whitespace="preserve">Set the list of desired codec preferences. The user may
+change this value during an ongoing session. Note that doing this can cause
+the codecs to change. Therefore this requires the user to fetch
+the new codecs and renegotiate them with the peers. It is a #GList
+of #FsCodec. The changes are immediately effective.
+The function does not take ownership of the list.
+
+The payload type may be a valid dynamic PT (96-127), %FS_CODEC_ID_DISABLE
+or %FS_CODEC_ID_ANY. If the encoding name is "reserve-pt", then the
+payload type of the codec will be "reserved" and not be used by any
+dynamically assigned payload type.
+
+If the list of specifications would invalidate all codecs, an error will
+be returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE on success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="codec_preferences" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec with the desired configuration</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_send_codec"
+                      invoker="set_send_codec"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function will set the currently being sent codec for all streams in this
+session. The given #FsCodec must be taken directly from the #codecs
+property of the session. If the given codec is not in the codecs
+list, @error will be set and %FALSE will be returned. The @send_codec will be
+copied so it must be free'd using fs_codec_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%FALSE if the send codec couldn't be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="send_codec" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #FsCodec representing the codec to send</doc>
+            <type name="Codec" c:type="FsCodec*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="start_telephony_event"
+                      invoker="start_telephony_event">
+        <doc xml:whitespace="preserve">This function will start sending a telephony event (such as a DTMF
+tone) on the #FsSession. You have to call the function
+fs_session_stop_telephony_event() to stop it.
+
+If this function returns %TRUE, a "farstream-telephony-event-started" will
+always be emitted when the event is actually played out.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsStream does not support this telephony event.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #FsStreamDTMFEvent or another number defined at http://www.iana.org/assignments/audio-telephone-event-registry</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The volume in dBm0 without the negative sign. Should be between 0 and 36. Higher values mean lower volume</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="stop_telephony_event"
+                      invoker="stop_telephony_event">
+        <doc xml:whitespace="preserve">This function will stop sending a telephony event started by
+fs_session_start_telephony_event(). If the event was being sent
+for less than 50ms, it will be sent for 50ms minimum. If the
+duration was a positive and the event is not over, it will cut it
+short.
+
+If this function returns %TRUE, a "farstream-telephony-event-stopped" will
+always be emitted when the event is actually stopped.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsSession does not support telephony events or if no telephony event is being sent</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </virtual-method>
+      <method name="codecs_need_resend"
+              c:identifier="fs_session_codecs_need_resend">
+        <doc xml:whitespace="preserve">Some codec updates need to be reliably transmitted to the other side
+because they contain important parameters required to decode the media.
+Other codec updates, caused by user action, don't.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">A new #GList of #FsCodec that need to be resent or %NULL if there are none. This list must be freed with fs_codec_list_destroy().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="old_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Codecs previously retrieved from the #FsSession:codecs property</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+          <parameter name="new_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Codecs recently retrieved from the #FsSession:codecs property</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="destroy" c:identifier="fs_session_destroy">
+        <doc xml:whitespace="preserve">This will cause the session to remove all links to other objects and to
+remove itself from the #FsConference, it will also destroy all #FsStream
+inside this #FsSession Once a #FsSession has been destroyed, it
+can not be used anymore.
+
+It is strongly recommended to call this function from the main thread because
+releasing the application's reference to a session.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="emit_error" c:identifier="fs_session_emit_error">
+        <doc xml:whitespace="preserve">This function emit the "error" signal on a #FsSession, it should only be
+called by subclasses.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error_no" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error of type #FsError</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stream_transmitter_type"
+              c:identifier="fs_session_get_stream_transmitter_type">
+        <doc xml:whitespace="preserve">Returns the GType of the stream transmitter, bindings can use it
+to validate/convert the parameters passed to fs_session_new_stream().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">The #GType of the stream transmitter</doc>
+          <type name="GType" c:type="GType"/>
+        </return-value>
+        <parameters>
+          <parameter name="transmitter" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the transmitter</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_transmitters"
+              c:identifier="fs_session_list_transmitters">
+        <doc xml:whitespace="preserve">Get the list of all available transmitters for this session.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly-allocagted %NULL terminated array of named of transmitters or %NULL if no transmitter is needed for this type of session. It should be freed with g_strfreev().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="new_stream"
+              c:identifier="fs_session_new_stream"
+              throws="1">
+        <doc xml:whitespace="preserve">This function creates a stream for the given participant into the active session.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the new #FsStream that has been created. User must unref the #FsStream when the stream is ended. If an error occured, returns NULL.</doc>
+          <type name="Stream" c:type="FsStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="participant" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsParticipant of a participant for the new stream</doc>
+            <type name="Participant" c:type="FsParticipant*"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsStreamDirection describing the direction of the new stream that will be created for this participant</doc>
+            <type name="StreamDirection" c:type="FsStreamDirection"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_codecs_changed"
+              c:identifier="fs_session_parse_codecs_changed">
+        <doc xml:whitespace="preserve">Parses a "farstream-codecs-changed" message and checks if it matches
+the @session parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the session and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_send_codec_changed"
+              c:identifier="fs_session_parse_send_codec_changed">
+        <doc xml:whitespace="preserve">Parses a "farstream-send-codec-changed" message and checks if it matches
+the @session parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the session and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="codec"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns the #FsCodec in the message if not %NULL.</doc>
+            <type name="Codec" c:type="FsCodec**"/>
+          </parameter>
+          <parameter name="secondary_codecs"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns a #GList of #FsCodec of the message if not %NULL</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_telephony_event_started"
+              c:identifier="fs_session_parse_telephony_event_started">
+        <doc xml:whitespace="preserve">Parses a "farstream-telephony-event-started" message and checks if it matches
+the @session parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the session and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="method"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the #FsDTMFMethod in the message if not %NULL.</doc>
+            <type name="DTMFMethod" c:type="FsDTMFMethod*"/>
+          </parameter>
+          <parameter name="event"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the #FsDTMFEvent in the message if not %NULL.</doc>
+            <type name="DTMFEvent" c:type="FsDTMFEvent*"/>
+          </parameter>
+          <parameter name="volume"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the volume in the message if not %NULL.</doc>
+            <type name="guint8" c:type="guint8*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_telephony_event_stopped"
+              c:identifier="fs_session_parse_telephony_event_stopped">
+        <doc xml:whitespace="preserve">Parses a "farstream-telephony-event-stopped" message and checks if it matches
+the @session parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the session and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="method"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the #FsDTMFMethod in the message if not %NULL.</doc>
+            <type name="DTMFMethod" c:type="FsDTMFMethod*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_codec_preferences"
+              c:identifier="fs_session_set_codec_preferences"
+              throws="1">
+        <doc xml:whitespace="preserve">Set the list of desired codec preferences. The user may
+change this value during an ongoing session. Note that doing this can cause
+the codecs to change. Therefore this requires the user to fetch
+the new codecs and renegotiate them with the peers. It is a #GList
+of #FsCodec. The changes are immediately effective.
+The function does not take ownership of the list.
+
+The payload type may be a valid dynamic PT (96-127), %FS_CODEC_ID_DISABLE
+or %FS_CODEC_ID_ANY. If the encoding name is "reserve-pt", then the
+payload type of the codec will be "reserved" and not be used by any
+dynamically assigned payload type.
+
+If the list of specifications would invalidate all codecs, an error will
+be returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE on success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="codec_preferences" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec with the desired configuration</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_send_codec"
+              c:identifier="fs_session_set_send_codec"
+              throws="1">
+        <doc xml:whitespace="preserve">This function will set the currently being sent codec for all streams in this
+session. The given #FsCodec must be taken directly from the #codecs
+property of the session. If the given codec is not in the codecs
+list, @error will be set and %FALSE will be returned. The @send_codec will be
+copied so it must be free'd using fs_codec_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%FALSE if the send codec couldn't be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="send_codec" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #FsCodec representing the codec to send</doc>
+            <type name="Codec" c:type="FsCodec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_telephony_event"
+              c:identifier="fs_session_start_telephony_event">
+        <doc xml:whitespace="preserve">This function will start sending a telephony event (such as a DTMF
+tone) on the #FsSession. You have to call the function
+fs_session_stop_telephony_event() to stop it.
+
+If this function returns %TRUE, a "farstream-telephony-event-started" will
+always be emitted when the event is actually played out.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsStream does not support this telephony event.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #FsStreamDTMFEvent or another number defined at http://www.iana.org/assignments/audio-telephone-event-registry</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The volume in dBm0 without the negative sign. Should be between 0 and 36. Higher values mean lower volume</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_telephony_event"
+              c:identifier="fs_session_stop_telephony_event">
+        <doc xml:whitespace="preserve">This function will stop sending a telephony event started by
+fs_session_start_telephony_event(). If the event was being sent
+for less than 50ms, it will be sent for 50ms minimum. If the
+duration was a positive and the event is not over, it will cut it
+short.
+
+If this function returns %TRUE, a "farstream-telephony-event-stopped" will
+always be emitted when the event is actually stopped.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsSession does not support telephony events or if no telephony event is being sent</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <property name="codec-preferences" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the current preferences list for the local codecs. It is
+set by the user to specify the codec options and priorities. The user may
+change its value with fs_session_set_codec_preferences() at any time
+during a session. It is a #GList of #FsCodec.
+The user must free this codec list using fs_codec_list_destroy() when done.
+
+The payload type may be a valid dynamic PT (96-127), %FS_CODEC_ID_DISABLE
+or %FS_CODEC_ID_ANY. If the encoding name is "reserve-pt", then the
+payload type of the codec will be "reserved" and not be used by any
+dynamically assigned payload type.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="codecs" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the list of codecs used for this session. It will include the
+codecs and payload type used to receive media on this session. It will
+also include any configuration parameter that must be transmitted reliably
+for the other end to decode the content.
+
+It may change when the codec preferences are set, when codecs are set
+on a #FsStream in this session, when a #FsStream is destroyed or
+asynchronously when new config data is discovered.
+
+If any configuration parameter needs to be discovered, this property
+will be %NULL until they have been discovered. One can always get
+the codecs from #FsSession:codecs-without-config.
+The "farstream-codecs-changed" message will be emitted whenever the value
+of this property changes.
+
+It is a #GList of #FsCodec. User must free this codec list using
+fs_codec_list_destroy() when done.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="codecs-without-config" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the same list of codecs as #FsSession:codecs without
+the configuration information that describes the data sent. It is suitable
+for configurations where a list of codecs is shared by many senders.
+If one is using codecs such as Theora, Vorbis or H.264 that require
+such information to be transmitted, the configuration data should be
+included in the stream and retransmitted regularly.
+
+It may change when the codec preferences are set, when codecs are set
+on a #FsStream in this session, when a #FsStream is destroyed or
+asynchronously when new config data is discovered.
+
+The "farstream-codecs-changed" message will be emitted whenever the value
+of this property changes.
+
+It is a #GList of #FsCodec. User must free this codec list using
+fs_codec_list_destroy() when done.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="conference"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The #FsConference parent of this session. This property is a
+construct param and is read-only.</doc>
+        <type name="Conference"/>
+      </property>
+      <property name="current-send-codec" transfer-ownership="none">
+        <doc xml:whitespace="preserve">Indicates the currently active send codec. A user can change the active
+send codec by calling fs_session_set_send_codec(). The send codec could
+also be automatically changed by Farstream. This property is an
+#FsCodec. User must free the codec using fs_codec_destroy() when done.
+The "farstream-send-codec-changed" message is emitted on the bus when
+the value of this property changes.</doc>
+        <type name="Codec"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The ID of the session, the first number of the pads linked to this session
+will be this id</doc>
+        <type name="guint"/>
+      </property>
+      <property name="media-type"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The media-type of the session. This is either Audio, Video or both.
+This is a constructor parameter that cannot be changed.</doc>
+        <type name="MediaType"/>
+      </property>
+      <property name="sink-pad" transfer-ownership="none">
+        <doc xml:whitespace="preserve">The Gstreamer sink pad that must be used to send media data on this
+session. User must unref this GstPad when done with it.</doc>
+        <type name="Gst.Pad"/>
+      </property>
+      <property name="tos" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">Sets the IP ToS field (and if possible the IPv6 TCLASS field</doc>
+        <type name="guint"/>
+      </property>
+      <field name="parent">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="SessionPrivate" c:type="FsSessionPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <glib:signal name="error" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted in any error condition, it can be emitted on any
+thread. Applications should listen to the GstBus for errors.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The #Gobject that emitted the signal</doc>
+            <type name="GObject.Object"/>
+          </parameter>
+          <parameter name="error_no" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="Error"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message</doc>
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="SessionClass"
+            c:type="FsSessionClass"
+            glib:is-gtype-struct-for="Session">
+      <doc xml:whitespace="preserve">You must override at least new_stream in a subclass.</doc>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="new_stream">
+        <callback name="new_stream" throws="1">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">the new #FsStream that has been created. User must unref the #FsStream when the stream is ended. If an error occured, returns NULL.</doc>
+            <type name="Stream" c:type="FsStream*"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="participant" transfer-ownership="none">
+              <doc xml:whitespace="preserve">#FsParticipant of a participant for the new stream</doc>
+              <type name="Participant" c:type="FsParticipant*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <doc xml:whitespace="preserve">#FsStreamDirection describing the direction of the new stream that will be created for this participant</doc>
+              <type name="StreamDirection" c:type="FsStreamDirection"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="start_telephony_event">
+        <callback name="start_telephony_event">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsStream does not support this telephony event.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <doc xml:whitespace="preserve">A #FsStreamDTMFEvent or another number defined at http://www.iana.org/assignments/audio-telephone-event-registry</doc>
+              <type name="guint8" c:type="guint8"/>
+            </parameter>
+            <parameter name="volume" transfer-ownership="none">
+              <doc xml:whitespace="preserve">The volume in dBm0 without the negative sign. Should be between 0 and 36. Higher values mean lower volume</doc>
+              <type name="guint8" c:type="guint8"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="stop_telephony_event">
+        <callback name="stop_telephony_event">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if sucessful, it can return %FALSE if the #FsSession does not support telephony events or if no telephony event is being sent</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_send_codec">
+        <callback name="set_send_codec" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%FALSE if the send codec couldn't be set.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="send_codec" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #FsCodec representing the codec to send</doc>
+              <type name="Codec" c:type="FsCodec*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_codec_preferences">
+        <callback name="set_codec_preferences" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE on success, %FALSE on error.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="codec_preferences" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #GList of #FsCodec with the desired configuration</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Codec"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="list_transmitters">
+        <callback name="list_transmitters">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">a newly-allocagted %NULL terminated array of named of transmitters or %NULL if no transmitter is needed for this type of session. It should be freed with g_strfreev().</doc>
+            <array c:type="gchar**">
+              <type name="utf8"/>
+            </array>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_stream_transmitter_type">
+        <callback name="get_stream_transmitter_type">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">The #GType of the stream transmitter</doc>
+            <type name="GType" c:type="GType"/>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="transmitter" transfer-ownership="none">
+              <doc xml:whitespace="preserve">The name of the transmitter</doc>
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="codecs_need_resend">
+        <callback name="codecs_need_resend">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">A new #GList of #FsCodec that need to be resent or %NULL if there are none. This list must be freed with fs_codec_list_destroy().</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="session" transfer-ownership="none">
+              <type name="Session" c:type="FsSession*"/>
+            </parameter>
+            <parameter name="old_codecs" transfer-ownership="none">
+              <doc xml:whitespace="preserve">Codecs previously retrieved from the #FsSession:codecs property</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Codec"/>
+              </type>
+            </parameter>
+            <parameter name="new_codecs" transfer-ownership="none">
+              <doc xml:whitespace="preserve">Codecs recently retrieved from the #FsSession:codecs property</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Codec"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="SessionPrivate" c:type="FsSessionPrivate" disguised="1">
+    </record>
+    <class name="Stream"
+           c:symbol-prefix="stream"
+           c:type="FsStream"
+           parent="Gst.Object"
+           abstract="1"
+           glib:type-name="FsStream"
+           glib:get-type="fs_stream_get_type"
+           glib:type-struct="StreamClass">
+      <doc xml:whitespace="preserve">All members are private, access them using methods and properties</doc>
+      <virtual-method name="add_id" invoker="add_id">
+        <doc xml:whitespace="preserve">This function is used to add data identifiers that allow the
+plugin to recognize packets that are meant for id. For example, in RTP,
+one would set the SSRCs that are expected.
+
+Depending on the protocol, one may be able to add more than one ID
+to a stream (in RTP you can have multiple SSRCs in a stream).
+If a protocol supports only one id, adding a new one will overwrite it.
+If an ID was already set on a stream, adding it to another stream will
+override the previdous decision.
+
+For most protocols, calling this function is optional as the incoming data
+can be matched with a stream by its source IP address. This is mostly useful
+if one is using multicast or is behind a muxer server.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The id to add to the stream</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_remote_candidates"
+                      invoker="add_remote_candidates"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function adds remote candidates. Any new candidates are
+added to the list. The candidates will be used to establish a connection
+with the peer. A copy will be made so the user must free the
+passed candidate using fs_candidate_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">TRUE if the candidate was valid, FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">an #GList of #FsCandidate representing the remote candidates</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="force_remote_candidates"
+                      invoker="force_remote_candidates"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function forces data to be sent immediately to the selected remote
+candidate, by-passing any connectivity checks. There should be at most
+one candidate per component.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_remote_codecs"
+                      invoker="set_remote_codecs"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function will set the list of remote codecs for this stream. If
+the given remote codecs couldn't be negotiated with the list of local
+codecs or already negotiated codecs for the corresponding #FsSession, @error
+will be set and %FALSE will be returned. The @remote_codecs list will be
+copied so it must be free'd using fs_codec_list_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%FALSE if the remote codecs couldn't be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec representing the remote codecs</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_transmitter"
+                      invoker="set_transmitter"
+                      throws="1">
+        <doc xml:whitespace="preserve">Set the transmitter to use for this stream. This function will only succeed
+once.
+
+The parameters correspond to the varios GObject properties of the
+selected stream transmitter.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the transmitter could be set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="transmitter" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Name of the type of transmitter to use for this stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="stream_transmitter_parameters"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">(array length=stream_transmitter_n_parameters) (allow-none): an array of n_parameters #GParameter struct that will be passed to the newly-create #FsStreamTransmitter</doc>
+            <type name="GObject.Parameter" c:type="GParameter*"/>
+          </parameter>
+          <parameter name="stream_transmitter_n_parameters"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Number of parametrs passed to the stream transmitter</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_id" c:identifier="fs_stream_add_id">
+        <doc xml:whitespace="preserve">This function is used to add data identifiers that allow the
+plugin to recognize packets that are meant for id. For example, in RTP,
+one would set the SSRCs that are expected.
+
+Depending on the protocol, one may be able to add more than one ID
+to a stream (in RTP you can have multiple SSRCs in a stream).
+If a protocol supports only one id, adding a new one will overwrite it.
+If an ID was already set on a stream, adding it to another stream will
+override the previdous decision.
+
+For most protocols, calling this function is optional as the incoming data
+can be matched with a stream by its source IP address. This is mostly useful
+if one is using multicast or is behind a muxer server.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The id to add to the stream</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_remote_candidates"
+              c:identifier="fs_stream_add_remote_candidates"
+              throws="1">
+        <doc xml:whitespace="preserve">This function adds remote candidates. Any new candidates are
+added to the list. The candidates will be used to establish a connection
+with the peer. A copy will be made so the user must free the
+passed candidate using fs_candidate_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">TRUE if the candidate was valid, FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">an #GList of #FsCandidate representing the remote candidates</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="destroy" c:identifier="fs_stream_destroy">
+        <doc xml:whitespace="preserve">This will cause the stream to remove all links to other objects and to
+remove itself from the #FsSession. Once a #FsStream has been destroyed, it
+can not be used anymore.
+
+It is strongly recommended to call this function from the main thread because
+releasing the application's reference to a stream.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="emit_error" c:identifier="fs_stream_emit_error">
+        <doc xml:whitespace="preserve">This function emits the #FsStream::error" signal, it should only be
+called by subclasses.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error_no" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message to be displayed to user</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="emit_src_pad_added"
+              c:identifier="fs_stream_emit_src_pad_added">
+        <doc xml:whitespace="preserve">Emits the #FsStream::src-pad-added" signal, it should only be
+called by subclasses.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the #GstPad that this #FsStream has created</doc>
+            <type name="Gst.Pad" c:type="GstPad*"/>
+          </parameter>
+          <parameter name="codec" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The #FsCodec for this pad</doc>
+            <type name="Codec" c:type="FsCodec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="force_remote_candidates"
+              c:identifier="fs_stream_force_remote_candidates"
+              throws="1">
+        <doc xml:whitespace="preserve">This function forces data to be sent immediately to the selected remote
+candidate, by-passing any connectivity checks. There should be at most
+one candidate per component.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="iterate_src_pads"
+              c:identifier="fs_stream_iterate_src_pads"
+              introspectable="0">
+        <doc xml:whitespace="preserve">Creates a #GstIterator that can be used to iterate the src pads of this
+stream. These are the pads that were announced by #FsStream:src-pad-added
+and are still valid.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">The #GstIterator</doc>
+          <type name="Gst.Iterator" c:type="GstIterator*"/>
+        </return-value>
+      </method>
+      <method name="parse_component_state_changed"
+              c:identifier="fs_stream_parse_component_state_changed">
+        <doc xml:whitespace="preserve">Parses a "farstream-component-state-changed" message and checks if it matches
+the @stream parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the stream and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="component"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the component from the #GstMessage if not %NULL</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="state"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">Returns the #FsStreamState from the #GstMessage if not %NULL</doc>
+            <type name="StreamState" c:type="FsStreamState*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_local_candidates_prepared"
+              c:identifier="fs_stream_parse_local_candidates_prepared">
+        <doc xml:whitespace="preserve">Parses a "farstream-local-candidates-prepared" message and checks if it matches
+the @stream parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the stream and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_new_active_candidate_pair"
+              c:identifier="fs_stream_parse_new_active_candidate_pair">
+        <doc xml:whitespace="preserve">Parses a "farstream-new-active-candidate-pair" message and checks
+if it matches the @stream parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the stream and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="local_candidate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns the local #FsCandidate in the message if not %NULL.</doc>
+            <type name="Candidate" c:type="FsCandidate**"/>
+          </parameter>
+          <parameter name="remote_candidate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns the remote #FsCandidate in the message if not %NULL.</doc>
+            <type name="Candidate" c:type="FsCandidate**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_new_local_candidate"
+              c:identifier="fs_stream_parse_new_local_candidate">
+        <doc xml:whitespace="preserve">Parses a "farstream-new-local-candidate" message and checks if it matches
+the @stream parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the stream and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="candidate"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns the #FsCandidate in the message if not %NULL.</doc>
+            <type name="Candidate" c:type="FsCandidate**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_recv_codecs_changed"
+              c:identifier="fs_stream_parse_recv_codecs_changed">
+        <doc xml:whitespace="preserve">Parses a "farstream-recv-codecs-changed" message and checks if it matches
+the @stream parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the message matches the stream and is valid.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+            <type name="Gst.Message" c:type="GstMessage*"/>
+          </parameter>
+          <parameter name="codecs"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Returns a #GList of #FsCodec of the message if not %NULL</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_remote_codecs"
+              c:identifier="fs_stream_set_remote_codecs"
+              throws="1">
+        <doc xml:whitespace="preserve">This function will set the list of remote codecs for this stream. If
+the given remote codecs couldn't be negotiated with the list of local
+codecs or already negotiated codecs for the corresponding #FsSession, @error
+will be set and %FALSE will be returned. The @remote_codecs list will be
+copied so it must be free'd using fs_codec_list_destroy() when done.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%FALSE if the remote codecs couldn't be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_codecs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCodec representing the remote codecs</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Codec"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_transmitter"
+              c:identifier="fs_stream_set_transmitter"
+              throws="1">
+        <doc xml:whitespace="preserve">Set the transmitter to use for this stream. This function will only succeed
+once.
+
+The parameters correspond to the varios GObject properties of the
+selected stream transmitter.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the transmitter could be set, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="transmitter" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Name of the type of transmitter to use for this stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="stream_transmitter_parameters"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">(array length=stream_transmitter_n_parameters) (allow-none): an array of n_parameters #GParameter struct that will be passed to the newly-create #FsStreamTransmitter</doc>
+            <type name="GObject.Parameter" c:type="GParameter*"/>
+          </parameter>
+          <parameter name="stream_transmitter_n_parameters"
+                     transfer-ownership="none">
+            <doc xml:whitespace="preserve">Number of parametrs passed to the stream transmitter</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="current-recv-codecs" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the list of codecs that have been received by this stream.
+The user must free the list if fs_codec_list_destroy().
+The "farstream-recv-codecs-changed" message is send on the #GstBus
+when the value of this property changes.
+It is normally emitted right after #FsStream::src-pad-added
+only if that codec was not previously received in this stream, but it can
+also be emitted if the pad already exists, but the source material that
+will come to it is different.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="direction"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The direction of the stream. This property is set initially as a parameter
+to the fs_session_new_stream() function. It can be changed later if
+required by setting this property.</doc>
+        <type name="StreamDirection"/>
+      </property>
+      <property name="negotiated-codecs" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the list of negotiatied codecs, it is the same list as the list
+of #FsCodec from the parent #FsSession, except that the codec config data
+has been replaced with the data from the remote codecs for this stream.
+This is the list of #FsCodec used to receive data from this stream.
+It is a #GList of #FsCodec.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="participant"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The #FsParticipant for this stream. This property is a construct param and
+is read-only construction.</doc>
+        <type name="Participant"/>
+      </property>
+      <property name="remote-codecs" transfer-ownership="full">
+        <doc xml:whitespace="preserve">This is the list of remote codecs for this stream. They must be set by the
+user as soon as they are known using fs_stream_set_remote_codecs()
+(generally through external signaling). It is a #GList of #FsCodec.</doc>
+        <type name="GLib.List">
+          <type name="Codec"/>
+        </type>
+      </property>
+      <property name="session"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The #FsSession for this stream. This property is a construct param and
+is read-only construction.</doc>
+        <type name="Session"/>
+      </property>
+      <field name="parent">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="StreamPrivate" c:type="FsStreamPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <glib:signal name="error" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted in any error condition</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="errorno" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="Error"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message to be displayed to user</doc>
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="src-pad-added" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when a new gst source pad has been created for a
+specific codec being received. There will be a different source pad for
+each codec that is received. The user must ref the #GstPad if he wants to
+keep it. The user should not modify the #FsCodec and must copy it if he
+wants to use it outside the callback scope.
+
+This signal is not emitted on the main thread, but on GStreamer's streaming
+thread!</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#GstPad of the new source pad</doc>
+            <type name="Gst.Pad"/>
+          </parameter>
+          <parameter name="codec" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsCodec of the codec being received on the new source pad</doc>
+            <type name="Codec"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="StreamClass"
+            c:type="FsStreamClass"
+            glib:is-gtype-struct-for="Stream">
+      <doc xml:whitespace="preserve">You must override add_remote_candidate in a subclass.
+If you have to negotiate codecs, then you must override set_remote_codecs too</doc>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="add_remote_candidates">
+        <callback name="add_remote_candidates" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">TRUE if the candidate was valid, FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="FsStream*"/>
+            </parameter>
+            <parameter name="candidates" transfer-ownership="none">
+              <doc xml:whitespace="preserve">an #GList of #FsCandidate representing the remote candidates</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Candidate"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="force_remote_candidates">
+        <callback name="force_remote_candidates" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="FsStream*"/>
+            </parameter>
+            <parameter name="remote_candidates" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Candidate"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_remote_codecs">
+        <callback name="set_remote_codecs" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%FALSE if the remote codecs couldn't be set.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="FsStream*"/>
+            </parameter>
+            <parameter name="remote_codecs" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #GList of #FsCodec representing the remote codecs</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Codec"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_id">
+        <callback name="add_id">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="FsStream*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <doc xml:whitespace="preserve">The id to add to the stream</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_transmitter">
+        <callback name="set_transmitter" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if the transmitter could be set, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="FsStream*"/>
+            </parameter>
+            <parameter name="transmitter" transfer-ownership="none">
+              <doc xml:whitespace="preserve">Name of the type of transmitter to use for this stream</doc>
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="stream_transmitter_parameters"
+                       transfer-ownership="none">
+              <doc xml:whitespace="preserve">(array length=stream_transmitter_n_parameters) (allow-none): an array of n_parameters #GParameter struct that will be passed to the newly-create #FsStreamTransmitter</doc>
+              <type name="GObject.Parameter" c:type="GParameter*"/>
+            </parameter>
+            <parameter name="stream_transmitter_n_parameters"
+                       transfer-ownership="none">
+              <doc xml:whitespace="preserve">Number of parametrs passed to the stream transmitter</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <bitfield name="StreamDirection"
+              glib:type-name="FsStreamDirection"
+              glib:get-type="fs_stream_direction_get_type"
+              c:type="FsStreamDirection">
+      <doc xml:whitespace="preserve">An enum for specifying the direction of a stream</doc>
+      <member name="none"
+              value="0"
+              c:identifier="FS_DIRECTION_NONE"
+              glib:nick="none"/>
+      <member name="send"
+              value="1"
+              c:identifier="FS_DIRECTION_SEND"
+              glib:nick="send"/>
+      <member name="recv"
+              value="2"
+              c:identifier="FS_DIRECTION_RECV"
+              glib:nick="recv"/>
+      <member name="both"
+              value="3"
+              c:identifier="FS_DIRECTION_BOTH"
+              glib:nick="both"/>
+    </bitfield>
+    <record name="StreamPrivate" c:type="FsStreamPrivate" disguised="1">
+    </record>
+    <enumeration name="StreamState"
+                 glib:type-name="FsStreamState"
+                 glib:get-type="fs_stream_state_get_type"
+                 c:type="FsStreamState">
+      <doc xml:whitespace="preserve">These are the possible states of a stream, a simple multicast stream
+could only be in "disconnected" or "ready" state.
+An stream using an ICE transmitter would use all of these.</doc>
+      <member name="failed"
+              value="0"
+              c:identifier="FS_STREAM_STATE_FAILED"
+              glib:nick="failed"/>
+      <member name="disconnected"
+              value="1"
+              c:identifier="FS_STREAM_STATE_DISCONNECTED"
+              glib:nick="disconnected"/>
+      <member name="gathering"
+              value="2"
+              c:identifier="FS_STREAM_STATE_GATHERING"
+              glib:nick="gathering"/>
+      <member name="connecting"
+              value="3"
+              c:identifier="FS_STREAM_STATE_CONNECTING"
+              glib:nick="connecting"/>
+      <member name="connected"
+              value="4"
+              c:identifier="FS_STREAM_STATE_CONNECTED"
+              glib:nick="connected"/>
+      <member name="ready"
+              value="5"
+              c:identifier="FS_STREAM_STATE_READY"
+              glib:nick="ready"/>
+    </enumeration>
+    <class name="StreamTransmitter"
+           c:symbol-prefix="stream_transmitter"
+           c:type="FsStreamTransmitter"
+           parent="Gst.Object"
+           abstract="1"
+           glib:type-name="FsStreamTransmitter"
+           glib:get-type="fs_stream_transmitter_get_type"
+           glib:type-struct="StreamTransmitterClass">
+      <doc xml:whitespace="preserve">All members are private, access them using methods and properties</doc>
+      <virtual-method name="add_remote_candidates"
+                      invoker="add_remote_candidates"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function is used to add remote candidates to the transmitter</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">TRUE of the candidate could be added, FALSE if it couldnt (and the #GError will be set)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of the remote candidates</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="force_remote_candidates"
+                      invoker="force_remote_candidates"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function forces data to be sent immediately to the selected remote
+candidate, by-passing any connectivity checks. There should be at most
+one candidate per component.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="gather_local_candidates"
+                      invoker="gather_local_candidates"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function tells the transmitter to start gathering local candidates,
+signals for new candidates and newly active candidates can be emitted
+during the call to this function.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if it succeeds (or is not implemented), %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="stop" invoker="stop">
+        <doc xml:whitespace="preserve">This functions stops the #FsStreamTransmitter, it must be called before
+the last reference is dropped.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </virtual-method>
+      <method name="add_remote_candidates"
+              c:identifier="fs_stream_transmitter_add_remote_candidates"
+              throws="1">
+        <doc xml:whitespace="preserve">This function is used to add remote candidates to the transmitter</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">TRUE of the candidate could be added, FALSE if it couldnt (and the #GError will be set)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of the remote candidates</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="emit_error"
+              c:identifier="fs_stream_transmitter_emit_error">
+        <doc xml:whitespace="preserve">This function emit the "error" signal on a #FsStreamTransmitter, it should
+only be called by subclasses.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error_no" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message (for the programmer)</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="force_remote_candidates"
+              c:identifier="fs_stream_transmitter_force_remote_candidates"
+              throws="1">
+        <doc xml:whitespace="preserve">This function forces data to be sent immediately to the selected remote
+candidate, by-passing any connectivity checks. There should be at most
+one candidate per component.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="remote_candidates" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Candidate"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gather_local_candidates"
+              c:identifier="fs_stream_transmitter_gather_local_candidates"
+              throws="1">
+        <doc xml:whitespace="preserve">This function tells the transmitter to start gathering local candidates,
+signals for new candidates and newly active candidates can be emitted
+during the call to this function.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if it succeeds (or is not implemented), %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="stop" c:identifier="fs_stream_transmitter_stop">
+        <doc xml:whitespace="preserve">This functions stops the #FsStreamTransmitter, it must be called before
+the last reference is dropped.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <property name="associate-on-source"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">This tells the stream transmitter to associate incoming data with this
+based on the source without looking at the content if possible.</doc>
+        <type name="gboolean"/>
+      </property>
+      <property name="preferred-local-candidates"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="CandidateList"/>
+      </property>
+      <property name="sending" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">A network source #GstElement to be used by the #FsSession</doc>
+        <type name="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="StreamTransmitterPrivate"
+              c:type="FsStreamTransmitterPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <glib:signal name="error" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted in any error condition</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="errorno" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="Error"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message (for the programmer)</doc>
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="known-source-packet-received" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when a buffer coming from a confirmed known source
+is received.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="component" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The Component on which this buffer was received</doc>
+            <type name="guint"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the #GstBuffer coming from the known source</doc>
+            <type name="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="local-candidates-prepared" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when all local candidates have been
+prepared, an ICE implementation would send its SDP offer or answer.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="new-active-candidate-pair" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when there is a new active chandidate pair that has
+been established. This is specially useful for ICE where the active
+candidate pair can change automatically due to network conditions. The user
+must not modify the candidates and must copy them if he wants to use them
+outside the callback scope.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="local_candidate" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsCandidate of the local candidate being used</doc>
+            <type name="Candidate"/>
+          </parameter>
+          <parameter name="remote_candidate" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsCandidate of the remote candidate being used</doc>
+            <type name="Candidate"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-local-candidate" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when a new local candidate is discovered.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="local_candidate" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#FsCandidate of the local candidate</doc>
+            <type name="Candidate"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="state-changed" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when the ICE state (or equivalent) of the component
+changes</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="component" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the id of the component which state has changed</doc>
+            <type name="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the new state of the component</doc>
+            <type name="StreamState"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="StreamTransmitterClass"
+            c:type="FsStreamTransmitterClass"
+            glib:is-gtype-struct-for="StreamTransmitter">
+      <doc xml:whitespace="preserve">You must override the add_remote_candidate in a subclass</doc>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="add_remote_candidates">
+        <callback name="add_remote_candidates" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">TRUE of the candidate could be added, FALSE if it couldnt (and the #GError will be set)</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="streamtransmitter" transfer-ownership="none">
+              <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+            </parameter>
+            <parameter name="candidates" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #GList of the remote candidates</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Candidate"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="force_remote_candidates">
+        <callback name="force_remote_candidates" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if the candidates could be forced, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="streamtransmitter" transfer-ownership="none">
+              <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+            </parameter>
+            <parameter name="remote_candidates" transfer-ownership="none">
+              <doc xml:whitespace="preserve">a #GList of #FsCandidate to force</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="Candidate"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="gather_local_candidates">
+        <callback name="gather_local_candidates" throws="1">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">%TRUE if it succeeds (or is not implemented), %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="streamtransmitter" transfer-ownership="none">
+              <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="stop">
+        <callback name="stop">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="streamtransmitter" transfer-ownership="none">
+              <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="StreamTransmitterPrivate"
+            c:type="FsStreamTransmitterPrivate"
+            disguised="1">
+    </record>
+    <class name="Transmitter"
+           c:symbol-prefix="transmitter"
+           c:type="FsTransmitter"
+           parent="Gst.Object"
+           abstract="1"
+           glib:type-name="FsTransmitter"
+           glib:get-type="fs_transmitter_get_type"
+           glib:type-struct="TransmitterClass">
+      <doc xml:whitespace="preserve">All members are private, access them using methods and properties</doc>
+      <constructor name="new" c:identifier="fs_transmitter_new" throws="1">
+        <doc xml:whitespace="preserve">This function creates a new transmitter of the requested type.
+It will load the appropriate plugin as required.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly-created #FsTransmitter of the requested type (or NULL if there is an error)</doc>
+          <type name="Transmitter" c:type="FsTransmitter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The type of transmitter to create</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="components" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of components to create</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="tos" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The Type of Service of the socket, max is 255</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_available"
+                c:identifier="fs_transmitter_list_available">
+        <doc xml:whitespace="preserve">Get the list of all available transmitters</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a newly allocated array of strings containing the list of all available transmitters or %NULL if there are none. It should be freed with g_strfreev().</doc>
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <virtual-method name="get_stream_transmitter_type"
+                      invoker="get_stream_transmitter_type">
+        <doc xml:whitespace="preserve">This function returns the GObject type for the stream transmitter.
+This is meant for bindings that need to introspect the type of arguments
+that can be passed to the _new_stream_transmitter.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #GType</doc>
+          <type name="GType" c:type="GType"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="new_stream_transmitter"
+                      invoker="new_stream_transmitter"
+                      throws="1">
+        <doc xml:whitespace="preserve">This function will create a new #FsStreamTransmitter element for a
+specific participant for this #FsTransmitter</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #FsStreamTransmitter, or NULL if there is an error</doc>
+          <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="participant" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the #FsParticipant for which the #FsStream using this new #FsStreamTransmitter is created</doc>
+            <type name="Participant" c:type="FsParticipant*"/>
+          </parameter>
+          <parameter name="n_parameters" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of parameters to pass to the newly created #FsStreamTransmitter</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="parameters" transfer-ownership="none">
+            <doc xml:whitespace="preserve">an array of #GParameter</doc>
+            <type name="GObject.Parameter" c:type="GParameter*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="emit_error" c:identifier="fs_transmitter_emit_error">
+        <doc xml:whitespace="preserve">This function emit the "error" signal on a #FsTransmitter, it should
+only be called by subclasses.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="error_no" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message to be displayed to user</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_recvonly_filter"
+              c:identifier="fs_transmitter_get_recvonly_filter">
+        <doc xml:whitespace="preserve">Get the filter to add on the send pipeline if sending is disabled.
+
+Only for use by subclasses.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #GstElement to use as the filter or %NULL</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <parameter name="component" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The component to get the filter for</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stream_transmitter_type"
+              c:identifier="fs_transmitter_get_stream_transmitter_type">
+        <doc xml:whitespace="preserve">This function returns the GObject type for the stream transmitter.
+This is meant for bindings that need to introspect the type of arguments
+that can be passed to the _new_stream_transmitter.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #GType</doc>
+          <type name="GType" c:type="GType"/>
+        </return-value>
+      </method>
+      <method name="new_stream_transmitter"
+              c:identifier="fs_transmitter_new_stream_transmitter"
+              throws="1">
+        <doc xml:whitespace="preserve">This function will create a new #FsStreamTransmitter element for a
+specific participant for this #FsTransmitter</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #FsStreamTransmitter, or NULL if there is an error</doc>
+          <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="participant" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the #FsParticipant for which the #FsStream using this new #FsStreamTransmitter is created</doc>
+            <type name="Participant" c:type="FsParticipant*"/>
+          </parameter>
+          <parameter name="n_parameters" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of parameters to pass to the newly created #FsStreamTransmitter</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="parameters" transfer-ownership="none">
+            <doc xml:whitespace="preserve">an array of #GParameter</doc>
+            <type name="GObject.Parameter" c:type="GParameter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="components"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The number of components to create</doc>
+        <type name="guint"/>
+      </property>
+      <property name="gst-sink" transfer-ownership="none">
+        <doc xml:whitespace="preserve">A network source #GstElement to be used by the #FsSession
+These element's sink must have async=FALSE
+This element MUST provide a pad named "sink\%d" per component.
+These pads number must start at 1 (the \%d corresponds to the component
+number).
+These pads MUST be static pads.</doc>
+        <type name="Gst.Element"/>
+      </property>
+      <property name="gst-src" transfer-ownership="none">
+        <doc xml:whitespace="preserve">A network source #GstElement to be used by the #FsSession
+This element MUST provide a source pad named "src%d" per component.
+These pads number must start at 1 (the %d corresponds to the component
+number).
+These pads MUST be static pads.</doc>
+        <type name="Gst.Element"/>
+      </property>
+      <property name="tos" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">Sets the IP ToS field (and if possible the IPv6 TCLASS field</doc>
+        <type name="guint"/>
+      </property>
+      <field name="parent">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="TransmitterPrivate" c:type="FsTransmitterPrivate*"/>
+      </field>
+      <field name="construction_error" readable="0" private="1">
+        <type name="GLib.Error" c:type="GError*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <glib:signal name="error" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted in any error condition</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="errorno" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The number of the error</doc>
+            <type name="Error"/>
+          </parameter>
+          <parameter name="error_msg" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Error message to be displayed to user</doc>
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="get-recvonly-filter" when="last">
+        <doc xml:whitespace="preserve">This signal is emitted when the transmitter wants to get a filter for
+to use if sending is disabled. If you want to drop all buffers, just
+don't listen to the signal.
+
+This element should have a "sending" property that can be changed with the
+sending state of the stream. It should default to %TRUE.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the #GstElement to use as the filter, or %NULL to drop everything</doc>
+          <type name="Gst.Element"/>
+        </return-value>
+        <parameters>
+          <parameter name="component" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The component that the filter will be used for</doc>
+            <type name="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TransmitterClass"
+            c:type="FsTransmitterClass"
+            glib:is-gtype-struct-for="Transmitter">
+      <doc xml:whitespace="preserve">You must override both methods in a subclass.</doc>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="new_stream_transmitter">
+        <callback name="new_stream_transmitter" throws="1">
+          <return-value transfer-ownership="full">
+            <doc xml:whitespace="preserve">a new #FsStreamTransmitter, or NULL if there is an error</doc>
+            <type name="StreamTransmitter" c:type="FsStreamTransmitter*"/>
+          </return-value>
+          <parameters>
+            <parameter name="transmitter" transfer-ownership="none">
+              <type name="Transmitter" c:type="FsTransmitter*"/>
+            </parameter>
+            <parameter name="participant" transfer-ownership="none">
+              <doc xml:whitespace="preserve">the #FsParticipant for which the #FsStream using this new #FsStreamTransmitter is created</doc>
+              <type name="Participant" c:type="FsParticipant*"/>
+            </parameter>
+            <parameter name="n_parameters" transfer-ownership="none">
+              <doc xml:whitespace="preserve">The number of parameters to pass to the newly created #FsStreamTransmitter</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="parameters" transfer-ownership="none">
+              <doc xml:whitespace="preserve">an array of #GParameter</doc>
+              <type name="GObject.Parameter" c:type="GParameter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_stream_transmitter_type">
+        <callback name="get_stream_transmitter_type">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">the #GType</doc>
+            <type name="GType" c:type="GType"/>
+          </return-value>
+          <parameters>
+            <parameter name="transmitter" transfer-ownership="none">
+              <type name="Transmitter" c:type="FsTransmitter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="TransmitterPrivate"
+            c:type="FsTransmitterPrivate"
+            disguised="1">
+    </record>
+    <record name="_RtpHeaderExtension" c:type="_FsRtpHeaderExtension">
+      <field name="id" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="direction" writable="1">
+        <type name="StreamDirection" c:type="FsStreamDirection"/>
+      </field>
+      <field name="uri" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </record>
+    <function name="candidate_list_copy"
+              c:identifier="fs_candidate_list_copy"
+              moved-to="CandidateList.copy">
+      <doc xml:whitespace="preserve">Copies a GList of #FsCandidate and its contents</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">a new GList of #FsCandidate</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Codec"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="candidate_list" transfer-ownership="none">
+          <doc xml:whitespace="preserve">A GList of #FsCandidate</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="codec_list_are_equal"
+              c:identifier="fs_codec_list_are_equal"
+              moved-to="CodecGList.are_equal">
+      <doc xml:whitespace="preserve">Verifies if two glist of fscodecs are identical</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">%TRUE if they are identical, %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="list1" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GList of #FsCodec</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </parameter>
+        <parameter name="list2" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GList of #FsCodec</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="codec_list_copy"
+              c:identifier="fs_codec_list_copy"
+              moved-to="CodecGList.copy">
+      <doc xml:whitespace="preserve">Copies a list of #FsCodec structures.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">The new list.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Codec"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="codec_list" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a GList of #FsCodec to copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Codec"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="codec_list_from_keyfile"
+              c:identifier="fs_codec_list_from_keyfile"
+              moved-to="CodecGList.from_keyfile"
+              throws="1">
+      <doc xml:whitespace="preserve">Reads the content of a #GKeyFile of the following format into
+a #GList of #FsCodec structures.
+
+
+Example:
+|[
+[audio/codec1]
+clock-rate=8000
+
+[audio/codec1:1]
+clock-rate=16000
+
+[audio/codec2]
+one_param=QCIF
+another_param=WOW
+
+[video/codec3]
+wierd_param=42
+feedback:nack/pli=1
+feedback:tfrc=
+]|</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">The #GList of #FsCodec or %NULL if the keyfile was empty or an error occured.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Codec"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:whitespace="preserve">Name of the #GKeyFile to read the codecs parameters from</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_quark"
+              c:identifier="fs_error_quark"
+              moved-to="Error.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="media_type_to_string"
+              c:identifier="fs_media_type_to_string"
+              moved-to="MediaType.to_string">
+      <doc xml:whitespace="preserve">Gives a user-printable string representing the media type</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">a static string representing the media type</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="media_type" transfer-ownership="none">
+          <doc xml:whitespace="preserve">A media type</doc>
+          <type name="MediaType" c:type="FsMediaType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="parse_error" c:identifier="fs_parse_error">
+      <doc xml:whitespace="preserve">Parses a "farstream-farstream" message and checks if it matches
+the @object parameters.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">%TRUE if the message matches the object and is valid.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GObject to match against the message</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstMessage to parse</doc>
+          <type name="Gst.Message" c:type="GstMessage*"/>
+        </parameter>
+        <parameter name="error"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:whitespace="preserve">Returns the #FsError error number in the message if not %NULL.</doc>
+          <type name="Error" c:type="FsError*"/>
+        </parameter>
+        <parameter name="error_msg"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="none">
+          <doc xml:whitespace="preserve">Returns the error message if not %NULL</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="rtp_header_extension_list_copy"
+              c:identifier="fs_rtp_header_extension_list_copy"
+              moved-to="RtpHeaderExtensionGList.copy">
+      <doc xml:whitespace="preserve">Does a deep copy of a #GList of #FsRtpHeaderExtension</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">a new #GList of #FsRtpHeaderExtension</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="RtpHeaderExtension"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="extensions" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GList of #FsRtpHeaderExtension</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="RtpHeaderExtension"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="rtp_header_extension_list_from_keyfile"
+              c:identifier="fs_rtp_header_extension_list_from_keyfile"
+              moved-to="RtpHeaderExtensionGList.from_keyfile"
+              throws="1">
+      <doc xml:whitespace="preserve">Reads the content of a #GKeyFile of the following format into a
+#GList of #FsRtpHeaderExtension structures.
+
+The groups have a format "rtp-hdrext:audio:XXX" or
+"rtp-hdrext:video:XXX" where XXX is a unique string (per media type).
+
+The valid keys are:
+&lt;itemizedlist&gt;
+ &lt;listitem&gt;id: a int between in the 1-255 and 4096-4351 ranges&lt;/listitem&gt;
+ &lt;listitem&gt;uri: a URI describing the RTP Header Extension&lt;/listitem&gt;
+ &lt;listitem&gt;direction (optional): To only send or receive a RTP Header
+     Extension, possible values are "send", "receive", "none" or "both".
+     Defaults to "both"&lt;/listitem&gt;
+&lt;/itemizedlist&gt;
+
+Example:
+|[
+[rtp-hdrext:audio:a]
+id=1
+uri=urn:ietf:params:rtp-hdrext:toffset
+
+[rtp-hdrext:audio:abc]
+id=3
+uri=urn:ietf:params:rtp-hdrext:ntp-64
+direction=receive
+]|</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">a #GList of #FsRtpHeaderExtension that must be freed with fs_rtp_header_extension_list_destroy()</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="RtpHeaderExtension"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:whitespace="preserve">Name of the #GKeyFile to read the RTP Header Extensions from</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="media_type" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The media type for which to get header extensions</doc>
+          <type name="MediaType" c:type="FsMediaType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_default_codec_preferences"
+              c:identifier="fs_utils_get_default_codec_preferences">
+      <doc xml:whitespace="preserve">These default codec preferences should work with the elements that are
+available in the main GStreamer element repositories.
+They should be suitable for standards based protocols like SIP or XMPP.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">The default codec preferences for this plugin. This #GList should be freed with fs_codec_list_destroy()</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Codec"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:whitespace="preserve">Element for which to fetch default codec preferences</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_default_element_properties"
+              c:identifier="fs_utils_get_default_element_properties">
+      <return-value transfer-ownership="full">
+        <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_default_rtp_header_extension_preferences"
+              c:identifier="fs_utils_get_default_rtp_header_extension_preferences">
+      <doc xml:whitespace="preserve">These default rtp header extension preferences should work with the elements
+that are available in the main GStreamer element repositories.
+They should be suitable for standards based protocols like SIP or XMPP.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">The default rtp header extension preferences for this plugin, this #GList should be freed with fs_codec_list_destroy()</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Codec"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:whitespace="preserve">Element for which to fetch default RTP Header Extension preferences</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="media_type" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The #FsMediaType for which to get default RTP Header Extension preferences</doc>
+          <type name="MediaType" c:type="FsMediaType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_set_bitrate" c:identifier="fs_utils_set_bitrate">
+      <doc xml:whitespace="preserve">This allows setting the bitrate on all elements that have a "bitrate"
+property without having to know the type or of the unit used by that element.
+
+This will be obsolete in 0.11 (when all elements use bit/sec for the
+"bitrate" property.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The #GstElement</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="bitrate" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The bitrate in bits/sec</doc>
+          <type name="glong" c:type="glong"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,1719 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Clutter" version="1.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="GstAudio" version="0.10"/>
+  <include name="GstBase" version="0.10"/>
+  <include name="GstInterfaces" version="0.10"/>
+  <include name="GstVideo" version="0.10"/>
+  <package name="clutter-gst-1.0"/>
+  <c:include name="clutter-gst/clutter-gst.h"/>
+  <namespace name="ClutterGst"
+             version="1.0"
+             shared-library="libclutter-gst-1.0.so.0"
+             c:identifier-prefixes="ClutterGst"
+             c:symbol-prefixes="clutter_gst">
+    <enumeration name="BufferingMode"
+                 version="1.4"
+                 glib:type-name="ClutterGstBufferingMode"
+                 glib:get-type="clutter_gst_buffering_mode_get_type"
+                 c:type="ClutterGstBufferingMode">
+      <doc xml:space="preserve">Different buffering policies clutter-gst supports</doc>
+      <member name="stream"
+              value="0"
+              c:identifier="CLUTTER_GST_BUFFERING_MODE_STREAM"
+              glib:nick="stream">
+        <doc xml:space="preserve">In-memory buffering</doc>
+      </member>
+      <member name="download"
+              value="1"
+              c:identifier="CLUTTER_GST_BUFFERING_MODE_DOWNLOAD"
+              glib:nick="download">
+        <doc xml:space="preserve">On-disk buffering</doc>
+      </member>
+    </enumeration>
+    <constant name="MAJOR_VERSION"
+              value="1"
+              c:type="CLUTTER_GST_MAJOR_VERSION">
+      <doc xml:space="preserve">ClutterGst major version (e.g. "1", if %CLUTTER_GST_VERSION is "1.2.3")</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION"
+              value="0"
+              c:type="CLUTTER_GST_MICRO_VERSION">
+      <doc xml:space="preserve">ClutterGst micro version (e.g. "3", if %CLUTTER_GST_VERSION is "1.2.3")</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION"
+              value="6"
+              c:type="CLUTTER_GST_MINOR_VERSION">
+      <doc xml:space="preserve">ClutterGst minor version (e.g. "2", if %CLUTTER_GST_VERSION is "1.2.3")</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <interface name="Player"
+               c:symbol-prefix="player"
+               c:type="ClutterGstPlayer"
+               version="1.4"
+               glib:type-name="ClutterGstPlayer"
+               glib:get-type="clutter_gst_player_get_type"
+               glib:type-struct="PlayerIface">
+      <doc xml:space="preserve">#ClutterGstPlayer is an opaque structure whose members cannot be
+directly accessed</doc>
+      <prerequisite name="Clutter.Media"/>
+      <function name="class_init"
+                c:identifier="clutter_gst_player_class_init"
+                version="1.4">
+        <doc xml:space="preserve">Adds the #ClutterGstPlayer properties to a class and surchages the
+set/get_property of #GObjectClass. You should call this
+function at the end of the class_init method of the class
+implementing #ClutterGstPlayer.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object_class" transfer-ownership="none">
+            <doc xml:space="preserve">a #GObjectClass</doc>
+            <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="download_buffering">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="stop" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_audio_stream"
+                      invoker="get_audio_stream"
+                      version="1.4">
+        <doc xml:space="preserve">Get the current audio stream. The number returned in the index of the
+audio stream playing in the list returned by
+clutter_gst_player_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current audio stream, -1 if the media has no audio stream</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_audio_streams"
+                      invoker="get_audio_streams"
+                      version="1.4">
+        <doc xml:space="preserve">Get the list of audio streams of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of strings describing the available audio streams</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_buffering_mode"
+                      invoker="get_buffering_mode"
+                      version="1.4">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+          <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_idle" invoker="get_idle" version="1.4">
+        <doc xml:space="preserve">Get the idle state of the pipeline.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the pipline is in idle mode, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_in_seek" invoker="get_in_seek" version="1.6">
+        <doc xml:space="preserve">Whether the player is seeking.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the player is seeking, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_pipeline" invoker="get_pipeline" version="1.4">
+        <doc xml:space="preserve">Retrieves the #GstPipeline used by the @player, for direct use with
+GStreamer API.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GstPipeline element used by the player</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_seek_flags"
+                      invoker="get_seek_flags"
+                      version="1.4">
+        <doc xml:space="preserve">Get the current value of the seek-flags property.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+          <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_subtitle_track"
+                      invoker="get_subtitle_track"
+                      version="1.4">
+        <doc xml:space="preserve">Get the current subtitles track. The number returned is the index of the
+subtiles track in the list returned by
+clutter_gst_player_get_subtitle_tracks().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current subtitlest track, -1 if the media has no subtitles track or if the subtitles have been turned off</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_subtitle_tracks"
+                      invoker="get_subtitle_tracks"
+                      version="1.4">
+        <doc xml:space="preserve">Get the list of subtitles tracks of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of strings describing the available subtitles tracks</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_user_agent"
+                      invoker="get_user_agent"
+                      version="1.4">
+        <doc xml:space="preserve">Retrieves the user agent used when streaming.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the user agent used. The returned string has to be freed with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_audio_stream"
+                      invoker="set_audio_stream"
+                      version="1.4">
+        <doc xml:space="preserve">Set the audio stream to play. @index_ is the index of the stream
+in the list returned by clutter_gst_player_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the audio stream</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_buffering_mode"
+                      invoker="set_buffering_mode"
+                      version="1.4">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+            <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_seek_flags"
+                      invoker="set_seek_flags"
+                      version="1.4">
+        <doc xml:space="preserve">Seeking can be done with several trade-offs. Clutter-gst defaults
+to %CLUTTER_GST_SEEK_FLAG_NONE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+            <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_subtitle_track"
+                      invoker="set_subtitle_track"
+                      version="1.4">
+        <doc xml:space="preserve">Set the subtitles track to play. @index_ is the index of the stream
+in the list returned by clutter_gst_player_get_subtitle_tracks().
+
+If @index_ is -1, the subtitles are turned off.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the subtitles track</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_user_agent"
+                      invoker="set_user_agent"
+                      version="1.4">
+        <doc xml:space="preserve">Sets the user agent to use when streaming.
+
+When streaming content, you might want to set a custom user agent, eg. to
+promote your software, make it appear in statistics or because the server
+requires a special user agent you want to impersonate.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="user_agent" transfer-ownership="none">
+            <doc xml:space="preserve">the user agent</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="deinit"
+              c:identifier="clutter_gst_player_deinit"
+              version="1.4">
+        <doc xml:space="preserve">Frees the resources created by clutter_gst_player_init(). After
+clutter_gst_player_deinit() has been called, no other player method can be
+called on the instance.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_audio_stream"
+              c:identifier="clutter_gst_player_get_audio_stream"
+              version="1.4">
+        <doc xml:space="preserve">Get the current audio stream. The number returned in the index of the
+audio stream playing in the list returned by
+clutter_gst_player_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current audio stream, -1 if the media has no audio stream</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_audio_streams"
+              c:identifier="clutter_gst_player_get_audio_streams"
+              version="1.4">
+        <doc xml:space="preserve">Get the list of audio streams of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of strings describing the available audio streams</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_buffering_mode"
+              c:identifier="clutter_gst_player_get_buffering_mode"
+              version="1.4">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+          <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_idle"
+              c:identifier="clutter_gst_player_get_idle"
+              version="1.4">
+        <doc xml:space="preserve">Get the idle state of the pipeline.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the pipline is in idle mode, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_in_seek"
+              c:identifier="clutter_gst_player_get_in_seek"
+              version="1.6">
+        <doc xml:space="preserve">Whether the player is seeking.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the player is seeking, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pipeline"
+              c:identifier="clutter_gst_player_get_pipeline"
+              version="1.4">
+        <doc xml:space="preserve">Retrieves the #GstPipeline used by the @player, for direct use with
+GStreamer API.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GstPipeline element used by the player</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_seek_flags"
+              c:identifier="clutter_gst_player_get_seek_flags"
+              version="1.4">
+        <doc xml:space="preserve">Get the current value of the seek-flags property.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+          <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_track"
+              c:identifier="clutter_gst_player_get_subtitle_track"
+              version="1.4">
+        <doc xml:space="preserve">Get the current subtitles track. The number returned is the index of the
+subtiles track in the list returned by
+clutter_gst_player_get_subtitle_tracks().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current subtitlest track, -1 if the media has no subtitles track or if the subtitles have been turned off</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_tracks"
+              c:identifier="clutter_gst_player_get_subtitle_tracks"
+              version="1.4">
+        <doc xml:space="preserve">Get the list of subtitles tracks of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of strings describing the available subtitles tracks</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_agent"
+              c:identifier="clutter_gst_player_get_user_agent"
+              version="1.4">
+        <doc xml:space="preserve">Retrieves the user agent used when streaming.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the user agent used. The returned string has to be freed with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="clutter_gst_player_init">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_stream"
+              c:identifier="clutter_gst_player_set_audio_stream"
+              version="1.4">
+        <doc xml:space="preserve">Set the audio stream to play. @index_ is the index of the stream
+in the list returned by clutter_gst_player_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the audio stream</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_buffering_mode"
+              c:identifier="clutter_gst_player_set_buffering_mode"
+              version="1.4">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+            <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_seek_flags"
+              c:identifier="clutter_gst_player_set_seek_flags"
+              version="1.4">
+        <doc xml:space="preserve">Seeking can be done with several trade-offs. Clutter-gst defaults
+to %CLUTTER_GST_SEEK_FLAG_NONE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+            <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track"
+              c:identifier="clutter_gst_player_set_subtitle_track"
+              version="1.4">
+        <doc xml:space="preserve">Set the subtitles track to play. @index_ is the index of the stream
+in the list returned by clutter_gst_player_get_subtitle_tracks().
+
+If @index_ is -1, the subtitles are turned off.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the subtitles track</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_agent"
+              c:identifier="clutter_gst_player_set_user_agent"
+              version="1.4">
+        <doc xml:space="preserve">Sets the user agent to use when streaming.
+
+When streaming content, you might want to set a custom user agent, eg. to
+promote your software, make it appear in statistics or because the server
+requires a special user agent you want to impersonate.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstPlayer</doc>
+            <type name="Player" c:type="ClutterGstPlayer*"/>
+          </instance-parameter>
+          <parameter name="user_agent" transfer-ownership="none">
+            <doc xml:space="preserve">the user agent</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="audio-stream"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Index of the current audio stream.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="audio-streams" version="1.4" transfer-ownership="none">
+        <doc xml:space="preserve">List of audio streams available on the current media.</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="idle" version="1.4" transfer-ownership="none">
+        <doc xml:space="preserve">Whether the #ClutterGstPlayer is in idle mode.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="in-seek" version="1.6" transfer-ownership="none">
+        <doc xml:space="preserve">Whether or not the stream is being seeked.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="seek-flags"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Flags to use when seeking.</doc>
+        <type name="SeekFlags"/>
+      </property>
+      <property name="subtitle-track" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="subtitle-tracks" transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="user-agent"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The User Agent used by #ClutterGstPlayer with network protocols.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="download-buffering" when="last" version="1.4">
+        <doc xml:space="preserve">The ::download-buffering signal is emitted each time their an
+update about the buffering of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve">start position of the buffering</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="stop" transfer-ownership="none">
+            <doc xml:space="preserve">start position of the buffering</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </interface>
+    <record name="PlayerIface"
+            c:type="ClutterGstPlayerIface"
+            glib:is-gtype-struct-for="Player"
+            version="1.4">
+      <doc xml:space="preserve">Interface vtable for #ClutterGstPlayer implementations</doc>
+      <field name="base_iface" readable="0" private="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PlayerIfacePrivate"
+              c:type="ClutterGstPlayerIfacePrivate*"/>
+      </field>
+      <field name="get_pipeline">
+        <callback name="get_pipeline">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the #GstPipeline element used by the player</doc>
+            <type name="Gst.Element" c:type="GstElement*"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_user_agent">
+        <callback name="get_user_agent">
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve">the user agent used. The returned string has to be freed with g_free()</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_user_agent">
+        <callback name="set_user_agent">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="user_agent" transfer-ownership="none">
+              <doc xml:space="preserve">the user agent</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_seek_flags">
+        <callback name="get_seek_flags">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+            <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_seek_flags">
+        <callback name="set_seek_flags">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+              <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_buffering_mode">
+        <callback name="get_buffering_mode">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+            <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_buffering_mode">
+        <callback name="set_buffering_mode">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="mode" transfer-ownership="none">
+              <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+              <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_audio_streams">
+        <callback name="get_audio_streams">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">a list of strings describing the available audio streams</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_audio_stream">
+        <callback name="get_audio_stream">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the index of the current audio stream, -1 if the media has no audio stream</doc>
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_audio_stream">
+        <callback name="set_audio_stream">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="index_" transfer-ownership="none">
+              <doc xml:space="preserve">the index of the audio stream</doc>
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_subtitle_tracks">
+        <callback name="get_subtitle_tracks">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">a list of strings describing the available subtitles tracks</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_subtitle_track">
+        <callback name="get_subtitle_track">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the index of the current subtitlest track, -1 if the media has no subtitles track or if the subtitles have been turned off</doc>
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_subtitle_track">
+        <callback name="set_subtitle_track">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="index_" transfer-ownership="none">
+              <doc xml:space="preserve">the index of the subtitles track</doc>
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_idle">
+        <callback name="get_idle">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">TRUE if the pipline is in idle mode, FALSE otherwise.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_in_seek">
+        <callback name="get_in_seek">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">TRUE if the player is seeking, FALSE otherwise.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_iface_reserved16" introspectable="0">
+        <callback name="_iface_reserved16">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved17" introspectable="0">
+        <callback name="_iface_reserved17">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved18" introspectable="0">
+        <callback name="_iface_reserved18">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved19" introspectable="0">
+        <callback name="_iface_reserved19">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved20" introspectable="0">
+        <callback name="_iface_reserved20">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved21" introspectable="0">
+        <callback name="_iface_reserved21">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved22" introspectable="0">
+        <callback name="_iface_reserved22">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved23" introspectable="0">
+        <callback name="_iface_reserved23">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved24" introspectable="0">
+        <callback name="_iface_reserved24">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved25" introspectable="0">
+        <callback name="_iface_reserved25">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved26" introspectable="0">
+        <callback name="_iface_reserved26">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved27" introspectable="0">
+        <callback name="_iface_reserved27">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved28" introspectable="0">
+        <callback name="_iface_reserved28">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved29" introspectable="0">
+        <callback name="_iface_reserved29">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved30" introspectable="0">
+        <callback name="_iface_reserved30">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved31" introspectable="0">
+        <callback name="_iface_reserved31">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved32" introspectable="0">
+        <callback name="_iface_reserved32">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved33" introspectable="0">
+        <callback name="_iface_reserved33">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved34" introspectable="0">
+        <callback name="_iface_reserved34">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_iface_reserved35" introspectable="0">
+        <callback name="_iface_reserved35">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="download_buffering">
+        <callback name="download_buffering">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="player" transfer-ownership="none">
+              <type name="Player" c:type="ClutterGstPlayer*"/>
+            </parameter>
+            <parameter name="start" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+            <parameter name="stop" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_clutter_reserved2" introspectable="0">
+        <callback name="_clutter_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved3" introspectable="0">
+        <callback name="_clutter_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved4" introspectable="0">
+        <callback name="_clutter_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved5" introspectable="0">
+        <callback name="_clutter_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved6" introspectable="0">
+        <callback name="_clutter_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved7" introspectable="0">
+        <callback name="_clutter_reserved7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved8" introspectable="0">
+        <callback name="_clutter_reserved8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved9" introspectable="0">
+        <callback name="_clutter_reserved9">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved10" introspectable="0">
+        <callback name="_clutter_reserved10">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="PlayerIfacePrivate"
+            c:type="ClutterGstPlayerIfacePrivate"
+            disguised="1">
+    </record>
+    <bitfield name="SeekFlags"
+              version="1.4"
+              glib:type-name="ClutterGstSeekFlags"
+              glib:get-type="clutter_gst_seek_flags_get_type"
+              c:type="ClutterGstSeekFlags">
+      <doc xml:space="preserve">Flags that can be given to clutter_gst_video_texture_set_seek_flags().</doc>
+      <member name="none"
+              value="0"
+              c:identifier="CLUTTER_GST_SEEK_FLAG_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve">Fast seeks (key frame boundaries, default)</doc>
+      </member>
+      <member name="accurate"
+              value="1"
+              c:identifier="CLUTTER_GST_SEEK_FLAG_ACCURATE"
+              glib:nick="accurate">
+        <doc xml:space="preserve">Accurate seeks (potentially slower)</doc>
+      </member>
+    </bitfield>
+    <constant name="VERSION_HEX" value="0" c:type="CLUTTER_GST_VERSION_HEX">
+      <doc xml:space="preserve">ClutterGst full version, encoded as an hexadecimal value.</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_S" value="1.6.0" c:type="CLUTTER_GST_VERSION_S">
+      <doc xml:space="preserve">ClutterGst full version, encoded as a string.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="VideoSink"
+           c:symbol-prefix="video_sink"
+           c:type="ClutterGstVideoSink"
+           parent="GstBase.BaseSink"
+           glib:type-name="ClutterGstVideoSink"
+           glib:get-type="clutter_gst_video_sink_get_type"
+           glib:type-struct="VideoSinkClass">
+      <doc xml:space="preserve">Class implementing a GStreamer sink element for #ClutterTexture&lt;!-- --&gt;s.
+
+The #ClutterGstVideoSink structure contains only private data and should
+not be accessed directly.</doc>
+      <implements name="Gst.ImplementsInterface"/>
+      <implements name="GstInterfaces.Navigation"/>
+      <constructor name="new"
+                   c:identifier="clutter_gst_video_sink_new"
+                   deprecated="Use gst_element_factory_make (&quot;cluttersink&quot;, ...) and the &quot;texture&quot; GObject property instead."
+                   deprecated-version="1.6">
+        <doc xml:space="preserve">Creates a new GStreamer video sink which uses @texture as the target
+for sinking a video stream from GStreamer.
+
+&lt;note&gt;This function has to be called from Clutter's main thread. While
+GStreamer will spawn threads to do its work, we want all the GL calls to
+happen in the same thread. Clutter-gst knows which thread it is by
+assuming this constructor is called from the Clutter thread.&lt;/note&gt;</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GstElement for the newly created video sink</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterTexture</doc>
+            <type name="Clutter.Texture" c:type="ClutterTexture*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="texture" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">This is the texture the video is decoded into. It can be any
+#ClutterTexture, however Cluter-Gst has a handy subclass,
+#ClutterGstVideoTexture, that implements the #ClutterMedia
+interface.</doc>
+        <type name="Clutter.Texture"/>
+      </property>
+      <property name="update-priority" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">Clutter-Gst installs a #GSource to signal that a new frame is ready to
+the Clutter thread. This property allows to tweak the priority of the
+source (Lower value is higher priority).
+
+Since 1.0</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GstBase.BaseSink" c:type="GstBaseSink"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="VideoSinkPrivate" c:type="ClutterGstVideoSinkPrivate*"/>
+      </field>
+    </class>
+    <record name="VideoSinkClass"
+            c:type="ClutterGstVideoSinkClass"
+            glib:is-gtype-struct-for="VideoSink">
+      <doc xml:space="preserve">Base class for #ClutterGstVideoSink.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GstBase.BaseSinkClass" c:type="GstBaseSinkClass"/>
+      </field>
+      <field name="_clutter_reserved1" introspectable="0">
+        <callback name="_clutter_reserved1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved2" introspectable="0">
+        <callback name="_clutter_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved3" introspectable="0">
+        <callback name="_clutter_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved4" introspectable="0">
+        <callback name="_clutter_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved5" introspectable="0">
+        <callback name="_clutter_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved6" introspectable="0">
+        <callback name="_clutter_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="VideoSinkPrivate"
+            c:type="ClutterGstVideoSinkPrivate"
+            disguised="1">
+    </record>
+    <class name="VideoTexture"
+           c:symbol-prefix="video_texture"
+           c:type="ClutterGstVideoTexture"
+           parent="Clutter.Texture"
+           glib:type-name="ClutterGstVideoTexture"
+           glib:get-type="clutter_gst_video_texture_get_type"
+           glib:type-struct="VideoTextureClass">
+      <doc xml:space="preserve">Subclass of #ClutterTexture that displays videos using GStreamer.
+
+The #ClutterGstVideoTexture structure contains only private data and
+should not be accessed directly.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Media"/>
+      <implements name="Clutter.Scriptable"/>
+      <implements name="Player"/>
+      <constructor name="new" c:identifier="clutter_gst_video_texture_new">
+        <doc xml:space="preserve">Creates a video texture.
+
+&lt;note&gt;This function has to be called from Clutter's main thread. While
+GStreamer will spawn threads to do its work, we want all the GL calls to
+happen in the same thread. Clutter-gst knows which thread it is by
+assuming this constructor is called from the Clutter thread.&lt;/note&gt;</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the newly created video texture actor</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <method name="get_audio_stream"
+              c:identifier="clutter_gst_video_texture_get_audio_stream"
+              version="1.4">
+        <doc xml:space="preserve">Get the current audio stream. The number returned in the index of the
+audio stream playing in the list returned by
+clutter_gst_video_texture_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current audio stream, -1 if the media has no audio stream</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_audio_streams"
+              c:identifier="clutter_gst_video_texture_get_audio_streams"
+              version="1.4">
+        <doc xml:space="preserve">Get the list of audio streams of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of #GstTagList describing the available audio streams</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Gst.TagList"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_buffering_mode"
+              c:identifier="clutter_gst_video_texture_get_buffering_mode"
+              version="1.4">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+          <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_idle_material"
+              c:identifier="clutter_gst_video_texture_get_idle_material"
+              version="1.2">
+        <doc xml:space="preserve">Retrieves the material used to draw when no media is being played.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #CoglHandle of the idle material</doc>
+          <type name="Cogl.Handle" c:type="CoglHandle"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pipeline"
+              c:identifier="clutter_gst_video_texture_get_pipeline">
+        <doc xml:space="preserve">Retrieves the #GstPipeline used by the @texture, for direct use with
+GStreamer API.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the pipeline element used by the video texture</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_seek_flags"
+              c:identifier="clutter_gst_video_texture_get_seek_flags"
+              version="1.4">
+        <doc xml:space="preserve">Get the current value of the seek-flags property.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+          <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_track"
+              c:identifier="clutter_gst_video_texture_get_subtitle_track"
+              version="1.4">
+        <doc xml:space="preserve">Get the current subtitles track. The number returned is the index of the
+subitles track in the list returned by
+clutter_gst_video_texture_get_subtitle_tracks().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the current subtitlest track, -1 if the media has no subtitles track or if the subtitles have been turned off</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_tracks"
+              c:identifier="clutter_gst_video_texture_get_subtitle_tracks"
+              version="1.4">
+        <doc xml:space="preserve">Get the list of subtitles tracks of the current media.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of #GstTagList describing the available subtitles tracks</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Gst.TagList"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_agent"
+              c:identifier="clutter_gst_video_texture_get_user_agent"
+              version="1.2">
+        <doc xml:space="preserve">Retrieves the user agent used when streaming.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the user agent used. The returned string has to be freed with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_stream"
+              c:identifier="clutter_gst_video_texture_set_audio_stream"
+              version="1.4">
+        <doc xml:space="preserve">Set the audio stream to play. @index_ is the index of the stream
+in the list returned by clutter_gst_video_texture_get_audio_streams().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the audio stream</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_buffering_mode"
+              c:identifier="clutter_gst_video_texture_set_buffering_mode"
+              version="1.4">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstBufferingMode</doc>
+            <type name="BufferingMode" c:type="ClutterGstBufferingMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_idle_material"
+              c:identifier="clutter_gst_video_texture_set_idle_material">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="material" transfer-ownership="none">
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_seek_flags"
+              c:identifier="clutter_gst_video_texture_set_seek_flags"
+              version="1.4">
+        <doc xml:space="preserve">Seeking can be done with several trade-offs. Clutter-gst defaults
+to %CLUTTER_GST_SEEK_FLAG_NONE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">a combination of #ClutterGstSeekFlags</doc>
+            <type name="SeekFlags" c:type="ClutterGstSeekFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track"
+              c:identifier="clutter_gst_video_texture_set_subtitle_track"
+              version="1.4">
+        <doc xml:space="preserve">Set the subtitles track to play. @index_ is the index of the stream
+in the list returned by clutter_gst_video_texture_get_subtitle_tracks().
+
+If @index_ is -1, the subtitles are turned off.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the subtitles track</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_agent"
+              c:identifier="clutter_gst_video_texture_set_user_agent"
+              version="1.2">
+        <doc xml:space="preserve">Sets the user agent to use when streaming.
+
+When streaming content, you might want to set a custom user agent, eg. to
+promote your software, make it appear in statistics or because the server
+requires a special user agent you want to impersonate.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve">a #ClutterGstVideoTexture</doc>
+            <type name="VideoTexture" c:type="ClutterGstVideoTexture*"/>
+          </instance-parameter>
+          <parameter name="user_agent" transfer-ownership="none">
+            <doc xml:space="preserve">the user agent</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="idle-material"
+                introspectable="0"
+                writable="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="pixel-aspect-ratio"
+                writable="1"
+                transfer-ownership="none">
+        <type name="Gst.Fraction"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Clutter.Texture" c:type="ClutterTexture"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="VideoTexturePrivate"
+              c:type="ClutterGstVideoTexturePrivate*"/>
+      </field>
+    </class>
+    <record name="VideoTextureClass"
+            c:type="ClutterGstVideoTextureClass"
+            glib:is-gtype-struct-for="VideoTexture">
+      <doc xml:space="preserve">Base class for #ClutterGstVideoTexture.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Clutter.TextureClass" c:type="ClutterTextureClass"/>
+      </field>
+      <field name="_clutter_reserved1" introspectable="0">
+        <callback name="_clutter_reserved1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved2" introspectable="0">
+        <callback name="_clutter_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved3" introspectable="0">
+        <callback name="_clutter_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved4" introspectable="0">
+        <callback name="_clutter_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved5" introspectable="0">
+        <callback name="_clutter_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_reserved6" introspectable="0">
+        <callback name="_clutter_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="VideoTexturePrivate"
+            c:type="ClutterGstVideoTexturePrivate"
+            disguised="1">
+    </record>
+    <function name="init" c:identifier="clutter_gst_init">
+      <doc xml:space="preserve">Utility function to initialize both Clutter and GStreamer.
+
+This function should be called before calling any other GLib functions. If
+this is not an option, your program must initialise the GLib thread system
+using g_thread_init() before any other GLib functions are called.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A #ClutterInitError.</doc>
+        <type name="Clutter.InitError" c:type="ClutterInitError"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">The number of arguments in @argv</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   allow-none="1">
+          <doc xml:space="preserve">A pointer to an array</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="init_with_args"
+              c:identifier="clutter_gst_init_with_args"
+              version="1.0"
+              throws="1">
+      <doc xml:space="preserve">This function does the same work as clutter_gst_init(). Additionally, it
+allows you to add your own command line options, and it automatically
+generates nicely formatted --help output. Clutter's and GStreamer's
+#GOptionGroup&lt;!-- --&gt;s are added to the set of available options.
+
+Your program must initialise the GLib thread system using g_thread_init()
+before any other GLib functions are called.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%CLUTTER_INIT_SUCCESS on success, a negative integer on failure.</doc>
+        <type name="Clutter.InitError" c:type="ClutterInitError"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">The number of arguments in @argv</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   allow-none="1">
+          <doc xml:space="preserve">A pointer to an array</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+        <parameter name="parameter_string" transfer-ownership="none">
+          <doc xml:space="preserve">a string which is displayed in the first line of &lt;option&gt;--help&lt;/option&gt; output, after &lt;literal&gt;&lt;replaceable&gt;programname&lt;/replaceable&gt; [OPTION...]&lt;/literal&gt;</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="entries" transfer-ownership="none">
+          <doc xml:space="preserve">a %NULL-terminated array of #GOptionEntry&lt;!-- --&gt;s describing the options of your program</doc>
+          <type name="GLib.OptionEntry" c:type="GOptionEntry*"/>
+        </parameter>
+        <parameter name="translation_domain" transfer-ownership="none">
+          <doc xml:space="preserve">a translation domain to use for translating the &lt;option&gt;--help&lt;/option&gt; output for the options in @entries with gettext(), or %NULL</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="player_class_init"
+              c:identifier="clutter_gst_player_class_init"
+              moved-to="Player.class_init"
+              version="1.4">
+      <doc xml:space="preserve">Adds the #ClutterGstPlayer properties to a class and surchages the
+set/get_property of #GObjectClass. You should call this
+function at the end of the class_init method of the class
+implementing #ClutterGstPlayer.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="object_class" transfer-ownership="none">
+          <doc xml:space="preserve">a #GObjectClass</doc>
+          <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

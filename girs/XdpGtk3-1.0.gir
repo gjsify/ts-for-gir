@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <include name="Xdp" version="1.0"/>
+  <package name="libportal-gtk3"/>
+  <c:include name="libportal-gtk3/portal-gtk3.h"/>
+  <namespace name="XdpGtk3"
+             version="1.0"
+             shared-library="libportal-gtk3.so.1"
+             c:identifier-prefixes="Xdp"
+             c:symbol-prefixes="xdp">
+    <function name="parent_new_gtk" c:identifier="xdp_parent_new_gtk">
+      <doc xml:space="preserve"
+           filename="libportal/portal-gtk3.c"
+           line="83">Creates a new [struct@Parent] from @window.</doc>
+      <source-position filename="libportal/portal-gtk3.h" line="32"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libportal/portal-gtk3.c"
+             line="89">a [struct@Parent]</doc>
+        <type name="Xdp.Parent" c:type="XdpParent*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libportal/portal-gtk3.c"
+               line="85">a [class@Gtk.Window]</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

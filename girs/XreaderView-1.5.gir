@@ -1,0 +1,3734 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="XreaderDocument" version="1.5"/>
+  <package name="xreader-document-1.5"/>
+  <package name="xreader-view-1.5"/>
+  <namespace name="XreaderView"
+             version="1.5"
+             shared-library="libxreaderview.so.3"
+             c:identifier-prefixes="Ev"
+             c:symbol-prefixes="ev">
+    <function-macro name="DOCUMENT_MODEL"
+                    c:identifier="EV_DOCUMENT_MODEL"
+                    introspectable="0">
+      <source-position filename="libview/ev-document-model.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="DocumentModel"
+           c:symbol-prefix="document_model"
+           c:type="EvDocumentModel"
+           parent="GObject.Object"
+           glib:type-name="EvDocumentModel"
+           glib:get-type="ev_document_model_get_type"
+           glib:type-struct="DocumentModelClass">
+      <source-position filename="libview/ev-document-model.h" line="43"/>
+      <constructor name="new" c:identifier="ev_document_model_new">
+        <source-position filename="libview/ev-document-model.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <type name="DocumentModel" c:type="EvDocumentModel*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_document"
+                   c:identifier="ev_document_model_new_with_document">
+        <source-position filename="libview/ev-document-model.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <type name="DocumentModel" c:type="EvDocumentModel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_continuous"
+              c:identifier="ev_document_model_get_continuous"
+              glib:get-property="continuous">
+        <source-position filename="libview/ev-document-model.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_document"
+              c:identifier="ev_document_model_get_document"
+              glib:get-property="document">
+        <doc xml:space="preserve"
+             filename="libview/ev-document-model.c"
+             line="339">Returns the #EvDocument referenced by the model.</doc>
+        <source-position filename="libview/ev-document-model.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libview/ev-document-model.c"
+               line="345">a #EvDocument</doc>
+          <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libview/ev-document-model.c"
+                 line="341">a #EvDocumentModel</doc>
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dual_page"
+              c:identifier="ev_document_model_get_dual_page"
+              glib:get-property="dual-page">
+        <source-position filename="libview/ev-document-model.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dual_page_odd_pages_left"
+              c:identifier="ev_document_model_get_dual_page_odd_pages_left">
+        <source-position filename="libview/ev-document-model.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_fullscreen"
+              c:identifier="ev_document_model_get_fullscreen"
+              glib:get-property="fullscreen">
+        <source-position filename="libview/ev-document-model.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_inverted_colors"
+              c:identifier="ev_document_model_get_inverted_colors"
+              glib:get-property="inverted-colors">
+        <source-position filename="libview/ev-document-model.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_scale"
+              c:identifier="ev_document_model_get_max_scale">
+        <source-position filename="libview/ev-document-model.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_min_scale"
+              c:identifier="ev_document_model_get_min_scale">
+        <source-position filename="libview/ev-document-model.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page"
+              c:identifier="ev_document_model_get_page"
+              glib:get-property="page">
+        <source-position filename="libview/ev-document-model.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rotation"
+              c:identifier="ev_document_model_get_rotation"
+              glib:get-property="rotation">
+        <source-position filename="libview/ev-document-model.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rtl"
+              c:identifier="ev_document_model_get_rtl"
+              glib:get-property="rtl">
+        <source-position filename="libview/ev-document-model.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scale"
+              c:identifier="ev_document_model_get_scale"
+              glib:get-property="scale">
+        <source-position filename="libview/ev-document-model.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sizing_mode"
+              c:identifier="ev_document_model_get_sizing_mode"
+              glib:get-property="sizing-mode">
+        <source-position filename="libview/ev-document-model.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="SizingMode" c:type="EvSizingMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_continuous"
+              c:identifier="ev_document_model_set_continuous"
+              glib:set-property="continuous">
+        <source-position filename="libview/ev-document-model.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="continuous" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_document"
+              c:identifier="ev_document_model_set_document"
+              glib:set-property="document">
+        <source-position filename="libview/ev-document-model.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_dual_page"
+              c:identifier="ev_document_model_set_dual_page"
+              glib:set-property="dual-page">
+        <source-position filename="libview/ev-document-model.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="dual_page" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_dual_page_odd_pages_left"
+              c:identifier="ev_document_model_set_dual_page_odd_pages_left">
+        <source-position filename="libview/ev-document-model.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="odd_left" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fullscreen"
+              c:identifier="ev_document_model_set_fullscreen"
+              glib:set-property="fullscreen">
+        <source-position filename="libview/ev-document-model.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="fullscreen" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_inverted_colors"
+              c:identifier="ev_document_model_set_inverted_colors"
+              glib:set-property="inverted-colors">
+        <source-position filename="libview/ev-document-model.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="inverted_colors" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_scale"
+              c:identifier="ev_document_model_set_max_scale">
+        <source-position filename="libview/ev-document-model.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="max_scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_min_scale"
+              c:identifier="ev_document_model_set_min_scale">
+        <source-position filename="libview/ev-document-model.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="min_scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page"
+              c:identifier="ev_document_model_set_page"
+              glib:set-property="page">
+        <source-position filename="libview/ev-document-model.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page_by_label"
+              c:identifier="ev_document_model_set_page_by_label">
+        <source-position filename="libview/ev-document-model.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="page_label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rotation"
+              c:identifier="ev_document_model_set_rotation"
+              glib:set-property="rotation">
+        <source-position filename="libview/ev-document-model.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rtl"
+              c:identifier="ev_document_model_set_rtl"
+              glib:set-property="rtl">
+        <source-position filename="libview/ev-document-model.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="rtl" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scale"
+              c:identifier="ev_document_model_set_scale"
+              glib:set-property="scale">
+        <source-position filename="libview/ev-document-model.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sizing_mode"
+              c:identifier="ev_document_model_set_sizing_mode"
+              glib:set-property="sizing-mode">
+        <source-position filename="libview/ev-document-model.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <type name="SizingMode" c:type="EvSizingMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="continuous"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_continuous"
+                getter="get_continuous"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="document"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_document"
+                getter="get_document">
+        <type name="XreaderDocument.Document"/>
+      </property>
+      <property name="dual-odd-left"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="dual-page"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_dual_page"
+                getter="get_dual_page"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="fullscreen"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_fullscreen"
+                getter="get_fullscreen"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="inverted-colors"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_inverted_colors"
+                getter="get_inverted_colors"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="page"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_page"
+                getter="get_page"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="rotation"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_rotation"
+                getter="get_rotation"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="rtl"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_rtl"
+                getter="get_rtl"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="scale"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_scale"
+                getter="get_scale"
+                default-value="1.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="sizing-mode"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sizing_mode"
+                getter="get_sizing_mode"
+                default-value="EV_SIZING_FIT_WIDTH">
+        <type name="SizingMode"/>
+      </property>
+      <glib:signal name="page-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DocumentModelClass"
+            c:type="EvDocumentModelClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="DocumentModel">
+      <source-position filename="libview/ev-document-model.h" line="43"/>
+    </record>
+    <function-macro name="IS_DOCUMENT_MODEL"
+                    c:identifier="EV_IS_DOCUMENT_MODEL"
+                    introspectable="0">
+      <source-position filename="libview/ev-document-model.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB" c:identifier="EV_IS_JOB" introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="84"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_ANNOTS"
+                    c:identifier="EV_IS_JOB_ANNOTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="100"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_ATTACHMENTS"
+                    c:identifier="EV_IS_JOB_ATTACHMENTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="95"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_EXPORT"
+                    c:identifier="EV_IS_JOB_EXPORT"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="150"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_FIND"
+                    c:identifier="EV_IS_JOB_FIND"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="140"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_FONTS"
+                    c:identifier="EV_IS_JOB_FONTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="125"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_LAYERS"
+                    c:identifier="EV_IS_JOB_LAYERS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="145"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_LINKS"
+                    c:identifier="EV_IS_JOB_LINKS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="90"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_LOAD"
+                    c:identifier="EV_IS_JOB_LOAD"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="130"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_PAGE_DATA"
+                    c:identifier="EV_IS_JOB_PAGE_DATA"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="110"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_PRINT"
+                    c:identifier="EV_IS_JOB_PRINT"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="155"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_RENDER"
+                    c:identifier="EV_IS_JOB_RENDER"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="105"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_SAVE"
+                    c:identifier="EV_IS_JOB_SAVE"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="135"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_THUMBNAIL"
+                    c:identifier="EV_IS_JOB_THUMBNAIL"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="115"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_JOB_WEB_THUMBNAIL"
+                    c:identifier="EV_IS_JOB_WEB_THUMBNAIL"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="120"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PRINT_OPERATION"
+                    c:identifier="EV_IS_PRINT_OPERATION"
+                    introspectable="0">
+      <source-position filename="libview/ev-print-operation.h" line="40"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VIEW"
+                    c:identifier="EV_IS_VIEW"
+                    introspectable="0">
+      <source-position filename="libview/ev-view.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VIEW_PRESENTATION"
+                    c:identifier="EV_IS_VIEW_PRESENTATION"
+                    introspectable="0">
+      <source-position filename="libview/ev-view-presentation.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WEB_VIEW"
+                    c:identifier="EV_IS_WEB_VIEW"
+                    introspectable="0">
+      <source-position filename="libview/ev-web-view.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB" c:identifier="EV_JOB" introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="82"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_ANNOTS"
+                    c:identifier="EV_JOB_ANNOTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="98"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_ANNOTS_CLASS"
+                    c:identifier="EV_JOB_ANNOTS_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="99"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_ATTACHMENTS"
+                    c:identifier="EV_JOB_ATTACHMENTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="93"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_ATTACHMENTS_CLASS"
+                    c:identifier="EV_JOB_ATTACHMENTS_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="94"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_CLASS"
+                    c:identifier="EV_JOB_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="83"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_EXPORT"
+                    c:identifier="EV_JOB_EXPORT"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="148"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_EXPORT_CLASS"
+                    c:identifier="EV_JOB_EXPORT_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="149"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_FIND"
+                    c:identifier="EV_JOB_FIND"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="138"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_FIND_CLASS"
+                    c:identifier="EV_JOB_FIND_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="139"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_FONTS"
+                    c:identifier="EV_JOB_FONTS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="123"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_FONTS_CLASS"
+                    c:identifier="EV_JOB_FONTS_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="124"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_GET_CLASS"
+                    c:identifier="EV_JOB_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="85"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LAYERS"
+                    c:identifier="EV_JOB_LAYERS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="143"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LAYERS_CLASS"
+                    c:identifier="EV_JOB_LAYERS_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="144"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LINKS"
+                    c:identifier="EV_JOB_LINKS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="88"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LINKS_CLASS"
+                    c:identifier="EV_JOB_LINKS_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="89"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LOAD"
+                    c:identifier="EV_JOB_LOAD"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="128"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_LOAD_CLASS"
+                    c:identifier="EV_JOB_LOAD_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="129"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_PAGE_DATA"
+                    c:identifier="EV_JOB_PAGE_DATA"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="108"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_PAGE_DATA_CLASS"
+                    c:identifier="EV_JOB_PAGE_DATA_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="109"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_PRINT"
+                    c:identifier="EV_JOB_PRINT"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="153"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_PRINT_CLASS"
+                    c:identifier="EV_JOB_PRINT_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="154"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_RENDER"
+                    c:identifier="EV_JOB_RENDER"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="103"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_RENDER_CLASS"
+                    c:identifier="EV_JOB_RENDER_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="104"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_SAVE"
+                    c:identifier="EV_JOB_SAVE"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="133"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_SAVE_CLASS"
+                    c:identifier="EV_JOB_SAVE_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="134"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_THUMBNAIL"
+                    c:identifier="EV_JOB_THUMBNAIL"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="113"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_THUMBNAIL_CLASS"
+                    c:identifier="EV_JOB_THUMBNAIL_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="114"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_WEB_THUMBNAIL"
+                    c:identifier="EV_JOB_WEB_THUMBNAIL"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="118"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="JOB_WEB_THUMBNAIL_CLASS"
+                    c:identifier="EV_JOB_WEB_THUMBNAIL_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-jobs.h" line="119"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Job"
+           c:symbol-prefix="job"
+           c:type="EvJob"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="EvJob"
+           glib:get-type="ev_job_get_type"
+           glib:type-struct="JobClass">
+      <source-position filename="libview/ev-jobs.h" line="190"/>
+      <function name="scheduler_get_running_thread_job"
+                c:identifier="ev_job_scheduler_get_running_thread_job"
+                introspectable="0">
+        <source-position filename="libview/ev-job-scheduler.h" line="45"/>
+        <return-value>
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+      </function>
+      <virtual-method name="cancelled">
+        <source-position filename="libview/ev-jobs.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="finished">
+        <source-position filename="libview/ev-jobs.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="run" invoker="run">
+        <source-position filename="libview/ev-jobs.h" line="185"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="cancel" c:identifier="ev_job_cancel">
+        <source-position filename="libview/ev-jobs.h" line="410"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="failed" c:identifier="ev_job_failed" introspectable="0">
+        <source-position filename="libview/ev-jobs.h" line="411"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="GLib.Quark" c:type="GQuark"/>
+          </parameter>
+          <parameter name="code" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="format" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="failed_from_error" c:identifier="ev_job_failed_from_error">
+        <source-position filename="libview/ev-jobs.h" line="416"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_run_mode" c:identifier="ev_job_get_run_mode">
+        <source-position filename="libview/ev-jobs.h" line="421"/>
+        <return-value transfer-ownership="none">
+          <type name="JobRunMode" c:type="EvJobRunMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_failed" c:identifier="ev_job_is_failed">
+        <source-position filename="libview/ev-jobs.h" line="420"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_finished" c:identifier="ev_job_is_finished">
+        <source-position filename="libview/ev-jobs.h" line="419"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="run" c:identifier="ev_job_run">
+        <source-position filename="libview/ev-jobs.h" line="409"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="scheduler_push_job"
+              c:identifier="ev_job_scheduler_push_job">
+        <source-position filename="libview/ev-job-scheduler.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <type name="JobPriority" c:type="EvJobPriority"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scheduler_update_job"
+              c:identifier="ev_job_scheduler_update_job">
+        <source-position filename="libview/ev-job-scheduler.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <type name="JobPriority" c:type="EvJobPriority"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_run_mode" c:identifier="ev_job_set_run_mode">
+        <source-position filename="libview/ev-jobs.h" line="422"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+          <parameter name="run_mode" transfer-ownership="none">
+            <type name="JobRunMode" c:type="EvJobRunMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="succeeded" c:identifier="ev_job_succeeded">
+        <source-position filename="libview/ev-jobs.h" line="418"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="Job" c:type="EvJob*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="document">
+        <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+      </field>
+      <field name="run_mode">
+        <type name="JobRunMode" c:type="EvJobRunMode"/>
+      </field>
+      <field name="cancelled" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="finished" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="failed" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="error">
+        <type name="GLib.Error" c:type="GError*"/>
+      </field>
+      <field name="cancellable">
+        <type name="Gio.Cancellable" c:type="GCancellable*"/>
+      </field>
+      <field name="idle_finished_id">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="idle_cancelled_id">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <glib:signal name="cancelled" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="finished" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <class name="JobAnnots"
+           c:symbol-prefix="job_annots"
+           c:type="EvJobAnnots"
+           parent="Job"
+           glib:type-name="EvJobAnnots"
+           glib:get-type="ev_job_annots_get_type"
+           glib:type-struct="JobAnnotsClass">
+      <source-position filename="libview/ev-jobs.h" line="226"/>
+      <constructor name="new" c:identifier="ev_job_annots_new">
+        <source-position filename="libview/ev-jobs.h" line="435"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="annots">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+    </class>
+    <record name="JobAnnotsClass"
+            c:type="EvJobAnnotsClass"
+            glib:is-gtype-struct-for="JobAnnots">
+      <source-position filename="libview/ev-jobs.h" line="226"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobAttachments"
+           c:symbol-prefix="job_attachments"
+           c:type="EvJobAttachments"
+           parent="Job"
+           glib:type-name="EvJobAttachments"
+           glib:get-type="ev_job_attachments_get_type"
+           glib:type-struct="JobAttachmentsClass">
+      <source-position filename="libview/ev-jobs.h" line="214"/>
+      <constructor name="new" c:identifier="ev_job_attachments_new">
+        <source-position filename="libview/ev-jobs.h" line="431"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="attachments">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+    </class>
+    <record name="JobAttachmentsClass"
+            c:type="EvJobAttachmentsClass"
+            glib:is-gtype-struct-for="JobAttachments">
+      <source-position filename="libview/ev-jobs.h" line="214"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <record name="JobClass" c:type="EvJobClass" glib:is-gtype-struct-for="Job">
+      <source-position filename="libview/ev-jobs.h" line="190"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="run">
+        <callback name="run">
+          <source-position filename="libview/ev-jobs.h" line="185"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="job" transfer-ownership="none">
+              <type name="Job" c:type="EvJob*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancelled">
+        <callback name="cancelled">
+          <source-position filename="libview/ev-jobs.h" line="188"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="job" transfer-ownership="none">
+              <type name="Job" c:type="EvJob*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="finished">
+        <callback name="finished">
+          <source-position filename="libview/ev-jobs.h" line="189"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="job" transfer-ownership="none">
+              <type name="Job" c:type="EvJob*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="JobExport"
+           c:symbol-prefix="job_export"
+           c:type="EvJobExport"
+           parent="Job"
+           glib:type-name="EvJobExport"
+           glib:get-type="ev_job_export_get_type"
+           glib:type-struct="JobExportClass">
+      <source-position filename="libview/ev-jobs.h" line="392"/>
+      <constructor name="new" c:identifier="ev_job_export_new">
+        <source-position filename="libview/ev-jobs.h" line="500"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_page" c:identifier="ev_job_export_set_page">
+        <source-position filename="libview/ev-jobs.h" line="501"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobExport" c:type="EvJobExport*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="rc">
+        <type name="XreaderDocument.RenderContext" c:type="EvRenderContext*"/>
+      </field>
+    </class>
+    <record name="JobExportClass"
+            c:type="EvJobExportClass"
+            glib:is-gtype-struct-for="JobExport">
+      <source-position filename="libview/ev-jobs.h" line="392"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobFind"
+           c:symbol-prefix="job_find"
+           c:type="EvJobFind"
+           parent="Job"
+           glib:type-name="EvJobFind"
+           glib:get-type="ev_job_find_get_type"
+           glib:type-struct="JobFindClass">
+      <source-position filename="libview/ev-jobs.h" line="367"/>
+      <constructor name="new" c:identifier="ev_job_find_new">
+        <source-position filename="libview/ev-jobs.h" line="482"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="start_page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="n_pages" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="case_sensitive" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="updated">
+        <source-position filename="libview/ev-jobs.h" line="365"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_n_results" c:identifier="ev_job_find_get_n_results">
+        <source-position filename="libview/ev-jobs.h" line="487"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+          <parameter name="pages" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_progress" c:identifier="ev_job_find_get_progress">
+        <source-position filename="libview/ev-jobs.h" line="490"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_results"
+              c:identifier="ev_job_find_get_results"
+              introspectable="0">
+        <source-position filename="libview/ev-jobs.h" line="492"/>
+        <return-value>
+          <type name="GLib.List" c:type="GList**">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text" c:identifier="ev_job_find_get_text">
+        <source-position filename="libview/ev-jobs.h" line="489"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_results" c:identifier="ev_job_find_has_results">
+        <source-position filename="libview/ev-jobs.h" line="491"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFind" c:type="EvJobFind*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="start_page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="current_page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="n_pages">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="total_count">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="pages">
+        <type name="GLib.List" c:type="GList**">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="results">
+        <type name="guint" c:type="guint*"/>
+      </field>
+      <field name="text">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="case_sensitive">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="has_results">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <glib:signal name="updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="JobFindClass"
+            c:type="EvJobFindClass"
+            glib:is-gtype-struct-for="JobFind">
+      <source-position filename="libview/ev-jobs.h" line="367"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+      <field name="updated">
+        <callback name="updated">
+          <source-position filename="libview/ev-jobs.h" line="365"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="job" transfer-ownership="none">
+              <type name="JobFind" c:type="EvJobFind*"/>
+            </parameter>
+            <parameter name="page" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="JobFonts"
+           c:symbol-prefix="job_fonts"
+           c:type="EvJobFonts"
+           parent="Job"
+           glib:type-name="EvJobFonts"
+           glib:get-type="ev_job_fonts_get_type"
+           glib:type-struct="JobFontsClass">
+      <source-position filename="libview/ev-jobs.h" line="317"/>
+      <constructor name="new" c:identifier="ev_job_fonts_new">
+        <source-position filename="libview/ev-jobs.h" line="465"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="updated">
+        <source-position filename="libview/ev-jobs.h" line="315"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobFonts" c:type="EvJobFonts*"/>
+          </instance-parameter>
+          <parameter name="progress" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="scan_completed">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <glib:signal name="updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="JobFontsClass"
+            c:type="EvJobFontsClass"
+            glib:is-gtype-struct-for="JobFonts">
+      <source-position filename="libview/ev-jobs.h" line="317"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+      <field name="updated">
+        <callback name="updated">
+          <source-position filename="libview/ev-jobs.h" line="315"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="job" transfer-ownership="none">
+              <type name="JobFonts" c:type="EvJobFonts*"/>
+            </parameter>
+            <parameter name="progress" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="JobLayers"
+           c:symbol-prefix="job_layers"
+           c:type="EvJobLayers"
+           parent="Job"
+           glib:type-name="EvJobLayers"
+           glib:get-type="ev_job_layers_get_type"
+           glib:type-struct="JobLayersClass">
+      <source-position filename="libview/ev-jobs.h" line="379"/>
+      <constructor name="new" c:identifier="ev_job_layers_new">
+        <source-position filename="libview/ev-jobs.h" line="496"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="model">
+        <type name="Gtk.TreeModel" c:type="GtkTreeModel*"/>
+      </field>
+    </class>
+    <record name="JobLayersClass"
+            c:type="EvJobLayersClass"
+            glib:is-gtype-struct-for="JobLayers">
+      <source-position filename="libview/ev-jobs.h" line="379"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobLinks"
+           c:symbol-prefix="job_links"
+           c:type="EvJobLinks"
+           parent="Job"
+           glib:type-name="EvJobLinks"
+           glib:get-type="ev_job_links_get_type"
+           glib:type-struct="JobLinksClass">
+      <source-position filename="libview/ev-jobs.h" line="202"/>
+      <constructor name="new" c:identifier="ev_job_links_new">
+        <source-position filename="libview/ev-jobs.h" line="427"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="model">
+        <type name="Gtk.TreeModel" c:type="GtkTreeModel*"/>
+      </field>
+    </class>
+    <record name="JobLinksClass"
+            c:type="EvJobLinksClass"
+            glib:is-gtype-struct-for="JobLinks">
+      <source-position filename="libview/ev-jobs.h" line="202"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobLoad"
+           c:symbol-prefix="job_load"
+           c:type="EvJobLoad"
+           parent="Job"
+           glib:type-name="EvJobLoad"
+           glib:get-type="ev_job_load_get_type"
+           glib:type-struct="JobLoadClass">
+      <source-position filename="libview/ev-jobs.h" line="330"/>
+      <constructor name="new" c:identifier="ev_job_load_new">
+        <source-position filename="libview/ev-jobs.h" line="469"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_password" c:identifier="ev_job_load_set_password">
+        <source-position filename="libview/ev-jobs.h" line="472"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobLoad" c:type="EvJobLoad*"/>
+          </instance-parameter>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uri" c:identifier="ev_job_load_set_uri">
+        <source-position filename="libview/ev-jobs.h" line="470"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="load" transfer-ownership="none">
+            <type name="JobLoad" c:type="EvJobLoad*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="uri">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="password">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </class>
+    <record name="JobLoadClass"
+            c:type="EvJobLoadClass"
+            glib:is-gtype-struct-for="JobLoad">
+      <source-position filename="libview/ev-jobs.h" line="330"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobPageData"
+           c:symbol-prefix="job_page_data"
+           c:type="EvJobPageData"
+           parent="Job"
+           glib:type-name="EvJobPageData"
+           glib:get-type="ev_job_page_data_get_type"
+           glib:type-struct="JobPageDataClass">
+      <source-position filename="libview/ev-jobs.h" line="287"/>
+      <constructor name="new" c:identifier="ev_job_page_data_new">
+        <source-position filename="libview/ev-jobs.h" line="452"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="JobPageDataFlags" c:type="EvJobPageDataFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="flags">
+        <type name="JobPageDataFlags" c:type="EvJobPageDataFlags"/>
+      </field>
+      <field name="link_mapping">
+        <type name="XreaderDocument.MappingList" c:type="EvMappingList*"/>
+      </field>
+      <field name="image_mapping">
+        <type name="XreaderDocument.MappingList" c:type="EvMappingList*"/>
+      </field>
+      <field name="form_field_mapping">
+        <type name="XreaderDocument.MappingList" c:type="EvMappingList*"/>
+      </field>
+      <field name="annot_mapping">
+        <type name="XreaderDocument.MappingList" c:type="EvMappingList*"/>
+      </field>
+      <field name="text_mapping">
+        <type name="cairo.Region" c:type="cairo_region_t*"/>
+      </field>
+      <field name="text">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="text_layout">
+        <type name="XreaderDocument.Rectangle" c:type="EvRectangle*"/>
+      </field>
+      <field name="text_layout_length">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </class>
+    <record name="JobPageDataClass"
+            c:type="EvJobPageDataClass"
+            glib:is-gtype-struct-for="JobPageData">
+      <source-position filename="libview/ev-jobs.h" line="287"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <bitfield name="JobPageDataFlags"
+              glib:type-name="EvJobPageDataFlags"
+              glib:get-type="ev_job_page_data_flags_get_type"
+              c:type="EvJobPageDataFlags">
+      <member name="none"
+              value="0"
+              c:identifier="EV_PAGE_DATA_INCLUDE_NONE"
+              glib:nick="none"
+              glib:name="EV_PAGE_DATA_INCLUDE_NONE">
+      </member>
+      <member name="links"
+              value="1"
+              c:identifier="EV_PAGE_DATA_INCLUDE_LINKS"
+              glib:nick="links"
+              glib:name="EV_PAGE_DATA_INCLUDE_LINKS">
+      </member>
+      <member name="text"
+              value="2"
+              c:identifier="EV_PAGE_DATA_INCLUDE_TEXT"
+              glib:nick="text"
+              glib:name="EV_PAGE_DATA_INCLUDE_TEXT">
+      </member>
+      <member name="text_mapping"
+              value="4"
+              c:identifier="EV_PAGE_DATA_INCLUDE_TEXT_MAPPING"
+              glib:nick="text-mapping"
+              glib:name="EV_PAGE_DATA_INCLUDE_TEXT_MAPPING">
+      </member>
+      <member name="text_layout"
+              value="8"
+              c:identifier="EV_PAGE_DATA_INCLUDE_TEXT_LAYOUT"
+              glib:nick="text-layout"
+              glib:name="EV_PAGE_DATA_INCLUDE_TEXT_LAYOUT">
+      </member>
+      <member name="images"
+              value="16"
+              c:identifier="EV_PAGE_DATA_INCLUDE_IMAGES"
+              glib:nick="images"
+              glib:name="EV_PAGE_DATA_INCLUDE_IMAGES">
+      </member>
+      <member name="forms"
+              value="32"
+              c:identifier="EV_PAGE_DATA_INCLUDE_FORMS"
+              glib:nick="forms"
+              glib:name="EV_PAGE_DATA_INCLUDE_FORMS">
+      </member>
+      <member name="annots"
+              value="64"
+              c:identifier="EV_PAGE_DATA_INCLUDE_ANNOTS"
+              glib:nick="annots"
+              glib:name="EV_PAGE_DATA_INCLUDE_ANNOTS">
+      </member>
+      <member name="all"
+              value="127"
+              c:identifier="EV_PAGE_DATA_INCLUDE_ALL"
+              glib:nick="all"
+              glib:name="EV_PAGE_DATA_INCLUDE_ALL">
+      </member>
+    </bitfield>
+    <class name="JobPrint"
+           c:symbol-prefix="job_print"
+           c:type="EvJobPrint"
+           parent="Job"
+           glib:type-name="EvJobPrint"
+           glib:get-type="ev_job_print_get_type"
+           glib:type-struct="JobPrintClass">
+      <source-position filename="libview/ev-jobs.h" line="405"/>
+      <constructor name="new" c:identifier="ev_job_print_new">
+        <source-position filename="libview/ev-jobs.h" line="505"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_cairo" c:identifier="ev_job_print_set_cairo">
+        <source-position filename="libview/ev-jobs.h" line="508"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobPrint" c:type="EvJobPrint*"/>
+          </instance-parameter>
+          <parameter name="cr" transfer-ownership="none">
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page" c:identifier="ev_job_print_set_page">
+        <source-position filename="libview/ev-jobs.h" line="506"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobPrint" c:type="EvJobPrint*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="cr">
+        <type name="cairo.Context" c:type="cairo_t*"/>
+      </field>
+    </class>
+    <record name="JobPrintClass"
+            c:type="EvJobPrintClass"
+            glib:is-gtype-struct-for="JobPrint">
+      <source-position filename="libview/ev-jobs.h" line="405"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <enumeration name="JobPriority"
+                 glib:type-name="EvJobPriority"
+                 glib:get-type="ev_job_priority_get_type"
+                 c:type="EvJobPriority">
+      <member name="priority_urgent"
+              value="0"
+              c:identifier="EV_JOB_PRIORITY_URGENT"
+              glib:nick="priority-urgent"
+              glib:name="EV_JOB_PRIORITY_URGENT">
+      </member>
+      <member name="priority_high"
+              value="1"
+              c:identifier="EV_JOB_PRIORITY_HIGH"
+              glib:nick="priority-high"
+              glib:name="EV_JOB_PRIORITY_HIGH">
+      </member>
+      <member name="priority_low"
+              value="2"
+              c:identifier="EV_JOB_PRIORITY_LOW"
+              glib:nick="priority-low"
+              glib:name="EV_JOB_PRIORITY_LOW">
+      </member>
+      <member name="priority_none"
+              value="3"
+              c:identifier="EV_JOB_PRIORITY_NONE"
+              glib:nick="priority-none"
+              glib:name="EV_JOB_PRIORITY_NONE">
+      </member>
+      <member name="n_priorities"
+              value="4"
+              c:identifier="EV_JOB_N_PRIORITIES"
+              glib:nick="n-priorities"
+              glib:name="EV_JOB_N_PRIORITIES">
+      </member>
+    </enumeration>
+    <class name="JobRender"
+           c:symbol-prefix="job_render"
+           c:type="EvJobRender"
+           parent="Job"
+           glib:type-name="EvJobRender"
+           glib:get-type="ev_job_render_get_type"
+           glib:type-struct="JobRenderClass">
+      <source-position filename="libview/ev-jobs.h" line="253"/>
+      <constructor name="new" c:identifier="ev_job_render_new">
+        <source-position filename="libview/ev-jobs.h" line="439"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_selection_info"
+              c:identifier="ev_job_render_set_selection_info">
+        <source-position filename="libview/ev-jobs.h" line="445"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="job" transfer-ownership="none">
+            <type name="JobRender" c:type="EvJobRender*"/>
+          </instance-parameter>
+          <parameter name="selection_points" transfer-ownership="none">
+            <type name="XreaderDocument.Rectangle" c:type="EvRectangle*"/>
+          </parameter>
+          <parameter name="selection_style" transfer-ownership="none">
+            <type name="XreaderDocument.SelectionStyle"
+                  c:type="EvSelectionStyle"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="Gdk.Color" c:type="GdkColor*"/>
+          </parameter>
+          <parameter name="base" transfer-ownership="none">
+            <type name="Gdk.Color" c:type="GdkColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="rotation">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="scale">
+        <type name="gdouble" c:type="gdouble"/>
+      </field>
+      <field name="page_ready">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="target_width">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="target_height">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="surface">
+        <type name="cairo.Surface" c:type="cairo_surface_t*"/>
+      </field>
+      <field name="include_selection">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="selection">
+        <type name="cairo.Surface" c:type="cairo_surface_t*"/>
+      </field>
+      <field name="selection_region">
+        <type name="cairo.Region" c:type="cairo_region_t*"/>
+      </field>
+      <field name="selection_points">
+        <type name="XreaderDocument.Rectangle" c:type="EvRectangle"/>
+      </field>
+      <field name="selection_style">
+        <type name="XreaderDocument.SelectionStyle" c:type="EvSelectionStyle"/>
+      </field>
+      <field name="base">
+        <type name="Gdk.Color" c:type="GdkColor"/>
+      </field>
+      <field name="text">
+        <type name="Gdk.Color" c:type="GdkColor"/>
+      </field>
+    </class>
+    <record name="JobRenderClass"
+            c:type="EvJobRenderClass"
+            glib:is-gtype-struct-for="JobRender">
+      <source-position filename="libview/ev-jobs.h" line="253"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <enumeration name="JobRunMode"
+                 glib:type-name="EvJobRunMode"
+                 glib:get-type="ev_job_run_mode_get_type"
+                 c:type="EvJobRunMode">
+      <member name="thread"
+              value="0"
+              c:identifier="EV_JOB_RUN_THREAD"
+              glib:nick="thread"
+              glib:name="EV_JOB_RUN_THREAD">
+      </member>
+      <member name="main_loop"
+              value="1"
+              c:identifier="EV_JOB_RUN_MAIN_LOOP"
+              glib:nick="main-loop"
+              glib:name="EV_JOB_RUN_MAIN_LOOP">
+      </member>
+    </enumeration>
+    <class name="JobSave"
+           c:symbol-prefix="job_save"
+           c:type="EvJobSave"
+           parent="Job"
+           glib:type-name="EvJobSave"
+           glib:get-type="ev_job_save_get_type"
+           glib:type-struct="JobSaveClass">
+      <source-position filename="libview/ev-jobs.h" line="343"/>
+      <constructor name="new" c:identifier="ev_job_save_new">
+        <source-position filename="libview/ev-jobs.h" line="477"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="document_uri" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="uri">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="document_uri">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </class>
+    <record name="JobSaveClass"
+            c:type="EvJobSaveClass"
+            glib:is-gtype-struct-for="JobSave">
+      <source-position filename="libview/ev-jobs.h" line="343"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <class name="JobThumbnail"
+           c:symbol-prefix="job_thumbnail"
+           c:type="EvJobThumbnail"
+           parent="Job"
+           glib:type-name="EvJobThumbnail"
+           glib:get-type="ev_job_thumbnail_get_type"
+           glib:type-struct="JobThumbnailClass">
+      <source-position filename="libview/ev-jobs.h" line="302"/>
+      <constructor name="new" c:identifier="ev_job_thumbnail_new">
+        <source-position filename="libview/ev-jobs.h" line="458"/>
+        <return-value transfer-ownership="full">
+          <type name="Job" c:type="EvJob*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Job" c:type="EvJob"/>
+      </field>
+      <field name="page">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="rotation">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="scale">
+        <type name="gdouble" c:type="gdouble"/>
+      </field>
+      <field name="surface">
+        <type name="cairo.Surface" c:type="cairo_surface_t*"/>
+      </field>
+      <field name="thumbnail">
+        <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+      </field>
+    </class>
+    <record name="JobThumbnailClass"
+            c:type="EvJobThumbnailClass"
+            glib:is-gtype-struct-for="JobThumbnail">
+      <source-position filename="libview/ev-jobs.h" line="302"/>
+      <field name="parent_class">
+        <type name="JobClass" c:type="EvJobClass"/>
+      </field>
+    </record>
+    <record name="JobWebThumbnail"
+            c:type="EvJobWebThumbnail"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libview/ev-jobs.h" line="48"/>
+    </record>
+    <record name="JobWebThumbnailClass"
+            c:type="EvJobWebThumbnailClass"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libview/ev-jobs.h" line="49"/>
+    </record>
+    <function-macro name="PRINT_OPERATION"
+                    c:identifier="EV_PRINT_OPERATION"
+                    introspectable="0">
+      <source-position filename="libview/ev-print-operation.h" line="38"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PRINT_OPERATION_CLASS"
+                    c:identifier="EV_PRINT_OPERATION_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-print-operation.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PRINT_OPERATION_GET_CLASS"
+                    c:identifier="EV_PRINT_OPERATION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libview/ev-print-operation.h" line="41"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="PrintOperation"
+           c:symbol-prefix="print_operation"
+           c:type="EvPrintOperation"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="EvPrintOperation"
+           glib:get-type="ev_print_operation_get_type"
+           glib:type-struct="PrintOperationClass">
+      <source-position filename="libview/ev-print-operation.h" line="35"/>
+      <constructor name="new" c:identifier="ev_print_operation_new">
+        <source-position filename="libview/ev-print-operation.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <type name="PrintOperation" c:type="EvPrintOperation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="exists_for_document"
+                c:identifier="ev_print_operation_exists_for_document">
+        <source-position filename="libview/ev-print-operation.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="cancel" c:identifier="ev_print_operation_cancel">
+        <source-position filename="libview/ev-print-operation.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_page_setup"
+              c:identifier="ev_print_operation_get_default_page_setup"
+              introspectable="0">
+        <source-position filename="libview/ev-print-operation.h" line="54"/>
+        <return-value>
+          <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_embed_page_setup"
+              c:identifier="ev_print_operation_get_embed_page_setup">
+        <source-position filename="libview/ev-print-operation.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_error"
+              c:identifier="ev_print_operation_get_error"
+              throws="1">
+        <source-position filename="libview/ev-print-operation.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_job_name"
+              c:identifier="ev_print_operation_get_job_name">
+        <source-position filename="libview/ev-print-operation.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_print_settings"
+              c:identifier="ev_print_operation_get_print_settings"
+              introspectable="0">
+        <source-position filename="libview/ev-print-operation.h" line="51"/>
+        <return-value>
+          <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_progress"
+              c:identifier="ev_print_operation_get_progress">
+        <source-position filename="libview/ev-print-operation.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_status" c:identifier="ev_print_operation_get_status">
+        <source-position filename="libview/ev-print-operation.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="run" c:identifier="ev_print_operation_run">
+        <source-position filename="libview/ev-print-operation.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_current_page"
+              c:identifier="ev_print_operation_set_current_page">
+        <source-position filename="libview/ev-print-operation.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="current_page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_default_page_setup"
+              c:identifier="ev_print_operation_set_default_page_setup">
+        <source-position filename="libview/ev-print-operation.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="page_setup" transfer-ownership="none">
+            <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_embed_page_setup"
+              c:identifier="ev_print_operation_set_embed_page_setup">
+        <source-position filename="libview/ev-print-operation.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="embed" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_job_name"
+              c:identifier="ev_print_operation_set_job_name">
+        <source-position filename="libview/ev-print-operation.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="job_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_print_settings"
+              c:identifier="ev_print_operation_set_print_settings">
+        <source-position filename="libview/ev-print-operation.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="op" transfer-ownership="none">
+            <type name="PrintOperation" c:type="EvPrintOperation*"/>
+          </instance-parameter>
+          <parameter name="print_settings" transfer-ownership="none">
+            <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="document"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="XreaderDocument.Document"/>
+      </property>
+      <glib:signal name="begin-print" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="done" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.PrintOperationResult"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="status-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="PrintOperationClass"
+            c:type="EvPrintOperationClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="PrintOperation">
+      <source-position filename="libview/ev-print-operation.h" line="35"/>
+    </record>
+    <constant name="STOCK_ATTACHMENT"
+              value="mail-attachment"
+              c:type="EV_STOCK_ATTACHMENT">
+      <source-position filename="libview/ev-stock-icons.h" line="49"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_CLOSE" value="close" c:type="EV_STOCK_CLOSE">
+      <source-position filename="libview/ev-stock-icons.h" line="47"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_INVERTED_COLORS"
+              value="inverted"
+              c:type="EV_STOCK_INVERTED_COLORS">
+      <source-position filename="libview/ev-stock-icons.h" line="48"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_RESIZE_SE"
+              value="resize-se"
+              c:type="EV_STOCK_RESIZE_SE">
+      <source-position filename="libview/ev-stock-icons.h" line="45"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_RESIZE_SW"
+              value="resize-sw"
+              c:type="EV_STOCK_RESIZE_SW">
+      <source-position filename="libview/ev-stock-icons.h" line="46"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_ROTATE_LEFT"
+              value="object-rotate-left"
+              c:type="EV_STOCK_ROTATE_LEFT">
+      <source-position filename="libview/ev-stock-icons.h" line="41"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_ROTATE_RIGHT"
+              value="object-rotate-right"
+              c:type="EV_STOCK_ROTATE_RIGHT">
+      <source-position filename="libview/ev-stock-icons.h" line="42"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_RUN_PRESENTATION"
+              value="x-office-presentation"
+              c:type="EV_STOCK_RUN_PRESENTATION">
+      <source-position filename="libview/ev-stock-icons.h" line="43"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_VIEW_CONTINUOUS"
+              value="view-page-continuous"
+              c:type="EV_STOCK_VIEW_CONTINUOUS">
+      <source-position filename="libview/ev-stock-icons.h" line="40"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_VIEW_DUAL"
+              value="view-page-facing"
+              c:type="EV_STOCK_VIEW_DUAL">
+      <source-position filename="libview/ev-stock-icons.h" line="39"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_VISIBLE" value="eye" c:type="EV_STOCK_VISIBLE">
+      <source-position filename="libview/ev-stock-icons.h" line="44"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_ZOOM" value="zoom" c:type="EV_STOCK_ZOOM">
+      <source-position filename="libview/ev-stock-icons.h" line="36"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_ZOOM_PAGE"
+              value="zoom-fit-height"
+              c:type="EV_STOCK_ZOOM_PAGE">
+      <source-position filename="libview/ev-stock-icons.h" line="37"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="STOCK_ZOOM_WIDTH"
+              value="zoom-fit-width"
+              c:type="EV_STOCK_ZOOM_WIDTH">
+      <source-position filename="libview/ev-stock-icons.h" line="38"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <enumeration name="SizingMode"
+                 glib:type-name="EvSizingMode"
+                 glib:get-type="ev_sizing_mode_get_type"
+                 c:type="EvSizingMode">
+      <member name="best_fit"
+              value="0"
+              c:identifier="EV_SIZING_BEST_FIT"
+              glib:nick="best-fit"
+              glib:name="EV_SIZING_BEST_FIT">
+      </member>
+      <member name="fit_width"
+              value="1"
+              c:identifier="EV_SIZING_FIT_WIDTH"
+              glib:nick="fit-width"
+              glib:name="EV_SIZING_FIT_WIDTH">
+      </member>
+      <member name="free"
+              value="2"
+              c:identifier="EV_SIZING_FREE"
+              glib:nick="free"
+              glib:name="EV_SIZING_FREE">
+      </member>
+    </enumeration>
+    <function-macro name="VIEW" c:identifier="EV_VIEW" introspectable="0">
+      <source-position filename="libview/ev-view.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VIEW_PRESENTATION"
+                    c:identifier="EV_VIEW_PRESENTATION"
+                    introspectable="0">
+      <source-position filename="libview/ev-view-presentation.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="View"
+           c:symbol-prefix="view"
+           c:type="EvView"
+           parent="Gtk.Container"
+           glib:type-name="EvView"
+           glib:get-type="ev_view_get_type"
+           glib:type-struct="ViewClass">
+      <source-position filename="libview/ev-view.h" line="41"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="ev_view_new">
+        <source-position filename="libview/ev-view.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="autoscroll_start" c:identifier="ev_view_autoscroll_start">
+        <source-position filename="libview/ev-view.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="autoscroll_stop" c:identifier="ev_view_autoscroll_stop">
+        <source-position filename="libview/ev-view.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="begin_add_annotation"
+              c:identifier="ev_view_begin_add_annotation">
+        <source-position filename="libview/ev-view.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="annot_type" transfer-ownership="none">
+            <type name="XreaderDocument.AnnotationType"
+                  c:type="EvAnnotationType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_zoom_in" c:identifier="ev_view_can_zoom_in">
+        <source-position filename="libview/ev-view.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="can_zoom_out" c:identifier="ev_view_can_zoom_out">
+        <source-position filename="libview/ev-view.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="cancel_add_annotation"
+              c:identifier="ev_view_cancel_add_annotation">
+        <source-position filename="libview/ev-view.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="ev_view_copy">
+        <source-position filename="libview/ev-view.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="copy_link_address"
+              c:identifier="ev_view_copy_link_address">
+        <source-position filename="libview/ev-view.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="action" transfer-ownership="none">
+            <type name="XreaderDocument.LinkAction" c:type="EvLinkAction*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="disconnect_handlers"
+              c:identifier="ev_view_disconnect_handlers">
+        <doc xml:space="preserve"
+             filename="libview/ev-view.c"
+             line="7424">Disconnect all signal handlers from the model, to ensure error free operation of the webview,
+we have an equivalent function for the webview.</doc>
+        <source-position filename="libview/ev-view.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libview/ev-view.c"
+                 line="7426">#EvView instance</doc>
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_cancel" c:identifier="ev_view_find_cancel">
+        <source-position filename="libview/ev-view.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_changed"
+              c:identifier="ev_view_find_changed"
+              introspectable="0">
+        <source-position filename="libview/ev-view.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="results" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList**">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_next" c:identifier="ev_view_find_next">
+        <source-position filename="libview/ev-view.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_previous" c:identifier="ev_view_find_previous">
+        <source-position filename="libview/ev-view.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_search_changed"
+              c:identifier="ev_view_find_search_changed">
+        <source-position filename="libview/ev-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_set_highlight_search"
+              c:identifier="ev_view_find_set_highlight_search">
+        <source-position filename="libview/ev-view.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="focus_annotation" c:identifier="ev_view_focus_annotation">
+        <source-position filename="libview/ev-view.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="annot_mapping" transfer-ownership="none">
+            <type name="XreaderDocument.Mapping" c:type="EvMapping*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_has_selection"
+              c:identifier="ev_view_get_has_selection">
+        <source-position filename="libview/ev-view.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page_extents" c:identifier="ev_view_get_page_extents">
+        <source-position filename="libview/ev-view.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="page_area" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+          <parameter name="border" transfer-ownership="none">
+            <type name="Gtk.Border" c:type="GtkBorder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="handle_link" c:identifier="ev_view_handle_link">
+        <source-position filename="libview/ev-view.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="link" transfer-ownership="none">
+            <type name="XreaderDocument.Link" c:type="EvLink*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="hide_cursor" c:identifier="ev_view_hide_cursor">
+        <source-position filename="libview/ev-view.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="highlight_forward_search"
+              c:identifier="ev_view_highlight_forward_search">
+        <source-position filename="libview/ev-view.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="link" transfer-ownership="none">
+            <type name="XreaderDocument.SourceLink" c:type="EvSourceLink*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="next_page" c:identifier="ev_view_next_page">
+        <source-position filename="libview/ev-view.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous_page" c:identifier="ev_view_previous_page">
+        <source-position filename="libview/ev-view.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reload" c:identifier="ev_view_reload">
+        <source-position filename="libview/ev-view.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_annotation"
+              c:identifier="ev_view_remove_annotation">
+        <source-position filename="libview/ev-view.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="annot" transfer-ownership="none">
+            <type name="XreaderDocument.Annotation" c:type="EvAnnotation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scroll" c:identifier="ev_view_scroll">
+        <source-position filename="libview/ev-view.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="scroll" transfer-ownership="none">
+            <type name="Gtk.ScrollType" c:type="GtkScrollType"/>
+          </parameter>
+          <parameter name="horizontal" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="select_all" c:identifier="ev_view_select_all">
+        <source-position filename="libview/ev-view.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_loading" c:identifier="ev_view_set_loading">
+        <source-position filename="libview/ev-view.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="loading" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_model" c:identifier="ev_view_set_model">
+        <source-position filename="libview/ev-view.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page_cache_size"
+              c:identifier="ev_view_set_page_cache_size">
+        <doc xml:space="preserve"
+             filename="libview/ev-view.c"
+             line="6032">Sets the maximum size in bytes that will be used to cache
+rendered pages. Use 0 to disable caching rendered pages.
+
+Note that this limit doesn't affect the current visible page range,
+which will always be rendered. In order to limit the total memory used
+you have to use ev_document_model_set_max_scale() too.</doc>
+        <source-position filename="libview/ev-view.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="cache_size" transfer-ownership="none">
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_cursor" c:identifier="ev_view_show_cursor">
+        <source-position filename="libview/ev-view.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="zoom_in" c:identifier="ev_view_zoom_in">
+        <source-position filename="libview/ev-view.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="zoom_out" c:identifier="ev_view_zoom_out">
+        <source-position filename="libview/ev-view.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="activate" when="first" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="annot-added" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="XreaderDocument.Annotation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="annot-removed" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="XreaderDocument.Annotation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="binding-activated" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.ScrollType"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="external-link" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GObject.Object"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-link" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GObject.Object"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="layers-changed" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="popup" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="selection-changed" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="sync-source" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ViewClass"
+            c:type="EvViewClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="View">
+      <source-position filename="libview/ev-view.h" line="41"/>
+    </record>
+    <class name="ViewPresentation"
+           c:symbol-prefix="view_presentation"
+           c:type="EvViewPresentation"
+           parent="Gtk.Widget"
+           glib:type-name="EvViewPresentation"
+           glib:get-type="ev_view_presentation_get_type"
+           glib:type-struct="ViewPresentationClass">
+      <source-position filename="libview/ev-view-presentation.h" line="39"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="ev_view_presentation_new">
+        <source-position filename="libview/ev-view-presentation.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="document" transfer-ownership="none">
+            <type name="XreaderDocument.Document" c:type="EvDocument*"/>
+          </parameter>
+          <parameter name="current_page" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="inverted_colors" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_current_page"
+              c:identifier="ev_view_presentation_get_current_page">
+        <source-position filename="libview/ev-view-presentation.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rotation"
+              c:identifier="ev_view_presentation_get_rotation"
+              glib:get-property="rotation">
+        <source-position filename="libview/ev-view-presentation.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_page" c:identifier="ev_view_presentation_next_page">
+        <source-position filename="libview/ev-view-presentation.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous_page"
+              c:identifier="ev_view_presentation_previous_page">
+        <source-position filename="libview/ev-view-presentation.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_rotation"
+              c:identifier="ev_view_presentation_set_rotation"
+              glib:set-property="rotation">
+        <source-position filename="libview/ev-view-presentation.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+          <parameter name="rotation" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rtl" c:identifier="ev_view_presentation_set_rtl">
+        <source-position filename="libview/ev-view-presentation.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pview" transfer-ownership="none">
+            <type name="ViewPresentation" c:type="EvViewPresentation*"/>
+          </instance-parameter>
+          <parameter name="rtl" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="current-page"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="document"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="XreaderDocument.Document"/>
+      </property>
+      <property name="inverted-colors"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="rotation"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_rotation"
+                getter="get_rotation"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <glib:signal name="change-page" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.ScrollType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="external-link" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GObject.Object"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="finished" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ViewPresentationClass"
+            c:type="EvViewPresentationClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ViewPresentation">
+      <source-position filename="libview/ev-view-presentation.h" line="39"/>
+    </record>
+    <enumeration name="ViewSelectionMode"
+                 glib:type-name="EvViewSelectionMode"
+                 glib:get-type="ev_view_selection_mode_get_type"
+                 c:type="EvViewSelectionMode">
+      <member name="text"
+              value="0"
+              c:identifier="EV_VIEW_SELECTION_TEXT"
+              glib:nick="text"
+              glib:name="EV_VIEW_SELECTION_TEXT">
+      </member>
+      <member name="rectangle"
+              value="1"
+              c:identifier="EV_VIEW_SELECTION_RECTANGLE"
+              glib:nick="rectangle"
+              glib:name="EV_VIEW_SELECTION_RECTANGLE">
+      </member>
+    </enumeration>
+    <function-macro name="WEB_VIEW"
+                    c:identifier="EV_WEB_VIEW"
+                    introspectable="0">
+      <source-position filename="libview/ev-web-view.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="WebView"
+           c:symbol-prefix="web_view"
+           c:type="EvWebView"
+           parent="Gtk.Container"
+           glib:type-name="EvWebView"
+           glib:get-type="ev_web_view_get_type"
+           glib:type-struct="WebViewClass">
+      <source-position filename="libview/ev-web-view.h" line="40"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="ev_web_view_new">
+        <source-position filename="libview/ev-web-view.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="copy" c:identifier="ev_web_view_copy">
+        <source-position filename="libview/ev-web-view.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="disconnect_handlers"
+              c:identifier="ev_web_view_disconnect_handlers">
+        <doc xml:space="preserve"
+             filename="libview/ev-web-view.c"
+             line="706">This function call will disconnect all model signal handlers from the webview, to ensure smooth operation of the Xreader-view.
+Equivalent to function  ev_view_disconnect_handlers in ev-view.c</doc>
+        <source-position filename="libview/ev-web-view.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libview/ev-web-view.c"
+                 line="708">#EvWebView instance</doc>
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_cancel" c:identifier="ev_web_view_find_cancel">
+        <source-position filename="libview/ev-web-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_changed" c:identifier="ev_web_view_find_changed">
+        <source-position filename="libview/ev-web-view.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="results" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="case_sensitive" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_next" c:identifier="ev_web_view_find_next">
+        <source-position filename="libview/ev-web-view.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_previous" c:identifier="ev_web_view_find_previous">
+        <source-position filename="libview/ev-web-view.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_search_changed"
+              c:identifier="ev_web_view_find_search_changed">
+        <source-position filename="libview/ev-web-view.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="find_set_highlight_search"
+              c:identifier="ev_web_view_find_set_highlight_search">
+        <source-position filename="libview/ev-web-view.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_has_selection"
+              c:identifier="ev_web_view_get_has_selection">
+        <source-position filename="libview/ev-web-view.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="handle_link" c:identifier="ev_web_view_handle_link">
+        <source-position filename="libview/ev-web-view.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="link" transfer-ownership="none">
+            <type name="XreaderDocument.Link" c:type="EvLink*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="next_page" c:identifier="ev_web_view_next_page">
+        <source-position filename="libview/ev-web-view.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous_page" c:identifier="ev_web_view_previous_page">
+        <source-position filename="libview/ev-web-view.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reload" c:identifier="ev_web_view_reload">
+        <source-position filename="libview/ev-web-view.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reload_page" c:identifier="ev_web_view_reload_page">
+        <source-position filename="libview/ev-web-view.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="select_all" c:identifier="ev_web_view_select_all">
+        <source-position filename="libview/ev-web-view.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_handler" c:identifier="ev_web_view_set_handler">
+        <source-position filename="libview/ev-web-view.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_model" c:identifier="ev_web_view_set_model">
+        <source-position filename="libview/ev-web-view.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+          <parameter name="model" transfer-ownership="none">
+            <type name="DocumentModel" c:type="EvDocumentModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="zoom_in" c:identifier="ev_web_view_zoom_in">
+        <source-position filename="libview/ev-web-view.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="zoom_out" c:identifier="ev_web_view_zoom_out">
+        <source-position filename="libview/ev-web-view.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="zoom_reset" c:identifier="ev_web_view_zoom_reset">
+        <source-position filename="libview/ev-web-view.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="webview" transfer-ownership="none">
+            <type name="WebView" c:type="EvWebView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="WebViewClass"
+            c:type="EvWebViewClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="WebView">
+      <source-position filename="libview/ev-web-view.h" line="40"/>
+    </record>
+    <function name="stock_icons_init" c:identifier="ev_stock_icons_init">
+      <doc xml:space="preserve"
+           filename="libview/ev-stock-icons.c"
+           line="85">Creates a new icon factory, adding the base stock icons to it.</doc>
+      <source-position filename="libview/ev-stock-icons.h" line="51"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="stock_icons_set_screen"
+              c:identifier="ev_stock_icons_set_screen">
+      <source-position filename="libview/ev-stock-icons.h" line="53"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen" transfer-ownership="none">
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="stock_icons_shutdown"
+              c:identifier="ev_stock_icons_shutdown">
+      <source-position filename="libview/ev-stock-icons.h" line="52"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

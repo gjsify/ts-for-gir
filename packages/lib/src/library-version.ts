@@ -33,4 +33,18 @@ export class LibraryVersion {
     toString() {
         return `${this.major || '0'}.${this.minor || '0'}.${this.patch || '0'}`
     }
+
+    /** Compare two library versions and return -1 if this version is greater than the other, 1 if this version is less than the other, and 0 if they are equal. */
+    compare(other: LibraryVersion) {
+        if (this.major !== other.major) {
+            return this.major! > other.major! ? -1 : 1
+        }
+        if (this.minor !== other.minor) {
+            return this.minor! > other.minor! ? -1 : 1
+        }
+        if (this.patch !== other.patch) {
+            return this.patch! > other.patch! ? -1 : 1
+        }
+        return 0
+    }
 }

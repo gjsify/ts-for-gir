@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <namespace name="Gamerzilla"
+             version="0.1"
+             shared-library="libgamerzillagobj.so.0"
+             c:identifier-prefixes="Gamerzilla"
+             c:symbol-prefixes="gamerzilla">
+    <function-macro name="GAMERZILLAGOBJ"
+                    c:identifier="GAMERZILLA_GAMERZILLAGOBJ"
+                    introspectable="0">
+      <source-position filename="gamerzillagobj.h" line="14"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GAMERZILLAGOBJ_CLASS"
+                    c:identifier="GAMERZILLA_GAMERZILLAGOBJ_CLASS"
+                    introspectable="0">
+      <source-position filename="gamerzillagobj.h" line="16"/>
+      <parameters>
+        <parameter name="c">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GAMERZILLAGOBJ_GET_CLASS"
+                    c:identifier="GAMERZILLA_GAMERZILLAGOBJ_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gamerzillagobj.h" line="22"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="GamerzillaGobj"
+           c:symbol-prefix="gamerzillagobj"
+           c:type="GamerzillaGamerzillaGobj"
+           parent="GObject.Object"
+           glib:type-name="GamerzillaGamerzillaGobj"
+           glib:get-type="gamerzilla_gamerzillagobj_get_type"
+           glib:type-struct="GamerzillaGobjClass">
+      <source-position filename="gamerzillagobj.h" line="36"/>
+      <constructor name="new" c:identifier="gamerzilla_gamerzillagobj_new">
+        <doc xml:space="preserve"
+             filename="gamerzillagobj.c"
+             line="171">Allocates a new #GamerzillaGamerzillaGobj.</doc>
+        <source-position filename="gamerzillagobj.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gamerzillagobj.c"
+               line="176">a new #GamerzillaGamerzillaGobj.</doc>
+          <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
+        </return-value>
+      </constructor>
+      <method name="connect" c:identifier="gamerzilla_gamerzillagobj_connect">
+        <source-position filename="gamerzillagobj.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gamerzillagobj" transfer-ownership="none">
+            <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serverstart"
+              c:identifier="gamerzilla_gamerzillagobj_serverstart">
+        <doc xml:space="preserve"
+             filename="gamerzillagobj.c"
+             line="187">Runs the server.</doc>
+        <source-position filename="gamerzillagobj.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gamerzillagobj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gamerzillagobj.c"
+                 line="189">a #GamerzillaGamerzillaGobj</doc>
+            <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serverstop"
+              c:identifier="gamerzilla_gamerzillagobj_serverstop">
+        <doc xml:space="preserve"
+             filename="gamerzillagobj.c"
+             line="212">Stops the server.</doc>
+        <source-position filename="gamerzillagobj.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gamerzillagobj" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gamerzillagobj.c"
+                 line="214">a #GamerzillaGamerzillaGobj</doc>
+            <type name="GamerzillaGobj" c:type="GamerzillaGamerzillaGobj*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="password"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="url"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="username"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="GamerzillaGobjClass"
+            c:type="GamerzillaGamerzillaGobjClass"
+            glib:is-gtype-struct-for="GamerzillaGobj">
+      <source-position filename="gamerzillagobj.h" line="36"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="GamerzillaGobjPrivate"
+            c:type="GamerzillaGamerzillaGobjPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gamerzillagobj.h" line="27"/>
+    </record>
+    <function-macro name="IS_GAMERZILLAGOBJ"
+                    c:identifier="GAMERZILLA_IS_GAMERZILLAGOBJ"
+                    introspectable="0">
+      <source-position filename="gamerzillagobj.h" line="18"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GAMERZILLAGOBJ_CLASS"
+                    c:identifier="GAMERZILLA_IS_GAMERZILLAGOBJ_CLASS"
+                    introspectable="0">
+      <source-position filename="gamerzillagobj.h" line="20"/>
+      <parameters>
+        <parameter name="c">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <docsection name="gamerzilla-gamerzillagobj">
+      <doc xml:space="preserve"
+           filename="gamerzillagobj.c"
+           line="18">The #GamerzillaGamerzillaGobj is a class to display friendly greetings.</doc>
+    </docsection>
+  </namespace>
+</repository>

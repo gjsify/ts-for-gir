@@ -1,0 +1,1356 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="Clutter" version="1.0"/>
+  <include name="Cogl" version="1.0"/>
+  <include name="CoglPango" version="1.0"/>
+  <include name="GL" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="PangoCairo" version="1.0"/>
+  <include name="PangoFT2" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="fontconfig" version="2.0"/>
+  <include name="freetype2" version="2.0"/>
+  <c:include name="mash/mash.h"/>
+  <namespace name="Mash"
+             version="0.2"
+             shared-library="libmash-0.2.so.0"
+             c:identifier-prefixes="Mash"
+             c:symbol-prefixes="mash">
+    <class name="Data"
+           c:symbol-prefix="data"
+           c:type="MashData"
+           parent="GObject.Object"
+           glib:type-name="MashData"
+           glib:get-type="mash_data_get_type"
+           glib:type-struct="DataClass">
+      <doc xml:whitespace="preserve">The #MashData structure contains only private data.</doc>
+      <constructor name="new" c:identifier="mash_data_new">
+        <doc xml:whitespace="preserve">Constructs a new #MashData instance. The object initially has
+no data so nothing will be drawn when mash_data_render() is
+called. To load data into the object, call mash_data_load().</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #MashData.</doc>
+          <type name="Data" c:type="MashData*"/>
+        </return-value>
+      </constructor>
+      <function name="error_quark" c:identifier="mash_data_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="get_extents" c:identifier="mash_data_get_extents">
+        <doc xml:whitespace="preserve">Gets the bounding cuboid of the vertices in @self. The cuboid is
+represented by two vertices representing the minimum and maximum
+extents. The x, y and z components of @min_vertex will contain the
+minimum x, y and z values of all the vertices and @max_vertex will
+contain the maximum. The extents of the model are cached so it is
+cheap to call this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="min_vertex" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to return the minimum vertex</doc>
+            <type name="Clutter.Vertex" c:type="ClutterVertex*"/>
+          </parameter>
+          <parameter name="max_vertex" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to return the maximum vertex</doc>
+            <type name="Clutter.Vertex" c:type="ClutterVertex*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="mash_data_load" throws="1">
+        <doc xml:whitespace="preserve">Loads the data from the file called @filename into @self. The
+model can then be rendered using mash_data_render(). If
+there is an error loading the file it will return %FALSE and @error
+will be set to a GError instance.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the load succeeded or %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Flags used to specify load-time modifications to the data</doc>
+            <type name="DataFlags" c:type="MashDataFlags"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of a file to load</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="render" c:identifier="mash_data_render">
+        <doc xml:whitespace="preserve">Renders the data contained in the model to the Clutter
+scene. The current Cogl source material will be used to affect the
+appearance of the model. This function is not usually called
+directly but instead the #MashData instance is added to a
+#MashModel and this function will be automatically called by
+the paint method of the model.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DataPrivate" c:type="MashDataPrivate*"/>
+      </field>
+    </class>
+    <record name="DataClass"
+            c:type="MashDataClass"
+            glib:is-gtype-struct-for="Data">
+      <doc xml:whitespace="preserve">The #MashDataClass structure contains only private data.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="DataError" c:type="MashDataError">
+      <doc xml:whitespace="preserve">Error enumeration for #MashData</doc>
+      <member name="unknown_format"
+              value="0"
+              c:identifier="MASH_DATA_ERROR_UNKNOWN_FORMAT"/>
+      <member name="unknown" value="1" c:identifier="MASH_DATA_ERROR_UNKNOWN"/>
+      <member name="missing_property"
+              value="2"
+              c:identifier="MASH_DATA_ERROR_MISSING_PROPERTY"/>
+      <member name="invalid" value="3" c:identifier="MASH_DATA_ERROR_INVALID"/>
+      <member name="unsupported"
+              value="4"
+              c:identifier="MASH_DATA_ERROR_UNSUPPORTED"/>
+    </enumeration>
+    <enumeration name="DataFlags" c:type="MashDataFlags">
+      <doc xml:whitespace="preserve">Flags used for modifying the data as it is loaded. These can be
+passed to mash_data_load().
+
+If any of the negate flags are set then they cause the vertex and
+normal coordinates for the specified axis to be negated. This could
+be useful when loading a model from a tool which uses a different
+coordinate system than the one used in your application. For
+example, in Blender if the view is rotated such that the x-axis is
+pointing to the right, and the z-axis is pointing out of the screen
+then y-axis would be pointing directly up. However in Clutter the
+default transformation is set up such that the y-axis would be
+pointing down. Therefore if a model is loaded from Blender it would
+appear upside-down. Also all of the front faces would be in
+clockwise order. If backface culling is then enabled then the wrong
+faces would be culled with the default Cogl settings.
+
+To avoid these issues when exporting from Blender it is common to
+pass the %MASH_DATA_NEGATE_Y flag.</doc>
+      <member name="none" value="0" c:identifier="MASH_DATA_NONE"/>
+      <member name="negate_x" value="1" c:identifier="MASH_DATA_NEGATE_X"/>
+      <member name="negate_y" value="2" c:identifier="MASH_DATA_NEGATE_Y"/>
+      <member name="negate_z" value="4" c:identifier="MASH_DATA_NEGATE_Z"/>
+    </enumeration>
+    <class name="DataLoader"
+           c:symbol-prefix="data_loader"
+           c:type="MashDataLoader"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="MashDataLoader"
+           glib:get-type="mash_data_loader_get_type"
+           glib:type-struct="DataLoaderClass">
+      <doc xml:whitespace="preserve">The #MashDataLoader structure contains only private data.</doc>
+      <virtual-method name="get_data" invoker="get_data">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="loader_data" transfer-ownership="none">
+            <type name="DataLoaderData" c:type="MashDataLoaderData*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="load" invoker="load" throws="1">
+        <doc xml:whitespace="preserve">Obtains the loaded data after calling mash_data_loader_load().
+This function is not usually called by applications.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="DataFlags" c:type="MashDataFlags"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_data" c:identifier="mash_data_loader_get_data">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="loader_data" transfer-ownership="none">
+            <type name="DataLoaderData" c:type="MashDataLoaderData*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="mash_data_loader_load" throws="1">
+        <doc xml:whitespace="preserve">Obtains the loaded data after calling mash_data_loader_load().
+This function is not usually called by applications.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="DataFlags" c:type="MashDataFlags"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DataLoaderPrivate" c:type="MashDataLoaderPrivate*"/>
+      </field>
+    </class>
+    <record name="DataLoaderClass"
+            c:type="MashDataLoaderClass"
+            glib:is-gtype-struct-for="DataLoader">
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="load">
+        <callback name="load" throws="1">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="data_loader" transfer-ownership="none">
+              <type name="DataLoader" c:type="MashDataLoader*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <type name="DataFlags" c:type="MashDataFlags"/>
+            </parameter>
+            <parameter name="filename" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_data">
+        <callback name="get_data">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="data_loader" transfer-ownership="none">
+              <type name="DataLoader" c:type="MashDataLoader*"/>
+            </parameter>
+            <parameter name="loader_data" transfer-ownership="none">
+              <type name="DataLoaderData" c:type="MashDataLoaderData*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="DataLoaderData" c:type="MashDataLoaderData">
+      <doc xml:whitespace="preserve">The #MashDataLoaderData structure contains the loaded data.</doc>
+      <field name="vertices_vbo" writable="1">
+        <type name="Cogl.Handle" c:type="CoglHandle"/>
+      </field>
+      <field name="indices" writable="1">
+        <type name="Cogl.Handle" c:type="CoglHandle"/>
+      </field>
+      <field name="min_index" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="max_index" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="n_triangles" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="min_vertex" writable="1">
+        <type name="Clutter.Vertex" c:type="ClutterVertex"/>
+      </field>
+      <field name="max_vertex" writable="1">
+        <type name="Clutter.Vertex" c:type="ClutterVertex"/>
+      </field>
+    </record>
+    <record name="DataLoaderPrivate"
+            c:type="MashDataLoaderPrivate"
+            disguised="1">
+    </record>
+    <record name="DataPrivate" c:type="MashDataPrivate" disguised="1">
+    </record>
+    <class name="DirectionalLight"
+           c:symbol-prefix="directional_light"
+           c:type="MashDirectionalLight"
+           parent="Light"
+           glib:type-name="MashDirectionalLight"
+           glib:get-type="mash_directional_light_get_type"
+           glib:type-struct="DirectionalLightClass">
+      <doc xml:whitespace="preserve">The #MashDirectionalLight structure contains only private data.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new" c:identifier="mash_directional_light_new">
+        <doc xml:whitespace="preserve">Constructs a new directional light actor.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the new light.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Light" c:type="MashLight"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DirectionalLightPrivate"
+              c:type="MashDirectionalLightPrivate*"/>
+      </field>
+    </class>
+    <record name="DirectionalLightClass"
+            c:type="MashDirectionalLightClass"
+            glib:is-gtype-struct-for="DirectionalLight">
+      <field name="parent_class" readable="0" private="1">
+        <type name="LightClass" c:type="MashLightClass"/>
+      </field>
+    </record>
+    <record name="DirectionalLightPrivate"
+            c:type="MashDirectionalLightPrivate"
+            disguised="1">
+    </record>
+    <class name="Light"
+           c:symbol-prefix="light"
+           c:type="MashLight"
+           parent="Clutter.Actor"
+           abstract="1"
+           glib:type-name="MashLight"
+           glib:get-type="mash_light_get_type"
+           glib:type-struct="LightClass">
+      <doc xml:whitespace="preserve">The #MashLight structure contains only private data.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <virtual-method name="generate_shader" invoker="generate_shader">
+        <doc xml:whitespace="preserve">This function is used to generate the shader code required to
+implement a paraticular. It would not usually need to be called
+from an application. Instead it is called automatically by
+#MashLightSet.
+
+This function can be overriden in subclasses of #MashLight to
+implement custom lighting algorithms. The function will be called
+before the first actor that is using the light set is painted
+whenever it deems that the shader needs to be regenerated. It
+currently will do this whenever a light is added or removed from
+the box. The implementation should append any GLSL code to
+@uniform_source and @main_source needed to implement the algorithm.
+
+The implementation should use mash_light_append_shader() to append
+code to either of the shader strings so that it can declare
+variables that are unique to the individual actor.
+
+The code in @uniform_source is inserted at the global level of a
+vertex shader. It is expected that the light will add uniform
+declarations here. For example, if the light depends on the light's
+position it could define a uniform for the position like so:
+
+|[
+  mash_light_append_shader (light, uniform_source,
+                            "uniform vec3 position$;\n");
+]|
+
+The code in @main_source is inserted with the main function of a
+vertex shader. The snippet added by a light is expected to modify
+the cogl_color_out attribute according to its algorithm. The snippet
+can also use the following variables which will be initialized
+before the snippet is run:
+
+normal: This will be a vec3 which is initialized to the transformed
+and normalized vertex normal.
+
+eye_coord: This will be a vec3 containing the vertex coordinates in
+eye-space.
+
+ambient_light: A vec3 uniform containing the ambient light color.
+
+diffuse_light: A vec3 uniform containing the diffuse light color.
+
+specular_light: A vec3 uniform containing the specular light color.
+
+mash_material.ambient: A vec4 containing the current material's
+  ambient color.
+
+mash_material.diffuse: A vec4 containing the current material's
+  diffuse color.
+
+mash_material.specular: A vec4 containing the current material's
+  specular color.
+
+mash_material.emission: A vec4 containing the current material's
+  emission color.
+
+mash_material.shininess: A float containing the current material's
+  shininess value.
+
+mash_normal_matrix: A version of the modelview matrix used to
+transform normals.
+
+In addition to these variables the shader can use all of the
+built-in Cogl uniforms. Please see a future version of the Cogl
+documentation for a description of these.
+
+The implementation should always chain up to the #MashLight
+implementation so that it can declare the built-in uniforms.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="uniform_source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
+            <type name="GLib.String" c:type="GString*"/>
+          </parameter>
+          <parameter name="main_source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
+            <type name="GLib.String" c:type="GString*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_uniforms" invoker="update_uniforms">
+        <doc xml:whitespace="preserve">This function is used by #MashLightSet to implement the lights. It
+should not need to be called by an application directly.
+
+This function is virtual and can be overriden by subclasses to
+implement custom lighting algorithms. The function is called during
+the paint sequence of #MashLightSet on every light before any other
+actors are painted. This gives the light implementation a chance to
+update any uniforms it may have declared in the override of
+mash_light_generate_shader().
+
+The program is always made current with cogl_program_use() before
+this method is called so it is safe to directly call
+cogl_program_uniform_1f() and friends to update the uniforms. The
+@program handle is passed in so that the program can also be
+queried to the locations of named
+uniforms. mash_light_get_uniform_location() can be used to make
+this easier when a uniform is named uniquely using the ‘$’ symbol
+in mash_light_append_shader().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="program" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="append_shader" c:identifier="mash_light_append_shader">
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
+mash_light_generate_shader() to generate shader snippets with
+actor-specific variable names. It should not generally need to be
+called by an application unless it is implementing its own lighting
+algorithms.
+
+The code in @snippet is appended to @shader_source but all
+occurences of the ‘$’ symbol are replaced with a string that is
+unique to @light object. This is useful when multiple lights of the
+same type are added to a single light box. For example, if a light
+needs to have a position uniform it could make a call like the
+following:
+
+|[
+  mash_light_append_shader (light, uniform_source,
+                            "uniform vec3 position$;\n");
+]|
+
+The ‘position’ will get translated to something like
+‘positiong00000002’.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="shader_source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The string to append to</doc>
+            <type name="GLib.String" c:type="GString*"/>
+          </parameter>
+          <parameter name="snippet" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A snippet of GLSL</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="generate_shader" c:identifier="mash_light_generate_shader">
+        <doc xml:whitespace="preserve">This function is used to generate the shader code required to
+implement a paraticular. It would not usually need to be called
+from an application. Instead it is called automatically by
+#MashLightSet.
+
+This function can be overriden in subclasses of #MashLight to
+implement custom lighting algorithms. The function will be called
+before the first actor that is using the light set is painted
+whenever it deems that the shader needs to be regenerated. It
+currently will do this whenever a light is added or removed from
+the box. The implementation should append any GLSL code to
+@uniform_source and @main_source needed to implement the algorithm.
+
+The implementation should use mash_light_append_shader() to append
+code to either of the shader strings so that it can declare
+variables that are unique to the individual actor.
+
+The code in @uniform_source is inserted at the global level of a
+vertex shader. It is expected that the light will add uniform
+declarations here. For example, if the light depends on the light's
+position it could define a uniform for the position like so:
+
+|[
+  mash_light_append_shader (light, uniform_source,
+                            "uniform vec3 position$;\n");
+]|
+
+The code in @main_source is inserted with the main function of a
+vertex shader. The snippet added by a light is expected to modify
+the cogl_color_out attribute according to its algorithm. The snippet
+can also use the following variables which will be initialized
+before the snippet is run:
+
+normal: This will be a vec3 which is initialized to the transformed
+and normalized vertex normal.
+
+eye_coord: This will be a vec3 containing the vertex coordinates in
+eye-space.
+
+ambient_light: A vec3 uniform containing the ambient light color.
+
+diffuse_light: A vec3 uniform containing the diffuse light color.
+
+specular_light: A vec3 uniform containing the specular light color.
+
+mash_material.ambient: A vec4 containing the current material's
+  ambient color.
+
+mash_material.diffuse: A vec4 containing the current material's
+  diffuse color.
+
+mash_material.specular: A vec4 containing the current material's
+  specular color.
+
+mash_material.emission: A vec4 containing the current material's
+  emission color.
+
+mash_material.shininess: A float containing the current material's
+  shininess value.
+
+mash_normal_matrix: A version of the modelview matrix used to
+transform normals.
+
+In addition to these variables the shader can use all of the
+built-in Cogl uniforms. Please see a future version of the Cogl
+documentation for a description of these.
+
+The implementation should always chain up to the #MashLight
+implementation so that it can declare the built-in uniforms.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="uniform_source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
+            <type name="GLib.String" c:type="GString*"/>
+          </parameter>
+          <parameter name="main_source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
+            <type name="GLib.String" c:type="GString*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_ambient" c:identifier="mash_light_get_ambient">
+        <doc xml:whitespace="preserve">Retrieves the ‘ambient’ color emitted by the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="ambient" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A return location for the color</doc>
+            <type name="Clutter.Color" c:type="ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_diffuse" c:identifier="mash_light_get_diffuse">
+        <doc xml:whitespace="preserve">Retrieves the ‘diffuse’ color emitted by the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="diffuse" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A return location for the color</doc>
+            <type name="Clutter.Color" c:type="ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_modelview_matrix"
+              c:identifier="mash_light_get_modelview_matrix">
+        <doc xml:whitespace="preserve">Gets the modelview matrix for the light including all of the
+transformations for its parent actors. This should be used for
+updating uniforms that depend on the actor's transformation or
+position.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="matrix" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The return location for the matrix</doc>
+            <type name="Cogl.Matrix" c:type="CoglMatrix*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_specular" c:identifier="mash_light_get_specular">
+        <doc xml:whitespace="preserve">Retrieves the ‘specular’ color emitted by the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="specular" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A return location for the color</doc>
+            <type name="Clutter.Color" c:type="ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uniform_location"
+              c:identifier="mash_light_get_uniform_location">
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
+mash_light_update_uniforms() to help query uniform locations. It
+should not generally need to be called by an application unless it
+is implementing its own lighting algorithms.
+
+This is a wrapper around cogl_program_get_uniform_location() which
+appends an actor specific string to the uniform name. This is
+useful when uniforms have been declared like ‘position$’ within
+mash_light_append_shader().</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="program" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The program passed in from mash_light_update_uniforms().</doc>
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+          <parameter name="uniform_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of a uniform</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ambient" c:identifier="mash_light_set_ambient">
+        <doc xml:whitespace="preserve">Sets the ‘ambient’ color emitted by the light. If the light reaches
+a vertex at all then the ambient color affects the vertex
+regardless of its orientation or distance from the light. In
+real-world lighting, even if an object isn't in a direct line of
+sight to a light it can still be partially lit due to the fact that
+light can bounce off other objects to reach it. The Mash lighting
+model doesn't simulate this bouncing so the ambient color is often
+used to give an approximation of the effect.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="ambient" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new color value</doc>
+            <type name="Clutter.Color" c:type="const ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_diffuse" c:identifier="mash_light_set_diffuse">
+        <doc xml:whitespace="preserve">Sets the ‘diffuse’ color emitted by the light. The diffuse color is
+only visible on an object if is facing the light. The orientation
+of the object is determined per-vertex using the vertex's
+normal. The diffuse color will be darkened depending on how
+directly the object faces the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="diffuse" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new color value</doc>
+            <type name="Clutter.Color" c:type="const ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_direction_uniform"
+              c:identifier="mash_light_set_direction_uniform">
+        <doc xml:whitespace="preserve">This is a convenience intended to be used within
+mash_light_update_uniforms() to help set uniforms. It
+should not generally need to be called by an application unless it
+is implementing its own lighting algorithms.
+
+This is intended to help when setting a direction
+uniform. @direction_in should be an untransformed array of 3 floats
+representing a vector. The vector will be transformed into eye
+space according to the inverse transposed matrix of @light so that
+it won't change direction for non-uniform scaling transformations.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="program" transfer-ownership="none">
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+          <parameter name="uniform_location" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The location of the uniform</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="direction_in" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The untransformed direction uniform</doc>
+            <type name="gfloat" c:type="const float*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_specular" c:identifier="mash_light_set_specular">
+        <doc xml:whitespace="preserve">Sets the ‘specular’ color emitted by the light. The specular color
+is used to add highlights to an object wherever the angle to the
+light is close to the angle that the object is being viewed
+from. For example, if you were modelling a snooker ball with a
+bright light above it, this property will allow you add a bright
+part where the light can directly reflect off the ball into the
+eye. It is common to set this to a bright white value.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="specular" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new color value</doc>
+            <type name="Clutter.Color" c:type="const ClutterColor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_uniforms" c:identifier="mash_light_update_uniforms">
+        <doc xml:whitespace="preserve">This function is used by #MashLightSet to implement the lights. It
+should not need to be called by an application directly.
+
+This function is virtual and can be overriden by subclasses to
+implement custom lighting algorithms. The function is called during
+the paint sequence of #MashLightSet on every light before any other
+actors are painted. This gives the light implementation a chance to
+update any uniforms it may have declared in the override of
+mash_light_generate_shader().
+
+The program is always made current with cogl_program_use() before
+this method is called so it is safe to directly call
+cogl_program_uniform_1f() and friends to update the uniforms. The
+@program handle is passed in so that the program can also be
+queried to the locations of named
+uniforms. mash_light_get_uniform_location() can be used to make
+this easier when a uniform is named uniquely using the ‘$’ symbol
+in mash_light_append_shader().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="program" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="ambient" writable="1" transfer-ownership="none">
+        <type name="Clutter.Color"/>
+      </property>
+      <property name="diffuse" writable="1" transfer-ownership="none">
+        <type name="Clutter.Color"/>
+      </property>
+      <property name="specular" writable="1" transfer-ownership="none">
+        <type name="Clutter.Color"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Clutter.Actor" c:type="ClutterActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="LightPrivate" c:type="MashLightPrivate*"/>
+      </field>
+    </class>
+    <record name="LightClass"
+            c:type="MashLightClass"
+            glib:is-gtype-struct-for="Light">
+      <field name="parent_class" readable="0" private="1">
+        <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
+      </field>
+      <field name="generate_shader">
+        <callback name="generate_shader">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="light" transfer-ownership="none">
+              <type name="Light" c:type="MashLight*"/>
+            </parameter>
+            <parameter name="uniform_source" transfer-ownership="none">
+              <doc xml:whitespace="preserve">A location to append uniforms declarations to</doc>
+              <type name="GLib.String" c:type="GString*"/>
+            </parameter>
+            <parameter name="main_source" transfer-ownership="none">
+              <doc xml:whitespace="preserve">A location to append lighting algorithm snippets to</doc>
+              <type name="GLib.String" c:type="GString*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="update_uniforms">
+        <callback name="update_uniforms">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="light" transfer-ownership="none">
+              <type name="Light" c:type="MashLight*"/>
+            </parameter>
+            <parameter name="program" transfer-ownership="none">
+              <doc xml:whitespace="preserve">A #CoglProgram containing the uniforms</doc>
+              <type name="Cogl.Handle" c:type="CoglHandle"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="LightPrivate" c:type="MashLightPrivate" disguised="1">
+    </record>
+    <class name="LightSet"
+           c:symbol-prefix="light_set"
+           c:type="MashLightSet"
+           parent="GObject.Object"
+           glib:type-name="MashLightSet"
+           glib:get-type="mash_light_set_get_type"
+           glib:type-struct="LightSetClass">
+      <doc xml:whitespace="preserve">The #MashLightSet structure contains only private data.</doc>
+      <constructor name="new" c:identifier="mash_light_set_new">
+        <doc xml:whitespace="preserve">Constructs a new #MashLightSet.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #MashLightSet.</doc>
+          <type name="LightSet" c:type="MashLightSet*"/>
+        </return-value>
+      </constructor>
+      <method name="add_light" c:identifier="mash_light_set_add_light">
+        <doc xml:whitespace="preserve">This adds a light to the set. Lights need to be added to the light
+set as well as to a container somewhere in the Clutter actor
+hierarchy in order to be useful.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="light" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #MashLight</doc>
+            <type name="Light" c:type="MashLight*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="begin_paint"
+              c:identifier="mash_light_set_begin_paint"
+              version="0.2"
+              introspectable="0">
+        <doc xml:whitespace="preserve">This function should only be needed by custom actors that wish to
+use the lighting model of Mash. The function should be called every
+time the actor is painted. The @material parameter is used to
+specify the lighting material properties. The material is not
+otherwise read or modified. The material properties that are used
+are: the emission color, the ambient color, the diffuse color, the
+specular color and the shininess.
+
+The return value is a CoglProgram that should be used to paint the
+actor. The actor should attach this to its material using
+cogl_material_set_user_program().
+
+#MashModel&lt;!-- --&gt;s are already designed to use this function when
+a light set is passed to mash_model_set_light_set().</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">a CoglProgram to use for rendering.</doc>
+          <type name="Cogl.Handle" c:type="CoglHandle"/>
+        </return-value>
+        <parameters>
+          <parameter name="material" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The material that will be used to paint</doc>
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_light" c:identifier="mash_light_set_remove_light">
+        <doc xml:whitespace="preserve">Removes a light from the set.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="light" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #MashLight</doc>
+            <type name="Light" c:type="MashLight*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="LightSetPrivate" c:type="MashLightSetPrivate*"/>
+      </field>
+    </class>
+    <record name="LightSetClass"
+            c:type="MashLightSetClass"
+            glib:is-gtype-struct-for="LightSet">
+      <doc xml:whitespace="preserve">The #MashLightSetClass structure contains only private data.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="LightSetPrivate" c:type="MashLightSetPrivate" disguised="1">
+    </record>
+    <class name="Model"
+           c:symbol-prefix="model"
+           c:type="MashModel"
+           parent="Clutter.Actor"
+           glib:type-name="MashModel"
+           glib:get-type="mash_model_get_type"
+           glib:type-struct="ModelClass">
+      <doc xml:whitespace="preserve">The #MashModel structure contains only private data.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new" c:identifier="mash_model_new">
+        <doc xml:whitespace="preserve">Constructs a new #MashModel. Nothing will be rendered by the
+model until a #MashData is attached using
+mash_model_set_data().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a new #MashModel.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_file"
+                   c:identifier="mash_model_new_from_file"
+                   throws="1">
+        <doc xml:whitespace="preserve">This is a convenience function that creates a new #MashData
+and immediately loads the data in @filename. If the load succeeds a
+new #MashModel will be created for the data. The model has a
+default white material so that if vertices of the model have any
+color attributes they will be used directly. The material does not
+have textures by default so if you want the model to be textured
+you will need to modify the material.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a new #MashModel or %NULL if the load failed.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:whitespace="preserve">Flags for loading the data.</doc>
+            <type name="DataFlags" c:type="MashDataFlags"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of a PLY file to load.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_data"
+              c:identifier="mash_model_get_data"
+              introspectable="0">
+        <doc xml:whitespace="preserve">Gets the model data that will be used to render the actor.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">A pointer to a #MashData instance or %NULL if no data has been set yet.</doc>
+          <type name="Data" c:type="MashData*"/>
+        </return-value>
+      </method>
+      <method name="get_fit_to_allocation"
+              c:identifier="mash_model_get_fit_to_allocation">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">whether the actor will try to scale the model to fit within the allocation.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_light_set"
+              c:identifier="mash_model_get_light_set"
+              version="0.2"
+              introspectable="0">
+        <return-value>
+          <doc xml:whitespace="preserve">the #MashLightSet previously set with mash_model_set_light_set().</doc>
+          <type name="LightSet" c:type="MashLightSet*"/>
+        </return-value>
+      </method>
+      <method name="get_material"
+              c:identifier="mash_model_get_material"
+              introspectable="0">
+        <doc xml:whitespace="preserve">Gets the material that will be used to render the model. The
+material can be modified to affect the appearence of the model. By
+default the material will be solid white.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">a handle to the Cogl material used by the model.</doc>
+          <type name="Cogl.Handle" c:type="CoglHandle"/>
+        </return-value>
+      </method>
+      <method name="set_data" c:identifier="mash_model_set_data">
+        <doc xml:whitespace="preserve">Replaces the data used by the actor with @data. A reference is
+taken on @data so if you no longer need it you should unref it with
+g_object_unref().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new #MashData</doc>
+            <type name="Data" c:type="MashData*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fit_to_allocation"
+              c:identifier="mash_model_set_fit_to_allocation">
+        <doc xml:whitespace="preserve">This sets whether the actor should scale the model to fit the
+actor's allocation. If it's %TRUE then all of the axes of the model
+will be scaled by the same amount to fill the allocation as much as
+possible without distorting the aspect ratio. The model is also
+translated so that it is at the center of the allocation and
+centered at 0 along the z axis. The size along the z axis is not
+considered when calculating a scale so if the model is largest
+along that axis then the actor may appear too large. The
+transformations are applied in addition to the actor's
+transformations so it is still possible scale the actor further
+using the scale-x and scale-y properties. The preferred size of the
+actor will be the width and height of the model. If
+width-for-height or height-for-width allocation is being used then
+#MashModel will return whatever width or height will exactly
+preserve the aspect ratio.
+
+If the value is %FALSE then the actor is not transformed so the
+origin of the model will be the top left corner of the actor. The
+preferred size of the actor will be maximum extents of the model
+although the allocation is not considered during paint so if the
+model extends past the allocated size then it will draw outside the
+allocation.
+
+The default value is %TRUE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="fit_to_allocation" transfer-ownership="none">
+            <doc xml:whitespace="preserve">New value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_light_set"
+              c:identifier="mash_model_set_light_set"
+              version="0.2">
+        <doc xml:whitespace="preserve">This sets the #MashLightSet that will be used to render the
+model. Alternatively %NULL can be passed to disable lighting for
+this model. The light set represents a collection of #MashLight&lt;!--
+--&gt;s that will affect the appearance of the model.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="light_set" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A new #MashLightSet</doc>
+            <type name="LightSet" c:type="MashLightSet*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_material" c:identifier="mash_model_set_material">
+        <doc xml:whitespace="preserve">Replaces the material that will be used to render the model with
+the given one. By default a #MashModel will use a solid white
+material. However the color of the material is still blended with
+the vertex colors so the white material will cause the vertex
+colors to be used directly. If you want the model to be textured
+you will need to create a material that has a texture layer and set
+it with this function.
+
+If a #MashLightSet is used with the model then the material given
+here will be modified to use the program generated by that light
+set. If multiple models are expected to use the same material with
+different light sets, it would be better to use a different copy of
+the same material for each set of models so that they don't
+repeatedly change the program on the material during paint.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="material" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A handle to a Cogl material</doc>
+            <type name="Cogl.Handle" c:type="CoglHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="data" writable="1" transfer-ownership="none">
+        <type name="Data"/>
+      </property>
+      <property name="fit-to-allocation"
+                writable="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="light-set" writable="1" transfer-ownership="none">
+        <type name="LightSet"/>
+      </property>
+      <property name="material"
+                introspectable="0"
+                writable="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Clutter.Actor" c:type="ClutterActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ModelPrivate" c:type="MashModelPrivate*"/>
+      </field>
+    </class>
+    <record name="ModelClass"
+            c:type="MashModelClass"
+            glib:is-gtype-struct-for="Model">
+      <doc xml:whitespace="preserve">The #MashModelClass structure contains only private data.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
+      </field>
+    </record>
+    <record name="ModelPrivate" c:type="MashModelPrivate" disguised="1">
+    </record>
+    <class name="PlyLoader"
+           c:symbol-prefix="ply_loader"
+           c:type="MashPlyLoader"
+           parent="Data"
+           glib:type-name="MashPlyLoader"
+           glib:get-type="mash_ply_loader_get_type"
+           glib:type-struct="PlyLoaderClass">
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PlyLoaderPrivate" c:type="MashPlyLoaderPrivate*"/>
+      </field>
+    </class>
+    <record name="PlyLoaderClass"
+            c:type="MashPlyLoaderClass"
+            glib:is-gtype-struct-for="PlyLoader">
+      <field name="parent_class" readable="0" private="1">
+        <type name="DataLoaderClass" c:type="MashDataLoaderClass"/>
+      </field>
+    </record>
+    <record name="PlyLoaderPrivate"
+            c:type="MashPlyLoaderPrivate"
+            disguised="1">
+    </record>
+    <class name="PointLight"
+           c:symbol-prefix="point_light"
+           c:type="MashPointLight"
+           parent="Light"
+           glib:type-name="MashPointLight"
+           glib:get-type="mash_point_light_get_type"
+           glib:type-struct="PointLightClass">
+      <doc xml:whitespace="preserve">The #MashLightClass structure contains only private data.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new" c:identifier="mash_point_light_new">
+        <doc xml:whitespace="preserve">Constructs a new #MashPointLight.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the new light.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <method name="get_constant_attenuation"
+              c:identifier="mash_point_light_get_constant_attenuation">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the constant light attenuation value.</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_linear_attenuation"
+              c:identifier="mash_point_light_get_linear_attenuation">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the linear light attenuation value.</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_quadratic_attenuation"
+              c:identifier="mash_point_light_get_quadratic_attenuation">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the quadratic light attenuation value.</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+      </method>
+      <method name="set_constant_attenuation"
+              c:identifier="mash_point_light_set_constant_attenuation">
+        <doc xml:whitespace="preserve">Sets the constant attenuation value on a light. The light intensity
+is divided by this value. Setting a higher value will cause the
+light to appear dimmer.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="attenuation" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new value</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_linear_attenuation"
+              c:identifier="mash_point_light_set_linear_attenuation">
+        <doc xml:whitespace="preserve">Sets the linear attenuation value on a light. The light intensity
+is divided by this value multiplied by the distance to the
+light. Setting a higher value will cause the intensity to dim faster
+as the vertex moves away from the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="attenuation" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new value</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_quadratic_attenuation"
+              c:identifier="mash_point_light_set_quadratic_attenuation">
+        <doc xml:whitespace="preserve">Sets the quadratic attenuation value on a light. The light
+intensity is divided by this value multiplied by the square of the
+distance to the light. Setting a higher value will cause the
+intensity to dim sharply as the vertex moves away from the light.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="attenuation" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new value</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="constant-attenuation"
+                writable="1"
+                transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <property name="linear-attenuation"
+                writable="1"
+                transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <property name="quadratic-attenuation"
+                writable="1"
+                transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Light" c:type="MashLight"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PointLightPrivate" c:type="MashPointLightPrivate*"/>
+      </field>
+    </class>
+    <record name="PointLightClass"
+            c:type="MashPointLightClass"
+            glib:is-gtype-struct-for="PointLight">
+      <doc xml:whitespace="preserve">The #MashPointLightClass structure contains only private data.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="LightClass" c:type="MashLightClass"/>
+      </field>
+    </record>
+    <record name="PointLightPrivate"
+            c:type="MashPointLightPrivate"
+            disguised="1">
+    </record>
+    <class name="SpotLight"
+           c:symbol-prefix="spot_light"
+           c:type="MashSpotLight"
+           parent="PointLight"
+           glib:type-name="MashSpotLight"
+           glib:get-type="mash_spot_light_get_type"
+           glib:type-struct="SpotLightClass">
+      <doc xml:whitespace="preserve">The #MashSpotLight structure contains only private data.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new" c:identifier="mash_spot_light_new">
+        <doc xml:whitespace="preserve">Constructs a new #MashSpotLight.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the new light.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <method name="get_spot_cutoff"
+              c:identifier="mash_spot_light_get_spot_cutoff">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the spot cut off value</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_spot_exponent"
+              c:identifier="mash_spot_light_get_spot_exponent">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the spot exponent value</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+      </method>
+      <method name="set_spot_cutoff"
+              c:identifier="mash_spot_light_set_spot_cutoff">
+        <doc xml:whitespace="preserve">Sets the spot cut off value on a light. This is an angle in degrees
+which defines the shape of the cone of light emitted from the
+light. It should be within the range 0° to 90°</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cutoff" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new value</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_spot_exponent"
+              c:identifier="mash_spot_light_set_spot_exponent">
+        <doc xml:whitespace="preserve">Sets the spot exponent value on a light. The light intensity is
+multiplied by the angle between the light direction and the vector
+to the vertex raised to the power of the exponent. A higher
+exponent value makes the cone of the light appear smaller.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="exponent" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The new value</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="spot-cutoff" writable="1" transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <property name="spot-exponent" writable="1" transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="PointLight" c:type="MashPointLight"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="SpotLightPrivate" c:type="MashSpotLightPrivate*"/>
+      </field>
+    </class>
+    <record name="SpotLightClass"
+            c:type="MashSpotLightClass"
+            glib:is-gtype-struct-for="SpotLight">
+      <doc xml:whitespace="preserve">The #MashSpotLightClass structure contains only private data.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="PointLightClass" c:type="MashPointLightClass"/>
+      </field>
+    </record>
+    <record name="SpotLightPrivate"
+            c:type="MashSpotLightPrivate"
+            disguised="1">
+    </record>
+  </namespace>
+</repository>

@@ -1,0 +1,2957 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <include name="Pango" version="1.0"/>
+  <package name="gucharmap-2.90"/>
+  <c:include name="gucharmap/gucharmap.h"/>
+  <namespace name="Gucharmap"
+             version="2.90"
+             shared-library="libgucharmap_2_90.so.7"
+             c:identifier-prefixes="Gucharmap"
+             c:symbol-prefixes="gucharmap">
+    <function-macro name="BLOCK_CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_BLOCK_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BLOCK_CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_BLOCK_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BLOCK_CHAPTERS_MODEL_GET_CLASS"
+                    c:identifier="GUCHARMAP_BLOCK_CHAPTERS_MODEL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BLOCK_CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_BLOCK_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BLOCK_CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_BLOCK_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BLOCK_CODEPOINT_LIST_GET_CLASS"
+                    c:identifier="GUCHARMAP_BLOCK_CODEPOINT_LIST_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="BlockChaptersModel"
+           c:symbol-prefix="block_chapters_model"
+           c:type="GucharmapBlockChaptersModel"
+           parent="ChaptersModel"
+           glib:type-name="GucharmapBlockChaptersModel"
+           glib:get-type="gucharmap_block_chapters_model_get_type"
+           glib:type-struct="BlockChaptersModelClass">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="56"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.TreeDragDest"/>
+      <implements name="Gtk.TreeDragSource"/>
+      <implements name="Gtk.TreeModel"/>
+      <implements name="Gtk.TreeSortable"/>
+      <constructor name="new"
+                   c:identifier="gucharmap_block_chapters_model_new">
+        <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+        </return-value>
+      </constructor>
+      <field name="parent">
+        <type name="ChaptersModel" c:type="GucharmapChaptersModel"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="BlockChaptersModelPrivate"
+              c:type="GucharmapBlockChaptersModelPrivate*"/>
+      </field>
+    </class>
+    <record name="BlockChaptersModelClass"
+            c:type="GucharmapBlockChaptersModelClass"
+            glib:is-gtype-struct-for="BlockChaptersModel">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="56"/>
+      <field name="parent_class">
+        <type name="ChaptersModelClass" c:type="GucharmapChaptersModelClass"/>
+      </field>
+    </record>
+    <record name="BlockChaptersModelPrivate"
+            c:type="GucharmapBlockChaptersModelPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="42"/>
+    </record>
+    <class name="BlockCodepointList"
+           c:symbol-prefix="block_codepoint_list"
+           c:type="GucharmapBlockCodepointList"
+           parent="CodepointList"
+           glib:type-name="GucharmapBlockCodepointList"
+           glib:get-type="gucharmap_block_codepoint_list_get_type"
+           glib:type-struct="BlockCodepointListClass">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="55"/>
+      <constructor name="new"
+                   c:identifier="gucharmap_block_codepoint_list_new">
+        <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <parameter name="start" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="first-codepoint"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="last-codepoint"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="CodepointList" c:type="GucharmapCodepointList"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="BlockCodepointListPrivate"
+              c:type="GucharmapBlockCodepointListPrivate*"/>
+      </field>
+    </class>
+    <record name="BlockCodepointListClass"
+            c:type="GucharmapBlockCodepointListClass"
+            glib:is-gtype-struct-for="BlockCodepointList">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="55"/>
+      <field name="parent_class">
+        <type name="CodepointListClass" c:type="GucharmapCodepointListClass"/>
+      </field>
+    </record>
+    <record name="BlockCodepointListPrivate"
+            c:type="GucharmapBlockCodepointListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="41"/>
+    </record>
+    <function-macro name="CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHAPTERS_MODEL_GET_CLASS"
+                    c:identifier="GUCHARMAP_CHAPTERS_MODEL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHAPTERS_VIEW"
+                    c:identifier="GUCHARMAP_CHAPTERS_VIEW"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHAPTERS_VIEW_CLASS"
+                    c:identifier="GUCHARMAP_CHAPTERS_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHAPTERS_VIEW_GET_CLASS"
+                    c:identifier="GUCHARMAP_CHAPTERS_VIEW_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARMAP"
+                    c:identifier="GUCHARMAP_CHARMAP"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARMAP_CLASS"
+                    c:identifier="GUCHARMAP_CHARMAP_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARMAP_GET_CLASS"
+                    c:identifier="GUCHARMAP_CHARMAP_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="40"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARTABLE"
+                    c:identifier="GUCHARMAP_CHARTABLE"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARTABLE_CLASS"
+                    c:identifier="GUCHARMAP_CHARTABLE_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHARTABLE_GET_CLASS"
+                    c:identifier="GUCHARMAP_CHARTABLE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="GUCHARMAP_CHECK_VERSION"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-version.h" line="31"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CODEPOINT_LIST_GET_CLASS"
+                    c:identifier="GUCHARMAP_CODEPOINT_LIST_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ChaptersModel"
+           c:symbol-prefix="chapters_model"
+           c:type="GucharmapChaptersModel"
+           parent="Gtk.ListStore"
+           glib:type-name="GucharmapChaptersModel"
+           glib:get-type="gucharmap_chapters_model_get_type"
+           glib:type-struct="ChaptersModelClass">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="66"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.TreeDragDest"/>
+      <implements name="Gtk.TreeDragSource"/>
+      <implements name="Gtk.TreeModel"/>
+      <implements name="Gtk.TreeSortable"/>
+      <virtual-method name="character_to_iter" invoker="character_to_iter">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_book_codepoint_list"
+                      invoker="get_book_codepoint_list"
+                      introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="65"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_codepoint_list"
+                      invoker="get_codepoint_list"
+                      introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="63"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="character_to_iter"
+              c:identifier="gucharmap_chapters_model_character_to_iter">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_book_codepoint_list"
+              c:identifier="gucharmap_chapters_model_get_book_codepoint_list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="82"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_codepoint_list"
+              c:identifier="gucharmap_chapters_model_get_codepoint_list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="77"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="gucharmap_chapters_model_get_title">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="id_to_iter"
+              c:identifier="gucharmap_chapters_model_id_to_iter">
+        <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                         line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chapters_model" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="_iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.ListStore" c:type="GtkListStore"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ChaptersModelPrivate"
+              c:type="GucharmapChaptersModelPrivate*"/>
+      </field>
+    </class>
+    <record name="ChaptersModelClass"
+            c:type="GucharmapChaptersModelClass"
+            glib:is-gtype-struct-for="ChaptersModel">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="66"/>
+      <field name="parent_class">
+        <type name="Gtk.ListStoreClass" c:type="GtkListStoreClass"/>
+      </field>
+      <field name="title">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+      <field name="character_to_iter">
+        <callback name="character_to_iter">
+          <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                           line="60"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="chapters" transfer-ownership="none">
+              <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+            </parameter>
+            <parameter name="wc" transfer-ownership="none">
+              <type name="gunichar" c:type="gunichar"/>
+            </parameter>
+            <parameter name="iter" transfer-ownership="none">
+              <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_codepoint_list" introspectable="0">
+        <callback name="get_codepoint_list" introspectable="0">
+          <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                           line="63"/>
+          <return-value>
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </return-value>
+          <parameters>
+            <parameter name="chapters" transfer-ownership="none">
+              <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+            </parameter>
+            <parameter name="iter" transfer-ownership="none">
+              <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_book_codepoint_list" introspectable="0">
+        <callback name="get_book_codepoint_list" introspectable="0">
+          <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                           line="65"/>
+          <return-value>
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </return-value>
+          <parameters>
+            <parameter name="chapters" transfer-ownership="none">
+              <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ChaptersModelPrivate"
+            c:type="GucharmapChaptersModelPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="44"/>
+    </record>
+    <class name="ChaptersView"
+           c:symbol-prefix="chapters_view"
+           c:type="GucharmapChaptersView"
+           parent="Gtk.TreeView"
+           glib:type-name="GucharmapChaptersView"
+           glib:get-type="gucharmap_chapters_view_get_type"
+           glib:type-struct="ChaptersViewClass">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="57"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="gucharmap_chapters_view_new">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_book_codepoint_list"
+              c:identifier="gucharmap_chapters_view_get_book_codepoint_list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="77"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_codepoint_list"
+              c:identifier="gucharmap_chapters_view_get_codepoint_list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="75"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_model"
+              c:identifier="gucharmap_chapters_view_get_model"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="69"/>
+        <return-value>
+          <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected"
+              c:identifier="gucharmap_chapters_view_get_selected">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="85"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next" c:identifier="gucharmap_chapters_view_next">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous" c:identifier="gucharmap_chapters_view_previous">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="select_character"
+              c:identifier="gucharmap_chapters_view_select_character">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="select_locale"
+              c:identifier="gucharmap_chapters_view_select_locale">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_model"
+              c:identifier="gucharmap_chapters_view_set_model">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+          <parameter name="model" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_selected"
+              c:identifier="gucharmap_chapters_view_set_selected">
+        <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                         line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.TreeView" c:type="GtkTreeView"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ChaptersViewPrivate"
+              c:type="GucharmapChaptersViewPrivate*"/>
+      </field>
+    </class>
+    <record name="ChaptersViewClass"
+            c:type="GucharmapChaptersViewClass"
+            glib:is-gtype-struct-for="ChaptersView">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="57"/>
+      <field name="parent_class">
+        <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
+      </field>
+    </record>
+    <record name="ChaptersViewPrivate"
+            c:type="GucharmapChaptersViewPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="43"/>
+    </record>
+    <class name="Charmap"
+           c:symbol-prefix="charmap"
+           c:type="GucharmapCharmap"
+           parent="Gtk.Paned"
+           glib:type-name="GucharmapCharmap"
+           glib:get-type="gucharmap_charmap_get_type"
+           glib:type-struct="CharmapClass">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="66"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gucharmap_charmap_new">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="link_clicked">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="old_character" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+          <parameter name="new_character" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="status_message">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_active_chapter"
+              c:identifier="gucharmap_charmap_get_active_chapter"
+              glib:get-property="active-chapter">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="84"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_character"
+              c:identifier="gucharmap_charmap_get_active_character"
+              glib:get-property="active-character">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_codepoint_list"
+              c:identifier="gucharmap_charmap_get_active_codepoint_list"
+              glib:get-property="active-codepoint-list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="115"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_page"
+              c:identifier="gucharmap_charmap_get_active_page"
+              glib:get-property="active-page">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_book_codepoint_list"
+              c:identifier="gucharmap_charmap_get_book_codepoint_list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="118"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chapters_model"
+              c:identifier="gucharmap_charmap_get_chapters_model"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="112"/>
+        <return-value>
+          <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chapters_view"
+              c:identifier="gucharmap_charmap_get_chapters_view"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="105"/>
+        <return-value>
+          <type name="ChaptersView" c:type="GucharmapChaptersView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chapters_visible"
+              c:identifier="gucharmap_charmap_get_chapters_visible">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chartable"
+              c:identifier="gucharmap_charmap_get_chartable"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="156"/>
+        <return-value>
+          <type name="Chartable" c:type="GucharmapChartable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_font_desc"
+              c:identifier="gucharmap_charmap_get_font_desc"
+              glib:get-property="font-desc">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_font_fallback"
+              c:identifier="gucharmap_charmap_get_font_fallback"
+              glib:get-property="font-fallback">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page_visible"
+              c:identifier="gucharmap_charmap_get_page_visible">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_snap_pow2"
+              c:identifier="gucharmap_charmap_get_snap_pow2">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_chapter"
+              c:identifier="gucharmap_charmap_next_chapter">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous_chapter"
+              c:identifier="gucharmap_charmap_previous_chapter">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_chapter"
+              c:identifier="gucharmap_charmap_set_active_chapter"
+              glib:set-property="active-chapter">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="chapter" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_active_character"
+              c:identifier="gucharmap_charmap_set_active_character"
+              glib:set-property="active-character">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="uc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_active_page"
+              c:identifier="gucharmap_charmap_set_active_page"
+              glib:set-property="active-page">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_chapters_model"
+              c:identifier="gucharmap_charmap_set_chapters_model"
+              glib:set-property="chapters-model">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="model" transfer-ownership="none">
+            <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_chapters_visible"
+              c:identifier="gucharmap_charmap_set_chapters_visible">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font_desc"
+              c:identifier="gucharmap_charmap_set_font_desc"
+              glib:set-property="font-desc">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="font_desc" transfer-ownership="none">
+            <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font_fallback"
+              c:identifier="gucharmap_charmap_set_font_fallback"
+              glib:set-property="font-fallback">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="enable_font_fallback" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page_visible"
+              c:identifier="gucharmap_charmap_set_page_visible">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_snap_pow2"
+              c:identifier="gucharmap_charmap_set_snap_pow2">
+        <source-position filename="gucharmap/gucharmap-charmap.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="charmap" transfer-ownership="none">
+            <type name="Charmap" c:type="GucharmapCharmap*"/>
+          </instance-parameter>
+          <parameter name="snap" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-chapter"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active_chapter"
+                getter="get_active_chapter"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="active-character"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active_character"
+                getter="get_active_character"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="active-codepoint-list"
+                transfer-ownership="none"
+                getter="get_active_codepoint_list">
+        <type name="CodepointList"/>
+      </property>
+      <property name="active-page"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active_page"
+                getter="get_active_page"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="chapters-model"
+                readable="0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_chapters_model">
+        <type name="ChaptersModel"/>
+      </property>
+      <property name="font-desc"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_font_desc"
+                getter="get_font_desc">
+        <type name="Pango.FontDescription"/>
+      </property>
+      <property name="font-fallback"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_font_fallback"
+                getter="get_font_fallback"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="snap-power-2"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.Paned" c:type="GtkPaned"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="CharmapPrivate" c:type="GucharmapCharmapPrivate*"/>
+      </field>
+      <glib:signal name="link-clicked" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="status-message" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="CharmapClass"
+            c:type="GucharmapCharmapClass"
+            glib:is-gtype-struct-for="Charmap">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="66"/>
+      <field name="parent_class">
+        <type name="Gtk.PanedClass" c:type="GtkPanedClass"/>
+      </field>
+      <field name="status_message">
+        <callback name="status_message">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="58"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="charmap" transfer-ownership="none">
+              <type name="Charmap" c:type="GucharmapCharmap*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="link_clicked">
+        <callback name="link_clicked">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="charmap" transfer-ownership="none">
+              <type name="Charmap" c:type="GucharmapCharmap*"/>
+            </parameter>
+            <parameter name="old_character" transfer-ownership="none">
+              <type name="gunichar" c:type="gunichar"/>
+            </parameter>
+            <parameter name="new_character" transfer-ownership="none">
+              <type name="gunichar" c:type="gunichar"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gucharmap_reserved0" introspectable="0">
+        <callback name="_gucharmap_reserved0">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gucharmap_reserved1" introspectable="0">
+        <callback name="_gucharmap_reserved1">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gucharmap_reserved2" introspectable="0">
+        <callback name="_gucharmap_reserved2">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gucharmap_reserved3" introspectable="0">
+        <callback name="_gucharmap_reserved3">
+          <source-position filename="gucharmap/gucharmap-charmap.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="CharmapPageType"
+                 glib:type-name="GucharmapCharmapPageType"
+                 glib:get-type="gucharmap_charmap_page_type_get_type"
+                 c:type="GucharmapCharmapPageType">
+      <member name="chartable"
+              value="0"
+              c:identifier="GUCHARMAP_CHARMAP_PAGE_CHARTABLE"
+              glib:nick="chartable"
+              glib:name="GUCHARMAP_CHARMAP_PAGE_CHARTABLE">
+      </member>
+      <member name="details"
+              value="1"
+              c:identifier="GUCHARMAP_CHARMAP_PAGE_DETAILS"
+              glib:nick="details"
+              glib:name="GUCHARMAP_CHARMAP_PAGE_DETAILS">
+      </member>
+    </enumeration>
+    <record name="CharmapPrivate"
+            c:type="GucharmapCharmapPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="43"/>
+    </record>
+    <class name="Chartable"
+           c:symbol-prefix="chartable"
+           c:type="GucharmapChartable"
+           parent="Gtk.DrawingArea"
+           glib:type-name="GucharmapChartable"
+           glib:get-type="gucharmap_chartable_get_type"
+           glib:type-struct="ChartableClass">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="69"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="gucharmap_chartable_new">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="activate">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="copy_clipboard">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="move_cursor">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="step" transfer-ownership="none">
+            <type name="Gtk.MovementStep" c:type="GtkMovementStep"/>
+          </parameter>
+          <parameter name="count" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="paste_clipboard">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_active_char">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="ch" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_scroll_adjustments">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="hadjustment" transfer-ownership="none">
+            <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
+          </parameter>
+          <parameter name="vadjustment" transfer-ownership="none">
+            <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="status_message">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_active_character"
+              c:identifier="gucharmap_chartable_get_active_character"
+              glib:get-property="active-character">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_codepoint_list"
+              c:identifier="gucharmap_chartable_get_codepoint_list"
+              glib:get-property="codepoint-list"
+              introspectable="0">
+        <source-position filename="gucharmap/gucharmap-chartable.h"
+                         line="104"/>
+        <return-value>
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_font_desc"
+              c:identifier="gucharmap_chartable_get_font_desc"
+              glib:get-property="font-desc">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="79"/>
+        <return-value transfer-ownership="full">
+          <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_font_fallback"
+              c:identifier="gucharmap_chartable_get_font_fallback"
+              glib:get-property="font-fallback">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_snap_pow2"
+              c:identifier="gucharmap_chartable_get_snap_pow2">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_zoom_enabled"
+              c:identifier="gucharmap_chartable_get_zoom_enabled"
+              glib:get-property="zoom-enabled">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_character"
+              c:identifier="gucharmap_chartable_set_active_character"
+              glib:set-property="active-character">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_codepoint_list"
+              c:identifier="gucharmap_chartable_set_codepoint_list"
+              glib:set-property="codepoint-list">
+        <source-position filename="gucharmap/gucharmap-chartable.h"
+                         line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="codepoint_list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font_desc"
+              c:identifier="gucharmap_chartable_set_font_desc"
+              glib:set-property="font-desc">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="font_desc" transfer-ownership="none">
+            <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font_fallback"
+              c:identifier="gucharmap_chartable_set_font_fallback"
+              glib:set-property="font-fallback">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="enable_font_fallback" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_snap_pow2"
+              c:identifier="gucharmap_chartable_set_snap_pow2">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="snap" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_zoom_enabled"
+              c:identifier="gucharmap_chartable_set_zoom_enabled"
+              glib:set-property="zoom-enabled">
+        <source-position filename="gucharmap/gucharmap-chartable.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chartable" transfer-ownership="none">
+            <type name="Chartable" c:type="GucharmapChartable*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-character"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active_character"
+                getter="get_active_character"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="codepoint-list"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_codepoint_list"
+                getter="get_codepoint_list">
+        <type name="CodepointList"/>
+      </property>
+      <property name="font-desc"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_font_desc"
+                getter="get_font_desc">
+        <type name="Pango.FontDescription"/>
+      </property>
+      <property name="font-fallback"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_font_fallback"
+                getter="get_font_fallback"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="snap-power-2"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="zoom-enabled"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_zoom_enabled"
+                getter="get_zoom_enabled"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="zoom-showing"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ChartablePrivate" c:type="GucharmapChartablePrivate*"/>
+      </field>
+      <glib:signal name="activate" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="copy-clipboard" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="move-cursor" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.MovementStep"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="paste-clipboard" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="status-message" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ChartableClass"
+            c:type="GucharmapChartableClass"
+            glib:is-gtype-struct-for="Chartable">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="69"/>
+      <field name="parent_class">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+      <field name="set_scroll_adjustments">
+        <callback name="set_scroll_adjustments">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+            <parameter name="hadjustment" transfer-ownership="none">
+              <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
+            </parameter>
+            <parameter name="vadjustment" transfer-ownership="none">
+              <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="move_cursor">
+        <callback name="move_cursor">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="60"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+            <parameter name="step" transfer-ownership="none">
+              <type name="Gtk.MovementStep" c:type="GtkMovementStep"/>
+            </parameter>
+            <parameter name="count" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="activate">
+        <callback name="activate">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="copy_clipboard">
+        <callback name="copy_clipboard">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="paste_clipboard">
+        <callback name="paste_clipboard">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_active_char">
+        <callback name="set_active_char">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+            <parameter name="ch" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="status_message">
+        <callback name="status_message">
+          <source-position filename="gucharmap/gucharmap-chartable.h"
+                           line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="chartable" transfer-ownership="none">
+              <type name="Chartable" c:type="GucharmapChartable*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ChartablePrivate"
+            c:type="GucharmapChartablePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="42"/>
+    </record>
+    <class name="CodepointList"
+           c:symbol-prefix="codepoint_list"
+           c:type="GucharmapCodepointList"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="GucharmapCodepointList"
+           glib:get-type="gucharmap_codepoint_list_get_type"
+           glib:type-struct="CodepointListClass">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="60"/>
+      <virtual-method name="get_char" invoker="get_char">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_index" invoker="get_index">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_last_index" invoker="get_last_index">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_char" c:identifier="gucharmap_codepoint_list_get_char">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_index"
+              c:identifier="gucharmap_codepoint_list_get_index">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+          <parameter name="wc" transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_last_index"
+              c:identifier="gucharmap_codepoint_list_get_last_index">
+        <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                         line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="CodepointListPrivate"
+              c:type="GucharmapCodepointListPrivate*"/>
+      </field>
+    </class>
+    <record name="CodepointListClass"
+            c:type="GucharmapCodepointListClass"
+            glib:is-gtype-struct-for="CodepointList">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="60"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_last_index">
+        <callback name="get_last_index">
+          <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                           line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="list" transfer-ownership="none">
+              <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_char">
+        <callback name="get_char">
+          <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                           line="56"/>
+          <return-value transfer-ownership="none">
+            <type name="gunichar" c:type="gunichar"/>
+          </return-value>
+          <parameters>
+            <parameter name="list" transfer-ownership="none">
+              <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+            </parameter>
+            <parameter name="index" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_index">
+        <callback name="get_index">
+          <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                           line="58"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="list" transfer-ownership="none">
+              <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+            </parameter>
+            <parameter name="wc" transfer-ownership="none">
+              <type name="gunichar" c:type="gunichar"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="CodepointListPrivate"
+            c:type="GucharmapCodepointListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="39"/>
+    </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="GUCHARMAP_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap.h" line="29"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BLOCK_CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_IS_BLOCK_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BLOCK_CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_IS_BLOCK_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-chapters-model.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BLOCK_CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_IS_BLOCK_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BLOCK_CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_IS_BLOCK_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-block-codepoint-list.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_IS_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_IS_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-model.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHAPTERS_VIEW"
+                    c:identifier="GUCHARMAP_IS_CHAPTERS_VIEW"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHAPTERS_VIEW_CLASS"
+                    c:identifier="GUCHARMAP_IS_CHAPTERS_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chapters-view.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHARMAP"
+                    c:identifier="GUCHARMAP_IS_CHARMAP"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHARMAP_CLASS"
+                    c:identifier="GUCHARMAP_IS_CHARMAP_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-charmap.h" line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHARTABLE"
+                    c:identifier="GUCHARMAP_IS_CHARTABLE"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHARTABLE_CLASS"
+                    c:identifier="GUCHARMAP_IS_CHARTABLE_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-chartable.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_IS_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_IS_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-codepoint-list.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCRIPT_CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_IS_SCRIPT_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCRIPT_CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_IS_SCRIPT_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCRIPT_CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_IS_SCRIPT_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCRIPT_CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_IS_SCRIPT_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CHAPTERS_MODEL"
+                    c:identifier="GUCHARMAP_SCRIPT_CHAPTERS_MODEL"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CHAPTERS_MODEL_CLASS"
+                    c:identifier="GUCHARMAP_SCRIPT_CHAPTERS_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CHAPTERS_MODEL_GET_CLASS"
+                    c:identifier="GUCHARMAP_SCRIPT_CHAPTERS_MODEL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CODEPOINT_LIST"
+                    c:identifier="GUCHARMAP_SCRIPT_CODEPOINT_LIST"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CODEPOINT_LIST_CLASS"
+                    c:identifier="GUCHARMAP_SCRIPT_CODEPOINT_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCRIPT_CODEPOINT_LIST_GET_CLASS"
+                    c:identifier="GUCHARMAP_SCRIPT_CODEPOINT_LIST_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ScriptChaptersModel"
+           c:symbol-prefix="script_chapters_model"
+           c:type="GucharmapScriptChaptersModel"
+           parent="ChaptersModel"
+           glib:type-name="GucharmapScriptChaptersModel"
+           glib:get-type="gucharmap_script_chapters_model_get_type"
+           glib:type-struct="ScriptChaptersModelClass">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="54"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.TreeDragDest"/>
+      <implements name="Gtk.TreeDragSource"/>
+      <implements name="Gtk.TreeModel"/>
+      <implements name="Gtk.TreeSortable"/>
+      <constructor name="new"
+                   c:identifier="gucharmap_script_chapters_model_new">
+        <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <type name="ChaptersModel" c:type="GucharmapChaptersModel*"/>
+        </return-value>
+      </constructor>
+      <field name="parent">
+        <type name="ChaptersModel" c:type="GucharmapChaptersModel"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ScriptChaptersModelPrivate"
+              c:type="GucharmapScriptChaptersModelPrivate*"/>
+      </field>
+    </class>
+    <record name="ScriptChaptersModelClass"
+            c:type="GucharmapScriptChaptersModelClass"
+            glib:is-gtype-struct-for="ScriptChaptersModel">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="54"/>
+      <field name="parent_class">
+        <type name="ChaptersModelClass" c:type="GucharmapChaptersModelClass"/>
+      </field>
+    </record>
+    <record name="ScriptChaptersModelPrivate"
+            c:type="GucharmapScriptChaptersModelPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-script-chapters-model.h"
+                       line="40"/>
+    </record>
+    <class name="ScriptCodepointList"
+           c:symbol-prefix="script_codepoint_list"
+           c:type="GucharmapScriptCodepointList"
+           parent="CodepointList"
+           glib:type-name="GucharmapScriptCodepointList"
+           glib:get-type="gucharmap_script_codepoint_list_get_type"
+           glib:type-struct="ScriptCodepointListClass">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="55"/>
+      <constructor name="new"
+                   c:identifier="gucharmap_script_codepoint_list_new">
+        <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                         line="60"/>
+        <return-value transfer-ownership="full">
+          <type name="CodepointList" c:type="GucharmapCodepointList*"/>
+        </return-value>
+      </constructor>
+      <method name="append_script"
+              c:identifier="gucharmap_script_codepoint_list_append_script">
+        <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="ScriptCodepointList"
+                  c:type="GucharmapScriptCodepointList*"/>
+          </instance-parameter>
+          <parameter name="script" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_script"
+              c:identifier="gucharmap_script_codepoint_list_set_script">
+        <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="ScriptCodepointList"
+                  c:type="GucharmapScriptCodepointList*"/>
+          </instance-parameter>
+          <parameter name="script" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scripts"
+              c:identifier="gucharmap_script_codepoint_list_set_scripts">
+        <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="ScriptCodepointList"
+                  c:type="GucharmapScriptCodepointList*"/>
+          </instance-parameter>
+          <parameter name="scripts" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="CodepointList" c:type="GucharmapCodepointList"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ScriptCodepointListPrivate"
+              c:type="GucharmapScriptCodepointListPrivate*"/>
+      </field>
+    </class>
+    <record name="ScriptCodepointListClass"
+            c:type="GucharmapScriptCodepointListClass"
+            glib:is-gtype-struct-for="ScriptCodepointList">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="55"/>
+      <field name="parent_class">
+        <type name="CodepointListClass" c:type="GucharmapCodepointListClass"/>
+      </field>
+    </record>
+    <record name="ScriptCodepointListPrivate"
+            c:type="GucharmapScriptCodepointListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gucharmap/gucharmap-script-codepoint-list.h"
+                       line="41"/>
+    </record>
+    <enumeration name="UnicodeVersion"
+                 glib:type-name="GucharmapUnicodeVersion"
+                 glib:get-type="gucharmap_unicode_version_get_type"
+                 c:type="GucharmapUnicodeVersion">
+      <member name="unassigned"
+              value="0"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_UNASSIGNED"
+              glib:nick="unassigned"
+              glib:name="GUCHARMAP_UNICODE_VERSION_UNASSIGNED">
+      </member>
+      <member name="1_1"
+              value="1"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_1_1"
+              glib:nick="1-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_1_1">
+      </member>
+      <member name="2_0"
+              value="2"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_2_0"
+              glib:nick="2-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_2_0">
+      </member>
+      <member name="2_1"
+              value="3"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_2_1"
+              glib:nick="2-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_2_1">
+      </member>
+      <member name="3_0"
+              value="4"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_3_0"
+              glib:nick="3-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_3_0">
+      </member>
+      <member name="3_1"
+              value="5"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_3_1"
+              glib:nick="3-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_3_1">
+      </member>
+      <member name="3_2"
+              value="6"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_3_2"
+              glib:nick="3-2"
+              glib:name="GUCHARMAP_UNICODE_VERSION_3_2">
+      </member>
+      <member name="4_0"
+              value="7"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_4_0"
+              glib:nick="4-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_4_0">
+      </member>
+      <member name="4_1"
+              value="8"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_4_1"
+              glib:nick="4-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_4_1">
+      </member>
+      <member name="5_0"
+              value="9"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_5_0"
+              glib:nick="5-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_5_0">
+      </member>
+      <member name="5_1"
+              value="10"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_5_1"
+              glib:nick="5-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_5_1">
+      </member>
+      <member name="5_2"
+              value="11"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_5_2"
+              glib:nick="5-2"
+              glib:name="GUCHARMAP_UNICODE_VERSION_5_2">
+      </member>
+      <member name="6_0"
+              value="12"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_6_0"
+              glib:nick="6-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_6_0">
+      </member>
+      <member name="6_1"
+              value="13"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_6_1"
+              glib:nick="6-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_6_1">
+      </member>
+      <member name="6_2"
+              value="14"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_6_2"
+              glib:nick="6-2"
+              glib:name="GUCHARMAP_UNICODE_VERSION_6_2">
+      </member>
+      <member name="6_3"
+              value="15"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_6_3"
+              glib:nick="6-3"
+              glib:name="GUCHARMAP_UNICODE_VERSION_6_3">
+      </member>
+      <member name="7_0"
+              value="16"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_7_0"
+              glib:nick="7-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_7_0">
+      </member>
+      <member name="8_0"
+              value="17"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_8_0"
+              glib:nick="8-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_8_0">
+      </member>
+      <member name="9_0"
+              value="18"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_9_0"
+              glib:nick="9-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_9_0">
+      </member>
+      <member name="10_0"
+              value="19"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_10_0"
+              glib:nick="10-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_10_0">
+      </member>
+      <member name="11_0"
+              value="20"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_11_0"
+              glib:nick="11-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_11_0">
+      </member>
+      <member name="12_0"
+              value="21"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_12_0"
+              glib:nick="12-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_12_0">
+      </member>
+      <member name="12_1"
+              value="22"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_12_1"
+              glib:nick="12-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_12_1">
+      </member>
+      <member name="13_0"
+              value="23"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_13_0"
+              glib:nick="13-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_13_0">
+      </member>
+      <member name="14_0"
+              value="24"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_14_0"
+              glib:nick="14-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_14_0">
+      </member>
+      <member name="15_0"
+              value="25"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_15_0"
+              glib:nick="15-0"
+              glib:name="GUCHARMAP_UNICODE_VERSION_15_0">
+      </member>
+      <member name="15_1"
+              value="26"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_15_1"
+              glib:nick="15-1"
+              glib:name="GUCHARMAP_UNICODE_VERSION_15_1">
+      </member>
+      <member name="latest"
+              value="26"
+              c:identifier="GUCHARMAP_UNICODE_VERSION_LATEST"
+              glib:nick="latest"
+              glib:name="GUCHARMAP_UNICODE_VERSION_LATEST">
+      </member>
+      <function name="to_string"
+                c:identifier="gucharmap_unicode_version_to_string">
+        <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                         line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="version" transfer-ownership="none">
+            <type name="UnicodeVersion" c:type="GucharmapUnicodeVersion"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <constant name="VERSION_MAJOR" value="15" c:type="GUCHARMAP_VERSION_MAJOR">
+      <source-position filename="gucharmap/gucharmap-version.h" line="27"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MICRO" value="4" c:type="GUCHARMAP_VERSION_MICRO">
+      <source-position filename="gucharmap/gucharmap-version.h" line="29"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MINOR" value="1" c:type="GUCHARMAP_VERSION_MINOR">
+      <source-position filename="gucharmap/gucharmap-version.h" line="28"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function name="get_nameslist_colons"
+              c:identifier="gucharmap_get_nameslist_colons"
+              introspectable="0">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="106"/>
+      <return-value>
+        <array c:type="const gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_nameslist_equals"
+              c:identifier="gucharmap_get_nameslist_equals"
+              introspectable="0">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="100"/>
+      <return-value>
+        <array c:type="const gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_nameslist_exes"
+              c:identifier="gucharmap_get_nameslist_exes">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="102"/>
+      <return-value transfer-ownership="none">
+        <type name="gunichar" c:type="gunichar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_nameslist_pounds"
+              c:identifier="gucharmap_get_nameslist_pounds"
+              introspectable="0">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="104"/>
+      <return-value>
+        <array c:type="const gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_nameslist_stars"
+              c:identifier="gucharmap_get_nameslist_stars"
+              introspectable="0">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="98"/>
+      <return-value>
+        <array c:type="const gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_category_name"
+              c:identifier="gucharmap_get_unicode_category_name">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="74"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_data_name"
+              c:identifier="gucharmap_get_unicode_data_name">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="68"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_data_name_count"
+              c:identifier="gucharmap_get_unicode_data_name_count">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="70"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </return-value>
+    </function>
+    <function name="get_unicode_kCantonese"
+              c:identifier="gucharmap_get_unicode_kCantonese">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="80"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kDefinition"
+              c:identifier="gucharmap_get_unicode_kDefinition">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="78"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kHangul"
+              c:identifier="gucharmap_get_unicode_kHangul">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="92"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kJapaneseKun"
+              c:identifier="gucharmap_get_unicode_kJapaneseKun">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="88"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kJapaneseOn"
+              c:identifier="gucharmap_get_unicode_kJapaneseOn">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="90"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kKorean"
+              c:identifier="gucharmap_get_unicode_kKorean">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="86"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kMandarin"
+              c:identifier="gucharmap_get_unicode_kMandarin">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="82"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kTang"
+              c:identifier="gucharmap_get_unicode_kTang">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="84"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_kVietnamese"
+              c:identifier="gucharmap_get_unicode_kVietnamese">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="94"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_name"
+              c:identifier="gucharmap_get_unicode_name">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="66"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unicode_version"
+              c:identifier="gucharmap_get_unicode_version">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="72"/>
+      <return-value transfer-ownership="none">
+        <type name="UnicodeVersion" c:type="GucharmapUnicodeVersion"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_unihan_count"
+              c:identifier="gucharmap_get_unihan_count">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="76"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </return-value>
+    </function>
+    <function name="unichar_isdefined"
+              c:identifier="gucharmap_unichar_isdefined">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="115"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unichar_isgraph" c:identifier="gucharmap_unichar_isgraph">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="117"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unichar_to_printable_utf8"
+              c:identifier="gucharmap_unichar_to_printable_utf8">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="110"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+        <parameter name="outbuf" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unichar_type" c:identifier="gucharmap_unichar_type">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="113"/>
+      <return-value transfer-ownership="none">
+        <type name="GLib.UnicodeType" c:type="GUnicodeType"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unichar_validate"
+              c:identifier="gucharmap_unichar_validate">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="108"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unicode_get_locale_character"
+              c:identifier="gucharmap_unicode_get_locale_character">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="130"/>
+      <return-value transfer-ownership="none">
+        <type name="gunichar" c:type="gunichar"/>
+      </return-value>
+    </function>
+    <function name="unicode_get_script_for_char"
+              c:identifier="gucharmap_unicode_get_script_for_char">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="123"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="wc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unicode_list_scripts"
+              c:identifier="gucharmap_unicode_list_scripts"
+              introspectable="0">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="121"/>
+      <return-value>
+        <array c:type="const gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+    </function>
+    <function name="unicode_version_to_string"
+              c:identifier="gucharmap_unicode_version_to_string"
+              moved-to="UnicodeVersion.to_string">
+      <source-position filename="gucharmap/gucharmap-unicode-info.h"
+                       line="126"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="version" transfer-ownership="none">
+          <type name="UnicodeVersion" c:type="GucharmapUnicodeVersion"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

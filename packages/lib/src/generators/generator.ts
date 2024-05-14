@@ -17,7 +17,7 @@ import { IntrospectedStaticClassFunction } from "../gir/function.js";
 import { IntrospectedVirtualClassFunction } from "../gir/function.js";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { TypeExpression } from "../gir.js";
-import { GenerateConfig } from "../types/generate-config.js";
+import { OptionsGeneration } from "../types/options-generation.js";
 
 export interface GenericDescriptor {
     type: TypeExpression;
@@ -26,9 +26,9 @@ export interface GenericDescriptor {
 
 export abstract class FormatGenerator<T = string> {
     protected namespace: IntrospectedNamespace;
-    protected options: GenerateConfig;
+    protected options: OptionsGeneration;
 
-    constructor(namespace: IntrospectedNamespace, options: GenerateConfig) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         this.namespace = namespace;
         this.options = options;
     }

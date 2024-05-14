@@ -1,0 +1,1056 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Rest" version="0.7"/>
+  <include name="libxml2" version="2.0"/>
+  <package name="rest-extras-0.7"/>
+  <c:include name="rest/flickr-proxy-call.h"/>
+  <c:include name="rest/flickr-proxy.h"/>
+  <c:include name="rest/lastfm-proxy-call.h"/>
+  <c:include name="rest/lastfm-proxy.h"/>
+  <c:include name="rest/youtube-proxy.h"/>
+  <namespace name="RestExtras"
+             version="0.7"
+             shared-library="librest-extras-0.7.so.0"
+             c:identifier-prefixes=""
+             c:symbol-prefixes="">
+    <function-macro name="FLICKR_IS_PROXY"
+                    c:identifier="FLICKR_IS_PROXY"
+                    introspectable="0">
+      <source-position filename="flickr-proxy.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_IS_PROXY_CALL"
+                    c:identifier="FLICKR_IS_PROXY_CALL"
+                    introspectable="0">
+      <source-position filename="flickr-proxy-call.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_IS_PROXY_CALL_CLASS"
+                    c:identifier="FLICKR_IS_PROXY_CALL_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy-call.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_IS_PROXY_CLASS"
+                    c:identifier="FLICKR_IS_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY"
+                    c:identifier="FLICKR_PROXY"
+                    introspectable="0">
+      <source-position filename="flickr-proxy.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY_CALL"
+                    c:identifier="FLICKR_PROXY_CALL"
+                    introspectable="0">
+      <source-position filename="flickr-proxy-call.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY_CALL_CLASS"
+                    c:identifier="FLICKR_PROXY_CALL_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy-call.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY_CALL_GET_CLASS"
+                    c:identifier="FLICKR_PROXY_CALL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy-call.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY_CLASS"
+                    c:identifier="FLICKR_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FLICKR_PROXY_GET_CLASS"
+                    c:identifier="FLICKR_PROXY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="flickr-proxy.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="FlickrProxy"
+           c:symbol-prefix="flickr_proxy"
+           c:type="FlickrProxy"
+           parent="Rest.Proxy"
+           glib:type-name="FlickrProxy"
+           glib:get-type="flickr_proxy_get_type"
+           glib:type-struct="FlickrProxyClass">
+      <doc xml:space="preserve"
+           filename="flickr-proxy.h"
+           line="50">#FlickrProxy has no publicly available members.</doc>
+      <source-position filename="flickr-proxy.h" line="65"/>
+      <constructor name="new" c:identifier="flickr_proxy_new">
+        <source-position filename="flickr-proxy.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="api_key" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="shared_secret" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_token"
+                   c:identifier="flickr_proxy_new_with_token">
+        <source-position filename="flickr-proxy.h" line="74"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="api_key" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="shared_secret" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="token" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="is_successful"
+                c:identifier="flickr_proxy_is_successful"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="336">Examines the Flickr response and if it not a successful reply, set @error and
+return FALSE.</doc>
+        <source-position filename="flickr-proxy.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="344">%TRUE if this response is successful, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="root" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="338">The root node of a parsed Flickr response</doc>
+            <type name="Rest.XmlNode" c:type="RestXmlNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_login_url"
+              c:identifier="flickr_proxy_build_login_url">
+        <source-position filename="flickr-proxy.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+          <parameter name="frob" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="perms" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_api_key"
+              c:identifier="flickr_proxy_get_api_key"
+              glib:get-property="api-key">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="196">Get the API key.</doc>
+        <source-position filename="flickr-proxy.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="202">the API key. This string is owned by #FlickrProxy and should not be
+freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="198">an #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_shared_secret"
+              c:identifier="flickr_proxy_get_shared_secret"
+              glib:get-property="shared-secret">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="212">Get the shared secret for authentication.</doc>
+        <source-position filename="flickr-proxy.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="218">the shared secret. This string is owned by #FlickrProxy and should not be
+freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="214">an #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_token"
+              c:identifier="flickr_proxy_get_token"
+              glib:get-property="token">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="228">Get the current token.</doc>
+        <source-position filename="flickr-proxy.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="234">the token, or %NULL if there is no token yet.  This string is owned
+by #FlickrProxy and should not be freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="230">an #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="new_upload" c:identifier="flickr_proxy_new_upload">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="371">Create a new #RestProxyCall that can be used for uploading.
+
+See http://www.flickr.com/services/api/upload.api.html for details on
+uploading to Flickr.</doc>
+        <source-position filename="flickr-proxy.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="380">a new #FlickrProxyCall</doc>
+          <type name="FlickrProxyCall" c:type="RestProxyCall*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="373">a valid #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="new_upload_for_file"
+              c:identifier="flickr_proxy_new_upload_for_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="393">Create a new #RestProxyCall that can be used for uploading.  @filename will
+be set as the "photo" parameter for you, avoiding you from having to open the
+file and determine the MIME type.
+
+Note that this function can in theory block.
+
+See http://www.flickr.com/services/api/upload.api.html for details on
+uploading to Flickr.</doc>
+        <source-position filename="flickr-proxy.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="flickr-proxy.c"
+               line="408">a new #FlickrProxyCall</doc>
+          <type name="FlickrProxyCall" c:type="RestProxyCall*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="395">a valid #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="396">the file to upload</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_token"
+              c:identifier="flickr_proxy_set_token"
+              glib:set-property="token">
+        <doc xml:space="preserve"
+             filename="flickr-proxy.c"
+             line="244">Set the token.</doc>
+        <source-position filename="flickr-proxy.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="246">an #FlickrProxy</doc>
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+          <parameter name="token" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="flickr-proxy.c"
+                 line="247">the access token</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="sign" c:identifier="flickr_proxy_sign">
+        <source-position filename="flickr-proxy.h" line="86"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <type name="FlickrProxy" c:type="FlickrProxy*"/>
+          </instance-parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="api-key"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_api_key"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="shared-secret"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_shared_secret"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="token"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_token"
+                getter="get_token"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Rest.Proxy" c:type="RestProxy"/>
+      </field>
+      <field name="priv">
+        <type name="FlickrProxyPrivate" c:type="FlickrProxyPrivate*"/>
+      </field>
+    </class>
+    <class name="FlickrProxyCall"
+           c:symbol-prefix="flickr_proxy_call"
+           c:type="FlickrProxyCall"
+           parent="Rest.ProxyCall"
+           glib:type-name="FlickrProxyCall"
+           glib:get-type="flickr_proxy_call_get_type"
+           glib:type-struct="FlickrProxyCallClass">
+      <doc xml:space="preserve"
+           filename="flickr-proxy-call.h"
+           line="47">#FlickrProxyCall has no publicly available members.</doc>
+      <source-position filename="flickr-proxy-call.h" line="61"/>
+      <property name="upload"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="flickr-proxy-call.c"
+             line="112">Set if the call should be sent to the photo upload endpoint and not the
+general-purpose endpoint.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="Rest.ProxyCall" c:type="RestProxyCall"/>
+      </field>
+    </class>
+    <record name="FlickrProxyCallClass"
+            c:type="FlickrProxyCallClass"
+            glib:is-gtype-struct-for="FlickrProxyCall">
+      <source-position filename="flickr-proxy-call.h" line="61"/>
+      <field name="parent_class">
+        <type name="Rest.ProxyCallClass" c:type="RestProxyCallClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="FlickrProxyClass"
+            c:type="FlickrProxyClass"
+            glib:is-gtype-struct-for="FlickrProxy">
+      <source-position filename="flickr-proxy.h" line="65"/>
+      <field name="parent_class">
+        <type name="Rest.ProxyClass" c:type="RestProxyClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="FlickrProxyPrivate"
+            c:type="FlickrProxyPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="flickr-proxy.h" line="48"/>
+    </record>
+    <function-macro name="LASTFM_IS_PROXY"
+                    c:identifier="LASTFM_IS_PROXY"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_IS_PROXY_CALL"
+                    c:identifier="LASTFM_IS_PROXY_CALL"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy-call.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_IS_PROXY_CALL_CLASS"
+                    c:identifier="LASTFM_IS_PROXY_CALL_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy-call.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_IS_PROXY_CLASS"
+                    c:identifier="LASTFM_IS_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY"
+                    c:identifier="LASTFM_PROXY"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY_CALL"
+                    c:identifier="LASTFM_PROXY_CALL"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy-call.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY_CALL_CLASS"
+                    c:identifier="LASTFM_PROXY_CALL_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy-call.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY_CALL_GET_CLASS"
+                    c:identifier="LASTFM_PROXY_CALL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy-call.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY_CLASS"
+                    c:identifier="LASTFM_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LASTFM_PROXY_GET_CLASS"
+                    c:identifier="LASTFM_PROXY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lastfm-proxy.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="LastfmProxy"
+           c:symbol-prefix="lastfm_proxy"
+           c:type="LastfmProxy"
+           parent="Rest.Proxy"
+           glib:type-name="LastfmProxy"
+           glib:get-type="lastfm_proxy_get_type"
+           glib:type-struct="LastfmProxyClass">
+      <doc xml:space="preserve"
+           filename="lastfm-proxy.h"
+           line="50">#LastfmProxy has no publicly available members.</doc>
+      <source-position filename="lastfm-proxy.h" line="65"/>
+      <constructor name="new" c:identifier="lastfm_proxy_new">
+        <source-position filename="lastfm-proxy.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="api_key" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="secret" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_session"
+                   c:identifier="lastfm_proxy_new_with_session">
+        <source-position filename="lastfm-proxy.h" line="74"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="api_key" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="secret" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="session_key" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="is_successful"
+                c:identifier="lastfm_proxy_is_successful"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="lastfm-proxy.c"
+             line="308">Examines the Lastfm response and if it not a successful reply, set @error and
+return FALSE.</doc>
+        <source-position filename="lastfm-proxy.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lastfm-proxy.c"
+               line="316">%TRUE if this response is successful, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="root" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="310">The root node of a parsed Lastfm response</doc>
+            <type name="Rest.XmlNode" c:type="RestXmlNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_login_url"
+              c:identifier="lastfm_proxy_build_login_url">
+        <source-position filename="lastfm-proxy.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+          <parameter name="token" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_api_key"
+              c:identifier="lastfm_proxy_get_api_key"
+              glib:get-property="api-key">
+        <doc xml:space="preserve"
+             filename="lastfm-proxy.c"
+             line="189">Get the API key.</doc>
+        <source-position filename="lastfm-proxy.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lastfm-proxy.c"
+               line="195">the API key. This string is owned by #LastfmProxy and should not be
+freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="191">an #LastfmProxy</doc>
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_secret"
+              c:identifier="lastfm_proxy_get_secret"
+              glib:get-property="secret">
+        <doc xml:space="preserve"
+             filename="lastfm-proxy.c"
+             line="205">Get the secret for authentication.</doc>
+        <source-position filename="lastfm-proxy.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lastfm-proxy.c"
+               line="211">the secret. This string is owned by #LastfmProxy and should not be
+freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="207">an #LastfmProxy</doc>
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_session_key"
+              c:identifier="lastfm_proxy_get_session_key"
+              glib:get-property="session-key">
+        <doc xml:space="preserve"
+             filename="lastfm-proxy.c"
+             line="221">Get the current session key.</doc>
+        <source-position filename="lastfm-proxy.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lastfm-proxy.c"
+               line="227">the session key, or %NULL if there is no session key yet.  This string is owned
+by #LastfmProxy and should not be freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="223">an #LastfmProxy</doc>
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_session_key"
+              c:identifier="lastfm_proxy_set_session_key"
+              glib:set-property="session-key">
+        <doc xml:space="preserve"
+             filename="lastfm-proxy.c"
+             line="237">Set the session key.</doc>
+        <source-position filename="lastfm-proxy.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="239">an #LastfmProxy</doc>
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+          <parameter name="session_key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lastfm-proxy.c"
+                 line="240">the access session_key</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="sign" c:identifier="lastfm_proxy_sign">
+        <source-position filename="lastfm-proxy.h" line="86"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <type name="LastfmProxy" c:type="LastfmProxy*"/>
+          </instance-parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="api-key"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_api_key"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="secret"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_secret"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="session-key"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_session_key"
+                getter="get_session_key"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Rest.Proxy" c:type="RestProxy"/>
+      </field>
+      <field name="priv">
+        <type name="LastfmProxyPrivate" c:type="LastfmProxyPrivate*"/>
+      </field>
+    </class>
+    <class name="LastfmProxyCall"
+           c:symbol-prefix="lastfm_proxy_call"
+           c:type="LastfmProxyCall"
+           parent="Rest.ProxyCall"
+           glib:type-name="LastfmProxyCall"
+           glib:get-type="lastfm_proxy_call_get_type"
+           glib:type-struct="LastfmProxyCallClass">
+      <doc xml:space="preserve"
+           filename="lastfm-proxy-call.h"
+           line="47">#LastfmProxyCall has no publicly available members.</doc>
+      <source-position filename="lastfm-proxy-call.h" line="61"/>
+      <field name="parent">
+        <type name="Rest.ProxyCall" c:type="RestProxyCall"/>
+      </field>
+    </class>
+    <record name="LastfmProxyCallClass"
+            c:type="LastfmProxyCallClass"
+            glib:is-gtype-struct-for="LastfmProxyCall">
+      <source-position filename="lastfm-proxy-call.h" line="61"/>
+      <field name="parent_class">
+        <type name="Rest.ProxyCallClass" c:type="RestProxyCallClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="LastfmProxyClass"
+            c:type="LastfmProxyClass"
+            glib:is-gtype-struct-for="LastfmProxy">
+      <source-position filename="lastfm-proxy.h" line="65"/>
+      <field name="parent_class">
+        <type name="Rest.ProxyClass" c:type="RestProxyClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="LastfmProxyPrivate"
+            c:type="LastfmProxyPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lastfm-proxy.h" line="48"/>
+    </record>
+    <function-macro name="YOUTUBE_IS_PROXY"
+                    c:identifier="YOUTUBE_IS_PROXY"
+                    introspectable="0">
+      <source-position filename="youtube-proxy.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="YOUTUBE_IS_PROXY_CLASS"
+                    c:identifier="YOUTUBE_IS_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="youtube-proxy.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="YOUTUBE_PROXY"
+                    c:identifier="YOUTUBE_PROXY"
+                    introspectable="0">
+      <source-position filename="youtube-proxy.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="YOUTUBE_PROXY_CLASS"
+                    c:identifier="YOUTUBE_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="youtube-proxy.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="YOUTUBE_PROXY_GET_CLASS"
+                    c:identifier="YOUTUBE_PROXY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="youtube-proxy.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="YoutubeProxy"
+           c:symbol-prefix="youtube_proxy"
+           c:type="YoutubeProxy"
+           parent="Rest.Proxy"
+           glib:type-name="YoutubeProxy"
+           glib:get-type="youtube_proxy_get_type"
+           glib:type-struct="YoutubeProxyClass">
+      <doc xml:space="preserve"
+           filename="youtube-proxy.h"
+           line="49">#YoutubeProxy has no publicly available members.</doc>
+      <source-position filename="youtube-proxy.h" line="64"/>
+      <constructor name="new" c:identifier="youtube_proxy_new">
+        <source-position filename="youtube-proxy.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="developer_key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_auth"
+                   c:identifier="youtube_proxy_new_with_auth">
+        <source-position filename="youtube-proxy.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <type name="Rest.Proxy" c:type="RestProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="developer_key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="user_auth" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_user_auth"
+              c:identifier="youtube_proxy_set_user_auth"
+              glib:set-property="user-auth">
+        <source-position filename="youtube-proxy.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <type name="YoutubeProxy" c:type="YoutubeProxy*"/>
+          </instance-parameter>
+          <parameter name="user_auth" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="upload_async"
+              c:identifier="youtube_proxy_upload_async"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="youtube-proxy.c"
+             line="339">Upload a file.</doc>
+        <source-position filename="youtube-proxy.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="youtube-proxy.c"
+               line="352">%TRUE, or %FALSE if the file could not be opened</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="341">a #YoutubeProxy</doc>
+            <type name="YoutubeProxy" c:type="YoutubeProxy*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="342">filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="fields" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="343">fields</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="incomplete" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="344">incomplete</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="345">callback to invoke upon completion</doc>
+            <type name="YoutubeProxyUploadCallback"
+                  c:type="YoutubeProxyUploadCallback"/>
+          </parameter>
+          <parameter name="weak_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="346">an object instance used to tie the life cycle of the proxy to</doc>
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="youtube-proxy.c"
+                 line="347">user data to pass to the callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="developer-key"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="user-auth"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user_auth"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Rest.Proxy" c:type="RestProxy"/>
+      </field>
+      <field name="priv">
+        <type name="YoutubeProxyPrivate" c:type="YoutubeProxyPrivate*"/>
+      </field>
+    </class>
+    <record name="YoutubeProxyClass"
+            c:type="YoutubeProxyClass"
+            glib:is-gtype-struct-for="YoutubeProxy">
+      <source-position filename="youtube-proxy.h" line="64"/>
+      <field name="parent_class">
+        <type name="Rest.ProxyClass" c:type="RestProxyClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="YoutubeProxyPrivate"
+            c:type="YoutubeProxyPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="youtube-proxy.h" line="47"/>
+    </record>
+    <callback name="YoutubeProxyUploadCallback">
+      <source-position filename="youtube-proxy.h" line="78"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="proxy" transfer-ownership="none">
+          <type name="YoutubeProxy" c:type="YoutubeProxy*"/>
+        </parameter>
+        <parameter name="payload" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="total" transfer-ownership="none">
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+        <parameter name="uploaded" transfer-ownership="none">
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="weak_object" transfer-ownership="none">
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="6">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+  </namespace>
+</repository>

@@ -1,0 +1,4332 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Libxfce4util" version="1.0"/>
+  <package name="garcon-1"/>
+  <c:include name="garcon/garcon.h"/>
+  <namespace name="Garcon"
+             version="1.0"
+             shared-library="libgarcon-1.so.0"
+             c:identifier-prefixes="Garcon"
+             c:symbol-prefixes="g_,garcon_">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="GARCON_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="garcon-config.h"
+           line="62">Checks the version of the garcon library.</doc>
+      <source-position filename="garcon-config.h" line="73"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="garcon-config.h"
+               line="64">the major version number.</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="garcon-config.h"
+               line="65">the minor version number.</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="garcon-config.h"
+               line="66">the micro version number.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="ENVIRONMENT_XFCE"
+              value="XFCE"
+              c:type="GARCON_ENVIRONMENT_XFCE"
+              version="0.3.0">
+      <doc xml:space="preserve"
+           filename="garcon-environment.h"
+           line="28">Macro for garcon_set_environment or garcon_set_environment_xdg
+to set the Xfce Desktop Environment.</doc>
+      <source-position filename="garcon-environment.h" line="36"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="IS_MENU"
+                    c:identifier="GARCON_IS_MENU"
+                    introspectable="0">
+      <source-position filename="garcon-menu.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_CLASS"
+                    c:identifier="GARCON_IS_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_DIRECTORY"
+                    c:identifier="GARCON_IS_MENU_DIRECTORY"
+                    introspectable="0">
+      <source-position filename="garcon-menu-directory.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_DIRECTORY_CLASS"
+                    c:identifier="GARCON_IS_MENU_DIRECTORY_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-directory.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ELEMENT"
+                    c:identifier="GARCON_IS_MENU_ELEMENT"
+                    introspectable="0">
+      <source-position filename="garcon-menu-element.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM"
+                    c:identifier="GARCON_IS_MENU_ITEM"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_ACTION"
+                    c:identifier="GARCON_IS_MENU_ITEM_ACTION"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-action.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_ACTION_CLASS"
+                    c:identifier="GARCON_IS_MENU_ITEM_ACTION_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-action.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_CACHE"
+                    c:identifier="GARCON_IS_MENU_ITEM_CACHE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-cache.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_CACHE_CLASS"
+                    c:identifier="GARCON_IS_MENU_ITEM_CACHE_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-cache.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_CLASS"
+                    c:identifier="GARCON_IS_MENU_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item.h" line="45"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_POOL"
+                    c:identifier="GARCON_IS_MENU_ITEM_POOL"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-pool.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_ITEM_POOL_CLASS"
+                    c:identifier="GARCON_IS_MENU_ITEM_POOL_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-pool.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_MERGER"
+                    c:identifier="GARCON_IS_MENU_MERGER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-merger.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_MERGER_CLASS"
+                    c:identifier="GARCON_IS_MENU_MERGER_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-merger.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_NODE"
+                    c:identifier="GARCON_IS_MENU_NODE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-node.h" line="92"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_NODE_CLASS"
+                    c:identifier="GARCON_IS_MENU_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-node.h" line="93"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_PARSER"
+                    c:identifier="GARCON_IS_MENU_PARSER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-parser.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_PARSER_CLASS"
+                    c:identifier="GARCON_IS_MENU_PARSER_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-parser.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_SEPARATOR"
+                    c:identifier="GARCON_IS_MENU_SEPARATOR"
+                    introspectable="0">
+      <source-position filename="garcon-menu-separator.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_SEPARATOR_CLASS"
+                    c:identifier="GARCON_IS_MENU_SEPARATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-separator.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_TREE_PROVIDER"
+                    c:identifier="GARCON_IS_MENU_TREE_PROVIDER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-tree-provider.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAJOR_VERSION" value="4" c:type="GARCON_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="garcon-config.h"
+           line="32">The major version number of the garcon library.
+Like garcon_major_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time.</doc>
+      <source-position filename="garcon-config.h" line="40"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="MENU" c:identifier="GARCON_MENU" introspectable="0">
+      <source-position filename="garcon-menu.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_CLASS"
+                    c:identifier="GARCON_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_DIRECTORY"
+                    c:identifier="GARCON_MENU_DIRECTORY"
+                    introspectable="0">
+      <source-position filename="garcon-menu-directory.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_DIRECTORY_CLASS"
+                    c:identifier="GARCON_MENU_DIRECTORY_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-directory.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_DIRECTORY_GET_CLASS"
+                    c:identifier="GARCON_MENU_DIRECTORY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-directory.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ELEMENT"
+                    c:identifier="GARCON_MENU_ELEMENT"
+                    introspectable="0">
+      <source-position filename="garcon-menu-element.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ELEMENT_GET_IFACE"
+                    c:identifier="GARCON_MENU_ELEMENT_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-element.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_GET_CLASS"
+                    c:identifier="GARCON_MENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM"
+                    c:identifier="GARCON_MENU_ITEM"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_ACTION"
+                    c:identifier="GARCON_MENU_ITEM_ACTION"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-action.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_ACTION_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_ACTION_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-action.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_ACTION_GET_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_ACTION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-action.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_CACHE"
+                    c:identifier="GARCON_MENU_ITEM_CACHE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-cache.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_CACHE_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_CACHE_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-cache.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_CACHE_GET_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_CACHE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-cache.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item.h" line="43"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_GET_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item.h" line="46"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_POOL"
+                    c:identifier="GARCON_MENU_ITEM_POOL"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-pool.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_POOL_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_POOL_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-pool.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_POOL_GET_CLASS"
+                    c:identifier="GARCON_MENU_ITEM_POOL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-item-pool.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_MERGER"
+                    c:identifier="GARCON_MENU_MERGER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-merger.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_MERGER_CLASS"
+                    c:identifier="GARCON_MENU_MERGER_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-merger.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_MERGER_GET_CLASS"
+                    c:identifier="GARCON_MENU_MERGER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-merger.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_NODE"
+                    c:identifier="GARCON_MENU_NODE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-node.h" line="90"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_NODE_CLASS"
+                    c:identifier="GARCON_MENU_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-node.h" line="91"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_NODE_GET_CLASS"
+                    c:identifier="GARCON_MENU_NODE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-node.h" line="94"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_PARSER"
+                    c:identifier="GARCON_MENU_PARSER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-parser.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_PARSER_CLASS"
+                    c:identifier="GARCON_MENU_PARSER_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-parser.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_PARSER_GET_CLASS"
+                    c:identifier="GARCON_MENU_PARSER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-parser.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_SEPARATOR"
+                    c:identifier="GARCON_MENU_SEPARATOR"
+                    introspectable="0">
+      <source-position filename="garcon-menu-separator.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_SEPARATOR_CLASS"
+                    c:identifier="GARCON_MENU_SEPARATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-separator.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_SEPARATOR_GET_CLASS"
+                    c:identifier="GARCON_MENU_SEPARATOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-menu-separator.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_TREE_PROVIDER"
+                    c:identifier="GARCON_MENU_TREE_PROVIDER"
+                    introspectable="0">
+      <source-position filename="garcon-menu-tree-provider.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_TREE_PROVIDER_GET_IFACE"
+                    c:identifier="GARCON_MENU_TREE_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="garcon-menu-tree-provider.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MICRO_VERSION" value="2" c:type="GARCON_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="garcon-config.h"
+           line="52">The micro version number of the garcon library.
+Like garcon_micro_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time.</doc>
+      <source-position filename="garcon-config.h" line="60"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="18" c:type="GARCON_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="garcon-config.h"
+           line="42">The minor version number of the garcon library.
+Like garcon_minor_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time.</doc>
+      <source-position filename="garcon-config.h" line="50"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Menu"
+           c:symbol-prefix="menu"
+           c:type="GarconMenu"
+           parent="GObject.Object"
+           glib:type-name="GarconMenu"
+           glib:get-type="garcon_menu_get_type"
+           glib:type-struct="MenuClass">
+      <source-position filename="garcon-menu.h" line="67"/>
+      <implements name="MenuElement"/>
+      <constructor name="new" c:identifier="garcon_menu_new">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="472">Creates a new #GarconMenu for the .menu file referred to by @file.
+This operation only fails if @file is invalid. To load the menu
+tree from the file, you need to call garcon_menu_load() with the
+returned #GarconMenu.
+
+&lt;informalexample&gt;&lt;programlisting&gt;
+GarconMenu *menu = garcon_menu_new (filename);
+
+if (garcon_menu_load (menu, &amp;error))
+  ...
+else
+  ...
+
+g_object_unref (menu);
+&lt;/programlisting&gt;&lt;/informalexample&gt;
+
+The caller is responsible to destroy the returned #GarconMenu
+using g_object_unref().
+
+For more information about the usage @see garcon_menu_new().</doc>
+        <source-position filename="garcon-menu.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="497">a new #GarconMenu.</doc>
+          <type name="Menu" c:type="GarconMenu*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="474">#GFile for the .menu file you want to load.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_applications"
+                   c:identifier="garcon_menu_new_applications">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="541">Creates a new #GarconMenu for the applications.menu file
+which is being used to display installed applications.
+
+For more information about the usage @see garcon_menu_new().</doc>
+        <source-position filename="garcon-menu.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="549">a new #GarconMenu
+for applications.menu.</doc>
+          <type name="Menu" c:type="GarconMenu*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_for_path" c:identifier="garcon_menu_new_for_path">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="508">Creates a new #GarconMenu for the .menu file referred to by @filename.
+This operation only fails if the filename is %NULL. To load the menu
+tree from the file, you need to call garcon_menu_load() with the
+returned #GarconMenu.
+
+The caller is responsible to destroy the returned #GarconMenu
+using g_object_unref().</doc>
+        <source-position filename="garcon-menu.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="520">a new #GarconMenu
+for @filename.</doc>
+          <type name="Menu" c:type="GarconMenu*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="510">Path/URI of the .menu file you want to load.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_menu" c:identifier="garcon_menu_add_menu">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="823">Adds @submenu as a sub menu to @menu.</doc>
+        <source-position filename="garcon-menu.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="825">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+          <parameter name="submenu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="826">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_directory"
+              c:identifier="garcon_menu_get_directory"
+              glib:get-property="directory">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="597">Returns the #GarconMenuDirectory of @menu or %NULL if @menu has
+no valid directory element.
+
+The menu directory may contain a lot of useful information about
+the menu like the display and icon name, desktop environments it
+should show up in etc.</doc>
+        <source-position filename="garcon-menu.h" line="53"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="608">a #GarconMenuDirectory</doc>
+          <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="599">a #GarconMenu.</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_elements" c:identifier="garcon_menu_get_elements">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="1536">Get all the menu element in @menu. This contains sub menus, menu items
+and separators.
+
+Returns a list of #GarconMenuItem or %NULL. Free the list with
+g_list_free().</doc>
+        <source-position filename="garcon-menu.h" line="62"/>
+        <return-value transfer-ownership="container" nullable="1">
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="1538">a #GarconMenu.</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="garcon_menu_get_file"
+              glib:get-property="file">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="565">Get the file for @menu. It refers to the .menu file from which
+@menu was or will be loaded.
+
+The returned object should be unreffed with g_object_unref()
+when no longer needed.</doc>
+        <source-position filename="garcon-menu.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="575">a #GFile.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="567">a #GarconMenu.</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_item_pool" c:identifier="garcon_menu_get_item_pool">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="1378">Get the item pool of the menu. This pool contains all items in this
+menu (for that of its submenus).</doc>
+        <source-position filename="garcon-menu.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="1385">a #GarconMenuItemPool.</doc>
+          <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="1380">a #GarconMenu.</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_items" c:identifier="garcon_menu_get_items">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="1407">Returns all #GarconMenuItem included in @menu. The items are
+sorted by their display names in ascending order.
+
+The caller is responsible to free the returned list using
+g_list_free() when no longer needed.</doc>
+        <source-position filename="garcon-menu.h" line="61"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="1417">list
+of #GarconMenuItem included in @menu.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="1409">a #GarconMenu.</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_with_name"
+              c:identifier="garcon_menu_get_menu_with_name">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="849">Looks in @menu for a submenu with @name as name.</doc>
+        <source-position filename="garcon-menu.h" line="57"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="856">a #GarconMenu or %NULL.</doc>
+          <type name="Menu" c:type="GarconMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="851">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="852">a sub menu name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_menus" c:identifier="garcon_menu_get_menus">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="795">Returns a sorted list of #GarconMenu submenus of @menu. The list
+should be freed with g_list_free().</doc>
+        <source-position filename="garcon-menu.h" line="54"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="802">a sorted list
+of #GarconMenu.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Menu"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="797">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="garcon_menu_get_parent">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="881">Returns the parent #GarconMenu or @menu.</doc>
+        <source-position filename="garcon-menu.h" line="59"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="887">a #GarconMenu or %NULL
+if @menu is the root menu.</doc>
+          <type name="Menu" c:type="GarconMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="883">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="garcon_menu_load" throws="1">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="646">This function loads the entire menu tree from the file referred to
+by @menu. It resolves merges, moves and everything else defined
+in the menu specification. The resulting tree information is
+stored within @menu and can be accessed using the public #GarconMenu
+API afterwards.
+
+@cancellable can be used to handle blocking I/O when reading data
+from files during the loading process.
+
+@error should either be NULL or point to a #GError return location
+where errors should be stored in.</doc>
+        <source-position filename="garcon-menu.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu.c"
+               line="664">%TRUE if the menu was loaded successfully or
+         %FALSE if there was an error or the process was
+         cancelled.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="648">a #GarconMenu</doc>
+            <type name="Menu" c:type="GarconMenu*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="garcon-menu.c"
+                 line="649">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="directory"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_directory">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="262">The directory entry associated with this menu.</doc>
+        <type name="MenuDirectory"/>
+      </property>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_file">
+        <doc xml:space="preserve"
+             filename="garcon-menu.c"
+             line="247">The #GFile from which the %GarconMenu was loaded.</doc>
+        <type name="Gio.File"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MenuPrivate" c:type="GarconMenuPrivate*"/>
+      </field>
+      <glib:signal name="directory-changed" when="last" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="MenuDirectory"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="MenuDirectory"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="reload-required" when="last" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MenuClass"
+            c:type="GarconMenuClass"
+            glib:is-gtype-struct-for="Menu">
+      <source-position filename="garcon-menu.h" line="67"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuDirectory"
+           c:symbol-prefix="menu_directory"
+           c:type="GarconMenuDirectory"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuDirectory"
+           glib:get-type="garcon_menu_directory_get_type"
+           glib:type-struct="MenuDirectoryClass">
+      <source-position filename="garcon-menu-directory.h" line="46"/>
+      <constructor name="new" c:identifier="garcon_menu_directory_new">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="328">Create a new #GarconMenuDirectory for @file. You most likely never
+use this, but retrieve the info from garcon_menu_get_directory().</doc>
+        <source-position filename="garcon-menu-directory.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="335">a #GarconMenuDirectory.</doc>
+          <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="330">a #GFile</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="equal" c:identifier="garcon_menu_directory_equal">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="685">Checks if both directories point to the same file.</doc>
+        <source-position filename="garcon-menu-directory.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="692">if files are equal %TRUE, else %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="687">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="688">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_comment"
+              c:identifier="garcon_menu_directory_get_comment"
+              glib:get-property="comment">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="457">Get the comment of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="463">a the description for @directory.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="459">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="garcon_menu_directory_get_file"
+              glib:get-property="file">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="393">Get the #GFile for @directory. The returned object should be
+unreffed with g_object_unref() when no longer needed.</doc>
+        <source-position filename="garcon-menu-directory.h" line="62"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="400">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="395">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hidden"
+              c:identifier="garcon_menu_directory_get_hidden">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="592">Whether @directory should be hidden.
+For applications you want to call garcon_menu_directory_get_visible().</doc>
+        <source-position filename="garcon-menu-directory.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="599">a the hidden key for @directory.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="594">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="garcon_menu_directory_get_icon_name"
+              glib:get-property="icon-name">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="503">Get the icon name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="509">a the icon-name key for @directory.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="505">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="garcon_menu_directory_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="411">Get the name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="417">a the name for @directory.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="413">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_no_display"
+              c:identifier="garcon_menu_directory_get_no_display"
+              glib:get-property="no-display">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="548">Whether @directory should be displayed.
+For applications you want to call garcon_menu_directory_get_visible().</doc>
+        <source-position filename="garcon-menu-directory.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="555">a the no-display key for @directory.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="550">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_in_environment"
+              c:identifier="garcon_menu_directory_get_show_in_environment">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="610">Whether @directory is visible in the current environment
+which has been set by garcon_set_environment().
+For applications you want to call garcon_menu_directory_get_visible().</doc>
+        <source-position filename="garcon-menu-directory.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="618">%TRUE is visible in environment, else %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="612">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_visible"
+              c:identifier="garcon_menu_directory_get_visible">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="658">Check which runs the following checks:
+garcon_menu_directory_get_show_in_environment(),
+garcon_menu_directory_get_hidden() and
+garcon_menu_directory_get_no_display().</doc>
+        <source-position filename="garcon-menu-directory.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-directory.c"
+               line="667">if visible %TRUE, else %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="660">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_comment"
+              c:identifier="garcon_menu_directory_set_comment"
+              glib:set-property="comment">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="474">Set the comment of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="476">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+          <parameter name="comment" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="477">the new description for @directory.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="garcon_menu_directory_set_icon_name"
+              glib:set-property="icon-name">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="520">Set the icon name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="522">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="523">the new icon name for @directory.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name"
+              c:identifier="garcon_menu_directory_set_name"
+              glib:set-property="name">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="428">Set the name of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="430">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="431">the new name for @directory.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_no_display"
+              c:identifier="garcon_menu_directory_set_no_display"
+              glib:set-property="no-display">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="566">Set the NoDisplay key of @directory.</doc>
+        <source-position filename="garcon-menu-directory.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="568">a #GarconMenuDirectory</doc>
+            <type name="MenuDirectory" c:type="GarconMenuDirectory*"/>
+          </instance-parameter>
+          <parameter name="no_display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-directory.c"
+                 line="569">whether @directory should be displayed.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="comment"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_comment"
+                getter="get_comment"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="164">Directory description (comment).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_file">
+        <type name="Gio.File"/>
+      </property>
+      <property name="icon-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon_name"
+                getter="get_icon_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="178">Icon associated with this directory.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_name"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="150">Name of the directory.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="no-display"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_no_display"
+                getter="get_no_display"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="garcon-menu-directory.c"
+             line="192">Whether this menu item is hidden in menus.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MenuDirectoryPrivate"
+              c:type="GarconMenuDirectoryPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuDirectoryClass"
+            c:type="GarconMenuDirectoryClass"
+            glib:is-gtype-struct-for="MenuDirectory">
+      <source-position filename="garcon-menu-directory.h" line="46"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="MenuDirectoryPrivate"
+            c:type="GarconMenuDirectoryPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-directory.h" line="39"/>
+    </record>
+    <interface name="MenuElement"
+               c:symbol-prefix="menu_element"
+               c:type="GarconMenuElement"
+               glib:type-name="GarconMenuElement"
+               glib:get-type="garcon_menu_element_get_type"
+               glib:type-struct="MenuElementIface">
+      <source-position filename="garcon-menu-element.h" line="53"/>
+      <virtual-method name="equal" invoker="equal">
+        <source-position filename="garcon-menu-element.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_comment" invoker="get_comment">
+        <source-position filename="garcon-menu-element.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_icon_name" invoker="get_icon_name">
+        <source-position filename="garcon-menu-element.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name">
+        <source-position filename="garcon-menu-element.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_no_display" invoker="get_no_display">
+        <source-position filename="garcon-menu-element.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_show_in_environment"
+                      invoker="get_show_in_environment">
+        <source-position filename="garcon-menu-element.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_visible" invoker="get_visible">
+        <source-position filename="garcon-menu-element.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="equal" c:identifier="garcon_menu_element_equal">
+        <source-position filename="garcon-menu-element.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_comment"
+              c:identifier="garcon_menu_element_get_comment">
+        <source-position filename="garcon-menu-element.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="garcon_menu_element_get_icon_name">
+        <source-position filename="garcon-menu-element.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="garcon_menu_element_get_name">
+        <source-position filename="garcon-menu-element.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_no_display"
+              c:identifier="garcon_menu_element_get_no_display">
+        <source-position filename="garcon-menu-element.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_in_environment"
+              c:identifier="garcon_menu_element_get_show_in_environment">
+        <source-position filename="garcon-menu-element.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_visible"
+              c:identifier="garcon_menu_element_get_visible">
+        <source-position filename="garcon-menu-element.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="element" transfer-ownership="none">
+            <type name="MenuElement" c:type="GarconMenuElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="MenuElementIface"
+            c:type="GarconMenuElementIface"
+            glib:is-gtype-struct-for="MenuElement">
+      <source-position filename="garcon-menu-element.h" line="53"/>
+      <field name="__parent__">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="garcon-menu-element.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_comment">
+        <callback name="get_comment">
+          <source-position filename="garcon-menu-element.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_icon_name">
+        <callback name="get_icon_name">
+          <source-position filename="garcon-menu-element.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_visible">
+        <callback name="get_visible">
+          <source-position filename="garcon-menu-element.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_show_in_environment">
+        <callback name="get_show_in_environment">
+          <source-position filename="garcon-menu-element.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_no_display">
+        <callback name="get_no_display">
+          <source-position filename="garcon-menu-element.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="equal">
+        <callback name="equal">
+          <source-position filename="garcon-menu-element.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="element" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+            <parameter name="other" transfer-ownership="none">
+              <type name="MenuElement" c:type="GarconMenuElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="MenuItem"
+           c:symbol-prefix="menu_item"
+           c:type="GarconMenuItem"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuItem"
+           glib:get-type="garcon_menu_item_get_type"
+           glib:type-struct="MenuItemClass">
+      <source-position filename="garcon-menu-item.h" line="54"/>
+      <implements name="MenuElement"/>
+      <constructor name="new" c:identifier="garcon_menu_item_new">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="768">Returns (transfer full): a new #GarconMenuItem</doc>
+        <source-position filename="garcon-menu-item.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="770">a #GFile</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_path"
+                   c:identifier="garcon_menu_item_new_for_path">
+        <source-position filename="garcon-menu-item.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item.c"
+               line="1001">a new #GarconMenuItem</doc>
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="999">name of a file</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_uri"
+                   c:identifier="garcon_menu_item_new_for_uri">
+        <source-position filename="garcon-menu-item.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item.c"
+               line="1023">a new #GarconMenuItem</doc>
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1021">a given URI</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="changed">
+        <source-position filename="garcon-menu-item.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="decrement_allocated"
+              c:identifier="garcon_menu_item_decrement_allocated">
+        <source-position filename="garcon-menu-item.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action" c:identifier="garcon_menu_item_get_action">
+        <source-position filename="garcon-menu-item.h" line="136"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item.c"
+               line="1890">a #GarconMenuItemAction</doc>
+          <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1887">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_actions" c:identifier="garcon_menu_item_get_actions">
+        <source-position filename="garcon-menu-item.h" line="135"/>
+        <return-value transfer-ownership="container">
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItemAction"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1861">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_allocated"
+              c:identifier="garcon_menu_item_get_allocated">
+        <source-position filename="garcon-menu-item.h" line="147"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_categories"
+              c:identifier="garcon_menu_item_get_categories">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="1400">Returns list of categories</doc>
+        <source-position filename="garcon-menu-item.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1402">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_command"
+              c:identifier="garcon_menu_item_get_command"
+              glib:get-property="command">
+        <source-position filename="garcon-menu-item.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_comment"
+              c:identifier="garcon_menu_item_get_comment"
+              glib:get-property="comment">
+        <source-position filename="garcon-menu-item.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_id"
+              c:identifier="garcon_menu_item_get_desktop_id"
+              glib:get-property="desktop-id">
+        <source-position filename="garcon-menu-item.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="garcon_menu_item_get_file"
+              glib:get-property="file">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="1345">Get the #GFile for @item. The returned object should be
+unreffed with g_object_unref() when no longer needed.</doc>
+        <source-position filename="garcon-menu-item.h" line="81"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item.c"
+               line="1352">a #GFile.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1347">A #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_generic_name"
+              c:identifier="garcon_menu_item_get_generic_name"
+              glib:get-property="generic-name">
+        <source-position filename="garcon-menu-item.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hidden"
+              c:identifier="garcon_menu_item_get_hidden"
+              glib:get-property="hidden">
+        <source-position filename="garcon-menu-item.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="garcon_menu_item_get_icon_name"
+              glib:get-property="icon-name">
+        <source-position filename="garcon-menu-item.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keywords" c:identifier="garcon_menu_item_get_keywords">
+        <source-position filename="garcon-menu-item.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1441">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="garcon_menu_item_get_name"
+              glib:get-property="name">
+        <source-position filename="garcon-menu-item.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_no_display"
+              c:identifier="garcon_menu_item_get_no_display"
+              glib:get-property="no-display">
+        <source-position filename="garcon-menu-item.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_path"
+              c:identifier="garcon_menu_item_get_path"
+              glib:get-property="path">
+        <source-position filename="garcon-menu-item.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_prefers_non_default_gpu"
+              c:identifier="garcon_menu_item_get_prefers_non_default_gpu"
+              glib:get-property="prefers-non-default-gpu">
+        <source-position filename="garcon-menu-item.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_in_environment"
+              c:identifier="garcon_menu_item_get_show_in_environment">
+        <source-position filename="garcon-menu-item.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_try_exec"
+              c:identifier="garcon_menu_item_get_try_exec"
+              glib:get-property="try-exec">
+        <source-position filename="garcon-menu-item.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="garcon_menu_item_get_uri">
+        <source-position filename="garcon-menu-item.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_action" c:identifier="garcon_menu_item_has_action">
+        <source-position filename="garcon-menu-item.h" line="141"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_category" c:identifier="garcon_menu_item_has_category">
+        <source-position filename="garcon-menu-item.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="category" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_keyword" c:identifier="garcon_menu_item_has_keyword">
+        <source-position filename="garcon-menu-item.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="keyword" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="increment_allocated"
+              c:identifier="garcon_menu_item_increment_allocated">
+        <source-position filename="garcon-menu-item.h" line="148"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="only_show_in_environment"
+              c:identifier="garcon_menu_item_only_show_in_environment">
+        <source-position filename="garcon-menu-item.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="garcon_menu_item_ref">
+        <source-position filename="garcon-menu-item.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reload" c:identifier="garcon_menu_item_reload" throws="1">
+        <source-position filename="garcon-menu-item.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="affects_the_outside" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reload_from_file"
+              c:identifier="garcon_menu_item_reload_from_file"
+              throws="1">
+        <source-position filename="garcon-menu-item.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="affects_the_outside" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="requires_terminal"
+              c:identifier="garcon_menu_item_requires_terminal">
+        <source-position filename="garcon-menu-item.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_action" c:identifier="garcon_menu_item_set_action">
+        <source-position filename="garcon-menu-item.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_categories"
+              c:identifier="garcon_menu_item_set_categories">
+        <source-position filename="garcon-menu-item.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1418">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="categories" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1419">list of categories</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_command"
+              c:identifier="garcon_menu_item_set_command"
+              glib:set-property="command">
+        <source-position filename="garcon-menu-item.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="command" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_comment"
+              c:identifier="garcon_menu_item_set_comment"
+              glib:set-property="comment">
+        <source-position filename="garcon-menu-item.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="comment" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_desktop_id"
+              c:identifier="garcon_menu_item_set_desktop_id"
+              glib:set-property="desktop-id">
+        <source-position filename="garcon-menu-item.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_generic_name"
+              c:identifier="garcon_menu_item_set_generic_name"
+              glib:set-property="generic-name">
+        <source-position filename="garcon-menu-item.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="generic_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hidden"
+              c:identifier="garcon_menu_item_set_hidden"
+              glib:set-property="hidden">
+        <source-position filename="garcon-menu-item.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="hidden" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="garcon_menu_item_set_icon_name"
+              glib:set-property="icon-name">
+        <source-position filename="garcon-menu-item.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keywords" c:identifier="garcon_menu_item_set_keywords">
+        <source-position filename="garcon-menu-item.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1455">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="keywords" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item.c"
+                 line="1456">list of keywords</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name"
+              c:identifier="garcon_menu_item_set_name"
+              glib:set-property="name">
+        <source-position filename="garcon-menu-item.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_no_display"
+              c:identifier="garcon_menu_item_set_no_display"
+              glib:set-property="no-display">
+        <source-position filename="garcon-menu-item.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="no_display" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_path"
+              c:identifier="garcon_menu_item_set_path"
+              glib:set-property="path">
+        <source-position filename="garcon-menu-item.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_prefers_non_default_gpu"
+              c:identifier="garcon_menu_item_set_prefers_non_default_gpu"
+              glib:set-property="prefers-non-default-gpu">
+        <source-position filename="garcon-menu-item.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="prefers_non_default_gpu" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_requires_terminal"
+              c:identifier="garcon_menu_item_set_requires_terminal"
+              glib:set-property="requires-terminal">
+        <source-position filename="garcon-menu-item.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="requires_terminal" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_supports_startup_notification"
+              c:identifier="garcon_menu_item_set_supports_startup_notification"
+              glib:set-property="supports-startup-notification">
+        <source-position filename="garcon-menu-item.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="supports_startup_notification"
+                     transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_try_exec"
+              c:identifier="garcon_menu_item_set_try_exec"
+              glib:set-property="try-exec">
+        <source-position filename="garcon-menu-item.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+          <parameter name="try_exec" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_startup_notification"
+              c:identifier="garcon_menu_item_supports_startup_notification">
+        <source-position filename="garcon-menu-item.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="garcon_menu_item_unref">
+        <source-position filename="garcon-menu-item.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="command"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_command"
+                getter="get_command"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="306">Command to be executed when the menu item is clicked.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="comment"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_comment"
+                getter="get_comment"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="291">Comment/description for the application. To be displayed e.g. in tooltips of
+GtkMenuItems.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="desktop-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_desktop_id"
+                getter="get_desktop_id"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="207">The desktop-file id of this application.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_file">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="192">The #GFile from which the %GarconMenuItem was loaded.</doc>
+        <type name="Gio.File"/>
+      </property>
+      <property name="generic-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_generic_name"
+                getter="get_generic_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="277">GenericName of the application (will be displayed in menus etc.).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="hidden"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_hidden"
+                getter="get_hidden"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="352">It means the user deleted (at his level) something that was present
+(at an upper level, e.g. in the system dirs). It's strictly equivalent
+to the .desktop file not existing at all, as far as that user is concerned.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="icon-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon_name"
+                getter="get_icon_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="338">Name of the icon to be displayed for this menu item.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_name"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="263">Name of the application (will be displayed in menus etc.).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="no-display"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_no_display"
+                getter="get_no_display"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="235">Whether this menu item is hidden in menus.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="path"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_path"
+                getter="get_path"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="383">Working directory the application should be started in.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="prefers-non-default-gpu"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_prefers_non_default_gpu"
+                getter="get_prefers_non_default_gpu"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="368">If true, the application prefers to be run on a more powerful discrete GPU
+if available.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="requires-terminal"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_requires_terminal"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="221">Whether this application requires a terinal to be started in.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="supports-startup-notification"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_supports_startup_notification"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="try-exec"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_try_exec"
+                getter="get_try_exec"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="320">Path to an executable file on disk used to determine if the program
+is actually installed. If the path is not an absolute path, the file
+is looked up in the $PATH environment variable. If the file is not
+present or if it is not executable, the entry may be ignored (not be
+used in menus, for example).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MenuItemPrivate" c:type="GarconMenuItemPrivate*"/>
+      </field>
+      <glib:signal name="changed" when="first">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item.c"
+             line="397">Emitted when #GarconMenuItem has been reloaded.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <class name="MenuItemAction"
+           c:symbol-prefix="menu_item_action"
+           c:type="GarconMenuItemAction"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuItemAction"
+           glib:get-type="garcon_menu_item_action_get_type"
+           glib:type-struct="MenuItemActionClass">
+      <source-position filename="garcon-menu-item-action.h" line="50"/>
+      <constructor name="new" c:identifier="garcon_menu_item_action_new">
+        <source-position filename="garcon-menu-item-action.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="changed">
+        <source-position filename="garcon-menu-item-action.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_command"
+              c:identifier="garcon_menu_item_action_get_command"
+              glib:get-property="command">
+        <source-position filename="garcon-menu-item-action.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="garcon_menu_item_action_get_icon_name"
+              glib:get-property="icon-name">
+        <source-position filename="garcon-menu-item-action.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="garcon_menu_item_action_get_name"
+              glib:get-property="name">
+        <source-position filename="garcon-menu-item-action.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="garcon_menu_item_action_ref">
+        <source-position filename="garcon-menu-item-action.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_command"
+              c:identifier="garcon_menu_item_action_set_command"
+              glib:set-property="command">
+        <source-position filename="garcon-menu-item-action.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+          <parameter name="command" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="garcon_menu_item_action_set_icon_name"
+              glib:set-property="icon-name">
+        <source-position filename="garcon-menu-item-action.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name"
+              c:identifier="garcon_menu_item_action_set_name"
+              glib:set-property="name">
+        <source-position filename="garcon-menu-item-action.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="garcon_menu_item_action_unref">
+        <source-position filename="garcon-menu-item-action.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="command"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_command"
+                getter="get_command"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item-action.c"
+             line="89">Command to be executed when the application action is clicked.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="icon-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_icon_name"
+                getter="get_icon_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item-action.c"
+             line="103">Name of the custom icon associated with this action.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_name"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item-action.c"
+             line="75">Name of the application action (will be displayed in menus etc.).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MenuItemActionPrivate"
+              c:type="GarconMenuItemActionPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuItemActionClass"
+            c:type="GarconMenuItemActionClass"
+            glib:is-gtype-struct-for="MenuItemAction">
+      <source-position filename="garcon-menu-item-action.h" line="50"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="garcon-menu-item-action.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="action" transfer-ownership="none">
+              <type name="MenuItemAction" c:type="GarconMenuItemAction*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="MenuItemActionPrivate"
+            c:type="GarconMenuItemActionPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-item-action.h" line="33"/>
+    </record>
+    <class name="MenuItemCache"
+           c:symbol-prefix="menu_item_cache"
+           c:type="GarconMenuItemCache"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuItemCache"
+           glib:get-type="garcon_menu_item_cache_get_type"
+           glib:type-struct="MenuItemCacheClass">
+      <source-position filename="garcon-menu-item-cache.h" line="47"/>
+      <constructor name="get_default"
+                   c:identifier="garcon_menu_item_cache_get_default">
+        <doc xml:space="preserve"
+             filename="garcon-menu-item-cache.c"
+             line="96">Returns the default #GarconMenuItemCache. the returned object
+should be unreffed with g_object_unref() when no longer needed.</doc>
+        <source-position filename="garcon-menu-item-cache.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item-cache.c"
+               line="102">a new #GarconMenuItemCache.</doc>
+          <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
+        </return-value>
+      </constructor>
+      <method name="foreach" c:identifier="garcon_menu_item_cache_foreach">
+        <source-position filename="garcon-menu-item-cache.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cache" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-cache.c"
+                 line="201">a #GarconMenuItemCache</doc>
+            <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-cache.c"
+                 line="203">parameter passed to @func callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="invalidate"
+              c:identifier="garcon_menu_item_cache_invalidate">
+        <source-position filename="garcon-menu-item-cache.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cache" transfer-ownership="none">
+            <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invalidate_file"
+              c:identifier="garcon_menu_item_cache_invalidate_file">
+        <source-position filename="garcon-menu-item-cache.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cache" transfer-ownership="none">
+            <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup" c:identifier="garcon_menu_item_cache_lookup">
+        <source-position filename="garcon-menu-item-cache.h" line="63"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item-cache.c"
+               line="147">a #GarconMenuItem</doc>
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cache" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-cache.c"
+                 line="143">a #GarconMenuItemCache</doc>
+            <type name="MenuItemCache" c:type="GarconMenuItemCache*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-cache.c"
+                 line="144">URI to look for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-cache.c"
+                 line="145">desktop id to update</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuItemCachePrivate"
+              c:type="GarconMenuItemCachePrivate*"/>
+      </field>
+    </class>
+    <record name="MenuItemCacheClass"
+            c:type="GarconMenuItemCacheClass"
+            glib:is-gtype-struct-for="MenuItemCache">
+      <source-position filename="garcon-menu-item-cache.h" line="47"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="MenuItemCachePrivate"
+            c:type="GarconMenuItemCachePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-item-cache.h" line="33"/>
+    </record>
+    <record name="MenuItemClass"
+            c:type="GarconMenuItemClass"
+            glib:is-gtype-struct-for="MenuItem">
+      <source-position filename="garcon-menu-item.h" line="54"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="garcon-menu-item.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <type name="MenuItem" c:type="GarconMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="MenuItemPool"
+           c:symbol-prefix="menu_item_pool"
+           c:type="GarconMenuItemPool"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuItemPool"
+           glib:get-type="garcon_menu_item_pool_get_type"
+           glib:type-struct="MenuItemPoolClass">
+      <source-position filename="garcon-menu-item-pool.h" line="41"/>
+      <constructor name="new" c:identifier="garcon_menu_item_pool_new">
+        <source-position filename="garcon-menu-item-pool.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item-pool.c"
+               line="98">a #GarconMenuItemPool</doc>
+          <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+        </return-value>
+      </constructor>
+      <method name="apply_exclude_rule"
+              c:identifier="garcon_menu_item_pool_apply_exclude_rule">
+        <source-position filename="garcon-menu-item-pool.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear" c:identifier="garcon_menu_item_pool_clear">
+        <source-position filename="garcon-menu-item-pool.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="foreach" c:identifier="garcon_menu_item_pool_foreach">
+        <source-position filename="garcon-menu-item-pool.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="181">a #GarconMenuItemPool</doc>
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="183">user data passed to @func callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_empty" c:identifier="garcon_menu_item_pool_get_empty">
+        <source-position filename="garcon-menu-item-pool.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="insert" c:identifier="garcon_menu_item_pool_insert">
+        <source-position filename="garcon-menu-item-pool.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="109">a #GarconMenuItemPool</doc>
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="110">a #GarconMenuItem</doc>
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup" c:identifier="garcon_menu_item_pool_lookup">
+        <source-position filename="garcon-menu-item-pool.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item-pool.c"
+               line="132">a #GarconMenuItem object</doc>
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="129">a #GarconMenuItemPool</doc>
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="130">.desktop file</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_file"
+              c:identifier="garcon_menu_item_pool_lookup_file">
+        <source-position filename="garcon-menu-item-pool.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-menu-item-pool.c"
+               line="150">a #GarconMenuItem object</doc>
+          <type name="MenuItem" c:type="GarconMenuItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pool" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="147">a #GarconMenuItemPool</doc>
+            <type name="MenuItemPool" c:type="GarconMenuItemPool*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-item-pool.c"
+                 line="148">a GFile instance</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MenuItemPoolClass"
+            c:type="GarconMenuItemPoolClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="MenuItemPool">
+      <source-position filename="garcon-menu-item-pool.h" line="41"/>
+    </record>
+    <record name="MenuItemPoolPrivate"
+            c:type="GarconMenuItemPoolPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-item-pool.h" line="40"/>
+    </record>
+    <record name="MenuItemPrivate"
+            c:type="GarconMenuItemPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-item.h" line="37"/>
+    </record>
+    <enumeration name="MenuLayoutMergeType" c:type="GarconMenuLayoutMergeType">
+      <source-position filename="garcon-menu-node.h" line="75"/>
+      <member name="menus"
+              value="0"
+              c:identifier="GARCON_MENU_LAYOUT_MERGE_MENUS">
+      </member>
+      <member name="files"
+              value="1"
+              c:identifier="GARCON_MENU_LAYOUT_MERGE_FILES">
+      </member>
+      <member name="all" value="2" c:identifier="GARCON_MENU_LAYOUT_MERGE_ALL">
+      </member>
+    </enumeration>
+    <enumeration name="MenuMergeFileType" c:type="GarconMenuMergeFileType">
+      <source-position filename="garcon-menu-node.h" line="81"/>
+      <member name="path" value="0" c:identifier="GARCON_MENU_MERGE_FILE_PATH">
+      </member>
+      <member name="parent"
+              value="1"
+              c:identifier="GARCON_MENU_MERGE_FILE_PARENT">
+      </member>
+    </enumeration>
+    <class name="MenuMerger"
+           c:symbol-prefix="menu_merger"
+           c:type="GarconMenuMerger"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuMerger"
+           glib:get-type="garcon_menu_merger_get_type"
+           glib:type-struct="MenuMergerClass">
+      <source-position filename="garcon-menu-merger.h" line="58"/>
+      <implements name="MenuTreeProvider"/>
+      <constructor name="new" c:identifier="garcon_menu_merger_new">
+        <source-position filename="garcon-menu-merger.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuMerger" c:type="GarconMenuMerger*"/>
+        </return-value>
+        <parameters>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="run" c:identifier="garcon_menu_merger_run" throws="1">
+        <source-position filename="garcon-menu-merger.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="merger" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-merger.c"
+                 line="267">a #GarconMenuMerger</doc>
+            <type name="MenuMerger" c:type="GarconMenuMerger*"/>
+          </instance-parameter>
+          <parameter name="merge_files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-merger.c"
+                 line="268">list of files to merge</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="merge_dirs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-merger.c"
+                 line="269">list of menu directories to merge</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="tree-provider"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="MenuTreeProvider"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuMergerPrivate" c:type="GarconMenuMergerPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuMergerClass"
+            c:type="GarconMenuMergerClass"
+            glib:is-gtype-struct-for="MenuMerger">
+      <source-position filename="garcon-menu-merger.h" line="58"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="MenuMergerPrivate"
+            c:type="GarconMenuMergerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-merger.h" line="40"/>
+    </record>
+    <class name="MenuNode"
+           c:symbol-prefix="menu_node"
+           c:type="GarconMenuNode"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuNode"
+           glib:get-type="garcon_menu_node_get_type"
+           glib:type-struct="MenuNodeClass">
+      <source-position filename="garcon-menu-node.h" line="86"/>
+      <constructor name="new" c:identifier="garcon_menu_node_new">
+        <source-position filename="garcon-menu-node.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuNode" c:type="GarconMenuNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="node_type" transfer-ownership="none">
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="create"
+                c:identifier="garcon_menu_node_create"
+                introspectable="0">
+        <source-position filename="garcon-menu-node.h" line="101"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-node.c"
+               line="241">a #GarconMenuNode</doc>
+          <type name="MenuNode" c:type="GarconMenuNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="237">a #GarconMenuNodeType</doc>
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+          <parameter name="first_value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_compare"
+                c:identifier="garcon_menu_node_tree_compare">
+        <source-position filename="garcon-menu-node.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="other_tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_copy"
+                c:identifier="garcon_menu_node_tree_copy"
+                introspectable="0">
+        <doc xml:space="preserve"
+             filename="garcon-menu-node.c"
+             line="836">Recursively copies a #GNode.</doc>
+        <source-position filename="garcon-menu-node.h" line="142"/>
+        <return-value>
+          <type name="GLib.Node" c:type="GNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="838">a #GNode</doc>
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_free" c:identifier="garcon_menu_node_tree_free">
+        <source-position filename="garcon-menu-node.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_free_data"
+                c:identifier="garcon_menu_node_tree_free_data">
+        <source-position filename="garcon-menu-node.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_boolean_child"
+                c:identifier="garcon_menu_node_tree_get_boolean_child">
+        <source-position filename="garcon-menu-node.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_child_node"
+                c:identifier="garcon_menu_node_tree_get_child_node"
+                introspectable="0">
+        <source-position filename="garcon-menu-node.h" line="116"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="garcon-menu-node.c"
+               line="462">a #GNode if @type is valid menu nodes type.</doc>
+          <type name="GLib.Node" c:type="GNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="458">#GNode instance</doc>
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="459">type for the menu nodes</doc>
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+          <parameter name="reverse" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_child_nodes"
+                c:identifier="garcon_menu_node_tree_get_child_nodes">
+        <source-position filename="garcon-menu-node.h" line="119"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-node.c"
+               line="502">list of #GNode</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="GLib.Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="498">a GNode</doc>
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="499">type for the menu nodes</doc>
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+          <parameter name="reverse" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_layout_merge_type"
+                c:identifier="garcon_menu_node_tree_get_layout_merge_type">
+        <source-position filename="garcon-menu-node.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuLayoutMergeType" c:type="GarconMenuLayoutMergeType"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_merge_file_filename"
+                c:identifier="garcon_menu_node_tree_get_merge_file_filename">
+        <source-position filename="garcon-menu-node.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_merge_file_type"
+                c:identifier="garcon_menu_node_tree_get_merge_file_type">
+        <source-position filename="garcon-menu-node.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuMergeFileType" c:type="GarconMenuMergeFileType"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_node_type"
+                c:identifier="garcon_menu_node_tree_get_node_type">
+        <source-position filename="garcon-menu-node.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_string"
+                c:identifier="garcon_menu_node_tree_get_string">
+        <source-position filename="garcon-menu-node.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_string_child"
+                c:identifier="garcon_menu_node_tree_get_string_child">
+        <source-position filename="garcon-menu-node.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_get_string_children"
+                c:identifier="garcon_menu_node_tree_get_string_children">
+        <source-position filename="garcon-menu-node.h" line="122"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="garcon-menu-node.c"
+               line="552">list of #GNode</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="GLib.Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="548">a #GNode instance</doc>
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="549">type for the menu nodes</doc>
+            <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+          </parameter>
+          <parameter name="reverse" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_rule_matches"
+                c:identifier="garcon_menu_node_tree_rule_matches">
+        <source-position filename="garcon-menu-node.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="GarconMenuItem*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_set_merge_file_filename"
+                c:identifier="garcon_menu_node_tree_set_merge_file_filename">
+        <source-position filename="garcon-menu-node.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="tree_set_string"
+                c:identifier="garcon_menu_node_tree_set_string">
+        <source-position filename="garcon-menu-node.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="copy" c:identifier="garcon_menu_node_copy">
+        <source-position filename="garcon-menu-node.h" line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-node.c"
+               line="289">a #GarconMenuNode</doc>
+          <type name="MenuNode" c:type="GarconMenuNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-node.c"
+                 line="286">a #GarconMenuNode</doc>
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_merge_file_filename"
+              c:identifier="garcon_menu_node_get_merge_file_filename">
+        <source-position filename="garcon-menu-node.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_merge_file_type"
+              c:identifier="garcon_menu_node_get_merge_file_type">
+        <source-position filename="garcon-menu-node.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuMergeFileType" c:type="GarconMenuMergeFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_node_type"
+              c:identifier="garcon_menu_node_get_node_type"
+              glib:get-property="node-type">
+        <source-position filename="garcon-menu-node.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="MenuNodeType" c:type="GarconMenuNodeType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_string" c:identifier="garcon_menu_node_get_string">
+        <source-position filename="garcon-menu-node.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_merge_file_filename"
+              c:identifier="garcon_menu_node_set_merge_file_filename">
+        <source-position filename="garcon-menu-node.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_merge_file_type"
+              c:identifier="garcon_menu_node_set_merge_file_type">
+        <source-position filename="garcon-menu-node.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MenuMergeFileType" c:type="GarconMenuMergeFileType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string" c:identifier="garcon_menu_node_set_string">
+        <source-position filename="garcon-menu-node.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="MenuNode" c:type="GarconMenuNode*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="node-type"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_node_type"
+                default-value="GARCON_MENU_NODE_TYPE_MENU">
+        <type name="MenuNodeType"/>
+      </property>
+    </class>
+    <record name="MenuNodeClass"
+            c:type="GarconMenuNodeClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="MenuNode">
+      <source-position filename="garcon-menu-node.h" line="86"/>
+    </record>
+    <union name="MenuNodeData" c:type="GarconMenuNodeData">
+      <source-position filename="garcon-menu-node.h" line="85"/>
+    </union>
+    <enumeration name="MenuNodeType"
+                 glib:type-name="GarconMenuNodeType"
+                 glib:get-type="garcon_menu_node_type_get_type"
+                 c:type="GarconMenuNodeType">
+      <member name="Invalid"
+              value="0"
+              c:identifier="GARCON_MENU_NODE_TYPE_INVALID"
+              glib:nick="Invalid"
+              glib:name="GARCON_MENU_NODE_TYPE_INVALID">
+      </member>
+      <member name="Menu"
+              value="1"
+              c:identifier="GARCON_MENU_NODE_TYPE_MENU"
+              glib:nick="Menu"
+              glib:name="GARCON_MENU_NODE_TYPE_MENU">
+      </member>
+      <member name="Name"
+              value="2"
+              c:identifier="GARCON_MENU_NODE_TYPE_NAME"
+              glib:nick="Name"
+              glib:name="GARCON_MENU_NODE_TYPE_NAME">
+      </member>
+      <member name="Directory"
+              value="3"
+              c:identifier="GARCON_MENU_NODE_TYPE_DIRECTORY"
+              glib:nick="Directory"
+              glib:name="GARCON_MENU_NODE_TYPE_DIRECTORY">
+      </member>
+      <member name="DirectoryDir"
+              value="4"
+              c:identifier="GARCON_MENU_NODE_TYPE_DIRECTORY_DIR"
+              glib:nick="DirectoryDir"
+              glib:name="GARCON_MENU_NODE_TYPE_DIRECTORY_DIR">
+      </member>
+      <member name="DefaultDirectoryDirs"
+              value="5"
+              c:identifier="GARCON_MENU_NODE_TYPE_DEFAULT_DIRECTORY_DIRS"
+              glib:nick="DefaultDirectoryDirs"
+              glib:name="GARCON_MENU_NODE_TYPE_DEFAULT_DIRECTORY_DIRS">
+      </member>
+      <member name="AppDir"
+              value="6"
+              c:identifier="GARCON_MENU_NODE_TYPE_APP_DIR"
+              glib:nick="AppDir"
+              glib:name="GARCON_MENU_NODE_TYPE_APP_DIR">
+      </member>
+      <member name="DefaultAppDirs"
+              value="7"
+              c:identifier="GARCON_MENU_NODE_TYPE_DEFAULT_APP_DIRS"
+              glib:nick="DefaultAppDirs"
+              glib:name="GARCON_MENU_NODE_TYPE_DEFAULT_APP_DIRS">
+      </member>
+      <member name="OnlyUnallocated"
+              value="8"
+              c:identifier="GARCON_MENU_NODE_TYPE_ONLY_UNALLOCATED"
+              glib:nick="OnlyUnallocated"
+              glib:name="GARCON_MENU_NODE_TYPE_ONLY_UNALLOCATED">
+      </member>
+      <member name="NotOnlyUnallocated"
+              value="9"
+              c:identifier="GARCON_MENU_NODE_TYPE_NOT_ONLY_UNALLOCATED"
+              glib:nick="NotOnlyUnallocated"
+              glib:name="GARCON_MENU_NODE_TYPE_NOT_ONLY_UNALLOCATED">
+      </member>
+      <member name="Deleted"
+              value="10"
+              c:identifier="GARCON_MENU_NODE_TYPE_DELETED"
+              glib:nick="Deleted"
+              glib:name="GARCON_MENU_NODE_TYPE_DELETED">
+      </member>
+      <member name="NotDeleted"
+              value="11"
+              c:identifier="GARCON_MENU_NODE_TYPE_NOT_DELETED"
+              glib:nick="NotDeleted"
+              glib:name="GARCON_MENU_NODE_TYPE_NOT_DELETED">
+      </member>
+      <member name="Include"
+              value="12"
+              c:identifier="GARCON_MENU_NODE_TYPE_INCLUDE"
+              glib:nick="Include"
+              glib:name="GARCON_MENU_NODE_TYPE_INCLUDE">
+      </member>
+      <member name="Exclude"
+              value="13"
+              c:identifier="GARCON_MENU_NODE_TYPE_EXCLUDE"
+              glib:nick="Exclude"
+              glib:name="GARCON_MENU_NODE_TYPE_EXCLUDE">
+      </member>
+      <member name="All"
+              value="14"
+              c:identifier="GARCON_MENU_NODE_TYPE_ALL"
+              glib:nick="All"
+              glib:name="GARCON_MENU_NODE_TYPE_ALL">
+      </member>
+      <member name="Filename"
+              value="15"
+              c:identifier="GARCON_MENU_NODE_TYPE_FILENAME"
+              glib:nick="Filename"
+              glib:name="GARCON_MENU_NODE_TYPE_FILENAME">
+      </member>
+      <member name="Category"
+              value="16"
+              c:identifier="GARCON_MENU_NODE_TYPE_CATEGORY"
+              glib:nick="Category"
+              glib:name="GARCON_MENU_NODE_TYPE_CATEGORY">
+      </member>
+      <member name="Or"
+              value="17"
+              c:identifier="GARCON_MENU_NODE_TYPE_OR"
+              glib:nick="Or"
+              glib:name="GARCON_MENU_NODE_TYPE_OR">
+      </member>
+      <member name="And"
+              value="18"
+              c:identifier="GARCON_MENU_NODE_TYPE_AND"
+              glib:nick="And"
+              glib:name="GARCON_MENU_NODE_TYPE_AND">
+      </member>
+      <member name="Not"
+              value="19"
+              c:identifier="GARCON_MENU_NODE_TYPE_NOT"
+              glib:nick="Not"
+              glib:name="GARCON_MENU_NODE_TYPE_NOT">
+      </member>
+      <member name="Move"
+              value="20"
+              c:identifier="GARCON_MENU_NODE_TYPE_MOVE"
+              glib:nick="Move"
+              glib:name="GARCON_MENU_NODE_TYPE_MOVE">
+      </member>
+      <member name="Old"
+              value="21"
+              c:identifier="GARCON_MENU_NODE_TYPE_OLD"
+              glib:nick="Old"
+              glib:name="GARCON_MENU_NODE_TYPE_OLD">
+      </member>
+      <member name="New"
+              value="22"
+              c:identifier="GARCON_MENU_NODE_TYPE_NEW"
+              glib:nick="New"
+              glib:name="GARCON_MENU_NODE_TYPE_NEW">
+      </member>
+      <member name="DefaultLayout"
+              value="23"
+              c:identifier="GARCON_MENU_NODE_TYPE_DEFAULT_LAYOUT"
+              glib:nick="DefaultLayout"
+              glib:name="GARCON_MENU_NODE_TYPE_DEFAULT_LAYOUT">
+      </member>
+      <member name="Layout"
+              value="24"
+              c:identifier="GARCON_MENU_NODE_TYPE_LAYOUT"
+              glib:nick="Layout"
+              glib:name="GARCON_MENU_NODE_TYPE_LAYOUT">
+      </member>
+      <member name="Menuname"
+              value="25"
+              c:identifier="GARCON_MENU_NODE_TYPE_MENUNAME"
+              glib:nick="Menuname"
+              glib:name="GARCON_MENU_NODE_TYPE_MENUNAME">
+      </member>
+      <member name="Separator"
+              value="26"
+              c:identifier="GARCON_MENU_NODE_TYPE_SEPARATOR"
+              glib:nick="Separator"
+              glib:name="GARCON_MENU_NODE_TYPE_SEPARATOR">
+      </member>
+      <member name="Merge"
+              value="27"
+              c:identifier="GARCON_MENU_NODE_TYPE_MERGE"
+              glib:nick="Merge"
+              glib:name="GARCON_MENU_NODE_TYPE_MERGE">
+      </member>
+      <member name="MergeFile"
+              value="28"
+              c:identifier="GARCON_MENU_NODE_TYPE_MERGE_FILE"
+              glib:nick="MergeFile"
+              glib:name="GARCON_MENU_NODE_TYPE_MERGE_FILE">
+      </member>
+      <member name="MergeDir"
+              value="29"
+              c:identifier="GARCON_MENU_NODE_TYPE_MERGE_DIR"
+              glib:nick="MergeDir"
+              glib:name="GARCON_MENU_NODE_TYPE_MERGE_DIR">
+      </member>
+      <member name="MergeDirs"
+              value="30"
+              c:identifier="GARCON_MENU_NODE_TYPE_DEFAULT_MERGE_DIRS"
+              glib:nick="MergeDirs"
+              glib:name="GARCON_MENU_NODE_TYPE_DEFAULT_MERGE_DIRS">
+      </member>
+    </enumeration>
+    <class name="MenuParser"
+           c:symbol-prefix="menu_parser"
+           c:type="GarconMenuParser"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuParser"
+           glib:get-type="garcon_menu_parser_get_type"
+           glib:type-struct="MenuParserClass">
+      <source-position filename="garcon-menu-parser.h" line="55"/>
+      <implements name="MenuTreeProvider"/>
+      <constructor name="new" c:identifier="garcon_menu_parser_new">
+        <source-position filename="garcon-menu-parser.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <type name="MenuParser" c:type="GarconMenuParser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="run" c:identifier="garcon_menu_parser_run" throws="1">
+        <source-position filename="garcon-menu-parser.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="parser" transfer-ownership="none">
+            <type name="MenuParser" c:type="GarconMenuParser*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuParserPrivate" c:type="GarconMenuParserPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuParserClass"
+            c:type="GarconMenuParserClass"
+            glib:is-gtype-struct-for="MenuParser">
+      <source-position filename="garcon-menu-parser.h" line="55"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="MenuParserPrivate"
+            c:type="GarconMenuParserPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu-parser.h" line="39"/>
+    </record>
+    <record name="MenuPrivate"
+            c:type="GarconMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-menu.h" line="40"/>
+    </record>
+    <class name="MenuSeparator"
+           c:symbol-prefix="menu_separator"
+           c:type="GarconMenuSeparator"
+           parent="GObject.Object"
+           glib:type-name="GarconMenuSeparator"
+           glib:get-type="garcon_menu_separator_get_type"
+           glib:type-struct="MenuSeparatorClass">
+      <source-position filename="garcon-menu-separator.h" line="45"/>
+      <implements name="MenuElement"/>
+      <constructor name="get_default"
+                   c:identifier="garcon_menu_separator_get_default">
+        <doc xml:space="preserve"
+             filename="garcon-menu-separator.c"
+             line="89">Returns the default #GarconMenuSeparator. The returned object
+should be unreffed with g_object_unref() when no longer needed.</doc>
+        <source-position filename="garcon-menu-separator.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-menu-separator.c"
+               line="95">the default #GarconMenuSeparator.</doc>
+          <type name="MenuSeparator" c:type="GarconMenuSeparator*"/>
+        </return-value>
+      </constructor>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="MenuSeparatorClass"
+            c:type="GarconMenuSeparatorClass"
+            glib:is-gtype-struct-for="MenuSeparator">
+      <source-position filename="garcon-menu-separator.h" line="45"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="MenuTreeProvider"
+               c:symbol-prefix="menu_tree_provider"
+               c:type="GarconMenuTreeProvider"
+               glib:type-name="GarconMenuTreeProvider"
+               glib:get-type="garcon_menu_tree_provider_get_type"
+               glib:type-struct="MenuTreeProviderIface">
+      <source-position filename="garcon-menu-tree-provider.h" line="52"/>
+      <virtual-method name="get_file" invoker="get_file">
+        <source-position filename="garcon-menu-tree-provider.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-tree-provider.c"
+                 line="70">a #GarconMenuTreeProvider</doc>
+            <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_tree" invoker="get_tree" introspectable="0">
+        <source-position filename="garcon-menu-tree-provider.h" line="50"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="garcon-menu-tree-provider.c"
+               line="58">a #GNode</doc>
+          <type name="GLib.Node" c:type="GNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-tree-provider.c"
+                 line="56">a #GarconMenuTreeProvider</doc>
+            <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_file"
+              c:identifier="garcon_menu_tree_provider_get_file">
+        <source-position filename="garcon-menu-tree-provider.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-tree-provider.c"
+                 line="70">a #GarconMenuTreeProvider</doc>
+            <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree"
+              c:identifier="garcon_menu_tree_provider_get_tree"
+              introspectable="0">
+        <source-position filename="garcon-menu-tree-provider.h" line="42"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="garcon-menu-tree-provider.c"
+               line="58">a #GNode</doc>
+          <type name="GLib.Node" c:type="GNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-menu-tree-provider.c"
+                 line="56">a #GarconMenuTreeProvider</doc>
+            <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="MenuTreeProviderIface"
+            c:type="GarconMenuTreeProviderIface"
+            glib:is-gtype-struct-for="MenuTreeProvider">
+      <source-position filename="garcon-menu-tree-provider.h" line="52"/>
+      <field name="__parent__">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_tree" introspectable="0">
+        <callback name="get_tree" introspectable="0">
+          <source-position filename="garcon-menu-tree-provider.h" line="50"/>
+          <return-value>
+            <doc xml:space="preserve"
+                 filename="garcon-menu-tree-provider.c"
+                 line="58">a #GNode</doc>
+            <type name="GLib.Node" c:type="GNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="garcon-menu-tree-provider.c"
+                   line="56">a #GarconMenuTreeProvider</doc>
+              <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file">
+        <callback name="get_file">
+          <source-position filename="garcon-menu-tree-provider.h" line="51"/>
+          <return-value transfer-ownership="full">
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="garcon-menu-tree-provider.c"
+                   line="70">a #GarconMenuTreeProvider</doc>
+              <type name="MenuTreeProvider" c:type="GarconMenuTreeProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="check_version" c:identifier="garcon_check_version">
+      <doc xml:space="preserve"
+           filename="garcon-config.c"
+           line="83">Checks that the &lt;systemitem class="library"&gt;garcon&lt;/systemitem&gt;
+library in use is compatible with the given version. Generally you
+would pass in the constants #GARCON_MAJOR_VERSION,
+#GARCON_MINOR_VERSION and #GARCON_MICRO_VERSION as the three
+arguments to this function; that produces a check that the library
+in use is compatible with the version of
+&lt;systemitem class="library"&gt;garcon&lt;/systemitem&gt; the application was
+compiled against.
+
+&lt;example&gt;
+&lt;title&gt;Checking the runtime version of the garcon library&lt;/title&gt;
+&lt;programlisting&gt;
+const gchar *mismatch;
+mismatch = garcon_check_version (GARCON_VERSION_MAJOR,
+                                 GARCON_VERSION_MINOR,
+                                 GARCON_VERSION_MICRO);
+if (G_UNLIKELY (mismatch != NULL))
+  g_error ("Version mismatch: %&lt;!----&gt;s", mismatch);
+&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+      <source-position filename="garcon-config.h" line="85"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="garcon-config.c"
+             line="110">%NULL if the library is compatible with the given version,
+         or a string describing the version mismatch. The returned
+         string is owned by the library and must not be freed or
+         modified by the caller.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="required_major" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-config.c"
+               line="85">the required major version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_minor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-config.c"
+               line="86">the required minor version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_micro" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-config.c"
+               line="87">the required micro version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="config_build_paths"
+              c:identifier="garcon_config_build_paths">
+      <source-position filename="garcon-config.h" line="90"/>
+      <return-value transfer-ownership="full">
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-config.c"
+               line="127">name of .desktop file</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="config_lookup" c:identifier="garcon_config_lookup">
+      <doc xml:space="preserve"
+           filename="garcon-config.c"
+           line="154">Looks for the filename in the users' config directory and then
+the system config directories.</doc>
+      <source-position filename="garcon-config.h" line="89"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="garcon-config.c"
+             line="161">the absolute path to the first file in the search path,
+         that matches @filename or %NULL if no such
+         file or directory could be found.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-config.c"
+               line="156">relative filename of the config resource.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="garcon-config">
+      <doc xml:space="preserve"
+           filename="garcon-config.c"
+           line="29">The garcon library provides version information, which could be used
+by developers to handle new API.</doc>
+    </docsection>
+    <docsection name="garcon-environment">
+      <doc xml:space="preserve"
+           filename="garcon-environment.c"
+           line="29">Set the desktop environment used by the OnlyShowIn and NotShowIn
+desktop files keys.</doc>
+    </docsection>
+    <docsection name="garcon-menu">
+      <doc xml:space="preserve"
+           filename="garcon-menu.c"
+           line="55">Main element the contains the parsed menu.</doc>
+    </docsection>
+    <docsection name="garcon-menu-directory">
+      <doc xml:space="preserve"
+           filename="garcon-menu-directory.c"
+           line="35">Element that represents a .directory file in the menu configurations.
+Each menu (except for the root menu) has a #GarconMenuDirectory,
+see garcon_menu_get_directory().</doc>
+    </docsection>
+    <docsection name="garcon-menu-element">
+      <doc xml:space="preserve"
+           filename="garcon-menu-element.c"
+           line="29">Interface implemented by the Garcon types #GarconMenuItem, #GarconMenuSeparator
+and #GarconMenu.</doc>
+    </docsection>
+    <function name="get_environment" c:identifier="garcon_get_environment">
+      <doc xml:space="preserve"
+           filename="garcon-environment.c"
+           line="65">Get the environment set with garcon_set_environment().</doc>
+      <source-position filename="garcon-environment.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="garcon-environment.c"
+             line="70">Name of the desktop environment (e.g. XFCE, KDE, GNOME)
+         which is used or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="marshal_VOID__OBJECT_OBJECT"
+              c:identifier="garcon_marshal_VOID__OBJECT_OBJECT">
+      <source-position filename="garcon-marshal.h" line="13"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="closure" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="return_value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="n_param_values" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="param_values" transfer-ownership="none">
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+        <parameter name="invocation_hint"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="marshal_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_environment" c:identifier="garcon_set_environment">
+      <doc xml:space="preserve"
+           filename="garcon-environment.c"
+           line="45">Sets (or unsets) the desktop environment for which menus will generated.
+Menus and menu items belonging to other desktop environments will be
+ignored. If set to %NULL, all menu items are used.</doc>
+      <source-position filename="garcon-environment.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="env" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-environment.c"
+               line="47">Name of the desktop environment for which menus will
+       be generated (e.g. XFCE, KDE, GNOME or %NULL).</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_environment_xdg"
+              c:identifier="garcon_set_environment_xdg"
+              version="0.3.0">
+      <doc xml:space="preserve"
+           filename="garcon-environment.c"
+           line="81">Set the desktop environment to the envvar XDG_CURRENT_DESKTOP.
+If this variables is not set, it falls back to @default_env.
+
+For @fallback_env you can use for example #GARCON_ENVIRONMENT_XFCE.</doc>
+      <source-position filename="garcon-environment.h" line="46"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="fallback_env" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-environment.c"
+               line="83">fallback value</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

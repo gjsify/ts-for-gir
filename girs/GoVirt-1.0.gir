@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Rest" version="0.7"/>
+  <c:include name="govirt/govirt.h"/>
+  <namespace name="GoVirt"
+             version="1.0"
+             shared-library="libgovirt.so.1"
+             c:identifier-prefixes="Ovirt"
+             c:symbol-prefixes="ovirt">
+    <class name="Proxy"
+           c:symbol-prefix="proxy"
+           c:type="OvirtProxy"
+           parent="Rest.Proxy"
+           glib:type-name="OvirtProxy"
+           glib:get-type="ovirt_proxy_get_type"
+           glib:type-struct="ProxyClass">
+      <constructor name="new" c:identifier="ovirt_proxy_new">
+        <return-value transfer-ownership="full">
+          <type name="Proxy" c:type="OvirtProxy*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="fetch_ca_certificate"
+              c:identifier="ovirt_proxy_fetch_ca_certificate"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="fetch_ca_certificate_async"
+              c:identifier="ovirt_proxy_fetch_ca_certificate_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_ca_certificate_finish"
+              c:identifier="ovirt_proxy_fetch_ca_certificate_finish"
+              throws="1">
+        <return-value transfer-ownership="full">
+          <array name="GLib.ByteArray" c:type="GByteArray*">
+            <type name="guint8" c:type="guint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_vms" c:identifier="ovirt_proxy_fetch_vms" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="fetch_vms_async"
+              c:identifier="ovirt_proxy_fetch_vms_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:whitespace="preserve">completion callback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:whitespace="preserve">opaque data for callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_vms_finish"
+              c:identifier="ovirt_proxy_fetch_vms_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the list of #OvirtVm associated with #OvirtProxy. The returned list should not be freed nor modified, and can become invalid any time a #OvirtProxy call completes.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Vm"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:whitespace="preserve">async method result</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_vms" c:identifier="ovirt_proxy_get_vms">
+        <doc xml:whitespace="preserve">Gets the list of remote VMs from the proxy object.
+This method does not initiate any network activity, the remote VM list
+must have been fetched with ovirt_proxy_fetch_vms() or
+ovirt_proxy_fetch_vms_async() before calling this function.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the list of #OvirtVm associated with #OvirtProxy. The returned list should not be freed nor modified, and can become invalid any time a #OvirtProxy call completes.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Vm"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="lookup_vm" c:identifier="ovirt_proxy_lookup_vm">
+        <doc xml:whitespace="preserve">Looks up a virtual machine whose name is @name. If it cannot be found,
+NULL is returned. This method does not initiate any network activity,
+the remote VM list must have been fetched with ovirt_proxy_fetch_vms()
+or ovirt_proxy_fetch_vms_async() before calling this function.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #OvirtVm whose name is @name or NULL</doc>
+          <type name="Vm" c:type="OvirtVm*"/>
+        </return-value>
+        <parameters>
+          <parameter name="vm_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">name of the virtual machine to lookup</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="admin" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="ca-cert" writable="1" transfer-ownership="none">
+        <array name="GLib.ByteArray">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </property>
+      <field name="parent">
+        <type name="Rest.Proxy" c:type="RestProxy"/>
+      </field>
+      <field name="priv">
+        <type name="ProxyPrivate" c:type="OvirtProxyPrivate*"/>
+      </field>
+    </class>
+    <record name="ProxyClass"
+            c:type="OvirtProxyClass"
+            glib:is-gtype-struct-for="Proxy">
+      <field name="parent_class">
+        <type name="Rest.ProxyClass" c:type="RestProxyClass"/>
+      </field>
+    </record>
+    <enumeration name="ProxyError"
+                 glib:type-name="OvirtProxyError"
+                 glib:get-type="ovirt_proxy_error_get_type"
+                 c:type="OvirtProxyError"
+                 glib:error-domain="ovirt-proxy-error-quark">
+      <member name="parsing_failed"
+              value="0"
+              c:identifier="OVIRT_PROXY_PARSING_FAILED"
+              glib:nick="parsing-failed">
+      </member>
+      <member name="action_failed"
+              value="1"
+              c:identifier="OVIRT_PROXY_ACTION_FAILED"
+              glib:nick="action-failed">
+      </member>
+      <member name="fault"
+              value="2"
+              c:identifier="OVIRT_PROXY_FAULT"
+              glib:nick="fault">
+      </member>
+      <function name="quark" c:identifier="ovirt_proxy_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="ProxyPrivate" c:type="OvirtProxyPrivate" disguised="1">
+    </record>
+    <enumeration name="RestCallError"
+                 glib:type-name="OvirtRestCallError"
+                 glib:get-type="ovirt_rest_call_error_get_type"
+                 c:type="OvirtRestCallError"
+                 glib:error-domain="ovirt-rest-call">
+      <member name="xml"
+              value="0"
+              c:identifier="OVIRT_REST_CALL_ERROR_XML"
+              glib:nick="xml">
+      </member>
+      <function name="quark" c:identifier="ovirt_rest_call_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="Vm"
+           c:symbol-prefix="vm"
+           c:type="OvirtVm"
+           parent="GObject.Object"
+           glib:type-name="OvirtVm"
+           glib:get-type="ovirt_vm_get_type"
+           glib:type-struct="VmClass">
+      <constructor name="new" c:identifier="ovirt_vm_new">
+        <return-value transfer-ownership="full">
+          <type name="Vm" c:type="OvirtVm*"/>
+        </return-value>
+      </constructor>
+      <method name="get_ticket" c:identifier="ovirt_vm_get_ticket" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_ticket_async" c:identifier="ovirt_vm_get_ticket_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_ticket_finish"
+              c:identifier="ovirt_vm_get_ticket_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="ovirt_vm_start" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_async" c:identifier="ovirt_vm_start_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_finish"
+              c:identifier="ovirt_vm_start_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="ovirt_vm_stop" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_async" c:identifier="ovirt_vm_stop_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="proxy" transfer-ownership="none">
+            <type name="Proxy" c:type="OvirtProxy*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_finish"
+              c:identifier="ovirt_vm_stop_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display" writable="1" transfer-ownership="none">
+        <type name="VmDisplay"/>
+      </property>
+      <property name="href" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="state" writable="1" transfer-ownership="none">
+        <type name="VmState"/>
+      </property>
+      <property name="uuid" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="VmPrivate" c:type="OvirtVmPrivate*"/>
+      </field>
+    </class>
+    <record name="VmClass" c:type="OvirtVmClass" glib:is-gtype-struct-for="Vm">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="20">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="VmDisplay"
+           c:symbol-prefix="vm_display"
+           c:type="OvirtVmDisplay"
+           parent="GObject.Object"
+           glib:type-name="OvirtVmDisplay"
+           glib:get-type="ovirt_vm_display_get_type"
+           glib:type-struct="VmDisplayClass">
+      <constructor name="new" c:identifier="ovirt_vm_display_new">
+        <return-value transfer-ownership="full">
+          <type name="VmDisplay" c:type="OvirtVmDisplay*"/>
+        </return-value>
+      </constructor>
+      <property name="address" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="expiry" writable="1" transfer-ownership="none">
+        <type name="guint"/>
+      </property>
+      <property name="monitor-count" writable="1" transfer-ownership="none">
+        <type name="guint"/>
+      </property>
+      <property name="port" writable="1" transfer-ownership="none">
+        <type name="guint"/>
+      </property>
+      <property name="secure-port" writable="1" transfer-ownership="none">
+        <type name="guint"/>
+      </property>
+      <property name="ticket" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="type" writable="1" transfer-ownership="none">
+        <type name="VmDisplayType"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="VmDisplayPrivate" c:type="OvirtVmDisplayPrivate*"/>
+      </field>
+    </class>
+    <record name="VmDisplayClass"
+            c:type="OvirtVmDisplayClass"
+            glib:is-gtype-struct-for="VmDisplay">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="20">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="VmDisplayPrivate"
+            c:type="OvirtVmDisplayPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="VmDisplayType"
+                 glib:type-name="OvirtVmDisplayType"
+                 glib:get-type="ovirt_vm_display_type_get_type"
+                 c:type="OvirtVmDisplayType">
+      <member name="spice"
+              value="0"
+              c:identifier="OVIRT_VM_DISPLAY_SPICE"
+              glib:nick="spice">
+      </member>
+      <member name="vnc"
+              value="1"
+              c:identifier="OVIRT_VM_DISPLAY_VNC"
+              glib:nick="vnc">
+      </member>
+    </enumeration>
+    <record name="VmPrivate" c:type="OvirtVmPrivate" disguised="1">
+    </record>
+    <enumeration name="VmState"
+                 glib:type-name="OvirtVmState"
+                 glib:get-type="ovirt_vm_state_get_type"
+                 c:type="OvirtVmState">
+      <member name="down"
+              value="0"
+              c:identifier="OVIRT_VM_STATE_DOWN"
+              glib:nick="down">
+      </member>
+      <member name="up"
+              value="1"
+              c:identifier="OVIRT_VM_STATE_UP"
+              glib:nick="up">
+      </member>
+      <member name="rebooting"
+              value="2"
+              c:identifier="OVIRT_VM_STATE_REBOOTING"
+              glib:nick="rebooting">
+      </member>
+    </enumeration>
+    <function name="proxy_error_quark"
+              c:identifier="ovirt_proxy_error_quark"
+              moved-to="ProxyError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="rest_call_error_quark"
+              c:identifier="ovirt_rest_call_error_quark"
+              moved-to="RestCallError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

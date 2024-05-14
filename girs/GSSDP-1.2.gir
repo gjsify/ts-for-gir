@@ -1,0 +1,1940 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Soup" version="2.4"/>
+  <package name="gssdp-1.2"/>
+  <c:include name="libgssdp/gssdp.h"/>
+  <namespace name="GSSDP"
+             version="1.2"
+             shared-library="libgssdp-1.2.so.0"
+             c:identifier-prefixes="GSSDP"
+             c:symbol-prefixes="gssdp">
+    <constant name="ALL_RESOURCES"
+              value="ssdp:all"
+              c:type="GSSDP_ALL_RESOURCES">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-resource-browser.h"
+           line="50">SSDP search target for finding all possible resources.</doc>
+      <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                       line="55"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="GSSDPClient"
+           parent="GObject.Object"
+           glib:type-name="GSSDPClient"
+           glib:get-type="gssdp_client_get_type"
+           glib:type-struct="ClientClass">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-client.c"
+           line="86">A simple SSDP bus handler.
+
+The [class@GSSDP.Client] will usually be used by the [class@GSSDP.ResourceGroup]
+for announcing or the [class@GSSDP.ResourceBrowser] for finding resources on the network.
+
+A GSSDPClient is required per IP address that you want to use, even if those
+belong t the same network device.</doc>
+      <source-position filename="../libgssdp/gssdp-client.h" line="48"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gssdp_client_new" throws="1">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="734">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
+suitable for using.
+
+Using this utility function, the created client will be using UDA 1.0 and IPv4 only.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="51"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="744">A new #GSSDPClient object.</doc>
+          <type name="Client" c:type="GSSDPClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="iface"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="736">The name of the network interface, or %NULL for auto-detection.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_port"
+                   c:identifier="gssdp_client_new_with_port"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="756">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
+suitable for using.
+
+Using this utility function, the created client will be using UDA 1.0 and IPv4 only.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="55"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="769">A new #GSSDPClient object or %NULL on error.</doc>
+          <type name="Client" c:type="GSSDPClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="iface"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="758">The name of the network interface, or %NULL for
+auto-detection.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="msearch_port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="760">The network port to use for M-SEARCH requests or 0 for
+random.</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_cache_entry"
+              c:identifier="gssdp_client_add_cache_entry">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="897">Add @user_agent for @ip_address.
+
+Each [class@GSSDP.Client] maintains a mapping of addresses
+(MAC on systems that support it, IP addresses otherwise) to User Agents.
+
+This information can be used in higher layers to get an User-Agent for
+devices that do not set the User-Agent header in their SOAP requests.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="899">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="ip_address" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="900">The host to add to the cache</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="user_agent" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="901">User agent ot the host to add</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="append_header" c:identifier="gssdp_client_append_header">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1038">Adds a header field to the messages sent by this @client. It is intended to
+be used by clients requiring vendor specific header fields.
+
+If there is an existing header with @name it will append another one.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1040">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1041">Header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1042">Header value</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_reach"
+              c:identifier="gssdp_client_can_reach"
+              version="1.2.4">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1271">Check if the peer at @address is reachable using this @client.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1279">%TRUE if considered reachable, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1273">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="address" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1274">A #GInetSocketAddress of the target. The port part of the address may be 0</doc>
+            <type name="Gio.InetSocketAddress" c:type="GInetSocketAddress*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear_headers" c:identifier="gssdp_client_clear_headers">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1101">Removes all the headers for this @client.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1103">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active"
+              c:identifier="gssdp_client_get_active"
+              glib:get-property="active">
+        <attribute name="org.gtk.Method.get_property" value="active"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="991">Get the current state of the client. See [property@GSSDP.Client:active] for details.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="997">%TRUE if @client is active, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="993">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_address" c:identifier="gssdp_client_get_address">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1131">The IP address this client works on.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1137">The #GInetAddress this client works on</doc>
+          <type name="Gio.InetAddress" c:type="GInetAddress*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1133">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_address_mask"
+              c:identifier="gssdp_client_get_address_mask"
+              version="1.2.3">
+        <attribute name="org.gtk.Method.get_property" value="host-mask"/>
+        <source-position filename="../libgssdp/gssdp-client.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1185">Address mask of this client</doc>
+          <type name="Gio.InetAddressMask" c:type="GInetAddressMask*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1181">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_family" c:identifier="gssdp_client_get_family">
+        <attribute name="org.gtk.Method.get_property" value="address-family"/>
+        <source-position filename="../libgssdp/gssdp-client.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1167">IP protocol version (%G_SOCKET_FAMILY_IPV4 or G_SOCKET_FAMILY_IPV6)
+this client uses</doc>
+          <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1165">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_host_ip"
+              c:identifier="gssdp_client_get_host_ip"
+              glib:get-property="host-ip">
+        <attribute name="org.gtk.Method.get_property" value="host-ip"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="850">Get the IP address we advertise ourselves as using.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="856">The IP address. This string should not be freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="852">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_index" c:identifier="gssdp_client_get_index">
+        <source-position filename="../libgssdp/gssdp-client.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1152">The interface index of this client</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1150">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_interface"
+              c:identifier="gssdp_client_get_interface"
+              glib:get-property="interface">
+        <attribute name="org.gtk.Method.get_property" value="interface"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="830">Get the name of the network interface associated to @client.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="836">The network interface name. This string should not be freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="832">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_network"
+              c:identifier="gssdp_client_get_network"
+              glib:get-property="network">
+        <attribute name="org.gtk.Method.get_property" value="network"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="971">Get the network identifier of the client. See [property@GSSDP.Client:network]
+for  details.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="978">The network identification. This string should not be freed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="973">A [class@GSSDP.Client]</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_server_id"
+              c:identifier="gssdp_client_get_server_id"
+              glib:get-property="server-id">
+        <attribute name="org.gtk.Method.get_property" value="server-id"/>
+        <source-position filename="../libgssdp/gssdp-client.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="817">The server ID.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="815">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uda_version"
+              c:identifier="gssdp_client_get_uda_version"
+              glib:get-property="uda-version">
+        <attribute name="org.gtk.Method.get_property" value="uda-version"/>
+        <source-position filename="../libgssdp/gssdp-client.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="1201">the UDA protocol version this client adheres to</doc>
+          <type name="UDAVersion" c:type="GSSDPUDAVersion"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1199">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="guess_user_agent"
+              c:identifier="gssdp_client_guess_user_agent">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="934">Try to get a User-Agent for @ip_address.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-client.c"
+               line="941">The User-Agent cached for this IP, %NULL if none
+is cached.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="936">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="ip_address" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="937">IP address to guess the user-agent for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_header" c:identifier="gssdp_client_remove_header">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1069">Removes @name from the list of headers. If there are multiple values for
+@name, they are all removed.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1071">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1072">Header name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_boot_id"
+              c:identifier="gssdp_client_set_boot_id"
+              glib:set-property="boot-id">
+        <attribute name="org.gtk.Method.set_property" value="boot-id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1212">Will set the new boot-id for this SSDP client. Does nothing if the UDA
+version used by the client is UDA 1.0
+
+The boot-id is used to signalize changes in the network configuration
+for multi-homed hosts</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1214">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="boot_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1215">The new boot-id for the client</doc>
+            <type name="gint32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_config_id"
+              c:identifier="gssdp_client_set_config_id"
+              glib:set-property="config-id">
+        <attribute name="org.gtk.Method.set_property" value="config-id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="1244">The config-id is used to allow caching of the device or service description.
+It should be changed if that changes.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1246">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="config_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="1247">The new config-id for the client</doc>
+            <type name="gint32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_network"
+              c:identifier="gssdp_client_set_network"
+              glib:set-property="network">
+        <attribute name="org.gtk.Method.set_property" value="network"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="873">Sets the network identification of @client to @network.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="875">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="network" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="876">The string identifying the network</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_server_id"
+              c:identifier="gssdp_client_set_server_id"
+              glib:set-property="server-id">
+        <attribute name="org.gtk.Method.set_property" value="server-id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="784">Sets the server ID of @client to @server_id. This string is used as the
+"Server:" identification header for SSDP discovery and response packets
+and "User-Agent" header for searches.
+
+By default, GSSDP will generate a header conforming to the requirements
+defined in the UDA documents: OS/Version UPnP/Version GSSDP/Version.</doc>
+        <source-position filename="../libgssdp/gssdp-client.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="786">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+          <parameter name="server_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="787">The server ID</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_active">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_active"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="558">Whether this client is active or not (passive). When active
+(default), the client sends messages on the network, otherwise
+not. In most cases, you don't want to touch this property.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="address-family"
+                version="1.2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_family"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="619">The IP protocol address family this client works on. When specified
+during construction without giving a concrete address, it will be
+used to determine the proper address.
+
+If not specified, will contain the currrent address family after
+the call to g_initable_init()&lt;!-- --&gt;. Use %G_SOCKET_FAMILY_INVALID
+to specifiy using the default socket family (legacy IP)</doc>
+        <type name="Gio.SocketFamily"/>
+      </property>
+      <property name="boot-id"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_boot_id">
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_client_set_boot_id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="665">The value of the BOOTID.UPNP.ORG header
+
+Since 1.2.0</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="config-id"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_config_id">
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_client_set_config_id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="686">The value of the CONFIGID.UPNP.ORG header
+
+Since 1.2.0</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="host-ip"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                getter="get_host_ip">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_host_ip"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="522">The IP address of the assoicated network interface.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="host-mask"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_address_mask"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="541">The network mask of the assoicated network interface.</doc>
+        <type name="Gio.InetAddressMask"/>
+      </property>
+      <property name="interface"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_interface">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_interface"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="478">The name of the network interface this client is associated with.
+Set to NULL to autodetect.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="msearch-port"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="599">UDP port to use for sending multicast M-SEARCH requests on the
+network. If not set (or set to 0) a random port will be used.
+This property can be only set during object construction.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="network"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_network"
+                getter="get_network">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_network"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="498">The network this client is currently connected to. You could set this
+to anything you want to identify the network this client is
+associated with. If you are using #GUPnPContextManager and associated
+interface is a WiFi interface, this property is set to the ESSID of
+the network. Otherwise, expect this to be the network IP address by
+default.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="server-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_server_id"
+                getter="get_server_id">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_server_id"/>
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_client_set_server_id"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="461">The SSDP server's identifier.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="socket-ttl"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="579">Time-to-live value to use for all sockets created by this client.
+If not set (or set to 0) the value recommended by UPnP will be used.
+This property can only be set during object construction.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="uda-version"
+                version="1.2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_uda_version">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_client_get_uda_version"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="645">The UPnP version the client adheres to.</doc>
+        <type name="UDAVersion"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="message-received"
+                   when="last"
+                   introspectable="0"
+                   stability="Private">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.c"
+             line="707">Internal signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="from_ip" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="710">The IP address of the source.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="from_port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="711">The UDP port used by the sender.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="712">The #_GSSDPMessageType.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="headers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-client.c"
+                 line="713">Parsed #SoupMessageHeaders from the message.</doc>
+            <type name="Soup.MessageHeaders"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="GSSDPClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="../libgssdp/gssdp-client.h" line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_gssdp_reserved1" introspectable="0">
+        <callback name="_gssdp_reserved1">
+          <source-position filename="../libgssdp/gssdp-client.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved2" introspectable="0">
+        <callback name="_gssdp_reserved2">
+          <source-position filename="../libgssdp/gssdp-client.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved3" introspectable="0">
+        <callback name="_gssdp_reserved3">
+          <source-position filename="../libgssdp/gssdp-client.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved4" introspectable="0">
+        <callback name="_gssdp_reserved4">
+          <source-position filename="../libgssdp/gssdp-client.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="Error"
+                 glib:type-name="GSSDPError"
+                 glib:get-type="gssdp_error_get_type"
+                 c:type="GSSDPError"
+                 glib:error-domain="gssdp-error">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-error.h"
+           line="22">Error used in client creation.</doc>
+      <member name="no_ip_address"
+              value="0"
+              c:identifier="GSSDP_ERROR_NO_IP_ADDRESS"
+              glib:nick="no-ip-address"
+              glib:name="GSSDP_ERROR_NO_IP_ADDRESS">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-error.h"
+             line="24">GSSDP could not find a valid IP address of a
+#GSSDPClient.</doc>
+      </member>
+      <member name="failed"
+              value="1"
+              c:identifier="GSSDP_ERROR_FAILED"
+              glib:nick="failed"
+              glib:name="GSSDP_ERROR_FAILED">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-error.h"
+             line="26">Unknown error.</doc>
+      </member>
+      <function name="quark" c:identifier="gssdp_error_quark">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-error.c"
+               line="15">a #GQuark uniquely used by GSSDP's errors.</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="ResourceBrowser"
+           c:symbol-prefix="resource_browser"
+           c:type="GSSDPResourceBrowser"
+           parent="GObject.Object"
+           glib:type-name="GSSDPResourceBrowser"
+           glib:get-type="gssdp_resource_browser_get_type"
+           glib:type-struct="ResourceBrowserClass">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-resource-browser.c"
+           line="238">Class handling resource discovery.
+
+After creating a browser
+and activating it, the [signal@GSSDP.ResourceBrowser::resource-available] and
+[signal@GSSDP.ResourceBrowser::resource-unavailable] signals will be emitted
+whenever the availability of a resource matching the specified discovery target
+changes. A discovery request is sent out automatically when activating the browser.
+
+If the associated [class@GSSDP.Client] was configured to support UDA 1.1, it
+will also emit the [signal@GSSDP.ResourceBrowser::resource-update] if any of
+the UDA 1.1 devices on the nework annouced its upcoming BOOTID change.</doc>
+      <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                       line="48"/>
+      <constructor name="new" c:identifier="gssdp_resource_browser_new">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="407">Create a new resource browser for @target.
+
+@target is a generic string the resource browser listens for on the SSDP
+bus. There are several possible targets such as
+
+- `ssdp:all` for everything that is announced using SSDP
+- `upnp:rootdevice` for UPnP device entry points, not caring about
+  a special device type
+- The UUID of a specific device
+- Device types, such as `urn:schemas-upnp-org:device:MediaServer:1`
+- Service types, such as `urn:schemas-upnp-org:service:ContentDirectory:1`</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="424">A new #GSSDPResourceBrowser object.</doc>
+          <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="409">The #GSSDPClient to associate with</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="410">A SSDP search target</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="resource_available" introspectable="0">
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="usn" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="locations" transfer-ownership="none">
+            <type name="GLib.List" c:type="const GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="resource_unavailable">
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="usn" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="resource_update">
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="usn" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="boot_id" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="next_boot_id" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_active"
+              c:identifier="gssdp_resource_browser_get_active"
+              glib:get-property="active">
+        <attribute name="org.gtk.Method.get_property" value="active"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="641">Get whether the browser is currently active.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="647">%TRUE if @resource_browser is active.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="643">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_client"
+              c:identifier="gssdp_resource_browser_get_client"
+              glib:get-property="client">
+        <attribute name="org.gtk.Method.get_property" value="client"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="462">Get the GSSDPClient this resource browser is using for SSDP.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="468">The #GSSDPClient @resource_browser is associated with.</doc>
+          <type name="Client" c:type="GSSDPClient*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="464">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mx"
+              c:identifier="gssdp_resource_browser_get_mx"
+              glib:get-property="mx">
+        <attribute name="org.gtk.Method.get_property" value="mx"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="589">Get the current MX value.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="595">The used MX value.</doc>
+          <type name="gushort" c:type="gushort"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="591">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_target"
+              c:identifier="gssdp_resource_browser_get_target"
+              glib:get-property="target">
+        <attribute name="org.gtk.Method.get_property" value="target"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="545">Get the current browse target.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="551">The browser target.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="547">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="rescan" c:identifier="gssdp_resource_browser_rescan">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="661">Begins discovery if @resource_browser is active and no discovery is
+performed. Otherwise does nothing.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-browser.c"
+               line="668">%TRUE if rescaning has been started.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="663">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active"
+              c:identifier="gssdp_resource_browser_set_active"
+              glib:set-property="active">
+        <attribute name="org.gtk.Method.set_property" value="active"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="609">(De)activates @resource_browser.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="611">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="active" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="612">%TRUE to activate @resource_browser</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mx"
+              c:identifier="gssdp_resource_browser_set_mx"
+              glib:set-property="mx">
+        <attribute name="org.gtk.Method.set_property" value="mx"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="564">Sets the used MX value of @resource_browser to @mx.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="566">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="mx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="567">The to be used MX value</doc>
+            <type name="gushort" c:type="gushort"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_target"
+              c:identifier="gssdp_resource_browser_set_target"
+              glib:set-property="target">
+        <attribute name="org.gtk.Method.set_property" value="target"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="483">Sets the browser target of @resource_browser to @target.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_browser"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="485">A #GSSDPResourceBrowser</doc>
+            <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+          </instance-parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="486">The browser target</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_active"
+                getter="get_active">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_browser_get_active"/>
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_resource_browser_set_active"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="320">Whether this browser is active or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="client"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_client">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_browser_get_client"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="265">The [class@GSSDP.Client] to use for listening to SSDP messages</doc>
+        <type name="Client"/>
+      </property>
+      <property name="mx"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_mx"
+                getter="get_mx">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_browser_get_mx"/>
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_resource_browser_set_mx"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="299">The maximum number of seconds in which to request other parties
+to respond.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="target"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_target"
+                getter="get_target">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_browser_get_target"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="282">The discovery target this resource browser is looking for.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="resource-available" when="last">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="337">The ::resource-available signal is emitted whenever a new resource
+has become available.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="usn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="341">The USN of the discovered resource</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="locations" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="342">A [struct@GLib.List] of strings describing the locations of the
+discovered resource.</doc>
+            <type name="GLib.List" c:type="gpointer">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="resource-unavailable" when="last">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="360">The ::resource-unavailable signal is emitted whenever a resource
+is not available any more.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="usn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="364">The USN of the resource</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="resource-update" when="last" version="1.2.0">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-browser.c"
+             line="380">The ::resource-update signal is emitted whenever an UPnP 1.1
+device is about to change it's BOOTID.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="usn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="384">The USN of the resource</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="boot_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="385">The current boot-id</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="next_boot_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-browser.c"
+                 line="386">The next boot-id</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ResourceBrowserClass"
+            c:type="GSSDPResourceBrowserClass"
+            glib:is-gtype-struct-for="ResourceBrowser">
+      <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                       line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="resource_available" introspectable="0">
+        <callback name="resource_available" introspectable="0">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="31"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="resource_browser" transfer-ownership="none">
+              <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+            </parameter>
+            <parameter name="usn" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="locations" transfer-ownership="none">
+              <type name="GLib.List" c:type="const GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="resource_update">
+        <callback name="resource_update">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="resource_browser" transfer-ownership="none">
+              <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+            </parameter>
+            <parameter name="usn" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="boot_id" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="next_boot_id" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="resource_unavailable">
+        <callback name="resource_unavailable">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="resource_browser" transfer-ownership="none">
+              <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
+            </parameter>
+            <parameter name="usn" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved1" introspectable="0">
+        <callback name="_gssdp_reserved1">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved2" introspectable="0">
+        <callback name="_gssdp_reserved2">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved3" introspectable="0">
+        <callback name="_gssdp_reserved3">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved4" introspectable="0">
+        <callback name="_gssdp_reserved4">
+          <source-position filename="../libgssdp/gssdp-resource-browser.h"
+                           line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="ResourceGroup"
+           c:symbol-prefix="resource_group"
+           c:type="GSSDPResourceGroup"
+           parent="GObject.Object"
+           glib:type-name="GSSDPResourceGroup"
+           glib:get-type="gssdp_resource_group_get_type"
+           glib:type-struct="ResourceGroupClass">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-resource-group.c"
+           line="255">Class for controlling resource announcement.
+
+A #GSSDPResourceGroup is a group of SSDP resources whose availability can
+be controlled as one. This is useful when one needs to announce a single
+service as multiple SSDP resources (UPnP does this for example).</doc>
+      <source-position filename="../libgssdp/gssdp-resource-group.h"
+                       line="34"/>
+      <constructor name="new" c:identifier="gssdp_resource_group_new">
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="356">A new #GSSDPResourceGroup object.</doc>
+          <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="354">The #GSSDPClient to associate with</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_resource"
+              c:identifier="gssdp_resource_group_add_resource">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="610">Add an additional resource to announce in this resource group.
+
+Adds a resource with target @target, USN @usn, and locations @locations
+to @resource_group. If the resource group is set [property@GSSDP.ResourceGroup:available],
+it will be announced right away.
+
+If your resource only has one location, you can use [method@GSSDP.ResourceGroup.add_resource_simple]
+instead.
+
+The resource id that is returned by this function can be used with
+[method@GSSDP.ResourceGroup.remove_resource].</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="629">The ID of the added resource.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="612">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="613">The resource's target</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="usn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="614">The resource's USN</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="locations" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="615">A #GList of the resource's locations</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_resource_simple"
+              c:identifier="gssdp_resource_group_add_resource_simple">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="683">Adds a resource with target @target, USN @usn, and location @location
+to @resource_group. If the resource group is set [property@GSSDP.ResourceGroup:available],
+it will be announced right away.
+
+The resource id that is returned by this function can be used with
+[method@GSSDP.ResourceGroup.remove_resource].</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="697">The ID of the added resource.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="685">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="686">The resource's target</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="usn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="687">The resource's USN</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="688">The resource's location</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_available"
+              c:identifier="gssdp_resource_group_get_available"
+              glib:get-property="available">
+        <attribute name="org.gtk.Method.get_property" value="available"/>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="597">TRUE if @resource_group is available (advertised).</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="595">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_client"
+              c:identifier="gssdp_resource_group_get_client"
+              glib:get-property="client">
+        <attribute name="org.gtk.Method.get_property" value="client"/>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="395">The #GSSDPClient @resource_group is associated with.</doc>
+          <type name="Client" c:type="GSSDPClient*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="393">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_age"
+              c:identifier="gssdp_resource_group_get_max_age"
+              glib:get-property="max-age">
+        <attribute name="org.gtk.Method.get_property" value="max-age"/>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="437">The number of seconds advertisements are valid.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="435">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_message_delay"
+              c:identifier="gssdp_resource_group_get_message_delay"
+              glib:get-property="message-delay">
+        <attribute name="org.gtk.Method.get_property" value="message-delay"/>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../libgssdp/gssdp-resource-group.c"
+               line="478">the minimum time between each SSDP message in ms.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="476">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_resource"
+              c:identifier="gssdp_resource_group_remove_resource">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="714">Removes the resource with ID @resource_id from @resource_group.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="716">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="resource_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="717">The ID of the resource to remove</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_available"
+              c:identifier="gssdp_resource_group_set_available"
+              glib:set-property="available">
+        <attribute name="org.gtk.Method.set_property" value="available"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="545">Sets @resource_group&lt;!-- --&gt;s availability to @available. Changing
+@resource_group&lt;!-- --&gt;s availability causes it to announce its new state
+to listening SSDP clients.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="547">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="available" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="548">%TRUE if @resource_group should be available (advertised)</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_age"
+              c:identifier="gssdp_resource_group_set_max_age"
+              glib:set-property="max-age">
+        <attribute name="org.gtk.Method.set_property" value="max-age"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="409">Sets the number of seconds advertisements are valid to @max_age.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="411">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="max_age" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="412">The number of seconds advertisements are valid</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_message_delay"
+              c:identifier="gssdp_resource_group_set_message_delay"
+              glib:set-property="message-delay">
+        <attribute name="org.gtk.Method.set_property" value="message-delay"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="450">Sets the minimum time between each SSDP message.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="452">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="message_delay" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="453">The message delay in ms.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update"
+              c:identifier="gssdp_resource_group_update"
+              version="1.2.0">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="783">Send an `ssdp::update` message if the underlying `GSSDPClient` is running
+the UDA 1.1 protocol. Does nothing otherwise.</doc>
+        <source-position filename="../libgssdp/gssdp-resource-group.h"
+                         line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="785">A #GSSDPResourceGroup</doc>
+            <type name="ResourceGroup" c:type="GSSDPResourceGroup*"/>
+          </instance-parameter>
+          <parameter name="new_boot_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../libgssdp/gssdp-resource-group.c"
+                 line="786">The new boot id of the device</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="available"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_available"
+                getter="get_available">
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_resource_group_set_available"/>
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_group_get_available"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="312">Whether this group of resources is available or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="client"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_client">
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_group_get_client"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="276">The #GSSDPClient to use.</doc>
+        <type name="Client"/>
+      </property>
+      <property name="max-age"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_max_age"
+                getter="get_max_age">
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_resource_group_set_max_age"/>
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_group_get_max_age"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="293">The number of seconds our advertisements are valid.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="message-delay"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_message_delay"
+                getter="get_message_delay">
+        <attribute name="org.gtk.Property.set"
+                   value="gssdp_resource_group_set_message_delay"/>
+        <attribute name="org.gtk.Property.get"
+                   value="gssdp_resource_group_get_message_delay"/>
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-resource-group.c"
+             line="330">The minimum number of milliseconds between SSDP messages.
+The default is 120 based on DLNA specification.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ResourceGroupClass"
+            c:type="GSSDPResourceGroupClass"
+            glib:is-gtype-struct-for="ResourceGroup">
+      <source-position filename="../libgssdp/gssdp-resource-group.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_gssdp_reserved1" introspectable="0">
+        <callback name="_gssdp_reserved1">
+          <source-position filename="../libgssdp/gssdp-resource-group.h"
+                           line="30"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved2" introspectable="0">
+        <callback name="_gssdp_reserved2">
+          <source-position filename="../libgssdp/gssdp-resource-group.h"
+                           line="31"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved3" introspectable="0">
+        <callback name="_gssdp_reserved3">
+          <source-position filename="../libgssdp/gssdp-resource-group.h"
+                           line="32"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gssdp_reserved4" introspectable="0">
+        <callback name="_gssdp_reserved4">
+          <source-position filename="../libgssdp/gssdp-resource-group.h"
+                           line="33"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="UDAVersion"
+                 glib:type-name="GSSDPUDAVersion"
+                 glib:get-type="gssdp_uda_version_get_type"
+                 c:type="GSSDPUDAVersion">
+      <doc xml:space="preserve"
+           filename="../libgssdp/gssdp-client.h"
+           line="25">Implemented behavior of the UDA (Unified Device Architecture) protocol.</doc>
+      <member name="version_unspecified"
+              value="0"
+              c:identifier="GSSDP_UDA_VERSION_UNSPECIFIED"
+              glib:nick="version-unspecified"
+              glib:name="GSSDP_UDA_VERSION_UNSPECIFIED">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.h"
+             line="27">When creating a client, use the default version</doc>
+      </member>
+      <member name="version_1_0"
+              value="1"
+              c:identifier="GSSDP_UDA_VERSION_1_0"
+              glib:nick="version-1-0"
+              glib:name="GSSDP_UDA_VERSION_1_0">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.h"
+             line="28">Use Version 1.0 of the UDA specification (UPnP/1.0)</doc>
+      </member>
+      <member name="version_1_1"
+              value="2"
+              c:identifier="GSSDP_UDA_VERSION_1_1"
+              glib:nick="version-1-1"
+              glib:name="GSSDP_UDA_VERSION_1_1">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-client.h"
+             line="29">Use Version 1.1 of the UDA specification (UPnP/1.1)</doc>
+      </member>
+    </enumeration>
+    <function name="error_quark"
+              c:identifier="gssdp_error_quark"
+              moved-to="Error.quark">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../libgssdp/gssdp-error.c"
+             line="15">a #GQuark uniquely used by GSSDP's errors.</doc>
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

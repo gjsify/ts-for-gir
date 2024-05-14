@@ -1,0 +1,3818 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <include name="GtkSource" version="3.0"/>
+  <package name="gtef-2"/>
+  <c:include name="gtef/gtef.h"/>
+  <namespace name="Gtef"
+             version="2"
+             shared-library="libgtef-2.so.0"
+             c:identifier-prefixes="Gtef"
+             c:symbol-prefixes="gtef">
+    <record name="ActionInfo"
+            c:type="GtefActionInfo"
+            glib:type-name="GtefActionInfo"
+            glib:get-type="gtef_action_info_get_type"
+            c:symbol-prefix="action_info">
+      <constructor name="new"
+                   c:identifier="gtef_action_info_new"
+                   version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefActionInfo.</doc>
+          <type name="ActionInfo" c:type="GtefActionInfo*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_entry"
+                   c:identifier="gtef_action_info_new_from_entry"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefActionInfo from a #GtefActionInfoEntry.
+
+If @translation_domain is not %NULL, g_dgettext() is used to translate the
+@label and @tooltip before setting them to the #GtefActionInfo.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefActionInfo.</doc>
+          <type name="ActionInfo" c:type="GtefActionInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="info_entry" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoEntry.</doc>
+            <type name="ActionInfoEntry" c:type="const GtefActionInfoEntry*"/>
+          </parameter>
+          <parameter name="translation_domain"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a gettext domain, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy" c:identifier="gtef_action_info_copy" version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a copy of @info. The copy will have a reference
+count of one.</doc>
+          <type name="ActionInfo" c:type="GtefActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_accels"
+              c:identifier="gtef_action_info_get_accels"
+              version="2.0">
+        <doc xml:space="preserve">Returns the accelerators. This function never returns %NULL, it always
+returns a %NULL-terminated array, to be suitable for
+gtk_application_set_accels_for_action().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a %NULL-terminated array
+of accelerators in the format understood by gtk_accelerator_parse().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action_name"
+              c:identifier="gtef_action_info_get_action_name"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the action name, or %NULL. Example: `"win.save"`.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="gtef_action_info_get_icon_name"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the icon name, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label"
+              c:identifier="gtef_action_info_get_label"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the label (i.e. a short description), or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tooltip"
+              c:identifier="gtef_action_info_get_tooltip"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="gtef_action_info_ref" version="2.0">
+        <doc xml:space="preserve">Increments the reference count of @info by one.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the passed in @info.</doc>
+          <type name="ActionInfo" c:type="GtefActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_accels"
+              c:identifier="gtef_action_info_set_accels"
+              version="2.0">
+        <doc xml:space="preserve">A function similar to gtk_application_set_accels_for_action().
+
+@accels must not be %NULL, it must be a %NULL-terminated array, to be
+consistent with gtk_application_set_accels_for_action().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+          <parameter name="accels" transfer-ownership="none">
+            <doc xml:space="preserve">a %NULL-terminated array of accelerators
+in the format understood by gtk_accelerator_parse().</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_action_name"
+              c:identifier="gtef_action_info_set_action_name"
+              version="2.0">
+        <doc xml:space="preserve">Sets the action name, for example `"win.save"`.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">the action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="gtef_action_info_set_icon_name"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+          <parameter name="icon_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the icon name, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label"
+              c:identifier="gtef_action_info_set_label"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the label (i.e. a short description), or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_tooltip"
+              c:identifier="gtef_action_info_set_tooltip"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+          <parameter name="tooltip"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="gtef_action_info_unref" version="2.0">
+        <doc xml:space="preserve">Decrements the reference count of @info by one. If the reference count drops
+to 0, @info is freed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <class name="ActionInfoCentralStore"
+           c:symbol-prefix="action_info_central_store"
+           c:type="GtefActionInfoCentralStore"
+           parent="GObject.Object"
+           glib:type-name="GtefActionInfoCentralStore"
+           glib:get-type="gtef_action_info_central_store_get_type"
+           glib:type-struct="ActionInfoCentralStoreClass">
+      <function name="get_instance"
+                c:identifier="gtef_action_info_central_store_get_instance"
+                version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefActionInfoCentralStore singleton instance.</doc>
+          <type name="ActionInfoCentralStore"
+                c:type="GtefActionInfoCentralStore*"/>
+        </return-value>
+      </function>
+      <method name="lookup"
+              c:identifier="gtef_action_info_central_store_lookup"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the found #GtefActionInfo, or %NULL.</doc>
+          <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="central_store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoCentralStore.</doc>
+            <type name="ActionInfoCentralStore"
+                  c:type="GtefActionInfoCentralStore*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ActionInfoCentralStorePrivate"
+              c:type="GtefActionInfoCentralStorePrivate*"/>
+      </field>
+    </class>
+    <record name="ActionInfoCentralStoreClass"
+            c:type="GtefActionInfoCentralStoreClass"
+            glib:is-gtype-struct-for="ActionInfoCentralStore">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ActionInfoCentralStorePrivate"
+            c:type="GtefActionInfoCentralStorePrivate"
+            disguised="1">
+    </record>
+    <record name="ActionInfoEntry" c:type="GtefActionInfoEntry" version="2.0">
+      <doc xml:space="preserve">This struct defines a set of information for a single action. It is for use
+with gtef_action_info_store_add_entries().
+
+Like #GActionEntry, it is permissible to use an incomplete initialiser in
+order to leave some of the later values as %NULL. Additional optional fields
+may be added in the future.</doc>
+      <field name="action_name" writable="1">
+        <doc xml:space="preserve">the action name.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="icon_name" writable="1">
+        <doc xml:space="preserve">the icon name, or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="label" writable="1">
+        <doc xml:space="preserve">the label (i.e. a short description), or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="accel" writable="1">
+        <doc xml:space="preserve">the accelerator, in the format understood by gtk_accelerator_parse().
+Or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="tooltip" writable="1">
+        <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="ActionInfoStore"
+           c:symbol-prefix="action_info_store"
+           c:type="GtefActionInfoStore"
+           parent="GObject.Object"
+           glib:type-name="GtefActionInfoStore"
+           glib:get-type="gtef_action_info_store_get_type"
+           glib:type-struct="ActionInfoStoreClass">
+      <constructor name="new"
+                   c:identifier="gtef_action_info_store_new"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefActionInfoStore object. Associating a #GtkApplication is
+optional.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefActionInfoStore.</doc>
+          <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+        </return-value>
+        <parameters>
+          <parameter name="application"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GtkApplication, or %NULL.</doc>
+            <type name="Gtk.Application" c:type="GtkApplication*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add"
+              c:identifier="gtef_action_info_store_add"
+              version="2.0">
+        <doc xml:space="preserve">Inserts @info into @store and into the #GtefActionInfoCentralStore. Both the
+@store and central store must &lt;emphasis&gt;not&lt;/emphasis&gt; already contain a
+#GtefActionInfo with the same action name. The stores take their own
+reference on @info.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfo.</doc>
+            <type name="ActionInfo" c:type="GtefActionInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_entries"
+              c:identifier="gtef_action_info_store_add_entries"
+              version="2.0">
+        <doc xml:space="preserve">Calls gtef_action_info_store_add() for each entry.
+
+If @translation_domain is not %NULL, g_dgettext() is used to translate the
+@label and @tooltip of each entry before setting them to the #GtefActionInfo.
+
+An API similar to g_action_map_add_action_entries().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="entries" transfer-ownership="none">
+            <doc xml:space="preserve">a
+pointer to the first item in an array of #GtefActionInfoEntry structs.</doc>
+            <array length="1"
+                   zero-terminated="0"
+                   c:type="GtefActionInfoEntry*">
+              <type name="ActionInfoEntry"/>
+            </array>
+          </parameter>
+          <parameter name="n_entries" transfer-ownership="none">
+            <doc xml:space="preserve">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="translation_domain"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a gettext domain, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="check_all_used"
+              c:identifier="gtef_action_info_store_check_all_used"
+              version="2.0">
+        <doc xml:space="preserve">Checks that all #GtefActionInfo's of @store have been used by
+gtef_action_info_store_create_menu_item(). If not, a warning is printed and
+might indicate dead code.
+
+You probably want to call this function on the store returned by
+gtef_application_get_app_action_info_store(). But it can also be useful for a
+store provided by a library, to easily see which actions you don't use.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="create_menu_item"
+              c:identifier="gtef_action_info_store_create_menu_item"
+              version="2.0">
+        <doc xml:space="preserve">Creates a new #GtkMenuItem for @action_name. The @store must contain a
+#GtefActionInfo for @action_name.
+
+gtk_actionable_set_action_name() is called on the menu item with
+@action_name. The label is set with the #GtkMenuItem:use-underline property
+enabled. The first accelerator is set to the #GtkAccelLabel of the menu item.
+The icon is set. And the tooltip is set with
+gtef_menu_item_set_long_description().
+
+If #GtefActionInfoStore:application is non-%NULL, this function also calls
+gtk_application_set_accels_for_action() with the accelerators returned by
+gtef_action_info_get_accels() (this will erase previously set accelerators
+for that action, if any).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuItem for @action_name.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_application"
+              c:identifier="gtef_action_info_store_get_application">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the associated #GtkApplication, or
+%NULL.</doc>
+          <type name="Gtk.Application" c:type="GtkApplication*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lookup"
+              c:identifier="gtef_action_info_store_lookup"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the found #GtefActionInfo, or %NULL.</doc>
+          <type name="ActionInfo" c:type="const GtefActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The associated #GtkApplication. #GtefActionInfoStore has a weak
+reference to the #GtkApplication.</doc>
+        <type name="Gtk.Application"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ActionInfoStorePrivate"
+              c:type="GtefActionInfoStorePrivate*"/>
+      </field>
+    </class>
+    <record name="ActionInfoStoreClass"
+            c:type="GtefActionInfoStoreClass"
+            glib:is-gtype-struct-for="ActionInfoStore">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ActionInfoStorePrivate"
+            c:type="GtefActionInfoStorePrivate"
+            disguised="1">
+    </record>
+    <class name="Application"
+           c:symbol-prefix="application"
+           c:type="GtefApplication"
+           parent="GObject.Object"
+           glib:type-name="GtefApplication"
+           glib:get-type="gtef_application_get_type"
+           glib:type-struct="ApplicationClass">
+      <function name="get_default"
+                c:identifier="gtef_application_get_default"
+                version="2.0">
+        <doc xml:space="preserve">Convenience function that calls g_application_get_default() followed by
+gtef_application_get_from_gtk_application(). The object returned by
+g_application_get_default() must be a #GtkApplication.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the default #GtefApplication.</doc>
+          <type name="Application" c:type="GtefApplication*"/>
+        </return-value>
+      </function>
+      <function name="get_from_gtk_application"
+                c:identifier="gtef_application_get_from_gtk_application"
+                version="2.0">
+        <doc xml:space="preserve">Returns the #GtefApplication of @gtk_app. The returned object is guaranteed
+to be the same for the lifetime of @gtk_app.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefApplication of @gtk_app.</doc>
+          <type name="Application" c:type="GtefApplication*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gtk_app" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkApplication.</doc>
+            <type name="Gtk.Application" c:type="GtkApplication*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_app_action_info_store"
+              c:identifier="gtef_application_get_app_action_info_store"
+              version="2.0">
+        <doc xml:space="preserve">Returns an initially empty #GtefActionInfoStore reserved for the
+application-specific actions. Libraries should not add #GtefActionInfo's to
+this store. Libraries should provide their own store if they want to share
+#GtefActionInfo's.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefActionInfoStore reserved for the
+application.</doc>
+          <type name="ActionInfoStore" c:type="GtefActionInfoStore*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_app" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplication.</doc>
+            <type name="Application" c:type="GtefApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application"
+              c:identifier="gtef_application_get_application"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtkApplication of @gtef_app.</doc>
+          <type name="Gtk.Application" c:type="GtkApplication*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_app" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplication.</doc>
+            <type name="Application" c:type="GtefApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="open_simple"
+              c:identifier="gtef_application_open_simple"
+              version="2.0">
+        <doc xml:space="preserve">Calls g_application_open() with a single file and an empty hint.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_app" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplication.</doc>
+            <type name="Application" c:type="GtefApplication*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GFile.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkApplication.</doc>
+        <type name="Gtk.Application"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ApplicationPrivate" c:type="GtefApplicationPrivate*"/>
+      </field>
+    </class>
+    <record name="ApplicationClass"
+            c:type="GtefApplicationClass"
+            glib:is-gtype-struct-for="Application">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ApplicationPrivate"
+            c:type="GtefApplicationPrivate"
+            disguised="1">
+    </record>
+    <class name="ApplicationWindow"
+           c:symbol-prefix="application_window"
+           c:type="GtefApplicationWindow"
+           parent="GObject.Object"
+           glib:type-name="GtefApplicationWindow"
+           glib:get-type="gtef_application_window_get_type"
+           glib:type-struct="ApplicationWindowClass">
+      <function name="get_from_gtk_application_window"
+                c:identifier="gtef_application_window_get_from_gtk_application_window"
+                version="2.0">
+        <doc xml:space="preserve">Returns the #GtefApplicationWindow of @gtk_window. The returned object is
+guaranteed to be the same for the lifetime of @gtk_window.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefApplicationWindow of @gtk_window.</doc>
+          <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkApplicationWindow.</doc>
+            <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="connect_menu_to_statusbar"
+              c:identifier="gtef_application_window_connect_menu_to_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">Connect to the #GtefMenuShell::menu-item-selected and
+#GtefMenuShell::menu-item-deselected signals of @gtef_menu_shell to push/pop
+the long description of #GtkMenuItem's to the
+#GtefApplicationWindow:statusbar.
+
+The long description is retrieved with gtef_menu_item_get_long_description().
+So gtef_menu_item_set_long_description() must have been called, which is the
+case if the #GtkMenuItem has been created with the functions available in
+#GtefActionInfoStore.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="gtef_menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefMenuShell.</doc>
+            <type name="MenuShell" c:type="GtefMenuShell*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_recent_chooser_menu_to_statusbar"
+              c:identifier="gtef_application_window_connect_recent_chooser_menu_to_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">An alternative to gtk_recent_chooser_set_show_tips(). Shows the full path in
+the #GtefApplicationWindow:statusbar when a #GtkMenuItem of @menu is
+selected.
+
+The full path is retrieved with
+gtef_utils_recent_chooser_menu_get_item_uri().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkRecentChooserMenu.</doc>
+            <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_open_recent_menu_item"
+              c:identifier="gtef_application_window_create_open_recent_menu_item"
+              version="2.0">
+        <doc xml:space="preserve">Creates a #GtkMenuItem with a simple and generic #GtkRecentChooserMenu as
+submenu.
+
+The #GtkRecentChooser is configured to show files only recently used with the
+current application, as returned by g_get_application_name(). If recent files
+are added to the default #GtkRecentManager with
+gtk_recent_manager_add_item(), the files will normally show up in the
+#GtkRecentChooserMenu.
+
+The #GtkRecentChooserMenu is connected to the statusbar with
+gtef_application_window_connect_recent_chooser_menu_to_statusbar().
+
+When the #GtkRecentChooser::item-activated signal is emitted,
+gtef_application_open_simple() is called, so the #GApplication must have the
+%G_APPLICATION_HANDLES_OPEN flag set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuItem.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application_window"
+              c:identifier="gtef_application_window_get_application_window"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtkApplicationWindow of @gtef_window.</doc>
+          <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_statusbar"
+              c:identifier="gtef_application_window_get_statusbar"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #GtefApplicationWindow:statusbar.</doc>
+          <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_statusbar"
+              c:identifier="gtef_application_window_set_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">Sets the #GtefApplicationWindow:statusbar property.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="GtefApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="statusbar"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GtkStatusbar, or %NULL.</doc>
+            <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application-window"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkApplicationWindow.</doc>
+        <type name="Gtk.ApplicationWindow"/>
+      </property>
+      <property name="statusbar"
+                version="2.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkStatusbar. %NULL by default.</doc>
+        <type name="Gtk.Statusbar"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ApplicationWindowPrivate"
+              c:type="GtefApplicationWindowPrivate*"/>
+      </field>
+    </class>
+    <record name="ApplicationWindowClass"
+            c:type="GtefApplicationWindowClass"
+            glib:is-gtype-struct-for="ApplicationWindow">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ApplicationWindowPrivate"
+            c:type="GtefApplicationWindowPrivate"
+            disguised="1">
+    </record>
+    <class name="Buffer"
+           c:symbol-prefix="buffer"
+           c:type="GtefBuffer"
+           parent="GtkSource.Buffer"
+           glib:type-name="GtefBuffer"
+           glib:get-type="gtef_buffer_get_type"
+           glib:type-struct="BufferClass">
+      <constructor name="new" c:identifier="gtef_buffer_new" version="1.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefBuffer.</doc>
+          <type name="Buffer" c:type="GtefBuffer*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="gtef_cursor_moved">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_file"
+              c:identifier="gtef_buffer_get_file"
+              version="1.0">
+        <doc xml:space="preserve">Returns the #GtefFile of @buffer. The returned object is guaranteed to be the
+same for the lifetime of @buffer.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the associated #GtefFile.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selection_type"
+              c:identifier="gtef_buffer_get_selection_type"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the current #GtefSelectionType.</doc>
+          <type name="SelectionType" c:type="GtefSelectionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_style_scheme_id"
+              c:identifier="gtef_buffer_get_style_scheme_id"
+              version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the #GtefBuffer:gtef-style-scheme-id. Free with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="gtef_buffer_get_title"
+              version="1.0">
+        <doc xml:space="preserve">Returns a title suitable for a #GtkWindow title. It contains (in that order):
+- '*' if the buffer is modified;
+- the #GtefFile:short-name;
+- the directory path in parenthesis if the #GtefFile:location isn't
+  %NULL.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the @buffer title. Free the return value with g_free() when no
+longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_untouched"
+              c:identifier="gtef_buffer_is_untouched"
+              version="1.0">
+        <doc xml:space="preserve">Returns whether @buffer is untouched.
+
+This function is for example useful to know if we can re-use this buffer to
+load a file, instead of opening a new tab or window.
+
+For this function to return %TRUE, the @buffer must be empty, non-modified,
+the undo/redo #GtkSourceBuffer history must be empty, and the
+#GtefFile:location must be %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @buffer has not been touched, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_style_scheme_id"
+              c:identifier="gtef_buffer_set_style_scheme_id"
+              version="2.0">
+        <doc xml:space="preserve">Sets the #GtefBuffer:gtef-style-scheme-id property.
+
+The #GtkSourceStyleScheme is taken from the default
+#GtkSourceStyleSchemeManager as returned by
+gtk_source_style_scheme_manager_get_default().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefBuffer.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </instance-parameter>
+          <parameter name="style_scheme_id" transfer-ownership="none">
+            <doc xml:space="preserve">the new value.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="gtef-style-scheme-id"
+                version="2.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkSourceBuffer:style-scheme ID, as a string. This property is
+useful for binding it to a #GSettings key.
+
+When the #GtkSourceBuffer:style-scheme is %NULL,
+#GtefBuffer:gtef-style-scheme-id contains the empty string.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="gtef-title" version="2.0" transfer-ownership="none">
+        <doc xml:space="preserve">The buffer title. See gtef_buffer_get_title().</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GtkSource.Buffer" c:type="GtkSourceBuffer"/>
+      </field>
+      <glib:signal name="gtef-cursor-moved" when="first" version="2.0">
+        <doc xml:space="preserve">The ::gtef-cursor-moved signal is emitted when the insert mark is
+moved explicitely or when the buffer changes (insert/delete).
+
+A typical use-case for this signal is to update the cursor position
+in a statusbar.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="BufferClass"
+            c:type="GtefBufferClass"
+            glib:is-gtype-struct-for="Buffer">
+      <field name="parent_class">
+        <type name="GtkSource.BufferClass" c:type="GtkSourceBufferClass"/>
+      </field>
+      <field name="gtef_cursor_moved">
+        <callback name="gtef_cursor_moved">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Buffer" c:type="GtefBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="CompressionType"
+                 version="1.0"
+                 glib:type-name="GtefCompressionType"
+                 glib:get-type="gtef_compression_type_get_type"
+                 c:type="GtefCompressionType">
+      <member name="none"
+              value="0"
+              c:identifier="GTEF_COMPRESSION_TYPE_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve">plain text.</doc>
+      </member>
+      <member name="gzip"
+              value="1"
+              c:identifier="GTEF_COMPRESSION_TYPE_GZIP"
+              glib:nick="gzip">
+        <doc xml:space="preserve">gzip compression.</doc>
+      </member>
+    </enumeration>
+    <record name="Encoding"
+            c:type="GtefEncoding"
+            glib:type-name="GtefEncoding"
+            glib:get-type="gtef_encoding_get_type"
+            c:symbol-prefix="encoding">
+      <constructor name="new" c:identifier="gtef_encoding_new" version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefEncoding from a character set such as "UTF-8" or
+"ISO-8859-1".</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the new #GtefEncoding. Free with gtef_encoding_free().</doc>
+          <type name="Encoding" c:type="GtefEncoding*"/>
+        </return-value>
+        <parameters>
+          <parameter name="charset" transfer-ownership="none">
+            <doc xml:space="preserve">a character set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_locale"
+                   c:identifier="gtef_encoding_new_from_locale"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefEncoding from the current locale, as returned by
+g_get_charset().</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the new #GtefEncoding. Free with gtef_encoding_free().</doc>
+          <type name="Encoding" c:type="GtefEncoding*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_utf8"
+                   c:identifier="gtef_encoding_new_utf8"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefEncoding with the "UTF-8" character set.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the new #GtefEncoding. Free with gtef_encoding_free().</doc>
+          <type name="Encoding" c:type="GtefEncoding*"/>
+        </return-value>
+      </constructor>
+      <method name="copy" c:identifier="gtef_encoding_copy" version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a copy of @enc.</doc>
+          <type name="Encoding" c:type="GtefEncoding*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefEncoding.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equals" c:identifier="gtef_encoding_equals" version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether @enc1 and @enc2 are equals.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc1"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve">a #GtefEncoding, or %NULL.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+          <parameter name="enc2"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GtefEncoding, or %NULL.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gtef_encoding_free" version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve">a #GtefEncoding, or %NULL.</doc>
+            <type name="Encoding" c:type="GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_charset"
+              c:identifier="gtef_encoding_get_charset"
+              version="2.0">
+        <doc xml:space="preserve">Gets the character set of the #GtefEncoding, such as "UTF-8" or "ISO-8859-1".</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the character set of the #GtefEncoding.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefEncoding.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="gtef_encoding_get_name"
+              version="2.0">
+        <doc xml:space="preserve">Gets the name of the #GtefEncoding such as "Unicode" or "Western".</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the #GtefEncoding.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefEncoding.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_utf8"
+              c:identifier="gtef_encoding_is_utf8"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether @enc is a UTF-8 encoding.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefEncoding.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="gtef_encoding_to_string"
+              version="2.0">
+        <doc xml:space="preserve">Returns the encoding name with the charset in parenthesis, for example
+"Unicode (UTF-8)". If the name is unknown, just the charset is returned.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a string representation. Free with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="enc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefEncoding.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="get_all"
+                c:identifier="gtef_encoding_get_all"
+                version="2.0">
+        <doc xml:space="preserve">Gets a list of all encodings known by #GtefEncoding.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of
+#GtefEncoding's.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="Encoding"/>
+          </type>
+        </return-value>
+      </function>
+      <function name="get_default_candidates"
+                c:identifier="gtef_encoding_get_default_candidates"
+                version="2.0">
+        <doc xml:space="preserve">Gets the list of default candidate encodings to try when loading a file. See
+gtk_source_file_loader_set_candidate_encodings().
+
+This function returns a different list depending on the current locale (i.e.
+language, country and default encoding). The UTF-8 encoding and the current
+locale encoding are guaranteed to be present in the returned list.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the list of default
+candidate encodings.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="Encoding"/>
+          </type>
+        </return-value>
+      </function>
+    </record>
+    <class name="File"
+           c:symbol-prefix="file"
+           c:type="GtefFile"
+           parent="GObject.Object"
+           glib:type-name="GtefFile"
+           glib:get-type="gtef_file_get_type"
+           glib:type-struct="FileClass">
+      <constructor name="new" c:identifier="gtef_file_new" version="1.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFile object.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </return-value>
+      </constructor>
+      <method name="check_file_on_disk"
+              c:identifier="gtef_file_check_file_on_disk"
+              version="1.0">
+        <doc xml:space="preserve">Checks synchronously the file on disk, to know whether the file is externally
+modified, or has been deleted, and whether the file is read-only.
+
+#GtefFile doesn't create a #GFileMonitor to track those properties, so
+this function needs to be called instead. Creating lots of #GFileMonitor's
+would take lots of resources.
+
+Since this function is synchronous, it is advised to call it only on local
+files. See gtef_file_is_local().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_compression_type"
+              c:identifier="gtef_file_get_compression_type"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the compression type.</doc>
+          <type name="CompressionType" c:type="GtefCompressionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_encoding"
+              c:identifier="gtef_file_get_encoding"
+              version="1.0">
+        <doc xml:space="preserve">The encoding is initially %NULL. After a successful file loading or saving
+operation, the encoding is non-%NULL.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the character encoding.</doc>
+          <type name="Encoding" c:type="const GtefEncoding*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_metadata"
+              c:identifier="gtef_file_get_file_metadata"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the associated #GtefFileMetadata.</doc>
+          <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location"
+              c:identifier="gtef_file_get_location"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GFile.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_newline_type"
+              c:identifier="gtef_file_get_newline_type"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the newline type.</doc>
+          <type name="NewlineType" c:type="GtefNewlineType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_name"
+              c:identifier="gtef_file_get_short_name"
+              version="1.0">
+        <doc xml:space="preserve">Gets the @file short name. If the #GtefFile:location isn't %NULL,
+returns its display-name (see #G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME).
+Otherwise returns "Untitled File N", with N the Nth untitled file of the
+application, starting at 1. When an untitled file is closed, its number is
+released and can be used by a later untitled file.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the @file short name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_deleted"
+              c:identifier="gtef_file_is_deleted"
+              version="1.0">
+        <doc xml:space="preserve">Returns whether the file has been deleted. If the
+#GtefFile:location is %NULL, returns %FALSE.
+
+To have an up-to-date value, you must first call
+gtef_file_check_file_on_disk().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the file has been deleted.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_externally_modified"
+              c:identifier="gtef_file_is_externally_modified"
+              version="1.0">
+        <doc xml:space="preserve">Returns whether the file is externally modified. If the
+#GtefFile:location is %NULL, returns %FALSE.
+
+To have an up-to-date value, you must first call
+gtef_file_check_file_on_disk().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the file is externally modified.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_local" c:identifier="gtef_file_is_local" version="1.0">
+        <doc xml:space="preserve">Returns whether the file is local. If the #GtefFile:location is %NULL,
+returns %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the file is local.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_readonly"
+              c:identifier="gtef_file_is_readonly"
+              version="1.0">
+        <doc xml:space="preserve">Returns whether the file is read-only. If the
+#GtefFile:location is %NULL, returns %FALSE.
+
+To have an up-to-date value, you must first call
+gtef_file_check_file_on_disk().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the file is read-only.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_location"
+              c:identifier="gtef_file_set_location"
+              version="1.0">
+        <doc xml:space="preserve">Sets the location.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+          <parameter name="location"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the new #GFile, or %NULL.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mount_operation_factory"
+              c:identifier="gtef_file_set_mount_operation_factory"
+              version="1.0"
+              introspectable="0">
+        <doc xml:space="preserve">Sets a #GtefMountOperationFactory function that will be called when a
+#GMountOperation must be created. This is useful for creating a
+#GtkMountOperation with the parent #GtkWindow.
+
+If a mount operation factory isn't set, g_mount_operation_new() will be
+called.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1"
+                     destroy="2">
+            <doc xml:space="preserve">a #GtefMountOperationFactory to call when a
+  #GMountOperation is needed.</doc>
+            <type name="MountOperationFactory"
+                  c:type="GtefMountOperationFactory"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the data to pass to the @callback function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="notify"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async">
+            <doc xml:space="preserve">function to call on @user_data when the @callback is no
+  longer needed, or %NULL.</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="compression-type"
+                version="1.0"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The compression type.</doc>
+        <type name="CompressionType"/>
+      </property>
+      <property name="encoding" version="1.0" transfer-ownership="none">
+        <doc xml:space="preserve">The character encoding, initially %NULL. After a successful file
+loading or saving operation, the encoding is non-%NULL.</doc>
+        <type name="Encoding"/>
+      </property>
+      <property name="location"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The location.</doc>
+        <type name="Gio.File"/>
+      </property>
+      <property name="newline-type" version="1.0" transfer-ownership="none">
+        <doc xml:space="preserve">The line ending type.</doc>
+        <type name="NewlineType"/>
+      </property>
+      <property name="read-only" version="1.0" transfer-ownership="none">
+        <doc xml:space="preserve">Whether the file is read-only or not. The value of this property is
+not updated automatically (there is no file monitors).</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="short-name" version="1.0" transfer-ownership="none">
+        <doc xml:space="preserve">The file short name. See gtef_file_get_short_name().</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FileClass"
+            c:type="GtefFileClass"
+            glib:is-gtype-struct-for="File">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="FileLoader"
+           c:symbol-prefix="file_loader"
+           c:type="GtefFileLoader"
+           parent="GObject.Object"
+           glib:type-name="GtefFileLoader"
+           glib:get-type="gtef_file_loader_get_type"
+           glib:type-struct="FileLoaderClass">
+      <constructor name="new"
+                   c:identifier="gtef_file_loader_new"
+                   version="1.0">
+        <doc xml:space="preserve">Creates a new #GtefFileLoader object. The content is read from the #GtefFile
+location.
+
+If not already done, call gtef_file_set_location() before calling this
+constructor. The previous location is anyway not needed, because as soon as
+the file loading begins, the @buffer is emptied. Setting the #GtefFile
+location directly permits to update the UI, to display the good location when
+the file is loading.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFileLoader object.</doc>
+          <type name="FileLoader" c:type="GtefFileLoader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefBuffer to load the content into.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_buffer"
+              c:identifier="gtef_file_loader_get_buffer"
+              version="1.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #GtefBuffer to load the content
+into.</doc>
+          <type name="Buffer" c:type="GtefBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chunk_size"
+              c:identifier="gtef_file_loader_get_chunk_size"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the chunk size.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_encoding"
+              c:identifier="gtef_file_loader_get_encoding"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the detected file encoding, or %NULL.</doc>
+          <type name="Encoding" c:type="const GtefEncoding*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="gtef_file_loader_get_file"
+              version="1.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #GtefFile.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location"
+              c:identifier="gtef_file_loader_get_location"
+              version="1.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #GFile to load.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_size"
+              c:identifier="gtef_file_loader_get_max_size"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the maximum content size, or -1 for unlimited.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_newline_type"
+              c:identifier="gtef_file_loader_get_newline_type"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the detected newline type.</doc>
+          <type name="NewlineType" c:type="GtefNewlineType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_async"
+              c:identifier="gtef_file_loader_load_async"
+              version="1.0">
+        <doc xml:space="preserve">Loads asynchronously the file content into the #GtefBuffer.
+
+See the #GAsyncResult documentation to know how to use this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <doc xml:space="preserve">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="progress_callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="notified"
+                     closure="3"
+                     destroy="4">
+            <doc xml:space="preserve">function to call back with
+  progress information, or %NULL if progress information is not needed.</doc>
+            <type name="Gio.FileProgressCallback"
+                  c:type="GFileProgressCallback"/>
+          </parameter>
+          <parameter name="progress_callback_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @progress_callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="progress_callback_notify"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async">
+            <doc xml:space="preserve">function to call on
+  @progress_callback_data when the @progress_callback is no longer needed, or
+  %NULL.</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is
+  satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_finish"
+              c:identifier="gtef_file_loader_load_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Finishes a file loading started with gtef_file_loader_load_async().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the content has been loaded successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_chunk_size"
+              c:identifier="gtef_file_loader_set_chunk_size"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+          <parameter name="chunk_size" transfer-ownership="none">
+            <doc xml:space="preserve">the new chunk size.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_size"
+              c:identifier="gtef_file_loader_set_max_size"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loader" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileLoader.</doc>
+            <type name="FileLoader" c:type="GtefFileLoader*"/>
+          </instance-parameter>
+          <parameter name="max_size" transfer-ownership="none">
+            <doc xml:space="preserve">the new maximum size, or -1 for unlimited.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="buffer"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtefBuffer to load the content into. The #GtefFileLoader object
+has a weak reference to the buffer.</doc>
+        <type name="Buffer"/>
+      </property>
+      <property name="chunk-size"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The chunk size, in bytes. The content is loaded chunk by chunk. It
+permits to avoid allocating a too big contiguous memory area, as well
+as reporting progress information after each chunk read.
+
+A small chunk size is better when loading a remote file with a slow
+connection. For local files, the chunk size can be larger.</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="file"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtefFile. The #GtefFileLoader object has a weak
+reference to the file.</doc>
+        <type name="File"/>
+      </property>
+      <property name="location"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GFile to load. By default the location is taken from the
+#GtefFile at construction time.</doc>
+        <type name="Gio.File"/>
+      </property>
+      <property name="max-size"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The maximum content size, in bytes. Keep in mind that all the
+content is loaded in memory, and when loaded into a #GtkTextBuffer
+it takes more memory than just the content size.
+
+Set to -1 for unlimited size.</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FileLoaderClass"
+            c:type="GtefFileLoaderClass"
+            glib:is-gtype-struct-for="FileLoader">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="FileLoaderError"
+                 version="1.0"
+                 glib:type-name="GtefFileLoaderError"
+                 glib:get-type="gtef_file_loader_error_get_type"
+                 c:type="GtefFileLoaderError"
+                 glib:error-domain="gtef-file-loader-error">
+      <doc xml:space="preserve">An error code used with the %GTEF_FILE_LOADER_ERROR domain.</doc>
+      <member name="too_big"
+              value="0"
+              c:identifier="GTEF_FILE_LOADER_ERROR_TOO_BIG"
+              glib:nick="too-big">
+        <doc xml:space="preserve">The file is too big.</doc>
+      </member>
+      <member name="encoding_auto_detection_failed"
+              value="1"
+              c:identifier="GTEF_FILE_LOADER_ERROR_ENCODING_AUTO_DETECTION_FAILED"
+              glib:nick="encoding-auto-detection-failed">
+        <doc xml:space="preserve">It is not possible to
+  detect the encoding automatically.</doc>
+      </member>
+      <function name="quark" c:identifier="gtef_file_loader_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="FileMetadata"
+           c:symbol-prefix="file_metadata"
+           c:type="GtefFileMetadata"
+           parent="GObject.Object"
+           glib:type-name="GtefFileMetadata"
+           glib:get-type="gtef_file_metadata_get_type"
+           glib:type-struct="FileMetadataClass">
+      <constructor name="new"
+                   c:identifier="gtef_file_metadata_new"
+                   version="1.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFileMetadata object.</doc>
+          <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefFile that the metadata will belong to.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get" c:identifier="gtef_file_metadata_get" version="1.0">
+        <doc xml:space="preserve">Gets the value of a metadata stored in the @metadata object memory.</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve">the value of the metadata, or %NULL if the metadata
+  doesn't exist. Free with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the metadata.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="gtef_file_metadata_get_file"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefFile that the metadata belong to.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata object.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load"
+              c:identifier="gtef_file_metadata_load"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Loads synchronously the metadata from #GtefFile:location. The loaded
+metadata values can then be accessed with gtef_file_metadata_get().
+
+If the metadata are loaded successfully, this function deletes all previous
+metadata stored in the @metadata object memory.
+
+The file at #GtefFile:location, if non-%NULL, must exist on the
+filesystem, otherwise an error is returned.
+
+If #GtefFile:location is %NULL, %FALSE is simply returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the metadata was loaded successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_async"
+              c:identifier="gtef_file_metadata_load_async"
+              version="1.0">
+        <doc xml:space="preserve">The asynchronous version of gtef_file_metadata_load().
+
+If the metadata is loaded from the metadata manager (i.e. not with GVfs),
+this function loads the metadata synchronously. A future version might fix
+this.
+
+See the #GAsyncResult documentation to know how to use this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <doc xml:space="preserve">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is
+  satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_finish"
+              c:identifier="gtef_file_metadata_load_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Finishes the metadata loading started with gtef_file_metadata_load_async().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the metadata was loaded successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save"
+              c:identifier="gtef_file_metadata_save"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Saves synchronously the metadata for #GtefFile:location.
+
+The file at #GtefFile:location, if non-%NULL, must exist on the
+filesystem, otherwise an error is returned.
+
+If #GtefFile:location is %NULL, %FALSE is simply returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the metadata was saved successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_async"
+              c:identifier="gtef_file_metadata_save_async"
+              version="1.0">
+        <doc xml:space="preserve">The asynchronous version of gtef_file_metadata_save().
+
+If the metadata is saved with the metadata manager (i.e. not with GVfs), this
+function saves the metadata synchronously. A future version might fix this.
+
+See the #GAsyncResult documentation to know how to use this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <doc xml:space="preserve">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is
+  satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_finish"
+              c:identifier="gtef_file_metadata_save_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Finishes the metadata saving started with gtef_file_metadata_save_async().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the metadata was saved successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set" c:identifier="gtef_file_metadata_set" version="1.0">
+        <doc xml:space="preserve">Sets the value of a metadata. It's preferable that @key starts with a
+namespace, to not get metadata conflicts between applications.
+
+This function just stores the new metadata value in the @metadata object
+memory.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileMetadata.</doc>
+            <type name="FileMetadata" c:type="GtefFileMetadata*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the metadata.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the value of the metadata, or %NULL to unset.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtefFile that the metadata belong to.</doc>
+        <type name="File"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FileMetadataClass"
+            c:type="GtefFileMetadataClass"
+            glib:is-gtype-struct-for="FileMetadata">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="FileSaver"
+           c:symbol-prefix="file_saver"
+           c:type="GtefFileSaver"
+           parent="GObject.Object"
+           glib:type-name="GtefFileSaver"
+           glib:get-type="gtef_file_saver_get_type"
+           glib:type-struct="FileSaverClass">
+      <constructor name="new" c:identifier="gtef_file_saver_new" version="1.0">
+        <doc xml:space="preserve">Creates a new #GtefFileSaver object. The @buffer will be saved to the
+#GtefFile's location.
+
+This constructor is suitable for a simple "save" operation, when the @file
+already contains a non-%NULL #GtefFile:location.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFileSaver object.</doc>
+          <type name="FileSaver" c:type="GtefFileSaver*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefBuffer to save.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_target"
+                   c:identifier="gtef_file_saver_new_with_target"
+                   version="1.0">
+        <doc xml:space="preserve">Creates a new #GtefFileSaver object with a target location. When the
+file saving is finished successfully, @target_location is set to the @file's
+#GtefFile:location property. If an error occurs, the previous valid
+location is still available in #GtefFile.
+
+This constructor adds %GTEF_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME to the
+#GtefFileSaver:flags property.
+
+This constructor is suitable for a "save as" operation, or for saving a new
+buffer for the first time.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFileSaver object.</doc>
+          <type name="FileSaver" c:type="GtefFileSaver*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefBuffer to save.</doc>
+            <type name="Buffer" c:type="GtefBuffer*"/>
+          </parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtefFile.</doc>
+            <type name="File" c:type="GtefFile*"/>
+          </parameter>
+          <parameter name="target_location" transfer-ownership="none">
+            <doc xml:space="preserve">the #GFile where to save the buffer to.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_buffer"
+              c:identifier="gtef_file_saver_get_buffer"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefBuffer to save.</doc>
+          <type name="Buffer" c:type="GtefBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_compression_type"
+              c:identifier="gtef_file_saver_get_compression_type"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the compression type.</doc>
+          <type name="CompressionType" c:type="GtefCompressionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_encoding"
+              c:identifier="gtef_file_saver_get_encoding"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the encoding.</doc>
+          <type name="Encoding" c:type="const GtefEncoding*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="gtef_file_saver_get_file"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefFile.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flags"
+              c:identifier="gtef_file_saver_get_flags"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the flags.</doc>
+          <type name="FileSaverFlags" c:type="GtefFileSaverFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location"
+              c:identifier="gtef_file_saver_get_location"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GFile where to save the buffer to.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_newline_type"
+              c:identifier="gtef_file_saver_get_newline_type"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the newline type.</doc>
+          <type name="NewlineType" c:type="GtefNewlineType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_async"
+              c:identifier="gtef_file_saver_save_async"
+              version="1.0">
+        <doc xml:space="preserve">Saves asynchronously the buffer into the file. See the #GAsyncResult
+documentation to know how to use this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <doc xml:space="preserve">the I/O priority of the request. E.g. %G_PRIORITY_LOW,
+  %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="progress_callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="notified"
+                     closure="3"
+                     destroy="4">
+            <doc xml:space="preserve">function to call back with
+  progress information, or %NULL if progress information is not needed.</doc>
+            <type name="Gio.FileProgressCallback"
+                  c:type="GFileProgressCallback"/>
+          </parameter>
+          <parameter name="progress_callback_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @progress_callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="progress_callback_notify"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async">
+            <doc xml:space="preserve">function to call on
+  @progress_callback_data when the @progress_callback is no longer needed, or
+  %NULL.</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is
+  satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_finish"
+              c:identifier="gtef_file_saver_save_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve">Finishes a file saving started with gtef_file_saver_save_async().
+
+If the file has been saved successfully, the following #GtefFile
+properties will be updated: the location, the encoding, the newline type and
+the compression type.
+
+gtk_text_buffer_set_modified() is called with %FALSE if the file has been
+saved successfully.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the file was saved successfully.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_compression_type"
+              c:identifier="gtef_file_saver_set_compression_type"
+              version="1.0">
+        <doc xml:space="preserve">Sets the compression type. By default the compression type is taken from the
+#GtefFile.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="compression_type" transfer-ownership="none">
+            <doc xml:space="preserve">the new compression type.</doc>
+            <type name="CompressionType" c:type="GtefCompressionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_encoding"
+              c:identifier="gtef_file_saver_set_encoding"
+              version="1.0">
+        <doc xml:space="preserve">Sets the encoding. If @encoding is %NULL, the UTF-8 encoding will be set.
+By default the encoding is taken from the #GtefFile.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="encoding"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the new encoding, or %NULL for UTF-8.</doc>
+            <type name="Encoding" c:type="const GtefEncoding*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_flags"
+              c:identifier="gtef_file_saver_set_flags"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">the new flags.</doc>
+            <type name="FileSaverFlags" c:type="GtefFileSaverFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_newline_type"
+              c:identifier="gtef_file_saver_set_newline_type"
+              version="1.0">
+        <doc xml:space="preserve">Sets the newline type. By default the newline type is taken from the
+#GtefFile.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFileSaver.</doc>
+            <type name="FileSaver" c:type="GtefFileSaver*"/>
+          </instance-parameter>
+          <parameter name="newline_type" transfer-ownership="none">
+            <doc xml:space="preserve">the new newline type.</doc>
+            <type name="NewlineType" c:type="GtefNewlineType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="buffer"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtefBuffer to save. The #GtefFileSaver object has a weak
+reference to the buffer.</doc>
+        <type name="GtkSource.Buffer"/>
+      </property>
+      <property name="compression-type"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The compression type.</doc>
+        <type name="GtkSource.CompressionType"/>
+      </property>
+      <property name="encoding"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The file's encoding.</doc>
+        <type name="Encoding"/>
+      </property>
+      <property name="file"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtefFile. The #GtefFileSaver object has a weak
+reference to the file.</doc>
+        <type name="File"/>
+      </property>
+      <property name="flags"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">File saving flags.</doc>
+        <type name="FileSaverFlags"/>
+      </property>
+      <property name="location"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GFile where to save the buffer. By default the location is taken
+from the #GtefFile at construction time.</doc>
+        <type name="Gio.File"/>
+      </property>
+      <property name="newline-type"
+                version="1.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The newline type.</doc>
+        <type name="GtkSource.NewlineType"/>
+      </property>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="FileSaverPrivate" c:type="GtefFileSaverPrivate*"/>
+      </field>
+    </class>
+    <record name="FileSaverClass"
+            c:type="GtefFileSaverClass"
+            glib:is-gtype-struct-for="FileSaver">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="10">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="FileSaverError"
+                 version="1.0"
+                 glib:type-name="GtefFileSaverError"
+                 glib:get-type="gtef_file_saver_error_get_type"
+                 c:type="GtefFileSaverError"
+                 glib:error-domain="gtk-source-file-saver-error">
+      <doc xml:space="preserve">An error code used with the %GTEF_FILE_SAVER_ERROR domain.</doc>
+      <member name="invalid_chars"
+              value="0"
+              c:identifier="GTEF_FILE_SAVER_ERROR_INVALID_CHARS"
+              glib:nick="invalid-chars">
+        <doc xml:space="preserve">The buffer contains invalid
+  characters.</doc>
+      </member>
+      <member name="externally_modified"
+              value="1"
+              c:identifier="GTEF_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED"
+              glib:nick="externally-modified">
+        <doc xml:space="preserve">The file is externally
+  modified.</doc>
+      </member>
+      <function name="quark" c:identifier="gtef_file_saver_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <bitfield name="FileSaverFlags"
+              version="1.0"
+              glib:type-name="GtefFileSaverFlags"
+              glib:get-type="gtef_file_saver_flags_get_type"
+              c:type="GtefFileSaverFlags">
+      <doc xml:space="preserve">Flags to define the behavior of a #GtefFileSaver.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="GTEF_FILE_SAVER_FLAGS_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve">No flags.</doc>
+      </member>
+      <member name="ignore_invalid_chars"
+              value="1"
+              c:identifier="GTEF_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS"
+              glib:nick="ignore-invalid-chars">
+        <doc xml:space="preserve">Ignore invalid characters.</doc>
+      </member>
+      <member name="ignore_modification_time"
+              value="2"
+              c:identifier="GTEF_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME"
+              glib:nick="ignore-modification-time">
+        <doc xml:space="preserve">Save file despite external modifications.</doc>
+      </member>
+      <member name="create_backup"
+              value="4"
+              c:identifier="GTEF_FILE_SAVER_FLAGS_CREATE_BACKUP"
+              glib:nick="create-backup">
+        <doc xml:space="preserve">Create a backup before saving the file.</doc>
+      </member>
+    </bitfield>
+    <record name="FileSaverPrivate"
+            c:type="GtefFileSaverPrivate"
+            disguised="1">
+    </record>
+    <class name="FoldRegion"
+           c:symbol-prefix="fold_region"
+           c:type="GtefFoldRegion"
+           parent="GObject.Object"
+           glib:type-name="GtefFoldRegion"
+           glib:get-type="gtef_fold_region_get_type"
+           glib:type-struct="FoldRegionClass">
+      <constructor name="new"
+                   c:identifier="gtef_fold_region_new"
+                   version="1.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #GtefFoldRegion.</doc>
+          <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkTextBuffer.</doc>
+            <type name="Gtk.TextBuffer" c:type="GtkTextBuffer*"/>
+          </parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkTextIter.</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkTextIter.</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_bounds"
+              c:identifier="gtef_fold_region_get_bounds"
+              version="1.0">
+        <doc xml:space="preserve">Obtains iterators pointing to the start and end of the #GtefFoldRegion.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fold_region" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFoldRegion.</doc>
+            <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+          </instance-parameter>
+          <parameter name="start"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">iterator to initialize.</doc>
+            <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
+          </parameter>
+          <parameter name="end"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">iterator to initialize.</doc>
+            <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_buffer"
+              c:identifier="gtef_fold_region_get_buffer"
+              version="1.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #GtkTextBuffer where the fold region
+  is applied.</doc>
+          <type name="Gtk.TextBuffer" c:type="GtkTextBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fold_region" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFoldRegion.</doc>
+            <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_folded"
+              c:identifier="gtef_fold_region_get_folded"
+              version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether the #GtefFoldRegion is folded.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fold_region" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFoldRegion.</doc>
+            <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_bounds"
+              c:identifier="gtef_fold_region_set_bounds"
+              version="1.0">
+        <doc xml:space="preserve">Sets the start and end of the #GtefFoldRegion.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fold_region" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFoldRegion.</doc>
+            <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkTextIter.</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkTextIter.</doc>
+            <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_folded"
+              c:identifier="gtef_fold_region_set_folded"
+              version="1.0">
+        <doc xml:space="preserve">Folds or unfolds the region.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fold_region" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefFoldRegion.</doc>
+            <type name="FoldRegion" c:type="GtefFoldRegion*"/>
+          </instance-parameter>
+          <parameter name="folded" transfer-ownership="none">
+            <doc xml:space="preserve">the new value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="buffer"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkTextBuffer where the fold region is applied. The
+#GtefFoldRegion object has a weak reference to the buffer.</doc>
+        <type name="Gtk.TextBuffer"/>
+      </property>
+      <property name="folded"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Whether the #GtefFoldRegion is folded or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FoldRegionClass"
+            c:type="GtefFoldRegionClass"
+            glib:is-gtype-struct-for="FoldRegion">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="GutterRendererFolds"
+           c:symbol-prefix="gutter_renderer_folds"
+           c:type="GtefGutterRendererFolds"
+           parent="GtkSource.GutterRenderer"
+           glib:type-name="GtefGutterRendererFolds"
+           glib:get-type="gtef_gutter_renderer_folds_get_type"
+           glib:type-struct="GutterRendererFoldsClass">
+      <constructor name="new"
+                   c:identifier="gtef_gutter_renderer_folds_new"
+                   version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtefGutterRendererFolds.</doc>
+          <type name="GtkSource.GutterRenderer"
+                c:type="GtkSourceGutterRenderer*"/>
+        </return-value>
+      </constructor>
+      <method name="set_state"
+              c:identifier="gtef_gutter_renderer_folds_set_state"
+              version="1.0">
+        <doc xml:space="preserve">Sets the folding state of the next cell to be drawn.
+
+This function is intended to be called from a subclass' draw method before
+chaining-up to its parent's draw method.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefGutterRendererFolds.</doc>
+            <type name="GutterRendererFolds"
+                  c:type="GtefGutterRendererFolds*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefGutterRendererFoldsState.</doc>
+            <type name="GutterRendererFoldsState"
+                  c:type="GtefGutterRendererFoldsState"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GtkSource.GutterRenderer"
+              c:type="GtkSourceGutterRenderer"/>
+      </field>
+    </class>
+    <record name="GutterRendererFoldsClass"
+            c:type="GtefGutterRendererFoldsClass"
+            glib:is-gtype-struct-for="GutterRendererFolds">
+      <field name="parent_class">
+        <type name="GtkSource.GutterRendererClass"
+              c:type="GtkSourceGutterRendererClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <bitfield name="GutterRendererFoldsState"
+              version="1.0"
+              glib:type-name="GtefGutterRendererFoldsState"
+              glib:get-type="gtef_gutter_renderer_folds_state_get_type"
+              c:type="GtefGutterRendererFoldsState">
+      <doc xml:space="preserve">The folding state at a certain line in the #GtkTextBuffer.
+
+Since #GtefGutterRendererFolds has a flat view of the folding tree, some
+states can be combined; for example, %GTEF_GUTTER_RENDERER_FOLDS_STATE_END
+and %GTEF_GUTTER_RENDERER_FOLDS_STATE_CONTINUE.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="GTEF_GUTTER_RENDERER_FOLDS_STATE_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve">No code folding here.</doc>
+      </member>
+      <member name="start_folded"
+              value="1"
+              c:identifier="GTEF_GUTTER_RENDERER_FOLDS_STATE_START_FOLDED"
+              glib:nick="start-folded">
+        <doc xml:space="preserve">Start of currently folded
+  fold region.</doc>
+      </member>
+      <member name="start_opened"
+              value="2"
+              c:identifier="GTEF_GUTTER_RENDERER_FOLDS_STATE_START_OPENED"
+              glib:nick="start-opened">
+        <doc xml:space="preserve">Start of currently opened
+  fold region.</doc>
+      </member>
+      <member name="continue"
+              value="4"
+              c:identifier="GTEF_GUTTER_RENDERER_FOLDS_STATE_CONTINUE"
+              glib:nick="continue">
+        <doc xml:space="preserve">Fold region continues.</doc>
+      </member>
+      <member name="end"
+              value="8"
+              c:identifier="GTEF_GUTTER_RENDERER_FOLDS_STATE_END"
+              glib:nick="end">
+        <doc xml:space="preserve">End of fold region.</doc>
+      </member>
+    </bitfield>
+    <class name="InfoBar"
+           c:symbol-prefix="info_bar"
+           c:type="GtefInfoBar"
+           parent="Gtk.InfoBar"
+           glib:type-name="GtefInfoBar"
+           glib:get-type="gtef_info_bar_get_type"
+           glib:type-struct="InfoBarClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gtef_info_bar_new" version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtefInfoBar.</doc>
+          <type name="InfoBar" c:type="GtefInfoBar*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_simple"
+                   c:identifier="gtef_info_bar_new_simple"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #GtefInfoBar with an icon (depending on @msg_type), a primary
+message and a secondary message.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtefInfoBar.</doc>
+          <type name="InfoBar" c:type="GtefInfoBar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg_type" transfer-ownership="none">
+            <doc xml:space="preserve">the message type.</doc>
+            <type name="Gtk.MessageType" c:type="GtkMessageType"/>
+          </parameter>
+          <parameter name="primary_msg" transfer-ownership="none">
+            <doc xml:space="preserve">the primary message.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="secondary_msg"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the secondary message, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="create_label"
+                c:identifier="gtef_info_bar_create_label"
+                version="1.0">
+        <doc xml:space="preserve">Utility function to create a #GtkLabel suitable for a #GtkInfoBar. The
+wrapping and alignment is configured. The label is also set as selectable,
+for example to copy an error message and search an explanation on the web.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkLabel suitable for a #GtkInfoBar.</doc>
+          <type name="Gtk.Label" c:type="GtkLabel*"/>
+        </return-value>
+      </function>
+      <method name="add_close_button"
+              c:identifier="gtef_info_bar_add_close_button"
+              version="2.0">
+        <doc xml:space="preserve">Calls gtk_info_bar_set_show_close_button(), and additionnally closes the
+@info_bar when the #GtkInfoBar::response signal is received with the
+@response_id %GTK_RESPONSE_CLOSE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefInfoBar.</doc>
+            <type name="InfoBar" c:type="GtefInfoBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="add_content_widget"
+              c:identifier="gtef_info_bar_add_content_widget"
+              version="2.0">
+        <doc xml:space="preserve">Adds @content to @info_bar.
+
+#GtefInfoBar has an internal container, to be able to add the icon and add
+primary or secondary messages. The internal container is added to the content
+area, as returned by gtk_info_bar_get_content_area(). So if you use a
+#GtefInfoBar and you need to add a custom #GtkWidget, it is better to use
+this function instead of adding the #GtkWidget directly to the content area.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefInfoBar.</doc>
+            <type name="InfoBar" c:type="GtefInfoBar*"/>
+          </instance-parameter>
+          <parameter name="content" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkWidget.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_icon"
+              c:identifier="gtef_info_bar_add_icon"
+              version="2.0">
+        <doc xml:space="preserve">Adds an icon on the left, determined by the message type. So before calling
+this function, gtk_info_bar_set_message_type() must have been called.
+
+The icon is not updated when the message type changes. Another #GtefInfoBar
+must be created in that case.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefInfoBar.</doc>
+            <type name="InfoBar" c:type="GtefInfoBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="add_primary_message"
+              c:identifier="gtef_info_bar_add_primary_message"
+              version="2.0">
+        <doc xml:space="preserve">Adds a primary message.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefInfoBar.</doc>
+            <type name="InfoBar" c:type="GtefInfoBar*"/>
+          </instance-parameter>
+          <parameter name="primary_msg" transfer-ownership="none">
+            <doc xml:space="preserve">a primary message.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_secondary_message"
+              c:identifier="gtef_info_bar_add_secondary_message"
+              version="2.0">
+        <doc xml:space="preserve">Adds a secondary message.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefInfoBar.</doc>
+            <type name="InfoBar" c:type="GtefInfoBar*"/>
+          </instance-parameter>
+          <parameter name="secondary_msg" transfer-ownership="none">
+            <doc xml:space="preserve">a secondary message.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.InfoBar" c:type="GtkInfoBar"/>
+      </field>
+    </class>
+    <record name="InfoBarClass"
+            c:type="GtefInfoBarClass"
+            glib:is-gtype-struct-for="InfoBar">
+      <field name="parent_class">
+        <type name="Gtk.InfoBarClass" c:type="GtkInfoBarClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="MenuShell"
+           c:symbol-prefix="menu_shell"
+           c:type="GtefMenuShell"
+           parent="GObject.Object"
+           glib:type-name="GtefMenuShell"
+           glib:get-type="gtef_menu_shell_get_type"
+           glib:type-struct="MenuShellClass">
+      <function name="get_from_gtk_menu_shell"
+                c:identifier="gtef_menu_shell_get_from_gtk_menu_shell"
+                version="2.0">
+        <doc xml:space="preserve">Returns the #GtefMenuShell of @gtk_menu_shell. The returned object is
+guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtefMenuShell of @gtk_menu_shell.</doc>
+          <type name="MenuShell" c:type="GtefMenuShell*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gtk_menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkMenuShell.</doc>
+            <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="menu_item_deselected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_menu_shell" transfer-ownership="none">
+            <type name="MenuShell" c:type="GtefMenuShell*"/>
+          </instance-parameter>
+          <parameter name="menu_item" transfer-ownership="none">
+            <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="menu_item_selected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_menu_shell" transfer-ownership="none">
+            <type name="MenuShell" c:type="GtefMenuShell*"/>
+          </instance-parameter>
+          <parameter name="menu_item" transfer-ownership="none">
+            <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_menu_shell"
+              c:identifier="gtef_menu_shell_get_menu_shell"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtkMenuShell of @gtef_menu_shell.</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gtef_menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefMenuShell.</doc>
+            <type name="MenuShell" c:type="GtefMenuShell*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="menu-shell"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkMenuShell.</doc>
+        <type name="Gtk.MenuShell"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuShellPrivate" c:type="GtefMenuShellPrivate*"/>
+      </field>
+      <glib:signal name="menu-item-deselected" when="first" version="2.0">
+        <doc xml:space="preserve">The ::menu-item-deselected signal is emitted when the
+#GtkMenuItem::deselect signal is emitted on a #GtkMenuItem belonging
+(directly or indirectly through submenus) to @gtef_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_item" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtkMenuItem that has been deselected.</doc>
+            <type name="Gtk.MenuItem"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="menu-item-selected" when="first" version="2.0">
+        <doc xml:space="preserve">The ::menu-item-selected signal is emitted when the
+#GtkMenuItem::select signal is emitted on a #GtkMenuItem belonging
+(directly or indirectly through submenus) to @gtef_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_item" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtkMenuItem that has been selected.</doc>
+            <type name="Gtk.MenuItem"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MenuShellClass"
+            c:type="GtefMenuShellClass"
+            glib:is-gtype-struct-for="MenuShell">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="menu_item_selected">
+        <callback name="menu_item_selected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gtef_menu_shell" transfer-ownership="none">
+              <type name="MenuShell" c:type="GtefMenuShell*"/>
+            </parameter>
+            <parameter name="menu_item" transfer-ownership="none">
+              <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="menu_item_deselected">
+        <callback name="menu_item_deselected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gtef_menu_shell" transfer-ownership="none">
+              <type name="MenuShell" c:type="GtefMenuShell*"/>
+            </parameter>
+            <parameter name="menu_item" transfer-ownership="none">
+              <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="MenuShellPrivate"
+            c:type="GtefMenuShellPrivate"
+            disguised="1">
+    </record>
+    <callback name="MountOperationFactory"
+              c:type="GtefMountOperationFactory"
+              version="1.0"
+              introspectable="0">
+      <doc xml:space="preserve">Type definition for a function that will be called to create a
+#GMountOperation. This is useful for creating a #GtkMountOperation.</doc>
+      <return-value>
+        <type name="Gio.MountOperation" c:type="GMountOperation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtefFile.</doc>
+          <type name="File" c:type="GtefFile*"/>
+        </parameter>
+        <parameter name="userdata"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">user data</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="NewlineType"
+                 version="1.0"
+                 glib:type-name="GtefNewlineType"
+                 glib:get-type="gtef_newline_type_get_type"
+                 c:type="GtefNewlineType">
+      <member name="lf"
+              value="0"
+              c:identifier="GTEF_NEWLINE_TYPE_LF"
+              glib:nick="lf">
+        <doc xml:space="preserve">line feed, used on UNIX.</doc>
+      </member>
+      <member name="cr"
+              value="1"
+              c:identifier="GTEF_NEWLINE_TYPE_CR"
+              glib:nick="cr">
+        <doc xml:space="preserve">carriage return, used on Mac.</doc>
+      </member>
+      <member name="cr_lf"
+              value="2"
+              c:identifier="GTEF_NEWLINE_TYPE_CR_LF"
+              glib:nick="cr-lf">
+        <doc xml:space="preserve">carriage return followed by a line feed, used
+  on Windows.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="SelectionType"
+                 version="1.0"
+                 glib:type-name="GtefSelectionType"
+                 glib:get-type="gtef_selection_type_get_type"
+                 c:type="GtefSelectionType">
+      <member name="no_selection"
+              value="0"
+              c:identifier="GTEF_SELECTION_TYPE_NO_SELECTION"
+              glib:nick="no-selection">
+        <doc xml:space="preserve">No selection.</doc>
+      </member>
+      <member name="on_same_line"
+              value="1"
+              c:identifier="GTEF_SELECTION_TYPE_ON_SAME_LINE"
+              glib:nick="on-same-line">
+        <doc xml:space="preserve">The start and end selection bounds are on
+  the same line.</doc>
+      </member>
+      <member name="multiple_lines"
+              value="2"
+              c:identifier="GTEF_SELECTION_TYPE_MULTIPLE_LINES"
+              glib:nick="multiple-lines">
+        <doc xml:space="preserve">The selection spans multiple lines.</doc>
+      </member>
+    </enumeration>
+    <class name="Tab"
+           c:symbol-prefix="tab"
+           c:type="GtefTab"
+           parent="Gtk.Grid"
+           glib:type-name="GtefTab"
+           glib:get-type="gtef_tab_get_type"
+           glib:type-struct="TabClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gtef_tab_new" version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtefTab.</doc>
+          <type name="Tab" c:type="GtefTab*"/>
+        </return-value>
+        <parameters>
+          <parameter name="main_widget" transfer-ownership="none">
+            <doc xml:space="preserve">the main #GtkWidget that will be contained in the #GtefTab.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_info_bar"
+              c:identifier="gtef_tab_add_info_bar"
+              version="1.0">
+        <doc xml:space="preserve">Attaches @info_bar to @tab, above the main widget.
+
+If several info bars are added, the first one will be at the top, the second
+one below the first info bar, etc. With the main widget of @tab at the
+bottom.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tab" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefTab.</doc>
+            <type name="Tab" c:type="GtefTab*"/>
+          </instance-parameter>
+          <parameter name="info_bar" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkInfoBar.</doc>
+            <type name="Gtk.InfoBar" c:type="GtkInfoBar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.Grid" c:type="GtkGrid"/>
+      </field>
+    </class>
+    <record name="TabClass"
+            c:type="GtefTabClass"
+            glib:is-gtype-struct-for="Tab">
+      <field name="parent_class">
+        <type name="Gtk.GridClass" c:type="GtkGridClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="View"
+           c:symbol-prefix="view"
+           c:type="GtefView"
+           parent="GtkSource.View"
+           glib:type-name="GtefView"
+           glib:get-type="gtef_view_get_type"
+           glib:type-struct="ViewClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="gtef_view_new" version="1.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtefView.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="copy_clipboard"
+              c:identifier="gtef_view_copy_clipboard"
+              version="1.0">
+        <doc xml:space="preserve">Copies the clipboard.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="cut_clipboard"
+              c:identifier="gtef_view_cut_clipboard"
+              version="1.0">
+        <doc xml:space="preserve">Cuts the clipboard and then scrolls to the cursor position.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="delete_selection"
+              c:identifier="gtef_view_delete_selection"
+              version="1.0">
+        <doc xml:space="preserve">Deletes the text currently selected in the #GtkTextBuffer associated
+to the view and then scrolls to the cursor position.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="goto_line"
+              c:identifier="gtef_view_goto_line"
+              version="2.0">
+        <doc xml:space="preserve">Places the cursor at the position returned by
+gtk_text_buffer_get_iter_at_line(), and scrolls to that position.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the cursor has been moved exactly to @line, %FALSE if that
+  line didn't exist.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+          <parameter name="line" transfer-ownership="none">
+            <doc xml:space="preserve">a line number, counting from 0.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="goto_line_offset"
+              c:identifier="gtef_view_goto_line_offset"
+              version="2.0">
+        <doc xml:space="preserve">Places the cursor at the position returned by
+gtk_text_buffer_get_iter_at_line_offset(), and scrolls to that position.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the cursor has been moved exactly to @line and
+  @line_offset, %FALSE if that position didn't exist.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+          <parameter name="line" transfer-ownership="none">
+            <doc xml:space="preserve">a line number, counting from 0.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="line_offset" transfer-ownership="none">
+            <doc xml:space="preserve">the line offset, in characters (not bytes).</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="paste_clipboard"
+              c:identifier="gtef_view_paste_clipboard"
+              version="1.0">
+        <doc xml:space="preserve">Pastes the clipboard and then scrolls to the cursor position.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="scroll_to_cursor"
+              c:identifier="gtef_view_scroll_to_cursor"
+              version="1.0">
+        <doc xml:space="preserve">Scrolls the @view to the cursor position.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="select_all"
+              c:identifier="gtef_view_select_all"
+              version="1.0">
+        <doc xml:space="preserve">Selects all the text.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="select_lines"
+              c:identifier="gtef_view_select_lines"
+              version="2.0">
+        <doc xml:space="preserve">Selects the lines between @start_line and @end_line included, counting from
+zero. And then scrolls to the cursor.
+
+Possible use-case: line numbers coming from a compilation output, to go to
+the place where a warning or error occurred.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtefView.</doc>
+            <type name="View" c:type="GtefView*"/>
+          </instance-parameter>
+          <parameter name="start_line" transfer-ownership="none">
+            <doc xml:space="preserve">start of the region to select.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="end_line" transfer-ownership="none">
+            <doc xml:space="preserve">end of the region to select.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GtkSource.View" c:type="GtkSourceView"/>
+      </field>
+    </class>
+    <record name="ViewClass"
+            c:type="GtefViewClass"
+            glib:is-gtype-struct-for="View">
+      <field name="parent_class">
+        <type name="GtkSource.ViewClass" c:type="GtkSourceViewClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <function name="action_map_add_action_entries_check_dups"
+              c:identifier="gtef_action_map_add_action_entries_check_dups"
+              version="2.0">
+      <doc xml:space="preserve">A wrapper function for g_action_map_add_action_entries() that checks
+duplicates.
+
+This function first checks - for each entry - that the @action_map doesn't
+already contain a #GAction with the same name. A warning is printed if an old
+action will be dropped. In any case, it then calls
+g_action_map_add_action_entries() with the same arguments as passed to this
+function.
+
+This function also checks if there are duplicates in the @entries array
+itself.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_map" transfer-ownership="none">
+          <doc xml:space="preserve">a #GActionMap.</doc>
+          <type name="Gio.ActionMap" c:type="GActionMap*"/>
+        </parameter>
+        <parameter name="entries" transfer-ownership="none">
+          <doc xml:space="preserve">a pointer to
+          the first item in an array of #GActionEntry structs.</doc>
+          <array length="2" zero-terminated="0" c:type="GActionEntry*">
+            <type name="Gio.ActionEntry"/>
+          </array>
+        </parameter>
+        <parameter name="n_entries" transfer-ownership="none">
+          <doc xml:space="preserve">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the user data for signal connections.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="encoding_get_all"
+              c:identifier="gtef_encoding_get_all"
+              moved-to="Encoding.get_all"
+              version="2.0">
+      <doc xml:space="preserve">Gets a list of all encodings known by #GtefEncoding.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">a list of
+#GtefEncoding's.</doc>
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="Encoding"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="encoding_get_default_candidates"
+              c:identifier="gtef_encoding_get_default_candidates"
+              moved-to="Encoding.get_default_candidates"
+              version="2.0">
+      <doc xml:space="preserve">Gets the list of default candidate encodings to try when loading a file. See
+gtk_source_file_loader_set_candidate_encodings().
+
+This function returns a different list depending on the current locale (i.e.
+language, country and default encoding). The UTF-8 encoding and the current
+locale encoding are guaranteed to be present in the returned list.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">the list of default
+candidate encodings.</doc>
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="Encoding"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="file_loader_error_quark"
+              c:identifier="gtef_file_loader_error_quark"
+              moved-to="FileLoaderError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="file_saver_error_quark"
+              c:identifier="gtef_file_saver_error_quark"
+              moved-to="FileSaverError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="iter_get_line_indentation"
+              c:identifier="gtef_iter_get_line_indentation"
+              version="2.0">
+      <doc xml:space="preserve">Gets the indentation, as a string, of the line at @iter. @iter can be
+anywhere in the line.
+
+Possible use-case: to implement an action that inserts some text in a
+#GtkTextBuffer. If the text to insert spans multiple lines, it is usually
+desired to keep the same indentation level.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">the line indentation at @iter. Free with g_free().</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="iter" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkTextIter.</doc>
+          <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="menu_item_get_long_description"
+              c:identifier="gtef_menu_item_get_long_description"
+              version="2.0">
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve">the long description of @menu_item, previously set with
+  gtef_menu_item_set_long_description().</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu_item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="menu_item_set_icon_name"
+              c:identifier="gtef_menu_item_set_icon_name"
+              version="2.0">
+      <doc xml:space="preserve">Sets an icon to a #GtkMenuItem.
+
+If the child widget of @item is already a #GtkBox, all #GtkImage widgets
+inside that box are first destroyed. A #GtkImage for @icon_name is then
+inserted to the box.
+
+If the child widget of @item is not a #GtkBox (it's usually the
+#GtkAccelLabel), it is replaced by a new #GtkBox and the initial child widget
+is inserted to the #GtkBox, alongside the icon.
+
+As a consequence, if you want to call functions on the #GtkAccelLabel, it's
+easier to do it before calling this function.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+        <parameter name="icon_name" transfer-ownership="none">
+          <doc xml:space="preserve">an icon name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="menu_item_set_long_description"
+              c:identifier="gtef_menu_item_set_long_description"
+              version="2.0">
+      <doc xml:space="preserve">Sets the long description of @menu_item. A possible use-case is to display it
+in a #GtkStatusbar, or as a tooltip.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu_item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+        <parameter name="long_description"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the long description, or %NULL to unset it.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="metadata_manager_init"
+              c:identifier="gtef_metadata_manager_init"
+              version="1.0">
+      <doc xml:space="preserve">This function initializes the metadata manager.
+
+The @metadata_path must be different for each process. It is advised for your
+application to rely on #GApplication process uniqueness.
+
+A good place to store the metadata is in a sub-directory of the user data
+directory. See g_get_user_data_dir().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="metadata_path" transfer-ownership="none">
+          <doc xml:space="preserve">the filename where the metadata is stored.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="metadata_manager_shutdown"
+              c:identifier="gtef_metadata_manager_shutdown"
+              version="1.0">
+      <doc xml:space="preserve">This function saves synchronously metadata if they need to be saved, and
+frees the internal data of the metadata manager.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="utils_recent_chooser_menu_get_item_uri"
+              c:identifier="gtef_utils_recent_chooser_menu_get_item_uri"
+              version="2.0">
+      <doc xml:space="preserve">Gets the URI of @item. @item must be a child of @menu. @menu must be a
+#GtkRecentChooserMenu.
+
+This function has been written because the value returned by
+gtk_recent_chooser_get_current_uri() is not updated when #GtkMenuItem's of a
+#GtkRecentChooserMenu are selected/deselected.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">the URI of @item. Free with g_free() when no longer needed.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkRecentChooserMenu.</doc>
+          <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
+        </parameter>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

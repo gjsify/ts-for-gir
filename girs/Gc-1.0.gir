@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Pango" version="1.0"/>
+  <c:include name="gc.h"/>
+  <namespace name="Gc"
+             version="1.0"
+             shared-library="libgc.so"
+             c:identifier-prefixes="Gc"
+             c:symbol-prefixes="gc">
+    <alias name="SearchResult" c:type="GcSearchResult">
+      <source-position filename="lib/gc.h" line="42"/>
+      <type name="GLib.PtrArray" c:type="GPtrArray"/>
+    </alias>
+    <enumeration name="Category"
+                 glib:type-name="GcCategory"
+                 glib:get-type="gc_category_get_type"
+                 c:type="GcCategory">
+      <member name="none"
+              value="0"
+              c:identifier="GC_CATEGORY_NONE"
+              glib:nick="none"
+              glib:name="GC_CATEGORY_NONE">
+      </member>
+      <member name="letter"
+              value="1"
+              c:identifier="GC_CATEGORY_LETTER"
+              glib:nick="letter"
+              glib:name="GC_CATEGORY_LETTER">
+      </member>
+      <member name="letter_punctuation"
+              value="2"
+              c:identifier="GC_CATEGORY_LETTER_PUNCTUATION"
+              glib:nick="letter-punctuation"
+              glib:name="GC_CATEGORY_LETTER_PUNCTUATION">
+      </member>
+      <member name="letter_arrow"
+              value="3"
+              c:identifier="GC_CATEGORY_LETTER_ARROW"
+              glib:nick="letter-arrow"
+              glib:name="GC_CATEGORY_LETTER_ARROW">
+      </member>
+      <member name="letter_bullet"
+              value="4"
+              c:identifier="GC_CATEGORY_LETTER_BULLET"
+              glib:nick="letter-bullet"
+              glib:name="GC_CATEGORY_LETTER_BULLET">
+      </member>
+      <member name="letter_picture"
+              value="5"
+              c:identifier="GC_CATEGORY_LETTER_PICTURE"
+              glib:nick="letter-picture"
+              glib:name="GC_CATEGORY_LETTER_PICTURE">
+      </member>
+      <member name="letter_currency"
+              value="6"
+              c:identifier="GC_CATEGORY_LETTER_CURRENCY"
+              glib:nick="letter-currency"
+              glib:name="GC_CATEGORY_LETTER_CURRENCY">
+      </member>
+      <member name="letter_math"
+              value="7"
+              c:identifier="GC_CATEGORY_LETTER_MATH"
+              glib:nick="letter-math"
+              glib:name="GC_CATEGORY_LETTER_MATH">
+      </member>
+      <member name="letter_latin"
+              value="8"
+              c:identifier="GC_CATEGORY_LETTER_LATIN"
+              glib:nick="letter-latin"
+              glib:name="GC_CATEGORY_LETTER_LATIN">
+      </member>
+      <member name="emoji"
+              value="9"
+              c:identifier="GC_CATEGORY_EMOJI"
+              glib:nick="emoji"
+              glib:name="GC_CATEGORY_EMOJI">
+      </member>
+      <member name="emoji_smileys"
+              value="10"
+              c:identifier="GC_CATEGORY_EMOJI_SMILEYS"
+              glib:nick="emoji-smileys"
+              glib:name="GC_CATEGORY_EMOJI_SMILEYS">
+      </member>
+      <member name="emoji_people"
+              value="11"
+              c:identifier="GC_CATEGORY_EMOJI_PEOPLE"
+              glib:nick="emoji-people"
+              glib:name="GC_CATEGORY_EMOJI_PEOPLE">
+      </member>
+      <member name="emoji_animals"
+              value="12"
+              c:identifier="GC_CATEGORY_EMOJI_ANIMALS"
+              glib:nick="emoji-animals"
+              glib:name="GC_CATEGORY_EMOJI_ANIMALS">
+      </member>
+      <member name="emoji_food"
+              value="13"
+              c:identifier="GC_CATEGORY_EMOJI_FOOD"
+              glib:nick="emoji-food"
+              glib:name="GC_CATEGORY_EMOJI_FOOD">
+      </member>
+      <member name="emoji_activities"
+              value="14"
+              c:identifier="GC_CATEGORY_EMOJI_ACTIVITIES"
+              glib:nick="emoji-activities"
+              glib:name="GC_CATEGORY_EMOJI_ACTIVITIES">
+      </member>
+      <member name="emoji_travel"
+              value="15"
+              c:identifier="GC_CATEGORY_EMOJI_TRAVEL"
+              glib:nick="emoji-travel"
+              glib:name="GC_CATEGORY_EMOJI_TRAVEL">
+      </member>
+      <member name="emoji_objects"
+              value="16"
+              c:identifier="GC_CATEGORY_EMOJI_OBJECTS"
+              glib:nick="emoji-objects"
+              glib:name="GC_CATEGORY_EMOJI_OBJECTS">
+      </member>
+      <member name="emoji_symbols"
+              value="17"
+              c:identifier="GC_CATEGORY_EMOJI_SYMBOLS"
+              glib:nick="emoji-symbols"
+              glib:name="GC_CATEGORY_EMOJI_SYMBOLS">
+      </member>
+      <member name="emoji_flags"
+              value="18"
+              c:identifier="GC_CATEGORY_EMOJI_FLAGS"
+              glib:nick="emoji-flags"
+              glib:name="GC_CATEGORY_EMOJI_FLAGS">
+      </member>
+    </enumeration>
+    <class name="SearchContext"
+           c:symbol-prefix="search_context"
+           c:type="GcSearchContext"
+           parent="GObject.Object"
+           glib:type-name="GcSearchContext"
+           glib:get-type="gc_search_context_get_type"
+           glib:type-struct="SearchContextClass">
+      <source-position filename="lib/gc.h" line="64"/>
+      <constructor name="new" c:identifier="gc_search_context_new">
+        <source-position filename="lib/gc.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <type name="SearchContext" c:type="GcSearchContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="criteria" transfer-ownership="none">
+            <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="SearchFlag" c:type="GcSearchFlag"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="is_finished" c:identifier="gc_search_context_is_finished">
+        <source-position filename="lib/gc.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="SearchContext" c:type="GcSearchContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="search" c:identifier="gc_search_context_search">
+        <source-position filename="lib/gc.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="SearchContext" c:type="GcSearchContext*"/>
+          </instance-parameter>
+          <parameter name="max_matches" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_finish"
+              c:identifier="gc_search_context_search_finish"
+              throws="1">
+        <source-position filename="lib/gc.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1684">an array of characters.</doc>
+          <type name="SearchResult" c:type="GcSearchResult*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1680">a #GcSearchContext.</doc>
+            <type name="SearchContext" c:type="GcSearchContext*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1681">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="criteria"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="SearchCriteria"/>
+      </property>
+      <property name="flags"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="GC_SEARCH_FLAG_NONE">
+        <type name="SearchFlag"/>
+      </property>
+    </class>
+    <record name="SearchContextClass"
+            c:type="GcSearchContextClass"
+            glib:is-gtype-struct-for="SearchContext">
+      <source-position filename="lib/gc.h" line="64"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="SearchCriteria"
+            c:type="GcSearchCriteria"
+            opaque="1"
+            glib:type-name="GcSearchCriteria"
+            glib:get-type="gc_search_criteria_get_type"
+            c:symbol-prefix="search_criteria">
+      <source-position filename="lib/gc.h" line="61"/>
+      <constructor name="new_category"
+                   c:identifier="gc_search_criteria_new_category">
+        <source-position filename="lib/gc.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1036">a new #GcSearchCriteria</doc>
+          <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
+        </return-value>
+        <parameters>
+          <parameter name="category" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1034">a #GcCategory</doc>
+            <type name="Category" c:type="GcCategory"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_keywords"
+                   c:identifier="gc_search_criteria_new_keywords">
+        <source-position filename="lib/gc.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1051">a new #GcSearchCriteria</doc>
+          <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
+        </return-value>
+        <parameters>
+          <parameter name="keywords" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1049">an array of keywords</doc>
+            <array c:type="const gchar* const*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_related"
+                   c:identifier="gc_search_criteria_new_related">
+        <source-position filename="lib/gc.h" line="85"/>
+        <return-value transfer-ownership="full">
+          <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
+        </return-value>
+        <parameters>
+          <parameter name="character" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_scripts"
+                   c:identifier="gc_search_criteria_new_scripts">
+        <source-position filename="lib/gc.h" line="81"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1077">a new #GcSearchCriteria</doc>
+          <type name="SearchCriteria" c:type="GcSearchCriteria*"/>
+        </return-value>
+        <parameters>
+          <parameter name="scripts" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1074">an array of scripts</doc>
+            <array length="1"
+                   zero-terminated="0"
+                   c:type="const GUnicodeScript*">
+              <type name="GLib.UnicodeScript" c:type="GUnicodeScript"/>
+            </array>
+          </parameter>
+          <parameter name="n_scripts" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gc.c"
+                 line="1075">the length of @scripts</doc>
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </record>
+    <enumeration name="SearchError"
+                 glib:type-name="GcSearchError"
+                 glib:get-type="gc_search_error_get_type"
+                 c:type="GcSearchError">
+      <member name="failed"
+              value="0"
+              c:identifier="GC_SEARCH_ERROR_FAILED"
+              glib:nick="failed"
+              glib:name="GC_SEARCH_ERROR_FAILED">
+      </member>
+      <member name="invalid_state"
+              value="1"
+              c:identifier="GC_SEARCH_ERROR_INVALID_STATE"
+              glib:nick="invalid-state"
+              glib:name="GC_SEARCH_ERROR_INVALID_STATE">
+      </member>
+    </enumeration>
+    <bitfield name="SearchFlag"
+              glib:type-name="GcSearchFlag"
+              glib:get-type="gc_search_flag_get_type"
+              c:type="GcSearchFlag">
+      <member name="none"
+              value="0"
+              c:identifier="GC_SEARCH_FLAG_NONE"
+              glib:nick="none"
+              glib:name="GC_SEARCH_FLAG_NONE">
+      </member>
+      <member name="word"
+              value="1"
+              c:identifier="GC_SEARCH_FLAG_WORD"
+              glib:nick="word"
+              glib:name="GC_SEARCH_FLAG_WORD">
+      </member>
+    </bitfield>
+    <callback name="SearchFunc" c:type="GcSearchFunc">
+      <source-position filename="lib/gc.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="uc" transfer-ownership="none">
+          <type name="gunichar" c:type="gunichar"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="character_is_composite"
+              c:identifier="gc_character_is_composite">
+      <source-position filename="lib/gc.h" line="103"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="897">whether the character is composite</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="894">a string consisting of UCS-4 characters</doc>
+          <array length="1" zero-terminated="0" c:type="const gunichar*">
+            <type name="gunichar" c:type="gunichar"/>
+          </array>
+        </parameter>
+        <parameter name="n_chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="895">length of @chars</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="character_is_invisible"
+              c:identifier="gc_character_is_invisible">
+      <source-position filename="lib/gc.h" line="108"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="930">%TRUE if @chars consists of invisible characters, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="927">a string consisting of UCS-4 characters</doc>
+          <array length="1" zero-terminated="0" c:type="const gunichar*">
+            <type name="gunichar" c:type="gunichar"/>
+          </array>
+        </parameter>
+        <parameter name="n_chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="928">length of @chars</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="character_name" c:identifier="gc_character_name">
+      <source-position filename="lib/gc.h" line="106"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="911">a newly allocated character name of @uc.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="908">a string consisting of UCS-4 characters</doc>
+          <array length="1" zero-terminated="0" c:type="const gunichar*">
+            <type name="gunichar" c:type="gunichar"/>
+          </array>
+        </parameter>
+        <parameter name="n_chars" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="909">length of @chars</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_current_language"
+              c:identifier="gc_get_current_language">
+      <source-position filename="lib/gc.h" line="112"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="1705">an ISO639 two-letter language code</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_scripts_for_language"
+              c:identifier="gc_get_scripts_for_language">
+      <source-position filename="lib/gc.h" line="114"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="1753">a list of script names.</doc>
+        <array length="1" zero-terminated="0" c:type="GUnicodeScript*">
+          <type name="GLib.UnicodeScript" c:type="GUnicodeScript"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="language" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1750">a language name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="n_scripts"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="1751">length of the returned value</doc>
+          <type name="gsize" c:type="size_t*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="search_result_get" c:identifier="gc_search_result_get">
+      <source-position filename="lib/gc.h" line="69"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gc.c"
+             line="956">the character at @index</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="953">a #GcSearchResult</doc>
+          <type name="SearchResult" c:type="GcSearchResult*"/>
+        </parameter>
+        <parameter name="index" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gc.c"
+               line="954">index of the character to get</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="search_result_get_type"
+              c:identifier="gc_search_result_get_type">
+      <source-position filename="lib/gc.h" line="67"/>
+      <return-value transfer-ownership="none">
+        <type name="GType" c:type="GType"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

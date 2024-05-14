@@ -15,7 +15,6 @@ import {
     ThisType,
     ArrayType,
     ClosureType,
-    GTypeType,
     BinaryType,
     ObjectType,
     NullableType,
@@ -105,7 +104,7 @@ const reservedWords = [
     "yield"
 ];
 
-export function getAliasType(modName: string, _ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
+export function getAliasType(namespace: string, ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
     let name = parameter.type?.[0].$["name"] || "unknown";
 
     const nameParts = name.split(" ");
@@ -116,7 +115,7 @@ export function getAliasType(modName: string, _ns: IntrospectedNamespace, parame
         name = nameParts[1];
     }
 
-    return parseTypeExpression(modName, name);
+    return parseTypeExpression(namespace, name);
 }
 
 /**
@@ -144,7 +143,7 @@ export function getType(
     ns: IntrospectedNamespace,
     param?: GirConstantElement | GirCallableReturn | GirFieldElement
 ): TypeExpression {
-    const modName = ns.name;
+    const modName = ns.namespace;
 
     if (!param) return VoidType;
 
@@ -184,7 +183,7 @@ export function getType(
             } else {
                 name = "unknown";
                 console.log(
-                    `Failed to find array type in ${modName}: `,
+                    `Failed to find array type in ${ns.packageName}: `,
                     JSON.stringify(parameter.$, null, 4),
                     "\nMarking as unknown!"
                 );
@@ -245,7 +244,7 @@ export function getType(
         throw new Error(`Un-parsable type: ${name}`);
     }
 
-    let variableType: TypeExpression = parseTypeExpression(modName, name);
+    let variableType: TypeExpression = parseTypeExpression(ns.namespace, name);
 
     if (variableType instanceof TypeIdentifier) {
         if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
@@ -255,7 +254,7 @@ export function getType(
 
             if (listType) {
                 name = listType;
-                variableType = parseTypeExpression(modName, name);
+                variableType = parseTypeExpression(ns.namespace, name);
 
                 arrayDepth = 1;
             }
@@ -264,8 +263,8 @@ export function getType(
             const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
 
             if (keyType && valueType) {
-                const key = parseTypeExpression(modName, keyType);
-                const value = parseTypeExpression(modName, valueType);
+                const key = parseTypeExpression(ns.namespace, keyType);
+                const value = parseTypeExpression(ns.namespace, valueType);
 
                 variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
             }
@@ -410,20 +409,22 @@ export function parseTypeString(type: string): { namespace: string | null; name:
     }
 }
 
-export function parseTypeIdentifier(modName: string, type: string): TypeIdentifier {
+export function parseTypeIdentifier(namespace: string, type: string): TypeIdentifier {
     const baseType = parseTypeString(type);
 
     if (baseType.namespace) {
         return new TypeIdentifier(baseType.name, baseType.namespace);
     } else {
-        return new TypeIdentifier(baseType.name, modName);
+        return new TypeIdentifier(baseType.name, namespace);
     }
 }
 
-export function parseTypeExpression(modName: string, type: string): TypeExpression {
+export function parseTypeExpression(namespace: string, type: string): TypeExpression {
     const baseType = parseTypeString(type);
-
     if (baseType.namespace) {
+        if (baseType.namespace === namespace) {
+            return new TypeIdentifier(baseType.name, namespace);
+        }
         return new TypeIdentifier(baseType.name, baseType.namespace).sanitize();
     } else {
         const primitiveType = resolvePrimitiveType(baseType.name);
@@ -431,7 +432,7 @@ export function parseTypeExpression(modName: string, type: string): TypeExpressi
         if (primitiveType !== null) {
             return primitiveType;
         } else {
-            return new TypeIdentifier(baseType.name, modName).sanitize();
+            return new TypeIdentifier(baseType.name, namespace);
         }
     }
 }
@@ -467,7 +468,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return StringType;
         // Pass this through
         case "GType":
-            return GTypeType;
+            return new TypeIdentifier("GType", "GObject");
         case "utf8":
             return StringType;
         case "void": // Support TS "void"

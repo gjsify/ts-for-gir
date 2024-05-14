@@ -1,0 +1,792 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libfep-glib"/>
+  <namespace name="Fep"
+             version="1.0"
+             shared-library="libfep-glib.so.0"
+             c:identifier-prefixes="Fep"
+             c:symbol-prefixes="fep">
+    <enumeration name="GAttrType"
+                 glib:type-name="FepGAttrType"
+                 glib:get-type="fep_gattr_type_get_type"
+                 c:type="FepGAttrType">
+      <member name="underline"
+              value="0"
+              c:identifier="FEP_G_ATTR_TYPE_UNDERLINE"
+              glib:nick="underline"
+              glib:name="FEP_G_ATTR_TYPE_UNDERLINE">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="29">Decorate with underline</doc>
+      </member>
+      <member name="foreground"
+              value="1"
+              c:identifier="FEP_G_ATTR_TYPE_FOREGROUND"
+              glib:nick="foreground"
+              glib:name="FEP_G_ATTR_TYPE_FOREGROUND">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="30">Foreground color</doc>
+      </member>
+      <member name="background"
+              value="2"
+              c:identifier="FEP_G_ATTR_TYPE_BACKGROUND"
+              glib:nick="background"
+              glib:name="FEP_G_ATTR_TYPE_BACKGROUND">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="31">Background color</doc>
+      </member>
+      <member name="none"
+              value="3"
+              c:identifier="FEP_G_ATTR_TYPE_NONE"
+              glib:nick="none"
+              glib:name="FEP_G_ATTR_TYPE_NONE">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="32">No attribute</doc>
+      </member>
+      <member name="standout"
+              value="4"
+              c:identifier="FEP_G_ATTR_TYPE_STANDOUT"
+              glib:nick="standout"
+              glib:name="FEP_G_ATTR_TYPE_STANDOUT">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="33">Reverse video</doc>
+      </member>
+      <member name="bold"
+              value="5"
+              c:identifier="FEP_G_ATTR_TYPE_BOLD"
+              glib:nick="bold"
+              glib:name="FEP_G_ATTR_TYPE_BOLD">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="34">Bold</doc>
+      </member>
+      <member name="blink"
+              value="6"
+              c:identifier="FEP_G_ATTR_TYPE_BLINK"
+              glib:nick="blink"
+              glib:name="FEP_G_ATTR_TYPE_BLINK">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="35">Blink</doc>
+      </member>
+    </enumeration>
+    <enumeration name="GAttrUnderline"
+                 glib:type-name="FepGAttrUnderline"
+                 glib:get-type="fep_gattr_underline_get_type"
+                 c:type="FepGAttrUnderline">
+      <member name="none"
+              value="0"
+              c:identifier="FEP_G_ATTR_UNDERLINE_NONE"
+              glib:nick="none"
+              glib:name="FEP_G_ATTR_UNDERLINE_NONE">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="52">No underline</doc>
+      </member>
+      <member name="single"
+              value="1"
+              c:identifier="FEP_G_ATTR_UNDERLINE_SINGLE"
+              glib:nick="single"
+              glib:name="FEP_G_ATTR_UNDERLINE_SINGLE">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="53">Single underline</doc>
+      </member>
+      <member name="double"
+              value="2"
+              c:identifier="FEP_G_ATTR_UNDERLINE_DOUBLE"
+              glib:nick="double"
+              glib:name="FEP_G_ATTR_UNDERLINE_DOUBLE">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="54">Double underline</doc>
+      </member>
+      <member name="low"
+              value="3"
+              c:identifier="FEP_G_ATTR_UNDERLINE_LOW"
+              glib:nick="low"
+              glib:name="FEP_G_ATTR_UNDERLINE_LOW">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="55">Low underline? FIXME</doc>
+      </member>
+      <member name="error"
+              value="4"
+              c:identifier="FEP_G_ATTR_UNDERLINE_ERROR"
+              glib:nick="error"
+              glib:name="FEP_G_ATTR_UNDERLINE_ERROR">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="56">Error underline</doc>
+      </member>
+    </enumeration>
+    <record name="GAttribute"
+            c:type="FepGAttribute"
+            glib:type-name="FepGAttribute"
+            glib:get-type="fep_g_attribute_get_type"
+            c:symbol-prefix="g_attribute">
+      <source-position filename="fepgattribute.h" line="84"/>
+      <field name="type" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="72">type of the attribute</doc>
+        <type name="GAttrType" c:type="FepGAttrType"/>
+      </field>
+      <field name="value" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="73">value of the attribute</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="start_index" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="74">starting position of the attribute</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="end_index" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgattribute.h"
+             line="75">end position (exclusive) of the attribute</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <class name="GClient"
+           c:symbol-prefix="g_client"
+           c:type="FepGClient"
+           parent="GObject.Object"
+           glib:type-name="FepGClient"
+           glib:get-type="fep_g_client_get_type"
+           glib:type-struct="GClientClass">
+      <source-position filename="fepgclient.h" line="67"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="fep_g_client_new" throws="1">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="303">Connect to the FEP server running at @address.  If @address is
+%NULL, it gets the address from the environment variable
+`LIBFEP_CONTROL_SOCK`.</doc>
+        <source-position filename="fepgclient.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="fepgclient.c"
+               line="313">a new #FepGClient.</doc>
+          <type name="GClient" c:type="FepGClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="305">socket address of the FEP server</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="306">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="filter_event">
+        <source-position filename="fepgclient.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <type name="GEvent" c:type="FepGEvent*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="filter_key_event">
+        <source-position filename="fepgclient.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="keyval" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="modifiers" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="resized">
+        <source-position filename="fepgclient.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="cols" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="rows" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="dispatch" c:identifier="fep_g_client_dispatch">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="431">Dispatch a key event.</doc>
+        <source-position filename="fepgclient.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fepgclient.c"
+               line="437">%TRUE if success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="433">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="forward_key_event"
+              c:identifier="fep_g_client_forward_key_event">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="399">Request to send a key event to the child process of the FEP server.</doc>
+        <source-position filename="fepgclient.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="401">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="402">keysym value</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="modifiers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="403">modifiers</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_poll_fd" c:identifier="fep_g_client_get_poll_fd">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="416">Get the file descriptor of the control socket which can be used by poll().</doc>
+        <source-position filename="fepgclient.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fepgclient.c"
+               line="422">a file descriptor</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="418">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="send_data" c:identifier="fep_g_client_send_data">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="382">Request to send @data to the child process of the FEP server.</doc>
+        <source-position filename="fepgclient.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="384">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="385">data to be sent</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="386">length of @data</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_text" c:identifier="fep_g_client_send_text">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="365">Request to send @data to the child process of the FEP server.
+@text will be converted from UTF-8 to the local encoding in the
+server.</doc>
+        <source-position filename="fepgclient.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="367">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="368">text to be sent</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cursor_text"
+              c:identifier="fep_g_client_set_cursor_text">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="327">Request to display @text at the cursor position on the terminal.</doc>
+        <source-position filename="fepgclient.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="329">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="330">a cursor text</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attr"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="331">a #FepGAttribute</doc>
+            <type name="GAttribute" c:type="FepGAttribute*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_status_text"
+              c:identifier="fep_g_client_set_status_text">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="346">Request to display @text at the bottom of the terminal.</doc>
+        <source-position filename="fepgclient.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="348">a #FepGClient</doc>
+            <type name="GClient" c:type="FepGClient*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="349">a status text</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attr"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="350">a #FepGAttribute</doc>
+            <type name="GAttribute" c:type="FepGAttribute*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="address"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GClientPrivate" c:type="FepGClientPrivate*"/>
+      </field>
+      <glib:signal name="filter-event" when="last">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="265">The ::filter-event signal is emitted when key event is dispatched.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="event"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="268">a #FepGEvent</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="filter-key-event" when="last">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="221">The ::filter-key-event signal is emitted when key event is dispatched.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="224">a keyval</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="modifiers" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="225">modifier mask</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="resized" when="last">
+        <doc xml:space="preserve"
+             filename="fepgclient.c"
+             line="244">The ::resized signal is emitted when terminal is resized.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cols" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="247">number of columns</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="rows" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fepgclient.c"
+                 line="248">number of rows</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="GClientClass"
+            c:type="FepGClientClass"
+            glib:is-gtype-struct-for="GClient">
+      <source-position filename="fepgclient.h" line="67"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="filter_key_event">
+        <callback name="filter_key_event">
+          <source-position filename="fepgclient.h" line="56"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="GClient" c:type="FepGClient*"/>
+            </parameter>
+            <parameter name="keyval" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="modifiers" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="resized">
+        <callback name="resized">
+          <source-position filename="fepgclient.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="GClient" c:type="FepGClient*"/>
+            </parameter>
+            <parameter name="cols" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="rows" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="filter_event">
+        <callback name="filter_event">
+          <source-position filename="fepgclient.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="GClient" c:type="FepGClient*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="GEvent" c:type="FepGEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="31">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="GClientPrivate"
+            c:type="FepGClientPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="fepgclient.h" line="35"/>
+    </record>
+    <union name="GEvent"
+           c:type="FepGEvent"
+           glib:type-name="FepGEvent"
+           glib:get-type="fep_g_event_get_type"
+           c:symbol-prefix="g_event">
+      <doc xml:space="preserve"
+           filename="fepgevents.h"
+           line="89">The #FepGEvent struct contains a union of all of the event structs,
+and allows access to the data fields in a number of ways.</doc>
+      <source-position filename="fepgevents.h" line="100"/>
+      <field name="any" writable="1">
+        <type name="GEventAny" c:type="FepGEventAny"/>
+      </field>
+      <field name="key" writable="1">
+        <type name="GEventKey" c:type="FepGEventKey"/>
+      </field>
+      <field name="resize" writable="1">
+        <type name="GEventResize" c:type="FepGEventResize"/>
+      </field>
+      <constructor name="new" c:identifier="fep_g_event_new">
+        <source-position filename="fepgevents.h" line="106"/>
+        <return-value transfer-ownership="full">
+          <type name="GEvent" c:type="FepGEvent*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="GEventType" c:type="FepGEventType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy" c:identifier="fep_g_event_copy">
+        <source-position filename="fepgevents.h" line="107"/>
+        <return-value transfer-ownership="full">
+          <type name="GEvent" c:type="FepGEvent*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="event" transfer-ownership="none">
+            <type name="GEvent" c:type="const FepGEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="fep_g_event_free">
+        <source-position filename="fepgevents.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="event" transfer-ownership="none">
+            <type name="GEvent" c:type="FepGEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </union>
+    <record name="GEventAny" c:type="FepGEventAny">
+      <source-position filename="fepgevents.h" line="49"/>
+      <field name="type" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="43">type of the event</doc>
+        <type name="GEventType" c:type="FepGEventType"/>
+      </field>
+    </record>
+    <record name="GEventKey" c:type="FepGEventKey">
+      <source-position filename="fepgevents.h" line="69"/>
+      <field name="type" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="55">type of the event</doc>
+        <type name="GEventType" c:type="FepGEventType"/>
+      </field>
+      <field name="keyval" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="56">keysym value</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="modifiers" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="57">modifier mask</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="source" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="58">original string which generated the event</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="source_length" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="59">length of @source</doc>
+        <type name="gsize" c:type="gsize"/>
+      </field>
+    </record>
+    <record name="GEventResize" c:type="FepGEventResize">
+      <source-position filename="fepgevents.h" line="85"/>
+      <field name="type" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="75">type of the event</doc>
+        <type name="GEventType" c:type="FepGEventType"/>
+      </field>
+      <field name="cols" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="76">number of columns</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="rows" writable="1">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="77">number of rows</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <enumeration name="GEventType"
+                 glib:type-name="FepGEventType"
+                 glib:get-type="fep_gevent_type_get_type"
+                 c:type="FepGEventType">
+      <member name="nothing"
+              value="-1"
+              c:identifier="FEP_G_EVENT_TYPE_NOTHING"
+              glib:nick="nothing"
+              glib:name="FEP_G_EVENT_TYPE_NOTHING">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="29">Nothing happend; used to indicate error</doc>
+      </member>
+      <member name="key_press"
+              value="0"
+              c:identifier="FEP_G_EVENT_TYPE_KEY_PRESS"
+              glib:nick="key-press"
+              glib:name="FEP_G_EVENT_TYPE_KEY_PRESS">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="30">Key is pressed</doc>
+      </member>
+      <member name="resized"
+              value="1"
+              c:identifier="FEP_G_EVENT_TYPE_RESIZED"
+              glib:nick="resized"
+              glib:name="FEP_G_EVENT_TYPE_RESIZED">
+        <doc xml:space="preserve"
+             filename="fepgevents.h"
+             line="31">Window is resized</doc>
+      </member>
+    </enumeration>
+    <function-macro name="G_CLIENT"
+                    c:identifier="FEP_G_CLIENT"
+                    introspectable="0">
+      <source-position filename="fepgclient.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="G_CLIENT_CLASS"
+                    c:identifier="FEP_G_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="fepgclient.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="G_CLIENT_GET_CLASS"
+                    c:identifier="FEP_G_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="fepgclient.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_G_CLIENT"
+                    c:identifier="FEP_IS_G_CLIENT"
+                    introspectable="0">
+      <source-position filename="fepgclient.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_G_CLIENT_CLASS"
+                    c:identifier="FEP_IS_G_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="fepgclient.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+  </namespace>
+</repository>

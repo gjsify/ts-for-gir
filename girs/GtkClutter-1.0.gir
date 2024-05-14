@@ -1,0 +1,1185 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Clutter" version="1.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="clutter-gtk-1.0"/>
+  <c:include name="clutter-gtk/clutter-gtk.h"/>
+  <namespace name="GtkClutter"
+             version="1.0"
+             shared-library="libclutter-gtk-1.0.so.0"
+             c:identifier-prefixes="GtkClutter"
+             c:symbol-prefixes="gtk_clutter">
+    <function-macro name="ACTOR"
+                    c:identifier="GTK_CLUTTER_ACTOR"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR_CLASS"
+                    c:identifier="GTK_CLUTTER_ACTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="40"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR_GET_CLASS"
+                    c:identifier="GTK_CLUTTER_ACTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="42"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Actor"
+           c:symbol-prefix="actor"
+           c:type="GtkClutterActor"
+           parent="Clutter.Actor"
+           glib:type-name="GtkClutterActor"
+           glib:get-type="gtk_clutter_actor_get_type"
+           glib:type-struct="ActorClass">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-actor.h"
+           line="48">A ClutterActor containing a #GtkWidget.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="78"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new" c:identifier="gtk_clutter_actor_new">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-actor.c"
+             line="621">Creates a new #GtkClutterActor.
+
+This widget can be used to embed a #GtkWidget into a Clutter scene,
+by retrieving the internal #GtkBin container using
+gtk_clutter_actor_get_widget() and adding the #GtkWidget to it.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-actor.c"
+               line="630">the newly created #GtkClutterActor</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_contents"
+                   c:identifier="gtk_clutter_actor_new_with_contents">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-actor.c"
+             line="638">Creates a new #GtkClutterActor widget. This widget can be
+used to embed a Gtk widget into a clutter scene.
+
+This function is the logical equivalent of:
+
+|[
+ClutterActor *actor = gtk_clutter_actor_new ();
+GtkWidget *bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (actor));
+
+gtk_container_add (GTK_CONTAINER (bin), contents);
+]|</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-actor.c"
+               line="654">the newly created #GtkClutterActor</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="contents" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-actor.c"
+                 line="640">a #GtkWidget to pack into this #ClutterActor</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_contents"
+              c:identifier="gtk_clutter_actor_get_contents"
+              glib:get-property="contents">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-actor.c"
+             line="682">Retrieves the child of the #GtkBin used to hold the contents of @actor.
+
+This convenience function is the logical equivalent of:
+
+|[
+GtkWidget *bin;
+
+bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (actor));
+return gtk_bin_get_child (GTK_BIN (bin));
+]|</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-actor.c"
+               line="697">a #GtkWidget, or %NULL if not content
+  has been set</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-actor.c"
+                 line="684">a #GtkClutterActor</doc>
+            <type name="Actor" c:type="GtkClutterActor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_widget" c:identifier="gtk_clutter_actor_get_widget">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-actor.c"
+             line="666">Retrieves the #GtkBin used to hold the #GtkClutterActor:contents widget</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-actor.c"
+               line="672">a #GtkBin</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-actor.c"
+                 line="668">a #GtkClutterActor</doc>
+            <type name="Actor" c:type="GtkClutterActor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="contents"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                getter="get_contents">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-actor.c"
+             line="520">The #GtkWidget to be embedded into the #GtkClutterActor</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Clutter.Actor" c:type="ClutterActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ActorPrivate" c:type="GtkClutterActorPrivate*"/>
+      </field>
+    </class>
+    <record name="ActorClass"
+            c:type="GtkClutterActorClass"
+            glib:is-gtype-struct-for="Actor">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-actor.h"
+           line="61">Base class for #GtkClutterActor.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="78"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
+      </field>
+      <field name="_clutter_gtk_reserved1" introspectable="0">
+        <callback name="_clutter_gtk_reserved1">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="72"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved2" introspectable="0">
+        <callback name="_clutter_gtk_reserved2">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="73"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved3" introspectable="0">
+        <callback name="_clutter_gtk_reserved3">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="74"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved4" introspectable="0">
+        <callback name="_clutter_gtk_reserved4">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved5" introspectable="0">
+        <callback name="_clutter_gtk_reserved5">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved6" introspectable="0">
+        <callback name="_clutter_gtk_reserved6">
+          <source-position filename="clutter-gtk/gtk-clutter-actor.h"
+                           line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="ActorPrivate"
+            c:type="GtkClutterActorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="45"/>
+    </record>
+    <function-macro name="EMBED"
+                    c:identifier="GTK_CLUTTER_EMBED"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EMBED_CLASS"
+                    c:identifier="GTK_CLUTTER_EMBED_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EMBED_GET_CLASS"
+                    c:identifier="GTK_CLUTTER_EMBED_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="41"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Embed"
+           c:symbol-prefix="embed"
+           c:type="GtkClutterEmbed"
+           parent="Gtk.Container"
+           glib:type-name="GtkClutterEmbed"
+           glib:get-type="gtk_clutter_embed_get_type"
+           glib:type-struct="EmbedClass">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-embed.h"
+           line="47">A #GtkWidget containing the default Clutter stage.
+
+The &lt;structname&gt;GtkClutterEmbed&lt;/structname&gt; structure contains only
+private data and should be accessed using the provided API.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="83"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gtk_clutter_embed_new">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-embed.c"
+             line="1208">Creates a new #GtkClutterEmbed widget. This widget can be
+used to build a scene using Clutter API into a GTK+ application.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-embed.c"
+               line="1214">the newly created #GtkClutterEmbed</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_stage" c:identifier="gtk_clutter_embed_get_stage">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-embed.c"
+             line="1222">Retrieves the #ClutterStage from @embed. The returned stage can be
+used to add actors to the Clutter scene.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-embed.c"
+               line="1229">the Clutter stage. You should never
+  destroy or unref the returned actor.</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="embed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-embed.c"
+                 line="1224">a #GtkClutterEmbed</doc>
+            <type name="Embed" c:type="GtkClutterEmbed*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_use_layout_size"
+              c:identifier="gtk_clutter_embed_get_use_layout_size"
+              glib:get-property="use-layout-size"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-embed.c"
+             line="1286">Retrieves whether the embedding uses the layout size, see
+gtk_clutter_embed_set_use_layout_size() for details.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-embed.c"
+               line="1293">%TRUE if reporting stage size as widget size, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="embed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-embed.c"
+                 line="1288">a #GtkClutterEmbed</doc>
+            <type name="Embed" c:type="GtkClutterEmbed*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_use_layout_size"
+              c:identifier="gtk_clutter_embed_set_use_layout_size"
+              glib:set-property="use-layout-size"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-embed.c"
+             line="1240">Changes the way @embed requests size. If @use_layout_size is
+%TRUE, the @embed widget will request the size that the
+LayoutManager reports as the preferred size. This means that
+a Gtk+ window will automatically get the natural and minimum
+toplevel window sizes. This is useful when the contents of the
+clutter stage is similar to a traditional UI.
+
+If @use_layout_size is %FALSE (which is the default) then @embed
+will not request any size and its up to the embedder to make sure
+there is some size (by setting a custom size on the widget or a default
+size on the toplevel. This makes more sense when using the @embed
+as a viewport into a potentially unlimited clutter space.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="embed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-embed.c"
+                 line="1242">a #GtkClutterEmbed</doc>
+            <type name="Embed" c:type="GtkClutterEmbed*"/>
+          </instance-parameter>
+          <parameter name="use_layout_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-embed.c"
+                 line="1243">a boolean</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="use-layout-size"
+                version="1.4"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_use_layout_size"
+                getter="get_use_layout_size"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-embed.c"
+             line="1093">Whether to use the reported size of the LayoutManager on the stage as the widget size.
+See gtk_clutter_embed_set_use_layout_size() for details.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gtk.Container" c:type="GtkContainer"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="EmbedPrivate" c:type="GtkClutterEmbedPrivate*"/>
+      </field>
+    </class>
+    <record name="EmbedClass"
+            c:type="GtkClutterEmbedClass"
+            glib:is-gtype-struct-for="Embed">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-embed.h"
+           line="63">Base class for #GtkClutterEmbed.
+
+The &lt;structname&gt;GtkClutterEmbedClass&lt;/structname&gt; contains only private
+data.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="83"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.ContainerClass" c:type="GtkContainerClass"/>
+      </field>
+      <field name="_clutter_gtk_reserved1" introspectable="0">
+        <callback name="_clutter_gtk_reserved1">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved2" introspectable="0">
+        <callback name="_clutter_gtk_reserved2">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved3" introspectable="0">
+        <callback name="_clutter_gtk_reserved3">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="79"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved4" introspectable="0">
+        <callback name="_clutter_gtk_reserved4">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="80"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved5" introspectable="0">
+        <callback name="_clutter_gtk_reserved5">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved6" introspectable="0">
+        <callback name="_clutter_gtk_reserved6">
+          <source-position filename="clutter-gtk/gtk-clutter-embed.h"
+                           line="82"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="EmbedPrivate"
+            c:type="GtkClutterEmbedPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="44"/>
+    </record>
+    <function-macro name="IS_ACTOR"
+                    c:identifier="GTK_CLUTTER_IS_ACTOR"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ACTOR_CLASS"
+                    c:identifier="GTK_CLUTTER_IS_ACTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-actor.h" line="41"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EMBED"
+                    c:identifier="GTK_CLUTTER_IS_EMBED"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EMBED_CLASS"
+                    c:identifier="GTK_CLUTTER_IS_EMBED_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-embed.h" line="40"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXTURE"
+                    c:identifier="GTK_CLUTTER_IS_TEXTURE"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXTURE_CLASS"
+                    c:identifier="GTK_CLUTTER_IS_TEXTURE_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WINDOW"
+                    c:identifier="GTK_CLUTTER_IS_WINDOW"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WINDOW_CLASS"
+                    c:identifier="GTK_CLUTTER_IS_WINDOW_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXTURE"
+                    c:identifier="GTK_CLUTTER_TEXTURE"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXTURE_CLASS"
+                    c:identifier="GTK_CLUTTER_TEXTURE_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXTURE_GET_CLASS"
+                    c:identifier="GTK_CLUTTER_TEXTURE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Texture"
+           c:symbol-prefix="texture"
+           c:type="GtkClutterTexture"
+           version="1.0"
+           parent="Clutter.Texture"
+           glib:type-name="GtkClutterTexture"
+           glib:get-type="gtk_clutter_texture_get_type"
+           glib:type-struct="TextureClass">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-texture.h"
+           line="67">The &lt;structname&gt;GtkClutterTexture&lt;/structname&gt; structure contains
+only private data and should be accessed using the provided API.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="93"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Clutter.Container"/>
+      <implements name="Clutter.Scriptable"/>
+      <constructor name="new"
+                   c:identifier="gtk_clutter_texture_new"
+                   version="1.0">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-texture.c"
+             line="55">Creates a new #GtkClutterTexture actor.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-texture.h"
+                         line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-texture.c"
+               line="60">the newly created #GtkClutterTexture
+  instance</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+      </constructor>
+      <function name="error_quark"
+                c:identifier="gtk_clutter_texture_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="set_from_icon_name"
+              c:identifier="gtk_clutter_texture_set_from_icon_name"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-texture.c"
+             line="148">Sets the contents of @texture using the @icon_name from the
+current icon theme.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-texture.h"
+                         line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-texture.c"
+               line="159">%TRUE on success, %FALSE on failure</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="150">a #GtkClutterTexture</doc>
+            <type name="Texture" c:type="GtkClutterTexture*"/>
+          </instance-parameter>
+          <parameter name="widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="151">a #GtkWidget or %NULL</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="152">the name of the icon</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="153">the icon size or -1</doc>
+            <type name="Gtk.IconSize" c:type="GtkIconSize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_from_pixbuf"
+              c:identifier="gtk_clutter_texture_set_from_pixbuf"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-texture.c"
+             line="71">Sets the contents of @texture with a copy of @pixbuf.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-texture.h"
+                         line="104"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-texture.c"
+               line="79">%TRUE on success, %FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="73">a #GtkClutterTexture</doc>
+            <type name="Texture" c:type="GtkClutterTexture*"/>
+          </instance-parameter>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="74">a #GdkPixbuf</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_from_stock"
+              c:identifier="gtk_clutter_texture_set_from_stock"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-texture.c"
+             line="100">Sets the contents of @texture using the stock icon @stock_id, as
+rendered by @widget.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-texture.h"
+                         line="108"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-texture.c"
+               line="111">%TRUE on success, %FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="102">a #GtkClutterTexture</doc>
+            <type name="Texture" c:type="GtkClutterTexture*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="103">a #GtkWidget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="stock_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="104">the stock id of the icon</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-texture.c"
+                 line="105">the size of the icon, or -1</doc>
+            <type name="Gtk.IconSize" c:type="GtkIconSize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Clutter.Texture" c:type="ClutterTexture"/>
+      </field>
+    </class>
+    <record name="TextureClass"
+            c:type="GtkClutterTextureClass"
+            glib:is-gtype-struct-for="Texture"
+            version="1.0">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-texture.h"
+           line="81">The &lt;structname&gt;GtkClutterTextureClass&lt;/structname&gt; structure contains
+only private data.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="93"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Clutter.TextureClass" c:type="ClutterTextureClass"/>
+      </field>
+    </record>
+    <enumeration name="TextureError"
+                 version="1.0"
+                 c:type="GtkClutterTextureError">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-texture.h"
+           line="55">Error enumeration for #GtkClutterTexture</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-texture.h" line="65"/>
+      <member name="texture_error_invalid_stock_id"
+              value="0"
+              c:identifier="GTK_CLUTTER_TEXTURE_ERROR_INVALID_STOCK_ID">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-texture.h"
+             line="57">Invalid stock id</doc>
+      </member>
+    </enumeration>
+    <function-macro name="WINDOW"
+                    c:identifier="GTK_CLUTTER_WINDOW"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WINDOW_CLASS"
+                    c:identifier="GTK_CLUTTER_WINDOW_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WINDOW_GET_CLASS"
+                    c:identifier="GTK_CLUTTER_WINDOW_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="40"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Window"
+           c:symbol-prefix="window"
+           c:type="GtkClutterWindow"
+           parent="Gtk.Window"
+           glib:type-name="GtkClutterWindow"
+           glib:get-type="gtk_clutter_window_get_type"
+           glib:type-struct="WindowClass">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-window.h"
+           line="46">A #GtkWindow containing a #ClutterStage.
+
+The &lt;structname&gt;GtkClutterWindow&lt;/structname&gt; structure contains only
+private data and it should be accessed using the provided API.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="82"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gtk_clutter_window_new">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-window.c"
+             line="277">Creates a new #GtkClutterWindow widget.
+
+This window provides a hidden #ClutterStage on which the child
+#GtkWidget&lt;!-- --&gt;s are placed. This allows other #ClutterActor&lt;!-- --&gt;s
+to also be placed on the stage.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                         line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-window.c"
+               line="286">the newly created #GtkClutterWindow</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_stage" c:identifier="gtk_clutter_window_get_stage">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-window.c"
+             line="294">Retrieves the #ClutterStage that this window is embedding
+
+Use this function if you wish to add other actors to the #ClutterStage.</doc>
+        <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                         line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-window.c"
+               line="302">the window's #ClutterStage</doc>
+          <type name="Clutter.Actor" c:type="ClutterActor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="clutter-gtk/gtk-clutter-window.c"
+                 line="296">the #GtkClutterWindow</doc>
+            <type name="Window" c:type="GtkClutterWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gtk.Window" c:type="GtkWindow"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="WindowPrivate" c:type="GtkClutterWindowPrivate*"/>
+      </field>
+    </class>
+    <record name="WindowClass"
+            c:type="GtkClutterWindowClass"
+            glib:is-gtype-struct-for="Window">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-window.h"
+           line="62">Base class for #GtkClutterWindow.
+
+The &lt;structname&gt;GtkClutterWindowClass&lt;/structname&gt; structure contains
+only private data.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="82"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
+      </field>
+      <field name="_clutter_gtk_reserved1" introspectable="0">
+        <callback name="_clutter_gtk_reserved1">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved2" introspectable="0">
+        <callback name="_clutter_gtk_reserved2">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved3" introspectable="0">
+        <callback name="_clutter_gtk_reserved3">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved4" introspectable="0">
+        <callback name="_clutter_gtk_reserved4">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="79"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved5" introspectable="0">
+        <callback name="_clutter_gtk_reserved5">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="80"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_clutter_gtk_reserved6" introspectable="0">
+        <callback name="_clutter_gtk_reserved6">
+          <source-position filename="clutter-gtk/gtk-clutter-window.h"
+                           line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="WindowPrivate"
+            c:type="GtkClutterWindowPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="clutter-gtk/gtk-clutter-window.h" line="43"/>
+    </record>
+    <function name="get_option_group"
+              c:identifier="gtk_clutter_get_option_group"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-util.c"
+           line="152">Returns a #GOptionGroup for the command line arguments recognized
+by Clutter. You should add this group to your #GOptionContext with
+g_option_context_add_group(), if you are using g_option_context_parse()
+to parse your commandline arguments instead of using gtk_clutter_init()
+or gtk_clutter_init_with_args().
+
+You should add this option group to your #GOptionContext after
+the GTK option group created with gtk_get_option_group(), and after
+the clutter option group obtained from clutter_get_option_group_without_init().
+You should not use clutter_get_option_group() together with this function.
+
+You must pass %TRUE to gtk_get_option_group() since gtk-clutter's option
+group relies on it.
+
+Parsing options using g_option_context_parse() with a #GOptionContext
+containing the returned #GOptionGroupwith will result in Clutter's and
+GTK-Clutter's initialisation.  That is, the following code:
+
+|[
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+  g_option_context_add_group (context, cogl_get_option_group ());
+  g_option_context_add_group (context, clutter_get_option_group_without_init ());
+  g_option_context_add_group (context, gtk_clutter_get_option_group ());
+  res = g_option_context_parse (context, &amp;amp;argc, &amp;amp;argc, NULL);
+]|
+
+is functionally equivalent to:
+
+|[
+  gtk_clutter_init (&amp;amp;argc, &amp;amp;argv);
+]|
+
+After g_option_context_parse() on a #GOptionContext containing the
+the returned #GOptionGroup has returned %TRUE, Clutter and GTK-Clutter are
+guaranteed to be initialized.</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-util.h" line="46"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-util.c"
+             line="191">a #GOptionGroup for the commandline arguments
+  recognized by ClutterGtk</doc>
+        <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
+      </return-value>
+    </function>
+    <docsection name="gtk-clutter-actor">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-actor.c"
+           line="25">#GtkClutterActor is a #ClutterContainer that also allows embedding
+any #GtkWidget in a Clutter scenegraph.
+
+#GtkClutterActor only allows embedding #GtkWidget&lt;!-- --&gt;s when inside
+the #ClutterStage provided by a #GtkClutterEmbed: it is not possible to
+use #GtkClutterActor in a #ClutterStage handled by Clutter alone.</doc>
+    </docsection>
+    <docsection name="gtk-clutter-embed">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-embed.c"
+           line="23">#GtkClutterEmbed is a GTK+ widget embedding a #ClutterStage inside
+a GTK+ application.
+
+By using a #GtkClutterEmbed widget is possible to build, show and
+interact with a scene built using Clutter inside a GTK+ application.
+
+## Event handling with GtkClutterEmbed
+
+Due to re-entrancy concerns, you should not use GTK event-related
+API from within event handling signals emitted by Clutter actors
+inside a #GtkClutterEmbed.
+
+Event-related API, like the GTK drag and drop functions, or the
+GTK grab ones, cause events to be processed inside the GDK event
+loop; #GtkClutterEmbed and the Clutter event loop may use those
+events to generate Clutter events, and thus emit signals on
+#ClutterActors. If you use the event-related signals of a
+#ClutterActor to call the GTK API, one of the two event loops
+will try to re-enter into each other, and either cause a crash
+or simply block your application.
+
+To avoid this behavior, you can either:
+
+ - only use GTK+ event handling signals to call event-related
+   GTK functions
+ - let the main loop re-enter, by calling event-related GTK
+   functions from within an idle or a timeout callback
+
+You should also make sure you're not using GTK widgets that call
+event-related GTK API, like the grab functions in a #GtkMenu, in
+response to Clutter actor events.
+
+## Using GtkClutterEmbed as a container
+
+Though #GtkClutterEmbed is a #GtkContainer subclass, it is not a
+real GTK+ container; #GtkClutterEmbed is required to implement the
+#GtkContainer virtual functions in order to embed a #GtkWidget
+through the #GtkClutterActor class. Calling gtk_container_add()
+on a #GtkClutterEmbed will trigger an assertion. It is strongly
+advised not to override the #GtkContainer implementation when
+subclassing #GtkClutterEmbed, to avoid breaking internal state.</doc>
+    </docsection>
+    <docsection name="gtk-clutter-texture">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-texture.c"
+           line="22">#GtkClutterTexture is a simple sub-class of #ClutterTexture that
+integrates nicely with #GdkPixbuf, #GtkIconTheme and stock icons.</doc>
+    </docsection>
+    <docsection name="gtk-clutter-util">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-util.c"
+           line="44">In order to properly integrate a Clutter scene into a GTK+ applications
+a certain degree of state must be retrieved from GTK+ itself.
+
+Clutter-GTK provides API for easing the process of synchronizing colors
+with the current GTK+ theme and for loading image sources from #GdkPixbuf,
+GTK+ stock items and icon themes.</doc>
+    </docsection>
+    <docsection name="gtk-clutter-window">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-window.c"
+           line="22">#GtkClutterWindow is a #GtkWindow sub-class that embeds a Clutter stage.
+
+#GtkClutterWindow behaves exactly like a #GtkWindow, except that its
+child is automatically embedded inside a #GtkClutterActor and it is
+thus part of the embedded #ClutterStage.
+
+Clutter actors can be added to the same stage by calling
+gtk_clutter_window_get_stage().</doc>
+    </docsection>
+    <function name="init" c:identifier="gtk_clutter_init">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-util.c"
+           line="205">This function should be called instead of clutter_init() and
+gtk_init().</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-util.h" line="36"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-util.c"
+             line="214">%CLUTTER_INIT_SUCCESS on success, a negative integer
+  on failure.</doc>
+        <type name="Clutter.InitError" c:type="ClutterInitError"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="207">pointer to the arguments count, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="208">pointer to the
+  arguments vector, or %NULL</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="init_with_args"
+              c:identifier="gtk_clutter_init_with_args"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="clutter-gtk/gtk-clutter-util.c"
+           line="234">This function should be called instead of clutter_init() and
+gtk_init_with_args().</doc>
+      <source-position filename="clutter-gtk/gtk-clutter-util.h" line="39"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="clutter-gtk/gtk-clutter-util.c"
+             line="254">%CLUTTER_INIT_SUCCESS on success, a negative integer
+  on failure.</doc>
+        <type name="Clutter.InitError" c:type="ClutterInitError"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="236">a pointer to the number of command line
+  arguments, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="238">a pointer to the array
+  of command line arguments, or %NULL</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+        <parameter name="parameter_string"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="240">a string which is displayed in
+   the first line of &lt;option&gt;--help&lt;/option&gt; output, after
+   &lt;literal&gt;&lt;replaceable&gt;programname&lt;/replaceable&gt; [OPTION...]&lt;/literal&gt;</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="entries"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="243">a
+   %NULL-terminated array of #GOptionEntry&lt;!-- --&gt;s describing the
+   options of your program</doc>
+          <array c:type="GOptionEntry*">
+            <type name="GLib.OptionEntry" c:type="GOptionEntry"/>
+          </array>
+        </parameter>
+        <parameter name="translation_domain"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="clutter-gtk/gtk-clutter-util.c"
+               line="246">a translation domain to use for
+   translating the &lt;option&gt;--help&lt;/option&gt; output for the options
+   in @entries with gettext(), or %NULL</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,2335 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libmalcontent"/>
+  <namespace name="Malcontent"
+             version="0"
+             shared-library="libmalcontent-0.so.0"
+             c:identifier-prefixes="Mct"
+             c:symbol-prefixes="mct_">
+    <alias name="AppFilterError" c:type="MctAppFilterError">
+      <source-position filename="libmalcontent/app-filter.h" line="190"/>
+      <type name="ManagerError" c:type="MctManagerError"/>
+    </alias>
+    <alias name="GetAppFilterFlags" c:type="MctGetAppFilterFlags">
+      <source-position filename="libmalcontent/manager.h" line="49"/>
+      <type name="ManagerGetValueFlags" c:type="MctManagerGetValueFlags"/>
+    </alias>
+    <alias name="SetAppFilterFlags" c:type="MctSetAppFilterFlags">
+      <source-position filename="libmalcontent/manager.h" line="71"/>
+      <type name="ManagerSetValueFlags" c:type="MctManagerSetValueFlags"/>
+    </alias>
+    <function-macro name="APP_FILTER_BUILDER_INIT"
+                    c:identifier="MCT_APP_FILTER_BUILDER_INIT"
+                    version="0.2.0"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter.h"
+           line="133">Initialise a stack-allocated #MctAppFilterBuilder instance at declaration
+time.
+
+This is typically used with g_auto():
+|[
+g_auto(MctAppFilterBuilder) builder = MCT_APP_FILTER_BUILDER_INIT ();
+]|</doc>
+      <source-position filename="libmalcontent/app-filter.h" line="146"/>
+    </function-macro>
+    <record name="AppFilter"
+            c:type="MctAppFilter"
+            version="0.2.0"
+            glib:type-name="MctAppFilter"
+            glib:get-type="mct_app_filter_get_type"
+            c:symbol-prefix="app_filter">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter.h"
+           line="58">#MctAppFilter is an opaque, immutable structure which contains a snapshot of
+the app filtering settings for a user at a given time. This includes a list
+of apps which are explicitly banned or allowed to be run by that user.
+
+Typically, app filter settings can only be changed by the administrator, and
+are read-only for non-administrative users. The precise policy is set using
+polkit.</doc>
+      <source-position filename="libmalcontent/app-filter-private.h"
+                       line="61"/>
+      <field name="ref_count" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="user_id" writable="1">
+        <type name="guint" c:type="uid_t"/>
+      </field>
+      <field name="app_list" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="app_list_type" writable="1">
+        <type name="AppFilterListType" c:type="MctAppFilterListType"/>
+      </field>
+      <field name="oars_ratings" writable="1">
+        <type name="GLib.Variant" c:type="GVariant*"/>
+      </field>
+      <field name="allow_user_installation" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="allow_system_installation" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <method name="equal"
+              c:identifier="mct_app_filter_equal"
+              version="0.10.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="758">Check whether app filters @a and @b are equal.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="765">%TRUE if @a and @b are equal, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="760">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="761">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_oars_sections"
+              c:identifier="mct_app_filter_get_oars_sections"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="475">List the OARS sections present in this app filter. The sections are returned
+in lexicographic order. A section will be listed even if its stored value is
+%MCT_APP_FILTER_OARS_VALUE_UNKNOWN. The returned list may be empty.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="95"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="483">%NULL-terminated
+   array of OARS sections</doc>
+          <array c:type="const gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="477">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_oars_value"
+              c:identifier="mct_app_filter_get_oars_value"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="510">Get the value assigned to the given @oars_section in the OARS filter stored
+within @filter. If that section has no value explicitly defined,
+%MCT_APP_FILTER_OARS_VALUE_UNKNOWN is returned.
+
+This value is the most intense value allowed for apps to have in this
+section, inclusive. Any app with a more intense value for this section must
+be hidden from the user whose @filter this is.
+
+This does not factor in mct_app_filter_is_system_installation_allowed().</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="525">an #MctAppFilterOarsValue</doc>
+          <type name="AppFilterOarsValue" c:type="MctAppFilterOarsValue"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="512">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="oars_section" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="513">name of the OARS section to get the value from</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user_id"
+              c:identifier="mct_app_filter_get_user_id"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="93">Get the user ID of the user this #MctAppFilter is for.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="99">user ID of the relevant user, or `(uid_t) -1` if unknown</doc>
+          <type name="guint" c:type="uid_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="95">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_appinfo_allowed"
+              c:identifier="mct_app_filter_is_appinfo_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="327">Check whether the app with the given @app_info is allowed to be run
+according to this app filter. This matches on multiple keys potentially
+present in the #GAppInfo, including the path of the executable.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="336">%TRUE if the user this @filter corresponds to is allowed to run the
+   app represented by @app_info according to the @filter policy; %FALSE
+   otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="329">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="app_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="330">application information</doc>
+            <type name="Gio.AppInfo" c:type="GAppInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_content_type_allowed"
+              c:identifier="mct_app_filter_is_content_type_allowed"
+              version="0.4.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="425">Check whether apps handling the given @content_type are allowed to be run
+according to this app filter.
+
+Note that this method doesn’t match content subtypes. For example, if
+`application/xml` is added to the blocklist but `application/xspf+xml` is not,
+a check for whether `application/xspf+xml` is blocklisted would return false.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="437">%TRUE if the user this @filter corresponds to is allowed to run
+   programs handling @content_type according to the @filter policy;
+   %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="427">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="content_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="428">content type to check</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_enabled"
+              c:identifier="mct_app_filter_is_enabled"
+              version="0.7.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="126">Check whether the app filter is enabled and is going to impose at least one
+restriction on the user. This gives a high level view of whether app filter
+parental controls are ‘enabled’ for the given user.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="134">%TRUE if the app filter contains at least one non-default value,
+   %FALSE if it’s entirely default</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="128">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_flatpak_app_allowed"
+              c:identifier="mct_app_filter_is_flatpak_app_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="277">Check whether the flatpak app with the given @app_id is allowed to be run
+according to this app filter. This is a globbing match, matching @app_id
+against potentially multiple entries in the blocklist, as the blocklist
+contains flatpak refs (for example, `app/org.gnome.Builder/x86_64/master`)
+which contain architecture and branch information. App IDs (for example,
+`org.gnome.Builder`) do not contain architecture or branch information.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="289">%TRUE if the user this @filter corresponds to is allowed to run the
+   flatpak called @app_id according to the @filter policy; %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="279">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="app_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="280">flatpak ID for the app, for example `org.gnome.Builder`</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_flatpak_ref_allowed"
+              c:identifier="mct_app_filter_is_flatpak_ref_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="242">Check whether the flatpak app with the given @app_ref is allowed to be run
+according to this app filter.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="250">%TRUE if the user this @filter corresponds to is allowed to run the
+   flatpak called @app_ref according to the @filter policy; %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="244">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="app_ref" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="245">flatpak ref for the app, for example `app/org.gnome.Builder/x86_64/master`</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_path_allowed"
+              c:identifier="mct_app_filter_is_path_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="174">Check whether the program at @path is allowed to be run according to this
+app filter. @path will be canonicalised without doing any I/O.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="182">%TRUE if the user this @filter corresponds to is allowed to run the
+   program at @path according to the @filter policy; %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="176">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="177">absolute path of a program to check</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_system_installation_allowed"
+              c:identifier="mct_app_filter_is_system_installation_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="568">Get whether the user is allowed to install to the flatpak system repository.
+This should be queried in addition to the OARS values
+(mct_app_filter_get_oars_value()) — if it returns %FALSE, the OARS values
+should be ignored and app installation should be unconditionally disallowed.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="577">%TRUE if app installation is allowed to the system repository for
+   this user; %FALSE if it is unconditionally disallowed for this user</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="570">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_user_installation_allowed"
+              c:identifier="mct_app_filter_is_user_installation_allowed"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="546">Get whether the user is allowed to install to their flatpak user repository.
+This should be queried in addition to the OARS values
+(mct_app_filter_get_oars_value()) — if it returns %FALSE, the OARS values
+should be ignored and app installation should be unconditionally disallowed.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="555">%TRUE if app installation is allowed to the user repository for
+   this user; %FALSE if it is unconditionally disallowed for this user</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="548">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="mct_app_filter_ref" version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="48">Increment the reference count of @filter, and return the same pointer to it.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="54">the same pointer as @filter</doc>
+          <type name="AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="50">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize"
+              c:identifier="mct_app_filter_serialize"
+              version="0.7.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="620">Build a #GVariant which contains the app filter from @filter, in an opaque
+variant format. This format may change in future, but
+mct_app_filter_deserialize() is guaranteed to always be able to load any
+variant produced by the current or any previous version of
+mct_app_filter_serialize().</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="630">a new, floating #GVariant containing the app
+   filter</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="622">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="mct_app_filter_unref" version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="68">Decrement the reference count of @filter. If the reference count reaches
+zero, free the @filter and all its resources.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filter" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="70">an #MctAppFilter</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="deserialize"
+                c:identifier="mct_app_filter_deserialize"
+                version="0.7.0"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="657">Deserialize an app filter previously serialized with
+mct_app_filter_serialize(). This function guarantees to be able to
+deserialize any serialized form from this version or older versions of
+libmalcontent.
+
+If deserialization fails, %MCT_MANAGER_ERROR_INVALID_DATA will be returned.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="103"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="670">deserialized app filter</doc>
+          <type name="AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="variant" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="659">a serialized app filter variant</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="660">the ID of the user the app filter relates to</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="error_quark" c:identifier="mct_app_filter_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </record>
+    <record name="AppFilterBuilder"
+            c:type="MctAppFilterBuilder"
+            version="0.2.0"
+            glib:type-name="MctAppFilterBuilder"
+            glib:get-type="mct_app_filter_builder_get_type"
+            c:symbol-prefix="app_filter_builder">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter.h"
+           line="110">#MctAppFilterBuilder is a stack-allocated mutable structure used to build an
+#MctAppFilter instance. Use mct_app_filter_builder_init(), various method
+calls to set properties of the app filter, and then
+mct_app_filter_builder_end(), to construct an #MctAppFilter.</doc>
+      <source-position filename="libmalcontent/app-filter.h" line="129"/>
+      <field name="p0" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="p1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="b0" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="b1" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="p2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="p3" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <constructor name="new"
+                   c:identifier="mct_app_filter_builder_new"
+                   version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="860">Construct a new #MctAppFilterBuilder on the heap. This is intended for
+language bindings. The returned builder must eventually be freed with
+mct_app_filter_builder_free(), but can be cleared zero or more times with
+mct_app_filter_builder_clear() first.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="163"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="868">a new heap-allocated #MctAppFilterBuilder</doc>
+          <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+        </return-value>
+      </constructor>
+      <method name="blocklist_content_type"
+              c:identifier="mct_app_filter_builder_blocklist_content_type"
+              version="0.4.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1062">Add @content_type to the blocklist of content types in the filter under
+construction. The @content_type will not be added again if it’s already been
+added.
+
+Note that this method doesn’t handle content subtypes. For example, if
+`application/xml` is added to the blocklist but `application/xspf+xml` is not,
+a check for whether `application/xspf+xml` is blocklisted would return false.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1064">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="content_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1065">a content type to blocklist</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="blocklist_flatpak_ref"
+              c:identifier="mct_app_filter_builder_blocklist_flatpak_ref"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1035">Add @app_ref to the blocklist of flatpak refs in the filter under
+construction. The @app_ref will not be added again if it’s already been
+added.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1037">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="app_ref" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1038">a flatpak app ref to blocklist</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="blocklist_path"
+              c:identifier="mct_app_filter_builder_blocklist_path"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1003">Add @path to the blocklist of app paths in the filter under construction. It
+will be canonicalised (without doing any I/O) before being added.
+The canonicalised @path will not be added again if it’s already been added.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1005">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1006">an absolute path to blocklist</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear"
+              c:identifier="mct_app_filter_builder_clear"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="836">Clear @builder, freeing any internal state in it. This will not free the
+top-level storage for @builder itself, which is assumed to be allocated on
+the stack.
+
+If called on an already-cleared #MctAppFilterBuilder, this function is
+idempotent.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="158"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="838">an #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="copy"
+              c:identifier="mct_app_filter_builder_copy"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="882">Copy the given @builder to a newly-allocated #MctAppFilterBuilder on the
+heap. This is safe to use with cleared, stack-allocated
+#MctAppFilterBuilders.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="164"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="890">a copy of @builder</doc>
+          <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="884">an #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end"
+              c:identifier="mct_app_filter_builder_end"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="935">Finish constructing an #MctAppFilter with the given @builder, and return it.
+The #MctAppFilterBuilder will be cleared as if mct_app_filter_builder_clear()
+had been called.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="169"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="943">a newly constructed #MctAppFilter</doc>
+          <type name="AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="937">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free"
+              c:identifier="mct_app_filter_builder_free"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="916">Free an #MctAppFilterBuilder originally allocated using
+mct_app_filter_builder_new(). This must not be called on stack-allocated
+builders initialised using mct_app_filter_builder_init().</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="165"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="918">a heap-allocated #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init"
+              c:identifier="mct_app_filter_builder_init"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="809">Initialise the given @builder so it can be used to construct a new
+#MctAppFilter. @builder must have been allocated on the stack, and must not
+already be initialised.
+
+Construct the #MctAppFilter by calling methods on @builder, followed by
+mct_app_filter_builder_end(). To abort construction, use
+mct_app_filter_builder_clear().</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="811">an uninitialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_allow_system_installation"
+              c:identifier="mct_app_filter_builder_set_allow_system_installation"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1145">Set whether the user is allowed to install to the flatpak system repository.
+If this is %TRUE, app installation is still subject to the OARS values
+(mct_app_filter_builder_set_oars_value()). If it is %FALSE, app installation
+is unconditionally disallowed for this user.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="184"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1147">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="allow_system_installation"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1148">%TRUE to allow app installation; %FALSE to
+   unconditionally disallow it</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_allow_user_installation"
+              c:identifier="mct_app_filter_builder_set_allow_user_installation"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1121">Set whether the user is allowed to install to their flatpak user repository.
+If this is %TRUE, app installation is still subject to the OARS values
+(mct_app_filter_builder_set_oars_value()). If it is %FALSE, app installation
+is unconditionally disallowed for this user.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="182"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1123">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="allow_user_installation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1124">%TRUE to allow app installation; %FALSE to
+   unconditionally disallow it</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_oars_value"
+              c:identifier="mct_app_filter_builder_set_oars_value"
+              version="0.2.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="1093">Set the OARS value for the given @oars_section, indicating the intensity of
+content covered by that section which the user is allowed to see (inclusive).
+Any apps which have more intense content in this section should not be usable
+by the user.</doc>
+        <source-position filename="libmalcontent/app-filter.h" line="178"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1095">an initialised #MctAppFilterBuilder</doc>
+            <type name="AppFilterBuilder" c:type="MctAppFilterBuilder*"/>
+          </instance-parameter>
+          <parameter name="oars_section" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1096">name of the OARS section to set the value for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/app-filter.c"
+                 line="1097">value to set for the @oars_section</doc>
+            <type name="AppFilterOarsValue" c:type="MctAppFilterOarsValue"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="AppFilterListType"
+                 version="0.2.0"
+                 c:type="MctAppFilterListType">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter-private.h"
+           line="32">Different semantics for interpreting an application list.</doc>
+      <source-position filename="libmalcontent/app-filter-private.h"
+                       line="47"/>
+      <member name="blocklist"
+              value="0"
+              c:identifier="MCT_APP_FILTER_LIST_BLOCKLIST">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter-private.h"
+             line="34">Any program in the list is not allowed to
+   be run.</doc>
+      </member>
+      <member name="allowlist"
+              value="1"
+              c:identifier="MCT_APP_FILTER_LIST_ALLOWLIST">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter-private.h"
+             line="36">Any program not in the list is not allowed
+   to be run.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="AppFilterOarsValue"
+                 version="0.2.0"
+                 glib:type-name="MctAppFilterOarsValue"
+                 glib:get-type="mct_app_filter_oars_value_get_type"
+                 c:type="MctAppFilterOarsValue">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter.h"
+           line="32">Rating values of the intensity of a given section in an app or game.
+These are directly equivalent to the values in the #AsContentRatingValue
+enumeration in libappstream.</doc>
+      <member name="unknown"
+              value="0"
+              c:identifier="MCT_APP_FILTER_OARS_VALUE_UNKNOWN"
+              glib:nick="unknown"
+              glib:name="MCT_APP_FILTER_OARS_VALUE_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.h"
+             line="34">Unknown value for the given
+   section.</doc>
+      </member>
+      <member name="none"
+              value="1"
+              c:identifier="MCT_APP_FILTER_OARS_VALUE_NONE"
+              glib:nick="none"
+              glib:name="MCT_APP_FILTER_OARS_VALUE_NONE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.h"
+             line="36">No rating for the given section.</doc>
+      </member>
+      <member name="mild"
+              value="2"
+              c:identifier="MCT_APP_FILTER_OARS_VALUE_MILD"
+              glib:nick="mild"
+              glib:name="MCT_APP_FILTER_OARS_VALUE_MILD">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.h"
+             line="37">Mild rating for the given section.</doc>
+      </member>
+      <member name="moderate"
+              value="3"
+              c:identifier="MCT_APP_FILTER_OARS_VALUE_MODERATE"
+              glib:nick="moderate"
+              glib:name="MCT_APP_FILTER_OARS_VALUE_MODERATE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.h"
+             line="38">Moderate rating for the given
+   section.</doc>
+      </member>
+      <member name="intense"
+              value="4"
+              c:identifier="MCT_APP_FILTER_OARS_VALUE_INTENSE"
+              glib:nick="intense"
+              glib:name="MCT_APP_FILTER_OARS_VALUE_INTENSE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.h"
+             line="40">Intense rating for the given
+   section.</doc>
+      </member>
+    </enumeration>
+    <class name="Manager"
+           c:symbol-prefix="manager"
+           c:type="MctManager"
+           version="0.3.0"
+           parent="GObject.Object"
+           glib:type-name="MctManager"
+           glib:get-type="mct_manager_get_type"
+           glib:type-struct="ManagerClass">
+      <doc xml:space="preserve"
+           filename="libmalcontent/manager.c"
+           line="39">#MctManager is a top-level management object which is used to query and
+monitor #MctAppFilters for different users.</doc>
+      <source-position filename="libmalcontent/manager.h" line="103"/>
+      <constructor name="new" c:identifier="mct_manager_new" version="0.3.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="208">Create a new #MctManager.</doc>
+        <source-position filename="libmalcontent/manager.h" line="105"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="214">a new #MctManager</doc>
+          <type name="Manager" c:type="MctManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="210">a #GDBusConnection to use</doc>
+            <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_app_filter"
+              c:identifier="mct_manager_get_app_filter"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="342">Synchronous version of mct_manager_get_app_filter_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="107"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="352">app filter for the queried user</doc>
+          <type name="AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="344">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="345">ID of the user to query, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="346">flags to affect the behaviour of the call</doc>
+            <type name="ManagerGetValueFlags"
+                  c:type="MctManagerGetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="347">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_filter_async"
+              c:identifier="mct_manager_get_app_filter_async"
+              version="0.3.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="447">Asynchronously get a snapshot of the app filter settings for the given
+@user_id.
+
+On failure, an #MctManagerError, a #GDBusError or a #GIOError will be
+returned.</doc>
+        <source-position filename="libmalcontent/manager.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="449">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="450">ID of the user to query, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="451">flags to affect the behaviour of the call</doc>
+            <type name="ManagerGetValueFlags"
+                  c:type="MctManagerGetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="452">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="453">a #GAsyncReadyCallback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="454">user data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_filter_finish"
+              c:identifier="mct_manager_get_app_filter_finish"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="512">Finish an asynchronous operation to get the app filter for a user, started
+with mct_manager_get_app_filter_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="118"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="521">app filter for the queried user</doc>
+          <type name="AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="514">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="515">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_session_limits"
+              c:identifier="mct_manager_get_session_limits"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="725">Synchronous version of mct_manager_get_session_limits_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="139"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="735">session limits for the queried user</doc>
+          <type name="SessionLimits" c:type="MctSessionLimits*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="727">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="728">ID of the user to query, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="729">flags to affect the behaviour of the call</doc>
+            <type name="ManagerGetValueFlags"
+                  c:type="MctManagerGetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="730">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_session_limits_async"
+              c:identifier="mct_manager_get_session_limits_async"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="830">Asynchronously get a snapshot of the session limit settings for the given
+@user_id.
+
+On failure, an #MctManagerError, a #GDBusError or a #GIOError will be
+returned via mct_manager_get_session_limits_finish().</doc>
+        <source-position filename="libmalcontent/manager.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="832">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="833">ID of the user to query, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="834">flags to affect the behaviour of the call</doc>
+            <type name="ManagerGetValueFlags"
+                  c:type="MctManagerGetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="835">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="836">a #GAsyncReadyCallback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="837">user data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_session_limits_finish"
+              c:identifier="mct_manager_get_session_limits_finish"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="895">Finish an asynchronous operation to get the session limits for a user,
+started with mct_manager_get_session_limits_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="150"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="904">session limits for the queried user</doc>
+          <type name="SessionLimits" c:type="MctSessionLimits*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="897">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="898">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter"
+              c:identifier="mct_manager_set_app_filter"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="536">Synchronous version of mct_manager_set_app_filter_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="547">%TRUE on success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="538">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="539">ID of the user to set the filter for, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="app_filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="540">the app filter to set for the user</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="541">flags to affect the behaviour of the call</doc>
+            <type name="ManagerSetValueFlags"
+                  c:type="MctManagerSetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="542">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter_async"
+              c:identifier="mct_manager_set_app_filter_async"
+              version="0.3.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="632">Asynchronously set the app filter settings for the given @user_id to the
+given @app_filter instance. This will set all fields of the app filter.
+
+On failure, an #MctManagerError, a #GDBusError or a #GIOError will be
+returned. The user’s app filter settings will be left in an undefined state.</doc>
+        <source-position filename="libmalcontent/manager.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="634">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="635">ID of the user to set the filter for, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="app_filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="636">the app filter to set for the user</doc>
+            <type name="AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="637">flags to affect the behaviour of the call</doc>
+            <type name="ManagerSetValueFlags"
+                  c:type="MctManagerSetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="638">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="639">a #GAsyncReadyCallback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="640">user data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter_finish"
+              c:identifier="mct_manager_set_app_filter_finish"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="701">Finish an asynchronous operation to set the app filter for a user, started
+with mct_manager_set_app_filter_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="710">%TRUE on success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="703">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="704">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_session_limits"
+              c:identifier="mct_manager_set_session_limits"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="919">Synchronous version of mct_manager_set_session_limits_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="930">%TRUE on success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="921">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="922">ID of the user to set the limits for, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="session_limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="923">the session limits to set for the user</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="924">flags to affect the behaviour of the call</doc>
+            <type name="ManagerSetValueFlags"
+                  c:type="MctManagerSetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="925">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_session_limits_async"
+              c:identifier="mct_manager_set_session_limits_async"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="1048">Asynchronously set the session limits settings for the given @user_id to the
+given @session_limits instance.
+
+On failure, an #MctManagerError, a #GDBusError or a #GIOError will be
+returned via mct_manager_set_session_limits_finish(). The user’s session
+limits settings will be left in an undefined state.</doc>
+        <source-position filename="libmalcontent/manager.h" line="160"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1050">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1051">ID of the user to set the limits for, typically coming from getuid()</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+          <parameter name="session_limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1052">the session limits to set for the user</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1053">flags to affect the behaviour of the call</doc>
+            <type name="ManagerSetValueFlags"
+                  c:type="MctManagerSetValueFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1054">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1055">a #GAsyncReadyCallback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1056">user data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_session_limits_finish"
+              c:identifier="mct_manager_set_session_limits_finish"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="1118">Finish an asynchronous operation to set the session limits for a user,
+started with mct_manager_set_session_limits_async().</doc>
+        <source-position filename="libmalcontent/manager.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/manager.c"
+               line="1127">%TRUE on success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1120">a #MctManager</doc>
+            <type name="Manager" c:type="MctManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="1121">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="connection"
+                version="0.3.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="169">A connection to the system bus, where accounts-service runs. It’s provided
+mostly for testing purposes, or to allow an existing connection to be
+re-used.</doc>
+        <type name="Gio.DBusConnection"/>
+      </property>
+      <glib:signal name="app-filter-changed" when="last" version="0.3.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.c"
+             line="190">Emitted when the app filter stored for a user changes.
+The new app filter for the user should be requested again from
+the #MctManager instance.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/manager.c"
+                 line="193">UID of the user whose app filter has changed</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ManagerClass"
+            c:type="MctManagerClass"
+            glib:is-gtype-struct-for="Manager">
+      <source-position filename="libmalcontent/manager.h" line="103"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ManagerError"
+                 version="0.5.0"
+                 glib:type-name="MctManagerError"
+                 glib:get-type="mct_manager_error_get_type"
+                 c:type="MctManagerError"
+                 glib:error-domain="MctManagerError">
+      <doc xml:space="preserve"
+           filename="libmalcontent/manager.h"
+           line="75">Errors relating to get/set operations on an #MctManager instance.</doc>
+      <member name="invalid_user"
+              value="0"
+              c:identifier="MCT_MANAGER_ERROR_INVALID_USER"
+              glib:nick="invalid-user"
+              glib:name="MCT_MANAGER_ERROR_INVALID_USER">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="77">Given user ID doesn’t exist</doc>
+      </member>
+      <member name="permission_denied"
+              value="1"
+              c:identifier="MCT_MANAGER_ERROR_PERMISSION_DENIED"
+              glib:nick="permission-denied"
+              glib:name="MCT_MANAGER_ERROR_PERMISSION_DENIED">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="78">Not authorized to query properties of
+    the given user</doc>
+      </member>
+      <member name="invalid_data"
+              value="2"
+              c:identifier="MCT_MANAGER_ERROR_INVALID_DATA"
+              glib:nick="invalid-data"
+              glib:name="MCT_MANAGER_ERROR_INVALID_DATA">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="80">The data stored in a property of the given
+    user is inconsistent or invalid</doc>
+      </member>
+      <member name="disabled"
+              value="3"
+              c:identifier="MCT_MANAGER_ERROR_DISABLED"
+              glib:nick="disabled"
+              glib:name="MCT_MANAGER_ERROR_DISABLED">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="82">Parental controls are disabled for all users</doc>
+      </member>
+      <function name="quark" c:identifier="mct_manager_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <bitfield name="ManagerGetValueFlags"
+              version="0.5.0"
+              glib:type-name="MctManagerGetValueFlags"
+              glib:get-type="mct_manager_get_value_flags_get_type"
+              c:type="MctManagerGetValueFlags">
+      <doc xml:space="preserve"
+           filename="libmalcontent/manager.h"
+           line="31">Flags to control the behaviour of getter functions like
+mct_manager_get_app_filter() and mct_manager_get_app_filter_async().</doc>
+      <member name="none"
+              value="0"
+              c:identifier="MCT_MANAGER_GET_VALUE_FLAGS_NONE"
+              glib:nick="none"
+              glib:name="MCT_MANAGER_GET_VALUE_FLAGS_NONE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="33">No flags set.</doc>
+      </member>
+      <member name="interactive"
+              value="1"
+              c:identifier="MCT_MANAGER_GET_VALUE_FLAGS_INTERACTIVE"
+              glib:nick="interactive"
+              glib:name="MCT_MANAGER_GET_VALUE_FLAGS_INTERACTIVE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="34">Allow interactive polkit dialogs
+   when requesting authorization.</doc>
+      </member>
+    </bitfield>
+    <bitfield name="ManagerSetValueFlags"
+              version="0.5.0"
+              glib:type-name="MctManagerSetValueFlags"
+              glib:get-type="mct_manager_set_value_flags_get_type"
+              c:type="MctManagerSetValueFlags">
+      <doc xml:space="preserve"
+           filename="libmalcontent/manager.h"
+           line="53">Flags to control the behaviour of setter functions like
+mct_manager_set_app_filter() and mct_manager_set_app_filter_async().</doc>
+      <member name="none"
+              value="0"
+              c:identifier="MCT_MANAGER_SET_VALUE_FLAGS_NONE"
+              glib:nick="none"
+              glib:name="MCT_MANAGER_SET_VALUE_FLAGS_NONE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="55">No flags set.</doc>
+      </member>
+      <member name="interactive"
+              value="1"
+              c:identifier="MCT_MANAGER_SET_VALUE_FLAGS_INTERACTIVE"
+              glib:nick="interactive"
+              glib:name="MCT_MANAGER_SET_VALUE_FLAGS_INTERACTIVE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/manager.h"
+             line="56">Allow interactive polkit dialogs
+   when requesting authorization.</doc>
+      </member>
+    </bitfield>
+    <function-macro name="SESSION_LIMITS_BUILDER_INIT"
+                    c:identifier="MCT_SESSION_LIMITS_BUILDER_INIT"
+                    version="0.5.0"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libmalcontent/session-limits.h"
+           line="89">Initialise a stack-allocated #MctSessionLimitsBuilder instance at declaration
+time.
+
+This is typically used with g_auto():
+|[
+g_auto(MctSessionLimitsBuilder) builder = MCT_SESSION_LIMITS_BUILDER_INIT ();
+]|</doc>
+      <source-position filename="libmalcontent/session-limits.h" line="102"/>
+    </function-macro>
+    <record name="SessionLimits"
+            c:type="MctSessionLimits"
+            version="0.5.0"
+            glib:type-name="MctSessionLimits"
+            glib:get-type="mct_session_limits_get_type"
+            c:symbol-prefix="session_limits">
+      <doc xml:space="preserve"
+           filename="libmalcontent/session-limits.h"
+           line="31">#MctSessionLimits is an opaque, immutable structure which contains a snapshot
+of the session limits settings for a user at a given time. This includes
+whether session limits are being enforced, and the limit policy — for
+example, the times of day when a user is allowed to use the computer.
+
+Typically, session limits settings can only be changed by the administrator,
+and are read-only for non-administrative users. The precise policy is set
+using polkit.</doc>
+      <source-position filename="libmalcontent/session-limits-private.h"
+                       line="60"/>
+      <field name="ref_count" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="user_id" writable="1">
+        <type name="guint" c:type="uid_t"/>
+      </field>
+      <field name="limit_type" writable="1">
+        <type name="SessionLimitsType" c:type="MctSessionLimitsType"/>
+      </field>
+      <field name="daily_start_time" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="daily_end_time" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <method name="check_time_remaining"
+              c:identifier="mct_session_limits_check_time_remaining"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="126">Check whether the user has time remaining in which they are allowed to use
+the computer, assuming that @now_usecs is the current time, and applying the
+session limit policy from @limits to it.
+
+This will return whether the user is allowed to use the computer now; further
+information about the policy and remaining time is provided in
+@time_remaining_secs_out and @time_limit_enabled_out.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="145">%TRUE if the user this @limits corresponds to is allowed to be in
+    an active session at the given time; %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="128">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+          <parameter name="now_usecs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="129">current time as microseconds since the Unix epoch (UTC),
+    typically queried using g_get_real_time()</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="time_remaining_secs_out"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="131">return location for the number
+    of seconds remaining before the user’s session has to end, if limits are
+    in force</doc>
+            <type name="guint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="time_limit_enabled_out"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="134">return location for whether time
+    limits are enabled for this user</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user_id"
+              c:identifier="mct_session_limits_get_user_id"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="83">Get the user ID of the user this #MctSessionLimits is for.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="89">user ID of the relevant user, or `(uid_t) -1` if unknown</doc>
+          <type name="guint" c:type="uid_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="85">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_enabled"
+              c:identifier="mct_session_limits_is_enabled"
+              version="0.7.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="101">Check whether any session limits are enabled and are going to impose at least
+one restriction on the user. This gives a high level view of whether session
+limit parental controls are ‘enabled’ for the given user.
+
+This function is equivalent to the value returned by the
+`time_limit_enabled_out` argument of
+mct_session_limits_check_time_remaining().</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="113">%TRUE if the session limits object contains at least one restrictive
+   session limit, %FALSE if there are no limits in place</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="103">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="mct_session_limits_ref" version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="40">Increment the reference count of @limits, and return the same pointer to it.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="46">the same pointer as @limits</doc>
+          <type name="SessionLimits" c:type="MctSessionLimits*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="42">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize"
+              c:identifier="mct_session_limits_serialize"
+              version="0.7.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="219">Build a #GVariant which contains the session limits from @limits, in an
+opaque variant format. This format may change in future, but
+mct_session_limits_deserialize() is guaranteed to always be able to load any
+variant produced by the current or any previous version of
+mct_session_limits_serialize().</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="229">a new, floating #GVariant containing the
+   session limits</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="221">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref"
+              c:identifier="mct_session_limits_unref"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="60">Decrement the reference count of @limits. If the reference count reaches
+zero, free the @limits and all its resources.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="62">an #MctSessionLimits</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="deserialize"
+                c:identifier="mct_session_limits_deserialize"
+                version="0.7.0"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="273">Deserialize a set of session limits previously serialized with
+mct_session_limits_serialize(). This function guarantees to be able to
+deserialize any serialized form from this version or older versions of
+libmalcontent.
+
+If deserialization fails, %MCT_MANAGER_ERROR_INVALID_DATA will be returned.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="286">deserialized session limits</doc>
+          <type name="SessionLimits" c:type="MctSessionLimits*"/>
+        </return-value>
+        <parameters>
+          <parameter name="variant" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="275">a serialized session limits variant</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="user_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="276">the ID of the user the session limits relate to</doc>
+            <type name="guint" c:type="uid_t"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <record name="SessionLimitsBuilder"
+            c:type="MctSessionLimitsBuilder"
+            version="0.5.0"
+            glib:type-name="MctSessionLimitsBuilder"
+            glib:get-type="mct_session_limits_builder_get_type"
+            c:symbol-prefix="session_limits_builder">
+      <doc xml:space="preserve"
+           filename="libmalcontent/session-limits.h"
+           line="68">#MctSessionLimitsBuilder is a stack-allocated mutable structure used to build
+an #MctSessionLimits instance. Use mct_session_limits_builder_init(), various
+method calls to set properties of the session limits, and then
+mct_session_limits_builder_end(), to construct an #MctSessionLimits.</doc>
+      <source-position filename="libmalcontent/session-limits.h" line="85"/>
+      <field name="u0" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="u1" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="u2" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="p0" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="10">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <constructor name="new"
+                   c:identifier="mct_session_limits_builder_new"
+                   version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="443">Construct a new #MctSessionLimitsBuilder on the heap. This is intended for
+language bindings. The returned builder must eventually be freed with
+mct_session_limits_builder_free(), but can be cleared zero or more times with
+mct_session_limits_builder_clear() first.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="117"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="451">a new heap-allocated #MctSessionLimitsBuilder</doc>
+          <type name="SessionLimitsBuilder" c:type="MctSessionLimitsBuilder*"/>
+        </return-value>
+      </constructor>
+      <method name="clear"
+              c:identifier="mct_session_limits_builder_clear"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="419">Clear @builder, freeing any internal state in it. This will not free the
+top-level storage for @builder itself, which is assumed to be allocated on
+the stack.
+
+If called on an already-cleared #MctSessionLimitsBuilder, this function is
+idempotent.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="421">an #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="copy"
+              c:identifier="mct_session_limits_builder_copy"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="465">Copy the given @builder to a newly-allocated #MctSessionLimitsBuilder on the
+heap. This is safe to use with cleared, stack-allocated
+#MctSessionLimitsBuilders.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="118"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="473">a copy of @builder</doc>
+          <type name="SessionLimitsBuilder" c:type="MctSessionLimitsBuilder*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="467">an #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end"
+              c:identifier="mct_session_limits_builder_end"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="524">Finish constructing an #MctSessionLimits with the given @builder, and return
+it. The #MctSessionLimitsBuilder will be cleared as if
+mct_session_limits_builder_clear() had been called.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="123"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="532">a newly constructed #MctSessionLimits</doc>
+          <type name="SessionLimits" c:type="MctSessionLimits*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="526">an initialised #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free"
+              c:identifier="mct_session_limits_builder_free"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="505">Free an #MctSessionLimitsBuilder originally allocated using
+mct_session_limits_builder_new(). This must not be called on stack-allocated
+builders initialised using mct_session_limits_builder_init().</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="507">a heap-allocated #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init"
+              c:identifier="mct_session_limits_builder_init"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="393">Initialise the given @builder so it can be used to construct a new
+#MctSessionLimits. @builder must have been allocated on the stack, and must
+not already be initialised.
+
+Construct the #MctSessionLimits by calling methods on @builder, followed by
+mct_session_limits_builder_end(). To abort construction, use
+mct_session_limits_builder_clear().</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="395">an uninitialised #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_daily_schedule"
+              c:identifier="mct_session_limits_builder_set_daily_schedule"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="587">Set the session limits in @builder to be a daily schedule, where sessions are
+allowed between @start_time_secs and @end_time_secs every day.
+@start_time_secs and @end_time_secs are given as offsets from the start of
+the day, in seconds. @end_time_secs must be greater than @start_time_secs.
+@end_time_secs must be at most `24 * 60 * 60`.
+
+This will overwrite any other session limits.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="589">an initialised #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+          <parameter name="start_time_secs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="590">number of seconds since midnight when the user’s session
+    can first start</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="end_time_secs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="592">number of seconds since midnight when the user’s session can
+    last end</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_none"
+              c:identifier="mct_session_limits_builder_set_none"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="568">Unset any session limits currently set in the @builder.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="570">an initialised #MctSessionLimitsBuilder</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="SessionLimitsType"
+                 version="0.5.0"
+                 c:type="MctSessionLimitsType">
+      <doc xml:space="preserve"
+           filename="libmalcontent/session-limits-private.h"
+           line="32">Types of session limit which can be imposed on an account. Additional types
+may be added in future.</doc>
+      <source-position filename="libmalcontent/session-limits-private.h"
+                       line="49"/>
+      <member name="none"
+              value="0"
+              c:identifier="MCT_SESSION_LIMITS_TYPE_NONE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits-private.h"
+             line="34">No session limits are imposed.</doc>
+      </member>
+      <member name="daily_schedule"
+              value="1"
+              c:identifier="MCT_SESSION_LIMITS_TYPE_DAILY_SCHEDULE">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits-private.h"
+             line="35">Sessions are limited to between a
+    pair of given times each day.</doc>
+      </member>
+    </enumeration>
+    <function name="app_filter_deserialize"
+              c:identifier="mct_app_filter_deserialize"
+              moved-to="AppFilter.deserialize"
+              version="0.7.0"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="libmalcontent/app-filter.c"
+           line="657">Deserialize an app filter previously serialized with
+mct_app_filter_serialize(). This function guarantees to be able to
+deserialize any serialized form from this version or older versions of
+libmalcontent.
+
+If deserialization fails, %MCT_MANAGER_ERROR_INVALID_DATA will be returned.</doc>
+      <source-position filename="libmalcontent/app-filter.h" line="103"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libmalcontent/app-filter.c"
+             line="670">deserialized app filter</doc>
+        <type name="AppFilter" c:type="MctAppFilter*"/>
+      </return-value>
+      <parameters>
+        <parameter name="variant" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="659">a serialized app filter variant</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="user_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/app-filter.c"
+               line="660">the ID of the user the app filter relates to</doc>
+          <type name="guint" c:type="uid_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="app_filter_error_quark"
+              c:identifier="mct_app_filter_error_quark"
+              moved-to="AppFilter.error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="manager_error_quark"
+              c:identifier="mct_manager_error_quark"
+              moved-to="ManagerError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="session_limits_deserialize"
+              c:identifier="mct_session_limits_deserialize"
+              moved-to="SessionLimits.deserialize"
+              version="0.7.0"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="libmalcontent/session-limits.c"
+           line="273">Deserialize a set of session limits previously serialized with
+mct_session_limits_serialize(). This function guarantees to be able to
+deserialize any serialized form from this version or older versions of
+libmalcontent.
+
+If deserialization fails, %MCT_MANAGER_ERROR_INVALID_DATA will be returned.</doc>
+      <source-position filename="libmalcontent/session-limits.h" line="64"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="286">deserialized session limits</doc>
+        <type name="SessionLimits" c:type="MctSessionLimits*"/>
+      </return-value>
+      <parameters>
+        <parameter name="variant" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="275">a serialized session limits variant</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="user_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="276">the ID of the user the session limits relate to</doc>
+          <type name="guint" c:type="uid_t"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

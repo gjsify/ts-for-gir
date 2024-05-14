@@ -1,0 +1,2259 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="TelepathyGLib" version="0.12"/>
+  <namespace name="TelepathyLogger"
+             version="0.2"
+             shared-library="libtelepathy-logger.so.3"
+             c:identifier-prefixes="Tpl"
+             c:symbol-prefixes="tpl">
+    <function-macro name="CALL_EVENT"
+                    c:identifier="TPL_CALL_EVENT"
+                    introspectable="0">
+      <source-position filename="call-event.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CALL_EVENT_CLASS"
+                    c:identifier="TPL_CALL_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="call-event.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CALL_EVENT_GET_CLASS"
+                    c:identifier="TPL_CALL_EVENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="call-event.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="CallEvent"
+           c:symbol-prefix="call_event"
+           c:type="TplCallEvent"
+           parent="Event"
+           glib:type-name="TplCallEvent"
+           glib:get-type="tpl_call_event_get_type"
+           glib:type-struct="CallEventClass">
+      <doc xml:space="preserve"
+           filename="call-event.c"
+           line="44">An object representing a call log event.</doc>
+      <source-position filename="call-event.h" line="37"/>
+      <method name="get_detailed_end_reason"
+              c:identifier="tpl_call_event_get_detailed_end_reason"
+              glib:get-property="detailed-end-reason">
+        <source-position filename="call-event.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="call-event.c"
+               line="255">the same string as the
+         #TplCallEvent:detailed-end-reason property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="call-event.c"
+                 line="253">a #TplCallEvent</doc>
+            <type name="CallEvent" c:type="TplCallEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_duration"
+              c:identifier="tpl_call_event_get_duration"
+              glib:get-property="duration">
+        <source-position filename="call-event.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="call-event.c"
+               line="209">the same duration as the #TplCallEvent:duration property</doc>
+          <type name="GLib.TimeSpan" c:type="GTimeSpan"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="call-event.c"
+                 line="207">a #TplCallEvent</doc>
+            <type name="CallEvent" c:type="TplCallEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_end_actor"
+              c:identifier="tpl_call_event_get_end_actor"
+              glib:get-property="end-actor">
+        <source-position filename="call-event.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="call-event.c"
+               line="223">the same #TplEntity
+         as #TplCallEvent:end-actor property</doc>
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="call-event.c"
+                 line="221">a #TplCallEvent</doc>
+            <type name="CallEvent" c:type="TplCallEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_end_reason"
+              c:identifier="tpl_call_event_get_end_reason"
+              glib:get-property="end-reason">
+        <source-position filename="call-event.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="call-event.c"
+               line="239">the same #TpCallStateChangeReason as #TplCallEvent:end-reason property</doc>
+          <type name="TelepathyGLib.CallStateChangeReason"
+                c:type="TpCallStateChangeReason"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="call-event.c"
+                 line="237">a #TplCallEvent</doc>
+            <type name="CallEvent" c:type="TplCallEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="detailed-end-reason"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_detailed_end_reason">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="duration"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_duration"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="end-actor"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_end_actor">
+        <type name="Entity"/>
+      </property>
+      <property name="end-reason"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_end_reason"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="CallEventClass"
+            c:type="TplCallEventClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="CallEvent">
+      <source-position filename="call-event.h" line="37"/>
+    </record>
+    <record name="CallEventPriv"
+            c:type="TplCallEventPriv"
+            disguised="1"
+            opaque="1">
+      <source-position filename="call-event.h" line="38"/>
+    </record>
+    <function-macro name="ENTITY" c:identifier="TPL_ENTITY" introspectable="0">
+      <source-position filename="entity.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENTITY_CLASS"
+                    c:identifier="TPL_ENTITY_CLASS"
+                    introspectable="0">
+      <source-position filename="entity.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENTITY_GET_CLASS"
+                    c:identifier="TPL_ENTITY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="entity.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EVENT" c:identifier="TPL_EVENT" introspectable="0">
+      <source-position filename="event.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EVENT_CLASS"
+                    c:identifier="TPL_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="event.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EVENT_GET_CLASS"
+                    c:identifier="TPL_EVENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="event.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Entity"
+           c:symbol-prefix="entity"
+           c:type="TplEntity"
+           parent="GObject.Object"
+           glib:type-name="TplEntity"
+           glib:get-type="tpl_entity_get_type">
+      <doc xml:space="preserve"
+           filename="entity.c"
+           line="39">An object representing a contact or room.</doc>
+      <constructor name="new" c:identifier="tpl_entity_new">
+        <source-position filename="entity.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="EntityType" c:type="TplEntityType"/>
+          </parameter>
+          <parameter name="alias" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="avatar_token" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_room_id"
+                   c:identifier="tpl_entity_new_from_room_id">
+        <source-position filename="entity.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="265">a TplEntity instance with identifier, alias copied from
+@room_id. It also sets %TPL_ENTITY_ROOM as type for
+the #TplEntity returned.</doc>
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="room_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="263">the room id which will be the identifier for the entity</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_tp_contact"
+                   c:identifier="tpl_entity_new_from_tp_contact">
+        <source-position filename="entity.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="281">a TplEntity instance with identifier, alias and
+avatar's token copied. Type parameter is useful to differentiate between
+normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
+%TPL_ENTITY_SELF are accepted. If contact is %NULL, an entity of type
+%TPL_ENTITY_UNKNOWN with id set to "unknown" is returned.</doc>
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="contact" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="278">the TpContact instance to create the TplEntity from</doc>
+            <type name="TelepathyGLib.Contact" c:type="TpContact*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="279">the #TplEntity type</doc>
+            <type name="EntityType" c:type="TplEntityType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_alias"
+              c:identifier="tpl_entity_get_alias"
+              glib:get-property="alias">
+        <source-position filename="entity.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="309">the alias of the entity, or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="307">a #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_avatar_token"
+              c:identifier="tpl_entity_get_avatar_token"
+              glib:get-property="avatar-token">
+        <source-position filename="entity.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="354">a token representing the avatar of the token, or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="352">a #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_entity_type" c:identifier="tpl_entity_get_entity_type">
+        <source-position filename="entity.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="339">the type of the entity</doc>
+          <type name="EntityType" c:type="TplEntityType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="337">a #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_identifier"
+              c:identifier="tpl_entity_get_identifier"
+              glib:get-property="identifier">
+        <source-position filename="entity.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="entity.c"
+               line="324">the identifier of the entity</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="entity.c"
+                 line="322">a #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="alias"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_alias"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="entity.c"
+             line="184">The entity's alias</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="avatar-token"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_avatar_token"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="entity.c"
+             line="196">The entity's avatar token</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="identifier"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_identifier"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="entity.c"
+             line="172">The entity's identifier</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="type"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="entity.c"
+             line="158">The entity's type (see #TplEntityType).</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="EntityPriv" c:type="TplEntityPriv*"/>
+      </field>
+    </class>
+    <record name="EntityPriv" c:type="TplEntityPriv" disguised="1" opaque="1">
+      <source-position filename="entity.h" line="54"/>
+    </record>
+    <enumeration name="EntityType" c:type="TplEntityType">
+      <source-position filename="entity.h" line="51"/>
+      <member name="unknown" value="0" c:identifier="TPL_ENTITY_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="entity.h"
+             line="37">the current contact's type is unknown</doc>
+      </member>
+      <member name="contact" value="1" c:identifier="TPL_ENTITY_CONTACT">
+        <doc xml:space="preserve"
+             filename="entity.h"
+             line="38">the contact's type represents a user (buddy), but not
+   the account's owner for which @TPL_ENTITY_SELF is used</doc>
+      </member>
+      <member name="room" value="2" c:identifier="TPL_ENTITY_ROOM">
+        <doc xml:space="preserve"
+             filename="entity.h"
+             line="40">a named room (#TP_HANDLE_TYPE_ROOM)</doc>
+      </member>
+      <member name="self" value="3" c:identifier="TPL_ENTITY_SELF">
+        <doc xml:space="preserve"
+             filename="entity.h"
+             line="41">the contact's type represents the owner of the account
+   whose channel has been logged, as opposed to @TPL_ENTITY_CONTACT which
+   represents any other user</doc>
+      </member>
+    </enumeration>
+    <class name="Event"
+           c:symbol-prefix="event"
+           c:type="TplEvent"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="TplEvent"
+           glib:get-type="tpl_event_get_type"
+           glib:type-struct="EventClass">
+      <doc xml:space="preserve"
+           filename="event.c"
+           line="42">An object representing a generic log event.</doc>
+      <source-position filename="event.h" line="39"/>
+      <method name="equal" c:identifier="tpl_event_equal">
+        <doc xml:space="preserve"
+             filename="event.c"
+             line="371">Checks if two instances of TplEvent represent the same data</doc>
+        <source-position filename="event.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="378">%TRUE if @data is the same type of @self and they hold the same
+data, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="373">TplEvent subclass instance</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="374">an instance of the same TplEvent subclass of @self</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_account"
+              c:identifier="tpl_event_get_account"
+              glib:get-property="account">
+        <doc xml:space="preserve"
+             filename="event.c"
+             line="391">&lt;!-- no more to say --&gt;</doc>
+        <source-position filename="event.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="397">the same account as the #TplEvent:account property</doc>
+          <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="393">a #TplEvent</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_account_path"
+              c:identifier="tpl_event_get_account_path"
+              glib:get-property="account-path">
+        <doc xml:space="preserve"
+             filename="event.c"
+             line="344">&lt;!-- no more to say --&gt;</doc>
+        <source-position filename="event.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="350">the path as the #TplEvent:account property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="346">a #TplEvent</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_receiver"
+              c:identifier="tpl_event_get_receiver"
+              glib:get-property="receiver">
+        <source-position filename="event.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="300">the same #TplEntity as the #TplEvent:receiver property</doc>
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="298">a #TplEvent</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sender"
+              c:identifier="tpl_event_get_sender"
+              glib:get-property="sender">
+        <source-position filename="event.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="286">the same #TplEntity as the #TplEvent:sender property</doc>
+          <type name="Entity" c:type="TplEntity*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="284">a #TplEvent</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timestamp"
+              c:identifier="tpl_event_get_timestamp"
+              glib:get-property="timestamp">
+        <source-position filename="event.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="event.c"
+               line="271">the same timestamp as the #TplEvent:timestamp property</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="event.c"
+                 line="269">a #TplEvent</doc>
+            <type name="Event" c:type="TplEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="account"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_account">
+        <type name="TelepathyGLib.Account"/>
+      </property>
+      <property name="account-path"
+                transfer-ownership="none"
+                getter="get_account_path"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="channel-path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="receiver"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_receiver">
+        <type name="Entity"/>
+      </property>
+      <property name="sender"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_sender">
+        <type name="Entity"/>
+      </property>
+      <property name="timestamp"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_timestamp"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+    </class>
+    <record name="EventClass"
+            c:type="TplEventClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Event">
+      <source-position filename="event.h" line="39"/>
+    </record>
+    <record name="EventPriv" c:type="TplEventPriv" disguised="1" opaque="1">
+      <source-position filename="event.h" line="40"/>
+    </record>
+    <bitfield name="EventTypeMask" c:type="TplEventTypeMask">
+      <doc xml:space="preserve"
+           filename="log-manager.h"
+           line="67">Mask used to filter type of #TplEvent returned.</doc>
+      <source-position filename="log-manager.h" line="80"/>
+      <member name="text" value="1" c:identifier="TPL_EVENT_MASK_TEXT">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="69">Mask to #TplTextEvent</doc>
+      </member>
+      <member name="call" value="2" c:identifier="TPL_EVENT_MASK_CALL">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="70">Mask to #TplCallEvent</doc>
+      </member>
+      <member name="any" value="65535" c:identifier="TPL_EVENT_MASK_ANY">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="71">Special value to select all type of #TplEvent</doc>
+      </member>
+    </bitfield>
+    <function-macro name="IS_CALL_EVENT"
+                    c:identifier="TPL_IS_CALL_EVENT"
+                    introspectable="0">
+      <source-position filename="call-event.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CALL_EVENT_CLASS"
+                    c:identifier="TPL_IS_CALL_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="call-event.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ENTITY"
+                    c:identifier="TPL_IS_ENTITY"
+                    introspectable="0">
+      <source-position filename="entity.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ENTITY_CLASS"
+                    c:identifier="TPL_IS_ENTITY_CLASS"
+                    introspectable="0">
+      <source-position filename="entity.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EVENT"
+                    c:identifier="TPL_IS_EVENT"
+                    introspectable="0">
+      <source-position filename="event.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EVENT_CLASS"
+                    c:identifier="TPL_IS_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="event.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOG_MANAGER"
+                    c:identifier="TPL_IS_LOG_MANAGER"
+                    introspectable="0">
+      <source-position filename="log-manager.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOG_MANAGER_CLASS"
+                    c:identifier="TPL_IS_LOG_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="log-manager.h" line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOG_WALKER"
+                    c:identifier="TPL_IS_LOG_WALKER"
+                    introspectable="0">
+      <source-position filename="log-walker.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOG_WALKER_CLASS"
+                    c:identifier="TPL_IS_LOG_WALKER_CLASS"
+                    introspectable="0">
+      <source-position filename="log-walker.h" line="43"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT_EVENT"
+                    c:identifier="TPL_IS_TEXT_EVENT"
+                    introspectable="0">
+      <source-position filename="text-event.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT_EVENT_CLASS"
+                    c:identifier="TPL_IS_TEXT_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="text-event.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_MANAGER"
+                    c:identifier="TPL_LOG_MANAGER"
+                    introspectable="0">
+      <source-position filename="log-manager.h" line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_MANAGER_CLASS"
+                    c:identifier="TPL_LOG_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="log-manager.h" line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_MANAGER_GET_CLASS"
+                    c:identifier="TPL_LOG_MANAGER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="log-manager.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_WALKER"
+                    c:identifier="TPL_LOG_WALKER"
+                    introspectable="0">
+      <source-position filename="log-walker.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_WALKER_CLASS"
+                    c:identifier="TPL_LOG_WALKER_CLASS"
+                    introspectable="0">
+      <source-position filename="log-walker.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOG_WALKER_GET_CLASS"
+                    c:identifier="TPL_LOG_WALKER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="log-walker.h" line="47"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="LogEventFilter" c:type="TplLogEventFilter">
+      <source-position filename="log-manager.h" line="98"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="71">%TRUE if @event should appear in the result</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="event" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="68">the #TplEvent to filter</doc>
+          <type name="Event" c:type="TplEvent*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="69">user-supplied data</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="LogManager"
+           c:symbol-prefix="log_manager"
+           c:type="TplLogManager"
+           parent="GObject.Object"
+           glib:type-name="TplLogManager"
+           glib:get-type="tpl_log_manager_get_type"
+           glib:type-struct="LogManagerClass">
+      <doc xml:space="preserve"
+           filename="log-manager.c"
+           line="60">An object used to access logs</doc>
+      <source-position filename="log-manager.h" line="65"/>
+      <function name="dup_singleton"
+                c:identifier="tpl_log_manager_dup_singleton">
+        <source-position filename="log-manager.h" line="103"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="304">a new reference on the log manager</doc>
+          <type name="LogManager" c:type="TplLogManager*"/>
+        </return-value>
+      </function>
+      <function name="errors_quark"
+                c:identifier="tpl_log_manager_errors_quark">
+        <source-position filename="log-manager.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1495">the #GQuark associated with the error domain of #TplLogManager</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <function name="search_free"
+                c:identifier="tpl_log_manager_search_free"
+                introspectable="0">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="719">Free @hits and its content.</doc>
+        <source-position filename="log-manager.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="hits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="721">a #GList of #TplLogSearchHit</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="disable_for_entity"
+              c:identifier="tpl_log_manager_disable_for_entity">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1557">Disables logging of events for given entity. By default logging is enabled
+for all entities.</doc>
+        <source-position filename="log-manager.h" line="178"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1559">the log manager
+@entity a TplEntity</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="entity" transfer-ownership="none">
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="enable_for_entity"
+              c:identifier="tpl_log_manager_enable_for_entity">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1604">Re-enables logging of events for entity previously disabled by
+tpl_log_manager_disable_for_entity(). By default logging is enabled for all
+entities.</doc>
+        <source-position filename="log-manager.h" line="182"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1606">the log manager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="entity" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1607">a TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="exists" c:identifier="tpl_log_manager_exists">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="439">Checks if logs exist for @target.
+
+It applies for any registered TplLogStore with the TplLogStore:readable
+property %TRUE.</doc>
+        <source-position filename="log-manager.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="451">%TRUE logs exist for @target, otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="441">TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="442">TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="443">a non-NULL #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="444">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_dates_async"
+              c:identifier="tpl_log_manager_get_dates_async">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="941">Retrieves a list of #GDate corresponding to each day where
+at least one event exist for @target.
+
+It applies for any registered TplLogStore with the TplLogStore:readable
+property %TRUE.</doc>
+        <source-position filename="log-manager.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="943">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="944">a #TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="945">a non-NULL #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="946">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="947">a callback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="948">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_dates_finish"
+              c:identifier="tpl_log_manager_get_dates_finish"
+              throws="1">
+        <source-position filename="log-manager.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1001">#TRUE if the operation was successful, otherwise #FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="995">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="996">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="dates"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="997">a pointer to a
+ #GList used to return the list of #GDate</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="GLib.Date"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_entities_async"
+              c:identifier="tpl_log_manager_get_entities_async">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1318">Start a query looking for all entities for which you have logs in the @account.</doc>
+        <source-position filename="log-manager.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1320">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1321">a #TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1322">a callback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1323">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_entities_finish"
+              c:identifier="tpl_log_manager_get_entities_finish"
+              throws="1">
+        <source-position filename="log-manager.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1368">#TRUE if the operation was successful, otherwise #FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1361">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1362">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="entities"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1363">a
+ pointer to a #GList used to return the list of #TplEntity, to be freed
+ using something like g_list_free_full (lst, g_object_unref)</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Entity"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_events_for_date_async"
+              c:identifier="tpl_log_manager_get_events_for_date_async">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1051">Retrieve a list of #TplEvent at @date with @target.</doc>
+        <source-position filename="log-manager.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1053">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1054">a #TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1055">a non-NULL #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1056">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="date" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1057">a #GDate</doc>
+            <type name="GLib.Date" c:type="const GDate*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1058">a callback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1059">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_events_for_date_finish"
+              c:identifier="tpl_log_manager_get_events_for_date_finish"
+              throws="1">
+        <source-position filename="log-manager.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1111">#TRUE if the operation was successful, otherwise #FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1105">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1106">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="events"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1107">a
+ pointer to a #GList used to return the list of #TplEvent</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Event"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_filtered_events_async"
+              c:identifier="tpl_log_manager_get_filtered_events_async">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1160">Retrieve the most recent @num_event events exchanged with @target.</doc>
+        <source-position filename="log-manager.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1162">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1163">a #TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1164">a non-NULL #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1165">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="num_events" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1166">number of maximum events to fetch</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="filter"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="call"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1167">an optional filter function</doc>
+            <type name="LogEventFilter" c:type="TplLogEventFilter"/>
+          </parameter>
+          <parameter name="filter_user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1168">user data to pass to @filter</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="7">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1169">a callback to call when
+the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1171">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_filtered_events_finish"
+              c:identifier="tpl_log_manager_get_filtered_events_finish"
+              throws="1">
+        <source-position filename="log-manager.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1227">#TRUE if the operation was successful, otherwise #FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1221">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1222">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="events"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1223">
+ a pointer to a #GList used to return the list #TplEvent</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Event"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_disabled_for_entity"
+              c:identifier="tpl_log_manager_is_disabled_for_entity">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1655">Checks, whether logging is disabled for given entity. By default, logging
+is enabled for all entities.</doc>
+        <source-position filename="log-manager.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1663">%TRUE if logging for the entity has been disabled, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1657">the log manager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="entity" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1658">a TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_async" c:identifier="tpl_log_manager_search_async">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1415">Search for all the conversations containing @text.</doc>
+        <source-position filename="log-manager.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1417">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1418">the pattern to search</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1419">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1420">a callback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1421">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_finish"
+              c:identifier="tpl_log_manager_search_finish"
+              throws="1">
+        <source-position filename="log-manager.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1466">#TRUE if the operation was successful, otherwise #FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1460">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1461">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="hits"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1462">a
+ pointer to a #GList used to return the list of #TplLogSearchHit</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="LogSearchHit"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="walk_filtered_events"
+              c:identifier="tpl_log_manager_walk_filtered_events">
+        <doc xml:space="preserve"
+             filename="log-manager.c"
+             line="1254">Create a #TplLogWalker to traverse all the events exchanged with @target.</doc>
+        <source-position filename="log-manager.h" line="150"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="log-manager.c"
+               line="1265">a #TplLogWalker</doc>
+          <type name="LogWalker" c:type="TplLogWalker*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1256">a #TplLogManager</doc>
+            <type name="LogManager" c:type="TplLogManager*"/>
+          </instance-parameter>
+          <parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1257">a #TpAccount</doc>
+            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1258">a non-NULL #TplEntity</doc>
+            <type name="Entity" c:type="TplEntity*"/>
+          </parameter>
+          <parameter name="type_mask" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1259">event type filter see #TplEventTypeMask</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="filter"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="call"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1260">an optional filter function</doc>
+            <type name="LogEventFilter" c:type="TplLogEventFilter"/>
+          </parameter>
+          <parameter name="filter_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-manager.c"
+                 line="1261">user data to pass to @filter</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </class>
+    <record name="LogManagerClass"
+            c:type="TplLogManagerClass"
+            glib:is-gtype-struct-for="LogManager">
+      <source-position filename="log-manager.h" line="65"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="LogManagerError" c:type="TplLogManagerError">
+      <source-position filename="log-manager.h" line="51"/>
+      <member name="log_manager_error_add_event"
+              value="0"
+              c:identifier="TPL_LOG_MANAGER_ERROR_ADD_EVENT">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="46">Error return when adding logs fails</doc>
+      </member>
+    </enumeration>
+    <record name="LogSearchHit" c:type="TplLogSearchHit">
+      <doc xml:space="preserve"
+           filename="log-manager.h"
+           line="82">Represent the context where the search has results.</doc>
+      <source-position filename="log-manager.h" line="96"/>
+      <field name="account" writable="1">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="84">the #TpAccount</doc>
+        <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
+      </field>
+      <field name="target" writable="1">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="85">the #TplEntity</doc>
+        <type name="Entity" c:type="TplEntity*"/>
+      </field>
+      <field name="date" writable="1">
+        <doc xml:space="preserve"
+             filename="log-manager.h"
+             line="86">the #GDate</doc>
+        <type name="GLib.Date" c:type="GDate*"/>
+      </field>
+    </record>
+    <class name="LogWalker"
+           c:symbol-prefix="log_walker"
+           c:type="TplLogWalker"
+           version="0.8.0"
+           parent="GObject.Object"
+           glib:type-name="TplLogWalker"
+           glib:get-type="tpl_log_walker_get_type"
+           glib:type-struct="LogWalkerClass">
+      <doc xml:space="preserve"
+           filename="log-walker.c"
+           line="175">An object used to iterate over the logs</doc>
+      <source-position filename="log-walker.h" line="65"/>
+      <method name="get_events_async"
+              c:identifier="tpl_log_walker_get_events_async"
+              version="0.8.0">
+        <doc xml:space="preserve"
+             filename="log-walker.c"
+             line="769">Walk the logs to retrieve the next most recent @num_event events.</doc>
+        <source-position filename="log-walker.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="771">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+          <parameter name="num_events" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="772">number of maximum events to fetch</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="773">a callback to call when
+the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="775">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_events_finish"
+              c:identifier="tpl_log_walker_get_events_finish"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="log-walker.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-walker.c"
+               line="823">#TRUE if the operation was successful, otherwise #FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="817">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="818">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="events"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="819">
+ a pointer to a #GList used to return the list #TplEvent</doc>
+            <type name="GLib.List" c:type="GList**">
+              <type name="Event"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_end"
+              c:identifier="tpl_log_walker_is_end"
+              version="0.8.0">
+        <doc xml:space="preserve"
+             filename="log-walker.c"
+             line="957">Determines whether @walker has run out of events. This is the case
+when @walker has returned all the events from the logs.</doc>
+        <source-position filename="log-walker.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-walker.c"
+               line="964">#TRUE if @walker has run out of events, otherwise #FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="959">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_start"
+              c:identifier="tpl_log_walker_is_start"
+              version="0.8.0">
+        <doc xml:space="preserve"
+             filename="log-walker.c"
+             line="934">Determines whether @walker is pointing at the most recent event in
+the logs. This is the case when @walker has not yet returned any
+events or has been rewound completely.</doc>
+        <source-position filename="log-walker.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-walker.c"
+               line="942">#TRUE if @walker is pointing at the most recent event,
+otherwise #FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="936">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="rewind_async"
+              c:identifier="tpl_log_walker_rewind_async"
+              version="0.8.0">
+        <doc xml:space="preserve"
+             filename="log-walker.c"
+             line="857">Move the @walker back by the last @num_event events that were
+returned by tpl_log_walker_get_events_async().</doc>
+        <source-position filename="log-walker.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="859">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+          <parameter name="num_events" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="860">number of events to move back</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="861">a callback to call when
+the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="863">data to pass to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rewind_finish"
+              c:identifier="tpl_log_walker_rewind_finish"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="log-walker.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="log-walker.c"
+               line="910">#TRUE if the operation was successful, otherwise #FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="walker" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="906">a #TplLogWalker</doc>
+            <type name="LogWalker" c:type="TplLogWalker*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="log-walker.c"
+                 line="907">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="filter"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="filter-data"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="LogWalkerPriv" c:type="TplLogWalkerPriv*"/>
+      </field>
+    </class>
+    <record name="LogWalkerClass"
+            c:type="TplLogWalkerClass"
+            glib:is-gtype-struct-for="LogWalker">
+      <source-position filename="log-walker.h" line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="LogWalkerPriv"
+            c:type="TplLogWalkerPriv"
+            disguised="1"
+            opaque="1">
+      <source-position filename="log-walker.h" line="53"/>
+    </record>
+    <function-macro name="TEXT_EVENT"
+                    c:identifier="TPL_TEXT_EVENT"
+                    introspectable="0">
+      <source-position filename="text-event.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_EVENT_CLASS"
+                    c:identifier="TPL_TEXT_EVENT_CLASS"
+                    introspectable="0">
+      <source-position filename="text-event.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_EVENT_GET_CLASS"
+                    c:identifier="TPL_TEXT_EVENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="text-event.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TextEvent"
+           c:symbol-prefix="text_event"
+           c:type="TplTextEvent"
+           parent="Event"
+           glib:type-name="TplTextEvent"
+           glib:get-type="tpl_text_event_get_type"
+           glib:type-struct="TextEventClass">
+      <doc xml:space="preserve"
+           filename="text-event.c"
+           line="43">An object representing a text log event.</doc>
+      <source-position filename="text-event.h" line="37"/>
+      <method name="get_edit_timestamp"
+              c:identifier="tpl_text_event_get_edit_timestamp"
+              glib:get-property="edit-timestamp">
+        <source-position filename="text-event.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="400">the same value as the #TplTextEvent:edit-timestamp property</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="398">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_message"
+              c:identifier="tpl_text_event_get_message"
+              glib:get-property="message">
+        <source-position filename="text-event.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="298">the same message as the #TplTextEvent:message property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="296">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_message_token"
+              c:identifier="tpl_text_event_get_message_token"
+              glib:get-property="message-token">
+        <source-position filename="text-event.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="313">the same message as the #TplTextEvent:message-token property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="311">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_message_type"
+              c:identifier="tpl_text_event_get_message_type"
+              glib:get-property="message-type">
+        <source-position filename="text-event.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="384">the same message as the #TplTextEvent:message-type property</doc>
+          <type name="TelepathyGLib.ChannelTextMessageType"
+                c:type="TpChannelTextMessageType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="382">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_supersedes"
+              c:identifier="tpl_text_event_get_supersedes">
+        <source-position filename="text-event.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="369">A #GList
+ of #TplTextEvent that this event
+supersedes.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="TextEvent"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="367">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_supersedes_token"
+              c:identifier="tpl_text_event_get_supersedes_token"
+              glib:get-property="supersedes-token">
+        <source-position filename="text-event.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="text-event.c"
+               line="328">the same message as the #TplTextEvent:supersedes-token property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="text-event.c"
+                 line="326">a #TplTextEvent</doc>
+            <type name="TextEvent" c:type="TplTextEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="edit-timestamp"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_edit_timestamp"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="message"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_message"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="message-token"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_message_token"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="message-type"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_message_type"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="supersedes-token"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_supersedes_token"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="TextEventClass"
+            c:type="TplTextEventClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="TextEvent">
+      <source-position filename="text-event.h" line="37"/>
+    </record>
+    <record name="TextEventPriv"
+            c:type="TplTextEventPriv"
+            disguised="1"
+            opaque="1">
+      <source-position filename="text-event.h" line="38"/>
+    </record>
+    <docsection name="call-event">
+      <doc xml:space="preserve"
+           filename="call-event.c"
+           line="36">A subclass of #TplEvent representing a call log event.</doc>
+    </docsection>
+    <docsection name="entity">
+      <doc xml:space="preserve"
+           filename="entity.c"
+           line="31">An object representing a contact or room.</doc>
+    </docsection>
+    <docsection name="event">
+      <doc xml:space="preserve"
+           filename="event.c"
+           line="32">The TPLogger log event represents a generic log event, which will be
+specialized by subclasses of #TplEvent.</doc>
+    </docsection>
+    <docsection name="log-manager">
+      <doc xml:space="preserve"
+           filename="log-manager.c"
+           line="52">The #TplLogManager object allows user to fetch logs and make searches.</doc>
+    </docsection>
+    <docsection name="log-walker">
+      <doc xml:space="preserve"
+           filename="log-walker.c"
+           line="29">The #TplLogWalker object allows the user to sequentially iterate
+over the logs.
+
+&lt;example&gt;
+  &lt;title&gt;Using a TplLogWalker to fetch text events from the logs.&lt;/title&gt;
+  &lt;programlisting&gt;
+  #include &lt;telepathy-glib/telepathy-glib.h&gt;
+  #include &lt;telepathy-logger/telepathy-logger.h&gt;
+
+  static GMainLoop * loop = NULL;
+
+  static void
+  events_foreach (gpointer data, gpointer user_data)
+  {
+    TplEvent *event = TPL_EVENT (data);
+    const gchar *message;
+    gint64 timestamp;
+
+    timestamp = tpl_event_get_timestamp (event);
+    message = tpl_text_event_get_message (TPL_TEXT_EVENT (event));
+    g_message ("%" G_GINT64_FORMAT " %s", timestamp, message);
+  }
+
+  static void
+  log_walker_get_events_cb (GObject *source_object,
+      GAsyncResult *res,
+      gpointer user_data)
+  {
+    TplLogWalker *walker = TPL_LOG_WALKER (source_object);
+    GList *events;
+
+    if (!tpl_log_walker_get_events_finish (walker, res, &amp;events, NULL))
+      {
+        g_main_loop_quit (loop);
+        return;
+      }
+
+    g_list_foreach (events, events_foreach, NULL);
+    g_list_free_full (events, g_object_unref);
+    if (tpl_log_walker_is_end (walker))
+      {
+        g_main_loop_quit (loop);
+        return;
+      }
+
+    g_message ("");
+    tpl_log_walker_get_events_async (walker,
+        5,
+        log_walker_get_events_cb,
+        NULL);
+  }
+
+  static void
+  accounts_foreach (gpointer data, gpointer user_data)
+  {
+    TpAccount **account_out = (TpAccount **) user_data;
+    TpAccount *account = TP_ACCOUNT (data);
+    const gchar *display_name;
+
+    display_name = tp_account_get_display_name (account);
+    if (0 != g_strcmp0 (display_name, "alice@bar.net"))
+      return;
+
+    g_object_ref (account);
+    *account_out = account;
+  }
+
+  static void
+  account_manager_prepare_cb (GObject * source_object,
+      GAsyncResult * res,
+      gpointer user_data)
+  {
+    TpAccountManager *account_manager = TP_ACCOUNT_MANAGER (source_object);
+    GList *accounts;
+    TpAccount *account = NULL;
+    TplLogManager *log_manager;
+    TplLogWalker *walker;
+    TplEntity *target;
+
+    if (!tp_proxy_prepare_finish (source_object, res, NULL))
+      return;
+
+    accounts = tp_account_manager_dup_valid_accounts (account_manager);
+    g_list_foreach (accounts, accounts_foreach, &amp;account);
+    g_list_free_full (accounts, g_object_unref);
+    if (account == NULL)
+      {
+        g_main_loop_quit (loop);
+        return;
+      }
+
+    log_manager = tpl_log_manager_dup_singleton ();
+
+    target = tpl_entity_new ("bob@foo.net", TPL_ENTITY_CONTACT, NULL, NULL);
+
+    walker = tpl_log_manager_walk_filtered_events (log_manager,
+        account,
+        target,
+        TPL_EVENT_MASK_TEXT,
+        NULL,
+        NULL);
+
+    tpl_log_walker_get_events_async (walker,
+        5,
+        log_walker_get_events_cb,
+        NULL);
+
+    g_object_unref (walker);
+    g_object_unref (target);
+    g_object_unref (log_manager);
+    g_object_unref (account);
+  }
+
+  int
+  main (int argc,
+      char *argv[])
+  {
+    GQuark features[] = { TP_ACCOUNT_MANAGER_FEATURE_CORE, 0 };
+    TpAccountManager * account_manager;
+
+    g_type_init ();
+    loop = g_main_loop_new (NULL, FALSE);
+
+    account_manager = tp_account_manager_dup ();
+    tp_proxy_prepare_async (account_manager,
+        features,
+        account_manager_prepare_cb,
+        NULL);
+
+    g_main_loop_run (loop);
+
+    g_object_unref (account_manager);
+    g_main_loop_unref (loop);
+    return 0;
+  }
+  &lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+    </docsection>
+    <docsection name="text-event">
+      <doc xml:space="preserve"
+           filename="text-event.c"
+           line="35">A subclass of #TplEvent representing a text log event.</doc>
+    </docsection>
+  </namespace>
+</repository>

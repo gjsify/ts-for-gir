@@ -1,0 +1,1605 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Peas" version="1.0"/>
+  <c:include name="plugin.h"/>
+  <namespace name="Budgie"
+             version="1.0"
+             shared-library="libbudgie-plugin.so.0"
+             c:identifier-prefixes="Budgie"
+             c:symbol-prefixes="budgie">
+    <function-macro name="APPLET"
+                    c:identifier="BUDGIE_APPLET"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet.h" line="64"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_CLASS"
+                    c:identifier="BUDGIE_APPLET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet.h" line="66"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_GET_CLASS"
+                    c:identifier="BUDGIE_APPLET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet.h" line="68"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_INFO"
+                    c:identifier="BUDGIE_APPLET_INFO"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet-info.h" line="28"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_INFO_CLASS"
+                    c:identifier="BUDGIE_APPLET_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet-info.h" line="30"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_INFO_GET_CLASS"
+                    c:identifier="BUDGIE_APPLET_INFO_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet-info.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="APPLET_KEY_ALIGN"
+              value="alignment"
+              c:type="BUDGIE_APPLET_KEY_ALIGN">
+      <source-position filename="src/plugin/panel/applet.h" line="22"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="APPLET_KEY_NAME"
+              value="name"
+              c:type="BUDGIE_APPLET_KEY_NAME">
+      <source-position filename="src/plugin/panel/applet.h" line="21"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="APPLET_KEY_POS"
+              value="position"
+              c:type="BUDGIE_APPLET_KEY_POS">
+      <source-position filename="src/plugin/panel/applet.h" line="23"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Applet"
+           c:symbol-prefix="applet"
+           c:type="BudgieApplet"
+           parent="Gtk.EventBox"
+           glib:type-name="BudgieApplet"
+           glib:get-type="budgie_applet_get_type"
+           glib:type-struct="AppletClass">
+      <source-position filename="src/plugin/panel/applet.h" line="89"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="budgie_applet_new">
+        <source-position filename="src/plugin/panel/applet.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="458">A new BudgieApplet</doc>
+          <type name="Applet" c:type="BudgieApplet*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="get_settings_ui" invoker="get_settings_ui">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="177">For applets that need to expose settings, they should both override the
+#BudgieApplet::supports_settings method and return a new widget instance
+whenever this function is invoked.
+
+This UI will live in the Raven sidebar within the Budgie Desktop, and
+will be destroyed as soon as it's not being used. It's advisable to keep
+this widget implementation light, and to prefer vertical space.</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="83"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="188">A GTK Settings UI</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="invoke_action" invoker="invoke_action">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="99">Invoke the given action on this applet. This action will only be one
+that has been declared in supported actions bitmask.
+
+To allow better integration between the Budgie Desktop, and the applets
+that live within it, the panel will relay actions to applets that have
+set their #BudgieApplet:supported-actions to a matching bitmask.
+
+For example, if we wish to listen for Menu Key events, we can simply do
+the following in C:
+
+|[&lt;!-- language="C" --&gt;
+
+     static void my_applet_invoke_action(BudgieApplet *applet, BudgiePanelAction action)
+     {
+             if (action == BUDGIE_PANEL_ACTION_MENU) {
+                     my_applet_do_predict_the_lottery(MY_APPLET(applet));
+             }
+     }
+
+     static void my_class_init(GObjectClass *class)
+     {
+             MyClass *mc = MY_CLASS(klass);
+             ..
+             mc-&gt;invoke_action = my_applet_invoke_action;
+     }
+]|
+
+Likewise, a Vala implementation might look like the following:
+|[&lt;!-- language="Vala" --&gt;
+
+     public override void invoke_action(Budgie.PanelAction action)
+     {
+         if (action == Budgie.PanelAction.MENU) {
+             this.predict_the_lottery();
+         }
+     }
+]|</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="101">Action to invoke</doc>
+            <type name="PanelAction" c:type="BudgiePanelAction"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="panel_position_changed">
+        <source-position filename="src/plugin/panel/applet.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="PanelPosition" c:type="BudgiePanelPosition"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="panel_size_changed">
+        <source-position filename="src/plugin/panel/applet.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="panel_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="small_icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="supports_settings" invoker="supports_settings">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="155">Implementations should override this to return TRUE if they support
+a settings UI</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="161">true if this implementation supports a Settings UI</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_popovers" invoker="update_popovers">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="408">This virtual method should be implemented by panel applets that wish
+to support #GtkPopover's natively. As each Budgie Panel may house multiple
+GtkPopover widgets, each one must be registered with the @manager.
+
+During this call, it is safe to store a reference to the @manager. In
+this call you should invoke #BudgiePopoverManager::register_popover to
+register your popover with the panel manager.
+
+Each registered popover joins the global menu system of popovers in the
+panel. It is a requirement to register, otherwise the panel will not
+know when to expand and collapse the main panel harness to accommodate
+the GtkPopover.</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="manager"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_applet_settings"
+              c:identifier="budgie_applet_get_applet_settings">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="204">If your #BudgiePlugin implementation passes the UUID to your BudgieApplet
+implementation on construction, you can take advantage of per-instance
+settings.
+
+For most applets, global GSettings keys are more than suffice. However,
+in some situations, it may be beneficial to enable multiple unique instances
+of your applet, each with their own configuration.
+
+To facilitate this, use this function to create a new relocatable settings
+instance using your UUID. Make sure you set the #BudgieApplet:settings-schema
+and #BudgieApplet:settings-prefix properties first.</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="101"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="220">A newly created #GSettings for this applet instance</doc>
+          <type name="Gio.Settings" c:type="GSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="206">UUID for this instance</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_prefix"
+              c:identifier="budgie_applet_get_settings_prefix"
+              glib:get-property="settings-prefix">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="366">Utility function for Python usage. See: #BudgieApplet:settings-prefix</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_schema"
+              c:identifier="budgie_applet_get_settings_schema"
+              glib:get-property="settings-schema">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="396">Utility function for Python usage. See #BudgieApplet:settings-schema</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_ui"
+              c:identifier="budgie_applet_get_settings_ui">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="177">For applets that need to expose settings, they should both override the
+#BudgieApplet::supports_settings method and return a new widget instance
+whenever this function is invoked.
+
+This UI will live in the Raven sidebar within the Budgie Desktop, and
+will be destroyed as soon as it's not being used. It's advisable to keep
+this widget implementation light, and to prefer vertical space.</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="100"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="188">A GTK Settings UI</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_supported_actions"
+              c:identifier="budgie_applet_get_supported_actions"
+              glib:get-property="supported-actions">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="437">Utility function for Python bindings. See #BudgieApplet:supported-actions</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="PanelAction" c:type="BudgiePanelAction"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invoke_action" c:identifier="budgie_applet_invoke_action">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="99">Invoke the given action on this applet. This action will only be one
+that has been declared in supported actions bitmask.
+
+To allow better integration between the Budgie Desktop, and the applets
+that live within it, the panel will relay actions to applets that have
+set their #BudgieApplet:supported-actions to a matching bitmask.
+
+For example, if we wish to listen for Menu Key events, we can simply do
+the following in C:
+
+|[&lt;!-- language="C" --&gt;
+
+     static void my_applet_invoke_action(BudgieApplet *applet, BudgiePanelAction action)
+     {
+             if (action == BUDGIE_PANEL_ACTION_MENU) {
+                     my_applet_do_predict_the_lottery(MY_APPLET(applet));
+             }
+     }
+
+     static void my_class_init(GObjectClass *class)
+     {
+             MyClass *mc = MY_CLASS(klass);
+             ..
+             mc-&gt;invoke_action = my_applet_invoke_action;
+     }
+]|
+
+Likewise, a Vala implementation might look like the following:
+|[&lt;!-- language="Vala" --&gt;
+
+     public override void invoke_action(Budgie.PanelAction action)
+     {
+         if (action == Budgie.PanelAction.MENU) {
+             this.predict_the_lottery();
+         }
+     }
+]|</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="101">Action to invoke</doc>
+            <type name="PanelAction" c:type="BudgiePanelAction"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_settings_prefix"
+              c:identifier="budgie_applet_set_settings_prefix"
+              glib:set-property="settings-prefix">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="349">Utility function for Python usage. See: #BudgieApplet:settings-prefix</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="prefix" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_settings_schema"
+              c:identifier="budgie_applet_set_settings_schema"
+              glib:set-property="settings-schema">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="378">Utility function for Python usage. See #BudgieApplet:settings-schema</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="schema" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_settings"
+              c:identifier="budgie_applet_supports_settings">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="155">Implementations should override this to return TRUE if they support
+a settings UI</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/applet.c"
+               line="161">true if this implementation supports a Settings UI</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="update_popovers"
+              c:identifier="budgie_applet_update_popovers">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="408">This virtual method should be implemented by panel applets that wish
+to support #GtkPopover's natively. As each Budgie Panel may house multiple
+GtkPopover widgets, each one must be registered with the @manager.
+
+During this call, it is safe to store a reference to the @manager. In
+this call you should invoke #BudgiePopoverManager::register_popover to
+register your popover with the panel manager.
+
+Each registered popover joins the global menu system of popovers in the
+panel. It is a requirement to register, otherwise the panel will not
+know when to expand and collapse the main panel harness to accommodate
+the GtkPopover.</doc>
+        <source-position filename="src/plugin/panel/applet.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </instance-parameter>
+          <parameter name="manager"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="settings-prefix"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_settings_prefix"
+                getter="get_settings_prefix"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="260">The GSettings schema path prefix for this applet
+
+For applets that require unique instance configuration, the
+panel management must know where to initialise the settings
+within the tree. The path takes the form:
+
+`$SETTINGS_PREFIX/{$UUID}`
+
+As an example, the Budgie Menu Applet set's the `settings-prefix`
+to:
+`/com/solus-project/budgie-panel/instance/budgie-menu`.
+
+This results in relocatable schemas being created at:
+
+`/com/solus-project/budgie-panel/instance/budgie-menu/{$UUID}`</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="settings-schema"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_settings_schema"
+                getter="get_settings_schema"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="283">The ID of the GSettings schema used by this applet
+
+This only takes effect when you've also set #BudgieApplet:settings-prefix,
+and is used by the panel managemen to both initialise and delete your per-instance
+settings, respectively.
+
+As an example, the Budgie Menu Applet uses the schema:
+
+`com.solus-project.budgie-menu`
+
+as defined by the accompanying gschema XML file. Providing an incorrect
+schema ID is considered programmer error.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="supported-actions"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_supported_actions"
+                default-value="BUDGIE_PANEL_ACTION_NONE">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="303">The actions supported by this applet instance</doc>
+        <type name="PanelAction"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.EventBox" c:type="GtkEventBox"/>
+      </field>
+      <field name="priv">
+        <type name="AppletPrivate" c:type="BudgieAppletPrivate*"/>
+      </field>
+      <glib:signal name="panel-position-changed" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="329">Used to notify this applet of a change in the panel's placement
+on screen, so that it may adjust its own layout to better suit
+the geometry.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="332">The new position (screen edge)</doc>
+            <type name="PanelPosition"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="panel-size-changed" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.c"
+             line="312">Used to notify this applet of a change in the panel size</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="panel_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="315">The new panel size</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="316">Larget possible icon size for the panel</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="small_icon_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="317">Smaller icon that will still fit on the panel</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="AppletClass"
+            c:type="BudgieAppletClass"
+            glib:is-gtype-struct-for="Applet">
+      <source-position filename="src/plugin/panel/applet.h" line="89"/>
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+      <field name="invoke_action">
+        <callback name="invoke_action">
+          <source-position filename="src/plugin/panel/applet.h" line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+            <parameter name="action" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/panel/applet.c"
+                   line="101">Action to invoke</doc>
+              <type name="PanelAction" c:type="BudgiePanelAction"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="supports_settings">
+        <callback name="supports_settings">
+          <source-position filename="src/plugin/panel/applet.h" line="82"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="161">true if this implementation supports a Settings UI</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_settings_ui">
+        <callback name="get_settings_ui">
+          <source-position filename="src/plugin/panel/applet.h" line="83"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/applet.c"
+                 line="188">A GTK Settings UI</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="panel_size_changed">
+        <callback name="panel_size_changed">
+          <source-position filename="src/plugin/panel/applet.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+            <parameter name="panel_size" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+            <parameter name="icon_size" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+            <parameter name="small_icon_size" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="panel_position_changed">
+        <callback name="panel_position_changed">
+          <source-position filename="src/plugin/panel/applet.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+            <parameter name="position" transfer-ownership="none">
+              <type name="PanelPosition" c:type="BudgiePanelPosition"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="update_popovers">
+        <callback name="update_popovers">
+          <source-position filename="src/plugin/panel/applet.h" line="86"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="BudgieApplet*"/>
+            </parameter>
+            <parameter name="manager"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="AppletInfo"
+           c:symbol-prefix="applet_info"
+           c:type="BudgieAppletInfo"
+           parent="GObject.Object"
+           glib:type-name="BudgieAppletInfo"
+           glib:get-type="budgie_applet_info_get_type"
+           glib:type-struct="AppletInfoClass">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/applet-info.h"
+           line="41">This type is private to the panel implementation, and is used to monitor, track,
+and control each applet instance.</doc>
+      <source-position filename="src/plugin/panel/applet-info.h" line="39"/>
+      <constructor name="new" c:identifier="budgie_applet_info_new">
+        <source-position filename="src/plugin/panel/applet-info.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <type name="AppletInfo" c:type="BudgieAppletInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="plugin_info" transfer-ownership="none">
+            <type name="Peas.PluginInfo" c:type="PeasPluginInfo*"/>
+          </parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </parameter>
+          <parameter name="settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_uuid"
+                   c:identifier="budgie_applet_info_new_from_uuid">
+        <source-position filename="src/plugin/panel/applet-info.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <type name="AppletInfo" c:type="BudgieAppletInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uuid" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="alignment"
+                writable="1"
+                transfer-ownership="none"
+                default-value="start">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="applet"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="Applet" c:type="gpointer"/>
+      </property>
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="position"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="settings"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="Gio.Settings" c:type="gpointer"/>
+      </property>
+      <property name="uuid"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="AppletInfoPrivate" c:type="BudgieAppletInfoPrivate*"/>
+      </field>
+    </class>
+    <record name="AppletInfoClass"
+            c:type="BudgieAppletInfoClass"
+            glib:is-gtype-struct-for="AppletInfo">
+      <source-position filename="src/plugin/panel/applet-info.h" line="39"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="AppletInfoPrivate"
+            c:type="BudgieAppletInfoPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/plugin/panel/applet-info.h" line="23"/>
+    </record>
+    <record name="AppletPrivate"
+            c:type="BudgieAppletPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/plugin/panel/applet.h" line="59"/>
+    </record>
+    <function-macro name="IS_APPLET"
+                    c:identifier="BUDGIE_IS_APPLET"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet.h" line="65"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_APPLET_CLASS"
+                    c:identifier="BUDGIE_IS_APPLET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet.h" line="67"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_APPLET_INFO"
+                    c:identifier="BUDGIE_IS_APPLET_INFO"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet-info.h" line="29"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_APPLET_INFO_CLASS"
+                    c:identifier="BUDGIE_IS_APPLET_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/applet-info.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PLUGIN"
+                    c:identifier="BUDGIE_IS_PLUGIN"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/plugin.h" line="27"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PLUGIN_IFACE"
+                    c:identifier="BUDGIE_IS_PLUGIN_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/plugin.h" line="29"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_POPOVER"
+                    c:identifier="BUDGIE_IS_POPOVER"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover.h" line="62"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_POPOVER_CLASS"
+                    c:identifier="BUDGIE_IS_POPOVER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover.h" line="64"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_POPOVER_MANAGER"
+                    c:identifier="BUDGIE_IS_POPOVER_MANAGER"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_POPOVER_MANAGER_CLASS"
+                    c:identifier="BUDGIE_IS_POPOVER_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLUGIN"
+                    c:identifier="BUDGIE_PLUGIN"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/plugin.h" line="26"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLUGIN_GET_IFACE"
+                    c:identifier="BUDGIE_PLUGIN_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/plugin.h" line="30"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLUGIN_IFACE"
+                    c:identifier="BUDGIE_PLUGIN_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/plugin.h" line="28"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER"
+                    c:identifier="BUDGIE_POPOVER"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover.h" line="61"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER_CLASS"
+                    c:identifier="BUDGIE_POPOVER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover.h" line="63"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER_GET_CLASS"
+                    c:identifier="BUDGIE_POPOVER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover.h" line="65"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER_MANAGER"
+                    c:identifier="BUDGIE_POPOVER_MANAGER"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER_MANAGER_CLASS"
+                    c:identifier="BUDGIE_POPOVER_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="POPOVER_MANAGER_GET_CLASS"
+                    c:identifier="BUDGIE_POPOVER_MANAGER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <bitfield name="PanelAction"
+              glib:type-name="BudgiePanelAction"
+              glib:get-type="budgie_panel_action_get_type"
+              c:type="BudgiePanelAction">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/applet.h"
+           line="25">BudgiePanelAction's are bitwise OR'd so that a #BudgieApplet may expose
+the actions that it supports, when the panel is interacted with in
+a global fashion (such as via the D-BUS API)</doc>
+      <member name="none"
+              value="1"
+              c:identifier="BUDGIE_PANEL_ACTION_NONE"
+              glib:nick="none"
+              glib:name="BUDGIE_PANEL_ACTION_NONE">
+      </member>
+      <member name="menu"
+              value="2"
+              c:identifier="BUDGIE_PANEL_ACTION_MENU"
+              glib:nick="menu"
+              glib:name="BUDGIE_PANEL_ACTION_MENU">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="27">Invoke the menu action</doc>
+      </member>
+      <member name="max"
+              value="4"
+              c:identifier="BUDGIE_PANEL_ACTION_MAX"
+              glib:nick="max"
+              glib:name="BUDGIE_PANEL_ACTION_MAX">
+      </member>
+    </bitfield>
+    <bitfield name="PanelPosition"
+              glib:type-name="BudgiePanelPosition"
+              glib:get-type="budgie_panel_position_get_type"
+              c:type="BudgiePanelPosition">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/applet.h"
+           line="39">Each applet lives on a unique panel which can live on any one of
+the 4 screen edges. Internally this is represented with a bitmask
+to enable efficient screen management.</doc>
+      <member name="none"
+              value="1"
+              c:identifier="BUDGIE_PANEL_POSITION_NONE"
+              glib:nick="none"
+              glib:name="BUDGIE_PANEL_POSITION_NONE">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="41">No position is yet assigned</doc>
+      </member>
+      <member name="bottom"
+              value="2"
+              c:identifier="BUDGIE_PANEL_POSITION_BOTTOM"
+              glib:nick="bottom"
+              glib:name="BUDGIE_PANEL_POSITION_BOTTOM">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="42">The bottom edge has been assigned</doc>
+      </member>
+      <member name="top"
+              value="4"
+              c:identifier="BUDGIE_PANEL_POSITION_TOP"
+              glib:nick="top"
+              glib:name="BUDGIE_PANEL_POSITION_TOP">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="43">The top edge has been assigned</doc>
+      </member>
+      <member name="left"
+              value="8"
+              c:identifier="BUDGIE_PANEL_POSITION_LEFT"
+              glib:nick="left"
+              glib:name="BUDGIE_PANEL_POSITION_LEFT">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="44">The left edge has been assigned</doc>
+      </member>
+      <member name="right"
+              value="16"
+              c:identifier="BUDGIE_PANEL_POSITION_RIGHT"
+              glib:nick="right"
+              glib:name="BUDGIE_PANEL_POSITION_RIGHT">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="45">The right edge has been assigned</doc>
+      </member>
+    </bitfield>
+    <interface name="Plugin"
+               c:symbol-prefix="plugin"
+               c:type="BudgiePlugin"
+               glib:type-name="BudgiePlugin"
+               glib:get-type="budgie_plugin_get_type"
+               glib:type-struct="PluginIface">
+      <source-position filename="src/plugin/panel/plugin.h" line="41"/>
+      <virtual-method name="get_panel_widget" invoker="get_panel_widget">
+        <source-position filename="src/plugin/panel/plugin.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/plugin.c"
+               line="63">A newly initialised panel widget</doc>
+          <type name="Applet" c:type="BudgieApplet*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/plugin.c"
+                 line="60">A #BudgiePlugin</doc>
+            <type name="Plugin" c:type="BudgiePlugin*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/plugin.c"
+                 line="61">UUID for this new instance</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_panel_widget"
+              c:identifier="budgie_plugin_get_panel_widget">
+        <source-position filename="src/plugin/panel/plugin.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/plugin.c"
+               line="63">A newly initialised panel widget</doc>
+          <type name="Applet" c:type="BudgieApplet*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/plugin.c"
+                 line="60">A #BudgiePlugin</doc>
+            <type name="Plugin" c:type="BudgiePlugin*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/plugin.c"
+                 line="61">UUID for this new instance</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="PluginIface"
+            c:type="BudgiePluginIface"
+            glib:is-gtype-struct-for="Plugin">
+      <source-position filename="src/plugin/panel/plugin.h" line="41"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_panel_widget">
+        <callback name="get_panel_widget">
+          <source-position filename="src/plugin/panel/plugin.h" line="38"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/plugin.c"
+                 line="63">A newly initialised panel widget</doc>
+            <type name="Applet" c:type="BudgieApplet*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/panel/plugin.c"
+                   line="60">A #BudgiePlugin</doc>
+              <type name="Plugin" c:type="BudgiePlugin*"/>
+            </parameter>
+            <parameter name="uuid" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/panel/plugin.c"
+                   line="61">UUID for this new instance</doc>
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="Popover"
+           c:symbol-prefix="popover"
+           c:type="BudgiePopover"
+           parent="Gtk.Window"
+           glib:type-name="BudgiePopover"
+           glib:get-type="budgie_popover_get_type"
+           glib:type-struct="PopoverClass">
+      <source-position filename="src/plugin/panel/popover.h" line="34"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="budgie_popover_new">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.c"
+             line="902">Construct a new BudgiePopover object</doc>
+        <source-position filename="src/plugin/panel/popover.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/popover.c"
+               line="908">A newly created #BudgiePopover</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="relative_to" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover.c"
+                 line="904">The widget to show the popover for</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="closed">
+        <source-position filename="src/plugin/panel/popover.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="popover" transfer-ownership="none">
+            <type name="Popover" c:type="BudgiePopover*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_position_policy"
+              c:identifier="budgie_popover_get_position_policy"
+              glib:get-property="position-policy">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.c"
+             line="925">Retrieve the currently active positioning policy for this popover</doc>
+        <source-position filename="src/plugin/panel/popover.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/popover.c"
+               line="930">The #BudgiePopoverPositionPolicy currently in use</doc>
+          <type name="PopoverPositionPolicy"
+                c:type="BudgiePopoverPositionPolicy"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="popover" transfer-ownership="none">
+            <type name="Popover" c:type="BudgiePopover*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_position_policy"
+              c:identifier="budgie_popover_set_position_policy"
+              glib:set-property="position-policy">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.c"
+             line="914">Set the positioning policy employed by the popover</doc>
+        <source-position filename="src/plugin/panel/popover.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="popover" transfer-ownership="none">
+            <type name="Popover" c:type="BudgiePopover*"/>
+          </instance-parameter>
+          <parameter name="policy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover.c"
+                 line="916">New policy to set</doc>
+            <type name="PopoverPositionPolicy"
+                  c:type="BudgiePopoverPositionPolicy"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="position-policy"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_position_policy"
+                getter="get_position_policy"
+                default-value="BUDGIE_POPOVER_POSITION_AUTOMATIC">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.c"
+             line="216">Control the behavior used to place the popover on screen.</doc>
+        <type name="PopoverPositionPolicy"/>
+      </property>
+      <property name="relative-to" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.Window" c:type="GtkWindow"/>
+      </field>
+      <field name="priv">
+        <type name="PopoverPrivate" c:type="BudgiePopoverPrivate*"/>
+      </field>
+      <glib:signal name="closed" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.c"
+             line="190">This signal is emitted when the popover has been dismissed, whether
+it was deliberately from the user's perspective, or implicitly
+through a toggling action, such as being rolled past in a
+#BudgiePopoverManager set of popovers.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="PopoverClass"
+            c:type="BudgiePopoverClass"
+            glib:is-gtype-struct-for="Popover">
+      <source-position filename="src/plugin/panel/popover.h" line="34"/>
+      <field name="parent_class">
+        <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
+      </field>
+      <field name="closed">
+        <callback name="closed">
+          <source-position filename="src/plugin/panel/popover.h" line="31"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="popover" transfer-ownership="none">
+              <type name="Popover" c:type="BudgiePopover*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="PopoverManager"
+           c:symbol-prefix="popover_manager"
+           c:type="BudgiePopoverManager"
+           parent="GObject.Object"
+           glib:type-name="BudgiePopoverManager"
+           glib:get-type="budgie_popover_manager_get_type"
+           glib:type-struct="PopoverManagerClass">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="27"/>
+      <constructor name="new" c:identifier="budgie_popover_manager_new">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover-manager.c"
+             line="47">Construct a new BudgiePopoverManager object</doc>
+        <source-position filename="src/plugin/panel/popover-manager.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/panel/popover-manager.c"
+               line="52">A pointer to a new #BudgiePopoverManager object.</doc>
+          <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+        </return-value>
+      </constructor>
+      <method name="register_popover"
+              c:identifier="budgie_popover_manager_register_popover">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover-manager.c"
+             line="99">Register a new popover with it's relative-to widget within the popover management
+system. This will allow the popover to be activated when it's parent widget has
+been activated by a mouse roll over, when another widget is visible.
+
+This allows the panel to provide a "menubar" like functionality for interaction
+with multiple popovers in a natural fashion.</doc>
+        <source-position filename="src/plugin/panel/popover-manager.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+          </instance-parameter>
+          <parameter name="parent_widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover-manager.c"
+                 line="101">The widget that "owns" the popover (relative-to)</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="popover" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover-manager.c"
+                 line="102">The popover that will be shown when the @parent_widget is activated</doc>
+            <type name="Popover" c:type="BudgiePopover*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_popover"
+              c:identifier="budgie_popover_manager_show_popover">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover-manager.c"
+             line="165">Show a #BudgiePopover on screen belonging to the specified @parent_widget</doc>
+        <source-position filename="src/plugin/panel/popover-manager.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+          </instance-parameter>
+          <parameter name="parent_widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover-manager.c"
+                 line="167">The widget owning the popover to be shown</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unregister_popover"
+              c:identifier="budgie_popover_manager_unregister_popover">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover-manager.c"
+             line="129">Unregister a popover so that it is no longer managed by this implementation,
+and is free to manage itself.</doc>
+        <source-position filename="src/plugin/panel/popover-manager.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PopoverManager" c:type="BudgiePopoverManager*"/>
+          </instance-parameter>
+          <parameter name="parent_widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/panel/popover-manager.c"
+                 line="131">The associated widget (key) for the registered popover</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="PopoverManagerPrivate"
+              c:type="BudgiePopoverManagerPrivate*"/>
+      </field>
+    </class>
+    <record name="PopoverManagerClass"
+            c:type="BudgiePopoverManagerClass"
+            glib:is-gtype-struct-for="PopoverManager">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="27"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="PopoverManagerPrivate"
+            c:type="BudgiePopoverManagerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/plugin/panel/popover-manager.h"
+                       line="23"/>
+    </record>
+    <enumeration name="PopoverPositionPolicy"
+                 glib:type-name="BudgiePopoverPositionPolicy"
+                 glib:get-type="budgie_popover_position_policy_get_type"
+                 c:type="BudgiePopoverPositionPolicy">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/popover.h"
+           line="41">The BudgiePopoverPositionPolicy determines how the #BudgiePopover will be
+placed on screen. The default policy (AUTOMATIC) will try to place the
+popover at a sensible location relative to the parent widget, and point
+the tail accordingly.
+
+The TOPLEVEL_HINT policy is designed for use with panels + docks, where the
+top level window owning the relative-to widget sets a CSS class on itself
+in accordance with the screen edge, i.e. top, left, bottom, right.</doc>
+      <member name="automatic"
+              value="0"
+              c:identifier="BUDGIE_POPOVER_POSITION_AUTOMATIC"
+              glib:nick="automatic"
+              glib:name="BUDGIE_POPOVER_POSITION_AUTOMATIC">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.h"
+             line="43">Determine location based on the screen estate</doc>
+      </member>
+      <member name="toplevel_hint"
+              value="1"
+              c:identifier="BUDGIE_POPOVER_POSITION_TOPLEVEL_HINT"
+              glib:nick="toplevel-hint"
+              glib:name="BUDGIE_POPOVER_POSITION_TOPLEVEL_HINT">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.h"
+             line="44">Use hints on widgets parent window</doc>
+      </member>
+    </enumeration>
+    <record name="PopoverPrivate"
+            c:type="BudgiePopoverPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/plugin/panel/popover.h" line="21"/>
+    </record>
+    <docsection name="applet">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/applet.c"
+           line="15">The BudgieApplet is the main event when it comes to providing a Budgie
+Panel extension. This is the widget that is visible to the user, and is
+provided by, and instaniated by, your #BudgiePlugin.
+
+Those implementing applets have a specific API available to them in order
+to achieve better integration with the overall desktop. At the bare minimum
+you should at least ensure that your applet respects the sizes exposed by
+the managing panel, via the #BudgieApplet::panel-size-changed signal.
+
+BudgieApplet extends #GtkEventBox to leave you free to make your own choices
+on internal applet layout and configuration. Do note, however, that the
+panel implementation will not call #gtk_widget_show_all, it is solely
+your responsibility to ensure all of your contents are displayed. This
+is to enable applet's to contextually hide part of their user interface
+when required.</doc>
+    </docsection>
+    <docsection name="plugin">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/plugin.c"
+           line="14">The BudgiePlugin provides the main entry point for modules that wish
+to extend the functionality of the Budgie Panel. In reality, the vast
+majority of the work is actually implemented in #BudgieApplet.
+
+Implementations must implement the #budgie_plugin_get_panel_widget method,
+and provide a new instance of their implementation of the BudgieApplet:
+|[&lt;!-- language="C" --&gt;
+
+     static BudgieApplet *my_type_get_panel_widget(BudgiePlugin *self, gchar *uuid)
+     {
+             return my_applet_new(uuid);
+     }
+
+     static void my_class_init(GObjectClass *klass)
+     {
+             MyClass *mc = MY_CLASS(klass);
+             ...
+             mc-&gt;get_panel_widget = my_type_get_panel_widget;
+     }
+]|
+
+In Vala we would achieve like so:
+
+|[&lt;!-- language="Vala" --&gt;
+
+     public Budgie.Applet get_panel_widget(string uuid)
+     {
+         return new MyApplet();
+     }
+]|</doc>
+    </docsection>
+    <docsection name="popover">
+      <doc xml:space="preserve"
+           filename="src/plugin/panel/popover.c"
+           line="22">The BudgiePopover is a specialised top level window with a tail pointer,
+providing a decorative approach to panel windows. These windows point
+at the source of an event, such as a button, and allow rich user interfaces
+to be built with a focus on Budgie Panel usage.
+
+The BudgiePopover should be used in conjunction with the #BudgiePopoverManager.
+Simply add your content to the popover, and ensure that you call
+#GtkWidget:show_all to display the contents.
+
+Your popover may be dismissed from screen in response to an event, such
+as the user pressing the button again, or automatically, as the user
+clicked outside of the window, or even because the #BudgiePopoverManager
+switched to a new active popover. You may connect to the #BudgiePopover::closed
+signal to check for this event.</doc>
+    </docsection>
+  </namespace>
+</repository>

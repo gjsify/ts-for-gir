@@ -1,0 +1,941 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="GConf" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="xlib" version="2.0"/>
+  <package name="libpanelapplet-4.0"/>
+  <namespace name="PanelApplet"
+             version="4.0"
+             shared-library="libpanel-applet-4.so.0"
+             c:identifier-prefixes="Panel"
+             c:symbol-prefixes="panel">
+    <constant name="APPLET_FLAGS_ALL"
+              value="0"
+              c:type="PANEL_APPLET_FLAGS_ALL">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Applet"
+           c:symbol-prefix="applet"
+           c:type="PanelApplet"
+           parent="Gtk.EventBox"
+           glib:type-name="PanelApplet"
+           glib:get-type="panel_applet_get_type"
+           glib:type-struct="AppletClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <function name="factory_main" c:identifier="panel_applet_factory_main">
+        <doc xml:whitespace="preserve">Creates the applet factory for @factory_id, so that the factory can create
+instances of the applet types it is associated with.
+
+Applet instances created by the applet factory will use @applet_type as
+GType. Unless you subclass #PanelApplet, you should use %PANEL_TYPE_APPLET
+as @applet_type.
+
+On creation of the applet instances, @callback is called to setup the
+applet. If @callback returns %FALSE, the creation of the applet instance is
+cancelled.
+
+If using C, it is recommended to use #PANEL_APPLET_OUT_PROCESS_FACTORY
+instead as it will create a main() function for you.
+
+It can only be used once, and is incompatible with the use of
+%PANEL_APPLET_IN_PROCESS_FACTORY and %PANEL_APPLET_OUT_PROCESS_FACTORY.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">0 on success, 1 if there is an error.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="factory_id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">identifier of an applet factory.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="applet_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">GType of the applet this factory creates.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="3">
+            <doc xml:whitespace="preserve">callback to be called when a new applet is created.</doc>
+            <type name="AppletFactoryCallback"
+                  c:type="PanelAppletFactoryCallback"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:whitespace="preserve">callback data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="factory_setup_in_process"
+                c:identifier="panel_applet_factory_setup_in_process"
+                introspectable="0">
+        <doc xml:whitespace="preserve">Creates the applet factory for @factory_id, so that the factory can create
+instances of the applet types it is associated with.
+
+Applet instances created by the applet factory will use @applet_type as
+GType. Unless you subclass #PanelApplet, you should use %PANEL_TYPE_APPLET
+as @applet_type.
+
+On creation of the applet instances, @callback is called to setup the
+applet. If @callback returns %FALSE, the creation of the applet instance is
+cancelled.
+
+It can only be used once, and is incompatible with the use of
+%PANEL_APPLET_IN_PROCESS_FACTORY and %PANEL_APPLET_OUT_PROCESS_FACTORY.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">0 on success, 1 if there is an error.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="factory_id" transfer-ownership="none">
+            <doc xml:whitespace="preserve">identifier of an applet factory.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="applet_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">GType of the applet this factory creates.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="3">
+            <doc xml:whitespace="preserve">callback to be called when a new applet is created.</doc>
+            <type name="AppletFactoryCallback"
+                  c:type="PanelAppletFactoryCallback"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:whitespace="preserve">callback data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="change_background">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="cairo.Pattern" c:type="cairo_pattern_t*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="change_orient">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="orient" transfer-ownership="none">
+            <type name="AppletOrient" c:type="PanelAppletOrient"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="change_size">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="move_focus_out_of_applet">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="Gtk.DirectionType" c:type="GtkDirectionType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_preferences"
+              c:identifier="panel_applet_add_preferences"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Associates the per-instance GConf directory of @applet to the schemas
+defined in @schema_dir. This must be called if the applet will save
+per-instance settings, to ensure that each key in the per-instance GConf
+directory has a defined type, sane default and documentation.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema_dir" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf path of a schema directory.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_bool"
+              c:identifier="panel_applet_gconf_get_bool"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_bool() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the value of @key.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_float"
+              c:identifier="panel_applet_gconf_get_float"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_float() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the value of @key.</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_full_key"
+              c:identifier="panel_applet_gconf_get_full_key"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0">
+        <doc xml:whitespace="preserve">Returns the full GConf path of @key, in the per-instance GConf directory of
+@applet. The string should be freed by the caller.</doc>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_int"
+              c:identifier="panel_applet_gconf_get_int"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_int() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the value of @key.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_list"
+              c:identifier="panel_applet_gconf_get_list"
+              introspectable="0"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_list() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">the value of @key. The list and its content should be freed by the caller.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="list_type" transfer-ownership="none">
+            <type name="GConf.ValueType" c:type="GConfValueType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_string"
+              c:identifier="panel_applet_gconf_get_string"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_string() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the value of @key. The string should be freed by the caller.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_get_value"
+              c:identifier="panel_applet_gconf_get_value"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_get_value() to get the value of @key
+in the per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the value of @key.</doc>
+          <type name="GConf.Value" c:type="GConfValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_bool"
+              c:identifier="panel_applet_gconf_set_bool"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_bool() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="the_bool" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_float"
+              c:identifier="panel_applet_gconf_set_float"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_float() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="the_float" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_int"
+              c:identifier="panel_applet_gconf_set_int"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_int() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="the_int" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_list"
+              c:identifier="panel_applet_gconf_set_list"
+              introspectable="0"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_list() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="list_type" transfer-ownership="none">
+            <doc xml:whitespace="preserve">type of items in @list.</doc>
+            <type name="GConf.ValueType" c:type="GConfValueType"/>
+          </parameter>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_string"
+              c:identifier="panel_applet_gconf_set_string"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_string() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="the_string" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gconf_set_value"
+              c:identifier="panel_applet_gconf_set_value"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0"
+              throws="1">
+        <doc xml:whitespace="preserve">Convenience wrapper around gconf_client_set_value() to update @key in the
+per-instance GConf directory of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a GConf key name.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:whitespace="preserve">new value for @key.</doc>
+            <type name="GConf.Value" c:type="GConfValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_background" c:identifier="panel_applet_get_background">
+        <doc xml:whitespace="preserve">Gets the background pattern for @applet, or %NULL if there is none.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #cairo_pattern_t to use as background for @applet.</doc>
+          <type name="cairo.Pattern" c:type="cairo_pattern_t*"/>
+        </return-value>
+      </method>
+      <method name="get_flags" c:identifier="panel_applet_get_flags">
+        <doc xml:whitespace="preserve">Gets the #PanelAppletFlags of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #PanelAppletFlags of @applet.</doc>
+          <type name="AppletFlags" c:type="PanelAppletFlags"/>
+        </return-value>
+      </method>
+      <method name="get_locked_down"
+              c:identifier="panel_applet_get_locked_down">
+        <doc xml:whitespace="preserve">Gets whether the panel @applet is on is locked down or not. A locked down
+applet should not allow any change to its configuration.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if the panel @applet is on is locked down, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_orient" c:identifier="panel_applet_get_orient">
+        <doc xml:whitespace="preserve">Gets the #PanelAppletOrient of @applet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #PanelAppletOrient of @applet.</doc>
+          <type name="AppletOrient" c:type="PanelAppletOrient"/>
+        </return-value>
+      </method>
+      <method name="get_preferences_key"
+              c:identifier="panel_applet_get_preferences_key"
+              deprecated="Use #GSettings to store per-instance settings."
+              deprecated-version="3.0">
+        <doc xml:whitespace="preserve">Gets the GConf path to the per-instance settings of @applet.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a copy of the GConf path to the per-instance settings of @applet.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_size"
+              c:identifier="panel_applet_get_size"
+              deprecated="Use the allocation of @applet instead."
+              deprecated-version="3.0">
+        <doc xml:whitespace="preserve">Gets the size of the panel @applet is on. For a horizontal panel, the
+size if the height of the panel; for a vertical panel, the size is the width
+of the panel.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the size of the panel @applet is on.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="request_focus" c:identifier="panel_applet_request_focus">
+        <doc xml:whitespace="preserve">Requests focus for @applet. There is no guarantee that @applet will
+successfully get focus after that call.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="timestamp" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the timestamp of the user interaction (typically a button or key press event) which triggered this call.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_background_widget"
+              c:identifier="panel_applet_set_background_widget">
+        <doc xml:whitespace="preserve">Configure #PanelApplet to automatically draw the background of the applet on
+@widget. It is generally enough to call this function with @applet as
+@widget.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GtkWidget.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_flags" c:identifier="panel_applet_set_flags">
+        <doc xml:whitespace="preserve">Sets the #PanelAppletFlags of @applet. Most of the time, at least
+%PANEL_APPLET_EXPAND_MINOR should be used.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#PanelAppletFlags to use for @applet.</doc>
+            <type name="AppletFlags" c:type="PanelAppletFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size_hints" c:identifier="panel_applet_set_size_hints">
+        <doc xml:whitespace="preserve">Give hints to the panel about sizes @applet is comfortable with. This is
+generally useful for applets that can take a lot of space, in case the panel
+gets full and needs to restrict the size of some applets.
+
+@size_hints should have an even number of sizes. It is an array of (max,
+min) pairs where min(i) &gt; max(i + 1).
+
+@base_size will be added to all sizes in @size_hints, and is therefore a way
+to guarantee a minimum size to @applet.
+
+The panel will try to allocate a size that is acceptable to @applet, i.e. in
+one of the (@base_size + max, @base_size + min) ranges.
+
+%PANEL_APPLET_EXPAND_MAJOR must be set for @applet to use size hints.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="size_hints" transfer-ownership="none">
+            <doc xml:whitespace="preserve">array of sizes.</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+          <parameter name="n_elements" transfer-ownership="none">
+            <doc xml:whitespace="preserve">length of @size_hints.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="base_size" transfer-ownership="none">
+            <doc xml:whitespace="preserve">base size of the applet.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="settings_new"
+              c:identifier="panel_applet_settings_new"
+              introspectable="0">
+        <doc xml:whitespace="preserve">Creates a new #GSettings object for the per-instance settings of @applet,
+with a given schema.</doc>
+        <return-value>
+          <doc xml:whitespace="preserve">a new #GSettings object for the per-instance settings of @applet.</doc>
+          <type name="Gio.Settings" c:type="GSettings*"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the name of the schema.</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu" c:identifier="panel_applet_setup_menu">
+        <doc xml:whitespace="preserve">Sets up the context menu of @applet. @xml is a #GtkUIManager UI definition,
+describing how to display the menu items. @action_group contains the
+various #GtkAction that are referenced in @xml.
+
+See also the &lt;link linkend="getting-started.context-menu"&gt;Context
+Menu&lt;/link&gt; section.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="xml" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a menu XML string.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GtkActionGroup.</doc>
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu_from_file"
+              c:identifier="panel_applet_setup_menu_from_file">
+        <doc xml:whitespace="preserve">Sets up the context menu of @applet. @filename is the path to a menu XML
+file, containing a #GtkUIManager UI definition that describes how to display
+the menu items. @action_group contains the various #GtkAction that
+are referenced in @xml.
+
+See also the &lt;link linkend="getting-started.context-menu"&gt;Context
+Menu&lt;/link&gt; section.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:whitespace="preserve">path to a menu XML file.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GtkActionGroup.</doc>
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu_from_resource"
+              c:identifier="panel_applet_setup_menu_from_resource"
+              version="3.4">
+        <doc xml:whitespace="preserve">Sets up the context menu of @applet. @filename is a resource path to a menu
+XML file, containing a #GtkUIManager UI definition that describes how to
+display the menu items. @action_group contains the various #GtkAction that
+are referenced in @xml.
+
+See also the &lt;link linkend="getting-started.context-menu"&gt;Context
+Menu&lt;/link&gt; section.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="resource_path" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a resource path</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GtkActionGroup.</doc>
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="background"
+                introspectable="0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">Implementation detail.</doc>
+        <type name="utf8"/>
+      </property>
+      <property name="closure"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">Implementation detail.</doc>
+        <type name="gpointer"/>
+      </property>
+      <property name="connection"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">Implementation detail.</doc>
+        <type name="Gio.DBusConnection"/>
+      </property>
+      <property name="flags" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">The #PanelAppletFlags of the applet.</doc>
+        <type name="guint"/>
+      </property>
+      <property name="id"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">Implementation detail.</doc>
+        <type name="utf8"/>
+      </property>
+      <property name="locked-down" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">Whether the panel the applet is on is locked down.</doc>
+        <type name="gboolean"/>
+      </property>
+      <property name="orient" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">The #PanelAppletOrient of the applet.
+
+This property gets set when the applet gets embedded, and can change
+when the panel position changes.</doc>
+        <type name="guint"/>
+      </property>
+      <property name="prefs-key"
+                deprecated="Use #GSettings to store per-instance settings."
+                deprecated-version="3.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The GConf path to the per-instance settings of the applet.
+
+This property gets set when the applet gets embedded.</doc>
+        <type name="utf8"/>
+      </property>
+      <property name="settings-path" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">The GSettings path to the per-instance settings of the applet.
+
+This property gets set when the applet gets embedded.</doc>
+        <type name="utf8"/>
+      </property>
+      <property name="size"
+                deprecated="Use the allocation of @applet instead."
+                deprecated-version="3.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:whitespace="preserve">The size of the panel the applet is on. For a horizontal panel, the
+size if the height of the panel; for a vertical panel, the size is
+the width of the panel.
+
+This property gets set when the applet gets embedded, and can change
+when the panel size changes.</doc>
+        <type name="guint"/>
+      </property>
+      <property name="size-hints" writable="1" transfer-ownership="none">
+        <doc xml:whitespace="preserve">The size hints set for the applet. See panel_applet_set_size_hints().</doc>
+        <type name="gpointer"/>
+      </property>
+      <field name="event_box">
+        <type name="Gtk.EventBox" c:type="GtkEventBox"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="AppletPrivate" c:type="PanelAppletPrivate*"/>
+      </field>
+      <glib:signal name="change-background" when="last">
+        <doc xml:whitespace="preserve">Emitted when the background of @applet has changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="pattern" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the new background pattern for @applet, or %NULL if there is none.</doc>
+            <type name="cairo.Pattern"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="change-orient" when="last">
+        <doc xml:whitespace="preserve">Emitted when the #PanelAppletOrient of @applet has changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="orient" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the new #PanelAppletOrient of @applet.</doc>
+            <type name="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="change-size"
+                   when="last"
+                   deprecated="Use the #GtkWidget::size-allocate signal instead."
+                   deprecated-version="3.0">
+        <doc xml:whitespace="preserve">Emitted when the size of the panel @applet is on has changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the new size of the panel @applet is on.</doc>
+            <type name="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="move-focus-out-of-applet"
+                   when="last"
+                   action="1"
+                   introspectable="0">
+        <doc xml:whitespace="preserve">Emitted when the focus is moved out of @applet. This is an
+implementation detail.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="direction" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the move direction.</doc>
+            <type name="Gtk.DirectionType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="AppletClass"
+            c:type="PanelAppletClass"
+            glib:is-gtype-struct-for="Applet">
+      <field name="event_box_class">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+      <field name="change_orient">
+        <callback name="change_orient">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="PanelApplet*"/>
+            </parameter>
+            <parameter name="orient" transfer-ownership="none">
+              <type name="AppletOrient" c:type="PanelAppletOrient"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="change_size">
+        <callback name="change_size">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="PanelApplet*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="change_background">
+        <callback name="change_background">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="PanelApplet*"/>
+            </parameter>
+            <parameter name="pattern" transfer-ownership="none">
+              <type name="cairo.Pattern" c:type="cairo_pattern_t*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="move_focus_out_of_applet">
+        <callback name="move_focus_out_of_applet">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="frame" transfer-ownership="none">
+              <type name="Applet" c:type="PanelApplet*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gtk.DirectionType" c:type="GtkDirectionType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="AppletFactoryCallback" c:type="PanelAppletFactoryCallback">
+      <doc xml:whitespace="preserve">The type used for callbacks after. The callback will usually check that @iid
+is a valid applet type identifier for the applet factory, and will then fill
+@applet with widgets, connect to signals, etc.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">%TRUE if @iid is a valid applet type identifier for the applet factory and if the creation of @applet was successfully completed, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="applet" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a newly-created #PanelApplet.</doc>
+          <type name="Applet" c:type="PanelApplet*"/>
+        </parameter>
+        <parameter name="iid" transfer-ownership="none">
+          <doc xml:whitespace="preserve">identifier of the requested applet type.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="2">
+          <doc xml:whitespace="preserve">user data.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <bitfield name="AppletFlags"
+              glib:type-name="PanelAppletFlags"
+              glib:get-type="panel_applet_flags_get_type"
+              c:type="PanelAppletFlags">
+      <doc xml:whitespace="preserve">Flags to be used with panel_applet_get_flags()/panel_applet_set_flags(), to
+indicate to the panel a specific behavior requested by the #PanelApplet.</doc>
+      <member name="flags_none"
+              value="0"
+              c:identifier="PANEL_APPLET_FLAGS_NONE"
+              glib:nick="flags-none"/>
+      <member name="expand_major"
+              value="1"
+              c:identifier="PANEL_APPLET_EXPAND_MAJOR"
+              glib:nick="expand-major"/>
+      <member name="expand_minor"
+              value="2"
+              c:identifier="PANEL_APPLET_EXPAND_MINOR"
+              glib:nick="expand-minor"/>
+      <member name="has_handle"
+              value="4"
+              c:identifier="PANEL_APPLET_HAS_HANDLE"
+              glib:nick="has-handle"/>
+    </bitfield>
+    <enumeration name="AppletOrient"
+                 glib:type-name="PanelAppletOrient"
+                 glib:get-type="panel_applet_orient_get_type"
+                 c:type="PanelAppletOrient">
+      <doc xml:whitespace="preserve">Type defining the orientation of the applet. The values may seem backward
+(e.g. %PANEL_APPLET_ORIENT_RIGHT means the panel is on the left side), but
+this represents the direction the applet is oriented to.</doc>
+      <member name="up"
+              value="0"
+              c:identifier="PANEL_APPLET_ORIENT_UP"
+              glib:nick="up"/>
+      <member name="down"
+              value="1"
+              c:identifier="PANEL_APPLET_ORIENT_DOWN"
+              glib:nick="down"/>
+      <member name="left"
+              value="2"
+              c:identifier="PANEL_APPLET_ORIENT_LEFT"
+              glib:nick="left"/>
+      <member name="right"
+              value="3"
+              c:identifier="PANEL_APPLET_ORIENT_RIGHT"
+              glib:nick="right"/>
+    </enumeration>
+    <record name="AppletPrivate" c:type="PanelAppletPrivate" disguised="1">
+    </record>
+  </namespace>
+</repository>

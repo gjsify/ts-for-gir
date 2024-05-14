@@ -1,0 +1,2193 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="libgsystem"/>
+  <namespace name="GSystem"
+             version="1.0"
+             shared-library="libgsystem.so.0"
+             c:identifier-prefixes="GS"
+             c:symbol-prefixes="gs">
+    <class name="Console"
+           c:symbol-prefix="console"
+           c:type="GSConsole"
+           parent="GObject.Object"
+           glib:type-name="GSConsole"
+           glib:get-type="gs_console_get_type">
+      <doc xml:space="preserve">First, this class offers API to access the standard input and
+output/error, streams as #GInputStream and #GOutputStream
+respectively.
+
+In the case where the process is connected to a controlling
+terminal, the gs_console_get() API is available, which exposes a
+number of additional features such as no-echo password reading.</doc>
+      <function name="get" c:identifier="gs_console_get" version="2.36">
+        <doc xml:space="preserve">If the current process has an interactive console, return the
+singleton #GSConsole instance.  On Unix, this is equivalent to
+isatty().  For all other cases, such as pipes, sockets, /dev/null,
+this function will return %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The console instance, or %NULL if not interactive</doc>
+          <type name="Console" c:type="GSConsole*"/>
+        </return-value>
+      </function>
+      <function name="get_stderr" c:identifier="gs_console_get_stderr">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The singleton stream connected to standard error</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+        </return-value>
+      </function>
+      <function name="get_stdin" c:identifier="gs_console_get_stdin">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The singleton stream connected to standard input</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+      </function>
+      <function name="get_stdout" c:identifier="gs_console_get_stdout">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The singleton stream connected to standard output</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+        </return-value>
+      </function>
+      <method name="begin_status_line"
+              c:identifier="gs_console_begin_status_line"
+              throws="1">
+        <doc xml:space="preserve">The primary use case for this function is to output periodic
+"status" or "progress" information.  The first time this function
+is called, @line will be output normally.  Subsequent invocations
+will overwrite the previous.
+
+You must invoke gs_console_end_status_line() to return the console
+to normal mode.  In particular, concurrent use of this function and
+the stream returned by gs_console_get_stdout() results in undefined
+behavior.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="console" transfer-ownership="none">
+            <doc xml:space="preserve">the #GSConsole</doc>
+            <type name="Console" c:type="GSConsole*"/>
+          </instance-parameter>
+          <parameter name="line" transfer-ownership="none">
+            <doc xml:space="preserve">String to output</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="end_status_line"
+              c:identifier="gs_console_end_status_line"
+              throws="1">
+        <doc xml:space="preserve">Complete a series of invocations of gs_console_begin_status_line(),
+returning the stream to normal mode.  The last printed status line
+remains on the console; if this is not desired, print an empty
+string to clear it before invoking this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="console" transfer-ownership="none">
+            <doc xml:space="preserve">the #GSConsole</doc>
+            <type name="Console" c:type="GSConsole*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_password"
+              c:identifier="gs_console_read_password"
+              throws="1">
+        <doc xml:space="preserve">Write @prompt to standard output, then switch output echo off, read
+a result string, then switch output echo back on.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A string, or %NULL on error</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="console" transfer-ownership="none">
+            <doc xml:space="preserve">the #GSConsole</doc>
+            <type name="Console" c:type="GSConsole*"/>
+          </instance-parameter>
+          <parameter name="prompt" transfer-ownership="none">
+            <doc xml:space="preserve">A string to output before reading the password</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DirFdIterator" c:type="GSDirFdIterator">
+      <field name="initialized" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="fd" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="padding_data" writable="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="Subprocess"
+           c:symbol-prefix="subprocess"
+           c:type="GSSubprocess"
+           parent="GObject.Object"
+           glib:type-name="GSSubprocess"
+           glib:get-type="gs_subprocess_get_type">
+      <doc xml:space="preserve">This class wraps the lower-level g_spawn_async_with_pipes() API,
+providing a more modern GIO-style API, such as returning
+#GInputStream objects for child output pipes.
+
+One major advantage that GIO brings over the core GLib library is
+comprehensive API for asynchronous I/O, such
+g_output_stream_splice_async().  This makes GSubprocess
+significantly more powerful and flexible than equivalent APIs in
+some other languages such as the &lt;literal&gt;subprocess.py&lt;/literal&gt;
+included with Python.  For example, using #GSubprocess one could
+create two child processes, reading standard output from the first,
+processing it, and writing to the input stream of the second, all
+without blocking the main loop.</doc>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="gs_subprocess_new"
+                   version="2.36"
+                   throws="1">
+        <doc xml:space="preserve">Create a new process, using the parameters specified by
+GSSubprocessContext.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A newly created %GSSubprocess, or %NULL on error (and @error will be set)</doc>
+          <type name="Subprocess" c:type="GSSubprocess*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_simple_argl"
+                   c:identifier="gs_subprocess_new_simple_argl"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="Subprocess" c:type="GSSubprocess*"/>
+        </return-value>
+        <parameters>
+          <parameter name="stdout_disposition" transfer-ownership="none">
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+          <parameter name="stderr_disposition" transfer-ownership="none">
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="first_arg" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_simple_argv"
+                   c:identifier="gs_subprocess_new_simple_argv"
+                   throws="1">
+        <doc xml:space="preserve">Create a new subprocess using the provided argument array and
+stream dispositions.</doc>
+        <return-value transfer-ownership="full">
+          <type name="Subprocess" c:type="GSSubprocess*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve">Argument array</doc>
+            <array c:type="char**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="stdout_disposition" transfer-ownership="none">
+            <doc xml:space="preserve">Where to redirect stdout</doc>
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+          <parameter name="stderr_disposition" transfer-ownership="none">
+            <doc xml:space="preserve">Where to redirect stderr</doc>
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="simple_run_sync"
+                c:identifier="gs_subprocess_simple_run_sync"
+                introspectable="0">
+        <doc xml:space="preserve">Run a process synchronously, throw an error if it fails.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cwd" transfer-ownership="none">
+            <doc xml:space="preserve">Current working directory</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="stdin_disposition" transfer-ownership="none">
+            <doc xml:space="preserve">What to do with standard input</doc>
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve">a #GError</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="first_arg" transfer-ownership="none">
+            <doc xml:space="preserve">First argument</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve">Remaining arguments, %NULL terminated</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="force_exit" c:identifier="gs_subprocess_force_exit">
+        <doc xml:space="preserve">Use an operating-system specific method to attempt an immediate,
+forceful termination of the process.  There is no mechanism to
+determine whether or not the request itself was successful;
+however, you can use gs_subprocess_wait() to monitor the status of
+the process after calling this function.
+
+On Unix, this function sends %SIGKILL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pid"
+              c:identifier="gs_subprocess_get_pid"
+              version="2.36">
+        <doc xml:space="preserve">The identifier for this child process; it is valid as long as the
+process @self is referenced.  In particular, do
+&lt;emphasis&gt;not&lt;/emphasis&gt; call g_spawn_close_pid() on this value;
+that is handled internally.
+
+On some Unix versions, it is possible for there to be a race
+condition where waitpid() may have been called to collect the child
+before any watches (such as that installed by
+gs_subprocess_add_watch()) have fired.  If you are planning to use
+native functions such as kill() on the pid, your program should
+gracefully handle an %ESRCH result to mitigate this.
+
+If you want to request process termination, using the high level
+gs_subprocess_request_exit() and gs_subprocess_force_exit() API is
+recommended.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">Operating-system specific identifier for child process</doc>
+          <type name="GLib.Pid" c:type="GPid"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stderr_pipe"
+              c:identifier="gs_subprocess_get_stderr_pipe">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">Pipe</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stdin_pipe"
+              c:identifier="gs_subprocess_get_stdin_pipe">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">Pipe</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stdout_pipe"
+              c:identifier="gs_subprocess_get_stdout_pipe">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">Pipe</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_exit"
+              c:identifier="gs_subprocess_request_exit"
+              version="2.36">
+        <doc xml:space="preserve">This API uses an operating-system specific mechanism to request
+that the subprocess gracefully exit.  This API is not available on
+all operating systems; for those not supported, it will do nothing
+and return %FALSE.  Portable code should handle this situation
+gracefully.  For example, if you are communicating via input or
+output pipe with the child, many programs will automatically exit
+when one of their standard input or output are closed.
+
+On Unix, this API sends %SIGTERM.
+
+A %TRUE return value does &lt;emphasis&gt;not&lt;/emphasis&gt; mean the
+subprocess has exited, merely that an exit request was initiated.
+You can use gs_subprocess_add_watch() to monitor the status of the
+process after calling this function.
+
+This function returns %TRUE if the process has already exited.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the operation is supported, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="wait" c:identifier="gs_subprocess_wait" version="2.36">
+        <doc xml:space="preserve">Start an asynchronous wait for the subprocess @self to exit.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">Invoked when process exits, or @cancellable is cancelled</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">Data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_finish"
+              c:identifier="gs_subprocess_wait_finish"
+              version="2.36"
+              throws="1">
+        <doc xml:space="preserve">The exit status of the process will be stored in @out_exit_status.
+See the documentation of g_spawn_check_exit_status() for more
+details.
+
+Note that @error is not set if the process exits abnormally; you
+must use g_spawn_check_exit_status() for that.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="out_exit_status"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">Exit status of the process encoded in platform-specific way</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_sync"
+              c:identifier="gs_subprocess_wait_sync"
+              version="2.36"
+              throws="1">
+        <doc xml:space="preserve">Synchronously wait for the subprocess to terminate, returning the
+status code in @out_exit_status.  See the documentation of
+g_spawn_check_exit_status() for how to interpret it.  Note that if
+@error is set, then @out_exit_status will be left uninitialized.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE if @cancellable was cancelled</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+          <parameter name="out_exit_status"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">Platform-specific exit code</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_sync_check"
+              c:identifier="gs_subprocess_wait_sync_check"
+              version="2.36"
+              throws="1">
+        <doc xml:space="preserve">Combines gs_subprocess_wait_sync() with g_spawn_check_exit_status().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE if process exited abnormally, or @cancellable was cancelled</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">a #GSSubprocess</doc>
+            <type name="Subprocess" c:type="GSSubprocess*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="context"
+                version="2.36"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="SubprocessContext"/>
+      </property>
+    </class>
+    <class name="SubprocessContext"
+           c:symbol-prefix="subprocess_context"
+           c:type="GSSubprocessContext"
+           parent="GObject.Object"
+           glib:type-name="GSSubprocessContext"
+           glib:get-type="gs_subprocess_context_get_type">
+      <doc xml:space="preserve">This class contains a set of options for launching child processes,
+such as where its standard input and output will be directed, the
+argument list, the environment, and more.
+
+While the #GSSubprocess class has high level functions covering
+popular cases, use of this class allows access to more advanced
+options.  It can also be used to launch multiple subprocesses with
+a similar configuration.</doc>
+      <constructor name="new" c:identifier="gs_subprocess_context_new">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A new instance of a #GSSubprocessContext.</doc>
+          <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve">Argument list</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_argv0"
+                   c:identifier="gs_subprocess_context_new_argv0">
+        <return-value transfer-ownership="full">
+          <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argv0" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="newv"
+                   c:identifier="gs_subprocess_context_newv"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="first_arg" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="newa"
+                c:identifier="gs_subprocess_context_newa"
+                introspectable="0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A new instance of a #GSSubprocessContext.</doc>
+          <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="first_arg" transfer-ownership="none">
+            <doc xml:space="preserve">First argument</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="args" transfer-ownership="none">
+            <doc xml:space="preserve">a va_list</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="argv_append"
+              c:identifier="gs_subprocess_context_argv_append">
+        <doc xml:space="preserve">Append an argument to the child's argument vector.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="arg" transfer-ownership="none">
+            <doc xml:space="preserve">An argument</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_pipe_read"
+              c:identifier="gs_subprocess_context_open_pipe_read"
+              throws="1">
+        <doc xml:space="preserve">This allows you to open a pipe between the parent and child
+processes, independent of the standard streams.  For this function,
+the pipe is set up so that the parent can read, and the child can
+write.  For the opposite version, see
+gs_subprocess_context_open_pipe_write().
+
+The returned @out_fdno is the file descriptor number that the child
+will see; you need to communicate this number via a separate
+channel, such as the argument list.  For example, if you're using
+this pipe to send a password, provide
+&lt;literal&gt;--password-fd=&amp;lt;fdno string&amp;gt;&lt;/literal&gt;.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE on error (and @error will be set)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="out_stream"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">A newly referenced output stream</doc>
+            <type name="Gio.InputStream" c:type="GInputStream**"/>
+          </parameter>
+          <parameter name="out_fdno"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">File descriptor number for the subprocess side of the pipe</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_pipe_write"
+              c:identifier="gs_subprocess_context_open_pipe_write"
+              throws="1">
+        <doc xml:space="preserve">Like gs_subprocess_context_open_pipe_read(), but returns a writable
+channel from which the child process can read.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE on error (and @error will be set)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="out_stream"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">A newly referenced stream</doc>
+            <type name="Gio.OutputStream" c:type="GOutputStream**"/>
+          </parameter>
+          <parameter name="out_fdno"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">File descriptor number for the subprocess side of the pipe</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_child_setup"
+              c:identifier="gs_subprocess_context_set_child_setup"
+              introspectable="0">
+        <doc xml:space="preserve">FIXME - note extensive restricitons on GSpawnChildSetupFunc here</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="child_setup" transfer-ownership="none" closure="1">
+            <doc xml:space="preserve">Function to call in the newly forked child, before execve()</doc>
+            <type name="GLib.SpawnChildSetupFunc"
+                  c:type="GSpawnChildSetupFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">Data passed to child</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cwd" c:identifier="gs_subprocess_context_set_cwd">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="cwd" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_environment"
+              c:identifier="gs_subprocess_context_set_environment">
+        <doc xml:space="preserve">Replace the environment that will be used for the child process.
+The default is to inherit the current process.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="environ" transfer-ownership="none">
+            <doc xml:space="preserve">Environment KEY=VALUE pairs</doc>
+            <array c:type="gchar**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keep_descriptors"
+              c:identifier="gs_subprocess_context_set_keep_descriptors">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="keep_descriptors" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_search_path"
+              c:identifier="gs_subprocess_context_set_search_path">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="search_path" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="search_path_from_envp" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stderr_disposition"
+              c:identifier="gs_subprocess_context_set_stderr_disposition">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="disposition" transfer-ownership="none">
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stderr_fd"
+              c:identifier="gs_subprocess_context_set_stderr_fd">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stderr_file_path"
+              c:identifier="gs_subprocess_context_set_stderr_file_path">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdin_disposition"
+              c:identifier="gs_subprocess_context_set_stdin_disposition">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="disposition" transfer-ownership="none">
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdin_fd"
+              c:identifier="gs_subprocess_context_set_stdin_fd">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdin_file_path"
+              c:identifier="gs_subprocess_context_set_stdin_file_path">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdout_disposition"
+              c:identifier="gs_subprocess_context_set_stdout_disposition">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="disposition" transfer-ownership="none">
+            <type name="SubprocessStreamDisposition"
+                  c:type="GSSubprocessStreamDisposition"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdout_fd"
+              c:identifier="gs_subprocess_context_set_stdout_fd">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stdout_file_path"
+              c:identifier="gs_subprocess_context_set_stdout_file_path">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SubprocessContext" c:type="GSSubprocessContext*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="argv"
+                version="2.36"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Array of arguments passed to child process; must have at least
+one element.  The first element has special handling - if it is
+an not absolute path ( as determined by g_path_is_absolute() ),
+then the system search path will be used.  See
+%G_SPAWN_SEARCH_PATH.
+
+Note that in order to use the Unix-specific argv0 functionality,
+you must use the setter function
+gs_subprocess_context_set_args_and_argv0().  For more information
+about this, see %G_SPAWN_FILE_AND_ARGV_ZERO.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+    </class>
+    <enumeration name="SubprocessStreamDisposition"
+                 version="2.36"
+                 c:type="GSSubprocessStreamDisposition">
+      <doc xml:space="preserve">Flags to define the behaviour of the standard input/output/error of
+a #GSSubprocess.</doc>
+      <member name="null"
+              value="0"
+              c:identifier="GS_SUBPROCESS_STREAM_DISPOSITION_NULL">
+        <doc xml:space="preserve">Redirect to operating system's null output stream</doc>
+      </member>
+      <member name="inherit"
+              value="1"
+              c:identifier="GS_SUBPROCESS_STREAM_DISPOSITION_INHERIT">
+        <doc xml:space="preserve">Keep the stream from the parent process</doc>
+      </member>
+      <member name="pipe"
+              value="2"
+              c:identifier="GS_SUBPROCESS_STREAM_DISPOSITION_PIPE">
+        <doc xml:space="preserve">Open a private unidirectional channel between the processes</doc>
+      </member>
+      <member name="stderr_merge"
+              value="3"
+              c:identifier="GS_SUBPROCESS_STREAM_DISPOSITION_STDERR_MERGE">
+        <doc xml:space="preserve">Only applicable to standard error; causes it to be merged with standard output</doc>
+      </member>
+    </enumeration>
+    <function name="dfd_and_name_get_all_xattrs"
+              c:identifier="gs_dfd_and_name_get_all_xattrs"
+              throws="1">
+      <doc xml:space="preserve">Load all extended attributes for the file named @name residing in
+directory @dfd.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <doc xml:space="preserve">Parent directory file descriptor</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve">File name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="out_xattrs"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">Extended attribute set</doc>
+          <type name="GLib.Variant" c:type="GVariant**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dfd_and_name_set_all_xattrs"
+              c:identifier="gs_dfd_and_name_set_all_xattrs"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="xattrs" transfer-ownership="none">
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dirfd_iterator_clear"
+              c:identifier="gs_dirfd_iterator_clear">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd_iter" transfer-ownership="none">
+          <type name="DirFdIterator" c:type="GSDirFdIterator*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dirfd_iterator_init_at"
+              c:identifier="gs_dirfd_iterator_init_at"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="follow" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="dfd_iter" transfer-ownership="none">
+          <type name="DirFdIterator" c:type="GSDirFdIterator*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dirfd_iterator_init_take_fd"
+              c:identifier="gs_dirfd_iterator_init_take_fd"
+              throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="dfd_iter" transfer-ownership="none">
+          <type name="DirFdIterator" c:type="GSDirFdIterator*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fd_get_all_xattrs"
+              c:identifier="gs_fd_get_all_xattrs"
+              throws="1">
+      <doc xml:space="preserve">Read all extended attributes from @fd in a canonical sorted order, and
+set @out_xattrs with the result.
+
+If the filesystem does not support extended attributes, @out_xattrs
+will have 0 elements, and this function will return successfully.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve">a file descriptor</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="out_xattrs"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">A new #GVariant containing the extended attributes</doc>
+          <type name="GLib.Variant" c:type="GVariant**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fd_set_all_xattrs"
+              c:identifier="gs_fd_set_all_xattrs"
+              throws="1">
+      <doc xml:space="preserve">For each attribute in @xattrs, set its value on the file or
+directory referred to by @fd.  This function does not remove any
+attributes not in @xattrs.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve">File descriptor</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="xattrs" transfer-ownership="none">
+          <doc xml:space="preserve">Extended attributes</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_chmod" c:identifier="gs_file_chmod" throws="1">
+      <doc xml:space="preserve">Merely wraps UNIX chmod().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success, %FALSE on error</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Path to file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">UNIX mode</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_chown" c:identifier="gs_file_chown" throws="1">
+      <doc xml:space="preserve">Merely wraps UNIX chown().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success, %FALSE on error</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Path to file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="owner" transfer-ownership="none">
+          <doc xml:space="preserve">UNIX owner</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="group" transfer-ownership="none">
+          <doc xml:space="preserve">UNIX group</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_create" c:identifier="gs_file_create" throws="1">
+      <doc xml:space="preserve">Like g_file_create(), except this function allows specifying the
+access mode.  This allows atomically creating private files.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">Path to non-existent file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">Unix access permissions</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="out_stream"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Newly created output, or %NULL</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_ensure_directory"
+              c:identifier="gs_file_ensure_directory"
+              throws="1">
+      <doc xml:space="preserve">Like g_file_make_directory(), except does not throw an error if the
+directory already exists.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dir" transfer-ownership="none">
+          <doc xml:space="preserve">Path to create as directory</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="with_parents" transfer-ownership="none">
+          <doc xml:space="preserve">Also create parent directories</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_ensure_directory_mode"
+              c:identifier="gs_file_ensure_directory_mode"
+              throws="1">
+      <doc xml:space="preserve">Wraps UNIX mkdir() function with support for @cancellable, and
+uses @error instead of errno.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dir" transfer-ownership="none">
+          <doc xml:space="preserve">Path to create as directory</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">Create directory with these permissions</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_enumerator_iterate"
+              c:identifier="gs_file_enumerator_iterate"
+              throws="1">
+      <doc xml:space="preserve">This is a version of g_file_enumerator_next_file() that's easier to
+use correctly from C programs.  With g_file_enumerator_next_file(),
+the gboolean return value signifies "end of iteration or error", which
+requires allocation of a temporary #GError.
+
+In contrast, with this function, a %FALSE return from
+gs_file_enumerator_iterate() &lt;emphasis&gt;always&lt;/emphasis&gt; means
+"error".  End of iteration is signaled by @out_info being %NULL.
+
+Another crucial difference is that the references for @out_info and
+@out_child are owned by @direnum (they are cached as hidden
+properties).  You must not unref them in your own code.  This makes
+memory management significantly easier for C code in combination
+with loops.
+
+Finally, this function optionally allows retrieving a #GFile as
+well.
+
+The code pattern for correctly using gs_file_enumerator_iterate() from C
+is:
+
+|[
+direnum = g_file_enumerate_children (file, ...);
+while (TRUE)
+  {
+    GFileInfo *info;
+    if (!gs_file_enumerator_iterate (direnum, &amp;info, NULL, cancellable, error))
+      goto out;
+    if (!info)
+      break;
+    ... do stuff with "info"; do not unref it! ...
+  }
+
+out:
+  g_object_unref (direnum); // Note: frees the last @info
+]|</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="direnum" transfer-ownership="none">
+          <doc xml:space="preserve">an open #GFileEnumerator</doc>
+          <type name="Gio.FileEnumerator" c:type="GFileEnumerator*"/>
+        </parameter>
+        <parameter name="out_info"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="none"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Output location for the next #GFileInfo</doc>
+          <type name="Gio.FileInfo" c:type="GFileInfo**"/>
+        </parameter>
+        <parameter name="out_child"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="none"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Output location for the next #GFile, or %NULL</doc>
+          <type name="Gio.File" c:type="GFile**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_get_all_xattrs"
+              c:identifier="gs_file_get_all_xattrs"
+              throws="1">
+      <doc xml:space="preserve">Read all extended attributes of @f in a canonical sorted order, and
+set @out_xattrs with the result.
+
+If the filesystem does not support extended attributes, @out_xattrs
+will have 0 elements, and this function will return successfully.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="f" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="out_xattrs"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">A new #GVariant containing the extended attributes</doc>
+          <type name="GLib.Variant" c:type="GVariant**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_get_basename_cached"
+              c:identifier="gs_file_get_basename_cached">
+      <doc xml:space="preserve">Like g_file_get_basename(), but returns a constant copy so callers
+don't need to free the result.</doc>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_get_path_cached"
+              c:identifier="gs_file_get_path_cached">
+      <doc xml:space="preserve">Like g_file_get_path(), but returns a constant copy so callers
+don't need to free the result.</doc>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_get_relpath" c:identifier="gs_file_get_relpath">
+      <doc xml:space="preserve">Like gs_file_get_relative_path(), but does not mandate that
+the two files have any parent in common. This function will
+instead insert "../" where appropriate.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">The relative path between the two.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="one" transfer-ownership="none">
+          <doc xml:space="preserve">The first #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="two" transfer-ownership="none">
+          <doc xml:space="preserve">The second #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_lchown" c:identifier="gs_file_lchown" throws="1">
+      <doc xml:space="preserve">Merely wraps UNIX lchown().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success, %FALSE on error</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Path to file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="owner" transfer-ownership="none">
+          <doc xml:space="preserve">UNIX owner</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="group" transfer-ownership="none">
+          <doc xml:space="preserve">UNIX group</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_linkcopy" c:identifier="gs_file_linkcopy" throws="1">
+      <doc xml:space="preserve">First tries to use the UNIX link() call, but if the files are on
+separate devices, fall back to copying via g_file_copy().
+
+The given @flags have different semantics than those documented
+when hardlinking is used.  Specifically, both
+#G_FILE_COPY_TARGET_DEFAULT_PERMS and #G_FILE_COPY_BACKUP are not
+supported.  #G_FILE_COPY_NOFOLLOW_SYMLINKS treated as if it was
+always given - if you want to follow symbolic links, you will need
+to resolve them manually.
+
+Beware - do not use this function if @src may be modified, and it's
+undesirable for the changes to also be reflected in @dest.  The
+best use of this function is in the case where @src and @dest are
+read-only, or where @src is a temporary file, and you want to put
+it in the final place.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <doc xml:space="preserve">Source file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="dest" transfer-ownership="none">
+          <doc xml:space="preserve">Destination file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve">flags</doc>
+          <type name="Gio.FileCopyFlags" c:type="GFileCopyFlags"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_linkcopy_sync_data"
+              c:identifier="gs_file_linkcopy_sync_data"
+              throws="1">
+      <doc xml:space="preserve">This function is similar to gs_file_linkcopy(), except it also uses
+gs_file_sync_data() to ensure that @dest is in stable storage
+before it is moved into place.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <doc xml:space="preserve">Source file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="dest" transfer-ownership="none">
+          <doc xml:space="preserve">Destination file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve">flags</doc>
+          <type name="Gio.FileCopyFlags" c:type="GFileCopyFlags"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_load_contents_utf8"
+              c:identifier="gs_file_load_contents_utf8"
+              throws="1">
+      <doc xml:space="preserve">Like g_file_load_contents(), except validates the contents are
+UTF-8.</doc>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">Path to file whose contents must be UTF-8</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_map_noatime"
+              c:identifier="gs_file_map_noatime"
+              introspectable="0"
+              throws="1">
+      <doc xml:space="preserve">Like g_mapped_file_new(), but try to avoid updating the file's
+access time.  This should be used by background scanning
+components such as search indexers, antivirus programs, etc.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">A new mapped file, or %NULL on error</doc>
+        <type name="GLib.MappedFile" c:type="GMappedFile*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_map_readonly"
+              c:identifier="gs_file_map_readonly"
+              throws="1">
+      <doc xml:space="preserve">Return a #GBytes which references a readonly view of the contents of
+@file.  This function uses #GMappedFile internally.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">a newly referenced #GBytes</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_open_dir_fd"
+              c:identifier="gs_file_open_dir_fd"
+              throws="1">
+      <doc xml:space="preserve">On success, sets @out_fd to a file descriptor for the directory
+that can be used with UNIX functions such as openat().</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Directory name</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="out_fd"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">File descriptor for directory</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_open_dir_fd_at"
+              c:identifier="gs_file_open_dir_fd_at"
+              throws="1">
+      <doc xml:space="preserve">On success, sets @out_fd to a file descriptor for the directory
+that can be used with UNIX functions such as openat().</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent_dfd" transfer-ownership="none">
+          <doc xml:space="preserve">Parent directory file descriptor</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve">Directory name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="out_fd"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">File descriptor for directory</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_open_in_tmpdir"
+              c:identifier="gs_file_open_in_tmpdir"
+              throws="1">
+      <doc xml:space="preserve">Like g_file_open_tmp(), except the file will be created in the
+provided @tmpdir, and allows specification of the Unix @mode, which
+means private files may be created.  Return values will be stored
+in @out_file, and optionally @out_stream.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="tmpdir" transfer-ownership="none">
+          <doc xml:space="preserve">Directory to place temporary file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">Default mode (will be affected by umask)</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="out_file"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">Newly created file path</doc>
+          <type name="Gio.File" c:type="GFile**"/>
+        </parameter>
+        <parameter name="out_stream"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Newly created output stream</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_open_in_tmpdir_at"
+              c:identifier="gs_file_open_in_tmpdir_at"
+              throws="1">
+      <doc xml:space="preserve">Like g_file_open_tmp(), except the file will be created in the
+provided @tmpdir, and allows specification of the Unix @mode, which
+means private files may be created.  Return values will be stored
+in @out_name, and optionally @out_stream.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="tmpdir_fd" transfer-ownership="none">
+          <doc xml:space="preserve">Directory to place temporary file</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">Default mode (will be affected by umask)</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="out_name"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">Newly created file name</doc>
+          <type name="utf8" c:type="char**"/>
+        </parameter>
+        <parameter name="out_stream"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Newly created output stream</doc>
+          <type name="Gio.OutputStream" c:type="GOutputStream**"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_openat_noatime"
+              c:identifier="gs_file_openat_noatime"
+              throws="1">
+      <doc xml:space="preserve">Wrapper for openat() using %O_RDONLY with %O_NOATIME if available.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <doc xml:space="preserve">File descriptor for directory</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve">Pathname, relative to @dfd</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="ret_fd"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve">Returned file descriptor</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_read_noatime"
+              c:identifier="gs_file_read_noatime"
+              throws="1">
+      <doc xml:space="preserve">Like g_file_read(), but try to avoid updating the file's
+access time.  This should be used by background scanning
+components such as search indexers, antivirus programs, etc.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">A new input stream, or %NULL on error</doc>
+        <type name="Gio.InputStream" c:type="GInputStream*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_realpath" c:identifier="gs_file_realpath">
+      <doc xml:space="preserve">Return a #GFile that contains the same path with symlinks
+followed. That is, it's a #GFile whose path is the result
+of calling realpath() on @file.</doc>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve">A new #GFile or %NULL if @file is invalid</doc>
+        <type name="Gio.File" c:type="GFile*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">A #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_rename" c:identifier="gs_file_rename" throws="1">
+      <doc xml:space="preserve">This function wraps the raw Unix function rename().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success, %FALSE on error</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="from" transfer-ownership="none">
+          <doc xml:space="preserve">Current path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="to" transfer-ownership="none">
+          <doc xml:space="preserve">New path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_set_all_xattrs"
+              c:identifier="gs_file_set_all_xattrs"
+              throws="1">
+      <doc xml:space="preserve">For each attribute in @xattrs, set its value on the file or
+directory referred to by @file.  This function does not remove any
+attributes not in @xattrs.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">File descriptor</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="xattrs" transfer-ownership="none">
+          <doc xml:space="preserve">Extended attributes</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_sync_data"
+              c:identifier="gs_file_sync_data"
+              throws="1">
+      <doc xml:space="preserve">Wraps the UNIX fsync() function (or fdatasync(), if available), which
+ensures that the data in @file is on non-volatile storage.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_unlink" c:identifier="gs_file_unlink" throws="1">
+      <doc xml:space="preserve">Like g_file_delete(), except this function does not follow Unix
+symbolic links, and will delete a symbolic link even if it's
+pointing to a nonexistent file.  In other words, this function
+merely wraps the raw Unix function unlink().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success, %FALSE on error</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Path to file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GCancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fileutil_gen_tmp_name"
+              c:identifier="gs_fileutil_gen_tmp_name">
+      <doc xml:space="preserve">Generate a name suitable for use as a temporary file.  This
+function does no I/O; it is not guaranteed that a file with that
+name does not exist.</doc>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="prefix"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">String prepended to the result</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="suffix"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">String suffixed to the result</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="log_structured" c:identifier="gs_log_structured">
+      <doc xml:space="preserve">Log structured data in an operating-system specific fashion.  The
+parameter @opts should be an array of UTF-8 KEY=VALUE strings.
+This function does not support binary data.  See
+http://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
+for more information about fields that can be used on a systemd
+system.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:space="preserve">Text message to send</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="keys"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Optional structured data</doc>
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="log_structured_print"
+              c:identifier="gs_log_structured_print">
+      <doc xml:space="preserve">Like gs_log_structured(), but also print to standard output (if it
+is not already connected to the system log).</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:space="preserve">A message to log</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="keys"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Optional structured data</doc>
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="log_structured_print_id_v"
+              c:identifier="gs_log_structured_print_id_v"
+              introspectable="0">
+      <doc xml:space="preserve">The provided @message_id is a unique MESSAGE_ID (see &lt;ulink url="http://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html"&gt; for more information).
+
+This function otherwise acts as gs_log_structured_print(), taking
+@format as a format string.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="message_id" transfer-ownership="none">
+          <doc xml:space="preserve">A unique MESSAGE_ID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve">A format string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="opendirat" c:identifier="gs_opendirat" throws="1">
+      <doc xml:space="preserve">Use openat() to open a directory, using a standard set of flags.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <doc xml:space="preserve">File descriptor for origin directory</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Pathname, relative to @dfd</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="follow" transfer-ownership="none">
+          <doc xml:space="preserve">Whether or not to follow symbolic links</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="out_fd" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="opendirat_with_errno"
+              c:identifier="gs_opendirat_with_errno">
+      <doc xml:space="preserve">Use openat() to open a directory, using a standard set of flags.
+This function sets errno.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <doc xml:space="preserve">File descriptor for origin directory</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Pathname, relative to @dfd</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="follow" transfer-ownership="none">
+          <doc xml:space="preserve">Whether or not to follow symbolic links</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_error_from_errno"
+              c:identifier="gs_set_error_from_errno">
+      <doc xml:space="preserve">Set @error to an error with domain %G_IO_ERROR, and code based on
+the value of @saved_errno.  The error message is set using a
+literal return from g_strerror().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="error"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Error</doc>
+          <type name="GLib.Error" c:type="GError**"/>
+        </parameter>
+        <parameter name="saved_errno" transfer-ownership="none">
+          <doc xml:space="preserve">errno value</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_prefix_error_from_errno"
+              c:identifier="gs_set_prefix_error_from_errno"
+              introspectable="0">
+      <doc xml:space="preserve">Set @error to an error with domain %G_IO_ERROR, and code based on
+the value of @saved_errno.  The error message is prefixed with the
+result of @format, a colon and space, then the result of
+g_strerror().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="error"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Error</doc>
+          <type name="GLib.Error" c:type="GError**"/>
+        </parameter>
+        <parameter name="saved_errno" transfer-ownership="none">
+          <doc xml:space="preserve">errno value</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve">Format string for printf</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutil_cp_a" c:identifier="gs_shutil_cp_a" throws="1">
+      <doc xml:space="preserve">Recursively copy path @src (which must be a directory) to the
+target @dest.  Any existing files are overwritten.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <doc xml:space="preserve">Source path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="dest" transfer-ownership="none">
+          <doc xml:space="preserve">Destination path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutil_cp_al_or_fallback"
+              c:identifier="gs_shutil_cp_al_or_fallback"
+              throws="1">
+      <doc xml:space="preserve">Recursively copy path @src (which must be a directory) to the
+target @dest.  If possible, hardlinks are used; if a hardlink is
+not possible, a regular copy is created.  Any existing files are
+overwritten.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE on success</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <doc xml:space="preserve">Source path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="dest" transfer-ownership="none">
+          <doc xml:space="preserve">Destination path</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutil_rm_rf" c:identifier="gs_shutil_rm_rf" throws="1">
+      <doc xml:space="preserve">Recursively delete the filename referenced by @path; it may be a
+file or directory.  No error is thrown if @path does not exist.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">A file or directory</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutil_rm_rf_at"
+              c:identifier="gs_shutil_rm_rf_at"
+              throws="1">
+      <doc xml:space="preserve">Recursively delete the filename referenced by the combination of
+the directory fd@dfd and @path; it may be a file or directory.  No
+error is thrown if @path does not exist.</doc>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="dfd" transfer-ownership="none">
+          <doc xml:space="preserve">A directory file descriptor, or -1 for current</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve">Path</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="stdout_is_journal" c:identifier="gs_stdout_is_journal">
+      <doc xml:space="preserve">Use this function when you want your code to behave differently
+depeneding on whether your program was started as a systemd unit,
+or e.g. interactively at a terminal.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if stdout is (probably) connnected to the systemd journal</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

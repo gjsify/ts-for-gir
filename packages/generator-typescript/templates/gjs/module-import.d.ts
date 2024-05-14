@@ -5,12 +5,7 @@ _%>
 <%_ return `// Module import type definition not generated, otherwise this would cause a type conflict, this is because several GIR modules were generated with the same namespace: "${ girModule.namespace }"` _%>
 <%_ } _%>
 
-<%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
-<%_ if(noNamespace){ _%>
-import * as <%= girModule.importNamespace %> from '<%= pkg.importPath %>';
-<%_ } else { _%>
-import <%= girModule.importNamespace %> from '<%= pkg.importPath %>';
-<%_ } _%>
+import <%= girModule.importNamespace %> from '<%= girModule.importPath %>';
 
 declare global {
     export interface GjsGiImports {

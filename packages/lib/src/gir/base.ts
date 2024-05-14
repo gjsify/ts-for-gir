@@ -1,8 +1,9 @@
 import { FormatGenerator } from "../generators/index.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedNamespace } from "./namespace.js";
+
 import type { IntrospectedBaseClass } from "./nodes.js";
+import type { OptionsLoad } from "../types/index.js";
 
 export interface Metadata {
     deprecated?: boolean;
@@ -107,7 +108,7 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         parent: IntrospectedNamespace | AnyIntrospectedType,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
+        options: OptionsLoad
     ): AnyIntrospectedType | null {
         throw new Error("GirBase cannot be instantiated");
     }
@@ -133,7 +134,7 @@ export abstract class IntrospectedNamespaceMember extends IntrospectedBase<Intro
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         parent: IntrospectedNamespace,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedNamespaceMember | null {
         throw new Error("GirBase cannot be instantiated");
     }

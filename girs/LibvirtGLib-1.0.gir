@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <package name="libvirt-glib-1.0"/>
+  <c:include name="libvirt-glib/libvirt-glib.h"/>
+  <namespace name="LibvirtGLib"
+             version="1.0"
+             shared-library="libvirt-glib-1.0.so.0"
+             c:identifier-prefixes="GVir"
+             c:symbol-prefixes="gvir">
+    <function name="critical" c:identifier="gvir_critical" introspectable="0">
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="61"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_new"
+              c:identifier="gvir_error_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="71">Creates a new #GError with the given @domain and @code,
+and a message formatted with @format.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="30"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libvirt-glib/libvirt-glib-error.c"
+             line="81">a new #GError</doc>
+        <type name="GLib.Error" c:type="GError*"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="73">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="74">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="75">printf()-style format for error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="76">parameters for message format</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_new_literal" c:identifier="gvir_error_new_literal">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="103">Creates a new #GError; unlike gvir_error_new(), @message is
+not a printf()-style format string. Use this function if
+@message contains text you don't have control over,
+that could include printf() escape sequences.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="35"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libvirt-glib/libvirt-glib-error.c"
+             line="114">a new #GError</doc>
+        <type name="GLib.Error" c:type="GError*"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="105">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="106">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="107">error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_new_valist"
+              c:identifier="gvir_error_new_valist"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="141">Creates a new #GError with the given @domain and @code,
+and a message formatted with @format.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="39"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libvirt-glib/libvirt-glib-error.c"
+             line="151">a new #GError</doc>
+        <type name="GLib.Error" c:type="GError*"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="143">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="144">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="145">printf()-style format for error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="146">#va_list of parameters for the message format</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="event_register" c:identifier="gvir_event_register">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-event.c"
+           line="486">Registers a libvirt event loop implementation that is backed
+by the default &lt;code&gt;GMain&lt;/code&gt; context. If invoked more
+than once this method will be a no-op. Applications should,
+however, take care not to register any another non-GLib
+event loop with libvirt.
+
+After invoking this method, it is mandatory to run the
+default GMain event loop. Typically this can be satisfied
+by invoking &lt;code&gt;gtk_main&lt;/code&gt; or &lt;code&gt;g_application_run&lt;/code&gt;
+in the application's main thread. Failure to run the event
+loop will mean no libvirt events get dispatched, and the
+libvirt keepalive timer will kill off libvirt connections
+frequently.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-event.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="gvir_init">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-main.c"
+           line="72">Call this function before using any other Libvirt GLib functions in your applications.
+It will initialize everything needed to operate the toolkit and parses some standard
+command line options.
+
+Although you are expected to pass the @argc, @argv parameters from main() to this
+function, it is possible to pass NULL if @argv is not available or commandline
+handling is not required.
+
+@argc and @argv are adjusted accordingly so your own code will never see those
+standard arguments.
+
+This method will also turn on debug logging of the library if the
+&lt;literal&gt;LIBVIRT_GLIB_DEBUG&lt;/literal&gt; environment variable is set.
+
+This function will terminate your program if it was unable to initialize
+for some reason. If you want the program to fall back to an alternate
+mode of operation call &lt;code&gt;gvir_init_check&lt;/code&gt; instead.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-main.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-main.c"
+               line="74">Address of the argc parameter of your main() function (or 0
+    if argv is NULL). This will be changed if any arguments were handled.</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-main.c"
+               line="76">Address of the
+    &lt;parameter&gt;argv&lt;/parameter&gt; parameter of main(), or %NULL. Any options
+    understood by GTK+ are stripped before return.</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="init_check" c:identifier="gvir_init_check" throws="1">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-main.c"
+           line="119">This function does the same work as gvir_init() with only a single
+change: It does not terminate the program if the Libvirt GLib library
+can't be initialized. Instead it returns %FALSE on failure.
+
+This way the application can fall back to some other mode of
+operation.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-main.h" line="36"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libvirt-glib/libvirt-glib-main.c"
+             line="135">%TRUE if the library was successfully initialized,
+    %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-main.c"
+               line="121">Address of the argc parameter of your main() function (or 0
+    if argv is NULL). This will be changed if any arguments were handled.</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-main.c"
+               line="123">Address of the
+    &lt;parameter&gt;argv&lt;/parameter&gt; parameter of main(), or %NULL. Any options
+    understood by GTK+ are stripped before return.</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="libvirt-glib-error">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="31">The libvirt API uses the &lt;code&gt;virError&lt;/code&gt; structure for reporting
+errors back to the application programmer. The libvirt API errors are
+provided in thread-local variables, while the GLib standard practice is
+to return errors via out parameters. This library provides a simple way
+to fill in &lt;code&gt;GError **&lt;/code&gt; output parameters with the contents
+of the most recent libvirt error object in the current thread.
+
+The &lt;code&gt;gvir_error_new&lt;/code&gt;, &lt;code&gt;gvir_error_new_literal&lt;/code&gt; and
+&lt;code&gt;gvir_error_new_valist&lt;/code&gt; methods all return a newly created
+&lt;code&gt;GError *&lt;/code&gt; object instance, differing only in the way the
+message needs to be provided. For most usage though, it is preferrable
+to use the &lt;code&gt;gvir_set_error&lt;/code&gt;, &lt;code&gt;gvir_set_error_literal&lt;/code&gt;
+and &lt;code&gt;gvir_set_error_valist&lt;/code&gt; methods. These all accept a
+&lt;code&gt;GError **&lt;/code&gt; argument and take care to only fill it if it
+points to a non-NULL location.
+
+&lt;example&gt;
+&lt;title&gt;Reporting GLib errors with libvirt APIs&lt;/title&gt;
+&lt;programlisting&gt;&lt;![CDATA[
+gboolean myapp_start_guest(const gchar *xml, GError **error)
+{
+    if (virDomainCreate(conn, xml, 0) &amp;lt; 0) {
+        gvir_set_error_literal(error, "Unable to start virtual machine");
+       return FALSE;
+    }
+
+    return TRUE;
+}
+]]&gt;&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+    </docsection>
+    <docsection name="libvirt-glib-event">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-event.c"
+           line="38">The libvirt API has the ability to provide applications with asynchronous
+notifications of interesting events. To enable this functionality though,
+applications must provide libvirt with an event loop implementation. The
+libvirt-glib API provides such an implementation, which naturally integrates
+with the GMain event loop framework.
+
+To enable use of the GMain event loop glue, the &lt;code&gt;gvir_event_register()&lt;/code&gt;
+should be invoked. Once this is done, it is mandatory to have the default
+GMain event loop run by a thread in the application, usually the primary
+thread, eg by using &lt;code&gt;gtk_main()&lt;/code&gt; or &lt;code&gt;g_application_run()&lt;/code&gt;
+
+&lt;example&gt;
+&lt;title&gt;Registering for events with a GTK application&lt;/title&gt;
+&lt;programlisting&gt;&lt;![CDATA[
+int main(int argc, char **argv) {
+  ...setup...
+  gvir_event_register();
+  ...more setup...
+  gtk_main();
+  return 0;
+}
+]]&gt;&lt;/programlisting&gt;
+&lt;/example&gt;
+
+&lt;example&gt;
+&lt;title&gt;Registering for events using Appplication&lt;/title&gt;
+&lt;programlisting&gt;&lt;![CDATA[
+int main(int argc, char **argv) {
+  ...setup...
+  GApplication *app = ...create some impl of GApplication...
+  gvir_event_register();
+  ...more setup...
+  g_application_run(app);
+  return 0;
+}
+]]&gt;&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+    </docsection>
+    <docsection name="libvirt-glib-main">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-main.c"
+           line="33">The Libvirt GLib library provides glue to integrate core libvirt
+infrastructure with the GLib library. This enables consistent
+error reporting procedures and a common event loop implementation
+for applications.
+
+Before using any functions in the Libvirt GLib library, it must be initialized
+by calling &lt;code&gt;gvir_init&lt;/code&gt; or &lt;code&gt;gvir_init_check&lt;/code&gt;.
+
+&lt;example&gt;
+&lt;title&gt;Initializing the Libvirt GLib library&lt;/title&gt;
+&lt;programlisting&gt;&lt;![CDATA[
+int main(int argc, char **argv) {
+  ...setup...
+  gvir_init(&amp;argc, &amp;argv);
+  ...more setup...
+  gtk_main();
+  return 0;
+}
+]]&gt;&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+    </docsection>
+    <function name="set_error"
+              c:identifier="gvir_set_error"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="171">If @error is NULL this does nothing. Otherwise it
+creates a new #GError with the given @domain and @code,
+and a message formatted with @format, and stores it
+in @error.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="173">pointer to error location</doc>
+          <type name="GLib.Error" c:type="GError**"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="174">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="175">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="176">printf()-style format for error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="177">parameters for message format</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_error_literal" c:identifier="gvir_set_error_literal">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="206">If @error is NULL this does nothing. Otherwise it
+creates a new #GError and stores it in @error; unlike
+gvir_set_error(), @message is not a printf()-style
+format string. Use this function if @message contains
+text you don't have control over, that could include
+printf() escape sequences.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="50"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="208">pointer to error location</doc>
+          <type name="GLib.Error" c:type="GError**"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="209">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="210">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="211">error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_error_valist"
+              c:identifier="gvir_set_error_valist"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libvirt-glib/libvirt-glib-error.c"
+           line="232">If @error is NULL this does nothing. Otherwise it
+creates a new #GError with the given @domain and @code,
+and a message formatted with @format, and stores it
+in @error.</doc>
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="55"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="234">pointer to error location</doc>
+          <type name="GLib.Error" c:type="GError**"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="235">error domain</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="236">error code</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="237">printf()-style format for error message</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libvirt-glib/libvirt-glib-error.c"
+               line="238">#va_list of parameters for the message format</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="warning" c:identifier="gvir_warning" introspectable="0">
+      <source-position filename="libvirt-glib/libvirt-glib-error.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

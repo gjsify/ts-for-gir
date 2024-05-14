@@ -6,9 +6,10 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
+import { existsSync } from 'fs'
 import { merge, isEqual, Logger, APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from '@ts-for-gir/lib'
 
-import type { UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
+import type { UserConfig, ConfigFlags, UserConfigLoadResult, OptionsGeneration } from '@ts-for-gir/lib'
 
 export class Config {
     static appName = APP_NAME
@@ -175,6 +176,17 @@ export class Config {
     static listOptions = {
         modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
+        root: this.options.root,
+        ignore: Config.options.ignore,
+        configName: Config.options.configName,
+        verbose: Config.options.verbose,
+    }
+
+    static copyOptions = {
+        modules: this.options.modules,
+        girDirectories: Config.options.girDirectories,
+        root: this.options.root,
+        outdir: Config.options.outdir,
         ignore: Config.options.ignore,
         configName: Config.options.configName,
         verbose: Config.options.verbose,
@@ -183,6 +195,7 @@ export class Config {
     static docOptions = {
         modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
+        root: this.options.root,
         outdir: Config.options.outdir,
         ignore: Config.options.ignore,
         verbose: Config.options.verbose,
@@ -254,8 +267,8 @@ export class Config {
         return configFile
     }
 
-    public static getGenerateConfig(config: UserConfig): GenerateConfig {
-        const generateConfig: GenerateConfig = {
+    public static getOptionsGeneration(config: UserConfig): OptionsGeneration {
+        const generateConfig: OptionsGeneration = {
             girDirectories: config.girDirectories,
             root: config.root,
             outdir: config.outdir,
@@ -420,14 +433,12 @@ function getDefaultGirDirectories(): string[] {
     const girDirectories = [
         '/usr/local/share/gir-1.0',
         '/usr/share/gir-1.0',
+        '/usr/share/*/gir-1.0',
         '/usr/share/gnome-shell',
         '/usr/share/gnome-shell/gir-1.0',
-        '/usr/lib64/mutter-10',
-        '/usr/lib64/mutter-11',
-        '/usr/lib64/mutter-12',
-        '/usr/lib/x86_64-linux-gnu/mutter-10',
-        '/usr/lib/x86_64-linux-gnu/mutter-11',
-        '/usr/lib/x86_64-linux-gnu/mutter-12',
+        '/usr/lib64/mutter-*',
+        '/usr/lib/mutter-*',
+        '/usr/lib/x86_64-linux-gnu/mutter-*',
     ]
     // NixOS and other distributions does not have a /usr/local/share directory.
     // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
@@ -435,7 +446,7 @@ function getDefaultGirDirectories(): string[] {
     const dataDirs = process.env['XDG_DATA_DIRS']?.split(':') || []
     for (let dataDir of dataDirs) {
         dataDir = join(dataDir, 'gir-1.0')
-        if (!girDirectories.includes(dataDir)) {
+        if (!girDirectories.includes(dataDir) && existsSync(dataDir)) {
             girDirectories.push(dataDir)
         }
     }

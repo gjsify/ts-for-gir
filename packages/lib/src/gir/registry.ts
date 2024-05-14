@@ -6,7 +6,6 @@ import { JsonGenerator } from "../generators/json.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { generify } from "../generics/generify.js";
 import { inject } from "../injections/inject.js";
-import { GenerationOptions, TransformOptions } from "../types.js";
 import { TwoKeyMap } from "../util.js";
 import { ClassVisitor } from "../validators/class.js";
 import { InterfaceVisitor } from "../validators/interface.js";
@@ -17,6 +16,8 @@ import { DtsInlineGenerator } from "../generators/dts-inline.js";
 import { ParsedGir } from "../types/parsed-gir.js";
 import { GirModule } from "../index.js";
 
+import type { OptionsGeneration, OptionsTransform } from "../types/index.js";
+
 export interface NSLoader {
     load(namespace: string, version: string): ParsedGir | null;
     loadAll(namespace: string): ParsedGir[];
@@ -24,7 +25,7 @@ export interface NSLoader {
 
 type GeneratorConstructor<T> = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    new (namespace: IntrospectedNamespace, options: GenerationOptions, ...args: any[]): FormatGenerator<T>;
+    new (namespace: IntrospectedNamespace, options: OptionsGeneration, ...args: any[]): FormatGenerator<T>;
 };
 
 export class NSRegistry {
@@ -58,17 +59,17 @@ export class NSRegistry {
 
     registerGenerator<T>(
         output: string,
-        generator: { new (namespace: IntrospectedNamespace, options: GenerationOptions): FormatGenerator<T> }
+        generator: { new (namespace: IntrospectedNamespace, options: OptionsGeneration): FormatGenerator<T> }
     ) {
         this.generators.set(output, generator);
     }
 
     async getGenerator(
         output: "json"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): JsonGenerator }>;
+    ): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): JsonGenerator }>;
     async getGenerator(
         output: "dts"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): DtsGenerator }>;
+    ): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): DtsGenerator }>;
     async getGenerator<T>(output: string): Promise<GeneratorConstructor<T> | undefined>;
     async getGenerator(output: string): Promise<GeneratorConstructor<unknown> | undefined> {
         if (output === "dts") {
@@ -136,7 +137,7 @@ export class NSRegistry {
         );
     }
 
-    transform(options: TransformOptions) {
+    transform(options: OptionsTransform) {
         const GLib = this.assertNamespace("GLib", "2.0");
         const Gio = this.assertNamespace("Gio", "2.0");
         const GObject = this.assertNamespace("GObject", "2.0");
@@ -184,7 +185,7 @@ export class NSRegistry {
 
         // This mirrors GJS' and GI's default behavior.
         // If we can't find a single version of an unspecified dependency, we throw an error.
-        throw new Error(`No single version found for unspecified dependency: ${name}.`);
+        throw new Error(`No single version found for unspecified dependency: ${JSON.stringify(name)}.`);
     }
 
     assertNamespace(name: string, version: string): IntrospectedNamespace {
@@ -198,12 +199,12 @@ export class NSRegistry {
     }
 
     register(namespace: GirModule): IntrospectedNamespace {
-        this.mapping.set(namespace.name, namespace.version, namespace);
+        this.mapping.set(namespace.namespace, namespace.version, namespace);
 
         namespace.c_prefixes.forEach(c_prefix => {
             const c_map = this.c_mapping.get(c_prefix) || [];
 
-            c_map.push({ name: namespace.name, version: namespace.version });
+            c_map.push({ name: namespace.namespace, version: namespace.version });
 
             this.c_mapping.set(c_prefix, c_map);
         });

@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Arrow" version="1.0"/>
+  <include name="ArrowCUDA" version="1.0"/>
+  <package name="plasma-glib"/>
+  <namespace name="Plasma"
+             version="1.0"
+             shared-library="libplasma-glib.so.300"
+             c:identifier-prefixes="GPlasma"
+             c:symbol-prefixes="gplasma">
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="GPlasmaClient"
+           parent="GObject.Object"
+           glib:type-name="GPlasmaClient"
+           glib:get-type="gplasma_client_get_type"
+           glib:type-struct="ClientClass">
+      <source-position filename="../plasma-glib/client.h" line="79"/>
+      <constructor name="new"
+                   c:identifier="gplasma_client_new"
+                   version="0.12.0"
+                   throws="1">
+        <source-position filename="../plasma-glib/client.h" line="81"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="397">A newly created #GPlasmaClient on success,
+  %NULL on error.</doc>
+          <type name="Client" c:type="GPlasmaClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="store_socket_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="393">The name of the UNIX domain socket.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="394">The options to custom how to connect to plasma store.</doc>
+            <type name="ClientOptions" c:type="GPlasmaClientOptions*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="create"
+              c:identifier="gplasma_client_create"
+              version="0.12.0"
+              throws="1">
+        <source-position filename="../plasma-glib/client.h" line="85"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="428">A newly created #GPlasmaCreatedObject
+  on success, %NULL on error.</doc>
+          <type name="CreatedObject" c:type="GPlasmaCreatedObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="422">A #GPlasmaClient.</doc>
+            <type name="Client" c:type="GPlasmaClient*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="423">The ID for a newly created object.</doc>
+            <type name="ObjectID" c:type="GPlasmaObjectID*"/>
+          </parameter>
+          <parameter name="data_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="424">The number of bytes of data for a newly created object.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="425">The option for creating an object.</doc>
+            <type name="ClientCreateOptions"
+                  c:type="GPlasmaClientCreateOptions*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="disconnect"
+              c:identifier="gplasma_client_disconnect"
+              version="0.12.0"
+              throws="1">
+        <source-position filename="../plasma-glib/client.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="578">%TRUE on success, %FALSE if there was an error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="575">A #GPlasmaClient.</doc>
+            <type name="Client" c:type="GPlasmaClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="refer_object"
+              c:identifier="gplasma_client_refer_object"
+              version="0.12.0"
+              throws="1">
+        <source-position filename="../plasma-glib/client.h" line="91"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="508">A found #GPlasmaReferredObject
+  on success, %NULL on error.</doc>
+          <type name="ReferredObject" c:type="GPlasmaReferredObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="503">A #GPlasmaClient.</doc>
+            <type name="Client" c:type="GPlasmaClient*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="504">The ID of the target object.</doc>
+            <type name="ObjectID" c:type="GPlasmaObjectID*"/>
+          </parameter>
+          <parameter name="timeout_ms" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="505">The timeout in milliseconds. -1 means no timeout.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="client"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientClass"
+            c:type="GPlasmaClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="../plasma-glib/client.h" line="79"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ClientCreateOptions"
+           c:symbol-prefix="client_create_options"
+           c:type="GPlasmaClientCreateOptions"
+           parent="GObject.Object"
+           glib:type-name="GPlasmaClientCreateOptions"
+           glib:get-type="gplasma_client_create_options_get_type"
+           glib:type-struct="ClientCreateOptionsClass">
+      <source-position filename="../plasma-glib/client.h" line="57"/>
+      <constructor name="new"
+                   c:identifier="gplasma_client_create_options_new"
+                   version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="260">A newly created #GPlasmaClientCreateOptions.</doc>
+          <type name="ClientCreateOptions"
+                c:type="GPlasmaClientCreateOptions*"/>
+        </return-value>
+      </constructor>
+      <method name="get_metadata"
+              c:identifier="gplasma_client_create_options_get_metadata"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="65"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="298">The metadata of a created object.</doc>
+          <array length="0" zero-terminated="0" c:type="const guint8*">
+            <type name="guint8" c:type="guint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="options" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="295">A #GPlasmaClientCreateOptions.</doc>
+            <type name="ClientCreateOptions"
+                  c:type="GPlasmaClientCreateOptions*"/>
+          </instance-parameter>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="296">The number of bytes of the metadata.</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_metadata"
+              c:identifier="gplasma_client_create_options_set_metadata"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="options" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="274">A #GPlasmaClientCreateOptions.</doc>
+            <type name="ClientCreateOptions"
+                  c:type="GPlasmaClientCreateOptions*"/>
+          </instance-parameter>
+          <parameter name="metadata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="275">The metadata of a created object.</doc>
+            <array length="1" zero-terminated="0" c:type="const guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="276">The number of bytes of the metadata.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="gpu-device"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientCreateOptionsClass"
+            c:type="GPlasmaClientCreateOptionsClass"
+            glib:is-gtype-struct-for="ClientCreateOptions">
+      <source-position filename="../plasma-glib/client.h" line="57"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ClientOptions"
+           c:symbol-prefix="client_options"
+           c:type="GPlasmaClientOptions"
+           parent="GObject.Object"
+           glib:type-name="GPlasmaClientOptions"
+           glib:get-type="gplasma_client_options_get_type"
+           glib:type-struct="ClientOptionsClass">
+      <source-position filename="../plasma-glib/client.h" line="36"/>
+      <constructor name="new"
+                   c:identifier="gplasma_client_options_new"
+                   version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="134">A newly created #GPlasmaClientOptions.</doc>
+          <type name="ClientOptions" c:type="GPlasmaClientOptions*"/>
+        </return-value>
+      </constructor>
+      <method name="get_n_retries"
+              c:identifier="gplasma_client_options_get_n_retries"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/client.cpp"
+               line="165">The number of retries on connect.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="options" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="163">A #GPlasmaClientOptions.</doc>
+            <type name="ClientOptions" c:type="GPlasmaClientOptions*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_n_retries"
+              c:identifier="gplasma_client_options_set_n_retries"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/client.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="options" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="148">A #GPlasmaClientOptions.</doc>
+            <type name="ClientOptions" c:type="GPlasmaClientOptions*"/>
+          </instance-parameter>
+          <parameter name="n_retries" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/client.cpp"
+                 line="149">The number of retires on connect.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="n-retries"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientOptionsClass"
+            c:type="GPlasmaClientOptionsClass"
+            glib:is-gtype-struct-for="ClientOptions">
+      <source-position filename="../plasma-glib/client.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CreatedObject"
+           c:symbol-prefix="created_object"
+           c:type="GPlasmaCreatedObject"
+           parent="Object"
+           glib:type-name="GPlasmaCreatedObject"
+           glib:get-type="gplasma_created_object_get_type"
+           glib:type-struct="CreatedObjectClass">
+      <source-position filename="../plasma-glib/object.h" line="67"/>
+      <method name="abort"
+              c:identifier="gplasma_created_object_abort"
+              version="0.12.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../plasma-glib/object.cpp"
+             line="456">Aborts the object in the object store. You can't use the aborted
+object anymore.</doc>
+        <source-position filename="../plasma-glib/object.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="464">%TRUE on success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="458">A #GPlasmaCreatedObject.</doc>
+            <type name="CreatedObject" c:type="GPlasmaCreatedObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="seal"
+              c:identifier="gplasma_created_object_seal"
+              version="0.12.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../plasma-glib/object.cpp"
+             line="421">Seals the object in the object store. You can't use the sealed
+object anymore.</doc>
+        <source-position filename="../plasma-glib/object.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="429">%TRUE on success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="423">A #GPlasmaCreatedObject.</doc>
+            <type name="CreatedObject" c:type="GPlasmaCreatedObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Object" c:type="GPlasmaObject"/>
+      </field>
+    </class>
+    <record name="CreatedObjectClass"
+            c:type="GPlasmaCreatedObjectClass"
+            glib:is-gtype-struct-for="CreatedObject">
+      <source-position filename="../plasma-glib/object.h" line="67"/>
+      <field name="parent_class">
+        <type name="ObjectClass" c:type="GPlasmaObjectClass"/>
+      </field>
+    </record>
+    <class name="Object"
+           c:symbol-prefix="object"
+           c:type="GPlasmaObject"
+           parent="GObject.Object"
+           glib:type-name="GPlasmaObject"
+           glib:get-type="gplasma_object_get_type"
+           glib:type-struct="ObjectClass">
+      <source-position filename="../plasma-glib/object.h" line="55"/>
+      <property name="client"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Client"/>
+      </property>
+      <property name="data"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Arrow.Buffer"/>
+      </property>
+      <property name="gpu-device"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="ObjectID"/>
+      </property>
+      <property name="metadata"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Arrow.Buffer"/>
+      </property>
+      <property name="raw-data"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="raw-metadata"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ObjectClass"
+            c:type="GPlasmaObjectClass"
+            glib:is-gtype-struct-for="Object">
+      <source-position filename="../plasma-glib/object.h" line="55"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ObjectID"
+           c:symbol-prefix="object_id"
+           c:type="GPlasmaObjectID"
+           parent="GObject.Object"
+           glib:type-name="GPlasmaObjectID"
+           glib:get-type="gplasma_object_id_get_type"
+           glib:type-struct="ObjectIDClass">
+      <source-position filename="../plasma-glib/object.h" line="36"/>
+      <constructor name="new"
+                   c:identifier="gplasma_object_id_new"
+                   version="0.12.0"
+                   throws="1">
+        <source-position filename="../plasma-glib/object.h" line="38"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="80">A newly created #GPlasmaObjectID on success,
+  %NULL on error.</doc>
+          <type name="ObjectID" c:type="GPlasmaObjectID*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="76">The raw ID bytes.</doc>
+            <array length="1" zero-terminated="0" c:type="const guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="77">The number of bytes of the ID. It must be 1..20.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="to_binary"
+              c:identifier="gplasma_object_id_to_binary"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/object.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="115">The byte string of the object ID.</doc>
+          <array length="0" zero-terminated="0" c:type="const guint8*">
+            <type name="guint8" c:type="guint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="111">A #GPlasmaObjectID.</doc>
+            <type name="ObjectID" c:type="GPlasmaObjectID*"/>
+          </instance-parameter>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="112">The number of bytes of the byte string of
+  the object ID. It's always 20. 20 is `plasma::kUniqueIDSize`.</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_hex"
+              c:identifier="gplasma_object_id_to_hex"
+              version="0.12.0">
+        <source-position filename="../plasma-glib/object.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="134">The hex representation of the object ID.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="132">A #GPlasmaObjectID.</doc>
+            <type name="ObjectID" c:type="GPlasmaObjectID*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ObjectIDClass"
+            c:type="GPlasmaObjectIDClass"
+            glib:is-gtype-struct-for="ObjectID">
+      <source-position filename="../plasma-glib/object.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ReferredObject"
+           c:symbol-prefix="referred_object"
+           c:type="GPlasmaReferredObject"
+           parent="Object"
+           glib:type-name="GPlasmaReferredObject"
+           glib:get-type="gplasma_referred_object_get_type"
+           glib:type-struct="ReferredObjectClass">
+      <source-position filename="../plasma-glib/object.h" line="84"/>
+      <method name="release"
+              c:identifier="gplasma_referred_object_release"
+              version="0.12.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../plasma-glib/object.cpp"
+             line="519">Releases the object explicitly. The object is no longer valid.</doc>
+        <source-position filename="../plasma-glib/object.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../plasma-glib/object.cpp"
+               line="526">%TRUE on success, %FALSE on error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../plasma-glib/object.cpp"
+                 line="521">A #GPlasmaReferredObject.</doc>
+            <type name="ReferredObject" c:type="GPlasmaReferredObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Object" c:type="GPlasmaObject"/>
+      </field>
+    </class>
+    <record name="ReferredObjectClass"
+            c:type="GPlasmaReferredObjectClass"
+            glib:is-gtype-struct-for="ReferredObject">
+      <source-position filename="../plasma-glib/object.h" line="84"/>
+      <field name="parent_class">
+        <type name="ObjectClass" c:type="GPlasmaObjectClass"/>
+      </field>
+    </record>
+    <docsection name="client">
+      <doc xml:space="preserve"
+           filename="../plasma-glib/client.cpp"
+           line="36">#GPlasmaClientOptions is a class for customizing plasma store
+connection.
+
+#GPlasmaClientCreateOptions is a class for customizing object creation.
+
+#GPlasmaClient is a class for an interface with a plasma store.</doc>
+    </docsection>
+    <docsection name="object">
+      <doc xml:space="preserve"
+           filename="../plasma-glib/object.cpp"
+           line="31">#GPlasmaObjectID is a class for an object ID.
+
+#GPlasmaObject is a base class for an object stored in plasma store.
+
+#GPlasmaCreatedObject is a class for a created object. You can
+change data of the object until the object is sealed or aborted.
+
+#GPlasmaReferredObject is a class for a created object. You can
+only refer the data and metadata of the object. You can't change
+the data of the object.</doc>
+    </docsection>
+  </namespace>
+</repository>

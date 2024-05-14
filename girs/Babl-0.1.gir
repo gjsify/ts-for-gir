@@ -1,0 +1,1752 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <package name="babl-0.1"/>
+  <c:include name="babl.h"/>
+  <namespace name="Babl"
+             version="0.1"
+             shared-library="libbabl-0.1.so.0"
+             c:identifier-prefixes="Babl"
+             c:symbol-prefixes="babl">
+    <constant name="ALPHA_FLOOR" value="0" c:type="BABL_ALPHA_FLOOR">
+      <source-position filename="babl/babl.h" line="748"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="ALPHA_FLOOR_F" value="0" c:type="BABL_ALPHA_FLOOR_F">
+      <source-position filename="babl/babl.h" line="749"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <callback name="FishProcess" c:type="BablFishProcess">
+      <source-position filename="babl/babl.h" line="721"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="src" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="dst" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter name="n" transfer-ownership="none">
+          <type name="glong" c:type="long"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="FuncLinear" c:type="BablFuncLinear">
+      <source-position filename="babl/babl-types.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="conversion" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="src" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="dst" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter name="n" transfer-ownership="none">
+          <type name="glong" c:type="long"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="4">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="FuncPlanar" c:type="BablFuncPlanar">
+      <source-position filename="babl/babl-types.h" line="45"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="conversion" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="src_bands" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="src" transfer-ownership="none">
+          <type name="utf8" c:type="const char**"/>
+        </parameter>
+        <parameter name="src_pitch" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="dst_bands" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="dst" transfer-ownership="none">
+          <type name="utf8" c:type="char**"/>
+        </parameter>
+        <parameter name="dst_pitch" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="n" transfer-ownership="none">
+          <type name="glong" c:type="long"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="8">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="IccIntent" c:type="BablIccIntent">
+      <source-position filename="babl/babl.h" line="110"/>
+      <member name="perceptual"
+              value="0"
+              c:identifier="BABL_ICC_INTENT_PERCEPTUAL">
+      </member>
+      <member name="relative_colorimetric"
+              value="1"
+              c:identifier="BABL_ICC_INTENT_RELATIVE_COLORIMETRIC">
+      </member>
+      <member name="saturation"
+              value="2"
+              c:identifier="BABL_ICC_INTENT_SATURATION">
+      </member>
+      <member name="absolute_colorimetric"
+              value="3"
+              c:identifier="BABL_ICC_INTENT_ABSOLUTE_COLORIMETRIC">
+      </member>
+      <member name="performance"
+              value="32"
+              c:identifier="BABL_ICC_INTENT_PERFORMANCE">
+      </member>
+    </enumeration>
+    <constant name="MAJOR_VERSION" value="0" c:type="BABL_MAJOR_VERSION">
+      <source-position filename="babl/babl-version.h" line="35"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="107" c:type="BABL_MICRO_VERSION">
+      <source-position filename="babl/babl-version.h" line="37"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="1" c:type="BABL_MINOR_VERSION">
+      <source-position filename="babl/babl-version.h" line="36"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <bitfield name="ModelFlag" c:type="BablModelFlag">
+      <source-position filename="babl/babl.h" line="323"/>
+      <member name="alpha" value="2" c:identifier="BABL_MODEL_FLAG_ALPHA">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="295">the model encodes alpha.</doc>
+      </member>
+      <member name="associated"
+              value="4"
+              c:identifier="BABL_MODEL_FLAG_ASSOCIATED">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="296">the alpha is associated alpha.</doc>
+      </member>
+      <member name="inverted"
+              value="8"
+              c:identifier="BABL_MODEL_FLAG_INVERTED">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="297">the components are inverted (used for getting the additive complement space of CMYK).</doc>
+      </member>
+      <member name="linear" value="1024" c:identifier="BABL_MODEL_FLAG_LINEAR">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="298">the data has no TRC, i.e. is linear</doc>
+      </member>
+      <member name="nonlinear"
+              value="2048"
+              c:identifier="BABL_MODEL_FLAG_NONLINEAR">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="299">the data has a TRC - the TRC from the configured space</doc>
+      </member>
+      <member name="perceptual"
+              value="4096"
+              c:identifier="BABL_MODEL_FLAG_PERCEPTUAL">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="300">the data has a TRC - a perceptual TRC where 50% gray is 0.5</doc>
+      </member>
+      <member name="gray" value="1048576" c:identifier="BABL_MODEL_FLAG_GRAY">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="301">this is a gray component model</doc>
+      </member>
+      <member name="rgb" value="2097152" c:identifier="BABL_MODEL_FLAG_RGB">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="302">this is an RGB based component model, the space associated is expected to contain an RGB matrix profile.</doc>
+      </member>
+      <member name="cie" value="8388608" c:identifier="BABL_MODEL_FLAG_CIE">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="303">this model is part of the CIE family of spaces</doc>
+      </member>
+      <member name="cmyk" value="16777216" c:identifier="BABL_MODEL_FLAG_CMYK">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="304">the encodings described are CMYK encodings, the space associated is expected to contain an CMYK ICC profile.</doc>
+      </member>
+    </bitfield>
+    <union name="Object" c:type="Babl">
+      <doc xml:space="preserve"
+           filename="babl/babl-types.h"
+           line="26">The babl API is based around polymorphism and almost everything is
+a Babl object.</doc>
+      <source-position filename="babl/babl-types.h" line="32"/>
+    </union>
+    <enumeration name="SpaceFlags" c:type="BablSpaceFlags">
+      <source-position filename="babl/babl.h" line="540"/>
+      <member name="none" value="0" c:identifier="BABL_SPACE_FLAG_NONE">
+      </member>
+      <member name="equalize"
+              value="1"
+              c:identifier="BABL_SPACE_FLAG_EQUALIZE">
+      </member>
+    </enumeration>
+    <function name="component" c:identifier="babl_component">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="67">Returns the babl object representing the color component given by
+@name such as for example "R", "cyan" or "CIE L".</doc>
+      <source-position filename="babl/babl.h" line="73"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="component_new"
+              c:identifier="babl_component_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="367">Defines a new color component with babl.
+
+    babl_component_new  (const char *name,
+                         NULL);</doc>
+      <source-position filename="babl/babl.h" line="375"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_arg"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="conversion_get_destination_space"
+              c:identifier="babl_conversion_get_destination_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="455">Returns the RGB space defined for the destination of conversion.</doc>
+      <source-position filename="babl/babl.h" line="460"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="conversion" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="conversion_get_source_space"
+              c:identifier="babl_conversion_get_source_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="448">Returns the RGB space defined for the source of conversion.</doc>
+      <source-position filename="babl/babl.h" line="453"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="conversion" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="conversion_new"
+              c:identifier="babl_conversion_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="433">Defines a new conversion between either two formats, two models or
+two types in babl.
+
+    babl_conversion_new (&lt;BablFormat *source, BablFormat *destination|
+                         BablModel  *source, BablModel  *destination|
+                         BablType   *source, BablType   *destination&gt;,
+                         &lt;"linear"|"planar"&gt;, &lt;BablFuncLinear | BablFuncPlanar&gt; conv_func,
+                         NULL);</doc>
+      <source-position filename="babl/babl.h" line="445"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_arg"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="exit" c:identifier="babl_exit">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="40">Deinitializes the babl library and frees any resources used when
+matched with the number of calls to babl_init().</doc>
+      <source-position filename="babl/babl.h" line="46"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="fast_fish" c:identifier="babl_fast_fish">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="224">Create a faster than normal fish with specified performance (and thus
+corresponding precision tradeoff), values tolerance can hold: NULL and
+"default", means do same as babl_fish(), other values understood in
+increasing order of speed gain are:
+   "exact" "precise" "fast" "glitch"
+
+Fast fishes should be cached, since they are not internally kept track
+of/made into singletons by babl and many creations of fast fishes will
+otherwise be a leak.</doc>
+      <source-position filename="babl/babl.h" line="238"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source_format"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="destination_format"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="performance" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fish" c:identifier="babl_fish">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="213">Create a babl fish capable of converting from source_format to
+ destination_format, source and destination can be either strings
+ with the names of the formats or Babl-format objects.</doc>
+      <source-position filename="babl/babl.h" line="220"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source_format"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="destination_format"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fish_get_process"
+              c:identifier="babl_fish_get_process"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="722">get the dispatch function of a fish, this allows faster use of a fish
+in a loop than the more indirect method of babl_process, this also avoids
+base-level instrumentation.</doc>
+      <source-position filename="babl/babl.h" line="729"/>
+      <return-value>
+        <type name="FishProcess" c:type="BablFishProcess"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format" c:identifier="babl_format">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="174">Returns the babl object representing the color format given by
+@name such as for example "RGB u8", "CMYK float" or "CIE Lab u16",
+creates a format using the sRGB space, to also specify the color space
+and TRCs for a format, see babl_format_with_space.</doc>
+      <source-position filename="babl/babl.h" line="182"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="encoding" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_exists" c:identifier="babl_format_exists">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="196">Returns 1 if the provided format name is known by babl or 0 if it is
+not. Can also be used to verify that specific extension formats are
+available (though this can also be inferred from the version of babl).</doc>
+      <source-position filename="babl/babl.h" line="203"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_bytes_per_pixel"
+              c:identifier="babl_format_get_bytes_per_pixel">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="277">Returns the bytes per pixel for a babl color format.</doc>
+      <source-position filename="babl/babl.h" line="282"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_encoding"
+              c:identifier="babl_format_get_encoding">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="711">Returns the components and data type, without space suffix.</doc>
+      <source-position filename="babl/babl.h" line="716"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_model" c:identifier="babl_format_get_model">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="284">Return the model used for constructing the format.</doc>
+      <source-position filename="babl/babl.h" line="289"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_n_components"
+              c:identifier="babl_format_get_n_components">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="334">Returns the number of components for the given @format.</doc>
+      <source-position filename="babl/babl.h" line="339"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_space" c:identifier="babl_format_get_space">
+      <source-position filename="babl/babl.h" line="210"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_get_type" c:identifier="babl_format_get_type">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="341">Returns the type in the given @format for the given
+@component_index.</doc>
+      <source-position filename="babl/babl.h" line="347"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="component_index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_has_alpha" c:identifier="babl_format_has_alpha">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="270">Returns whether the @format has an alpha channel.</doc>
+      <source-position filename="babl/babl.h" line="275"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_is_format_n" c:identifier="babl_format_is_format_n">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="426">Returns whether the @format is a format_n type.</doc>
+      <source-position filename="babl/babl.h" line="431"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_is_palette" c:identifier="babl_format_is_palette">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="489">check whether a format is a palette backed format.</doc>
+      <source-position filename="babl/babl.h" line="494"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="format" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_n" c:identifier="babl_format_n">
+      <source-position filename="babl/babl.h" line="423"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="components" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_new"
+              c:identifier="babl_format_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="392">Defines a new pixel format in babl. Provided BablType and|or
+BablSampling is valid for the following components as well. If no
+name is provided a (long) descriptive name is used.
+
+    babl_format_new     (["name", const char *name,]
+                         BablModel          *model,
+                         [BablType           *type,]
+                         [BablSampling,      *sampling,]
+                         BablComponent      *component1,
+                         [[BablType           *type,]
+                          [BablSampling       *sampling,]
+                          BablComponent      *componentN,
+                          ...]
+                         ["planar",]
+                         NULL);</doc>
+      <source-position filename="babl/babl.h" line="411"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_arg"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="format_with_space" c:identifier="babl_format_with_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="184">Returns the babl object representing the color format given by
+@name such as for example "RGB u8", "R'G'B'A float", "Y float" with
+a specific RGB working space used as the space, the resulting format
+has -space suffixed to it, unless the space requested is sRGB then
+the unsuffixed version is used. If a format is passed in as space
+the space of the format is used.</doc>
+      <source-position filename="babl/babl.h" line="194"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="encoding" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gc" c:identifier="babl_gc" introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="732">Do a babl fish garbage collection cycle, should only be called
+from the main thread with no concurrent babl processing in other
+threads in paralell.</doc>
+      <doc-version xml:space="preserve">babl-0.1.98</doc-version>
+      <source-position filename="babl/babl.h" line="741"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="get_model_flags" c:identifier="babl_get_model_flags">
+      <source-position filename="babl/babl.h" line="332"/>
+      <return-value transfer-ownership="none">
+        <type name="ModelFlag" c:type="BablModelFlag"/>
+      </return-value>
+      <parameters>
+        <parameter name="model" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_name" c:identifier="babl_get_name">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="263">Returns a string describing a Babl object.</doc>
+      <source-position filename="babl/babl.h" line="268"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_user_data"
+              c:identifier="babl_get_user_data"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="530">Get data set with babl_set_user_data</doc>
+      <source-position filename="babl/babl.h" line="535"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <type name="gpointer" c:type="void*"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_version" c:identifier="babl_get_version">
+      <doc xml:space="preserve"
+           filename="babl/babl-version.h"
+           line="39">Get the version information on the babl library</doc>
+      <source-position filename="babl/babl-version.h" line="47"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="major"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="babl/babl-version.h"
+               line="41">The major version number</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="minor"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="babl/babl-version.h"
+               line="42">The minor version number</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="micro"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="babl/babl-version.h"
+               line="43">The micro version number</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="icc_get_key" c:identifier="babl_icc_get_key">
+      <source-position filename="babl/babl.h" line="167"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="icc_data" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="icc_length" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="language" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="country" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="icc_make_space" c:identifier="babl_icc_make_space">
+      <source-position filename="babl/babl.h" line="147"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="icc_data" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="icc_length" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="intent" transfer-ownership="none">
+          <type name="IccIntent" c:type="BablIccIntent"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <type name="utf8" c:type="const char**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="init" c:identifier="babl_init">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="33">Initializes the babl library.</doc>
+      <source-position filename="babl/babl.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="introspect" c:identifier="babl_introspect">
+      <doc xml:space="preserve"
+           filename="babl/babl-introspect.h"
+           line="24">introspect a given BablObject</doc>
+      <source-position filename="babl/babl-introspect.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl-introspect.h"
+               line="26">A #Babl</doc>
+          <type name="Object" c:type="Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="model" c:identifier="babl_model">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="75">Returns the babl object representing the color model given by @name
+such as for example "RGB", "CMYK" or "CIE Lab".</doc>
+      <source-position filename="babl/babl.h" line="81"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="model_is" c:identifier="babl_model_is">
+      <source-position filename="babl/babl.h" line="657"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="654">0 if the name of the model in babl does not correspond to the
+provided model name.</doc>
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="model_name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="model_new"
+              c:identifier="babl_model_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="378">Defines a new color model in babl. If no name is provided a name is
+generated by concatenating the name of all the involved components.
+
+    babl_model_new      (["name", const char *name,]
+                         BablComponent *component1,
+                         [BablComponent *componentN, ...]
+                         NULL);</doc>
+      <source-position filename="babl/babl.h" line="389"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_arg"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="model_with_space" c:identifier="babl_model_with_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="83">The models for formats also have a space in babl, try to avoid code
+needing to use this.</doc>
+      <source-position filename="babl/babl.h" line="90"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="new_palette" c:identifier="babl_new_palette">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="462">create a new palette based format, name is optional pass in NULL to get
+an anonymous format. If you pass in with_alpha the format also gets
+an 8bit alpha channel. Returns the BablModel of the color model. If
+you pass in the same name the previous formats will be provided
+again.</doc>
+      <source-position filename="babl/babl.h" line="471"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="format_u8" transfer-ownership="none">
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+        <parameter name="format_u8_with_alpha" transfer-ownership="none">
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="new_palette_with_space"
+              c:identifier="babl_new_palette_with_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="475">create a new palette based format, name is optional pass in NULL to get
+an anonymous format. If you pass in with_alpha the format also gets
+an 8bit alpha channel. Returns the BablModel of the color model. If
+you pass in the same name the previous formats will be provided
+again.</doc>
+      <source-position filename="babl/babl.h" line="484"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="format_u8" transfer-ownership="none">
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+        <parameter name="format_u8_with_alpha" transfer-ownership="none">
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="palette_reset" c:identifier="babl_palette_reset">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="511">reset a palette to initial state, frees up some caches that optimize
+conversions.</doc>
+      <source-position filename="babl/babl.h" line="517"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="palette_set_palette"
+              c:identifier="babl_palette_set_palette">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="496">Assign a palette to a palette format, the data is a single span of pixels
+representing the colors of the palette.</doc>
+      <source-position filename="babl/babl.h" line="506"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="498">a #Babl</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="499">The pixel format</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="500">The pixel data</doc>
+          <array zero-terminated="0" c:type="void*">
+            <type name="guint8"/>
+          </array>
+        </parameter>
+        <parameter name="count" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="501">The number of pixels in @data</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="process" c:identifier="babl_process">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="242">Process n pixels from source to destination using babl_fish,
+ returns number of pixels converted.</doc>
+      <source-position filename="babl/babl.h" line="248"/>
+      <return-value transfer-ownership="none">
+        <type name="glong" c:type="long"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl_fish" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="source"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="destination"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="n" transfer-ownership="none">
+          <type name="glong" c:type="long"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="process_rows" c:identifier="babl_process_rows">
+      <source-position filename="babl/babl.h" line="254"/>
+      <return-value transfer-ownership="none">
+        <type name="glong" c:type="long"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl_fish" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="source"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="source_stride" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="dest"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="dest_stride" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="n" transfer-ownership="none">
+          <type name="glong" c:type="long"/>
+        </parameter>
+        <parameter name="rows" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="sampling" c:identifier="babl_sampling">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="56">Returns the babl object representing the @horizontal and @vertical
+sampling such as for example 2, 2 for the chroma components in
+YCbCr.</doc>
+      <source-position filename="babl/babl.h" line="63"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="horizontal" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="vertical" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_user_data"
+              c:identifier="babl_set_user_data"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="520">associate a data pointer with a format/model, this data can be accessed and
+used from the conversion functions, encoding color profiles, palettes or
+similar with the data, perhaps this should be made internal API, not
+accesible at all from</doc>
+      <source-position filename="babl/babl.h" line="528"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space" c:identifier="babl_space">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="93">Returns the babl object representing the specific RGB matrix color
+working space referred to by name. Babl knows of:
+   sRGB, Rec2020, Adobish, Apple and ProPhoto</doc>
+      <source-position filename="babl/babl.h" line="101"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_from_chromaticities"
+              c:identifier="babl_space_from_chromaticities">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="542">Creates a new babl-space/ RGB matrix color space definition with the
+specified CIE xy(Y) values for white point: wx, wy and primary
+chromaticities: rx,ry,gx,gy,bx,by and TRCs to be used. After registering a
+new babl-space it can be used with babl_space() passing its name;
+
+Internally this does the math to derive the RGBXYZ matrix as used in an ICC
+profile.</doc>
+      <source-position filename="babl/babl.h" line="568"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="544">The name for the color space</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="wx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="545">The X-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="wy" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="546">The Y-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="rx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="547">The X-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="ry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="548">The Y-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="gx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="549">The X-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="gy" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="550">The Y-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="bx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="551">The X-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="by" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="552">The Y-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="trc_red" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="553">The red component of the TRC.</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="trc_green"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="554">The green component of the TRC (can be %NULL if it's
+           the same as @trc_red).</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="trc_blue"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="556">The blue component of the TRC (can be %NULL if it's
+           the same as @trc_red).</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="558">The #BablSpaceFlags</doc>
+          <type name="SpaceFlags" c:type="BablSpaceFlags"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_from_icc" c:identifier="babl_space_from_icc">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="112">Create a babl space from an in memory ICC profile, the profile does no
+longer need to be loaded for the space to work, multiple calls with the same
+icc profile and same intent will result in the same babl space.
+
+On a profile that doesn't contain A2B0 and B2A0 CLUTs perceptual and
+relative-colorimetric intents are treated the same.
+
+If a BablSpace cannot be created from the profile NULL is returned and a
+static string is set on the const char *value pointed at with &amp;value
+containing a message describing why the provided data does not yield a babl
+space.</doc>
+      <source-position filename="babl/babl.h" line="133"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="icc_data" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="114">pointer to icc profile in memory</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="icc_length" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="115">length of icc profile in bytes</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="intent" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="116">the intent from the ICC profile to use.</doc>
+          <type name="IccIntent" c:type="BablIccIntent"/>
+        </parameter>
+        <parameter name="error"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="117">pointer to a string where decoding errors can be stored,
+        if an error occurs, NULL is returned and an error message
+        is provided in error.</doc>
+          <type name="utf8" c:type="const char**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_from_rgbxyz_matrix"
+              c:identifier="babl_space_from_rgbxyz_matrix">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="676">Creates a new RGB matrix color space definition using a precomputed D50
+adapted 3x3 matrix and associated CIE XYZ whitepoint, as possibly read from
+an ICC profile.</doc>
+      <source-position filename="babl/babl.h" line="702"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="678">The name for the color space</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="wx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="679">The X-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="wy" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="680">The Y-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="wz" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="681">The Z-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="rx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="682">The X-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="gx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="685">The X-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="bx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="688">The X-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="ry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="683">The Y-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="gy" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="686">The Y-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="by" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="689">The Y-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="rz" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="684">The Z-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="gz" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="687">The Z-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="bz" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="690">The Z-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="trc_red" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="691">The red component of the TRC.</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="trc_green"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="692">The green component of the TRC (can be %NULL if it's
+           the same as @trc_red).</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="trc_blue"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="694">The blue component of the TRC (can be %NULL if it's
+           the same as @trc_red).</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_get" c:identifier="babl_space_get">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="602">query the chromaticities of white point and primaries as well as trcs
+used for r g a nd b, all arguments are optional (can be %NULL).</doc>
+      <source-position filename="babl/babl.h" line="622"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="604">A #Babl instance</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="xw"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="605">The X-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="yw"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="606">The Y-coordinate of the color space's white point</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="xr"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="607">The X-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="yr"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="608">The Y-coordinate of the red primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="xg"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="609">The X-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="yg"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="610">The Y-coordinate of the green primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="xb"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="611">The X-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="yb"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="612">The Y-coordinate of the blue primary</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="red_trc"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="613">The red component of the TRC.</doc>
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+        <parameter name="green_trc"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="614">The green component of the TRC (can be %NULL
+            if it's the same as @red_trc).</doc>
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+        <parameter name="blue_trc"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="616">The blue component of the TRC (can be %NULL if
+           it's the same as @red_trc).</doc>
+          <type name="Object" c:type="const Babl**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_get_gamma" c:identifier="babl_space_get_gamma">
+      <source-position filename="babl/babl.h" line="144"/>
+      <return-value transfer-ownership="none">
+        <type name="gdouble" c:type="double"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_get_icc" c:identifier="babl_space_get_icc">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="662">Return pointer to ICC profile for space note that this is
+the ICC profile for R'G'B', though in formats only supporting linear
+like EXR GEGL chooses to load this lienar data as RGB and use the sRGB
+TRC.</doc>
+      <source-position filename="babl/babl.h" line="674"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="672">pointer to ICC profile data.</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="babl" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="664">a #Babl</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="length"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="665">Length of the profile in bytes.</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_get_rgb_luminance"
+              c:identifier="babl_space_get_rgb_luminance">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="631">Retrieve the relevant RGB luminance constants for a babl space.
+
+Note: these luminance coefficients should only ever be used on linear data.
+If your input @space is non-linear, you should convert your pixel values to
+the linearized variant of @space before making any computation with these
+coefficients. See #83.</doc>
+      <source-position filename="babl/babl.h" line="646"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="633">a BablSpace</doc>
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="red_luminance"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="634">Location for the red luminance factor.</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="green_luminance"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="635">Location for the green luminance factor.</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+        <parameter name="blue_luminance"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="babl/babl.h"
+               line="636">Location for the blue luminance factor.</doc>
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_is_cmyk" c:identifier="babl_space_is_cmyk">
+      <source-position filename="babl/babl.h" line="718"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_is_gray" c:identifier="babl_space_is_gray">
+      <source-position filename="babl/babl.h" line="719"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_with_trc" c:identifier="babl_space_with_trc">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="595">Creates a variant of an existing space with different trc.</doc>
+      <source-position filename="babl/babl.h" line="600"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+        <parameter name="trc" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="trc" c:identifier="babl_trc">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="587">Look up a TRC by name, "sRGB" and "linear" are recognized
+strings in a stock babl configuration.</doc>
+      <source-position filename="babl/babl.h" line="593"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="trc_gamma" c:identifier="babl_trc_gamma">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="579">Creates a Babl TRC for a specific gamma value, it will be given
+a name that is a short string representation of the value.</doc>
+      <source-position filename="babl/babl.h" line="585"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="gamma" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="type" c:identifier="babl_type">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="48">Returns the babl object representing the data type given by @name
+such as for example "u8", "u16" or "float".</doc>
+      <source-position filename="babl/babl.h" line="54"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="type_new" c:identifier="babl_type_new" introspectable="0">
+      <doc xml:space="preserve"
+           filename="babl/babl.h"
+           line="351">Defines a new data type in babl. A data type that babl can have in
+its buffers requires conversions to and from "double" to be
+registered before passing sanity.
+
+    babl_type_new       (const char *name,
+                         "bits",     int bits,
+                         ["min_val", double min_val,]
+                         ["max_val", double max_val,]
+                         NULL);</doc>
+      <source-position filename="babl/babl.h" line="364"/>
+      <return-value transfer-ownership="none">
+        <type name="Object" c:type="const Babl*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_arg"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

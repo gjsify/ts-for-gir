@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gst" version="1.0"/>
+  <package name="gstreamer-badallocators-1.0"/>
+  <c:include name="gst/allocators/badallocators.h"/>
+  <namespace name="GstBadAllocators"
+             version="1.0"
+             shared-library="libgstbadallocators-1.0.so.0"
+             c:identifier-prefixes="Gst"
+             c:symbol-prefixes="gst">
+    <interface name="PhysMemoryAllocator"
+               c:symbol-prefix="phys_memory_allocator"
+               c:type="GstPhysMemoryAllocator"
+               glib:type-name="GstPhysMemoryAllocator"
+               glib:get-type="gst_phys_memory_allocator_get_type"
+               glib:type-struct="PhysMemoryAllocatorInterface">
+      <prerequisite name="Gst.Allocator"/>
+      <virtual-method name="get_phys_addr">
+        <return-value transfer-ownership="none">
+          <type name="guintptr" c:type="guintptr"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="allocator" transfer-ownership="none">
+            <type name="PhysMemoryAllocator" c:type="GstPhysMemoryAllocator*"/>
+          </instance-parameter>
+          <parameter name="mem" transfer-ownership="none">
+            <type name="Gst.Memory" c:type="GstMemory*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="PhysMemoryAllocatorInterface"
+            c:type="GstPhysMemoryAllocatorInterface"
+            glib:is-gtype-struct-for="PhysMemoryAllocator"
+            version="1.12">
+      <doc xml:space="preserve">Marker interface for allocators with physical address backed memory</doc>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_phys_addr">
+        <callback name="get_phys_addr">
+          <return-value transfer-ownership="none">
+            <type name="guintptr" c:type="guintptr"/>
+          </return-value>
+          <parameters>
+            <parameter name="allocator" transfer-ownership="none">
+              <type name="PhysMemoryAllocator"
+                    c:type="GstPhysMemoryAllocator*"/>
+            </parameter>
+            <parameter name="mem" transfer-ownership="none">
+              <type name="Gst.Memory" c:type="GstMemory*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="is_phys_memory"
+              c:identifier="gst_is_phys_memory"
+              version="1.12">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">whether the memory at @mem is backed by physical memory</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="mem" transfer-ownership="none">
+          <doc xml:space="preserve">a #GstMemory</doc>
+          <type name="Gst.Memory" c:type="GstMemory*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="phys_memory_get_phys_addr"
+              c:identifier="gst_phys_memory_get_phys_addr"
+              version="1.12">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">Physical memory address that is backing @mem, or 0 if none</doc>
+        <type name="guintptr" c:type="guintptr"/>
+      </return-value>
+      <parameters>
+        <parameter name="mem" transfer-ownership="none">
+          <doc xml:space="preserve">a #GstMemory</doc>
+          <type name="Gst.Memory" c:type="GstMemory*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

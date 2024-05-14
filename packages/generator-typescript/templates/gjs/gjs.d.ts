@@ -6,8 +6,8 @@
  */
 import './ambient.d.ts';
 
-<%_ const GObject = dep.find('GObject') _%>
-<%_ const GLib = dep.find('GLib') _%>
+<%_ const GObject = dep.getSync('GObject', '2.0') _%>
+<%_ const GLib = dep.getSync('GLib', '2.0') _%>
 <%- GObject ? GObject.importDef : '' %>
 <%- GLib ? GLib.importDef : '' %>
 import gettext from './gettext.js';

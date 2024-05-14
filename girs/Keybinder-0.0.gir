@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <namespace name="Keybinder"
+             version="0.0"
+             shared-library="libkeybinder.so.0"
+             c:identifier-prefixes="Keybinder"
+             c:symbol-prefixes="keybinder">
+    <callback name="Handler" c:type="KeybinderHandler">
+      <source-position filename="keybinder.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="keystring" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="bind"
+              c:identifier="keybinder_bind"
+              shadowed-by="bind_full"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="bind.c"
+           line="467">Grab a key combination globally and register a callback to be called each
+time the key combination is pressed.
+
+This function is excluded from introspected bindings and is replaced by
+keybinder_bind_full.</doc>
+      <source-position filename="keybinder.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="bind.c"
+             line="479">%TRUE if the accelerator could be grabbed</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="keystring" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="469">an accelerator description (gtk_accelerator_parse() format)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="handler" transfer-ownership="none" closure="2">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="470">callback function</doc>
+          <type name="Handler" c:type="KeybinderHandler"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="471">data to pass to @handler</doc>
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="bind_full"
+              c:identifier="keybinder_bind_full"
+              shadows="bind"
+              version="0.3.0">
+      <doc xml:space="preserve"
+           filename="bind.c"
+           line="489">Grab a key combination globally and register a callback to be called each
+time the key combination is pressed.</doc>
+      <source-position filename="keybinder.h" line="40"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="bind.c"
+             line="501">%TRUE if the accelerator could be grabbed</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="keystring" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="491">an accelerator description (gtk_accelerator_parse() format)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="handler"
+                   transfer-ownership="none"
+                   scope="notified"
+                   closure="2"
+                   destroy="3">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="492">callback function</doc>
+          <type name="Handler" c:type="KeybinderHandler"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="493">data to pass to @handler</doc>
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="notify"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="494">called when @handler is unregistered</doc>
+          <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_current_event_time"
+              c:identifier="keybinder_get_current_event_time">
+      <source-position filename="keybinder.h" line="50"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="bind.c"
+             line="603">the current event timestamp</doc>
+        <type name="guint32" c:type="guint32"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="keybinder_init">
+      <doc xml:space="preserve"
+           filename="bind.c"
+           line="437">Initialize the keybinder library.
+
+This function must be called after initializing GTK, before calling any
+other function in the library. Can only be called once.</doc>
+      <source-position filename="keybinder.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="unbind"
+              c:identifier="keybinder_unbind"
+              shadowed-by="unbind_all"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="bind.c"
+           line="530">Unregister a specific previously bound callback for this keystring.
+
+This function is excluded from introspected bindings and is replaced by
+keybinder_unbind_all.</doc>
+      <source-position filename="keybinder.h" line="45"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="keystring" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="532">an accelerator description (gtk_accelerator_parse() format)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="handler" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="533">callback function</doc>
+          <type name="Handler" c:type="KeybinderHandler"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unbind_all"
+              c:identifier="keybinder_unbind_all"
+              shadows="unbind"
+              version="0.3.0">
+      <doc xml:space="preserve"
+           filename="bind.c"
+           line="565">Unregister all previously bound callbacks for this keystring.</doc>
+      <source-position filename="keybinder.h" line="48"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="keystring" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="bind.c"
+               line="567">an accelerator description (gtk_accelerator_parse() format)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

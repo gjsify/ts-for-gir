@@ -1,0 +1,2971 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="AppStreamGlib" version="1.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="appstream-builder"/>
+  <namespace name="AppStreamBuilder"
+             version="1.0"
+             shared-library="libappstream-builder.so.8"
+             c:identifier-prefixes="Asb"
+             c:symbol-prefixes="asb_">
+    <alias name="PackageEnsureFlags" c:type="AsbPackageEnsureFlags">
+      <source-position filename="asb-package.h" line="44"/>
+      <type name="guint64" c:type="guint64"/>
+    </alias>
+    <class name="App"
+           c:symbol-prefix="app"
+           c:type="AsbApp"
+           parent="AppStreamGlib.App"
+           glib:type-name="AsbApp"
+           glib:get-type="asb_app_get_type"
+           glib:type-struct="AppClass">
+      <source-position filename="asb-app.h" line="49"/>
+      <constructor name="new" c:identifier="asb_app_new" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-app.c"
+             line="204">Creates a new application object.</doc>
+        <source-position filename="asb-app.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="asb-app.c"
+               line="211">a #AsbApp</doc>
+          <type name="App" c:type="AsbApp*"/>
+        </return-value>
+        <parameters>
+          <parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="206">A #AsbPackage, or %NULL</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="207">The ID for the package, or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_package"
+              c:identifier="asb_app_get_package"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-app.c"
+             line="82">Gets the package that backs the application.</doc>
+        <source-position filename="asb-app.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-app.c"
+               line="88">package</doc>
+          <type name="Package" c:type="AsbPackage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="84">A #AsbApp</doc>
+            <type name="App" c:type="AsbApp*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_resources"
+              c:identifier="asb_app_save_resources"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-app.c"
+             line="136">Saves to disk any resources set for the application.</doc>
+        <source-position filename="asb-app.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-app.c"
+               line="144">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="138">A #AsbApp</doc>
+            <type name="App" c:type="AsbApp*"/>
+          </instance-parameter>
+          <parameter name="save_flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="139">#AsbAppSaveFlags, e.g. %ASB_APP_SAVE_FLAG_SCREENSHOTS</doc>
+            <type name="AppSaveFlags" c:type="AsbAppSaveFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hidpi_enabled"
+              c:identifier="asb_app_set_hidpi_enabled"
+              version="0.3.1">
+        <doc xml:space="preserve"
+             filename="asb-app.c"
+             line="120">Sets the HiDPI mode for the application.</doc>
+        <source-position filename="asb-app.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="122">A #AsbApp</doc>
+            <type name="App" c:type="AsbApp*"/>
+          </instance-parameter>
+          <parameter name="hidpi_enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="123">if HiDPI mode should be enabled</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_package"
+              c:identifier="asb_app_set_package"
+              version="0.5.1">
+        <doc xml:space="preserve"
+             filename="asb-app.c"
+             line="99">Sets the package that backs the application.</doc>
+        <source-position filename="asb-app.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="101">A #AsbApp</doc>
+            <type name="App" c:type="AsbApp*"/>
+          </instance-parameter>
+          <parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-app.c"
+                 line="102">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="AppClass"
+            c:type="AsbAppClass"
+            glib:is-gtype-struct-for="App">
+      <source-position filename="asb-app.h" line="49"/>
+      <field name="parent_class">
+        <type name="AppStreamGlib.AppClass" c:type="AsAppClass"/>
+      </field>
+      <field name="_asb_reserved1" introspectable="0">
+        <callback name="_asb_reserved1">
+          <source-position filename="asb-app.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved2" introspectable="0">
+        <callback name="_asb_reserved2">
+          <source-position filename="asb-app.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved3" introspectable="0">
+        <callback name="_asb_reserved3">
+          <source-position filename="asb-app.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved4" introspectable="0">
+        <callback name="_asb_reserved4">
+          <source-position filename="asb-app.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved5" introspectable="0">
+        <callback name="_asb_reserved5">
+          <source-position filename="asb-app.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved6" introspectable="0">
+        <callback name="_asb_reserved6">
+          <source-position filename="asb-app.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved7" introspectable="0">
+        <callback name="_asb_reserved7">
+          <source-position filename="asb-app.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved8" introspectable="0">
+        <callback name="_asb_reserved8">
+          <source-position filename="asb-app.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="AppSaveFlags" c:type="AsbAppSaveFlags">
+      <doc xml:space="preserve"
+           filename="asb-app.h"
+           line="51">The flags to use when saving resources.</doc>
+      <source-position filename="asb-app.h" line="65"/>
+      <member name="none" value="0" c:identifier="ASB_APP_SAVE_FLAG_NONE">
+        <doc xml:space="preserve"
+             filename="asb-app.h"
+             line="53">Nothing to do</doc>
+      </member>
+      <member name="icons" value="1" c:identifier="ASB_APP_SAVE_FLAG_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-app.h"
+             line="54">Save icons to disk</doc>
+      </member>
+      <member name="screenshots"
+              value="2"
+              c:identifier="ASB_APP_SAVE_FLAG_SCREENSHOTS">
+        <doc xml:space="preserve"
+             filename="asb-app.h"
+             line="55">Save screenshots to disk</doc>
+      </member>
+    </enumeration>
+    <class name="Context"
+           c:symbol-prefix="context"
+           c:type="AsbContext"
+           parent="GObject.Object"
+           glib:type-name="AsbContext"
+           glib:get-type="asb_context_get_type"
+           glib:type-struct="ContextClass">
+      <source-position filename="asb-context.h" line="47"/>
+      <constructor name="new" c:identifier="asb_context_new" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="1268">Creates a new high-level instance.</doc>
+        <source-position filename="asb-context.h" line="89"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="1273">a #AsbContext</doc>
+          <type name="Context" c:type="AsbContext*"/>
+        </return-value>
+      </constructor>
+      <method name="add_app"
+              c:identifier="asb_context_add_app"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="1187">Adds an application to the context.</doc>
+        <source-position filename="asb-context.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1189">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1190">A #AsbApp</doc>
+            <type name="App" c:type="AsbApp*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_app_ignore" c:identifier="asb_context_add_app_ignore">
+        <source-position filename="asb-context.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="pkg" transfer-ownership="none">
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_filename"
+              c:identifier="asb_context_add_filename"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="439">Adds a filename to the list of packages to be processed</doc>
+        <source-position filename="asb-context.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="447">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="441">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="442">package filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_package"
+              c:identifier="asb_context_add_package"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="423">Adds a package to the list of packages to be processed</doc>
+        <source-position filename="asb-context.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="425">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="426">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_by_pkgname"
+              c:identifier="asb_context_find_by_pkgname"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="1159">Find a package from its name.</doc>
+        <source-position filename="asb-context.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="1166">a #AsbPackage, or %NULL for not found.</doc>
+          <type name="Package" c:type="AsbPackage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1161">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="pkgname" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1162">a package name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_in_cache"
+              c:identifier="asb_context_find_in_cache"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="1142">This function used to find an application in the cache, and now does nothing.</doc>
+        <source-position filename="asb-context.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="1149">always %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1144">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1145">cache-id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_api_version"
+              c:identifier="asb_context_get_api_version"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="338">Gets the target metadata API version.</doc>
+        <source-position filename="asb-context.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="344">floating point</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="340">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cache_dir"
+              c:identifier="asb_context_get_cache_dir"
+              version="0.3.6">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="372">Gets the screenshot directory to use</doc>
+        <source-position filename="asb-context.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="378">directory</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="374">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_globs"
+              c:identifier="asb_context_get_file_globs"
+              version="0.1.0"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="491">Gets the list of file globs added by plugins.</doc>
+        <source-position filename="asb-context-private.h" line="28"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="497">file globs</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="gpointer" c:type="gpointer"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="493">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flag"
+              c:identifier="asb_context_get_flag"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="320">Gets one specific build flag.</doc>
+        <source-position filename="asb-context.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="327">%TRUE if the flag was set</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="322">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="323">A #AsbContextFlags</doc>
+            <type name="ContextFlags" c:type="AsbContextFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_flags"
+              c:identifier="asb_context_get_flags"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="303">Gets the build flags.</doc>
+        <source-position filename="asb-context.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="309">#AsbContextFlags</doc>
+          <type name="ContextFlags" c:type="AsbContextFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="305">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_min_icon_size"
+              c:identifier="asb_context_get_min_icon_size"
+              version="0.3.1">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="159">Gets the minimum icon size in pixels.</doc>
+        <source-position filename="asb-context.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="165">size</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="161">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_packages"
+              c:identifier="asb_context_get_packages"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="406">Returns the packages already added to the context.</doc>
+        <source-position filename="asb-context-private.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="412">array of packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="Package"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="408">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_plugin_loader"
+              c:identifier="asb_context_get_plugin_loader"
+              version="0.1.0"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="389">Gets the plugins available to the metadata extractor.</doc>
+        <source-position filename="asb-context-private.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="395">the plugin loader in use</doc>
+          <type c:type="AsbPluginLoader*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="391">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_temp_dir"
+              c:identifier="asb_context_get_temp_dir"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="355">Gets the temporary directory to use</doc>
+        <source-position filename="asb-context.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="361">directory</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="357">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="process"
+              c:identifier="asb_context_process"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="1040">Processes all the packages that have been added to the context.</doc>
+        <source-position filename="asb-context.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="1047">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="1042">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_api_version"
+              c:identifier="asb_context_set_api_version"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="96">Sets the version of the metadata to write.</doc>
+        <source-position filename="asb-context.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="98">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="api_version" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="99">the AppStream API version</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_basename"
+              c:identifier="asb_context_set_basename"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="271">Sets the basename for the two metadata files.</doc>
+        <source-position filename="asb-context.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="273">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="basename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="274">AppStream file basename, e.g. "appstream"</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cache_dir"
+              c:identifier="asb_context_set_cache_dir"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="207">Sets the cache directory to use when building metadata.</doc>
+        <source-position filename="asb-context.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="209">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="cache_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="210">directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_flags"
+              c:identifier="asb_context_set_flags"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="112">Sets flags to be used when building the metadata.</doc>
+        <source-position filename="asb-context.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="114">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="115">#AsbContextFlags, e.g. %ASB_CONTEXT_FLAG_NO_NETWORK</doc>
+            <type name="ContextFlags" c:type="AsbContextFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icons_dir"
+              c:identifier="asb_context_set_icons_dir"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="255">Sets the icons directory to use when building metadata.</doc>
+        <source-position filename="asb-context.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="257">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="icons_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="258">directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_log_dir"
+              c:identifier="asb_context_set_log_dir"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="191">Sets the log directory to use when building metadata.</doc>
+        <source-position filename="asb-context.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="193">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="log_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="194">directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_threads"
+              c:identifier="asb_context_set_max_threads"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="128">Sets the maximum number of threads to use when processing packages.
+This function now has no affect as only one thread is ever used.</doc>
+        <source-position filename="asb-context.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="130">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="max_threads" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="131">integer</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_min_icon_size"
+              c:identifier="asb_context_set_min_icon_size"
+              version="0.3.1">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="143">Sets the smallest icon size in pixels supported.</doc>
+        <source-position filename="asb-context.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="145">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="min_icon_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="146">integer</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_old_metadata"
+              c:identifier="asb_context_set_old_metadata"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="176">Sets the filename location of the old metadata file.
+This function now has no affect as no cache ID is available.</doc>
+        <source-position filename="asb-context.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="178">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="old_metadata" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="179">filename, or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_origin"
+              c:identifier="asb_context_set_origin"
+              version="0.3.4">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="287">Sets the origin for the two metadata files.</doc>
+        <source-position filename="asb-context.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="289">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="origin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="290">AppStream origin, e.g. "fedora-21"</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_output_dir"
+              c:identifier="asb_context_set_output_dir"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="239">Sets the output directory to use when building metadata.</doc>
+        <source-position filename="asb-context.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="241">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="output_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="242">directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_screenshot_dir"
+              c:identifier="asb_context_set_screenshot_dir">
+        <source-position filename="asb-context.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="screenshot_dir" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_temp_dir"
+              c:identifier="asb_context_set_temp_dir"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="223">Sets the temporary directory to use when building metadata.</doc>
+        <source-position filename="asb-context.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="225">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+          <parameter name="temp_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="226">directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup"
+              c:identifier="asb_context_setup"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-context.c"
+             line="508">Sets up the context ready for use.</doc>
+        <source-position filename="asb-context.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-context.c"
+               line="515">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-context.c"
+                 line="510">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ContextClass"
+            c:type="AsbContextClass"
+            glib:is-gtype-struct-for="Context">
+      <source-position filename="asb-context.h" line="47"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_asb_reserved1" introspectable="0">
+        <callback name="_asb_reserved1">
+          <source-position filename="asb-context.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved2" introspectable="0">
+        <callback name="_asb_reserved2">
+          <source-position filename="asb-context.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved3" introspectable="0">
+        <callback name="_asb_reserved3">
+          <source-position filename="asb-context.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved4" introspectable="0">
+        <callback name="_asb_reserved4">
+          <source-position filename="asb-context.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved5" introspectable="0">
+        <callback name="_asb_reserved5">
+          <source-position filename="asb-context.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved6" introspectable="0">
+        <callback name="_asb_reserved6">
+          <source-position filename="asb-context.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved7" introspectable="0">
+        <callback name="_asb_reserved7">
+          <source-position filename="asb-context.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved8" introspectable="0">
+        <callback name="_asb_reserved8">
+          <source-position filename="asb-context.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <bitfield name="ContextFlags" c:type="AsbContextFlags">
+      <doc xml:space="preserve"
+           filename="asb-context.h"
+           line="49">The flags to use when processing the context.</doc>
+      <source-position filename="asb-context.h" line="87"/>
+      <member name="none" value="0" c:identifier="ASB_CONTEXT_FLAG_NONE">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="51">No special actions to use</doc>
+      </member>
+      <member name="ignore_missing_info"
+              value="0"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_MISSING_INFO">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="52">Ignore missing information</doc>
+      </member>
+      <member name="ignore_missing_parents"
+              value="1"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_MISSING_PARENTS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="53">Ignore missing parents</doc>
+      </member>
+      <member name="add_cache_id"
+              value="2"
+              c:identifier="ASB_CONTEXT_FLAG_ADD_CACHE_ID">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="54">Unused</doc>
+      </member>
+      <member name="hidpi_icons"
+              value="4"
+              c:identifier="ASB_CONTEXT_FLAG_HIDPI_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="55">Include HiDPI icons</doc>
+      </member>
+      <member name="embedded_icons"
+              value="8"
+              c:identifier="ASB_CONTEXT_FLAG_EMBEDDED_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="56">Embed the icons in the XML</doc>
+      </member>
+      <member name="no_network"
+              value="16"
+              c:identifier="ASB_CONTEXT_FLAG_NO_NETWORK">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="57">Do not download files</doc>
+      </member>
+      <member name="include_failed"
+              value="32"
+              c:identifier="ASB_CONTEXT_FLAG_INCLUDE_FAILED">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="58">Write the origin-ignore.xml file</doc>
+      </member>
+      <member name="uncompressed_icons"
+              value="64"
+              c:identifier="ASB_CONTEXT_FLAG_UNCOMPRESSED_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="59">Do not pack icons into a tarball</doc>
+      </member>
+      <member name="ignore_dead_upstream"
+              value="128"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_DEAD_UPSTREAM">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="60">Include apps that are dead upstream</doc>
+      </member>
+      <member name="ignore_obsolete_deps"
+              value="256"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_OBSOLETE_DEPS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="61">Include apps that use obsolete toolkits</doc>
+      </member>
+      <member name="ignore_legacy_icons"
+              value="512"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_LEGACY_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="62">Include apps that use legacy icon formats</doc>
+      </member>
+      <member name="ignore_settings"
+              value="1024"
+              c:identifier="ASB_CONTEXT_FLAG_IGNORE_SETTINGS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="63">Include apps that are marked as settings</doc>
+      </member>
+      <member name="use_fallbacks"
+              value="2048"
+              c:identifier="ASB_CONTEXT_FLAG_USE_FALLBACKS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="64">Fall back to suboptimal data where required</doc>
+      </member>
+      <member name="add_default_icons"
+              value="4096"
+              c:identifier="ASB_CONTEXT_FLAG_ADD_DEFAULT_ICONS">
+        <doc xml:space="preserve"
+             filename="asb-context.h"
+             line="65">Add artificial icons and categories where required</doc>
+      </member>
+    </bitfield>
+    <constant name="PACKAGE_ENSURE_DEPS"
+              value="8"
+              c:type="ASB_PACKAGE_ENSURE_DEPS">
+      <source-position filename="asb-package.h" line="39"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_FILES"
+              value="2"
+              c:type="ASB_PACKAGE_ENSURE_FILES">
+      <source-position filename="asb-package.h" line="37"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_LICENSE"
+              value="16"
+              c:type="ASB_PACKAGE_ENSURE_LICENSE">
+      <source-position filename="asb-package.h" line="40"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_NEVRA"
+              value="1"
+              c:type="ASB_PACKAGE_ENSURE_NEVRA">
+      <source-position filename="asb-package.h" line="36"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_NONE"
+              value="0"
+              c:type="ASB_PACKAGE_ENSURE_NONE">
+      <source-position filename="asb-package.h" line="35"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_RELEASES"
+              value="4"
+              c:type="ASB_PACKAGE_ENSURE_RELEASES">
+      <source-position filename="asb-package.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_SOURCE"
+              value="64"
+              c:type="ASB_PACKAGE_ENSURE_SOURCE">
+      <source-position filename="asb-package.h" line="42"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_URL"
+              value="32"
+              c:type="ASB_PACKAGE_ENSURE_URL">
+      <source-position filename="asb-package.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="PACKAGE_ENSURE_VCS"
+              value="128"
+              c:type="ASB_PACKAGE_ENSURE_VCS">
+      <source-position filename="asb-package.h" line="43"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Package"
+           c:symbol-prefix="package"
+           c:type="AsbPackage"
+           parent="GObject.Object"
+           glib:type-name="AsbPackage"
+           glib:get-type="asb_package_get_type"
+           glib:type-struct="PackageClass">
+      <source-position filename="asb-package.h" line="71"/>
+      <constructor name="new" c:identifier="asb_package_new" version="0.2.2">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1214">Creates a new %AsbPackage.
+
+You don't need to use this function unless you want a memory-backed package
+for testing purposes.</doc>
+        <source-position filename="asb-package.h" line="172"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1222">a package</doc>
+          <type name="Package" c:type="AsbPackage*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="close" invoker="close" version="0.3.5" throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="933">Closes a package, which can be re-opened if required.</doc>
+        <source-position filename="asb-package.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="940">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="935">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="compare" invoker="compare" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1126">Compares one package with another.</doc>
+        <source-position filename="asb-package.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1133">+1 for @pkg1 newer, 0 for the same and -1 if @pkg2 is newer</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1128">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="pkg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1129">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="ensure"
+                      invoker="ensure"
+                      version="0.3.0"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="961">Ensures data exists.</doc>
+        <source-position filename="asb-package.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="969">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="963">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="964">#AsbPackageEnsureFlags</doc>
+            <type name="PackageEnsureFlags" c:type="AsbPackageEnsureFlags"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="explode"
+                      invoker="explode"
+                      version="0.1.0"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1048">Decompresses a package into a directory, optionally using a glob list.</doc>
+        <source-position filename="asb-package.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1057">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1050">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1051">directory to explode into</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="glob" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1052">the glob list, or %NULL</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="open" invoker="open" version="0.1.0" throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="898">Opens a package and parses the contents.
+As little i/o should be done at this point, and implementations
+should rely on asb_package_ensure() to set data.</doc>
+        <source-position filename="asb-package.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="908">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="900">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="901">package filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_dep"
+              c:identifier="asb_package_add_dep"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="704">Add a package dependancy.</doc>
+        <source-position filename="asb-package.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="706">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="dep" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="707">package dep</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_release"
+              c:identifier="asb_package_add_release"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1192">Adds a (downstream) release to a package.</doc>
+        <source-position filename="asb-package.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1194">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="version" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1195">a package version</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="release" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1196">a package release</doc>
+            <type name="AppStreamGlib.Release" c:type="AsRelease*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear" c:identifier="asb_package_clear" version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1021">Deallocates previously ensured data.</doc>
+        <source-position filename="asb-package.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1023">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1024">#AsbPackageEnsureFlags</doc>
+            <type name="PackageEnsureFlags" c:type="AsbPackageEnsureFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="close"
+              c:identifier="asb_package_close"
+              version="0.3.5"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="933">Closes a package, which can be re-opened if required.</doc>
+        <source-position filename="asb-package.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="940">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="935">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="compare"
+              c:identifier="asb_package_compare"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1126">Compares one package with another.</doc>
+        <source-position filename="asb-package.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1133">+1 for @pkg1 newer, 0 for the same and -1 if @pkg2 is newer</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1128">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="pkg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1129">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ensure"
+              c:identifier="asb_package_ensure"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="961">Ensures data exists.</doc>
+        <source-position filename="asb-package.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="969">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="963">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="964">#AsbPackageEnsureFlags</doc>
+            <type name="PackageEnsureFlags" c:type="AsbPackageEnsureFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="explode"
+              c:identifier="asb_package_explode"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1048">Decompresses a package into a directory, optionally using a glob list.</doc>
+        <source-position filename="asb-package.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1057">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1050">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1051">directory to explode into</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="glob" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1052">the glob list, or %NULL</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_arch"
+              c:identifier="asb_package_get_arch"
+              version="0.3.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="381">Gets the package architecture</doc>
+        <source-position filename="asb-package.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="387">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="383">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_basename"
+              c:identifier="asb_package_get_basename"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="313">Gets the package basename.</doc>
+        <source-position filename="asb-package.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="319">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="315">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_config"
+              c:identifier="asb_package_get_config"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1091">Gets a config attribute from a package.</doc>
+        <source-position filename="asb-package.h" line="160"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1098">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1093">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1094">utf8 string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_deps"
+              c:identifier="asb_package_get_deps"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="500">Get the package dependancy list.</doc>
+        <source-position filename="asb-package.h" line="155"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="506">deplist</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="502">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled"
+              c:identifier="asb_package_get_enabled"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="123">Gets if the package is enabled.</doc>
+        <source-position filename="asb-package.h" line="164"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="129">enabled status</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="125">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_epoch"
+              c:identifier="asb_package_get_epoch"
+              version="0.5.6">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="296">Gets the epoch of the package.</doc>
+        <source-position filename="asb-package.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="302">a #AsbPackageKind</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="298">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_evr"
+              c:identifier="asb_package_get_evr"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="801">Gets the package EVR.</doc>
+        <source-position filename="asb-package.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="807">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="803">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_filelist"
+              c:identifier="asb_package_get_filelist"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="483">Gets the package filelist.</doc>
+        <source-position filename="asb-package.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="489">filelist</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="485">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_filename"
+              c:identifier="asb_package_get_filename"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="262">Gets the filename of the package.</doc>
+        <source-position filename="asb-package.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="268">utf8 filename</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="264">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_kind"
+              c:identifier="asb_package_get_kind"
+              version="0.2.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="279">Gets the kind of the package.</doc>
+        <source-position filename="asb-package.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="285">a #AsbPackageKind</doc>
+          <type name="PackageKind" c:type="AsbPackageKind"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="281">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_license"
+              c:identifier="asb_package_get_license"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="415">Gets the package license.</doc>
+        <source-position filename="asb-package.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="421">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="417">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="asb_package_get_name"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="330">Gets the package name</doc>
+        <source-position filename="asb-package.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="336">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="332">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nevr"
+              c:identifier="asb_package_get_nevr"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="737">Gets the package NEVR.</doc>
+        <source-position filename="asb-package.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="743">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="739">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nevra"
+              c:identifier="asb_package_get_nevra"
+              version="0.3.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="768">Gets the package NEVRA.</doc>
+        <source-position filename="asb-package.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="774">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="770">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_release"
+              c:identifier="asb_package_get_release"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1174">Gets the release for a specific version.</doc>
+        <source-position filename="asb-package.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1181">an #AsRelease, or %NULL for not found</doc>
+          <type name="AppStreamGlib.Release" c:type="AsRelease*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1176">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="version" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1177">package version</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_release_str"
+              c:identifier="asb_package_get_release_str"
+              version="0.5.6">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="364">Gets the package release string</doc>
+        <source-position filename="asb-package.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="370">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="366">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_releases"
+              c:identifier="asb_package_get_releases"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1109">Gets the releases of the package.</doc>
+        <source-position filename="asb-package.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="1115">the release data</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="AppStreamGlib.Release"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1111">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_source"
+              c:identifier="asb_package_get_source"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="449">Gets the package source nevra.</doc>
+        <source-position filename="asb-package.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="455">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="451">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_source_pkgname"
+              c:identifier="asb_package_get_source_pkgname"
+              version="0.2.4">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="466">Gets the package source name.</doc>
+        <source-position filename="asb-package.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="472">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="468">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_url"
+              c:identifier="asb_package_get_url"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="398">Gets the package homepage URL</doc>
+        <source-position filename="asb-package.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="404">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="400">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_vcs"
+              c:identifier="asb_package_get_vcs"
+              version="0.3.4">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="432">Gets the package version control system.</doc>
+        <source-position filename="asb-package.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="438">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="434">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="asb_package_get_version"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="347">Gets the package version</doc>
+        <source-position filename="asb-package.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="353">utf8 string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="349">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="log"
+              c:identifier="asb_package_log"
+              version="0.1.0"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="171">Logs a message.</doc>
+        <source-position filename="asb-package.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="173">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="log_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="174">a #AsbPackageLogLevel</doc>
+            <type name="PackageLogLevel" c:type="AsbPackageLogLevel"/>
+          </parameter>
+          <parameter name="fmt" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="175">Format string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="176">varargs</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="log_flush"
+              c:identifier="asb_package_log_flush"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="225">Flushes the log queue.</doc>
+        <source-position filename="asb-package.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="232">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="227">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="log_start"
+              c:identifier="asb_package_log_start"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="156">Starts the log timer.</doc>
+        <source-position filename="asb-package.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="158">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="open"
+              c:identifier="asb_package_open"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="898">Opens a package and parses the contents.
+As little i/o should be done at this point, and implementations
+should rely on asb_package_ensure() to set data.</doc>
+        <source-position filename="asb-package.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-package.c"
+               line="908">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="900">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="901">package filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_arch"
+              c:identifier="asb_package_set_arch"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="584">Sets the package architecture.</doc>
+        <source-position filename="asb-package.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="586">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="arch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="587">package architecture</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_config"
+              c:identifier="asb_package_set_config"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="1074">Sets a config attribute on a package.</doc>
+        <source-position filename="asb-package.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1076">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1077">utf8 string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1078">utf8 string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled"
+              c:identifier="asb_package_set_enabled"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="140">Enables or disables the package.</doc>
+        <source-position filename="asb-package.h" line="165"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="142">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="143">boolean</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_epoch"
+              c:identifier="asb_package_set_epoch"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="601">Sets the package epoch</doc>
+        <source-position filename="asb-package.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="603">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="epoch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="604">epoch, or 0 for unset</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filelist"
+              c:identifier="asb_package_set_filelist"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="720">Sets the package filelist.</doc>
+        <source-position filename="asb-package.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="722">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="filelist" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="723">package filelist</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filename"
+              c:identifier="asb_package_set_filename"
+              version="0.3.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="876">Sets the package filename.</doc>
+        <source-position filename="asb-package.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="878">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="879">package filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_kind"
+              c:identifier="asb_package_set_kind"
+              version="0.2.5">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="517">Sets the package kind.</doc>
+        <source-position filename="asb-package.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="519">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="kind" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="520">A #AsbPackageKind</doc>
+            <type name="PackageKind" c:type="AsbPackageKind"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_license"
+              c:identifier="asb_package_set_license"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="634">Sets the package license.</doc>
+        <source-position filename="asb-package.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="636">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="license" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="637">license string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name"
+              c:identifier="asb_package_set_name"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="533">Sets the package name.</doc>
+        <source-position filename="asb-package.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="535">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="536">package name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_release"
+              c:identifier="asb_package_set_release"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="567">Sets the package release.</doc>
+        <source-position filename="asb-package.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="569">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="release" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="570">package release</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_source"
+              c:identifier="asb_package_set_source"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="668">Sets the package source name, which is usually the parent of a set of
+subpackages.</doc>
+        <source-position filename="asb-package.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="670">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="source" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="671">source string, e.g. the srpm nevra</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_source_pkgname"
+              c:identifier="asb_package_set_source_pkgname"
+              version="0.2.4">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="686">Sets the package source name, which is usually the parent of a set of
+subpackages.</doc>
+        <source-position filename="asb-package.h" line="148"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="688">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="source_pkgname" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="689">source string, e.g. the srpm name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_url"
+              c:identifier="asb_package_set_url"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="617">Sets the package URL.</doc>
+        <source-position filename="asb-package.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="619">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="url" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="620">homepage URL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_vcs"
+              c:identifier="asb_package_set_vcs"
+              version="0.3.4">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="651">Sets the package version control system.</doc>
+        <source-position filename="asb-package.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="653">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="vcs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="654">vcs string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_version"
+              c:identifier="asb_package_set_version"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-package.c"
+             line="550">Sets the package version.</doc>
+        <source-position filename="asb-package.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="552">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </instance-parameter>
+          <parameter name="version" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="553">package version</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="PackageClass"
+            c:type="AsbPackageClass"
+            glib:is-gtype-struct-for="Package">
+      <source-position filename="asb-package.h" line="71"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="open">
+        <callback name="open" throws="1">
+          <source-position filename="asb-package.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="908">%TRUE for success, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="pkg" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="900">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+            <parameter name="filename" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="901">package filename</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="ensure">
+        <callback name="ensure" throws="1">
+          <source-position filename="asb-package.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="969">%TRUE for success, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="pkg" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="963">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="964">#AsbPackageEnsureFlags</doc>
+              <type name="PackageEnsureFlags" c:type="AsbPackageEnsureFlags"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="explode">
+        <callback name="explode" throws="1">
+          <source-position filename="asb-package.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1057">%TRUE for success, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="pkg" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="1050">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+            <parameter name="dir" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="1051">directory to explode into</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="glob" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="1052">the glob list, or %NULL</doc>
+              <array name="GLib.PtrArray" c:type="GPtrArray*">
+                <type name="utf8"/>
+              </array>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="compare">
+        <callback name="compare">
+          <source-position filename="asb-package.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="1133">+1 for @pkg1 newer, 0 for the same and -1 if @pkg2 is newer</doc>
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="pkg1" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="1128">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+            <parameter name="pkg2" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="1129">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="close">
+        <callback name="close" throws="1">
+          <source-position filename="asb-package.h" line="61"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-package.c"
+                 line="940">%TRUE for success, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="pkg" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="asb-package.c"
+                   line="935">A #AsbPackage</doc>
+              <type name="Package" c:type="AsbPackage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_asb_reserved1" introspectable="0">
+        <callback name="_asb_reserved1">
+          <source-position filename="asb-package.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved2" introspectable="0">
+        <callback name="_asb_reserved2">
+          <source-position filename="asb-package.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved3" introspectable="0">
+        <callback name="_asb_reserved3">
+          <source-position filename="asb-package.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved4" introspectable="0">
+        <callback name="_asb_reserved4">
+          <source-position filename="asb-package.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved5" introspectable="0">
+        <callback name="_asb_reserved5">
+          <source-position filename="asb-package.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved6" introspectable="0">
+        <callback name="_asb_reserved6">
+          <source-position filename="asb-package.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved7" introspectable="0">
+        <callback name="_asb_reserved7">
+          <source-position filename="asb-package.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="PackageKind" c:type="AsbPackageKind">
+      <source-position filename="asb-package.h" line="86"/>
+      <member name="default" value="0" c:identifier="ASB_PACKAGE_KIND_DEFAULT">
+      </member>
+      <member name="bundle" value="1" c:identifier="ASB_PACKAGE_KIND_BUNDLE">
+      </member>
+      <member name="firmware"
+              value="2"
+              c:identifier="ASB_PACKAGE_KIND_FIRMWARE">
+      </member>
+      <member name="last" value="3" c:identifier="ASB_PACKAGE_KIND_LAST">
+      </member>
+    </enumeration>
+    <enumeration name="PackageLogLevel" c:type="AsbPackageLogLevel">
+      <source-position filename="asb-package.h" line="79"/>
+      <member name="none" value="0" c:identifier="ASB_PACKAGE_LOG_LEVEL_NONE">
+      </member>
+      <member name="debug"
+              value="1"
+              c:identifier="ASB_PACKAGE_LOG_LEVEL_DEBUG">
+      </member>
+      <member name="info" value="2" c:identifier="ASB_PACKAGE_LOG_LEVEL_INFO">
+      </member>
+      <member name="warning"
+              value="3"
+              c:identifier="ASB_PACKAGE_LOG_LEVEL_WARNING">
+      </member>
+      <member name="last" value="4" c:identifier="ASB_PACKAGE_LOG_LEVEL_LAST">
+      </member>
+    </enumeration>
+    <class name="Task"
+           c:symbol-prefix="task"
+           c:type="AsbTask"
+           parent="GObject.Object"
+           glib:type-name="AsbTask"
+           glib:get-type="asb_task_get_type"
+           glib:type-struct="TaskClass">
+      <source-position filename="asb-task.h" line="47"/>
+      <constructor name="new" c:identifier="asb_task_new" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-task.c"
+             line="599">Creates a new task.</doc>
+        <source-position filename="asb-task.h" line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="asb-task.c"
+               line="605">A #AsbTask</doc>
+          <type name="Task" c:type="AsbTask*"/>
+        </return-value>
+        <parameters>
+          <parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-task.c"
+                 line="601">A #AsbContext</doc>
+            <type name="Context" c:type="AsbContext*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="process"
+              c:identifier="asb_task_process"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="asb-task.c"
+             line="301">Processes the task.</doc>
+        <source-position filename="asb-task.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="asb-task.c"
+               line="308">%TRUE for success, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="task" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-task.c"
+                 line="303">A #AsbTask</doc>
+            <type name="Task" c:type="AsbTask*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_package"
+              c:identifier="asb_task_set_package"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="asb-task.c"
+             line="566">Sets the package used for the task.</doc>
+        <source-position filename="asb-task.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="task" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-task.c"
+                 line="568">A #AsbTask</doc>
+            <type name="Task" c:type="AsbTask*"/>
+          </instance-parameter>
+          <parameter name="pkg" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="asb-task.c"
+                 line="569">A #AsbPackage</doc>
+            <type name="Package" c:type="AsbPackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="TaskClass"
+            c:type="AsbTaskClass"
+            glib:is-gtype-struct-for="Task">
+      <source-position filename="asb-task.h" line="47"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_asb_reserved1" introspectable="0">
+        <callback name="_asb_reserved1">
+          <source-position filename="asb-task.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved2" introspectable="0">
+        <callback name="_asb_reserved2">
+          <source-position filename="asb-task.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved3" introspectable="0">
+        <callback name="_asb_reserved3">
+          <source-position filename="asb-task.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved4" introspectable="0">
+        <callback name="_asb_reserved4">
+          <source-position filename="asb-task.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved5" introspectable="0">
+        <callback name="_asb_reserved5">
+          <source-position filename="asb-task.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved6" introspectable="0">
+        <callback name="_asb_reserved6">
+          <source-position filename="asb-task.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved7" introspectable="0">
+        <callback name="_asb_reserved7">
+          <source-position filename="asb-task.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_asb_reserved8" introspectable="0">
+        <callback name="_asb_reserved8">
+          <source-position filename="asb-task.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+  </namespace>
+</repository>

@@ -1,0 +1,4123 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gck" version="1"/>
+  <include name="Gcr" version="3"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="gcr-ui-3"/>
+  <c:include name="ui/gcr-ui.h"/>
+  <namespace name="GcrUi"
+             version="3"
+             shared-library="libgcr-ui-3.so.1"
+             c:identifier-prefixes="Gcr"
+             c:symbol-prefixes="gcr">
+    <function-macro name="CERTIFICATE_RENDERER"
+                    c:identifier="GCR_CERTIFICATE_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERTIFICATE_RENDERER_CLASS"
+                    c:identifier="GCR_CERTIFICATE_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERTIFICATE_RENDERER_GET_CLASS"
+                    c:identifier="GCR_CERTIFICATE_RENDERER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERTIFICATE_WIDGET"
+                    c:identifier="GCR_CERTIFICATE_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERTIFICATE_WIDGET_CLASS"
+                    c:identifier="GCR_CERTIFICATE_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERTIFICATE_WIDGET_GET_CLASS"
+                    c:identifier="GCR_CERTIFICATE_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLLECTION_MODEL"
+                    c:identifier="GCR_COLLECTION_MODEL"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-collection-model.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLLECTION_MODEL_CLASS"
+                    c:identifier="GCR_COLLECTION_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-collection-model.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLLECTION_MODEL_GET_CLASS"
+                    c:identifier="GCR_COLLECTION_MODEL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-collection-model.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COMBO_SELECTOR"
+                    c:identifier="GCR_COMBO_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-combo-selector.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COMBO_SELECTOR_CLASS"
+                    c:identifier="GCR_COMBO_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-combo-selector.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COMBO_SELECTOR_GET_CLASS"
+                    c:identifier="GCR_COMBO_SELECTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-combo-selector.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="CertificateRenderer"
+           c:symbol-prefix="certificate_renderer"
+           c:type="GcrCertificateRenderer"
+           parent="GObject.Object"
+           glib:type-name="GcrCertificateRenderer"
+           glib:get-type="gcr_certificate_renderer_get_type"
+           glib:type-struct="CertificateRendererClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-certificate-renderer.c"
+           line="45">An implementation of #GcrRenderer which renders certificates.</doc>
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="55"/>
+      <implements name="Gcr.Certificate"/>
+      <implements name="Gcr.Comparable"/>
+      <implements name="Renderer"/>
+      <constructor name="new" c:identifier="gcr_certificate_renderer_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="668">Create a new certificate renderer to display the certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-renderer.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-renderer.c"
+               line="674">a newly allocated #GcrCertificateRenderer, which
+         should be released with g_object_unref()</doc>
+          <type name="CertificateRenderer" c:type="GcrCertificateRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="certificate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="670">The certificate to display</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_attributes"
+                   c:identifier="gcr_certificate_renderer_new_for_attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="683">Create a new certificate renderer to display the label and attributes. One
+of the attributes should be a CKA_VALUE type attribute containing a DER
+encoded certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-renderer.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-renderer.c"
+               line="692">a newly allocated #GcrCertificateRenderer, which
+         should be released with g_object_unref()</doc>
+          <type name="CertificateRenderer" c:type="GcrCertificateRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="685">the label to display</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="686">The attributes to display</doc>
+            <type name="gpointer" c:type="_GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_certificate"
+              c:identifier="gcr_certificate_renderer_get_certificate"
+              glib:get-property="certificate">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="701">Get the certificate displayed in the renderer. If no certificate was
+explicitly set, then the renderer will return itself since it acts as
+a valid certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-renderer.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-renderer.c"
+               line="709">The certificate, owned by the renderer.</doc>
+          <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="703">The renderer</doc>
+            <type name="CertificateRenderer" c:type="GcrCertificateRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_certificate"
+              c:identifier="gcr_certificate_renderer_set_certificate"
+              glib:set-property="certificate">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="720">Set a certificate to display in the renderer.</doc>
+        <source-position filename="../ui/gcr-certificate-renderer.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="722">The renderer</doc>
+            <type name="CertificateRenderer" c:type="GcrCertificateRenderer*"/>
+          </instance-parameter>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-renderer.c"
+                 line="723">the certificate to display</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="attributes" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="447">The certificate attributes to display. One of the attributes must be
+a CKA_VALUE type attribute which contains a DER encoded certificate.</doc>
+        <type name="Gck.Attributes"/>
+      </property>
+      <property name="certificate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_certificate"
+                getter="get_certificate">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="437">The certificate to display. May be %NULL.</doc>
+        <type name="Gcr.Certificate"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="458">The label to display.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="CertificateRendererPrivate"
+              c:type="GcrCertificateRendererPrivate*"/>
+      </field>
+    </class>
+    <record name="CertificateRendererClass"
+            c:type="GcrCertificateRendererClass"
+            glib:is-gtype-struct-for="CertificateRenderer">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-certificate-renderer.c"
+           line="51">The class for #GcrCertificateRenderer.</doc>
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="55"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-renderer.c"
+             line="53">The parent class.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="CertificateRendererPrivate"
+            c:type="GcrCertificateRendererPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="44"/>
+    </record>
+    <class name="CertificateWidget"
+           c:symbol-prefix="certificate_widget"
+           c:type="GcrCertificateWidget"
+           parent="Gtk.Bin"
+           glib:type-name="GcrCertificateWidget"
+           glib:get-type="gcr_certificate_widget_get_type"
+           glib:type-struct="CertificateWidgetClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-certificate-widget.c"
+           line="33">A widget that can be used to display a certificate.
+
+A certificate widget is normally in a collapsed state showing only
+details, but can be expanded by the user.
+
+Use [ctor@CertificateWidget.new] to create a new certificate widget. Only
+one certificate can be displayed. It contains a [iface@Viewer] internally
+and [class@CertificateRenderer] is used to render the certificate to the
+viewer.
+
+To show more than one certificate in a view, create the viewer and
+add renderers to it.</doc>
+      <source-position filename="../ui/gcr-certificate-widget.h" line="53"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gcr_certificate_widget_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-widget.c"
+             line="172">Create a new certificate widget which displays a given certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-widget.h" line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-widget.c"
+               line="178">a new certificate widget</doc>
+          <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="174">certificate to display, or %NULL</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_attributes"
+              c:identifier="gcr_certificate_widget_get_attributes"
+              glib:get-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-widget.c"
+             line="215">Get the attributes displayed in the widget. The attributes should contain
+a certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-widget.h" line="64"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-widget.c"
+               line="222">the attributes, owned by the widget</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="217">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_certificate"
+              c:identifier="gcr_certificate_widget_get_certificate"
+              glib:get-property="certificate">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-widget.c"
+             line="186">Get the certificate displayed in the widget.</doc>
+        <source-position filename="../ui/gcr-certificate-widget.h" line="59"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-certificate-widget.c"
+               line="192">the certificate</doc>
+          <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="188">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_attributes"
+              c:identifier="gcr_certificate_widget_set_attributes"
+              glib:set-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-widget.c"
+             line="231">Set the attributes displayed in the widget. The attributes should contain
+a certificate.</doc>
+        <source-position filename="../ui/gcr-certificate-widget.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="233">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="234">the attributes to display</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_certificate"
+              c:identifier="gcr_certificate_widget_set_certificate"
+              glib:set-property="certificate">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-certificate-widget.c"
+             line="201">Set the certificate displayed in the widget</doc>
+        <source-position filename="../ui/gcr-certificate-widget.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="203">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-certificate-widget.c"
+                 line="204">the certificate to display</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="attributes"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_attributes"
+                getter="get_attributes">
+        <type name="Gck.Attributes"/>
+      </property>
+      <property name="certificate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_certificate"
+                getter="get_certificate">
+        <type name="Gcr.Certificate"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="CertificateWidgetPrivate"
+              c:type="GcrCertificateWidgetPrivate*"/>
+      </field>
+    </class>
+    <record name="CertificateWidgetClass"
+            c:type="GcrCertificateWidgetClass"
+            glib:is-gtype-struct-for="CertificateWidget">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="53"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+    </record>
+    <record name="CertificateWidgetPrivate"
+            c:type="GcrCertificateWidgetPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="42"/>
+    </record>
+    <class name="CollectionModel"
+           c:symbol-prefix="collection_model"
+           c:type="GcrCollectionModel"
+           parent="GObject.Object"
+           glib:type-name="GcrCollectionModel"
+           glib:get-type="gcr_collection_model_get_type"
+           glib:type-struct="CollectionModelClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-collection-model.c"
+           line="34">Ain implementation of a [iface@Gtk.TreeModel] which contains a row for each
+object in a [iface@Gcr.Collection].
+
+As objects are added or removed from the collection, rows are added and
+removed from this model.
+
+The row values come from the properties of the objects in the collection. Use
+[ctor@CollectionModel.new] to create a new collection model. To have more
+control over the values use a set of [struct@Gcr.Column] structures to
+define the columns. This can be done with [ctor@CollectionModel.new_full] or
+[method@CollectionModel.set_columns].
+
+Each row can have a selected state, which is represented by a boolean column.
+The selected state can be toggled with gcr_collection_model_toggle_selected()
+or set with gcr_collection_model_set_selected_objects() and retrieved with
+[method@CollectionModel.get_selected_objects].
+
+To determine which object a row represents and vice versa, use the
+[method@CollectionModel.iter_for_object] or
+[method@CollectionModel.object_for_iter] functions.</doc>
+      <source-position filename="../ui/gcr-collection-model.h" line="56"/>
+      <implements name="Gtk.TreeModel"/>
+      <implements name="Gtk.TreeSortable"/>
+      <constructor name="new"
+                   c:identifier="gcr_collection_model_new"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1261">Create a new #GcrCollectionModel. The variable argument list should contain
+pairs of property names, and #GType values. The variable argument list should
+be terminated with %NULL.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1271">a newly allocated model, which should be released
+         with g_object_unref().</doc>
+          <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="collection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1263">the collection to represent</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1264">whether list or tree mode</doc>
+            <type name="CollectionModelMode" c:type="GcrCollectionModelMode"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1265">the column names and types</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full"
+                   c:identifier="gcr_collection_model_new_full"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1304">Create a new #GcrCollectionModel.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1312">a newly allocated model, which should be released
+         with g_object_unref()</doc>
+          <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="collection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1306">the collection to represent</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1307">whether list or tree mode</doc>
+            <type name="CollectionModelMode" c:type="GcrCollectionModelMode"/>
+          </parameter>
+          <parameter name="columns" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1308">the columns the model should contain</doc>
+            <type name="Gcr.Column" c:type="const GcrColumn*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="change_selected"
+              c:identifier="gcr_collection_model_change_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1526">Set whether a given row is toggled selected or not.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1528">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1529">The row</doc>
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+          <parameter name="selected" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1530">Whether the row should be selected or not.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="column_for_selected"
+              c:identifier="gcr_collection_model_column_for_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1483">Get the column identifier for the column that contains the values
+of the selected state.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1490">The column identifier.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1485">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_collection"
+              c:identifier="gcr_collection_model_get_collection"
+              glib:get-property="collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1368">Get the collection which this model represents</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1374">the collection, owned by the model</doc>
+          <type name="Gcr.Collection" c:type="GcrCollection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1370">a collection model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected_objects"
+              c:identifier="gcr_collection_model_get_selected_objects">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1585">Get a list of checked/selected objects.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="95"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1591">a list of selected
+         objects, which should be freed with g_list_free()</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="GObject.Object"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1587">the collection model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_selected"
+              c:identifier="gcr_collection_model_is_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1560">Check whether a given row has been toggled as selected.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1567">Whether the row has been selected.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1562">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1563">The row</doc>
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="iter_for_object"
+              c:identifier="gcr_collection_model_iter_for_object">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1455">Set @iter to the row for the given object. If the object is not in this
+model, then %FALSE will be returned.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1464">%TRUE if the object was present.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1457">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1458">The object</doc>
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1459">The row for the object</doc>
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="object_for_iter"
+              c:identifier="gcr_collection_model_object_for_iter">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1435">Get the object that is represented by the given row in the model.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1442">The object, owned by the model.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1437">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1438">The row</doc>
+            <type name="Gtk.TreeIter" c:type="const GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_collection"
+              c:identifier="gcr_collection_model_set_collection"
+              glib:set-property="collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1383">Set the collection which this model represents</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1385">a collection model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="collection"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1386">the collection or %NULL</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_columns"
+              c:identifier="gcr_collection_model_set_columns"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1328">Set the columns that the model should contain. @columns is an array of
+#GcrColumn structures, with the last one containing %NULL for all values.
+
+This function can only be called once, and only if the model was not created
+without a set of columns. This function cannot be called after the model
+has been added to a view.
+
+The columns are accessed as static data. They should continue to remain
+in memory for longer than the GcrCollectionModel object.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-collection-model.c"
+               line="1343">The number of columns</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1330">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="columns" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1331">The columns the model should contain</doc>
+            <type name="Gcr.Column" c:type="const GcrColumn*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_selected_objects"
+              c:identifier="gcr_collection_model_set_selected_objects">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1612">Set the checked/selected objects.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1614">the collection model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="selected" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1615">a list of objects to select</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="GObject.Object"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="toggle_selected"
+              c:identifier="gcr_collection_model_toggle_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="1500">Toggle the selected state of a given row.</doc>
+        <source-position filename="../ui/gcr-collection-model.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1502">The model</doc>
+            <type name="CollectionModel" c:type="GcrCollectionModel*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-collection-model.c"
+                 line="1503">The row</doc>
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collection"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_collection"
+                getter="get_collection">
+        <type name="Gcr.Collection"/>
+      </property>
+      <property name="columns"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="mode"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="CollectionModelPrivate"
+              c:type="GcrCollectionModelPrivate*"/>
+      </field>
+    </class>
+    <record name="CollectionModelClass"
+            c:type="GcrCollectionModelClass"
+            glib:is-gtype-struct-for="CollectionModel">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-collection-model.c"
+           line="59">The class for #GcrCollectionModel.</doc>
+      <source-position filename="../ui/gcr-collection-model.h" line="56"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="61">The parent class</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="CollectionModelMode" c:type="GcrCollectionModelMode">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-collection-model.c"
+           line="66">If a [class@CollectionModel] is created with a mode of
+%GCR_COLLECTION_MODEL_TREE, then any included objects that are themselves a
+[iface@Gcr.Collection], will have all child
+objects include as child rows in a tree form.</doc>
+      <source-position filename="../ui/gcr-collection-model.h" line="34"/>
+      <member name="list" value="0" c:identifier="GCR_COLLECTION_MODEL_LIST">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="68">only objects in the top collection, no child objects</doc>
+      </member>
+      <member name="tree" value="1" c:identifier="GCR_COLLECTION_MODEL_TREE">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-collection-model.c"
+             line="69">show objects in the collection, and child objects in a tree form</doc>
+      </member>
+    </enumeration>
+    <record name="CollectionModelPrivate"
+            c:type="GcrCollectionModelPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-collection-model.h" line="45"/>
+    </record>
+    <class name="ComboSelector"
+           c:symbol-prefix="combo_selector"
+           c:type="GcrComboSelector"
+           parent="Gtk.ComboBox"
+           glib:type-name="GcrComboSelector"
+           glib:get-type="gcr_combo_selector_get_type"
+           glib:type-struct="ComboSelectorClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-combo-selector.c"
+           line="31">A widget that can be used to select a certificate or key. It allows
+the user to select one object from the selector at a time.</doc>
+      <source-position filename="../ui/gcr-combo-selector.h" line="50"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.CellEditable"/>
+      <implements name="Gtk.CellLayout"/>
+      <constructor name="new" c:identifier="gcr_combo_selector_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-combo-selector.c"
+             line="177">Create a new #GcrTreeSelector.</doc>
+        <source-position filename="../ui/gcr-combo-selector.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-combo-selector.c"
+               line="183">A newly allocated selector, which should be released with
+    g_object_unref().</doc>
+          <type name="ComboSelector" c:type="GcrComboSelector*"/>
+        </return-value>
+        <parameters>
+          <parameter name="collection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-combo-selector.c"
+                 line="179">The collection that contains the objects to display</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_collection"
+              c:identifier="gcr_combo_selector_get_collection"
+              glib:get-property="collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-combo-selector.c"
+             line="194">Get the collection that this selector is displaying objects from.</doc>
+        <source-position filename="../ui/gcr-combo-selector.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-combo-selector.c"
+               line="200">The collection, owned by the selector.</doc>
+          <type name="Gcr.Collection" c:type="GcrCollection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-combo-selector.c"
+                 line="196">The selector</doc>
+            <type name="ComboSelector" c:type="GcrComboSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected"
+              c:identifier="gcr_combo_selector_get_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-combo-selector.c"
+             line="209">Get the selected object in the selector, or %NULL if nothing selected.</doc>
+        <source-position filename="../ui/gcr-combo-selector.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-combo-selector.c"
+               line="215">the selected object, owned by the selector, or %NULL</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-combo-selector.c"
+                 line="211">The selector</doc>
+            <type name="ComboSelector" c:type="GcrComboSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_selected"
+              c:identifier="gcr_combo_selector_set_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-combo-selector.c"
+             line="228">Set the currently selected object in the selector, or clear the selection
+if selected is set to %NULL.</doc>
+        <source-position filename="../ui/gcr-combo-selector.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-combo-selector.c"
+                 line="230">The selector</doc>
+            <type name="ComboSelector" c:type="GcrComboSelector*"/>
+          </instance-parameter>
+          <parameter name="selected"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-combo-selector.c"
+                 line="231">the object to select or %NULL</doc>
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collection"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-combo-selector.c"
+             line="162">The collection which contains the objects to display in the selector.</doc>
+        <type name="Gcr.Collection"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.ComboBox" c:type="GtkComboBox"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="ComboSelectorPrivate" c:type="GcrComboSelectorPrivate*"/>
+      </field>
+    </class>
+    <record name="ComboSelectorClass"
+            c:type="GcrComboSelectorClass"
+            glib:is-gtype-struct-for="ComboSelector">
+      <source-position filename="../ui/gcr-combo-selector.h" line="50"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.ComboBoxClass" c:type="GtkComboBoxClass"/>
+      </field>
+    </record>
+    <record name="ComboSelectorPrivate"
+            c:type="GcrComboSelectorPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-combo-selector.h" line="38"/>
+    </record>
+    <function-macro name="FAILURE_RENDERER"
+                    c:identifier="GCR_FAILURE_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FAILURE_RENDERER_CLASS"
+                    c:identifier="GCR_FAILURE_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FAILURE_RENDERER_GET_CLASS"
+                    c:identifier="GCR_FAILURE_RENDERER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="FailureRenderer"
+           c:symbol-prefix="failure_renderer"
+           c:type="GcrFailureRenderer"
+           parent="GObject.Object"
+           glib:type-name="GcrFailureRenderer"
+           glib:get-type="gcr_failure_renderer_get_type"
+           glib:type-struct="FailureRendererClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-failure-renderer.c"
+           line="30">A renderer that can be used for unsupported data.</doc>
+      <source-position filename="../ui/gcr-failure-renderer.h" line="54"/>
+      <implements name="Renderer"/>
+      <constructor name="new" c:identifier="gcr_failure_renderer_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-failure-renderer.c"
+             line="184">Create a new renderer for an error.</doc>
+        <source-position filename="../ui/gcr-failure-renderer.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-failure-renderer.c"
+               line="191">the new renderer</doc>
+          <type name="FailureRenderer" c:type="GcrRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-failure-renderer.c"
+                 line="186">the label for the failure</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-failure-renderer.c"
+                 line="187">the error to display</doc>
+            <type name="GLib.Error" c:type="GError*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new_unsupported"
+                c:identifier="gcr_failure_renderer_new_unsupported">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-failure-renderer.c"
+             line="207">Create a new renderer for unsupported data.</doc>
+        <source-position filename="../ui/gcr-failure-renderer.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-failure-renderer.c"
+               line="213">the new renderer</doc>
+          <type name="Renderer" c:type="GcrRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-failure-renderer.c"
+                 line="209">the label for the failure</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <property name="attributes" writable="1" transfer-ownership="none">
+        <type name="Gck.Attributes"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="FailureRendererPrivate"
+              c:type="GcrFailureRendererPrivate*"/>
+      </field>
+    </class>
+    <record name="FailureRendererClass"
+            c:type="GcrFailureRendererClass"
+            glib:is-gtype-struct-for="FailureRenderer">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="54"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="FailureRendererPrivate"
+            c:type="GcrFailureRendererPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="43"/>
+    </record>
+    <function-macro name="IMPORT_BUTTON"
+                    c:identifier="GCR_IMPORT_BUTTON"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-import-button.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IMPORT_BUTTON_CLASS"
+                    c:identifier="GCR_IMPORT_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-import-button.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IMPORT_BUTTON_GET_CLASS"
+                    c:identifier="GCR_IMPORT_BUTTON_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-import-button.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERTIFICATE_RENDERER"
+                    c:identifier="GCR_IS_CERTIFICATE_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERTIFICATE_RENDERER_CLASS"
+                    c:identifier="GCR_IS_CERTIFICATE_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-renderer.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERTIFICATE_WIDGET"
+                    c:identifier="GCR_IS_CERTIFICATE_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERTIFICATE_WIDGET_CLASS"
+                    c:identifier="GCR_IS_CERTIFICATE_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-certificate-widget.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COLLECTION_MODEL"
+                    c:identifier="GCR_IS_COLLECTION_MODEL"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-collection-model.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COLLECTION_MODEL_CLASS"
+                    c:identifier="GCR_IS_COLLECTION_MODEL_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-collection-model.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COMBO_SELECTOR"
+                    c:identifier="GCR_IS_COMBO_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-combo-selector.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COMBO_SELECTOR_CLASS"
+                    c:identifier="GCR_IS_COMBO_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-combo-selector.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FAILURE_RENDERER"
+                    c:identifier="GCR_IS_FAILURE_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FAILURE_RENDERER_CLASS"
+                    c:identifier="GCR_IS_FAILURE_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-failure-renderer.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_IMPORT_BUTTON"
+                    c:identifier="GCR_IS_IMPORT_BUTTON"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-import-button.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_IMPORT_BUTTON_CLASS"
+                    c:identifier="GCR_IS_IMPORT_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-import-button.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEY_RENDERER"
+                    c:identifier="GCR_IS_KEY_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-renderer.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEY_RENDERER_CLASS"
+                    c:identifier="GCR_IS_KEY_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-renderer.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEY_WIDGET"
+                    c:identifier="GCR_IS_KEY_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-widget.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEY_WIDGET_CLASS"
+                    c:identifier="GCR_IS_KEY_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-widget.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LIST_SELECTOR"
+                    c:identifier="GCR_IS_LIST_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-list-selector.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LIST_SELECTOR_CLASS"
+                    c:identifier="GCR_IS_LIST_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-list-selector.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROMPT_DIALOG"
+                    c:identifier="GCR_IS_PROMPT_DIALOG"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROMPT_DIALOG_CLASS"
+                    c:identifier="GCR_IS_PROMPT_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RENDERER"
+                    c:identifier="GCR_IS_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-renderer.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SECURE_ENTRY_BUFFER"
+                    c:identifier="GCR_IS_SECURE_ENTRY_BUFFER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SECURE_ENTRY_BUFFER_CLASS"
+                    c:identifier="GCR_IS_SECURE_ENTRY_BUFFER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE_SELECTOR"
+                    c:identifier="GCR_IS_TREE_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-tree-selector.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE_SELECTOR_CLASS"
+                    c:identifier="GCR_IS_TREE_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-tree-selector.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UNLOCK_OPTIONS_WIDGET"
+                    c:identifier="GCR_IS_UNLOCK_OPTIONS_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UNLOCK_OPTIONS_WIDGET_CLASS"
+                    c:identifier="GCR_IS_UNLOCK_OPTIONS_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VIEWER"
+                    c:identifier="GCR_IS_VIEWER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-viewer.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ImportButton"
+           c:symbol-prefix="import_button"
+           c:type="GcrImportButton"
+           parent="Gtk.Button"
+           glib:type-name="GcrImportButton"
+           glib:get-type="gcr_import_button_get_type"
+           glib:type-struct="ImportButtonClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-import-button.c"
+           line="41">A button which imports keys and certificates.
+
+The import button shows a spinner when the button is activated. When more
+than one importer is available, it shows a drop down to select which to
+import to.</doc>
+      <source-position filename="../ui/gcr-import-button.h" line="61"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gcr_import_button_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-import-button.c"
+             line="540">Create a new #GcrImportButton.</doc>
+        <source-position filename="../ui/gcr-import-button.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-import-button.c"
+               line="546">a newly created #GcrImportButton</doc>
+          <type name="ImportButton" c:type="GcrImportButton*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="542">label to display on the button</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="imported">
+        <source-position filename="../ui/gcr-import-button.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ImportButton" c:type="GcrImportButton*"/>
+          </instance-parameter>
+          <parameter name="importer" transfer-ownership="none">
+            <type name="Gcr.Importer" c:type="GcrImporter*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="importing">
+        <source-position filename="../ui/gcr-import-button.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ImportButton" c:type="GcrImportButton*"/>
+          </instance-parameter>
+          <parameter name="importer" transfer-ownership="none">
+            <type name="Gcr.Importer" c:type="GcrImporter*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_parsed" c:identifier="gcr_import_button_add_parsed">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-import-button.c"
+             line="556">Queue an item to import via the button</doc>
+        <source-position filename="../ui/gcr-import-button.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="558">an import button</doc>
+            <type name="ImportButton" c:type="GcrImportButton*"/>
+          </instance-parameter>
+          <parameter name="parsed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="559">a parsed item</doc>
+            <type name="Gcr.Parsed" c:type="GcrParsed*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.Button" c:type="GtkButton"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="ImportButtonPrivate" c:type="GcrImportButtonPrivate*"/>
+      </field>
+      <glib:signal name="imported" when="last">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-import-button.c"
+             line="524">Signal emitted when an import completes or fails.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="importer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="527">the importer that was imported to</doc>
+            <type name="GObject.Object"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="528">if import was successful %NULL, or an error</doc>
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="importing" when="last">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-import-button.c"
+             line="512">Signal emitted when an import begins.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="importer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-import-button.c"
+                 line="515">the importer that will be imported to</doc>
+            <type name="GObject.Object"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ImportButtonClass"
+            c:type="GcrImportButtonClass"
+            glib:is-gtype-struct-for="ImportButton">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-import-button.c"
+           line="51">Class struct for [class@ImportButton].</doc>
+      <source-position filename="../ui/gcr-import-button.h" line="61"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-import-button.c"
+             line="53">The parent class</doc>
+        <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
+      </field>
+      <field name="importing">
+        <callback name="importing">
+          <source-position filename="../ui/gcr-import-button.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ImportButton" c:type="GcrImportButton*"/>
+            </parameter>
+            <parameter name="importer" transfer-ownership="none">
+              <type name="Gcr.Importer" c:type="GcrImporter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="imported">
+        <callback name="imported">
+          <source-position filename="../ui/gcr-import-button.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ImportButton" c:type="GcrImportButton*"/>
+            </parameter>
+            <parameter name="importer" transfer-ownership="none">
+              <type name="Gcr.Importer" c:type="GcrImporter*"/>
+            </parameter>
+            <parameter name="error" transfer-ownership="none">
+              <type name="GLib.Error" c:type="GError*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="10">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ImportButtonPrivate"
+            c:type="GcrImportButtonPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-import-button.h" line="40"/>
+    </record>
+    <function-macro name="KEY_RENDERER"
+                    c:identifier="GCR_KEY_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-renderer.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_RENDERER_CLASS"
+                    c:identifier="GCR_KEY_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-renderer.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_RENDERER_GET_CLASS"
+                    c:identifier="GCR_KEY_RENDERER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-renderer.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_WIDGET"
+                    c:identifier="GCR_KEY_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-widget.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_WIDGET_CLASS"
+                    c:identifier="GCR_KEY_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-widget.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_WIDGET_GET_CLASS"
+                    c:identifier="GCR_KEY_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-key-widget.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="KeyRenderer"
+           c:symbol-prefix="key_renderer"
+           c:type="GcrKeyRenderer"
+           parent="GObject.Object"
+           glib:type-name="GcrKeyRenderer"
+           glib:get-type="gcr_key_renderer_get_type"
+           glib:type-struct="KeyRendererClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-key-renderer.c"
+           line="36">An implementation of #GcrRenderer which renders keys.</doc>
+      <source-position filename="../ui/gcr-key-renderer.h" line="52"/>
+      <implements name="Renderer"/>
+      <constructor name="new" c:identifier="gcr_key_renderer_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-renderer.c"
+             line="429">Create a new key renderer which renders a given key in the attributes.</doc>
+        <source-position filename="../ui/gcr-key-renderer.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-key-renderer.c"
+               line="436">a newly allocated #GcrKeyRenderer, which should be
+         freed with g_object_unref()</doc>
+          <type name="KeyRenderer" c:type="GcrKeyRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-renderer.c"
+                 line="431">label describing the key</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-renderer.c"
+                 line="432">key to display, or %NULL</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_attributes"
+              c:identifier="gcr_key_renderer_get_attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-renderer.c"
+             line="468">Get the attributes displayed in the renderer.</doc>
+        <source-position filename="../ui/gcr-key-renderer.h" line="62"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-key-renderer.c"
+               line="474">the attributes, owned by the renderer</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-renderer.c"
+                 line="470">The key renderer</doc>
+            <type name="KeyRenderer" c:type="GcrKeyRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_attributes"
+              c:identifier="gcr_key_renderer_set_attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-renderer.c"
+             line="445">Get the attributes displayed in the renderer. The attributes should represent
+either an RSA, DSA, or EC key in PKCS#11 style.</doc>
+        <source-position filename="../ui/gcr-key-renderer.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-renderer.c"
+                 line="447">The key renderer</doc>
+            <type name="KeyRenderer" c:type="GcrKeyRenderer*"/>
+          </instance-parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-renderer.c"
+                 line="448">the attributes to display</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="object" writable="1" transfer-ownership="none">
+        <type name="Gck.Object"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="KeyRendererPrivate" c:type="GcrKeyRendererPrivate*"/>
+      </field>
+    </class>
+    <record name="KeyRendererClass"
+            c:type="GcrKeyRendererClass"
+            glib:is-gtype-struct-for="KeyRenderer">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-key-renderer.c"
+           line="42">The class for #GcrKeyRenderer.</doc>
+      <source-position filename="../ui/gcr-key-renderer.h" line="52"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-renderer.c"
+             line="44">The parent class.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="KeyRendererPrivate"
+            c:type="GcrKeyRendererPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-key-renderer.h" line="41"/>
+    </record>
+    <class name="KeyWidget"
+           c:symbol-prefix="key_widget"
+           c:type="GcrKeyWidget"
+           parent="Gtk.Bin"
+           glib:type-name="GcrKeyWidget"
+           glib:get-type="gcr_key_widget_get_type"
+           glib:type-struct="KeyWidgetClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-key-widget.c"
+           line="30">A key widget and renderer
+
+A key widget can be used to display a RSA, DSA or EC key. The widget is
+normally in a collapsed state showing only details, but can be expanded by
+the user.
+
+Use [ctor@KeyWidget.new] to create a new key widget. Only one key can be
+displayed. A key widget contains a [iface@Viewer] internally and
+[class@KeyRenderer] is used to render the key to the viewer. To show more
+than one key in a view, create the viewer and add renderers to it.</doc>
+      <source-position filename="../ui/gcr-key-widget.h" line="40"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gcr_key_widget_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-widget.c"
+             line="167">Create a new key widget which displays a given key in the attributes.</doc>
+        <source-position filename="../ui/gcr-key-widget.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-key-widget.c"
+               line="173">A newly allocated #GcrKeyWidget, which should be freed
+    with g_object_unref().</doc>
+          <type name="KeyWidget" c:type="GcrKeyWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-widget.c"
+                 line="169">key to display, or %NULL</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_attributes"
+              c:identifier="gcr_key_widget_get_attributes"
+              glib:get-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-widget.c"
+             line="197">Get the attributes displayed in the widget.</doc>
+        <source-position filename="../ui/gcr-key-widget.h" line="55"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-key-widget.c"
+               line="203">The attributes, owned by the widget.</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-widget.c"
+                 line="199">The key widget</doc>
+            <type name="KeyWidget" c:type="GcrKeyWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_attributes"
+              c:identifier="gcr_key_widget_set_attributes"
+              glib:set-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-key-widget.c"
+             line="182">Get the attributes displayed in the widget. The attributes should represent
+either an RSA, DSA or EC key in PKCS#11 style.</doc>
+        <source-position filename="../ui/gcr-key-widget.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-widget.c"
+                 line="184">The key widget</doc>
+            <type name="KeyWidget" c:type="GcrKeyWidget*"/>
+          </instance-parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-key-widget.c"
+                 line="185">the attributes to display</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="attributes"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_attributes"
+                getter="get_attributes">
+        <type name="Gck.Attributes"/>
+      </property>
+    </class>
+    <record name="KeyWidgetClass"
+            c:type="GcrKeyWidgetClass"
+            disguised="1"
+            glib:is-gtype-struct-for="KeyWidget">
+      <source-position filename="../ui/gcr-key-widget.h" line="40"/>
+    </record>
+    <record name="KeyWidgetPrivate" c:type="GcrKeyWidgetPrivate" disguised="1">
+      <source-position filename="../ui/gcr-key-widget.h" line="41"/>
+    </record>
+    <function-macro name="LIST_SELECTOR"
+                    c:identifier="GCR_LIST_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-list-selector.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LIST_SELECTOR_CLASS"
+                    c:identifier="GCR_LIST_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-list-selector.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LIST_SELECTOR_GET_CLASS"
+                    c:identifier="GCR_LIST_SELECTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-list-selector.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ListSelector"
+           c:symbol-prefix="list_selector"
+           c:type="GcrListSelector"
+           parent="Gtk.TreeView"
+           glib:type-name="GcrListSelector"
+           glib:get-type="gcr_list_selector_get_type"
+           glib:type-struct="ListSelectorClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-list-selector.c"
+           line="36">A selector widget to select 1 or more certificates or keys from a list.
+
+Live search is available for quick filtering.</doc>
+      <source-position filename="../ui/gcr-list-selector.h" line="54"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="gcr_list_selector_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-list-selector.c"
+             line="346">Create a new #GcrListSelector.</doc>
+        <source-position filename="../ui/gcr-list-selector.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-list-selector.c"
+               line="352">a newly allocated selector, which should be
+         released with g_object_unref()</doc>
+          <type name="ListSelector" c:type="GcrListSelector*"/>
+        </return-value>
+        <parameters>
+          <parameter name="collection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-list-selector.c"
+                 line="348">The collection that contains the objects to display</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_collection"
+              c:identifier="gcr_list_selector_get_collection"
+              glib:get-property="collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-list-selector.c"
+             line="363">Get the collection that this selector is displaying objects from.</doc>
+        <source-position filename="../ui/gcr-list-selector.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-list-selector.c"
+               line="369">The collection, owned by the selector.</doc>
+          <type name="Gcr.Collection" c:type="GcrCollection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-list-selector.c"
+                 line="365">The selector</doc>
+            <type name="ListSelector" c:type="GcrListSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected"
+              c:identifier="gcr_list_selector_get_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-list-selector.c"
+             line="378">Get a list of selected objects.</doc>
+        <source-position filename="../ui/gcr-list-selector.h" line="62"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-list-selector.c"
+               line="384">the list of
+         selected objects, to be released with g_list_free()</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="GObject.Object"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-list-selector.c"
+                 line="380">The selector</doc>
+            <type name="ListSelector" c:type="GcrListSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_selected"
+              c:identifier="gcr_list_selector_set_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-list-selector.c"
+             line="394">Select certain objects in the selector.</doc>
+        <source-position filename="../ui/gcr-list-selector.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-list-selector.c"
+                 line="396">The selector</doc>
+            <type name="ListSelector" c:type="GcrListSelector*"/>
+          </instance-parameter>
+          <parameter name="selected" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-list-selector.c"
+                 line="397">the list of objects to select</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="GObject.Object"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collection"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-list-selector.c"
+             line="331">The collection which contains the objects to display in the selector.</doc>
+        <type name="Gcr.Collection"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.TreeView" c:type="GtkTreeView"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="ListSelectorPrivate" c:type="GcrListSelectorPrivate*"/>
+      </field>
+    </class>
+    <record name="ListSelectorClass"
+            c:type="GcrListSelectorClass"
+            glib:is-gtype-struct-for="ListSelector">
+      <source-position filename="../ui/gcr-list-selector.h" line="54"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
+      </field>
+    </record>
+    <record name="ListSelectorPrivate"
+            c:type="GcrListSelectorPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-list-selector.h" line="41"/>
+    </record>
+    <function-macro name="PROMPT_DIALOG"
+                    c:identifier="GCR_PROMPT_DIALOG"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROMPT_DIALOG_CLASS"
+                    c:identifier="GCR_PROMPT_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROMPT_DIALOG_GET_CLASS"
+                    c:identifier="GCR_PROMPT_DIALOG_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="PromptDialog"
+           c:symbol-prefix="prompt_dialog"
+           c:type="GcrPromptDialog"
+           parent="Gtk.Dialog"
+           glib:type-name="GcrPromptDialog"
+           glib:get-type="gcr_prompt_dialog_get_type"
+           glib:type-struct="PromptDialogClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-prompt-dialog.c"
+           line="38">A [iface@Gcr.Prompt] implementation which shows a GTK dialog. The dialog
+will remain visible (but insensitive) between prompts. If the user cancels
+the dialog between prompts, then the dialog will be hidden.</doc>
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="55"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gcr.Prompt"/>
+      <implements name="Gtk.Buildable"/>
+      <property name="choice-visible" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-prompt-dialog.c"
+             line="909">Whether the choice check box is visible or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="confirm-visible" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-prompt-dialog.c"
+             line="889">Whether the password confirm entry is visible or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="password-visible" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-prompt-dialog.c"
+             line="879">Whether the password entry is visible or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="warning-visible" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-prompt-dialog.c"
+             line="899">Whether the warning label is visible or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.Dialog" c:type="GtkDialog"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="PromptDialogPrivate" c:type="GcrPromptDialogPrivate*"/>
+      </field>
+    </class>
+    <record name="PromptDialogClass"
+            c:type="GcrPromptDialogClass"
+            glib:is-gtype-struct-for="PromptDialog">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="55"/>
+      <field name="parent_class">
+        <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
+      </field>
+    </record>
+    <record name="PromptDialogPrivate"
+            c:type="GcrPromptDialogPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-prompt-dialog.h" line="44"/>
+    </record>
+    <function-macro name="RENDERER"
+                    c:identifier="GCR_RENDERER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-renderer.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RENDERER_GET_INTERFACE"
+                    c:identifier="GCR_RENDERER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-renderer.h" line="35"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="Renderer"
+               c:symbol-prefix="renderer"
+               c:type="GcrRenderer"
+               glib:type-name="GcrRenderer"
+               glib:get-type="gcr_renderer_get_type"
+               glib:type-struct="RendererIface">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-renderer.c"
+           line="34">An interface that's implemented by renderers which wish to render data to a
+[iface@Viewer].
+
+The interaction between [iface@Renderer] and [iface@Viewer] is not stable
+yet, and so new renderers cannot be implemented outside the Gcr library at
+this time.
+
+To lookup a renderer for a given set of attributes, use the gcr_renderer_create()
+function. This will create and initialize a renderer that's capable of viewing
+the data in those attributes.</doc>
+      <source-position filename="../ui/gcr-renderer.h" line="60"/>
+      <function name="create" c:identifier="gcr_renderer_create">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="238">Create and initialize a renderer for the given attributes and label. These
+renderers should have been preregistered via gcr_renderer_register().</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="73"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="246">a new renderer, or %NULL if no renderer
+         matched the attributes; the render should be released with g_object_unref()</doc>
+          <type name="Renderer" c:type="GcrRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="240">The label for the renderer</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="241">The attributes to render</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="register" c:identifier="gcr_renderer_register">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="291">Register a renderer to be created when matching attributes are passed to
+gcr_renderer_create().</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="renderer_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="293">The renderer class type</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="294">The attributes to match</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="register_well_known"
+                c:identifier="gcr_renderer_register_well_known">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="313">Register all the well known renderers for certificates and keys known to the
+Gcr library.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+      <virtual-method name="data_changed">
+        <source-position filename="../ui/gcr-renderer.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="populate_popup">
+        <source-position filename="../ui/gcr-renderer.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+          <parameter name="viewer" transfer-ownership="none">
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="render_view" invoker="render_view">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="119">Render the contents of the renderer to the given viewer.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="121">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+          <parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="122">The viewer to render to.</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="emit_data_changed"
+              c:identifier="gcr_renderer_emit_data_changed">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="168">Emit the #GcrRenderer::data-changed signal on the renderer. This is used by
+renderer implementations.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="170">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_attributes"
+              c:identifier="gcr_renderer_get_attributes"
+              glib:get-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="182">Get the PKCS#11 attributes, if any, set for this renderer to display.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="79"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="188">the attributes, owned by the renderer</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="184">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="popuplate_popup"
+              c:identifier="gcr_renderer_popuplate_popup">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="150">Called by #GcrViewer when about to display a popup menu for the content
+displayed by the renderer. The renderer can add a menu item if desired.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="152">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+          <parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="153">The viewer that is displaying a popup</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="154">The popup menu being displayed</doc>
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="render_view" c:identifier="gcr_renderer_render_view">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="119">Render the contents of the renderer to the given viewer.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="121">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+          <parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="122">The viewer to render to.</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attributes"
+              c:identifier="gcr_renderer_set_attributes"
+              glib:set-property="attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="203">Set the PKCS#11 attributes for this renderer to display.</doc>
+        <source-position filename="../ui/gcr-renderer.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="205">The renderer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </instance-parameter>
+          <parameter name="attrs"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-renderer.c"
+                 line="206">attributes to set</doc>
+            <type name="Gck.Attributes" c:type="GckAttributes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="attributes"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_attributes"
+                getter="get_attributes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="91">The attributes to display.</doc>
+        <type name="Gck.Attributes"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="81">The label to display.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="data-changed" when="last">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="101">A signal that is emitted by the renderer when it's data
+changed and should be rerendered.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="RendererIface"
+            c:type="GcrRendererIface"
+            glib:is-gtype-struct-for="Renderer">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-renderer.c"
+           line="49">The interface for #GcrRenderer</doc>
+      <source-position filename="../ui/gcr-renderer.h" line="60"/>
+      <field name="parent">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="51">the parent interface type</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="data_changed">
+        <callback name="data_changed">
+          <source-position filename="../ui/gcr-renderer.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="render_view">
+        <callback name="render_view">
+          <source-position filename="../ui/gcr-renderer.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-renderer.c"
+                   line="121">The renderer</doc>
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-renderer.c"
+                   line="122">The viewer to render to.</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="populate_popup">
+        <callback name="populate_popup">
+          <source-position filename="../ui/gcr-renderer.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+            <parameter name="viewer" transfer-ownership="none">
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+            <parameter name="menu" transfer-ownership="none">
+              <type name="Gtk.Menu" c:type="GtkMenu*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dummy1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy3" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy4" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy5" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy6" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy7" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <function-macro name="SECURE_ENTRY_BUFFER"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SECURE_ENTRY_BUFFER_CLASS"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SECURE_ENTRY_BUFFER_GET_CLASS"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SecureEntryBuffer"
+           c:symbol-prefix="secure_entry_buffer"
+           c:type="GcrSecureEntryBuffer"
+           parent="Gtk.EntryBuffer"
+           glib:type-name="GcrSecureEntryBuffer"
+           glib:get-type="gcr_secure_entry_buffer_get_type"
+           glib:type-struct="SecureEntryBufferClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-secure-entry-buffer.c"
+           line="30">A [class@Gtk.EntryBuffer] that uses non-pageable memory.
+
+It's good practice to try to keep passwords or sensitive secrets out of
+pageable memory whenever possible, so that they don't get written to disk.
+
+A [class@SecureEntryBuffer] is a [class@Gtk.EntryBuffer] to be used with
+[class@Gtk.Entry] which uses non-pageable memory to store a password placed
+in the entry. In order to make any sense at all, the entry must have it's
+visibility turned off, and just be displaying place holder characters for
+the text. That is, a password style entry.
+
+Use [ctor@Gtk.Entry.new_with_buffer] or [method@Gtk.Entry.set_buffer] to set this buffer
+on an entry.</doc>
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="55"/>
+      <constructor name="new" c:identifier="gcr_secure_entry_buffer_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-secure-entry-buffer.c"
+             line="204">Create a new secure entry buffer.</doc>
+        <source-position filename="../ui/gcr-secure-entry-buffer.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-secure-entry-buffer.c"
+               line="209">the new entry buffer</doc>
+          <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer*"/>
+        </return-value>
+      </constructor>
+      <field name="parent">
+        <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="SecureEntryBufferPrivate"
+              c:type="GcrSecureEntryBufferPrivate*"/>
+      </field>
+    </class>
+    <record name="SecureEntryBufferClass"
+            c:type="GcrSecureEntryBufferClass"
+            glib:is-gtype-struct-for="SecureEntryBuffer">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="55"/>
+      <field name="parent_class">
+        <type name="Gtk.EntryBufferClass" c:type="GtkEntryBufferClass"/>
+      </field>
+    </record>
+    <record name="SecureEntryBufferPrivate"
+            c:type="GcrSecureEntryBufferPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-secure-entry-buffer.h" line="43"/>
+    </record>
+    <function-macro name="TREE_SELECTOR"
+                    c:identifier="GCR_TREE_SELECTOR"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-tree-selector.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_SELECTOR_CLASS"
+                    c:identifier="GCR_TREE_SELECTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-tree-selector.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_SELECTOR_GET_CLASS"
+                    c:identifier="GCR_TREE_SELECTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-tree-selector.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TreeSelector"
+           c:symbol-prefix="tree_selector"
+           c:type="GcrTreeSelector"
+           parent="Gtk.TreeView"
+           glib:type-name="GcrTreeSelector"
+           glib:get-type="gcr_tree_selector_get_type"
+           glib:type-struct="TreeSelectorClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-tree-selector.c"
+           line="31">A tree selector can be used to select certificates or keys. It allows
+the user to select multiple objects from a tree.</doc>
+      <source-position filename="../ui/gcr-tree-selector.h" line="50"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new"
+                   c:identifier="gcr_tree_selector_new"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="269">Create a new #GcrTreeSelector.</doc>
+        <source-position filename="../ui/gcr-tree-selector.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-tree-selector.c"
+               line="276">a newly allocated selector, which should be
+         released with g_object_unref()</doc>
+          <type name="TreeSelector" c:type="GcrTreeSelector*"/>
+        </return-value>
+        <parameters>
+          <parameter name="collection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="271">The collection that contains the objects to display</doc>
+            <type name="Gcr.Collection" c:type="GcrCollection*"/>
+          </parameter>
+          <parameter name="columns" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="272">The columns to use to display the objects</doc>
+            <type name="Gcr.Column" c:type="const GcrColumn*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_collection"
+              c:identifier="gcr_tree_selector_get_collection"
+              glib:get-property="collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="288">Get the collection that this selector is displaying objects from.</doc>
+        <source-position filename="../ui/gcr-tree-selector.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-tree-selector.c"
+               line="294">the collection, owned by the selector</doc>
+          <type name="Gcr.Collection" c:type="GcrCollection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="290">The selector</doc>
+            <type name="TreeSelector" c:type="GcrTreeSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_columns"
+              c:identifier="gcr_tree_selector_get_columns"
+              glib:get-property="columns"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="303">Get the columns displayed in a selector in multiple mode.</doc>
+        <source-position filename="../ui/gcr-tree-selector.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-tree-selector.c"
+               line="309">The columns, owned by the selector.</doc>
+          <type name="Gcr.Column" c:type="const GcrColumn*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="305">The selector</doc>
+            <type name="TreeSelector" c:type="GcrTreeSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected"
+              c:identifier="gcr_tree_selector_get_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="318">Get a list of selected objects.</doc>
+        <source-position filename="../ui/gcr-tree-selector.h" line="61"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-tree-selector.c"
+               line="324">the list of selected
+         objects, to be released with g_list_free()</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="GObject.Object"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="320">The selector</doc>
+            <type name="TreeSelector" c:type="GcrTreeSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_selected"
+              c:identifier="gcr_tree_selector_set_selected">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="334">Select certain objects in the selector.</doc>
+        <source-position filename="../ui/gcr-tree-selector.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="336">The selector</doc>
+            <type name="TreeSelector" c:type="GcrTreeSelector*"/>
+          </instance-parameter>
+          <parameter name="selected" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-tree-selector.c"
+                 line="337">the list of objects to select</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="GObject.Object"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collection"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_collection">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="245">The collection which contains the objects to display in the selector.</doc>
+        <type name="Gcr.Collection"/>
+      </property>
+      <property name="columns"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_columns">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-tree-selector.c"
+             line="255">The columns to use to display the objects.</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.TreeView" c:type="GtkTreeView"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="TreeSelectorPrivate" c:type="GcrTreeSelectorPrivate*"/>
+      </field>
+    </class>
+    <record name="TreeSelectorClass"
+            c:type="GcrTreeSelectorClass"
+            glib:is-gtype-struct-for="TreeSelector">
+      <source-position filename="../ui/gcr-tree-selector.h" line="50"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
+      </field>
+    </record>
+    <record name="TreeSelectorPrivate"
+            c:type="GcrTreeSelectorPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-tree-selector.h" line="38"/>
+    </record>
+    <function-macro name="UNLOCK_OPTIONS_WIDGET"
+                    c:identifier="GCR_UNLOCK_OPTIONS_WIDGET"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNLOCK_OPTIONS_WIDGET_CLASS"
+                    c:identifier="GCR_UNLOCK_OPTIONS_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNLOCK_OPTIONS_WIDGET_GET_CLASS"
+                    c:identifier="GCR_UNLOCK_OPTIONS_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="UnlockOptionsWidget"
+           c:symbol-prefix="unlock_options_widget"
+           c:type="GcrUnlockOptionsWidget"
+           parent="Gtk.Bin"
+           glib:type-name="GcrUnlockOptionsWidget"
+           glib:get-type="gcr_unlock_options_widget_get_type"
+           glib:type-struct="UnlockOptionsWidgetClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-unlock-options-widget.c"
+           line="24">This widget displays a set of unlock options for the user to select.
+
+The user can choose between keeping caching the unlock indefinitely, or for
+a given amount of time.
+
+Each option has a different name, for example #GCR_UNLOCK_OPTION_ALWAYS. These
+names are used together with the various functions like
+[method@UnlockOptionsWidget.get_choice].</doc>
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="41"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gcr_unlock_options_widget_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="299">Create a new #GcrUnlockOptionsWidget.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-unlock-options-widget.c"
+               line="304">a new #GcrUnlockOptionsWidget</doc>
+          <type name="UnlockOptionsWidget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_choice"
+              c:identifier="gcr_unlock_options_widget_get_choice"
+              glib:get-property="choice">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="312">Get the currently selected option, like %GCR_UNLOCK_OPTION_ALWAYS.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-unlock-options-widget.c"
+               line="318">The currently selected option name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="314">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label"
+              c:identifier="gcr_unlock_options_widget_get_label">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="394">Get the label for one of the options. Use an option name like
+%GCR_UNLOCK_OPTION_ALWAYS.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-unlock-options-widget.c"
+               line="402">The current label for the option.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="396">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="option" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="397">The option name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_sensitive"
+              c:identifier="gcr_unlock_options_widget_get_sensitive">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="451">Get the sensitivity state for one of the options. Use an option name like
+%GCR_UNLOCK_OPTION_ALWAYS.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-unlock-options-widget.c"
+               line="459">Whether the option is sensitive or not.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="453">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="option" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="454">The option name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_ttl"
+              c:identifier="gcr_unlock_options_widget_get_ttl"
+              glib:get-property="ttl">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="347">Get the timeout setting set for unlock options that have a timeout.
+This will also return a valid value if the currently selected option
+does not have a timeout.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-unlock-options-widget.c"
+               line="355">The unlock timeout in seconds.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="349">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_choice"
+              c:identifier="gcr_unlock_options_widget_set_choice"
+              glib:set-property="choice">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="327">Set the currently selected option. Use an option name like
+%GCR_UNLOCK_OPTION_ALWAYS.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="329">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="option" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="330">The option name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label"
+              c:identifier="gcr_unlock_options_widget_set_label">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="422">Set the label for one of the options. Use an option name like
+%GCR_UNLOCK_OPTION_ALWAYS.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="424">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="option" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="425">The option name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="426">The new label</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sensitive"
+              c:identifier="gcr_unlock_options_widget_set_sensitive">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="475">Set the sensitivity state for one of the options. Use an option name like
+%GCR_UNLOCK_OPTION_ALWAYS. The reason will be displayed as a tooltip.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="477">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="option" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="478">The option name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="sensitive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="479">The sensitivity state.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="reason" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="480">A user displayable string which contains the reason for the sensitivity.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ttl"
+              c:identifier="gcr_unlock_options_widget_set_ttl"
+              glib:set-property="ttl">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-unlock-options-widget.c"
+             line="370">Set the current setting for the timeout. This can be set even when the
+currently selected option does not have a timeout.</doc>
+        <source-position filename="../ui/gcr-unlock-options-widget.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="372">The unlock options widget</doc>
+            <type name="UnlockOptionsWidget" c:type="GcrUnlockOptionsWidget*"/>
+          </instance-parameter>
+          <parameter name="ttl" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-unlock-options-widget.c"
+                 line="373">The timeout to set, in seconds</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="choice"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_choice"
+                getter="get_choice">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="ttl"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_ttl"
+                getter="get_ttl">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="UnlockOptionsWidgetClass"
+            c:type="GcrUnlockOptionsWidgetClass"
+            disguised="1"
+            glib:is-gtype-struct-for="UnlockOptionsWidget">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="41"/>
+    </record>
+    <record name="UnlockOptionsWidgetPrivate"
+            c:type="GcrUnlockOptionsWidgetPrivate"
+            disguised="1">
+      <source-position filename="../ui/gcr-unlock-options-widget.h" line="42"/>
+    </record>
+    <function-macro name="VIEWER" c:identifier="GCR_VIEWER" introspectable="0">
+      <source-position filename="../ui/gcr-viewer.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VIEWER_GET_INTERFACE"
+                    c:identifier="GCR_VIEWER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="../ui/gcr-viewer.h" line="31"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="Viewer"
+               c:symbol-prefix="viewer"
+               c:type="GcrViewer"
+               glib:type-name="GcrViewer"
+               glib:get-type="gcr_viewer_get_type"
+               glib:type-struct="ViewerIface">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-viewer.c"
+           line="25">An abstract interface that represents a widget that can hold
+various renderers and display their contents.
+
+The interaction between [iface@Renderer] and [iface@Viewer] is not stable
+yet, and so viewers cannot be implemented outside the Gcr library at this
+time.
+
+Use the [func@Viewer.new] and [func@Viewer.new_scrolled] to get default
+implementations of viewers.</doc>
+      <source-position filename="../ui/gcr-viewer.h" line="60"/>
+      <prerequisite name="Gtk.Widget"/>
+      <function name="new" c:identifier="gcr_viewer_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="65">Get an implementation of #GcrViewer that supports a view
+of multiple renderers.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="71">a newly allocated #GcrViewer, which should be
+         released with g_object_unref()</doc>
+          <type name="Viewer" c:type="GcrViewer*"/>
+        </return-value>
+      </function>
+      <function name="new_scrolled" c:identifier="gcr_viewer_new_scrolled">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="80">Get an implementation of #GcrViewer that supports a scrolled view
+of multiple renderers.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="86">a #GcrViewer which is also a #GtkWidget</doc>
+          <type name="Viewer" c:type="GcrViewer*"/>
+        </return-value>
+      </function>
+      <virtual-method name="add_renderer" invoker="add_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="94">Add a renderer to this viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="96">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="97">The renderer to add</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="count_renderers" invoker="count_renderers">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="148">Get the number of renderers present in the viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="154">The number of renderers.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="150">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_renderer" invoker="get_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="164">Get a pointer to the renderer at the given index. It is an error to request
+an index that is out of bounds.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="172">the render, owned by the viewer</doc>
+          <type name="Renderer" c:type="GcrRenderer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="166">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="167">The index of the renderer to get</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="insert_renderer" invoker="insert_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="111">Insert a renderer at a specific point in the viewer</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="113">the viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="114">the renderer to insert</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+          <parameter name="before"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="115">the renderer to insert before</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="remove_renderer" invoker="remove_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="131">Remove a renderer from this viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="133">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="134">The renderer to remove</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_renderer" c:identifier="gcr_viewer_add_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="94">Add a renderer to this viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="96">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="97">The renderer to add</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="count_renderers" c:identifier="gcr_viewer_count_renderers">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="148">Get the number of renderers present in the viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="154">The number of renderers.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="150">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_renderer" c:identifier="gcr_viewer_get_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="164">Get a pointer to the renderer at the given index. It is an error to request
+an index that is out of bounds.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer.c"
+               line="172">the render, owned by the viewer</doc>
+          <type name="Renderer" c:type="GcrRenderer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="166">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="index_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="167">The index of the renderer to get</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="insert_renderer" c:identifier="gcr_viewer_insert_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="111">Insert a renderer at a specific point in the viewer</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="113">the viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="114">the renderer to insert</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+          <parameter name="before"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="115">the renderer to insert before</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_renderer" c:identifier="gcr_viewer_remove_renderer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="131">Remove a renderer from this viewer.</doc>
+        <source-position filename="../ui/gcr-viewer.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="133">The viewer</doc>
+            <type name="Viewer" c:type="GcrViewer*"/>
+          </instance-parameter>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="134">The renderer to remove</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ViewerIface"
+            c:type="GcrViewerIface"
+            glib:is-gtype-struct-for="Viewer">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-viewer.c"
+           line="39">The interface for #GcrViewer</doc>
+      <source-position filename="../ui/gcr-viewer.h" line="60"/>
+      <field name="parent">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="41">The parent interface</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="add_renderer">
+        <callback name="add_renderer">
+          <source-position filename="../ui/gcr-viewer.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="96">The viewer</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+            <parameter name="renderer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="97">The renderer to add</doc>
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="insert_renderer">
+        <callback name="insert_renderer">
+          <source-position filename="../ui/gcr-viewer.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="113">the viewer</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+            <parameter name="renderer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="114">the renderer to insert</doc>
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+            <parameter name="before"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="115">the renderer to insert before</doc>
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remove_renderer">
+        <callback name="remove_renderer">
+          <source-position filename="../ui/gcr-viewer.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="133">The viewer</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+            <parameter name="renderer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="134">The renderer to remove</doc>
+              <type name="Renderer" c:type="GcrRenderer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="count_renderers">
+        <callback name="count_renderers">
+          <source-position filename="../ui/gcr-viewer.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="154">The number of renderers.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="150">The viewer</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_renderer">
+        <callback name="get_renderer">
+          <source-position filename="../ui/gcr-viewer.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer.c"
+                 line="172">the render, owned by the viewer</doc>
+            <type name="Renderer" c:type="GcrRenderer*"/>
+          </return-value>
+          <parameters>
+            <parameter name="viewer" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="166">The viewer</doc>
+              <type name="Viewer" c:type="GcrViewer*"/>
+            </parameter>
+            <parameter name="index_" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../ui/gcr-viewer.c"
+                   line="167">The index of the renderer to get</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="dummy1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy3" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy4" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <class name="ViewerWidget"
+           c:symbol-prefix="viewer_widget"
+           c:type="GcrViewerWidget"
+           parent="Gtk.Box"
+           glib:type-name="GcrViewerWidget"
+           glib:get-type="gcr_viewer_widget_get_type"
+           glib:type-struct="ViewerWidgetClass">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-viewer-widget.c"
+           line="41">A viewer widget which can display certificates and keys that are
+located in files.</doc>
+      <source-position filename="../ui/gcr-viewer-widget.h" line="29"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gcr_viewer_widget_new">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="468">Create a new viewer widget.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer-widget.c"
+               line="473">A new #GcrViewerWidget object</doc>
+          <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="clear_error" c:identifier="gcr_viewer_widget_clear_error">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="623">Clear the error displayed on the viewer widget.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="625">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="gcr_viewer_widget_get_display_name"
+              glib:get-property="display-name">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="636">Get the display name for data being displayed. This is automatically
+calculated from a loaded file, or can be explicitly set.
+
+Used as a hint when displaying a title for the data, but may be
+overridden by the parsed data.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer-widget.c"
+               line="646">the display name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="638">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parser"
+              c:identifier="gcr_viewer_widget_get_parser"
+              glib:get-property="parser">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="578">Get the parser used to parse loaded data into viewable items.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer-widget.c"
+               line="584">the parser</doc>
+          <type name="Gcr.Parser" c:type="GcrParser*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="580">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_viewer" c:identifier="gcr_viewer_widget_get_viewer">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="563">Get the viewer used to display the viewable items.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-viewer-widget.c"
+               line="569">the viewer</doc>
+          <type name="Viewer" c:type="GcrViewer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="565">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_bytes" c:identifier="gcr_viewer_widget_load_bytes">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="502">Parse and load some data to be displayed into the viewer widgets. The data
+may contain multiple parseable items if the format can contain multiple
+items.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="504">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+          <parameter name="display_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="505">label for the loaded data</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="506">data to load</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_data" c:identifier="gcr_viewer_widget_load_data">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="534">Parse and load some data to be displayed into the viewer widgets. The data
+may contain multiple parseable items if the format can contain multiple
+items.
+
+This function will copy the data. Use [method@ViewerWidget.load_bytes] to avoid
+copying the data.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="536">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+          <parameter name="display_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="537">label for the loaded data</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="538">data to load</doc>
+            <array length="2" zero-terminated="0" c:type="const guchar*">
+              <type name="guint8" c:type="guchar"/>
+            </array>
+          </parameter>
+          <parameter name="n_data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="539">length of data to load</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_file" c:identifier="gcr_viewer_widget_load_file">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="481">Display contents of a file in the viewer widget. Multiple files can
+be loaded.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="483">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="484">a file to load</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_display_name"
+              c:identifier="gcr_viewer_widget_set_display_name"
+              glib:set-property="display-name">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="659">Set the display name for data being displayed. Once explicitly
+set it will no longer be calculated automatically by loading data.
+
+Used as a hint when displaying a title for the data, but may be
+overridden by the parsed data.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="661">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+          <parameter name="display_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="662">the display name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_error" c:identifier="gcr_viewer_widget_show_error">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="593">Show an error on the viewer widget. This is displayed on a info bar near
+the edge of the widget.</doc>
+        <source-position filename="../ui/gcr-viewer-widget.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="595">a viewer widget</doc>
+            <type name="ViewerWidget" c:type="GcrViewerWidget*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="596">descriptive error message</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="error"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="597">detailed error</doc>
+            <type name="GLib.Error" c:type="GError*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_display_name"
+                getter="get_display_name">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="336">Display name for data being displayed. This is automatically
+calculated from a loaded file, or can be explicitly set.
+
+Used as a hint when displaying a title for the data, but may be
+overridden by the parsed data.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="parser" transfer-ownership="none" getter="get_parser">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="326">The parser used to parse loaded data into viewable items.</doc>
+        <type name="Gcr.Parser"/>
+      </property>
+      <glib:signal name="added" when="last">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer-widget.c"
+             line="350">This signal is emitted when an item is added to the viewer widget.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="353">the renderer that was added</doc>
+            <type name="Renderer"/>
+          </parameter>
+          <parameter name="parsed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../ui/gcr-viewer-widget.c"
+                 line="354">the parsed item that was added</doc>
+            <type name="Gcr.Parsed"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ViewerWidgetClass"
+            c:type="GcrViewerWidgetClass"
+            glib:is-gtype-struct-for="ViewerWidget">
+      <source-position filename="../ui/gcr-viewer-widget.h" line="29"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <function name="renderer_create"
+              c:identifier="gcr_renderer_create"
+              moved-to="Renderer.create">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-renderer.c"
+           line="238">Create and initialize a renderer for the given attributes and label. These
+renderers should have been preregistered via gcr_renderer_register().</doc>
+      <source-position filename="../ui/gcr-renderer.h" line="73"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-renderer.c"
+             line="246">a new renderer, or %NULL if no renderer
+         matched the attributes; the render should be released with g_object_unref()</doc>
+        <type name="Renderer" c:type="GcrRenderer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="240">The label for the renderer</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="attrs" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="241">The attributes to render</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="renderer_register"
+              c:identifier="gcr_renderer_register"
+              moved-to="Renderer.register">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-renderer.c"
+           line="291">Register a renderer to be created when matching attributes are passed to
+gcr_renderer_create().</doc>
+      <source-position filename="../ui/gcr-renderer.h" line="76"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="renderer_type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="293">The renderer class type</doc>
+          <type name="GType" c:type="GType"/>
+        </parameter>
+        <parameter name="attrs" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../ui/gcr-renderer.c"
+               line="294">The attributes to match</doc>
+          <type name="Gck.Attributes" c:type="GckAttributes*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="renderer_register_well_known"
+              c:identifier="gcr_renderer_register_well_known"
+              moved-to="Renderer.register_well_known">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-renderer.c"
+           line="313">Register all the well known renderers for certificates and keys known to the
+Gcr library.</doc>
+      <source-position filename="../ui/gcr-renderer.h" line="84"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="viewer_new"
+              c:identifier="gcr_viewer_new"
+              moved-to="Viewer.new">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-viewer.c"
+           line="65">Get an implementation of #GcrViewer that supports a view
+of multiple renderers.</doc>
+      <source-position filename="../ui/gcr-viewer.h" line="64"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="71">a newly allocated #GcrViewer, which should be
+         released with g_object_unref()</doc>
+        <type name="Viewer" c:type="GcrViewer*"/>
+      </return-value>
+    </function>
+    <function name="viewer_new_scrolled"
+              c:identifier="gcr_viewer_new_scrolled"
+              moved-to="Viewer.new_scrolled">
+      <doc xml:space="preserve"
+           filename="../ui/gcr-viewer.c"
+           line="80">Get an implementation of #GcrViewer that supports a scrolled view
+of multiple renderers.</doc>
+      <source-position filename="../ui/gcr-viewer.h" line="66"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../ui/gcr-viewer.c"
+             line="86">a #GcrViewer which is also a #GtkWidget</doc>
+        <type name="Viewer" c:type="GcrViewer*"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

@@ -1,3 +1,4 @@
+import { Logger } from "../logger.js";
 import {
     NativeType,
     TypeIdentifier,
@@ -49,15 +50,18 @@ import {
 } from "./util.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { GenericNameGenerator } from "./generics.js";
 import { findMap } from "../util.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export enum FilterBehavior {
     DELETE,
     PRESERVE
 }
+
+const log = new Logger(true, "gir/class");
 
 export function filterConflicts<T extends IntrospectedClassMember | IntrospectedClassFunction | IntrospectedProperty>(
     ns: IntrospectedNamespace,
@@ -107,7 +111,7 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
                               next instanceof IntrospectedProperty &&
                               !isSubtypeOf(ns, thisType, resolved_parent.getType(), next.type, p.type)
                           ) {
-                              console.log(
+                              log.warn(
                                   `>> Conflict in ${next.parent?.name}.${next.name} with ${p.parent?.name}.${p.name}.`
                               );
                               return ConflictType.PROPERTY_NAME_CONFLICT;
@@ -219,7 +223,7 @@ export function filterFunctionConflict<
                             const conflicting = isConflictingFunction(ns, nextType, next, parentType, p);
 
                             if (conflicting) {
-                                msg = `// Conflicted with ${resolved_parent.namespace.name}.${resolved_parent.name}.${p.name}`;
+                                msg = `// Conflicted with ${resolved_parent.namespace.namespace}.${resolved_parent.name}.${p.name}`;
                                 return true;
                             }
                             return conflicting;
@@ -236,7 +240,7 @@ export function filterFunctionConflict<
                     [...resolved_parent.props, ...resolved_parent.fields].some(p => p.name && p.name === next.name)
                 );
 
-            const isGObject = base.someParent(p => p.namespace.name === "GObject" && p.name === "Object");
+            const isGObject = base.someParent(p => p.namespace.namespace === "GObject" && p.name === "Object");
 
             if (isGObject) {
                 conflicts = conflicts || ["connect", "connect_after", "emit"].includes(next.name);
@@ -287,7 +291,7 @@ export function filterFunctionConflict<
 
                 prev.push(next, never as T);
             } else if (field_conflicts) {
-                console.error(`Omitting ${next.name} due to field or property conflict.`);
+                log.warn(`Omitting ${next.name} due to field or property conflict.`);
             } else {
                 prev.push(next);
             }
@@ -506,7 +510,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     }
 
     getType(): TypeIdentifier {
-        return new TypeIdentifier(this.name, this.namespace.name);
+        return new TypeIdentifier(this.name, this.namespace.namespace);
     }
 
     static fromXML(
@@ -515,7 +519,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ns: IntrospectedNamespace,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedBaseClass {
         throw new Error("fromXML is not implemented on GirBaseClass");
     }
@@ -878,11 +882,11 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         return this._staticDefinition;
     }
 
-    static fromXML(element: GirClassElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedClass {
-        const name = sanitizeIdentifierName(ns.name, element.$.name);
+    static fromXML(element: GirClassElement, ns: IntrospectedNamespace, options: OptionsLoad): IntrospectedClass {
+        const name = sanitizeIdentifierName(ns.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirClass: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirClass: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedClass(name, ns);
@@ -895,19 +899,19 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.name, name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            ns.registerResolveName(element.$["glib:type-struct"], ns.name, name);
+            ns.registerResolveName(element.$["glib:type-struct"], ns.namespace, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.name, name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, name);
         }
 
         const typeStruct = element.$["glib:type-struct"];
@@ -916,13 +920,13 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
             clazz.resolve_names.push(typeStruct);
 
-            ns.registerResolveName(typeStruct, ns.name, name);
+            ns.registerResolveName(typeStruct, ns.namespace, name);
         }
 
         try {
             // Setup parent type if this is an interface or class.
             if (element.$.parent) {
-                clazz.superType = parseTypeIdentifier(ns.name, element.$.parent);
+                clazz.superType = parseTypeIdentifier(ns.namespace, element.$.parent);
             }
 
             if (element.$.abstract) {
@@ -990,7 +994,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             if (element.implements) {
                 element.implements.forEach(implementee => {
                     const name = implementee.$.name;
-                    const type = parseTypeIdentifier(ns.name, name);
+                    const type = parseTypeIdentifier(ns.namespace, name);
 
                     if (type) {
                         clazz.interfaces.push(type);
@@ -1003,7 +1007,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                 clazz.callbacks.push(
                     ...element.callback.map(callback => {
                         if (options.verbose) {
-                            console.debug(`Adding callback ${callback.$.name} for ${ns.name}`);
+                            log.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
                         }
 
                         return IntrospectedClassCallback.fromXML(callback, clazz, options);
@@ -1027,8 +1031,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                 );
             }
         } catch (e) {
-            console.error(`Failed to parse class: ${clazz.name} in ${ns.name}.`);
-            console.error(e);
+            log.error(`Failed to parse class: ${clazz.name} in ${ns.namespace}.`, e);
         }
 
         return clazz;
@@ -1061,7 +1064,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             return this._structFor;
         }
 
-        return new TypeIdentifier(this.name, this.namespace.name);
+        return new TypeIdentifier(this.name, this.namespace.namespace);
     }
 
     someParent(predicate: (p: IntrospectedRecord) => boolean): boolean {
@@ -1193,16 +1196,16 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
     static fromXML(
         element: GirRecordElement | GirUnionElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedRecord {
         if (!element.$.name) {
             throw new Error("Invalid GIR File: No name provided for union.");
         }
 
-        const name = sanitizeIdentifierName(namespace.name, element.$.name);
+        const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirRecord: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirRecord: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedRecord({ name, namespace });
@@ -1214,7 +1217,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         );
 
         if (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"]) {
-            const structFor = parseTypeIdentifier(namespace.name, element.$["glib:is-gtype-struct-for"]);
+            const structFor = parseTypeIdentifier(namespace.namespace, element.$["glib:is-gtype-struct-for"]);
 
             // This let's replace these references when generating.
             clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
@@ -1222,13 +1225,13 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             if (element.$["glib:type-name"]) {
                 clazz.resolve_names.push(element.$["glib:type-name"]);
 
-                namespace.registerResolveName(element.$["glib:type-name"], namespace.name, name);
+                namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
             }
 
             if (element.$["c:type"]) {
                 clazz.resolve_names.push(element.$["c:type"]);
 
-                namespace.registerResolveName(element.$["c:type"], namespace.name, name);
+                namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
             }
         }
 
@@ -1274,8 +1277,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
                 );
             }
         } catch (e) {
-            console.error(`Failed to parse record: ${clazz.name}.`);
-            console.error(e);
+            log.error(`Failed to parse record: ${clazz.name}.`, e);
         }
 
         return clazz;
@@ -1558,12 +1560,12 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
     static fromXML(
         element: GirInterfaceElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedInterface {
-        const name = sanitizeIdentifierName(namespace.name, element.$.name);
+        const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirInterface: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirInterface: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedInterface({ name, namespace });
@@ -1576,19 +1578,19 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            namespace.registerResolveName(element.$["glib:type-name"], namespace.name, name);
+            namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            namespace.registerResolveName(element.$["glib:type-struct"], namespace.name, name);
+            namespace.registerResolveName(element.$["glib:type-struct"], namespace.namespace, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            namespace.registerResolveName(element.$["c:type"], namespace.name, name);
+            namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
         }
 
         try {
@@ -1597,7 +1599,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 const [prerequisite] = element.prerequisite;
 
                 if (prerequisite.$.name) {
-                    clazz.superType = parseTypeIdentifier(namespace.name, prerequisite.$.name);
+                    clazz.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name);
                 }
             }
 
@@ -1653,7 +1655,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             if (element.callback) {
                 for (const callback of element.callback) {
                     if (options.verbose) {
-                        console.debug(`Adding callback ${callback.$.name} for ${namespace.name}`);
+                        log.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
                     }
 
                     clazz.callbacks.push(IntrospectedClassCallback.fromXML(callback, clazz, options));
@@ -1667,8 +1669,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 }
             }
         } catch (e) {
-            console.error(`Failed to parse interface: ${clazz.name}.`);
-            console.error(e);
+            log.error(`Failed to parse interface: ${clazz.name}.`, e);
         }
         return clazz;
     }

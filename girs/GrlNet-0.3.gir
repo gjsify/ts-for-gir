@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Soup" version="3.0"/>
+  <c:include name="net/grl-net.h"/>
+  <namespace name="GrlNet"
+             version="0.3"
+             shared-library="libgrlnet-0.3.so.0"
+             c:identifier-prefixes="GrlNet"
+             c:symbol-prefixes="grl_net">
+    <function-macro name="WC" c:identifier="GRL_NET_WC" introspectable="0">
+      <source-position filename="libs/net/grl-net-wc.h" line="67"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WC_CLASS"
+                    c:identifier="GRL_NET_WC_CLASS"
+                    introspectable="0">
+      <source-position filename="libs/net/grl-net-wc.h" line="73"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WC_GET_CLASS"
+                    c:identifier="GRL_NET_WC_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libs/net/grl-net-wc.h" line="79"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Wc"
+           c:symbol-prefix="wc"
+           c:type="GrlNetWc"
+           parent="GObject.Object"
+           glib:type-name="GrlNetWc"
+           glib:get-type="grl_net_wc_get_type"
+           glib:type-struct="WcClass">
+      <source-position filename="libs/net/grl-net-wc.h" line="103"/>
+      <constructor name="new" c:identifier="grl_net_wc_new">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="868">Creates a new #GrlNetWc.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="109"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libs/net/grl-net-wc.c"
+               line="873">a new allocated instance of #GrlNetWc. Do g_object_unref() after
+use it.</doc>
+          <type name="Wc" c:type="GrlNetWc*"/>
+        </return-value>
+      </constructor>
+      <function name="error_quark" c:identifier="grl_net_wc_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="flush_delayed_requests"
+              c:identifier="grl_net_wc_flush_delayed_requests">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="1173">This method will flush all the pending request in the queue.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1175">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_async" c:identifier="grl_net_wc_request_async">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="883">Request the fetching of a web resource given the @uri. This request is
+asynchronous, thus the result will be returned within the @callback.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="885">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="886">The URI of the resource to request</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="887">a #GCancellable instance or %NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="888">The callback when the result is ready</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="889">User data set for the @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_finish"
+              c:identifier="grl_net_wc_request_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="997">Finishes an asynchronous load of the file's contents.
+The contents are placed in contents, and length is set to the size of the
+contents string.
+
+The content address will be invalidated at the next request. So if you
+want to keep it, please copy it into another address.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libs/net/grl-net-wc.c"
+               line="1014">%TRUE if the request was successfull. If %FALSE an error occurred.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="999">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1000">The result of the request</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="content"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1001">The contents of the resource</doc>
+            <array length="2" zero-terminated="0" c:type="gchar**">
+              <type name="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="length"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1003">The length of the contents or %NULL if it is not
+needed</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_with_headers_async"
+              c:identifier="grl_net_wc_request_with_headers_async"
+              shadowed-by="request_with_headers_hash_async"
+              version="0.2.2"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="909">Request the fetching of a web resource given the @uri. This request is
+asynchronous, thus the result will be returned within the @callback.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="911">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="912">The URI of the resource to request</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="913">a #GCancellable instance or %NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="914">The callback when the result is ready</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="915">User data set for the @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="916">List of tuples of header name and header value, terminated by
+%NULL.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_with_headers_hash_async"
+              c:identifier="grl_net_wc_request_with_headers_hash_async"
+              shadows="request_with_headers_async"
+              version="0.2.2">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="965">Request the fetching of a web resource given the @uri. This request is
+asynchronous, thus the result will be returned within the @callback.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="967">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="968">The URI of the resource to request</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="headers"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="969">a set of additional HTTP
+headers for this request or %NULL to ignore</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="971">a #GCancellable instance or %NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="972">The callback when the result is ready</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="973">User data set for the @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cache"
+              c:identifier="grl_net_wc_set_cache"
+              glib:set-property="cache"
+              version="0.1.12">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="1119">Sets if cache must be used. Note that this will only work if caching is
+supporting.  If sets %TRUE, a new cache will be created. If sets to %FALSE,
+current cache is clean and removed.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1121">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="use_cache" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1122">if cache must be used or not</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cache_size"
+              c:identifier="grl_net_wc_set_cache_size"
+              glib:set-property="cache-size"
+              version="0.1.12">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="1146">Sets the new maximum size of cache, in Megabytes. Default value is 10. Using
+0 means no cache will be done.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1148">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="cache_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1149">size of cache (in Mb)</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_log_level" c:identifier="grl_net_wc_set_log_level">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="1045">Setting the log level the logger feature is added into
+the libsoup session.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1047">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="log_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1048">the libsoup log level to set [0,3]</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_throttling"
+              c:identifier="grl_net_wc_set_throttling"
+              glib:set-property="throttling">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.c"
+             line="1079">Setting this property, the #GrlNetWc will queue all the requests and
+will dispatch them with a pause between them of this value.
+
+Note that if the grl-net library was compiled against libsoup3, changing
+the throttling configuration will show a warning if done after the first
+request.</doc>
+        <source-position filename="libs/net/grl-net-wc.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1081">a #GrlNetWc instance</doc>
+            <type name="Wc" c:type="GrlNetWc*"/>
+          </instance-parameter>
+          <parameter name="throttling" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libs/net/grl-net-wc.c"
+                 line="1082">the number of seconds to wait between requests</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="cache"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_cache"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="cache-size"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_cache_size"
+                default-value="10">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="loglevel"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="throttling"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_throttling"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="user-agent"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="WcClass"
+            c:type="GrlNetWcClass"
+            glib:is-gtype-struct-for="Wc">
+      <doc xml:space="preserve"
+           filename="libs/net/grl-net-wc.h"
+           line="91">Grilo web client helper class.
+
+It's a simple and thin web client to be used by the sources to download
+content from Internet.</doc>
+      <source-position filename="libs/net/grl-net-wc.h" line="103"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="93">the parent class structure</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="WcError" c:type="GrlNetWcError">
+      <doc xml:space="preserve"
+           filename="libs/net/grl-net-wc.h"
+           line="34">These constants identify all the available errors managed by
+the web client.</doc>
+      <source-position filename="libs/net/grl-net-wc.h" line="63"/>
+      <member name="unavailable"
+              value="1"
+              c:identifier="GRL_NET_WC_ERROR_UNAVAILABLE">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="36">Deprecated. For generic errors, you
+should check for G_IO_ERROR_FAILED from G_IO_ERROR domain.</doc>
+      </member>
+      <member name="protocol_error"
+              value="2"
+              c:identifier="GRL_NET_WC_ERROR_PROTOCOL_ERROR">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="38">Invalid URI or header</doc>
+      </member>
+      <member name="authentication_required"
+              value="3"
+              c:identifier="GRL_NET_WC_ERROR_AUTHENTICATION_REQUIRED">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="39">Required authentication</doc>
+      </member>
+      <member name="not_found"
+              value="4"
+              c:identifier="GRL_NET_WC_ERROR_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="40">Request resource not found</doc>
+      </member>
+      <member name="conflict"
+              value="5"
+              c:identifier="GRL_NET_WC_ERROR_CONFLICT">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="41">The entry has been modified since is was
+downloaded</doc>
+      </member>
+      <member name="forbidden"
+              value="6"
+              c:identifier="GRL_NET_WC_ERROR_FORBIDDEN">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="43">TBD</doc>
+      </member>
+      <member name="network_error"
+              value="7"
+              c:identifier="GRL_NET_WC_ERROR_NETWORK_ERROR">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="44">Cannot connect to the server</doc>
+      </member>
+      <member name="proxy_error"
+              value="8"
+              c:identifier="GRL_NET_WC_ERROR_PROXY_ERROR">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="45">Deprecated. You should check for
+G_IO_ERROR_PROXY_FAILED from G_IO_ERROR domain.</doc>
+      </member>
+      <member name="cancelled"
+              value="9"
+              c:identifier="GRL_NET_WC_ERROR_CANCELLED">
+        <doc xml:space="preserve"
+             filename="libs/net/grl-net-wc.h"
+             line="47">Deprecated. You should check for
+G_IO_ERROR_CANCELLED from G_IO_ERROR domain.</doc>
+      </member>
+    </enumeration>
+    <record name="WcPrivate" c:type="GrlNetWcPrivate" disguised="1" opaque="1">
+      <source-position filename="libs/net/grl-net-wc.h" line="87"/>
+    </record>
+    <docsection name="grl-net-wc">
+      <doc xml:space="preserve"
+           filename="libs/net/grl-net-wc.c"
+           line="29">Most of the Grilo's sources need to access to web resources. The purpose of
+this utility class is to provide a thin and lean mechanism for those plugins
+to interact with those resources.</doc>
+    </docsection>
+  </namespace>
+</repository>

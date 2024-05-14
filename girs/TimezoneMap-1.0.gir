@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="xlib" version="2.0"/>
+  <c:include name="cc-timezone-map.h"/>
+  <c:include name="timezone-completion.h"/>
+  <c:include name="tz.h"/>
+  <namespace name="TimezoneMap"
+             version="1.0"
+             shared-library="libtimezonemap.so.1"
+             c:identifier-prefixes="Cc"
+             c:symbol-prefixes="cc">
+    <constant name="TIMEZONE_COMPLETION_ADMIN1"
+              value="2"
+              c:type="CC_TIMEZONE_COMPLETION_ADMIN1">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_COUNTRY"
+              value="3"
+              c:type="CC_TIMEZONE_COMPLETION_COUNTRY">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_LAST"
+              value="6"
+              c:type="CC_TIMEZONE_COMPLETION_LAST">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_LATITUDE"
+              value="5"
+              c:type="CC_TIMEZONE_COMPLETION_LATITUDE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_LONGITUDE"
+              value="4"
+              c:type="CC_TIMEZONE_COMPLETION_LONGITUDE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_NAME"
+              value="1"
+              c:type="CC_TIMEZONE_COMPLETION_NAME">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TIMEZONE_COMPLETION_ZONE"
+              value="0"
+              c:type="CC_TIMEZONE_COMPLETION_ZONE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="TimezoneCompletion"
+           c:symbol-prefix="timezone_completion"
+           c:type="CcTimezoneCompletion"
+           parent="Gtk.EntryCompletion"
+           glib:type-name="CcTimezoneCompletion"
+           glib:get-type="cc_timezone_completion_get_type"
+           glib:type-struct="TimezoneCompletionClass">
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.CellLayout"/>
+      <constructor name="new" c:identifier="cc_timezone_completion_new">
+        <return-value transfer-ownership="full">
+          <type name="TimezoneCompletion" c:type="CcTimezoneCompletion*"/>
+        </return-value>
+      </constructor>
+      <method name="watch_entry"
+              c:identifier="cc_timezone_completion_watch_entry">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="entry" transfer-ownership="none">
+            <type name="Gtk.Entry" c:type="GtkEntry*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.EntryCompletion" c:type="GtkEntryCompletion"/>
+      </field>
+      <field name="priv">
+        <type name="TimezoneCompletionPrivate"
+              c:type="CcTimezoneCompletionPrivate*"/>
+      </field>
+    </class>
+    <record name="TimezoneCompletionClass"
+            c:type="CcTimezoneCompletionClass"
+            glib:is-gtype-struct-for="TimezoneCompletion">
+      <field name="parent_class">
+        <type name="Gtk.EntryCompletionClass"
+              c:type="GtkEntryCompletionClass"/>
+      </field>
+    </record>
+    <record name="TimezoneCompletionPrivate"
+            c:type="CcTimezoneCompletionPrivate"
+            disguised="1">
+    </record>
+    <class name="TimezoneLocation"
+           c:symbol-prefix="timezone_location"
+           c:type="CcTimezoneLocation"
+           parent="GObject.Object"
+           glib:type-name="CcTimezoneLocation"
+           glib:get-type="cc_timezone_location_get_type"
+           glib:type-struct="TimezoneLocationClass">
+      <constructor name="new" c:identifier="cc_timezone_location_new">
+        <return-value transfer-ownership="full">
+          <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+        </return-value>
+      </constructor>
+      <property name="Comment" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="country" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="dist" writable="1" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="latitude" writable="1" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="longitude" writable="1" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="zone" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="TimezoneLocationPrivate"
+              c:type="CcTimezoneLocationPrivate*"/>
+      </field>
+    </class>
+    <record name="TimezoneLocationClass"
+            c:type="CcTimezoneLocationClass"
+            glib:is-gtype-struct-for="TimezoneLocation">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="TimezoneLocationPrivate"
+            c:type="CcTimezoneLocationPrivate"
+            disguised="1">
+    </record>
+    <class name="TimezoneMap"
+           c:symbol-prefix="timezone_map"
+           c:type="CcTimezoneMap"
+           parent="Gtk.Widget"
+           glib:type-name="CcTimezoneMap"
+           glib:get-type="cc_timezone_map_get_type"
+           glib:type-struct="TimezoneMapClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="cc_timezone_map_new">
+        <return-value transfer-ownership="none">
+          <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+        </return-value>
+      </constructor>
+      <method name="get_location"
+              c:identifier="cc_timezone_map_get_location"
+              introspectable="0">
+        <return-value>
+          <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+        </return-value>
+      </method>
+      <method name="get_timezone_at_coords"
+              c:identifier="cc_timezone_map_get_timezone_at_coords">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="lon" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_coords" c:identifier="cc_timezone_map_set_coords">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="lon" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timezone" c:identifier="cc_timezone_map_set_timezone">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="timezone" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_watermark"
+              c:identifier="cc_timezone_map_set_watermark">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="watermark" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <field name="priv">
+        <type name="TimezoneMapPrivate" c:type="CcTimezoneMapPrivate*"/>
+      </field>
+      <glib:signal name="location-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TimezoneLocation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TimezoneMapClass"
+            c:type="CcTimezoneMapClass"
+            glib:is-gtype-struct-for="TimezoneMap">
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <record name="TimezoneMapPrivate"
+            c:type="CcTimezoneMapPrivate"
+            disguised="1">
+    </record>
+  </namespace>
+</repository>

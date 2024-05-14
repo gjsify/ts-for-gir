@@ -1,0 +1,665 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GPaste" version="2"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="Gtk" version="3.0"/>
+  <c:include name="gpaste-gtk3.h"/>
+  <namespace name="GPasteGtk"
+             version="3"
+             shared-library="libgpaste-gtk-3.so.0"
+             c:identifier-prefixes="GPasteGtk"
+             c:symbol-prefixes="g_paste_gtk">
+    <callback name="BooleanCallback" c:type="GPasteGtkBooleanCallback">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="21"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function-macro name="DEFINE_TYPE"
+                    c:identifier="G_PASTE_GTK_DEFINE_TYPE"
+                    introspectable="0">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-macros.h"
+                       line="22"/>
+      <parameters>
+        <parameter name="TypeName">
+        </parameter>
+        <parameter name="type_name">
+        </parameter>
+        <parameter name="ParentTypeName">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEFINE_TYPE_WITH_PRIVATE"
+                    c:identifier="G_PASTE_GTK_DEFINE_TYPE_WITH_PRIVATE"
+                    introspectable="0">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-macros.h"
+                       line="25"/>
+      <parameters>
+        <parameter name="TypeName">
+        </parameter>
+        <parameter name="type_name">
+        </parameter>
+        <parameter name="ParentTypeName">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FINAL_TYPE"
+                    c:identifier="G_PASTE_GTK_FINAL_TYPE"
+                    introspectable="0">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-macros.h"
+                       line="19"/>
+      <parameters>
+        <parameter name="TypeName">
+        </parameter>
+        <parameter name="type_name">
+        </parameter>
+        <parameter name="TYPE_NAME">
+        </parameter>
+        <parameter name="ParentTypeName">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INIT_APPLICATION"
+                    c:identifier="G_PASTE_GTK_INIT_APPLICATION"
+                    introspectable="0">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-macros.h"
+                       line="55"/>
+      <parameters>
+        <parameter name="name">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INIT_APPLICATION_FULL"
+                    c:identifier="G_PASTE_GTK_INIT_APPLICATION_FULL"
+                    introspectable="0">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-macros.h"
+                       line="28"/>
+      <parameters>
+        <parameter name="name">
+        </parameter>
+        <parameter name="activate_cb">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="RangeCallback" c:type="GPasteGtkRangeCallback">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="23"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ResetCallback" c:type="GPasteGtkResetCallback">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="27"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="0">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="SettingsUiPanel"
+           c:symbol-prefix="settings_ui_panel"
+           c:type="GPasteGtkSettingsUiPanel"
+           parent="Gtk.Grid"
+           glib:type-name="GPasteGtkSettingsUiPanel"
+           glib:get-type="g_paste_gtk_settings_ui_panel_get_type"
+           glib:type-struct="SettingsUiPanelClass">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="19"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="g_paste_gtk_settings_ui_panel_new">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+             line="294">Create a new instance of #GPasteGtkSettingsUiPanel</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+               line="299">a newly allocated #GPasteGtkSettingsUiPanel
+         free it with g_object_unref</doc>
+          <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+        </return-value>
+      </constructor>
+      <method name="add_boolean_setting"
+              c:identifier="g_paste_gtk_settings_ui_panel_add_boolean_setting">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+             line="111">Add a new boolean settings to the current pane</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                         line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+               line="121">the #GtkSwitch we just added</doc>
+          <type name="Gtk.Switch" c:type="GtkSwitch*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="113">a #GPasteGtkSettingsUiPanel instance</doc>
+            <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="114">the label to display</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="115">the deafault value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="on_value_changed"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="116">the callback to call when the value changes</doc>
+            <type name="BooleanCallback" c:type="GPasteGtkBooleanCallback"/>
+          </parameter>
+          <parameter name="on_reset"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="117">the callback to call when the value is reset</doc>
+            <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_range_setting"
+              c:identifier="g_paste_gtk_settings_ui_panel_add_range_setting">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+             line="167">Add a new boolean settings to the current pane</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+               line="180">the #GtkSpinButton we just added</doc>
+          <type name="Gtk.SpinButton" c:type="GtkSpinButton*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="169">a #GPasteGtkSettingsUiPanel instance</doc>
+            <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="170">the label to display</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="171">the deafault value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="min" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="172">the minimal authorized value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="max" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="173">the maximal authorized value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="step" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="174">the step between proposed values</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="on_value_changed"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="7">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="175">the callback to call when the value changes</doc>
+            <type name="RangeCallback" c:type="GPasteGtkRangeCallback"/>
+          </parameter>
+          <parameter name="on_reset"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="7">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="176">the callback to call when the value is reset</doc>
+            <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_separator"
+              c:identifier="g_paste_gtk_settings_ui_panel_add_separator">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+             line="146">Add a new separator to the current pane</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="148">a #GPasteGtkSettingsUiPanel instance</doc>
+            <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="add_text_setting"
+              c:identifier="g_paste_gtk_settings_ui_panel_add_text_setting">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+             line="215">Add a new text settings to the current pane</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+               line="225">the #GtkEntry we just added</doc>
+          <type name="Gtk.Entry" c:type="GtkEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="217">a #GPasteGtkSettingsUiPanel instance</doc>
+            <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="218">the label to display</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="219">the deafault value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="on_value_changed"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="220">the callback to call when the value changes</doc>
+            <type name="TextCallback" c:type="GPasteGtkTextCallback"/>
+          </parameter>
+          <parameter name="on_reset"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.c"
+                 line="221">the callback to call when the value is reset</doc>
+            <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="SettingsUiPanelClass"
+            c:type="GPasteGtkSettingsUiPanelClass"
+            glib:is-gtype-struct-for="SettingsUiPanel">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="Gtk.GridClass" c:type="GtkGridClass"/>
+      </field>
+    </record>
+    <class name="SettingsUiStack"
+           c:symbol-prefix="settings_ui_stack"
+           c:type="GPasteGtkSettingsUiStack"
+           parent="Gtk.Stack"
+           glib:type-name="GPasteGtkSettingsUiStack"
+           glib:get-type="g_paste_gtk_settings_ui_stack_get_type"
+           glib:type-struct="SettingsUiStackClass">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.h"
+                       line="19"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="g_paste_gtk_settings_ui_stack_new">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+             line="423">Create a new instance of #GPasteGtkSettingsUiStack</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.h"
+                         line="27"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+               line="428">a newly allocated #GPasteGtkSettingsUiStack
+                     free it with g_object_unref</doc>
+          <type name="SettingsUiStack" c:type="GPasteGtkSettingsUiStack*"/>
+        </return-value>
+      </constructor>
+      <method name="add_panel"
+              c:identifier="g_paste_gtk_settings_ui_stack_add_panel">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+             line="71">Add a new panel to the #GPasteGtkSettingsUiStack</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.h"
+                         line="21"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+                 line="73">a #GPasteGtkSettingsUiStack instance</doc>
+            <type name="SettingsUiStack" c:type="GPasteGtkSettingsUiStack*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+                 line="74">the name of the panel</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+                 line="75">the label to display</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+                 line="76">the #GPasteGtkSettingsUiPanel to add</doc>
+            <type name="SettingsUiPanel" c:type="GPasteGtkSettingsUiPanel*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fill" c:identifier="g_paste_gtk_settings_ui_stack_fill">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+             line="315">Fill the #GPasteGtkSettingsUiStack with default panels</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.h"
+                         line="25"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.c"
+                 line="317">a #GPasteGtkSettingsUiStack instance</doc>
+            <type name="SettingsUiStack" c:type="GPasteGtkSettingsUiStack*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="SettingsUiStackClass"
+            c:type="GPasteGtkSettingsUiStackClass"
+            glib:is-gtype-struct-for="SettingsUiStack">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-stack.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="Gtk.StackClass" c:type="GtkStackClass"/>
+      </field>
+    </record>
+    <class name="SettingsUiWidget"
+           c:symbol-prefix="settings_ui_widget"
+           c:type="GPasteGtkSettingsUiWidget"
+           parent="Gtk.Grid"
+           glib:type-name="GPasteGtkSettingsUiWidget"
+           glib:get-type="g_paste_gtk_settings_ui_widget_get_type"
+           glib:type-struct="SettingsUiWidgetClass">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.h"
+                       line="19"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="g_paste_gtk_settings_ui_widget_new">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.c"
+             line="65">Create a new instance of #GPasteGtkSettingsUiWidget</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.h"
+                         line="23"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.c"
+               line="70">a newly allocated #GPasteGtkSettingsUiWidget
+                     free it with g_object_unref</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_stack"
+              c:identifier="g_paste_gtk_settings_ui_widget_get_stack">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.c"
+             line="21">Get the inner GtkStack from the Widget</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.h"
+                         line="21"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.c"
+               line="27">the #GtkStack</doc>
+          <type name="SettingsUiStack" c:type="GPasteGtkSettingsUiStack*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.c"
+                 line="23">a #GPasteGtkSettingsUiWidget instance</doc>
+            <type name="SettingsUiWidget" c:type="GPasteGtkSettingsUiWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="SettingsUiWidgetClass"
+            c:type="GPasteGtkSettingsUiWidgetClass"
+            glib:is-gtype-struct-for="SettingsUiWidget">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-widget.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="Gtk.GridClass" c:type="GtkGridClass"/>
+      </field>
+    </record>
+    <callback name="TextCallback" c:type="GPasteGtkTextCallback">
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-settings-ui-panel.h"
+                       line="25"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="util_compute_checksum"
+              c:identifier="g_paste_gtk_util_compute_checksum">
+      <doc xml:space="preserve"
+           filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+           line="45">Compute the checksum of an image</doc>
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.h"
+                       line="24"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+             line="51">the newly allocated checksum</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="image" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="47">the #GdkPixbuf to checksum</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_confirm_dialog"
+              c:identifier="g_paste_gtk_util_confirm_dialog">
+      <doc xml:space="preserve"
+           filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+           line="9">Ask the user for confirmation</doc>
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.h"
+                       line="20"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="11">the parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="action" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="msg" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="12">the message to display</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_empty_history"
+              c:identifier="g_paste_gtk_util_empty_history">
+      <doc xml:space="preserve"
+           filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+           line="65">Empty history after prompting user for confirmation</doc>
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.h"
+                       line="26"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent_window"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="67">the parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="client" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="68">a #GPasteClient instance</doc>
+          <type name="GPaste.Client" c:type="GPasteClient*"/>
+        </parameter>
+        <parameter name="settings" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="69">a #GPasteSettings instance</doc>
+          <type name="GPaste.Settings" c:type="GPasteSettings*"/>
+        </parameter>
+        <parameter name="history" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="70">the name of the history to empty</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_show_win" c:identifier="g_paste_gtk_util_show_win">
+      <doc xml:space="preserve"
+           filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+           line="86">Present the application's window to user</doc>
+      <source-position filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.h"
+                       line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="application" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk3/gpaste-gtk-util.c"
+               line="88">a #GtkApplication</doc>
+          <type name="Gio.Application" c:type="GApplication*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

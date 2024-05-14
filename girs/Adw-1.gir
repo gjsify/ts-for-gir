@@ -5151,6 +5151,9 @@ If the value is 0, the number of lines won't be limited.</doc>
         <type name="PreferencesRowClass" c:type="AdwPreferencesRowClass"/>
       </field>
       <field name="activate">
+        <doc xml:space="preserve"
+             filename="src/adw-action-row.h"
+             line="27">Activates the row to trigger its main action.</doc>
         <callback name="activate">
           <source-position filename="src/adw-action-row.h" line="33"/>
           <return-value transfer-ownership="none">
@@ -5472,7 +5475,8 @@ adw_alert_dialog_add_responses (dialog,
       </method>
       <method name="choose"
               c:identifier="adw_alert_dialog_choose"
-              version="1.5">
+              version="1.5"
+              glib:finish-func="choose_finish">
         <doc xml:space="preserve"
              filename="src/adw-alert-dialog.c"
              line="2250">This function shows @self to the user.
@@ -20043,7 +20047,8 @@ adw_message_dialog_add_responses (dialog,
       </method>
       <method name="choose"
               c:identifier="adw_message_dialog_choose"
-              version="1.3">
+              version="1.3"
+              glib:finish-func="choose_finish">
         <doc xml:space="preserve"
              filename="src/adw-message-dialog.c"
              line="2400">This function shows @self to the user.
@@ -32202,6 +32207,9 @@ If not implemented, the default implementation returns the allocation of
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_distance">
+        <doc xml:space="preserve"
+             filename="src/adw-swipeable.h"
+             line="28">Gets the swipe distance.</doc>
         <callback name="get_distance">
           <source-position filename="src/adw-swipeable.h" line="40"/>
           <return-value transfer-ownership="none">
@@ -32221,6 +32229,9 @@ If not implemented, the default implementation returns the allocation of
         </callback>
       </field>
       <field name="get_snap_points">
+        <doc xml:space="preserve"
+             filename="src/adw-swipeable.h"
+             line="29">Gets the snap points.</doc>
         <callback name="get_snap_points">
           <source-position filename="src/adw-swipeable.h" line="41"/>
           <return-value transfer-ownership="full">
@@ -32251,6 +32262,9 @@ If not implemented, the default implementation returns the allocation of
         </callback>
       </field>
       <field name="get_progress">
+        <doc xml:space="preserve"
+             filename="src/adw-swipeable.h"
+             line="30">Gets the current progress.</doc>
         <callback name="get_progress">
           <source-position filename="src/adw-swipeable.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -32270,6 +32284,9 @@ If not implemented, the default implementation returns the allocation of
         </callback>
       </field>
       <field name="get_cancel_progress">
+        <doc xml:space="preserve"
+             filename="src/adw-swipeable.h"
+             line="31">Gets the cancel progress.</doc>
         <callback name="get_cancel_progress">
           <source-position filename="src/adw-swipeable.h" line="44"/>
           <return-value transfer-ownership="none">
@@ -32289,6 +32306,9 @@ If not implemented, the default implementation returns the allocation of
         </callback>
       </field>
       <field name="get_swipe_area">
+        <doc xml:space="preserve"
+             filename="src/adw-swipeable.h"
+             line="32">Gets the swipeable rectangle.</doc>
         <callback name="get_swipe_area">
           <source-position filename="src/adw-swipeable.h" line="45"/>
           <return-value transfer-ownership="none">

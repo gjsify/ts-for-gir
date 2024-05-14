@@ -66,7 +66,7 @@ and/or use gtk-doc annotations.  -->
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="38">Checks the version of the Gcr library that is being compiled
+           line="40">Checks the version of the Gcr library that is being compiled
 against.
 
 ```
@@ -79,17 +79,17 @@ against.
         <parameter name="major">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="40">the major version to check for</doc>
+               line="42">the major version to check for</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="41">the minor version to check for</doc>
+               line="43">the minor version to check for</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="42">the micro version to check for</doc>
+               line="44">the micro version to check for</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -123,12 +123,12 @@ functions.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1324">Initialize the certificate mixin for the class. This mixin implements the
+             line="1356">Initialize the certificate mixin for the class. This mixin implements the
 various required properties for the certificate.
 
 Call this function near the end of your derived class_init function. The
 derived class must implement the #GcrCertificate interface.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="127"/>
+        <source-position filename="gcr/gcr-certificate.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -136,7 +136,7 @@ derived class must implement the #GcrCertificate interface.</doc>
           <parameter name="object_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1326">The GObjectClass for this class</doc>
+                 line="1358">The GObjectClass for this class</doc>
             <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
           </parameter>
         </parameters>
@@ -146,7 +146,7 @@ derived class must implement the #GcrCertificate interface.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1351">Implementation to get various required certificate properties. This should
+             line="1383">Implementation to get various required certificate properties. This should
 be called from your derived class get_property function, or used as a
 get_property virtual function.
 
@@ -179,7 +179,7 @@ my_class_init (MyClass *klass)
 	...
 }
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="129"/>
+        <source-position filename="gcr/gcr-certificate.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -187,25 +187,25 @@ my_class_init (MyClass *klass)
           <parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1353">The object</doc>
+                 line="1385">The object</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
           <parameter name="prop_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1354">The property id</doc>
+                 line="1386">The property id</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1355">The value to fill in.</doc>
+                 line="1387">The value to fill in.</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1356">The param specification.</doc>
+                 line="1388">The param specification.</doc>
             <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
           </parameter>
         </parameters>
@@ -245,21 +245,21 @@ my_class_init (MyClass *klass)
               c:identifier="gcr_certificate_get_basic_constraints">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="826">Get the basic constraints for the certificate if present. If %FALSE is
+             line="857">Get the basic constraints for the certificate if present. If %FALSE is
 returned then no basic constraints are present and the @is_ca and
 @path_len arguments are not changed.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="119"/>
+        <source-position filename="gcr/gcr-certificate.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="836">whether basic constraints are present or not</doc>
+               line="867">whether basic constraints are present or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="828">the certificate</doc>
+                 line="859">the certificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="is_ca"
@@ -270,7 +270,7 @@ returned then no basic constraints are present and the @is_ca and
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="829">location to place a %TRUE if is an authority</doc>
+                 line="860">location to place a %TRUE if is an authority</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="path_len"
@@ -281,7 +281,7 @@ returned then no basic constraints are present and the @is_ca and
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="830">location to place the max path length</doc>
+                 line="861">location to place the max path length</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -347,7 +347,7 @@ returned then no basic constraints are present and the @is_ca and
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="112"/>
+        <source-position filename="gcr/gcr-certificate.h" line="114"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
@@ -389,7 +389,7 @@ as a hex string.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="116"/>
+        <source-position filename="gcr/gcr-certificate.h" line="118"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
@@ -415,13 +415,13 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_interface_elements">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1145">Get the list of sections from the certificate that can be shown to the user
+             line="1176">Get the list of sections from the certificate that can be shown to the user
 interface.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="123"/>
+        <source-position filename="gcr/gcr-certificate.h" line="125"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1152">A #GList of
+               line="1183">A #GList of
 #GcrCertificateSection</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="CertificateSection"/>
@@ -431,7 +431,7 @@ interface.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1147">the #GcrCertificate</doc>
+                 line="1178">the #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -606,7 +606,7 @@ The data should be freed by using g_free() when no longer required.</doc>
              filename="gcr/gcr-certificate.c"
              line="651">Get the key size in bits of the public key represented
 by this certificate.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="110"/>
+        <source-position filename="gcr/gcr-certificate.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
@@ -626,15 +626,15 @@ by this certificate.</doc>
               c:identifier="gcr_certificate_get_serial_number">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="759">Get the raw binary serial number of the certificate.
+             line="790">Get the raw binary serial number of the certificate.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="105"/>
+        <source-position filename="gcr/gcr-certificate.h" line="107"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="769">the raw binary serial number.</doc>
+               line="800">the raw binary serial number.</doc>
           <array length="0" zero-terminated="0" c:type="guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
@@ -643,7 +643,7 @@ it is no longer required.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="761">a #GcrCertificate</doc>
+                 line="792">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
           <parameter name="n_length"
@@ -652,7 +652,7 @@ it is no longer required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="762">the length of the returned data.</doc>
+                 line="793">the length of the returned data.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -661,22 +661,22 @@ it is no longer required.</doc>
               c:identifier="gcr_certificate_get_serial_number_hex">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="797">Get the serial number of the certificate as a hex string.
+             line="828">Get the serial number of the certificate as a hex string.
 
 The caller should free the returned data using g_free() when
 it is no longer required.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="108"/>
+        <source-position filename="gcr/gcr-certificate.h" line="110"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="806">an allocated string containing the serial number as hex.</doc>
+               line="837">an allocated string containing the serial number as hex.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="799">a #GcrCertificate</doc>
+                 line="830">a #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -825,6 +825,26 @@ The data should be freed by using g_free() when no longer required.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_version" c:identifier="gcr_certificate_get_version">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate.c"
+             line="759">Get the version of the X.509 certificate.</doc>
+        <source-position filename="gcr/gcr-certificate.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gcr/gcr-certificate.c"
+               line="765">the version of the certificate</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gcr/gcr-certificate.c"
+                 line="761">a #GcrCertificate</doc>
+            <type name="Certificate" c:type="GcrCertificate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="is_issuer" c:identifier="gcr_certificate_is_issuer">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
@@ -858,10 +878,10 @@ library.</doc>
               c:identifier="gcr_certificate_mixin_emit_notify">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate.c"
-             line="1302">Implementers of the #GcrCertificate mixin should call this function to notify
+             line="1334">Implementers of the #GcrCertificate mixin should call this function to notify
 when the certificate has changed to emit notifications on the various
 properties.</doc>
-        <source-position filename="gcr/gcr-certificate.h" line="125"/>
+        <source-position filename="gcr/gcr-certificate.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -869,7 +889,7 @@ properties.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-certificate.c"
-                 line="1304">the #GcrCertificate</doc>
+                 line="1336">the #GcrCertificate</doc>
             <type name="Certificate" c:type="GcrCertificate*"/>
           </instance-parameter>
         </parameters>
@@ -991,7 +1011,8 @@ to %GCR_CERTIFICATE_CHAIN_UNKNOWN</doc>
       </method>
       <method name="build"
               c:identifier="gcr_certificate_chain_build"
-              throws="1">
+              throws="1"
+              glib:async-func="build_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-chain.c"
              line="659">Complete a certificate chain. Once a certificate chain has been built
@@ -1071,7 +1092,9 @@ asynchronous version.</doc>
         </parameters>
       </method>
       <method name="build_async"
-              c:identifier="gcr_certificate_chain_build_async">
+              c:identifier="gcr_certificate_chain_build_async"
+              glib:finish-func="build_finish"
+              glib:sync-func="build">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-chain.c"
              line="730">Complete a certificate chain. Once a certificate chain has been built
@@ -1601,6 +1624,9 @@ provided in.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_der_data">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate.c"
+             line="65">a method which returns the RAW der data of the certificate</doc>
         <callback name="get_der_data">
           <source-position filename="gcr/gcr-certificate.h" line="56"/>
           <return-value transfer-ownership="none">
@@ -1671,7 +1697,8 @@ with [method@CertificateRequest.complete_async].</doc>
       <source-position filename="gcr/gcr-certificate-request.h" line="38"/>
       <function name="capable"
                 c:identifier="gcr_certificate_request_capable"
-                throws="1">
+                throws="1"
+                glib:async-func="capable_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="732">Check whether [class@CertificateRequest] is capable of creating a request
@@ -1702,7 +1729,9 @@ for the given @private_key.</doc>
         </parameters>
       </function>
       <function name="capable_async"
-                c:identifier="gcr_certificate_request_capable_async">
+                c:identifier="gcr_certificate_request_capable_async"
+                glib:finish-func="capable_finish"
+                glib:sync-func="capable">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="757">Asynchronously check whether [class@CertificateRequest] is capable of
@@ -1801,7 +1830,8 @@ capable of creating a request for the given @private_key.</doc>
       </function>
       <method name="complete"
               c:identifier="gcr_certificate_request_complete"
-              throws="1">
+              throws="1"
+              glib:async-func="complete_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="430">Complete and sign a certificate request, so that it can be encoded
@@ -1834,7 +1864,9 @@ This call may block as it signs the request using the private key.</doc>
         </parameters>
       </method>
       <method name="complete_async"
-              c:identifier="gcr_certificate_request_complete_async">
+              c:identifier="gcr_certificate_request_complete_async"
+              glib:finish-func="complete_finish"
+              glib:sync-func="complete">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="619">Asynchronously complete and sign a certificate request, so that it can
@@ -2185,240 +2217,240 @@ this is done using the OpenSSL style PEM encoding.</doc>
     <enumeration name="DataError" c:type="GcrDataError">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="87">Values responding to error codes for parsing and serializing data.</doc>
+           line="85">Values responding to error codes for parsing and serializing data.</doc>
       <source-position filename="gcr/gcr-types.h" line="57"/>
       <member name="failure" value="-1" c:identifier="GCR_ERROR_FAILURE">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="89">Failed to parse or serialize the data</doc>
+             line="87">Failed to parse or serialize the data</doc>
       </member>
       <member name="unrecognized"
               value="1"
               c:identifier="GCR_ERROR_UNRECOGNIZED">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="90">The data was unrecognized or unsupported</doc>
+             line="88">The data was unrecognized or unsupported</doc>
       </member>
       <member name="cancelled" value="2" c:identifier="GCR_ERROR_CANCELLED">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="91">The operation was cancelled</doc>
+             line="89">The operation was cancelled</doc>
       </member>
       <member name="locked" value="3" c:identifier="GCR_ERROR_LOCKED">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="92">The data was encrypted or locked and could not be unlocked.</doc>
+             line="90">The data was encrypted or locked and could not be unlocked.</doc>
       </member>
     </enumeration>
     <enumeration name="DataFormat" c:type="GcrDataFormat">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="2179">The various format identifiers.</doc>
+           line="1377">The various format identifiers.</doc>
       <source-position filename="gcr/gcr-types.h" line="101"/>
       <member name="all" value="-1" c:identifier="GCR_FORMAT_ALL">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2181">Represents all the formats, when enabling or disabling</doc>
+             line="1379">Represents all the formats, when enabling or disabling</doc>
       </member>
       <member name="invalid" value="0" c:identifier="GCR_FORMAT_INVALID">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2182">Not a valid format</doc>
+             line="1380">Not a valid format</doc>
       </member>
       <member name="der_private_key"
               value="100"
               c:identifier="GCR_FORMAT_DER_PRIVATE_KEY">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2183">DER encoded private key</doc>
+             line="1381">DER encoded private key</doc>
       </member>
       <member name="der_private_key_rsa"
               value="101"
               c:identifier="GCR_FORMAT_DER_PRIVATE_KEY_RSA">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2184">DER encoded RSA private key</doc>
+             line="1382">DER encoded RSA private key</doc>
       </member>
       <member name="der_private_key_dsa"
               value="102"
               c:identifier="GCR_FORMAT_DER_PRIVATE_KEY_DSA">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2185">DER encoded DSA private key</doc>
+             line="1383">DER encoded DSA private key</doc>
       </member>
       <member name="der_private_key_ec"
               value="103"
               c:identifier="GCR_FORMAT_DER_PRIVATE_KEY_EC">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2186">DER encoded EC private key</doc>
+             line="1384">DER encoded EC private key</doc>
       </member>
       <member name="der_subject_public_key"
               value="150"
               c:identifier="GCR_FORMAT_DER_SUBJECT_PUBLIC_KEY">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2187">DER encoded SubjectPublicKeyInfo</doc>
+             line="1385">DER encoded SubjectPublicKeyInfo</doc>
       </member>
       <member name="der_certificate_x509"
               value="200"
               c:identifier="GCR_FORMAT_DER_CERTIFICATE_X509">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2188">DER encoded X.509 certificate</doc>
+             line="1386">DER encoded X.509 certificate</doc>
       </member>
       <member name="der_pkcs7" value="300" c:identifier="GCR_FORMAT_DER_PKCS7">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2189">DER encoded PKCS#7 container file which can contain certificates</doc>
+             line="1387">DER encoded PKCS#7 container file which can contain certificates</doc>
       </member>
       <member name="der_pkcs8" value="400" c:identifier="GCR_FORMAT_DER_PKCS8">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2190">DER encoded PKCS#8 file which can contain a key</doc>
+             line="1388">DER encoded PKCS#8 file which can contain a key</doc>
       </member>
       <member name="der_pkcs8_plain"
               value="401"
               c:identifier="GCR_FORMAT_DER_PKCS8_PLAIN">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2191">Unencrypted DER encoded PKCS#8 file which can contain a key</doc>
+             line="1389">Unencrypted DER encoded PKCS#8 file which can contain a key</doc>
       </member>
       <member name="der_pkcs8_encrypted"
               value="402"
               c:identifier="GCR_FORMAT_DER_PKCS8_ENCRYPTED">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2192">Encrypted DER encoded PKCS#8 file which can contain a key</doc>
+             line="1390">Encrypted DER encoded PKCS#8 file which can contain a key</doc>
       </member>
       <member name="der_pkcs10"
               value="450"
               c:identifier="GCR_FORMAT_DER_PKCS10">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2193">DER encoded PKCS#10 certificate request file</doc>
+             line="1391">DER encoded PKCS#10 certificate request file</doc>
       </member>
       <member name="der_spkac" value="455" c:identifier="GCR_FORMAT_DER_SPKAC">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2210">DER encoded SPKAC as generated by HTML5 keygen element</doc>
+             line="1408">DER encoded SPKAC as generated by HTML5 keygen element</doc>
       </member>
       <member name="base64_spkac"
               value="456"
               c:identifier="GCR_FORMAT_BASE64_SPKAC">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2211">OpenSSL style SPKAC data</doc>
+             line="1409">OpenSSL style SPKAC data</doc>
       </member>
       <member name="der_pkcs12"
               value="500"
               c:identifier="GCR_FORMAT_DER_PKCS12">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2194">DER encoded PKCS#12 file which can contain certificates and/or keys</doc>
+             line="1392">DER encoded PKCS#12 file which can contain certificates and/or keys</doc>
       </member>
       <member name="openssh_public"
               value="600"
               c:identifier="GCR_FORMAT_OPENSSH_PUBLIC">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2195">OpenSSH v1 or v2 public key</doc>
+             line="1393">OpenSSH v1 or v2 public key</doc>
       </member>
       <member name="openpgp_packet"
               value="700"
               c:identifier="GCR_FORMAT_OPENPGP_PACKET">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2196">OpenPGP key packet(s)</doc>
+             line="1394">OpenPGP key packet(s)</doc>
       </member>
       <member name="openpgp_armor"
               value="701"
               c:identifier="GCR_FORMAT_OPENPGP_ARMOR">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2197">OpenPGP public or private key armor encoded data</doc>
+             line="1395">OpenPGP public or private key armor encoded data</doc>
       </member>
       <member name="pem" value="1000" c:identifier="GCR_FORMAT_PEM">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2198">An OpenSSL style PEM file with unspecified contents</doc>
+             line="1396">An OpenSSL style PEM file with unspecified contents</doc>
       </member>
       <member name="pem_private_key_rsa"
               value="1001"
               c:identifier="GCR_FORMAT_PEM_PRIVATE_KEY_RSA">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2200">An OpenSSL style PEM file with a private RSA key</doc>
+             line="1398">An OpenSSL style PEM file with a private RSA key</doc>
       </member>
       <member name="pem_private_key_dsa"
               value="1002"
               c:identifier="GCR_FORMAT_PEM_PRIVATE_KEY_DSA">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2201">An OpenSSL style PEM file with a private DSA key</doc>
+             line="1399">An OpenSSL style PEM file with a private DSA key</doc>
       </member>
       <member name="pem_certificate_x509"
               value="1003"
               c:identifier="GCR_FORMAT_PEM_CERTIFICATE_X509">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2203">An OpenSSL style PEM file with an X.509 certificate</doc>
+             line="1401">An OpenSSL style PEM file with an X.509 certificate</doc>
       </member>
       <member name="pem_pkcs7"
               value="1004"
               c:identifier="GCR_FORMAT_PEM_PKCS7">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2204">An OpenSSL style PEM file containing PKCS#7</doc>
+             line="1402">An OpenSSL style PEM file containing PKCS#7</doc>
       </member>
       <member name="pem_pkcs8_plain"
               value="1005"
               c:identifier="GCR_FORMAT_PEM_PKCS8_PLAIN">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2205">Unencrypted OpenSSL style PEM file containing PKCS#8</doc>
+             line="1403">Unencrypted OpenSSL style PEM file containing PKCS#8</doc>
       </member>
       <member name="pem_pkcs8_encrypted"
               value="1006"
               c:identifier="GCR_FORMAT_PEM_PKCS8_ENCRYPTED">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2206">Encrypted OpenSSL style PEM file containing PKCS#8</doc>
+             line="1404">Encrypted OpenSSL style PEM file containing PKCS#8</doc>
       </member>
       <member name="pem_pkcs12"
               value="1007"
               c:identifier="GCR_FORMAT_PEM_PKCS12">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2208">An OpenSSL style PEM file containing PKCS#12</doc>
+             line="1406">An OpenSSL style PEM file containing PKCS#12</doc>
       </member>
       <member name="pem_private_key"
               value="1008"
               c:identifier="GCR_FORMAT_PEM_PRIVATE_KEY">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2199">An OpenSSL style PEM file with a private key</doc>
+             line="1397">An OpenSSL style PEM file with a private key</doc>
       </member>
       <member name="pem_pkcs10"
               value="1009"
               c:identifier="GCR_FORMAT_PEM_PKCS10">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2207">An OpenSSL style PEM file containing PKCS#10</doc>
+             line="1405">An OpenSSL style PEM file containing PKCS#10</doc>
       </member>
       <member name="pem_private_key_ec"
               value="1010"
               c:identifier="GCR_FORMAT_PEM_PRIVATE_KEY_EC">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2202">An OpenSSL style PEM file with a private EC key</doc>
+             line="1400">An OpenSSL style PEM file with a private EC key</doc>
       </member>
       <member name="pem_public_key"
               value="1011"
               c:identifier="GCR_FORMAT_PEM_PUBLIC_KEY">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2209">An OpenSSL style PEM file containing a SubjectPublicKeyInfo</doc>
+             line="1407">An OpenSSL style PEM file containing a SubjectPublicKeyInfo</doc>
       </member>
     </enumeration>
     <function-macro name="IS_CERTIFICATE"
@@ -2570,7 +2602,10 @@ the importer to ask the caller for further information about the import.
 It must be implemented on a derived class of [class@Gio.TlsInteraction]</doc>
       <source-position filename="gcr/gcr-import-interaction.h" line="63"/>
       <prerequisite name="Gio.TlsInteraction"/>
-      <virtual-method name="supplement" invoker="supplement" throws="1">
+      <virtual-method name="supplement"
+                      invoker="supplement"
+                      throws="1"
+                      glib:async-func="supplement_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="80">Supplement attributes before import. This means prompting the user for
@@ -2611,7 +2646,10 @@ cancellable cancels the operation the error should be set with %G_IO_ERROR_CANCE
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="supplement_async" invoker="supplement_async">
+      <virtual-method name="supplement_async"
+                      invoker="supplement_async"
+                      glib:finish-func="supplement_finish"
+                      glib:sync-func="supplement">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="116">Asynchronously supplement attributes before import. This means prompting the
@@ -2731,7 +2769,8 @@ interaction that these are the attributes that are needed.</doc>
       </virtual-method>
       <method name="supplement"
               c:identifier="gcr_import_interaction_supplement"
-              throws="1">
+              throws="1"
+              glib:async-func="supplement_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="80">Supplement attributes before import. This means prompting the user for
@@ -2773,7 +2812,9 @@ cancellable cancels the operation the error should be set with %G_IO_ERROR_CANCE
         </parameters>
       </method>
       <method name="supplement_async"
-              c:identifier="gcr_import_interaction_supplement_async">
+              c:identifier="gcr_import_interaction_supplement_async"
+              glib:finish-func="supplement_finish"
+              glib:sync-func="supplement">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="116">Asynchronously supplement attributes before import. This means prompting the
@@ -2906,6 +2947,9 @@ interaction that these are the attributes that are needed.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="supplement_prep">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="38">method which prepares for supplementing the given attributes before import</doc>
         <callback name="supplement_prep">
           <source-position filename="gcr/gcr-import-interaction.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -2928,6 +2972,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="39">method which synchronously supplements attributes before import</doc>
         <callback name="supplement" throws="1">
           <source-position filename="gcr/gcr-import-interaction.h" line="46"/>
           <return-value transfer-ownership="none">
@@ -2963,6 +3010,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="40">method which asynchronously supplements attributes before import</doc>
         <callback name="supplement_async">
           <source-position filename="gcr/gcr-import-interaction.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -3016,6 +3066,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="41">method which completes @supplement_async</doc>
         <callback name="supplement_finish" throws="1">
           <source-position filename="gcr/gcr-import-interaction.h" line="57"/>
           <return-value transfer-ownership="none">
@@ -3168,7 +3221,9 @@ will not be queued on that importer.</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </function>
-      <virtual-method name="import_async" invoker="import_async">
+      <virtual-method name="import_async"
+                      invoker="import_async"
+                      glib:finish-func="import_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="315">Import the queued items in the importer. This function returns immediately
@@ -3295,7 +3350,9 @@ importer.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="import_async" c:identifier="gcr_importer_import_async">
+      <method name="import_async"
+              c:identifier="gcr_importer_import_async"
+              glib:finish-func="import_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="315">Import the queued items in the importer. This function returns immediately
@@ -3464,6 +3521,9 @@ importer.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create_for_parsed" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="57">implementation of gcr_importer_create_for_parsed(), required</doc>
         <callback name="create_for_parsed" introspectable="0">
           <source-position filename="gcr/gcr-importer.h" line="43"/>
           <return-value>
@@ -3479,6 +3539,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="queue_for_parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="58">implementation of gcr_importer_queue_for_parsed(), required</doc>
         <callback name="queue_for_parsed">
           <source-position filename="gcr/gcr-importer.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -3504,6 +3567,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="import_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="59">implementation of [method@Importer.import_async], required</doc>
         <callback name="import_async">
           <source-position filename="gcr/gcr-importer.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -3551,6 +3617,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="import_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="60">implementation of [method@Importer.import_finish]</doc>
         <callback name="import_finish" throws="1">
           <source-position filename="gcr/gcr-importer.h" line="53"/>
           <return-value transfer-ownership="none">
@@ -3584,21 +3653,21 @@ importer.</doc>
     <constant name="MAJOR_VERSION" value="4" c:type="GCR_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="57">The major version number of the Gcr library.</doc>
+           line="59">The major version number of the Gcr library.</doc>
       <source-position filename="gcr/gcr-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="GCR_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="GCR_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="69">The micro version number of the Gcr library.</doc>
+           line="71">The micro version number of the Gcr library.</doc>
       <source-position filename="gcr/gcr-version.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="2" c:type="GCR_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="3" c:type="GCR_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="63">The minor version number of the Gcr library.</doc>
+           line="65">The minor version number of the Gcr library.</doc>
       <source-position filename="gcr/gcr-version.h" line="32"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -3700,17 +3769,17 @@ is the most common purpose in use.</doc>
             c:symbol-prefix="parsed">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="66">A parsed item parsed by a #GcrParser.</doc>
+           line="64">A parsed item parsed by a #GcrParser.</doc>
       <source-position filename="gcr/gcr-parser.h" line="44"/>
       <method name="get_attributes" c:identifier="gcr_parsed_get_attributes">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2899">Get the attributes which make up the parsed item.</doc>
+             line="2097">Get the attributes which make up the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="136"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2905">the attributes for the item; these
+               line="2103">the attributes for the item; these
          are owned by the parsed item and should not be freed</doc>
           <type name="Gck.Attributes" c:type="GckAttributes*"/>
         </return-value>
@@ -3718,7 +3787,7 @@ is the most common purpose in use.</doc>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2901">a parsed item</doc>
+                 line="2099">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3726,19 +3795,19 @@ is the most common purpose in use.</doc>
       <method name="get_bytes" c:identifier="gcr_parsed_get_bytes">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3025">Get the raw data block for the parsed item.</doc>
+             line="2223">Get the raw data block for the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3031">the raw data of the parsed item, or %NULL</doc>
+               line="2229">the raw data of the parsed item, or %NULL</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3027">a parsed item</doc>
+                 line="2225">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3746,12 +3815,12 @@ is the most common purpose in use.</doc>
       <method name="get_data" c:identifier="gcr_parsed_get_data">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2998">Get the raw data block for the parsed item.</doc>
+             line="2196">Get the raw data block for the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="138"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3005">the raw data of
+               line="2203">the raw data of
          the parsed item, or %NULL</doc>
           <array length="0" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
@@ -3761,7 +3830,7 @@ is the most common purpose in use.</doc>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3000">a parsed item</doc>
+                 line="2198">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
           <parameter name="n_data"
@@ -3770,7 +3839,7 @@ is the most common purpose in use.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3001">location to store size of returned data</doc>
+                 line="2199">location to store size of returned data</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -3778,19 +3847,19 @@ is the most common purpose in use.</doc>
       <method name="get_description" c:identifier="gcr_parsed_get_description">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2860">Get the descirption for a parsed item.</doc>
+             line="2058">Get the descirption for a parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="134"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2866">the description</doc>
+               line="2064">the description</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2862">a parsed item</doc>
+                 line="2060">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3798,12 +3867,12 @@ is the most common purpose in use.</doc>
       <method name="get_filename" c:identifier="gcr_parsed_get_filename">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3086">Get the filename of the parsed item.</doc>
+             line="2284">Get the filename of the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3092">the filename of
+               line="2290">the filename of
          the parsed item, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3811,7 +3880,7 @@ is the most common purpose in use.</doc>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3088">a parsed item</doc>
+                 line="2286">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3819,19 +3888,19 @@ is the most common purpose in use.</doc>
       <method name="get_format" c:identifier="gcr_parsed_get_format">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3066">Get the format of the parsed item.</doc>
+             line="2264">Get the format of the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3072">the data format of the item</doc>
+               line="2270">the data format of the item</doc>
           <type name="DataFormat" c:type="GcrDataFormat"/>
         </return-value>
         <parameters>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3068">a parsed item</doc>
+                 line="2266">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3839,19 +3908,19 @@ is the most common purpose in use.</doc>
       <method name="get_label" c:identifier="gcr_parsed_get_label">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2939">Get the label for the parsed item.</doc>
+             line="2137">Get the label for the parsed item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="132"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2945">the label for the item</doc>
+               line="2143">the label for the item</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2941">a parsed item</doc>
+                 line="2139">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3859,20 +3928,20 @@ is the most common purpose in use.</doc>
       <method name="ref" c:identifier="gcr_parsed_ref">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2778">Add a reference to a parsed item. An item may not be shared across threads
+             line="1976">Add a reference to a parsed item. An item may not be shared across threads
 until it has been referenced at least once.</doc>
         <source-position filename="gcr/gcr-parser.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2785">the parsed item</doc>
+               line="1983">the parsed item</doc>
           <type name="Parsed" c:type="GcrParsed*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2780">a parsed item</doc>
+                 line="1978">a parsed item</doc>
             <type name="Parsed" c:type="GcrParsed*"/>
           </instance-parameter>
         </parameters>
@@ -3880,7 +3949,7 @@ until it has been referenced at least once.</doc>
       <function name="unref" c:identifier="gcr_parsed_unref">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2823">Unreferences a parsed item which was referenced with gcr_parsed_ref()</doc>
+             line="2021">Unreferences a parsed item which was referenced with gcr_parsed_ref()</doc>
         <source-position filename="gcr/gcr-parser.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3892,7 +3961,7 @@ until it has been referenced at least once.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2825">a parsed item</doc>
+                 line="2023">a parsed item</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3907,7 +3976,7 @@ until it has been referenced at least once.</doc>
            glib:type-struct="ParserClass">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="47">A parser for parsing various types of files or data.
+           line="45">A parser for parsing various types of files or data.
 
 A `GcrParser` can parse various certificate and key files such as OpenSSL
 PEM files, DER encoded certifictes, PKCS#8 keys and so on. Each various
@@ -3925,16 +3994,19 @@ currently parsed item can be retrieved using the
       <constructor name="new" c:identifier="gcr_parser_new">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2517">Create a new #GcrParser</doc>
+             line="1715">Create a new #GcrParser</doc>
         <source-position filename="gcr/gcr-parser.h" line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2522">a newly allocated #GcrParser</doc>
+               line="1720">a newly allocated #GcrParser</doc>
           <type name="Parser" c:type="GcrParser*"/>
         </return-value>
       </constructor>
       <virtual-method name="authenticate">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="73">The default handler for the authenticate signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3949,6 +4021,9 @@ currently parsed item can be retrieved using the
         </parameters>
       </virtual-method>
       <virtual-method name="parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="74">The default handler for the parsed signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3962,7 +4037,7 @@ currently parsed item can be retrieved using the
       <method name="add_password" c:identifier="gcr_parser_add_password">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2530">Add a password to the set of passwords to try when parsing locked or encrypted
+             line="1728">Add a password to the set of passwords to try when parsing locked or encrypted
 items. This is usually called from the [signal@Parser::authenticate] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="101"/>
         <return-value transfer-ownership="none">
@@ -3972,7 +4047,7 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2532">The parser</doc>
+                 line="1730">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="password"
@@ -3981,7 +4056,7 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2533">a password to try</doc>
+                 line="1731">a password to try</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3989,7 +4064,7 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
       <method name="format_disable" c:identifier="gcr_parser_format_disable">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2680">Disable parsing of the given format. Use %GCR_FORMAT_ALL to disable all the formats.</doc>
+             line="1878">Disable parsing of the given format. Use %GCR_FORMAT_ALL to disable all the formats.</doc>
         <source-position filename="gcr/gcr-parser.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3998,13 +4073,13 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2682">The parser</doc>
+                 line="1880">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2683">The format identifier</doc>
+                 line="1881">The format identifier</doc>
             <type name="DataFormat" c:type="GcrDataFormat"/>
           </parameter>
         </parameters>
@@ -4012,7 +4087,7 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
       <method name="format_enable" c:identifier="gcr_parser_format_enable">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2647">Enable parsing of the given format. Use %GCR_FORMAT_ALL to enable all the formats.</doc>
+             line="1845">Enable parsing of the given format. Use %GCR_FORMAT_ALL to enable all the formats.</doc>
         <source-position filename="gcr/gcr-parser.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4021,13 +4096,13 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2649">The parser</doc>
+                 line="1847">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2650">The format identifier</doc>
+                 line="1848">The format identifier</doc>
             <type name="DataFormat" c:type="GcrDataFormat"/>
           </parameter>
         </parameters>
@@ -4036,25 +4111,25 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
               c:identifier="gcr_parser_format_supported">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2711">Check whether the given format is supported by the parser.</doc>
+             line="1909">Check whether the given format is supported by the parser.</doc>
         <source-position filename="gcr/gcr-parser.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2718">Whether the format is supported.</doc>
+               line="1916">Whether the format is supported.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2713">The parser</doc>
+                 line="1911">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2714">The format identifier</doc>
+                 line="1912">The format identifier</doc>
             <type name="DataFormat" c:type="GcrDataFormat"/>
           </parameter>
         </parameters>
@@ -4062,19 +4137,19 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
       <method name="get_filename" c:identifier="gcr_parser_get_filename">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2747">Get the filename of the parser item.</doc>
+             line="1945">Get the filename of the parser item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2753">the filename set on the parser, or %NULL</doc>
+               line="1951">the filename set on the parser, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2749">a parser item</doc>
+                 line="1947">a parser item</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4082,19 +4157,19 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
       <method name="get_parsed" c:identifier="gcr_parser_get_parsed">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2730">Get the currently parsed item</doc>
+             line="1928">Get the currently parsed item</doc>
         <source-position filename="gcr/gcr-parser.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2736">the currently parsed item</doc>
+               line="1934">the currently parsed item</doc>
           <type name="Parsed" c:type="GcrParsed*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2732">a parser</doc>
+                 line="1930">a parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4104,13 +4179,13 @@ items. This is usually called from the [signal@Parser::authenticate] signal.</do
               glib:get-property="parsed-attributes">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2880">Get the attributes which make up the currently parsed item. This is generally
+             line="2078">Get the attributes which make up the currently parsed item. This is generally
 only valid during the [signal@Parser::parsed] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="110"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2887">the attributes for the current item,
+               line="2085">the attributes for the current item,
          which are owned by the parser and should not be freed</doc>
           <type name="Gck.Attributes" c:type="GckAttributes*"/>
         </return-value>
@@ -4118,7 +4193,7 @@ only valid during the [signal@Parser::parsed] signal.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2882">The parser</doc>
+                 line="2080">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4127,13 +4202,13 @@ only valid during the [signal@Parser::parsed] signal.</doc>
               c:identifier="gcr_parser_get_parsed_block">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2959">Get the raw data block that represents this parsed object. This is only
+             line="2157">Get the raw data block that represents this parsed object. This is only
 valid during the [signal@Parser::parsed] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="112"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2967">the raw data
+               line="2165">the raw data
          block of the currently parsed item; the value is owned by the parser
          and should not be freed</doc>
           <array length="0" zero-terminated="0" c:type="const guchar*">
@@ -4144,7 +4219,7 @@ valid during the [signal@Parser::parsed] signal.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2961">a parser</doc>
+                 line="2159">a parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="n_block"
@@ -4153,7 +4228,7 @@ valid during the [signal@Parser::parsed] signal.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2962">a location to place the size of the block</doc>
+                 line="2160">a location to place the size of the block</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -4162,20 +4237,20 @@ valid during the [signal@Parser::parsed] signal.</doc>
               c:identifier="gcr_parser_get_parsed_bytes">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2983">Get the raw data block that represents this parsed object. This is only
+             line="2181">Get the raw data block that represents this parsed object. This is only
 valid during the [signal@Parser::parsed] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2990">the raw data block of the currently parsed item</doc>
+               line="2188">the raw data block of the currently parsed item</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2985">a parser</doc>
+                 line="2183">a parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4185,13 +4260,13 @@ valid during the [signal@Parser::parsed] signal.</doc>
               glib:get-property="parsed-description">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2841">Get a description for the type of the currently parsed item. This is generally
+             line="2039">Get a description for the type of the currently parsed item. This is generally
 only valid during the [signal@Parser::parsed] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="108"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2848">the description for the current item; this is owned by
+               line="2046">the description for the current item; this is owned by
          the parser and should not be freed</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -4199,7 +4274,7 @@ only valid during the [signal@Parser::parsed] signal.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2843">The parser</doc>
+                 line="2041">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4208,7 +4283,7 @@ only valid during the [signal@Parser::parsed] signal.</doc>
               c:identifier="gcr_parser_get_parsed_format">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3045">Get the format of the raw data block that represents this parsed object.
+             line="2243">Get the format of the raw data block that represents this parsed object.
 This corresponds with the data returned from
 [method@Parser.get_parsed_block].
 
@@ -4217,14 +4292,14 @@ This is only valid during the [signal@Parser::parsed] signal.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3055">the data format of the currently parsed item</doc>
+               line="2253">the data format of the currently parsed item</doc>
           <type name="DataFormat" c:type="GcrDataFormat"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3047">a parser</doc>
+                 line="2245">a parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4234,13 +4309,13 @@ This is only valid during the [signal@Parser::parsed] signal.</doc>
               glib:get-property="parsed-label">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2920">Get the label of the currently parsed item. This is generally only valid
+             line="2118">Get the label of the currently parsed item. This is generally only valid
 during the [signal@Parser::parsed] signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="106"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2927">the label of the currently parsed item. The value is
+               line="2125">the label of the currently parsed item. The value is
          owned by the parser and should not be freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -4248,7 +4323,7 @@ during the [signal@Parser::parsed] signal.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2922">The parser</doc>
+                 line="2120">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
         </parameters>
@@ -4258,26 +4333,26 @@ during the [signal@Parser::parsed] signal.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2545">Parse the data. The [signal@Parser::parsed] and
+             line="1743">Parse the data. The [signal@Parser::parsed] and
 [signal@Parser::authenticate] signals may fire during the parsing.</doc>
         <source-position filename="gcr/gcr-parser.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2554">Whether the data was parsed successfully or not.</doc>
+               line="1752">Whether the data was parsed successfully or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2547">The parser</doc>
+                 line="1745">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2548">the data to parse</doc>
+                 line="1746">the data to parse</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -4287,7 +4362,7 @@ during the [signal@Parser::parsed] signal.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2612">Parse the data. The [signal@Parser::parsed] and [signal@Parser::authenticate]
+             line="1810">Parse the data. The [signal@Parser::parsed] and [signal@Parser::authenticate]
 signals may fire during the parsing.
 
 A copy of the data will be made. Use [method@Parser.parse_bytes] to avoid
@@ -4296,20 +4371,20 @@ this.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2625">Whether the data was parsed successfully or not.</doc>
+               line="1823">Whether the data was parsed successfully or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2614">The parser</doc>
+                 line="1812">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2615">the data to parse</doc>
+                 line="1813">the data to parse</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -4317,17 +4392,18 @@ this.</doc>
           <parameter name="n_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2616">The length of the data</doc>
+                 line="1814">The length of the data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
       </method>
       <method name="parse_stream"
               c:identifier="gcr_parser_parse_stream"
-              throws="1">
+              throws="1"
+              glib:async-func="parse_stream_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3352">Parse items from the data in a #GInputStream. This function may block while
+             line="2550">Parse items from the data in a #GInputStream. This function may block while
 reading from the input stream. Use [method@Parser.parse_stream_async] for
 a non-blocking variant.
 
@@ -4337,20 +4413,20 @@ may fire during the parsing.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3366">Whether the parsing completed successfully or not.</doc>
+               line="2564">Whether the parsing completed successfully or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3354">The parser</doc>
+                 line="2552">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3355">The input stream</doc>
+                 line="2553">The input stream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4359,16 +4435,18 @@ may fire during the parsing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3356">An optional cancellation object</doc>
+                 line="2554">An optional cancellation object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
       <method name="parse_stream_async"
-              c:identifier="gcr_parser_parse_stream_async">
+              c:identifier="gcr_parser_parse_stream_async"
+              glib:finish-func="parse_stream_finish"
+              glib:sync-func="parse_stream">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3391">Parse items from the data in a #GInputStream. This function completes
+             line="2589">Parse items from the data in a #GInputStream. This function completes
 asyncronously and doesn't block.
 
 The [signal@Parser::parsed] and [signal@Parser::authenticate] signals
@@ -4381,13 +4459,13 @@ may fire during the parsing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3393">The parser</doc>
+                 line="2591">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3394">The input stream</doc>
+                 line="2592">The input stream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4396,7 +4474,7 @@ may fire during the parsing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3395">An optional cancellation object</doc>
+                 line="2593">An optional cancellation object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4407,7 +4485,7 @@ may fire during the parsing.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3396">Called when the operation result is ready.</doc>
+                 line="2594">Called when the operation result is ready.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4416,7 +4494,7 @@ may fire during the parsing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3397">Data to pass to callback</doc>
+                 line="2595">Data to pass to callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4426,25 +4504,25 @@ may fire during the parsing.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="3422">Complete an operation to parse a stream.</doc>
+             line="2620">Complete an operation to parse a stream.</doc>
         <source-position filename="gcr/gcr-parser.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="3430">Whether the parsing completed successfully or not.</doc>
+               line="2628">Whether the parsing completed successfully or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3424">The parser</doc>
+                 line="2622">The parser</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="3425">The operation result</doc>
+                 line="2623">The operation result</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4452,7 +4530,7 @@ may fire during the parsing.</doc>
       <method name="set_filename" c:identifier="gcr_parser_set_filename">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2762">Sets the filename of the parser item.</doc>
+             line="1960">Sets the filename of the parser item.</doc>
         <source-position filename="gcr/gcr-parser.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4461,7 +4539,7 @@ may fire during the parsing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2764">a parser item</doc>
+                 line="1962">a parser item</doc>
             <type name="Parser" c:type="GcrParser*"/>
           </instance-parameter>
           <parameter name="filename"
@@ -4470,7 +4548,7 @@ may fire during the parsing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2765">a string of the filename of the parser item</doc>
+                 line="1963">a string of the filename of the parser item</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4480,7 +4558,7 @@ may fire during the parsing.</doc>
                 getter="get_parsed_attributes">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2434">Get the attributes that make up the currently parsed item. This is
+             line="1632">Get the attributes that make up the currently parsed item. This is
 generally only valid during a [signal@Parser::parsed] signal.</doc>
         <type name="Gck.Attributes"/>
       </property>
@@ -4489,7 +4567,7 @@ generally only valid during a [signal@Parser::parsed] signal.</doc>
                 getter="get_parsed_description">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2456">The description of the type of the currently parsed item. This is generally
+             line="1654">The description of the type of the currently parsed item. This is generally
 only valid during a [signal@Parser::parsed] signal.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -4498,7 +4576,7 @@ only valid during a [signal@Parser::parsed] signal.</doc>
                 getter="get_parsed_label">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2445">The label of the currently parsed item. This is generally
+             line="1643">The label of the currently parsed item. This is generally
 only valid during a [signal@Parser::parsed] signal.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -4511,7 +4589,7 @@ only valid during a [signal@Parser::parsed] signal.</doc>
       <glib:signal name="authenticate" when="last">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2467">This signal is emitted when an item needs to be unlocked or decrypted before
+             line="1665">This signal is emitted when an item needs to be unlocked or decrypted before
 it can be parsed. The @count argument specifies the number of times
 the signal has been emitted for a given item. This can be used to
 display a message saying the previous password was incorrect.
@@ -4525,14 +4603,14 @@ with the code %GCR_ERROR_CANCELLED will be raised.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2484">Whether the authentication was handled.</doc>
+               line="1682">Whether the authentication was handled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gcr/gcr-parser.c"
-                 line="2470">the number of times this item has been authenticated</doc>
+                 line="1668">the number of times this item has been authenticated</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4540,7 +4618,7 @@ with the code %GCR_ERROR_CANCELLED will be raised.</doc>
       <glib:signal name="parsed" when="first">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="2491">This signal is emitted when an item is sucessfully parsed. To access
+             line="1689">This signal is emitted when an item is sucessfully parsed. To access
 the information about the item use the gcr_parser_get_parsed_label(),
 gcr_parser_get_parsed_attributes() and gcr_parser_get_parsed_description()
 functions.</doc>
@@ -4554,15 +4632,18 @@ functions.</doc>
             glib:is-gtype-struct-for="Parser">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="72">The class for #GcrParser</doc>
+           line="70">The class for #GcrParser</doc>
       <source-position filename="gcr/gcr-parser.h" line="62"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
-             line="74">The parent class</doc>
+             line="72">The parent class</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="authenticate">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="73">The default handler for the authenticate signal.</doc>
         <callback name="authenticate">
           <source-position filename="gcr/gcr-parser.h" line="59"/>
           <return-value transfer-ownership="none">
@@ -4579,6 +4660,9 @@ functions.</doc>
         </callback>
       </field>
       <field name="parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="74">The default handler for the parsed signal.</doc>
         <callback name="parsed">
           <source-position filename="gcr/gcr-parser.h" line="61"/>
           <return-value transfer-ownership="none">
@@ -4619,7 +4703,8 @@ are available via gcr_pkcs11_certificate_get_attributes().</doc>
       <implements name="Certificate"/>
       <function name="lookup_issuer"
                 c:identifier="gcr_pkcs11_certificate_lookup_issuer"
-                throws="1">
+                throws="1"
+                glib:async-func="lookup_issuer_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="312">Lookup a the issuer of a @certificate in the PKCS#11 storage. The
@@ -4657,7 +4742,9 @@ if an error occurred.</doc>
         </parameters>
       </function>
       <function name="lookup_issuer_async"
-                c:identifier="gcr_pkcs11_certificate_lookup_issuer_async">
+                c:identifier="gcr_pkcs11_certificate_lookup_issuer_async"
+                glib:finish-func="lookup_issuer_finish"
+                glib:sync-func="lookup_issuer">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="351">Lookup a the issuer of a @certificate in the PKCS#11 storage. The
@@ -4737,7 +4824,8 @@ if an error occurred.</doc>
       </function>
       <function name="new_from_uri"
                 c:identifier="gcr_pkcs11_certificate_new_from_uri"
-                throws="1">
+                throws="1"
+                glib:async-func="new_from_uri_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="413">Lookup a certificate in the PKCS#11 storage by the given URI.
@@ -4773,7 +4861,9 @@ if an error occurred.</doc>
         </parameters>
       </function>
       <function name="new_from_uri_async"
-                c:identifier="gcr_pkcs11_certificate_new_from_uri_async">
+                c:identifier="gcr_pkcs11_certificate_new_from_uri_async"
+                glib:finish-func="new_from_uri_finish"
+                glib:sync-func="new_from_uri">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="450">Lookup a certificate in the PKCS#11 storage by the given URI.
@@ -4931,6 +5021,9 @@ property, but may choose not to display the [property@Prompt:description] or
 [property@Prompt:title] properties.</doc>
       <source-position filename="gcr/gcr-prompt.h" line="65"/>
       <virtual-method name="prompt_close">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="58">close a prompt</doc>
         <source-position filename="gcr/gcr-prompt.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4941,7 +5034,9 @@ property, but may choose not to display the [property@Prompt:description] or
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="prompt_confirm_async" invoker="confirm_async">
+      <virtual-method name="prompt_confirm_async"
+                      invoker="confirm_async"
+                      glib:finish-func="prompt_confirm_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="906">Prompts for confirmation asking a cancel/continue style question.
@@ -5024,7 +5119,9 @@ an error occurs. Check the @error argument to tell the difference.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="prompt_password_async" invoker="password_async">
+      <virtual-method name="prompt_password_async"
+                      invoker="password_async"
+                      glib:finish-func="prompt_password_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="753">Prompts for password. Set the various properties on the prompt before calling
@@ -5131,7 +5228,10 @@ This emits the [signal@Prompt::prompt-close] signal on the prompt object.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="confirm" c:identifier="gcr_prompt_confirm" throws="1">
+      <method name="confirm"
+              c:identifier="gcr_prompt_confirm"
+              throws="1"
+              glib:async-func="confirm_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="967">Prompts for confirmation asking a cancel/continue style question.
@@ -5168,7 +5268,10 @@ an error occurs. Check the @error argument to tell the difference.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="confirm_async" c:identifier="gcr_prompt_confirm_async">
+      <method name="confirm_async"
+              c:identifier="gcr_prompt_confirm_async"
+              glib:finish-func="confirm_finish"
+              glib:sync-func="confirm">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="906">Prompts for confirmation asking a cancel/continue style question.
@@ -5576,7 +5679,10 @@ If this string is %NULL then no warning is displayed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="password" c:identifier="gcr_prompt_password" throws="1">
+      <method name="password"
+              c:identifier="gcr_prompt_password"
+              throws="1"
+              glib:async-func="password_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="816">Prompts for password. Set the various properties on the prompt before calling
@@ -5615,7 +5721,10 @@ to display another prompt.
           </parameter>
         </parameters>
       </method>
-      <method name="password_async" c:identifier="gcr_prompt_password_async">
+      <method name="password_async"
+              c:identifier="gcr_prompt_password_async"
+              glib:finish-func="password_finish"
+              glib:sync-func="password">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="753">Prompts for password. Set the various properties on the prompt before calling
@@ -6244,6 +6353,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="prompt_password_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="54">begin a password prompt</doc>
         <callback name="prompt_password_async">
           <source-position filename="gcr/gcr-prompt.h" line="46"/>
           <return-value transfer-ownership="none">
@@ -6291,6 +6403,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_password_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="55">complete a password prompt</doc>
         <callback name="prompt_password_finish" throws="1">
           <source-position filename="gcr/gcr-prompt.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -6316,6 +6431,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_confirm_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="56">begin a confirm prompt</doc>
         <callback name="prompt_confirm_async">
           <source-position filename="gcr/gcr-prompt.h" line="55"/>
           <return-value transfer-ownership="none">
@@ -6363,6 +6481,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_confirm_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="57">complete a confirm prompt</doc>
         <callback name="prompt_confirm_finish" throws="1">
           <source-position filename="gcr/gcr-prompt.h" line="60"/>
           <return-value transfer-ownership="none">
@@ -6388,6 +6509,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_close">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="58">close a prompt</doc>
         <callback name="prompt_close">
           <source-position filename="gcr/gcr-prompt.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -6868,7 +6992,7 @@ from the other side of the secret exchange, before we can send a secret.</doc>
                 default-value="sx-aes-1">
         <doc xml:space="preserve"
              filename="gcr/gcr-secret-exchange.c"
-             line="849">The protocol being used for the exchange.
+             line="809">The protocol being used for the exchange.
 
 Will be %NULL if no protocol was specified when creating this object,
 and either [method@SecretExchange.begin] or [method@SecretExchange.receive]
@@ -7238,7 +7362,10 @@ Use [method@SystemPrompt.close] to close the prompt when you're done with it.</d
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
-      <function name="open" c:identifier="gcr_system_prompt_open" throws="1">
+      <function name="open"
+                c:identifier="gcr_system_prompt_open"
+                throws="1"
+                glib:async-func="open_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1440">Opens a system prompt with the default prompter.
@@ -7275,7 +7402,10 @@ error.</doc>
           </parameter>
         </parameters>
       </function>
-      <function name="open_async" c:identifier="gcr_system_prompt_open_async">
+      <function name="open_async"
+                c:identifier="gcr_system_prompt_open_async"
+                glib:finish-func="open_finish"
+                glib:sync-func="open">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1334">Asynchronously open a system prompt with the default system prompter.
@@ -7464,7 +7594,10 @@ error.</doc>
           </parameter>
         </parameters>
       </function>
-      <method name="close" c:identifier="gcr_system_prompt_close" throws="1">
+      <method name="close"
+              c:identifier="gcr_system_prompt_close"
+              throws="1"
+              glib:async-func="close_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1512">Close this prompt. After calling this function, no further prompts will
@@ -7501,7 +7634,10 @@ still closed and may not be further used.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close_async" c:identifier="gcr_system_prompt_close_async">
+      <method name="close_async"
+              c:identifier="gcr_system_prompt_close_async"
+              glib:finish-func="close_finish"
+              glib:sync-func="close">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1554">Close this prompt asynchronously. After calling this function, no further
@@ -7729,6 +7865,9 @@ interface.</doc>
         </parameters>
       </constructor>
       <virtual-method name="new_prompt" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-system-prompter.c"
+             line="58">default handler for the #GcrSystemPrompter::new-prompt signal</doc>
         <source-position filename="gcr/gcr-system-prompter.h" line="65"/>
         <return-value>
           <type name="Prompt" c:type="GcrPrompt*"/>
@@ -7932,6 +8071,9 @@ gcr_system_prompter_get_prompt_type().</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="new_prompt" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-system-prompter.c"
+             line="58">default handler for the #GcrSystemPrompter::new-prompt signal</doc>
         <callback name="new_prompt" introspectable="0">
           <source-position filename="gcr/gcr-system-prompter.h" line="65"/>
           <return-value>
@@ -8007,12 +8149,12 @@ one prompt at a time and would use the %GCR_SYSTEM_PROMPTER_SINGLE mode.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="1324">Initialize the certificate mixin for the class. This mixin implements the
+           line="1356">Initialize the certificate mixin for the class. This mixin implements the
 various required properties for the certificate.
 
 Call this function near the end of your derived class_init function. The
 derived class must implement the #GcrCertificate interface.</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="127"/>
+      <source-position filename="gcr/gcr-certificate.h" line="129"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8020,7 +8162,7 @@ derived class must implement the #GcrCertificate interface.</doc>
         <parameter name="object_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1326">The GObjectClass for this class</doc>
+               line="1358">The GObjectClass for this class</doc>
           <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
         </parameter>
       </parameters>
@@ -8031,7 +8173,7 @@ derived class must implement the #GcrCertificate interface.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gcr/gcr-certificate.c"
-           line="1351">Implementation to get various required certificate properties. This should
+           line="1383">Implementation to get various required certificate properties. This should
 be called from your derived class get_property function, or used as a
 get_property virtual function.
 
@@ -8064,7 +8206,7 @@ my_class_init (MyClass *klass)
 	...
 }
 &lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
-      <source-position filename="gcr/gcr-certificate.h" line="129"/>
+      <source-position filename="gcr/gcr-certificate.h" line="131"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8072,25 +8214,25 @@ my_class_init (MyClass *klass)
         <parameter name="obj" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1353">The object</doc>
+               line="1385">The object</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
         <parameter name="prop_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1354">The property id</doc>
+               line="1386">The property id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1355">The value to fill in.</doc>
+               line="1387">The value to fill in.</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
         <parameter name="pspec" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-certificate.c"
-               line="1356">The param specification.</doc>
+               line="1388">The param specification.</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </parameter>
       </parameters>
@@ -8518,7 +8660,7 @@ name with gcr_system_prompt_open_for_prompter() to connect to this prompter.</do
               moved-to="Parsed.unref">
       <doc xml:space="preserve"
            filename="gcr/gcr-parser.c"
-           line="2823">Unreferences a parsed item which was referenced with gcr_parsed_ref()</doc>
+           line="2021">Unreferences a parsed item which was referenced with gcr_parsed_ref()</doc>
       <source-position filename="gcr/gcr-parser.h" line="130"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -8530,7 +8672,7 @@ name with gcr_system_prompt_open_for_prompter() to connect to this prompter.</do
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-parser.c"
-               line="2825">a parsed item</doc>
+               line="2023">a parsed item</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -8538,7 +8680,7 @@ name with gcr_system_prompt_open_for_prompter() to connect to this prompter.</do
     <function name="pkcs11_add_module" c:identifier="gcr_pkcs11_add_module">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="359">Add a #GckModule to the list of PKCS#11 modules that are used by the
+           line="363">Add a #GckModule to the list of PKCS#11 modules that are used by the
 GCR library.
 
 It is not normally necessary to call this function. The available
@@ -8552,7 +8694,7 @@ by the GCR library.</doc>
         <parameter name="module" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="361">a #GckModule</doc>
+               line="365">a #GckModule</doc>
           <type name="Gck.Module" c:type="GckModule*"/>
         </parameter>
       </parameters>
@@ -8562,7 +8704,7 @@ by the GCR library.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="377">Initialize a PKCS#11 module and add it to the modules that are
+           line="381">Initialize a PKCS#11 module and add it to the modules that are
 used by the GCR library. Note that is an error to initialize the same
 PKCS#11 module twice.
 
@@ -8573,14 +8715,14 @@ by the GCR library.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="391">whether the module was sucessfully added.</doc>
+             line="395">whether the module was sucessfully added.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="module_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="379">the full file path of the PKCS#11 module</doc>
+               line="383">the full file path of the PKCS#11 module</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="unused"
@@ -8589,7 +8731,7 @@ by the GCR library.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="380">unused</doc>
+               line="384">unused</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -8597,7 +8739,7 @@ by the GCR library.</doc>
     <function name="pkcs11_get_modules" c:identifier="gcr_pkcs11_get_modules">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="314">List all the PKCS#11 modules that are used by the GCR library.
+           line="318">List all the PKCS#11 modules that are used by the GCR library.
 Each module is a [class@Gck.Module] object.
 
 An empty list of modules will be returned if [func@pkcs11_set_modules],
@@ -8606,7 +8748,7 @@ or [func@pkcs11_initialize] has not yet run.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="323">a newly allocated list
+             line="327">a newly allocated list
          of #GckModule objects</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="Gck.Module"/>
@@ -8617,7 +8759,7 @@ or [func@pkcs11_initialize] has not yet run.</doc>
               c:identifier="gcr_pkcs11_get_trust_lookup_slots">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="462">List all the PKCS#11 slots that are used by the GCR library for lookup
+           line="466">List all the PKCS#11 slots that are used by the GCR library for lookup
 of trust assertions. Each slot is a [class@Gck.Slot] object.
 
 This will return an empty list if the [func@pkcs11_initialize] function has
@@ -8626,7 +8768,7 @@ not yet been called.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="471">a list of #GckSlot
+             line="475">a list of #GckSlot
          objects to use for lookup of trust, or the empty list if not
          initialized or no appropriate trust stores could be found.</doc>
         <type name="GLib.List" c:type="GList*">
@@ -8638,13 +8780,13 @@ not yet been called.</doc>
               c:identifier="gcr_pkcs11_get_trust_lookup_uris">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="544">Get the PKCS#11 URIs that are used to identify which slots to use for
+           line="548">Get the PKCS#11 URIs that are used to identify which slots to use for
 lookup trust assertions.</doc>
       <source-position filename="gcr/gcr-library.h" line="57"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="550">the uri which identifies trust storage slot</doc>
+             line="554">the uri which identifies trust storage slot</doc>
         <array c:type="const gchar**">
           <type name="utf8"/>
         </array>
@@ -8654,7 +8796,7 @@ lookup trust assertions.</doc>
               c:identifier="gcr_pkcs11_get_trust_store_slot">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="418">Selects an appropriate PKCS#11 slot to store trust assertions. The slot
+           line="422">Selects an appropriate PKCS#11 slot to store trust assertions. The slot
 to use is normally configured automatically by the system.
 
 This will only return a valid result after the [func@pkcs11_initialize]
@@ -8665,7 +8807,7 @@ When done with the #GckSlot, use g_object_unref() to release it.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="429">the #GckSlot to use for trust
+             line="433">the #GckSlot to use for trust
          assertions, or null if not initialized or no appropriate
          trust store could be found.</doc>
         <type name="Gck.Slot" c:type="GckSlot*"/>
@@ -8675,13 +8817,13 @@ When done with the #GckSlot, use g_object_unref() to release it.</doc>
               c:identifier="gcr_pkcs11_get_trust_store_uri">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="506">Get the PKCS#11 URI that is used to identify which slot to use for
+           line="510">Get the PKCS#11 URI that is used to identify which slot to use for
 storing trust storage.</doc>
       <source-position filename="gcr/gcr-library.h" line="61"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="512">the uri which identifies trust storage slot</doc>
+             line="516">the uri which identifies trust storage slot</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -8690,12 +8832,12 @@ storing trust storage.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="270">Asynchronously initialize the registered PKCS#11 modules.</doc>
+           line="274">Asynchronously initialize the registered PKCS#11 modules.</doc>
       <source-position filename="gcr/gcr-library.h" line="40"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="277">whether the operation was successful or not.</doc>
+             line="281">whether the operation was successful or not.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -8705,7 +8847,7 @@ storing trust storage.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="272">optional cancellable used to cancel the operation</doc>
+               line="276">optional cancellable used to cancel the operation</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -8714,7 +8856,7 @@ storing trust storage.</doc>
               c:identifier="gcr_pkcs11_initialize_async">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="218">Asynchronously initialize the registered PKCS#11 modules.</doc>
+           line="222">Asynchronously initialize the registered PKCS#11 modules.</doc>
       <source-position filename="gcr/gcr-library.h" line="33"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -8726,7 +8868,7 @@ storing trust storage.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="220">optional cancellable used to cancel the operation</doc>
+               line="224">optional cancellable used to cancel the operation</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
         <parameter name="callback"
@@ -8737,7 +8879,7 @@ storing trust storage.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="221">callback which will be called when the operation completes</doc>
+               line="225">callback which will be called when the operation completes</doc>
           <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
         </parameter>
         <parameter name="user_data"
@@ -8746,7 +8888,7 @@ storing trust storage.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="222">data passed to the callback</doc>
+               line="226">data passed to the callback</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -8756,20 +8898,20 @@ storing trust storage.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="251">Complete the asynchronous operation to initialize the registered PKCS#11
+           line="255">Complete the asynchronous operation to initialize the registered PKCS#11
 modules.</doc>
       <source-position filename="gcr/gcr-library.h" line="37"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gcr/gcr-library.c"
-             line="259">whether the operation was successful or not.</doc>
+             line="263">whether the operation was successful or not.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="result" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="253">the asynchronous result</doc>
+               line="257">the asynchronous result</doc>
           <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
         </parameter>
       </parameters>
@@ -8777,7 +8919,7 @@ modules.</doc>
     <function name="pkcs11_set_modules" c:identifier="gcr_pkcs11_set_modules">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="336">Set the list of PKCS#11 modules that are used by the GCR library.
+           line="340">Set the list of PKCS#11 modules that are used by the GCR library.
 Each module in the list is a [class@Gck.Module] object.
 
 It is not normally necessary to call this function. The available
@@ -8791,7 +8933,7 @@ by the GCR library.</doc>
         <parameter name="modules" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="338">a list of PKCS#11 modules</doc>
+               line="342">a list of PKCS#11 modules</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Gck.Module"/>
           </type>
@@ -8802,7 +8944,7 @@ by the GCR library.</doc>
               c:identifier="gcr_pkcs11_set_trust_lookup_uris">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="559">Set the PKCS#11 URIs that are used to identify which slots to use for
+           line="563">Set the PKCS#11 URIs that are used to identify which slots to use for
 lookup of trust assertions.
 
 It is not normally necessary to call this function. The relevant
@@ -8818,7 +8960,7 @@ PKCS#11 slots are automatically configured by the GCR library.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="561">the uris which identifies trust lookup slots</doc>
+               line="565">the uris which identifies trust lookup slots</doc>
           <type name="utf8" c:type="const gchar**"/>
         </parameter>
       </parameters>
@@ -8827,7 +8969,7 @@ PKCS#11 slots are automatically configured by the GCR library.</doc>
               c:identifier="gcr_pkcs11_set_trust_store_uri">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
-           line="521">Set the PKCS#11 URI that is used to identify which slot to use for
+           line="525">Set the PKCS#11 URI that is used to identify which slot to use for
 storing trust assertions.
 
 It is not normally necessary to call this function. The relevant
@@ -8843,7 +8985,7 @@ PKCS#11 slot is automatically configured by the GCR library.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gcr/gcr-library.c"
-               line="523">the uri which identifies trust storage slot</doc>
+               line="527">the uri which identifies trust storage slot</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

@@ -3,40 +3,40 @@
  * In addition, the environment or the module currently being processed is also included as prepended to the logging string
  */
 
-import { blue, yellow, yellowBright, green, red, white } from 'colorette'
+import { blue, yellow, yellowBright, green, red, white, gray } from 'colorette'
 
 export class Logger {
     constructor(
         private readonly verbose: boolean,
         private readonly moduleName: string,
     ) {}
-    private static prepend(args: unknown[], prepend: string): unknown[] {
-        if (typeof args[0] === 'string') {
-            args[0] = `${prepend}${args[0]}`
+    private static prepend(txt: string, prepend: string): string {
+        if (typeof txt === 'string') {
+            txt = `${prepend}${txt}`
         }
-        return args
+        return txt
     }
     /**
      * Returns something like '[node][Gda-5.0] Could not find type 'Gda.SqlExpr' for 'expr''
-     * @param args
+     * @param txt
      * @param logLevel
      */
-    private prependInfos(args: unknown[], logLevel?: 'WARN:' | 'ERROR:' | 'INFO:' | 'DEBUG:'): unknown[] {
+    private prependInfo(txt: string, logLevel?: 'WARN:' | 'ERROR:' | 'INFO:' | 'DEBUG:'): string {
         if (logLevel || this.moduleName.length > 0) {
-            args = Logger.prepend(args, ' ')
+            txt = Logger.prepend(txt, ' ')
         }
         if (logLevel) {
             if (this.moduleName.length > 0) {
-                args = Logger.prepend(args, ' ' + logLevel)
+                txt = Logger.prepend(txt, ' ' + logLevel)
             } else {
-                args = Logger.prepend(args, logLevel)
+                txt = Logger.prepend(txt, logLevel)
             }
         }
         if (this.moduleName.length > 0) {
-            args = Logger.prepend(args, `[${this.moduleName}]`)
+            txt = Logger.prepend(txt, `[${this.moduleName}]`)
         }
 
-        return args
+        return txt
     }
 
     public log(...args: unknown[]): void {
@@ -54,38 +54,41 @@ export class Logger {
         })
         return
     }
-    public info(txt: string | number, ...args: unknown[]): void {
+    public info(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         return console.info(blue(txt), ...args)
     }
-    public warn(txt: string | number, ...args: unknown[]): void {
+    public warn(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        args = this.prependInfos([txt], 'WARN:')
+        txt = this.prependInfo(txt, 'WARN:')
         return console.warn(yellow(txt), ...args)
     }
-    public debug(txt: string | number, ...args: unknown[]): void {
+    public debug(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        args = this.prependInfos([txt], 'DEBUG:')
+        txt = this.prependInfo(txt, 'DEBUG:')
         return console.debug(yellowBright(txt), ...args)
     }
-    public error(txt: string | number, ...args: unknown[]): void {
-        args = this.prependInfos([txt], 'ERROR:')
-        return this.danger(txt, args)
+    public error(txt: string, ...args: unknown[]): void {
+        txt = this.prependInfo(txt, 'ERROR:')
+        return this.danger(txt, ...args)
     }
-    public success(txt: string | number, ...args: unknown[]): void {
+    public success(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         this.log(green(txt), ...args)
     }
-    public danger(txt: string | number, ...args: unknown[]): void {
-        this.log(red(txt), ...args)
+    public danger(txt: string, ...args: unknown[]): void {
+        console.error(red(txt), ...args)
+    }
+    public muted(txt: string, ...args: unknown[]): void {
+        this.log(gray(txt), ...args)
     }
 
     // Static versions (Here it must be ensured that Verbose is activated)
@@ -98,32 +101,35 @@ export class Logger {
         })
         return
     }
-    public static info(txt: string | number, ...args: unknown[]): void {
-        ;[txt, ...args] = this.prepend([txt, ...args], 'INFO: ') as [string, ...unknown[]]
+    public static info(txt: string, ...args: unknown[]): void {
+        txt = this.prepend(txt, 'INFO: ')
         return console.info(blue(txt), ...args)
     }
-    public static warn(txt: string | number, ...args: unknown[]): void {
-        ;[txt, ...args] = this.prepend([txt, ...args], 'WARN: ') as [string, ...unknown[]]
+    public static warn(txt: string, ...args: unknown[]): void {
+        txt = this.prepend(txt, 'WARN: ')
         return console.warn(yellow(txt), ...args)
     }
-    public static debug(txt: string | number, ...args: unknown[]): void {
-        ;[txt, ...args] = this.prepend([txt, ...args], 'DEBUG: ') as [string, ...unknown[]]
+    public static debug(txt: string, ...args: unknown[]): void {
+        txt = this.prepend(txt, 'DEBUG: ')
         return console.debug(yellowBright(txt), ...args)
     }
-    public static error(txt: string | number, ...args: unknown[]): void {
-        ;[txt, ...args] = this.prepend([txt, ...args], 'ERROR: ') as [string, ...unknown[]]
-        return this.danger(txt, args)
+    public static error(txt: string, ...args: unknown[]): void {
+        txt = this.prepend(txt, 'ERROR: ')
+        return this.danger(txt, ...args)
     }
-    public static success(txt: string | number, ...args: unknown[]): void {
+    public static success(txt: string, ...args: unknown[]): void {
         this.log(green(txt), ...args)
     }
-    public static danger(txt: string | number, ...args: unknown[]): void {
+    public static danger(txt: string, ...args: unknown[]): void {
         this.log(red(txt), ...args)
     }
-    public static white(txt: string | number, ...args: unknown[]): void {
+    public static white(txt: string, ...args: unknown[]): void {
         this.log(white(txt), ...args)
     }
-    public static yellow(txt: string | number, ...args: unknown[]): void {
+    public static yellow(txt: string, ...args: unknown[]): void {
         this.log(yellow(txt), ...args)
+    }
+    public static gray(txt: string, ...args: unknown[]): void {
+        this.log(gray(txt), ...args)
     }
 }

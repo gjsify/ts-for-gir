@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GnomeAutoar" version="0.1"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="GnomeAutoarGtk-0.1"/>
+  <c:include name="gnome-autoar/autoar-gtk.h"/>
+  <namespace name="GnomeAutoarGtk"
+             version="0.1"
+             shared-library="libgnome-autoar-gtk-0.so.0"
+             c:identifier-prefixes="AutoarGtk"
+             c:symbol-prefixes="autoar_gtk">
+    <docsection name="autoar-gtk-chooser">
+      <doc xml:space="preserve"
+           filename="gnome-autoar/autoar-gtk-chooser.c"
+           line="35">autoar-gtk-chooser contains two widgets for users to choose preferred
+archive format and filter.</doc>
+    </docsection>
+    <function name="chooser_advanced_get"
+              c:identifier="autoar_gtk_chooser_advanced_get">
+      <doc xml:space="preserve"
+           filename="gnome-autoar/autoar-gtk-chooser.c"
+           line="566">Gets the selected archive format of the widget created by
+autoar_gtk_chooser_advanced_new().</doc>
+      <source-position filename="gnome-autoar/autoar-gtk-chooser.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gnome-autoar/autoar-gtk-chooser.c"
+             line="575">%TRUE if @format and @filter are set. %FALSE if there is no
+selected item on @advanced, so @format and @filter are not modified.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="advanced" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="568">a #GtkGrid returned by autoar_gtk_chooser_advanced_new()</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="569">the place to store the #AutoarFormat selected by the user</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="filter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="570">the place to store the #AutoarFilter selected by the user</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="chooser_advanced_new"
+              c:identifier="autoar_gtk_chooser_advanced_new">
+      <doc xml:space="preserve"
+           filename="gnome-autoar/autoar-gtk-chooser.c"
+           line="440">Create a #GtkGrid with two lists. One list shows all available formats,
+and the other list shows all available filters.</doc>
+      <source-position filename="gnome-autoar/autoar-gtk-chooser.h" line="41"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gnome-autoar/autoar-gtk-chooser.c"
+             line="448">a new #GtkGrid widget</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="default_format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="442">an #AutoarFormat</doc>
+          <type name="GnomeAutoar.Format" c:type="AutoarFormat"/>
+        </parameter>
+        <parameter name="default_filter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="443">an #AutoarFilter</doc>
+          <type name="GnomeAutoar.Filter" c:type="AutoarFilter"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="chooser_simple_get"
+              c:identifier="autoar_gtk_chooser_simple_get">
+      <doc xml:space="preserve"
+           filename="gnome-autoar/autoar-gtk-chooser.c"
+           line="330">Gets the selected archive format of the widget created by
+autoar_gtk_chooser_simple_new().</doc>
+      <source-position filename="gnome-autoar/autoar-gtk-chooser.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gnome-autoar/autoar-gtk-chooser.c"
+             line="339">%TRUE if @format and @filter are set. %FALSE if there is no
+selected item on @simple, so @format and @filter are not modified.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="simple" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="332">a #GtkComboBox returned by autoar_gtk_chooser_simple_new()</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="333">the place to store the #AutoarFormat selected by the user</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="filter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="334">the place to store the #AutoarFilter selected by the user</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="chooser_simple_new"
+              c:identifier="autoar_gtk_chooser_simple_new">
+      <doc xml:space="preserve"
+           filename="gnome-autoar/autoar-gtk-chooser.c"
+           line="233">Create a #GtkComboBox with a list of common archive format. There is also
+an option called "Other format…", which will use
+autoar_gtk_chooser_advanced_new() and
+autoar_gtk_chooser_advanced_get() to select less common archive
+format. Arguments @default_format and @default_filter are the default archive
+format selected on the returned widget. You may want to get the preferred
+format of users using autoar_pref_get_default_format() and
+autoar_pref_get_default_filter(), or just set them to 1 to select
+the default archive format.</doc>
+      <source-position filename="gnome-autoar/autoar-gtk-chooser.h" line="35"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gnome-autoar/autoar-gtk-chooser.c"
+             line="248">a new #GtkComboBox widget</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="default_format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="235">an #AutoarFormat</doc>
+          <type name="GnomeAutoar.Format" c:type="AutoarFormat"/>
+        </parameter>
+        <parameter name="default_filter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gnome-autoar/autoar-gtk-chooser.c"
+               line="236">an #AutoarFilter</doc>
+          <type name="GnomeAutoar.Filter" c:type="AutoarFilter"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

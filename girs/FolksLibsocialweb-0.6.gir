@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+<include name="Folks" version="0.6"/>
+<include name="SocialWebClient" version="0.25"/>
+<package name="folks-libsocialweb"/>
+<c:include name="folks/folks-libsocialweb.h"/>
+<namespace name="FolksLibsocialweb" version="0.6" c:prefix="Swf">
+	<attribute name="ccode.gir-version" value="0.6"/>
+	<attribute name="ccode.gir-namespace" value="FolksLibsocialweb"/>
+	<class name="Persona" c:type="SwfPersona" glib:type-name="SwfPersona" glib:get-type="swf_persona_get_type" glib:type-struct="PersonaClass" parent="Folks.Persona">
+		<implements name="Folks.AvatarDetails"/>
+		<implements name="Folks.GenderDetails"/>
+		<implements name="Folks.ImDetails"/>
+		<implements name="Folks.NameDetails"/>
+		<implements name="Folks.UrlDetails"/>
+		<implements name="Folks.WebServiceDetails"/>
+		<field name="parent_instance">
+			<type name="Folks.Persona" c:type="FolksPersona"/>
+		</field>
+		<field name="priv">
+			<type name="PersonaPrivate" c:type="SwfPersonaPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="swf_persona_new">
+			<return-value transfer-ownership="full">
+				<type name="FolksLibsocialweb.Persona" c:type="SwfPersona*"/>
+			</return-value>
+			<parameters>
+				<parameter name="store" transfer-ownership="none">
+					<type name="FolksLibsocialweb.PersonaStore" c:type="SwfPersonaStore*"/>
+				</parameter>
+				<parameter name="contact" transfer-ownership="none">
+					<type name="SocialWebClient.Contact" c:type="SwContact*"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<function name="get_contact_id" c:identifier="swf_persona_get_contact_id">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="utf8" c:type="gchar*"/>
+			</return-value>
+			<parameters>
+				<parameter name="contact" transfer-ownership="none">
+					<type name="SocialWebClient.Contact" c:type="SwContact*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<method name="update" c:identifier="swf_persona_update">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="contact" transfer-ownership="none">
+					<type name="SocialWebClient.Contact" c:type="SwContact*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<property name="lsw-contact" writable="1" construct-only="1">
+			<type name="SocialWebClient.Contact" c:type="SwContact*"/>
+		</property>
+		<method name="get_lsw_contact" c:identifier="swf_persona_get_lsw_contact">
+			<return-value transfer-ownership="none">
+				<type name="SocialWebClient.Contact" c:type="SwContact*"/>
+			</return-value>
+		</method>
+	</class>
+	<record name="PersonaClass" c:type="SwfPersonaClass" glib:is-gtype-struct-for="Persona">
+		<field name="parent_class">
+			<type name="Folks.PersonaClass" c:type="FolksPersonaClass"/>
+		</field>
+	</record>
+	<record name="PersonaPrivate" c:type="SwfPersonaPrivate" disguised="1"/>
+	<class name="PersonaStore" c:type="SwfPersonaStore" glib:type-name="SwfPersonaStore" glib:get-type="swf_persona_store_get_type" glib:type-struct="PersonaStoreClass" parent="Folks.PersonaStore">
+		<field name="parent_instance">
+			<type name="Folks.PersonaStore" c:type="FolksPersonaStore"/>
+		</field>
+		<field name="priv">
+			<type name="PersonaStorePrivate" c:type="SwfPersonaStorePrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="swf_persona_store_new">
+			<return-value transfer-ownership="full">
+				<type name="FolksLibsocialweb.PersonaStore" c:type="SwfPersonaStore*"/>
+			</return-value>
+			<parameters>
+				<parameter name="service" transfer-ownership="none">
+					<type name="SocialWebClient.ClientService" c:type="SwClientService*"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="service" writable="1" construct-only="1">
+			<type name="SocialWebClient.ClientService" c:type="SwClientService*"/>
+		</property>
+		<method name="get_service" c:identifier="swf_persona_store_get_service">
+			<return-value transfer-ownership="none">
+				<type name="SocialWebClient.ClientService" c:type="SwClientService*"/>
+			</return-value>
+		</method>
+	</class>
+	<record name="PersonaStoreClass" c:type="SwfPersonaStoreClass" glib:is-gtype-struct-for="PersonaStore">
+		<field name="parent_class">
+			<type name="Folks.PersonaStoreClass" c:type="FolksPersonaStoreClass"/>
+		</field>
+	</record>
+	<record name="PersonaStorePrivate" c:type="SwfPersonaStorePrivate" disguised="1"/>
+</namespace>
+</repository>

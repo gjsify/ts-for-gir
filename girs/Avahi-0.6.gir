@@ -1,0 +1,1445 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="AvahiCore" version="0.6"/>
+  <include name="GObject" version="2.0"/>
+  <namespace name="Avahi"
+             version="0.6"
+             shared-library="libavahi-gobject.so.0"
+             c:identifier-prefixes="Ga"
+             c:symbol-prefixes="ga">
+    <enumeration name="BrowserEvent"
+                 glib:type-name="GaBrowserEvent"
+                 glib:get-type="ga_browser_event_get_type"
+                 c:type="GaBrowserEvent">
+      <member name="GA_BROWSER_NEW"
+              value="0"
+              c:identifier="GA_BROWSER_NEW"
+              glib:nick="GA_BROWSER_NEW"
+              glib:name="GA_BROWSER_NEW">
+      </member>
+      <member name="GA_BROWSER_REMOVE"
+              value="1"
+              c:identifier="GA_BROWSER_REMOVE"
+              glib:nick="GA_BROWSER_REMOVE"
+              glib:name="GA_BROWSER_REMOVE">
+      </member>
+      <member name="GA_BROWSER_CACHE_EXHAUSTED"
+              value="2"
+              c:identifier="GA_BROWSER_CACHE_EXHAUSTED"
+              glib:nick="GA_BROWSER_CACHE_EXHAUSTED"
+              glib:name="GA_BROWSER_CACHE_EXHAUSTED">
+      </member>
+      <member name="GA_BROWSER_ALL_FOR_NOW"
+              value="3"
+              c:identifier="GA_BROWSER_ALL_FOR_NOW"
+              glib:nick="GA_BROWSER_ALL_FOR_NOW"
+              glib:name="GA_BROWSER_ALL_FOR_NOW">
+      </member>
+      <member name="GA_BROWSER_FAILURE"
+              value="4"
+              c:identifier="GA_BROWSER_FAILURE"
+              glib:nick="GA_BROWSER_FAILURE"
+              glib:name="GA_BROWSER_FAILURE">
+      </member>
+    </enumeration>
+    <function-macro name="CLIENT" c:identifier="GA_CLIENT" introspectable="0">
+      <source-position filename="ga-client.h" line="60"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_CLASS"
+                    c:identifier="GA_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-client.h" line="62"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_GET_CLASS"
+                    c:identifier="GA_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-client.h" line="68"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="GaClient"
+           parent="GObject.Object"
+           glib:type-name="GaClient"
+           glib:get-type="ga_client_get_type"
+           glib:type-struct="ClientClass">
+      <source-position filename="ga-client.h" line="48"/>
+      <constructor name="new" c:identifier="ga_client_new">
+        <source-position filename="ga-client.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <type name="Client" c:type="GaClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="ClientFlags" c:type="GaClientFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="start" c:identifier="ga_client_start" throws="1">
+        <source-position filename="ga-client.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_in_context"
+              c:identifier="ga_client_start_in_context"
+              throws="1">
+        <source-position filename="ga-client.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </instance-parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="GLib.MainContext" c:type="GMainContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="flags"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="GA_CLIENT_FLAG_NO_FLAGS">
+        <type name="ClientFlags"/>
+      </property>
+      <property name="state"
+                transfer-ownership="none"
+                default-value="GA_CLIENT_STATE_NOT_STARTED">
+        <type name="ClientState"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="avahi_client">
+        <type name="AvahiCore.Client" c:type="AvahiClient*"/>
+      </field>
+      <glib:signal name="state-changed" when="last" detailed="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="ClientState"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="GaClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="ga-client.h" line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ClientFlags"
+                 glib:type-name="GaClientFlags"
+                 glib:get-type="ga_client_flags_get_type"
+                 c:type="GaClientFlags">
+      <member name="GA_CLIENT_FLAG_NO_FLAGS"
+              value="0"
+              c:identifier="GA_CLIENT_FLAG_NO_FLAGS"
+              glib:nick="GA_CLIENT_FLAG_NO_FLAGS"
+              glib:name="GA_CLIENT_FLAG_NO_FLAGS">
+      </member>
+      <member name="GA_CLIENT_FLAG_IGNORE_USER_CONFIG"
+              value="1"
+              c:identifier="GA_CLIENT_FLAG_IGNORE_USER_CONFIG"
+              glib:nick="GA_CLIENT_FLAG_IGNORE_USER_CONFIG"
+              glib:name="GA_CLIENT_FLAG_IGNORE_USER_CONFIG">
+      </member>
+      <member name="GA_CLIENT_FLAG_NO_FAIL"
+              value="2"
+              c:identifier="GA_CLIENT_FLAG_NO_FAIL"
+              glib:nick="GA_CLIENT_FLAG_NO_FAIL"
+              glib:name="GA_CLIENT_FLAG_NO_FAIL">
+      </member>
+    </enumeration>
+    <enumeration name="ClientState"
+                 glib:type-name="GaClientState"
+                 glib:get-type="ga_client_state_get_type"
+                 c:type="GaClientState">
+      <member name="GA_CLIENT_STATE_NOT_STARTED"
+              value="-1"
+              c:identifier="GA_CLIENT_STATE_NOT_STARTED"
+              glib:nick="GA_CLIENT_STATE_NOT_STARTED"
+              glib:name="GA_CLIENT_STATE_NOT_STARTED">
+      </member>
+      <member name="GA_CLIENT_STATE_S_REGISTERING"
+              value="1"
+              c:identifier="GA_CLIENT_STATE_S_REGISTERING"
+              glib:nick="GA_CLIENT_STATE_S_REGISTERING"
+              glib:name="GA_CLIENT_STATE_S_REGISTERING">
+      </member>
+      <member name="GA_CLIENT_STATE_S_RUNNING"
+              value="2"
+              c:identifier="GA_CLIENT_STATE_S_RUNNING"
+              glib:nick="GA_CLIENT_STATE_S_RUNNING"
+              glib:name="GA_CLIENT_STATE_S_RUNNING">
+      </member>
+      <member name="GA_CLIENT_STATE_S_COLLISION"
+              value="3"
+              c:identifier="GA_CLIENT_STATE_S_COLLISION"
+              glib:nick="GA_CLIENT_STATE_S_COLLISION"
+              glib:name="GA_CLIENT_STATE_S_COLLISION">
+      </member>
+      <member name="GA_CLIENT_STATE_FAILURE"
+              value="100"
+              c:identifier="GA_CLIENT_STATE_FAILURE"
+              glib:nick="GA_CLIENT_STATE_FAILURE"
+              glib:name="GA_CLIENT_STATE_FAILURE">
+      </member>
+      <member name="GA_CLIENT_STATE_CONNECTING"
+              value="101"
+              c:identifier="GA_CLIENT_STATE_CONNECTING"
+              glib:nick="GA_CLIENT_STATE_CONNECTING"
+              glib:name="GA_CLIENT_STATE_CONNECTING">
+      </member>
+    </enumeration>
+    <function-macro name="ENTRY_GROUP"
+                    c:identifier="GA_ENTRY_GROUP"
+                    introspectable="0">
+      <source-position filename="ga-entry-group.h" line="68"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENTRY_GROUP_CLASS"
+                    c:identifier="GA_ENTRY_GROUP_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-entry-group.h" line="70"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENTRY_GROUP_GET_CLASS"
+                    c:identifier="GA_ENTRY_GROUP_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-entry-group.h" line="76"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="EntryGroup"
+           c:symbol-prefix="entry_group"
+           c:type="GaEntryGroup"
+           parent="GObject.Object"
+           glib:type-name="GaEntryGroup"
+           glib:get-type="ga_entry_group_get_type"
+           glib:type-struct="EntryGroupClass">
+      <source-position filename="ga-entry-group.h" line="58"/>
+      <constructor name="new" c:identifier="ga_entry_group_new">
+        <source-position filename="ga-entry-group.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <type name="EntryGroup" c:type="GaEntryGroup*"/>
+        </return-value>
+      </constructor>
+      <method name="add_record"
+              c:identifier="ga_entry_group_add_record"
+              throws="1">
+        <source-position filename="ga-entry-group.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AvahiCore.PublishFlags" c:type="AvahiPublishFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="ttl" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="rdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_record_full"
+              c:identifier="ga_entry_group_add_record_full"
+              throws="1">
+        <source-position filename="ga-entry-group.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AvahiCore.PublishFlags" c:type="AvahiPublishFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="clazz" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="ttl" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="rdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_service"
+              c:identifier="ga_entry_group_add_service"
+              introspectable="0">
+        <source-position filename="ga-entry-group.h" line="113"/>
+        <return-value>
+          <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_service_full"
+              c:identifier="ga_entry_group_add_service_full"
+              introspectable="0">
+        <source-position filename="ga-entry-group.h" line="119"/>
+        <return-value>
+          <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AvahiCore.PublishFlags" c:type="AvahiPublishFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_service_full_strlist"
+              c:identifier="ga_entry_group_add_service_full_strlist"
+              introspectable="0">
+        <source-position filename="ga-entry-group.h" line="93"/>
+        <return-value>
+          <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AvahiCore.PublishFlags" c:type="AvahiPublishFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="txt" transfer-ownership="none">
+            <type name="AvahiCore.StringList" c:type="AvahiStringList*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_service_strlist"
+              c:identifier="ga_entry_group_add_service_strlist"
+              introspectable="0">
+        <source-position filename="ga-entry-group.h" line="85"/>
+        <return-value>
+          <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="txt" transfer-ownership="none">
+            <type name="AvahiCore.StringList" c:type="AvahiStringList*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="attach" c:identifier="ga_entry_group_attach" throws="1">
+        <source-position filename="ga-entry-group.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="commit" c:identifier="ga_entry_group_commit" throws="1">
+        <source-position filename="ga-entry-group.h" line="170"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="ga_entry_group_reset" throws="1">
+        <source-position filename="ga-entry-group.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group" transfer-ownership="none">
+            <type name="EntryGroup" c:type="GaEntryGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="state"
+                transfer-ownership="none"
+                default-value="GA_ENTRY_GROUP_STATE_UNCOMMITED">
+        <type name="EntryGroupState"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="state-changed" when="last" detailed="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="EntryGroupState"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="EntryGroupClass"
+            c:type="GaEntryGroupClass"
+            glib:is-gtype-struct-for="EntryGroup">
+      <source-position filename="ga-entry-group.h" line="58"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="EntryGroupService" c:type="GaEntryGroupService">
+      <source-position filename="ga-entry-group.h" line="54"/>
+      <field name="interface" writable="1">
+        <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+      </field>
+      <field name="protocol" writable="1">
+        <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+      </field>
+      <field name="flags" writable="1">
+        <type name="AvahiCore.PublishFlags" c:type="AvahiPublishFlags"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="domain" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="host" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="port" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <method name="freeze" c:identifier="ga_entry_group_service_freeze">
+        <source-position filename="ga-entry-group.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_key"
+              c:identifier="ga_entry_group_service_remove_key"
+              throws="1">
+        <source-position filename="ga-entry-group.h" line="163"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set" c:identifier="ga_entry_group_service_set" throws="1">
+        <source-position filename="ga-entry-group.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_arbitrary"
+              c:identifier="ga_entry_group_service_set_arbitrary"
+              throws="1">
+        <source-position filename="ga-entry-group.h" line="158"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="guint8" c:type="const guint8*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="thaw"
+              c:identifier="ga_entry_group_service_thaw"
+              throws="1">
+        <source-position filename="ga-entry-group.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="EntryGroupService" c:type="GaEntryGroupService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="EntryGroupState"
+                 glib:type-name="GaEntryGroupState"
+                 glib:get-type="ga_entry_group_state_get_type"
+                 c:type="GaEntryGroupState">
+      <member name="GA_ENTRY_GROUP_STATE_UNCOMMITED"
+              value="0"
+              c:identifier="GA_ENTRY_GROUP_STATE_UNCOMMITED"
+              glib:nick="GA_ENTRY_GROUP_STATE_UNCOMMITED"
+              glib:name="GA_ENTRY_GROUP_STATE_UNCOMMITED">
+      </member>
+      <member name="GA_ENTRY_GROUP_STATE_REGISTERING"
+              value="1"
+              c:identifier="GA_ENTRY_GROUP_STATE_REGISTERING"
+              glib:nick="GA_ENTRY_GROUP_STATE_REGISTERING"
+              glib:name="GA_ENTRY_GROUP_STATE_REGISTERING">
+      </member>
+      <member name="GA_ENTRY_GROUP_STATE_ESTABLISHED"
+              value="2"
+              c:identifier="GA_ENTRY_GROUP_STATE_ESTABLISHED"
+              glib:nick="GA_ENTRY_GROUP_STATE_ESTABLISHED"
+              glib:name="GA_ENTRY_GROUP_STATE_ESTABLISHED">
+      </member>
+      <member name="GA_ENTRY_GROUP_STATE_COLLISION"
+              value="3"
+              c:identifier="GA_ENTRY_GROUP_STATE_COLLISION"
+              glib:nick="GA_ENTRY_GROUP_STATE_COLLISION"
+              glib:name="GA_ENTRY_GROUP_STATE_COLLISION">
+      </member>
+      <member name="GA_ENTRY_GROUP_STATE_FAILURE"
+              value="4"
+              c:identifier="GA_ENTRY_GROUP_STATE_FAILURE"
+              glib:nick="GA_ENTRY_GROUP_STATE_FAILURE"
+              glib:name="GA_ENTRY_GROUP_STATE_FAILURE">
+      </member>
+    </enumeration>
+    <enumeration name="LookupFlags"
+                 glib:type-name="GaLookupFlags"
+                 glib:get-type="ga_lookup_flags_get_type"
+                 c:type="GaLookupFlags">
+      <member name="GA_LOOKUP_NO_FLAGS"
+              value="0"
+              c:identifier="GA_LOOKUP_NO_FLAGS"
+              glib:nick="GA_LOOKUP_NO_FLAGS"
+              glib:name="GA_LOOKUP_NO_FLAGS">
+      </member>
+      <member name="GA_LOOKUP_USE_WIDE_AREA"
+              value="1"
+              c:identifier="GA_LOOKUP_USE_WIDE_AREA"
+              glib:nick="GA_LOOKUP_USE_WIDE_AREA"
+              glib:name="GA_LOOKUP_USE_WIDE_AREA">
+      </member>
+      <member name="GA_LOOKUP_USE_MULTICAST"
+              value="2"
+              c:identifier="GA_LOOKUP_USE_MULTICAST"
+              glib:nick="GA_LOOKUP_USE_MULTICAST"
+              glib:name="GA_LOOKUP_USE_MULTICAST">
+      </member>
+      <member name="GA_LOOKUP_NO_TXT"
+              value="4"
+              c:identifier="GA_LOOKUP_NO_TXT"
+              glib:nick="GA_LOOKUP_NO_TXT"
+              glib:name="GA_LOOKUP_NO_TXT">
+      </member>
+      <member name="GA_LOOKUP_NO_ADDRESS"
+              value="8"
+              c:identifier="GA_LOOKUP_NO_ADDRESS"
+              glib:nick="GA_LOOKUP_NO_ADDRESS"
+              glib:name="GA_LOOKUP_NO_ADDRESS">
+      </member>
+    </enumeration>
+    <enumeration name="LookupResultFlags"
+                 glib:type-name="GaLookupResultFlags"
+                 glib:get-type="ga_lookup_result_flags_get_type"
+                 c:type="GaLookupResultFlags">
+      <member name="GA_LOOKUP_RESULT_CACHED"
+              value="1"
+              c:identifier="GA_LOOKUP_RESULT_CACHED"
+              glib:nick="GA_LOOKUP_RESULT_CACHED"
+              glib:name="GA_LOOKUP_RESULT_CACHED">
+      </member>
+      <member name="GA_LOOKUP_RESULT_WIDE_AREA"
+              value="2"
+              c:identifier="GA_LOOKUP_RESULT_WIDE_AREA"
+              glib:nick="GA_LOOKUP_RESULT_WIDE_AREA"
+              glib:name="GA_LOOKUP_RESULT_WIDE_AREA">
+      </member>
+      <member name="GA_LOOKUP_RESULT_MULTICAST"
+              value="4"
+              c:identifier="GA_LOOKUP_RESULT_MULTICAST"
+              glib:nick="GA_LOOKUP_RESULT_MULTICAST"
+              glib:name="GA_LOOKUP_RESULT_MULTICAST">
+      </member>
+      <member name="GA_LOOKUP_RESULT_LOCAL"
+              value="8"
+              c:identifier="GA_LOOKUP_RESULT_LOCAL"
+              glib:nick="GA_LOOKUP_RESULT_LOCAL"
+              glib:name="GA_LOOKUP_RESULT_LOCAL">
+      </member>
+      <member name="GA_LOOKUP_RESULT_OUR_OWN"
+              value="16"
+              c:identifier="GA_LOOKUP_RESULT_OUR_OWN"
+              glib:nick="GA_LOOKUP_RESULT_OUR_OWN"
+              glib:name="GA_LOOKUP_RESULT_OUR_OWN">
+      </member>
+      <member name="GA_LOOKUP_RESULT_STATIC"
+              value="32"
+              c:identifier="GA_LOOKUP_RESULT_STATIC"
+              glib:nick="GA_LOOKUP_RESULT_STATIC"
+              glib:name="GA_LOOKUP_RESULT_STATIC">
+      </member>
+    </enumeration>
+    <enumeration name="Protocol"
+                 glib:type-name="GaProtocol"
+                 glib:get-type="ga_protocol_get_type"
+                 c:type="GaProtocol">
+      <member name="GA_PROTOCOL_INET"
+              value="0"
+              c:identifier="GA_PROTOCOL_INET"
+              glib:nick="GA_PROTOCOL_INET"
+              glib:name="GA_PROTOCOL_INET">
+      </member>
+      <member name="GA_PROTOCOL_INET6"
+              value="1"
+              c:identifier="GA_PROTOCOL_INET6"
+              glib:nick="GA_PROTOCOL_INET6"
+              glib:name="GA_PROTOCOL_INET6">
+      </member>
+      <member name="GA_PROTOCOL_UNSPEC"
+              value="-1"
+              c:identifier="GA_PROTOCOL_UNSPEC"
+              glib:nick="GA_PROTOCOL_UNSPEC"
+              glib:name="GA_PROTOCOL_UNSPEC">
+      </member>
+    </enumeration>
+    <function-macro name="RECORD_BROWSER"
+                    c:identifier="GA_RECORD_BROWSER"
+                    introspectable="0">
+      <source-position filename="ga-record-browser.h" line="47"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_BROWSER_CLASS"
+                    c:identifier="GA_RECORD_BROWSER_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-record-browser.h" line="49"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_BROWSER_GET_CLASS"
+                    c:identifier="GA_RECORD_BROWSER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-record-browser.h" line="55"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="RecordBrowser"
+           c:symbol-prefix="record_browser"
+           c:type="GaRecordBrowser"
+           parent="GObject.Object"
+           glib:type-name="GaRecordBrowser"
+           glib:get-type="ga_record_browser_get_type"
+           glib:type-struct="RecordBrowserClass">
+      <source-position filename="ga-record-browser.h" line="37"/>
+      <constructor name="new" c:identifier="ga_record_browser_new">
+        <source-position filename="ga-record-browser.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <type name="RecordBrowser" c:type="GaRecordBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full" c:identifier="ga_record_browser_new_full">
+        <source-position filename="ga-record-browser.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="RecordBrowser" c:type="GaRecordBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="clazz" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="LookupFlags" c:type="GaLookupFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="attach" c:identifier="ga_record_browser_attach" throws="1">
+        <source-position filename="ga-record-browser.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="RecordBrowser" c:type="GaRecordBrowser*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="class"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="flags"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_LOOKUP_NO_FLAGS">
+        <type name="LookupFlags"/>
+      </property>
+      <property name="interface"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="protocol"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_PROTOCOL_UNSPEC">
+        <type name="Protocol"/>
+      </property>
+      <property name="type"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="all-for-now" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="cache-exhausted" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="failure" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-record" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p4"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="p5" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p6" transfer-ownership="none">
+            <type name="LookupResultFlags"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="removed-record" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p4"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="p5" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p6" transfer-ownership="none">
+            <type name="LookupResultFlags"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="RecordBrowserClass"
+            c:type="GaRecordBrowserClass"
+            glib:is-gtype-struct-for="RecordBrowser">
+      <source-position filename="ga-record-browser.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ResolverEvent"
+                 glib:type-name="GaResolverEvent"
+                 glib:get-type="ga_resolver_event_get_type"
+                 c:type="GaResolverEvent">
+      <member name="GA_RESOLVER_FOUND"
+              value="0"
+              c:identifier="GA_RESOLVER_FOUND"
+              glib:nick="GA_RESOLVER_FOUND"
+              glib:name="GA_RESOLVER_FOUND">
+      </member>
+      <member name="GA_RESOLVER_FAILURE"
+              value="1"
+              c:identifier="GA_RESOLVER_FAILURE"
+              glib:nick="GA_RESOLVER_FAILURE"
+              glib:name="GA_RESOLVER_FAILURE">
+      </member>
+    </enumeration>
+    <function-macro name="SERVICE_BROWSER"
+                    c:identifier="GA_SERVICE_BROWSER"
+                    introspectable="0">
+      <source-position filename="ga-service-browser.h" line="46"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SERVICE_BROWSER_CLASS"
+                    c:identifier="GA_SERVICE_BROWSER_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-service-browser.h" line="48"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SERVICE_BROWSER_GET_CLASS"
+                    c:identifier="GA_SERVICE_BROWSER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-service-browser.h" line="54"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SERVICE_RESOLVER"
+                    c:identifier="GA_SERVICE_RESOLVER"
+                    introspectable="0">
+      <source-position filename="ga-service-resolver.h" line="47"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SERVICE_RESOLVER_CLASS"
+                    c:identifier="GA_SERVICE_RESOLVER_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-service-resolver.h" line="49"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SERVICE_RESOLVER_GET_CLASS"
+                    c:identifier="GA_SERVICE_RESOLVER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="ga-service-resolver.h" line="55"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ServiceBrowser"
+           c:symbol-prefix="service_browser"
+           c:type="GaServiceBrowser"
+           parent="GObject.Object"
+           glib:type-name="GaServiceBrowser"
+           glib:get-type="ga_service_browser_get_type"
+           glib:type-struct="ServiceBrowserClass">
+      <source-position filename="ga-service-browser.h" line="36"/>
+      <constructor name="new" c:identifier="ga_service_browser_new">
+        <source-position filename="ga-service-browser.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <type name="ServiceBrowser" c:type="GaServiceBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full" c:identifier="ga_service_browser_new_full">
+        <source-position filename="ga-service-browser.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <type name="ServiceBrowser" c:type="GaServiceBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="LookupFlags" c:type="GaLookupFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="attach"
+              c:identifier="ga_service_browser_attach"
+              throws="1">
+        <source-position filename="ga-service-browser.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="ServiceBrowser" c:type="GaServiceBrowser*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="domain"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="flags"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_LOOKUP_NO_FLAGS">
+        <type name="LookupFlags"/>
+      </property>
+      <property name="interface"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="protocol"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_PROTOCOL_UNSPEC">
+        <type name="Protocol"/>
+      </property>
+      <property name="type"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="all-for-now" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="cache-exhausted" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="failure" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-service" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p4" transfer-ownership="none">
+            <type name="LookupResultFlags"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="removed-service" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p4" transfer-ownership="none">
+            <type name="LookupResultFlags"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ServiceBrowserClass"
+            c:type="GaServiceBrowserClass"
+            glib:is-gtype-struct-for="ServiceBrowser">
+      <source-position filename="ga-service-browser.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ServiceResolver"
+           c:symbol-prefix="service_resolver"
+           c:type="GaServiceResolver"
+           parent="GObject.Object"
+           glib:type-name="GaServiceResolver"
+           glib:get-type="ga_service_resolver_get_type"
+           glib:type-struct="ServiceResolverClass">
+      <source-position filename="ga-service-resolver.h" line="37"/>
+      <constructor name="new" c:identifier="ga_service_resolver_new">
+        <source-position filename="ga-service-resolver.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <type name="ServiceResolver" c:type="GaServiceResolver*"/>
+        </return-value>
+        <parameters>
+          <parameter name="interface" transfer-ownership="none">
+            <type name="AvahiCore.IfIndex" c:type="AvahiIfIndex"/>
+          </parameter>
+          <parameter name="protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="address_protocol" transfer-ownership="none">
+            <type name="AvahiCore.Protocol" c:type="AvahiProtocol"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="LookupFlags" c:type="GaLookupFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="attach"
+              c:identifier="ga_service_resolver_attach"
+              throws="1">
+        <source-position filename="ga-service-resolver.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resolver" transfer-ownership="none">
+            <type name="ServiceResolver" c:type="GaServiceResolver*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GaClient*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_address"
+              c:identifier="ga_service_resolver_get_address">
+        <source-position filename="ga-service-resolver.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resolver" transfer-ownership="none">
+            <type name="ServiceResolver" c:type="GaServiceResolver*"/>
+          </instance-parameter>
+          <parameter name="address" transfer-ownership="none">
+            <type name="AvahiCore.Address" c:type="AvahiAddress*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="uint16_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="aprotocol"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_PROTOCOL_UNSPEC">
+        <type name="Protocol"/>
+      </property>
+      <property name="domain"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="flags"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_LOOKUP_NO_FLAGS">
+        <type name="LookupFlags"/>
+      </property>
+      <property name="interface"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="protocol"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GA_PROTOCOL_UNSPEC">
+        <type name="Protocol"/>
+      </property>
+      <property name="type"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="failure" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="found" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Protocol"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p4" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p5"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="p6" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p7"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="p8" transfer-ownership="none">
+            <type name="LookupResultFlags"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ServiceResolverClass"
+            c:type="GaServiceResolverClass"
+            glib:is-gtype-struct-for="ServiceResolver">
+      <source-position filename="ga-service-resolver.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="error_quark" c:identifier="ga_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

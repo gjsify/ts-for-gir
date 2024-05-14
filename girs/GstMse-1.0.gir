@@ -1,0 +1,1895 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gst" version="1.0"/>
+  <package name="gstreamer-mse-1.0"/>
+  <c:include name="gst/mse/mse.h"/>
+  <namespace name="GstMse"
+             version="1.0"
+             shared-library="libgstmse-1.0.so.0"
+             c:identifier-prefixes="Gst"
+             c:symbol-prefixes="gst">
+    <class name="MediaSource"
+           c:symbol-prefix="media_source"
+           c:type="GstMediaSource"
+           version="1.24"
+           parent="Gst.Object"
+           glib:type-name="GstMediaSource"
+           glib:get-type="gst_media_source_get_type"
+           glib:type-struct="MediaSourceClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.c"
+           line="29">#GstMediaSource is the entry point into the W3C Media Source API. It offers
+functionality similar to #GstAppSrc for client-side web or JavaScript
+applications decoupling the source of media from its processing and playback.
+
+To interact with a Media Source, connect it to a #GstMseSrc that is in some
+#GstPipeline using gst_media_source_attach(). Then create at least one
+#GstSourceBuffer using gst_media_source_add_source_buffer(). Finally, feed
+some media data to the Source Buffer(s) using
+gst_source_buffer_append_buffer() and play the pipeline.</doc>
+      <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                       line="139"/>
+      <constructor name="new"
+                   c:identifier="gst_media_source_new"
+                   version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="143">Creates a new #GstMediaSource instance. The instance is in the
+%GST_MEDIA_SOURCE_READY_STATE_CLOSED state and is not associated with any
+media player.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-constructor)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="143"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="152">a new #GstMediaSource instance</doc>
+          <type name="MediaSource" c:type="GstMediaSource*"/>
+        </return-value>
+      </constructor>
+      <function name="is_type_supported"
+                c:identifier="gst_media_source_is_type_supported"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="110">Determines whether the current Media Source configuration can process media
+of the supplied @type.</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="117">`TRUE` when supported, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="112">A MIME type value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add_source_buffer"
+              c:identifier="gst_media_source_add_source_buffer"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="783">Add a #GstSourceBuffer to this #GstMediaSource of the specified media type.
+The Media Source must be in the #GstMediaSourceReadyState %GST_MEDIA_SOURCE_READY_STATE_OPEN.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-addsourcebuffer)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="175"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="794">a new #GstSourceBuffer instance on success, otherwise `NULL`</doc>
+          <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="785">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="786">A MIME type describing the format of the incoming media</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="attach"
+              c:identifier="gst_media_source_attach"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="452">Associates @self with @element.
+Normally, the Element will be part of a #GstPipeline that plays back the data
+submitted to the Media Source's Source Buffers.
+
+#GstMseSrc is a special source element that is designed to consume media from
+a #GstMediaSource.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dfn-attaching-to-a-media-element)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="454">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="element" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="455">#GstMseSrc source Element</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear_live_seekable_range"
+              c:identifier="gst_media_source_clear_live_seekable_range"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="996">Clear the live seekable range for @self. This will inform the component
+playing this Media Source that there is no seekable time range.
+
+If the ready state is not %GST_MEDIA_SOURCE_READY_STATE_OPEN, it will fail
+and set an error.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-clearliveseekablerange)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="196"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="1009">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="998">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="detach"
+              c:identifier="gst_media_source_detach"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="484">Detaches @self from any #GstMseSrc element that it may be associated with.</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="149"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="486">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_of_stream"
+              c:identifier="gst_media_source_end_of_stream"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="901">Mark @self as reaching the end of stream, disallowing new data inputs.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-endofstream)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="185"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="911">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="903">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="eos_error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="904">The error type, if any</doc>
+            <type name="MediaSourceEOSError" c:type="GstMediaSourceEOSError"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_source_buffers"
+              c:identifier="gst_media_source_get_active_source_buffers"
+              glib:get-property="active-source-buffers"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="560">Gets a #GstSourceBufferList containing all the Source Buffers currently
+associated with this Media Source that are considered "active."
+For a Source Buffer to be considered active, either its video track is
+selected, its audio track is enabled, or its text track is visible or hidden.
+This object will reflect any future changes to the parent Media Source as
+well.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-activesourcebuffers)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="156"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="573">a new #GstSourceBufferList instance</doc>
+          <type name="SourceBufferList" c:type="GstSourceBufferList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="562">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_duration"
+              c:identifier="gst_media_source_get_duration"
+              glib:get-property="duration"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="619">Gets the current duration of @self.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-duration)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="627">the current duration as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="621">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_live_seekable_range"
+              c:identifier="gst_media_source_get_live_seekable_range"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="1030">Get the live seekable range of @self. Will fill in the supplied @range with
+the current live seekable range.</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="200"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="1032">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="range"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="1033">time range</doc>
+            <type name="MediaSourceRange" c:type="GstMediaSourceRange*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="gst_media_source_get_position"
+              glib:get-property="position"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="601">Gets the current playback position of the Media Source.</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="164"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="607">the current playback position as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="603">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ready_state"
+              c:identifier="gst_media_source_get_ready_state"
+              glib:get-property="ready-state"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="583">Gets the current Ready State of the Media Source.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-readystate)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="160"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="591">the current #GstMediaSourceReadyState value</doc>
+          <type name="MediaSourceReadyState"
+                c:type="GstMediaSourceReadyState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="585">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_source_buffers"
+              c:identifier="gst_media_source_get_source_buffers"
+              glib:get-property="source-buffers"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="540">Gets a #GstSourceBufferList containing all the Source Buffers currently
+associated with this Media Source. This object will reflect any future
+changes to the parent Media Source as well.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-sourcebuffers)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="152"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="550">a #GstSourceBufferList instance</doc>
+          <type name="SourceBufferList" c:type="GstSourceBufferList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="542">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_source_buffer"
+              c:identifier="gst_media_source_remove_source_buffer"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="846">Remove @buffer from @self.
+
+@buffer must have been created as a child of @self and @self must be in the
+#GstMediaSourceReadyState %GST_MEDIA_SOURCE_READY_STATE_OPEN.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-removesourcebuffer)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="180"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="859">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="848">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="849">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_duration"
+              c:identifier="gst_media_source_set_duration"
+              glib:set-property="duration"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="639">Sets the duration of @self.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-duration)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="170"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="649">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="641">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="duration" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="642">The new duration to apply to @self.</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_live_seekable_range"
+              c:identifier="gst_media_source_set_live_seekable_range"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="953">Set the live seekable range for @self. This range informs the component
+playing this Media Source what it can allow the user to seek through.
+
+If the ready state is not %GST_MEDIA_SOURCE_READY_STATE_OPEN, or the supplied
+@start time is later than @end it will fail and set an error.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-setliveseekablerange)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                         line="190"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmediasource.c"
+               line="968">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="955">#GstMediaSource instance</doc>
+            <type name="MediaSource" c:type="GstMediaSource*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="956">The earliest point in the stream considered seekable</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmediasource.c"
+                 line="957">The latest point in the stream considered seekable</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-source-buffers"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_active_source_buffers">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="263">A #GstSourceBufferList of every #GstSourceBuffer in this Media Source that
+is considered active
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-activesourcebuffers)</doc>
+        <type name="SourceBufferList"/>
+      </property>
+      <property name="duration"
+                version="1.24"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_duration"
+                getter="get_duration"
+                default-value="18446744073709551615">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="306">The Duration of the Media Source as a #GstClockTime
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-duration)</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="position"
+                version="1.24"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_position"
+                default-value="18446744073709551615">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="293">The position of the player consuming from the Media Source</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="ready-state"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_ready_state"
+                default-value="GST_MEDIA_SOURCE_READY_STATE_CLOSED">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="278">The Ready State of the Media Source
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-readystate)</doc>
+        <type name="MediaSourceReadyState"/>
+      </property>
+      <property name="source-buffers"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_source_buffers">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="249">A #GstSourceBufferList of every #GstSourceBuffer in this Media Source
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-sourcebuffers)</doc>
+        <type name="SourceBufferList"/>
+      </property>
+      <glib:signal name="on-source-close" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-source-ended" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="337">Emitted when @self has ended, normally through
+gst_media_source_end_of_stream().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-onsourceended)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-source-open" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.c"
+             line="323">Emitted when @self has been opened.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-mediasource-onsourceopen)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MediaSourceClass"
+            c:type="GstMediaSourceClass"
+            glib:is-gtype-struct-for="MediaSource">
+      <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                       line="139"/>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="MediaSourceEOSError"
+                 version="1.24"
+                 glib:type-name="GstMediaSourceEOSError"
+                 glib:get-type="gst_media_source_eos_error_get_type"
+                 c:type="GstMediaSourceEOSError">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.h"
+           line="85">Reasons for ending a #GstMediaSource using gst_media_source_end_of_stream().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-endofstreamerror)</doc>
+      <member name="none"
+              value="0"
+              c:identifier="GST_MEDIA_SOURCE_EOS_ERROR_NONE"
+              glib:nick="none"
+              glib:name="GST_MEDIA_SOURCE_EOS_ERROR_NONE">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="87">End the stream successfully</doc>
+      </member>
+      <member name="network"
+              value="1"
+              c:identifier="GST_MEDIA_SOURCE_EOS_ERROR_NETWORK"
+              glib:nick="network"
+              glib:name="GST_MEDIA_SOURCE_EOS_ERROR_NETWORK">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="88">End the stream due to a networking error</doc>
+      </member>
+      <member name="decode"
+              value="2"
+              c:identifier="GST_MEDIA_SOURCE_EOS_ERROR_DECODE"
+              glib:nick="decode"
+              glib:name="GST_MEDIA_SOURCE_EOS_ERROR_DECODE">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="89">End the stream due to a decoding error</doc>
+      </member>
+    </enumeration>
+    <enumeration name="MediaSourceError"
+                 version="1.24"
+                 glib:type-name="GstMediaSourceError"
+                 glib:get-type="gst_media_source_error_get_type"
+                 c:type="GstMediaSourceError"
+                 glib:error-domain="gst_media_source_error_quark">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.h"
+           line="61">Any error that can occur within #GstMediaSource or #GstSourceBuffer APIs.
+These values correspond directly to those in the Web IDL specification.
+
+[Specification](https://webidl.spec.whatwg.org/#idl-DOMException-error-names)</doc>
+      <member name="invalid_state"
+              value="0"
+              c:identifier="GST_MEDIA_SOURCE_ERROR_INVALID_STATE"
+              glib:nick="invalid-state"
+              glib:name="GST_MEDIA_SOURCE_ERROR_INVALID_STATE">
+      </member>
+      <member name="type"
+              value="1"
+              c:identifier="GST_MEDIA_SOURCE_ERROR_TYPE"
+              glib:nick="type"
+              glib:name="GST_MEDIA_SOURCE_ERROR_TYPE">
+      </member>
+      <member name="not_supported"
+              value="2"
+              c:identifier="GST_MEDIA_SOURCE_ERROR_NOT_SUPPORTED"
+              glib:nick="not-supported"
+              glib:name="GST_MEDIA_SOURCE_ERROR_NOT_SUPPORTED">
+      </member>
+      <member name="not_found"
+              value="3"
+              c:identifier="GST_MEDIA_SOURCE_ERROR_NOT_FOUND"
+              glib:nick="not-found"
+              glib:name="GST_MEDIA_SOURCE_ERROR_NOT_FOUND">
+      </member>
+      <member name="quota_exceeded"
+              value="4"
+              c:identifier="GST_MEDIA_SOURCE_ERROR_QUOTA_EXCEEDED"
+              glib:nick="quota-exceeded"
+              glib:name="GST_MEDIA_SOURCE_ERROR_QUOTA_EXCEEDED">
+      </member>
+      <function name="quark"
+                c:identifier="gst_media_source_error_quark"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="128">Any error type that can be reported by the Media Source API.</doc>
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="MediaSourceRange"
+            c:type="GstMediaSourceRange"
+            version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.h"
+           line="104">A structure describing a simplified version of the TimeRanges concept in the
+HTML specification, only representing a single @start and @end time.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#timeranges)</doc>
+      <source-position filename="gst-libs/gst/mse/gstmediasource.h"
+                       line="120"/>
+      <field name="start" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="106">The start of this range.</doc>
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+      <field name="end" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="107">The end of this range.</doc>
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+    </record>
+    <enumeration name="MediaSourceReadyState"
+                 version="1.24"
+                 glib:type-name="GstMediaSourceReadyState"
+                 glib:get-type="gst_media_source_ready_state_get_type"
+                 c:type="GstMediaSourceReadyState">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.h"
+           line="39">Describes the possible states of the Media Source.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-readystate)</doc>
+      <member name="closed"
+              value="0"
+              c:identifier="GST_MEDIA_SOURCE_READY_STATE_CLOSED"
+              glib:nick="closed"
+              glib:name="GST_MEDIA_SOURCE_READY_STATE_CLOSED">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="41">The #GstMediaSource is not connected to
+any playback element.</doc>
+      </member>
+      <member name="open"
+              value="1"
+              c:identifier="GST_MEDIA_SOURCE_READY_STATE_OPEN"
+              glib:nick="open"
+              glib:name="GST_MEDIA_SOURCE_READY_STATE_OPEN">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="43">The #GstMediaSource is connected to a
+playback element and ready to append data to its #GstSourceBuffer (s).</doc>
+      </member>
+      <member name="ended"
+              value="2"
+              c:identifier="GST_MEDIA_SOURCE_READY_STATE_ENDED"
+              glib:nick="ended"
+              glib:name="GST_MEDIA_SOURCE_READY_STATE_ENDED">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmediasource.h"
+             line="45">gst_media_source_end_of_stream() has
+been called on the current #GstMediaSource</doc>
+      </member>
+    </enumeration>
+    <class name="MseSrc"
+           c:symbol-prefix="mse_src"
+           c:type="GstMseSrc"
+           version="1.24"
+           parent="Gst.Element"
+           glib:type-name="GstMseSrc"
+           glib:get-type="gst_mse_src_get_type"
+           glib:type-struct="MseSrcClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmsesrc.c"
+           line="28">#GstMseSrc is a source Element that interacts with a #GstMediaSource to
+consume #GstSample&lt;!-- --&gt;s processed by the Media Source and supplies them
+to the containing #GstPipeline. In the perspective of the Media Source API,
+this element fulfills the basis of the Media Element's role relating to
+working with a Media Source. The remaining responsibilities are meant to be
+fulfilled by the application and #GstPlay can be used to satisfy many of
+them.
+
+Once added to a Pipeline, this element should be attached to a Media Source
+using gst_media_source_attach().</doc>
+      <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="71"/>
+      <implements name="Gst.URIHandler"/>
+      <method name="get_duration"
+              c:identifier="gst_mse_src_get_duration"
+              glib:get-property="duration"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="526">Gets the duration of @self.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#dom-media-duration)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="534">The duration of this stream as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="528">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_n_audio"
+              c:identifier="gst_mse_src_get_n_audio"
+              glib:get-property="n-audio"
+              version="1.24">
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="586">the number of audio tracks available from this source</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="584">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_n_text"
+              c:identifier="gst_mse_src_get_n_text"
+              glib:get-property="n-text"
+              version="1.24">
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="600">the number of text tracks available from this source</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="598">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_n_video"
+              c:identifier="gst_mse_src_get_n_video"
+              glib:get-property="n-video"
+              version="1.24">
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="614">the number of video tracks available from this source</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="612">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="gst_mse_src_get_position"
+              glib:get-property="position"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="481">Gets the current playback position of @self.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#current-playback-position)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="489">The playback position of this Element as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="483">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ready_state"
+              c:identifier="gst_mse_src_get_ready_state"
+              glib:get-property="ready-state"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="544">The Ready State of @self, describing to what level it can supply content for
+the current #GstMseSrc:position. This is a separate concept from
+#GstMediaSource:ready-state: and corresponds to the HTML Media Element's
+Ready State.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#ready-states)</doc>
+        <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstmsesrc.c"
+               line="555">the current #GstMseSrcReadyState</doc>
+          <type name="MseSrcReadyState" c:type="GstMseSrcReadyState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstmsesrc.c"
+                 line="546">#GstMseSrc instance</doc>
+            <type name="MseSrc" c:type="GstMseSrc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="duration"
+                version="1.24"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_duration"
+                default-value="18446744073709551615">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="365">The duration of the stream as a #GstClockTime
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#dom-media-duration)</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="n-audio"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_n_audio"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="398">The number of audio tracks in the Media Source</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="n-text"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_n_text"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="410">The number of text tracks in the Media Source</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="n-video"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_n_video"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="422">The number of video tracks in the Media Source</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="position"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_position"
+                default-value="18446744073709551615">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="350">The playback position as a #GstClockTime
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#current-playback-position)</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="ready-state"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_ready_state"
+                default-value="GST_MSE_SRC_READY_STATE_HAVE_NOTHING">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.c"
+             line="380">The Ready State of this element, describing to what level it can supply
+content for the current #GstMseSrc:position. This is a separate concept
+from #GstMediaSource:ready-state: and corresponds to the HTML Media
+Element's Ready State.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#ready-states)</doc>
+        <type name="MseSrcReadyState"/>
+      </property>
+    </class>
+    <record name="MseSrcClass"
+            c:type="GstMseSrcClass"
+            glib:is-gtype-struct-for="MseSrc">
+      <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="71"/>
+      <field name="parent_class">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+    </record>
+    <class name="MseSrcPad"
+           c:symbol-prefix="mse_src_pad"
+           c:type="GstMseSrcPad"
+           version="1.24"
+           parent="Gst.Pad"
+           glib:type-name="GstMseSrcPad"
+           glib:get-type="gst_mse_src_pad_get_type"
+           glib:type-struct="MseSrcPadClass">
+      <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="74"/>
+    </class>
+    <record name="MseSrcPadClass"
+            c:type="GstMseSrcPadClass"
+            glib:is-gtype-struct-for="MseSrcPad">
+      <source-position filename="gst-libs/gst/mse/gstmsesrc.h" line="74"/>
+      <field name="parent_class">
+        <type name="Gst.PadClass" c:type="GstPadClass"/>
+      </field>
+    </record>
+    <enumeration name="MseSrcReadyState"
+                 version="1.24"
+                 glib:type-name="GstMseSrcReadyState"
+                 glib:get-type="gst_mse_src_ready_state_get_type"
+                 c:type="GstMseSrcReadyState">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmsesrc.h"
+           line="35">Describes how much information a #GstMseSrc has about the media it is playing
+back at the current playback #GstMseSrc:position. This type corresponds
+directly to the ready state of a HTML Media Element and is a separate concept
+from #GstMediaSourceReadyState.
+
+[Specification](https://html.spec.whatwg.org/multipage/media.html#ready-states)</doc>
+      <member name="nothing"
+              value="0"
+              c:identifier="GST_MSE_SRC_READY_STATE_HAVE_NOTHING"
+              glib:nick="nothing"
+              glib:name="GST_MSE_SRC_READY_STATE_HAVE_NOTHING">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.h"
+             line="37">No information is available about the
+stream</doc>
+      </member>
+      <member name="metadata"
+              value="1"
+              c:identifier="GST_MSE_SRC_READY_STATE_HAVE_METADATA"
+              glib:nick="metadata"
+              glib:name="GST_MSE_SRC_READY_STATE_HAVE_METADATA">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.h"
+             line="39">The duration is available and video
+dimensions are available if the stream contains video</doc>
+      </member>
+      <member name="current_data"
+              value="2"
+              c:identifier="GST_MSE_SRC_READY_STATE_HAVE_CURRENT_DATA"
+              glib:nick="current-data"
+              glib:name="GST_MSE_SRC_READY_STATE_HAVE_CURRENT_DATA">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.h"
+             line="41">The current playback position can
+be presented but future information is not available</doc>
+      </member>
+      <member name="future_data"
+              value="3"
+              c:identifier="GST_MSE_SRC_READY_STATE_HAVE_FUTURE_DATA"
+              glib:nick="future-data"
+              glib:name="GST_MSE_SRC_READY_STATE_HAVE_FUTURE_DATA">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.h"
+             line="43">There is data for the current
+position and some amount in the future and any text tracks are ready.</doc>
+      </member>
+      <member name="enough_data"
+              value="4"
+              c:identifier="GST_MSE_SRC_READY_STATE_HAVE_ENOUGH_DATA"
+              glib:nick="enough-data"
+              glib:name="GST_MSE_SRC_READY_STATE_HAVE_ENOUGH_DATA">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstmsesrc.h"
+             line="45">Either there is enough data to
+play the stream through at the current playback and input rate or the input
+buffer is full.</doc>
+      </member>
+    </enumeration>
+    <class name="SourceBuffer"
+           c:symbol-prefix="source_buffer"
+           c:type="GstSourceBuffer"
+           version="1.24"
+           parent="Gst.Object"
+           glib:type-name="GstSourceBuffer"
+           glib:get-type="gst_source_buffer_get_type"
+           glib:type-struct="SourceBufferClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstsourcebuffer.c"
+           line="29">The Source Buffer is the primary means of data flow between an application
+and the Media Source API. It represents a single timeline of media,
+containing some combination of audio, video, and text tracks.
+An application is responsible for feeding raw data into the Source Buffer
+using gst_source_buffer_append_buffer() and the Source Buffer will
+asynchronously process the data into tracks of time-coded multimedia samples.
+
+The application as well as the associated playback component can then select
+to play media from any subset of tracks across all Source Buffers of a Media
+Source.
+
+A few control points are also provided to customize the behavior.
+
+ - #GstSourceBuffer:append-mode controls how timestamps of processed samples are
+ interpreted. They are either inserted in the timeline directly where the
+ decoded media states they should, or inserted directly after the previously
+ encountered sample.
+
+ - #GstSourceBuffer:append-window-start / #GstSourceBuffer:append-window-end
+ control the planned time window where media from appended data can be added
+ to the current timeline. Any samples outside that range may be ignored.
+
+ - #GstSourceBuffer:timestamp-offset is added to the start time of any sample
+ processed.</doc>
+      <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                       line="66"/>
+      <method name="abort"
+              c:identifier="gst_source_buffer_abort"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1790">Attempts to end any processing of the currently pending data and reset the
+media parser.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-abort)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1800">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1792">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="append_buffer"
+              c:identifier="gst_source_buffer_append_buffer"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1723">Schedules the bytes inside @buf to be processed by @self. When it is possible
+to accept the supplied data, it will be processed asynchronously and fill in
+the track buffers for playback purposes.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="112"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1735">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1725">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="buf" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1726">The media data to append</doc>
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="change_content_type"
+              c:identifier="gst_source_buffer_change_content_type"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1323">Attempts to change the content type of @self to @type. Any new data appended
+to the Source Buffer must be of the supplied @type afterward.</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1332">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1325">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1326">the desired content type</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_append_mode"
+              c:identifier="gst_source_buffer_get_append_mode"
+              glib:get-property="append-mode"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="993">[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="999">The current #GstSourceBufferAppendMode</doc>
+          <type name="SourceBufferAppendMode"
+                c:type="GstSourceBufferAppendMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="995">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_append_window_end"
+              c:identifier="gst_source_buffer_get_append_window_end"
+              glib:get-property="append-window-end"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1131">Returns the current append window end time. Any segment processed that starts
+after this value will be ignored.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="109"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1140">The current Append Window end time as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1133">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_append_window_start"
+              c:identifier="gst_source_buffer_get_append_window_start"
+              glib:get-property="append-window-start"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1063">Returns the current append window start time. Any segment processed that ends
+earlier than this value will be ignored.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1072">The current Append Window start time as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1065">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_buffered"
+              c:identifier="gst_source_buffer_get_buffered"
+              glib:get-property="buffered"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1256">Returns a sequence of #GstMediaSourceRange values representing which segments
+of @self are buffered in memory.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="84"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1266">a #GArray of #GstMediaSourceRange values.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <type name="MediaSourceRange"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1258">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content_type"
+              c:identifier="gst_source_buffer_get_content_type"
+              glib:get-property="content-type"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1302">Returns the current content type of @self.</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1308">a string representing the content type</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1304">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timestamp_offset"
+              c:identifier="gst_source_buffer_get_timestamp_offset"
+              glib:get-property="timestamp-offset"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1390">[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1396">The current timestamp offset as a #GstClockTime</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1392">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_updating"
+              c:identifier="gst_source_buffer_get_updating"
+              glib:get-property="updating"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1454">[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1460">Whether @self is currently adding or removing media content.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1456">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove"
+              c:identifier="gst_source_buffer_remove"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1368">Attempts to remove any parsed data between @start and @end from @self.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-remove)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1379">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1370">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1371">The beginning timestamp of data to remove</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1372">The end timestamp of data to remove</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_append_mode"
+              c:identifier="gst_source_buffer_set_append_mode"
+              glib:set-property="append-mode"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1009">Changes the Append Mode of @self. This influences what timestamps will be
+assigned to media processed by this Source Buffer. In Segment mode, the
+timestamps in each segment determine the position of each sample after it
+is processed. In Sequence mode, the timestamp of each processed sample is
+generated based on the end of the most recently processed segment.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1023">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1011">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1012">#GstSourceBufferAppendMode the desired Append Mode</doc>
+            <type name="SourceBufferAppendMode"
+                  c:type="GstSourceBufferAppendMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_append_window_end"
+              c:identifier="gst_source_buffer_set_append_window_end"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1150">Modifies the current append window end of @self. If successful, samples
+processed after setting this value that start after this point will be
+ignored.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="104"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1162">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1152">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1153">the append window end</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_append_window_start"
+              c:identifier="gst_source_buffer_set_append_window_start"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1082">Modifies the current append window start of @self. If successful, samples
+processed after setting this value that end before this point will be
+ignored.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1094">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1084">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1085">the append window end</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timestamp_offset"
+              c:identifier="gst_source_buffer_set_timestamp_offset"
+              glib:set-property="timestamp-offset"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="1405">Attempt to set the timestamp offset of @self. Any media processed after this
+value is set will have this value added to its start time.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                         line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebuffer.c"
+               line="1416">`TRUE` on success, `FALSE` otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1407">#GstSourceBuffer instance</doc>
+            <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebuffer.c"
+                 line="1408">The new timestamp offset</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="append-mode"
+                version="1.24"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_append_mode"
+                getter="get_append_mode"
+                default-value="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="453">Affects how timestamps of processed media segments are interpreted.
+In %GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS, the start timestamp of a
+processed media segment is used directly along with
+#GstSourceBuffer:timestamp-offset .
+In %GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE, the timestamp of a
+processed media segment is ignored and replaced with the end time of the
+most recently appended segment.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode)</doc>
+        <type name="SourceBufferAppendMode"/>
+      </property>
+      <property name="append-window-end"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_append_window_end"
+                default-value="18446744073709551615">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="489">Any segments processed which have a start time greater than this value will
+be ignored by this Source Buffer.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend)</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="append-window-start"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_append_window_start"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="474">Any segments processed which end before this value will be ignored by this
+Source Buffer.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart)</doc>
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="buffered"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_buffered">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="505">The set of Time Intervals that have been loaded into the current Source
+Buffer
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered)</doc>
+        <array name="GLib.Array">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </property>
+      <property name="content-type"
+                version="1.24"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                getter="get_content_type"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="521">The MIME content-type of the data stream</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="timestamp-offset"
+                version="1.24"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_timestamp_offset"
+                getter="get_timestamp_offset"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="533">The next media segment appended to the current Source Buffer will have its
+start timestamp increased by this amount.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset)</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="updating"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_updating"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="549">Whether the current source buffer is still asynchronously processing
+previously issued commands.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating)</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <glib:signal name="on-abort" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="628">Emitted when @self was aborted after a call to gst_source_buffer_abort().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onabort)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-error" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="613">Emitted when @self has encountered an error after a call to
+gst_source_buffer_append_buffer().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onerror)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-update" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="582">Emitted when @self has successfully processed data after a call to
+gst_source_buffer_append_buffer().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdate)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-update-end" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="597">Emitted when @self is no longer in the updating state after a call to
+gst_source_buffer_append_buffer(). This can happen after a successful or
+unsuccessful append.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdateend)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-update-start" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebuffer.c"
+             line="567">Emitted when @self has begun to process data after a call to
+gst_source_buffer_append_buffer().
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdatestart)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <enumeration name="SourceBufferAppendMode"
+                 version="1.24"
+                 glib:type-name="GstSourceBufferAppendMode"
+                 glib:get-type="gst_source_buffer_append_mode_get_type"
+                 c:type="GstSourceBufferAppendMode">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstsourcebuffer.h"
+           line="37">[Specification](https://www.w3.org/TR/media-source-2/#dom-appendmode)</doc>
+      <member name="segments"
+              value="0"
+              c:identifier="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS"
+              glib:nick="segments"
+              glib:name="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">
+      </member>
+      <member name="sequence"
+              value="1"
+              c:identifier="GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE"
+              glib:nick="sequence"
+              glib:name="GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">
+      </member>
+    </enumeration>
+    <record name="SourceBufferClass"
+            c:type="GstSourceBufferClass"
+            glib:is-gtype-struct-for="SourceBuffer">
+      <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                       line="66"/>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+    </record>
+    <record name="SourceBufferInterval"
+            c:type="GstSourceBufferInterval"
+            version="1.24">
+      <source-position filename="gst-libs/gst/mse/gstsourcebuffer.h"
+                       line="61"/>
+      <field name="start" writable="1">
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+      <field name="end" writable="1">
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+    </record>
+    <class name="SourceBufferList"
+           c:symbol-prefix="source_buffer_list"
+           c:type="GstSourceBufferList"
+           version="1.24"
+           parent="Gst.Object"
+           glib:type-name="GstSourceBufferList"
+           glib:get-type="gst_source_buffer_list_get_type"
+           glib:type-struct="SourceBufferListClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+           line="23">The Source Buffer List is a list of #GstSourceBuffer&lt;!-- --&gt;s that can be
+indexed numerically and monitored for changes. The list itself cannot be
+modified through this interface, though the Source Buffers it holds can be
+modified after retrieval.
+
+It is used by #GstMediaSource to provide direct access to its child
+#GstSourceBuffer&lt;!-- --&gt;s through #GstMediaSource:source-buffers as well as
+informing clients which of the Source Buffers are active through
+#GstMediaSource:active-source-buffers.</doc>
+      <source-position filename="gst-libs/gst/mse/gstsourcebufferlist.h"
+                       line="35"/>
+      <method name="get_length"
+              c:identifier="gst_source_buffer_list_get_length"
+              glib:get-property="length"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+             line="314">[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebufferlist-length)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebufferlist.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+               line="320">The number of #GstSourceBuffer objects in the list</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+                 line="316">#GstSourceBufferList instance</doc>
+            <type name="SourceBufferList" c:type="GstSourceBufferList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="index"
+              c:identifier="gst_source_buffer_list_index"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+             line="292">Retrieves the #GstSourceBuffer at @index from @self. If @index is greater than
+the highest index in the list, it will return `NULL`.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dfn-sourcebufferlist-getter)</doc>
+        <source-position filename="gst-libs/gst/mse/gstsourcebufferlist.h"
+                         line="39"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+               line="302">The requested #GstSourceBuffer or `NULL`</doc>
+          <type name="SourceBuffer" c:type="GstSourceBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+                 line="294">#GstSourceBufferList instance</doc>
+            <type name="SourceBufferList" c:type="GstSourceBufferList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+                 line="295">index of requested Source Buffer</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="length"
+                version="1.24"
+                transfer-ownership="none"
+                getter="get_length"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+             line="233">The number of #GstSourceBuffer&lt;!-- --&gt;s contained by this structure
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebufferlist-length)</doc>
+        <type name="gulong" c:type="gulong"/>
+      </property>
+      <glib:signal name="on-sourcebuffer-added" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+             line="249">Emitted when a #GstSourceBuffer has been added to this list.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebufferlist-onaddsourcebuffer)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="on-sourcebuffer-removed" when="last" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mse/gstsourcebufferlist.c"
+             line="264">Emitted when a #GstSourceBuffer has been removed from this list.
+
+[Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebufferlist-onremovesourcebuffer)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="SourceBufferListClass"
+            c:type="GstSourceBufferListClass"
+            glib:is-gtype-struct-for="SourceBufferList">
+      <source-position filename="gst-libs/gst/mse/gstsourcebufferlist.h"
+                       line="35"/>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+    </record>
+    <function name="media_source_error_quark"
+              c:identifier="gst_media_source_error_quark"
+              moved-to="MediaSourceError.quark"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mse/gstmediasource.h"
+           line="128">Any error type that can be reported by the Media Source API.</doc>
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,2637 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="IMSettings"
+             version="1.8"
+             shared-library="libimsettings.so.5"
+             c:identifier-prefixes="IMSettings"
+             c:symbol-prefixes="imsettings">
+    <function-macro name="CLIENT"
+                    c:identifier="IMSETTINGS_CLIENT"
+                    introspectable="0">
+      <source-position filename="imsettings-client.h" line="35"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_CLASS"
+                    c:identifier="IMSETTINGS_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-client.h" line="36"/>
+      <parameters>
+        <parameter name="_c_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_GET_CLASS"
+                    c:identifier="IMSETTINGS_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-client.h" line="37"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="IMSettingsClient"
+           parent="GObject.Object"
+           glib:type-name="IMSettingsClient"
+           glib:get-type="imsettings_client_get_type"
+           glib:type-struct="ClientClass">
+      <source-position filename="imsettings-client.h" line="60"/>
+      <constructor name="new" c:identifier="imsettings_client_new">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="261">Creates an instance of #IMSettingsClient.</doc>
+        <source-position filename="imsettings-client.h" line="76"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="268">a #IMSettingsClient.</doc>
+          <type name="Client" c:type="IMSettingsClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="locale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="263">a locale to obtain information for or to give it for Input Method.
+         or %NULL if you want to pass current locale.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="can_x_display_open"
+              c:identifier="imsettings_client_can_x_display_open"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1574">Check if X Display can be open or not.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='CanXDisplayOpen'&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction'out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1592">if supported, returns %TRUE otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1576">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1577">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_x_display_open_finish"
+              c:identifier="imsettings_client_can_x_display_open_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1651">Obtains the result of the request from
+imsettings_client_can_x_display_open_start().</doc>
+        <source-position filename="imsettings-client.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1660">if the operation is successfully done, returns %TRUE
+         otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1653">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1654">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_x_display_open_start"
+              c:identifier="imsettings_client_can_x_display_open_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1621">Request asking if current desktop is supported or not asynchronously</doc>
+        <source-position filename="imsettings-client.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1623">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1624">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1625">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1626">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_im_info"
+              c:identifier="imsettings_client_get_active_im_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1074">Obtains the Input Method information that is currently running on.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetActiveVariant'&amp;gt;
+      &amp;lt;arg type='a{sv}' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="107"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1092">a #IMSettingsInfo for active Input Method. if not, %NULL then.</doc>
+          <type name="Info" c:type="IMSettingsInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1076">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1077">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop"
+              c:identifier="imsettings_client_get_desktop"
+              glib:get-property="desktop">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="368">Obtains current desktop information in @client.</doc>
+        <source-position filename="imsettings-client.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="374">a reference to the desktop name in @client. it shouldn't be freed
+         in applications.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="370">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_info_object"
+              c:identifier="imsettings_client_get_info_object"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="552">A convenient function to get #IMSettingsInfo from the result of
+imsettings_client_get_info_variant().</doc>
+        <source-position filename="imsettings-client.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="562">a #IMSettingsInfo or %NULL.</doc>
+          <type name="Info" c:type="IMSettingsInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="554">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="555">an Input Method name to obtain the information.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="556">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variant"
+              c:identifier="imsettings_client_get_info_variant"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="582">Obtains the information for the specific Input Method in @module.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetInfoVariant'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='name' direction='in' /&amp;gt;
+      &amp;lt;arg type='a{sv}' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="93"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="603">a #GVariant that can converts to #IMSettingsInfo through
+         imsettings_info_new(). otherwise %NULL.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="584">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="585">an Input Method name to obtain the information.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="586">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variant_finish"
+              c:identifier="imsettings_client_get_info_variant_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="678">Obtains the result of the request from
+imsettings_client_get_info_variant_start().</doc>
+        <source-position filename="imsettings-client.h" line="159"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="687">a #GVariant that can converts to #IMSettingsInfo through
+         imsettings_info_new(). otherwise %NULL.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="680">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="681">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variant_start"
+              c:identifier="imsettings_client_get_info_variant_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="644">Request obtaining asynchronously the Input Method information for @module.</doc>
+        <source-position filename="imsettings-client.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="646">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="647">an Input Method name to obtain the information.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="648">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="649">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="650">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variants"
+              c:identifier="imsettings_client_get_info_variants"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="440">Obtains all of the Input Method information available on the system.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetInfoVariants'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='a{sv}' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="90"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="459">a #GVariant contains some pairs of an Input Method name and
+         a #GVariant that can converts to #IMSettingsInfo through
+         imsettings_info_new(). otherwise %NULL.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="442">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="443">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variants_finish"
+              c:identifier="imsettings_client_get_info_variants_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="531">Obtains the result of the request from
+imsettings_client_get_info_variants_start().</doc>
+        <source-position filename="imsettings-client.h" line="151"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="540">a #GVariant contains some pairs of an Input Method name and
+         a #GVariant that can converts to #IMSettingsInfo through
+         imsettings_info_new(). otherwise %NULL.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="533">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="534">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_info_variants_start"
+              c:identifier="imsettings_client_get_info_variants_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="499">Request obtaining asynchronously all of the Input Method information
+available on the system.</doc>
+        <source-position filename="imsettings-client.h" line="147"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="501">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="502">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="503">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="504">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_locale"
+              c:identifier="imsettings_client_get_locale"
+              glib:get-property="locale">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="318">Obtains current locale information in @client.</doc>
+        <source-position filename="imsettings-client.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="324">a reference to the locale string in @client. it shouldn't be freed
+         in applications.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="320">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_module_settings"
+              c:identifier="imsettings_client_get_module_settings"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1374">Obtains current Input Method settings in the backend modules.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='DumpModuleSettings'&amp;gt;
+      &amp;lt;arg type='a{ss}' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="141"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1392">a #GVariant that contains some pairs of the module name and
+         the Input Method name.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1376">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1377">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_system_im"
+              c:identifier="imsettings_client_get_system_im"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="811">Obtains an Input Method name that currently is active for the system-wide.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetSystemIM'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='ret' direction='out'&amp;gt;
+        &amp;lt;annotation name='org.freedesktop.DBus.GLib.Const' value='' /&amp;gt;
+      &amp;lt;/arg&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="832">an Input Method name or %NULL.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="813">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="814">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_system_im_finish"
+              c:identifier="imsettings_client_get_system_im_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="894">Obtains the result of the request from
+imsettings_client_get_system_im_start().</doc>
+        <source-position filename="imsettings-client.h" line="173"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="903">an Input Method name or %NULL.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="896">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="897">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_system_im_start"
+              c:identifier="imsettings_client_get_system_im_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="862">Request obtaining asynchronously an input method name that currently is
+active for the system-wide.</doc>
+        <source-position filename="imsettings-client.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="864">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="865">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="866">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="867">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user_im"
+              c:identifier="imsettings_client_get_user_im"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="698">Obtains an Input Method name that currently is active for the user.
+If one doesn't have the user xinputrc on their home, this simply returns the same
+value to what imsettings_client_get_system_im() returns.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetUserIM'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='ret' direction='out'&amp;gt;
+        &amp;lt;annotation name='org.freedesktop.DBus.GLib.Const' value='' /&amp;gt;
+      &amp;lt;/arg&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="101"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="721">an Input Method name or %NULL.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="700">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="701">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user_im_finish"
+              c:identifier="imsettings_client_get_user_im_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="792">Obtains the result of the request from
+imsettings_client_get_user_im_start().</doc>
+        <source-position filename="imsettings-client.h" line="166"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="801">an Input Method name or %NULL.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="794">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="795">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user_im_start"
+              c:identifier="imsettings_client_get_user_im_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="760">Request obtaining asynchronously an input method name that currently is
+active for the user.</doc>
+        <source-position filename="imsettings-client.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="762">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="763">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="764">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="765">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="imsettings_client_get_version"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="389">Obtains the version information of imsettings-daemon running.
+This is expected to invoke at first if the return value is same to
+%IMSETTINGS_SETTINGS_API_VERSION. otherwise it may not works as expected
+due to the changes of the implementation between imsettings-daemon and
+client APIs.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='GetVersion'&amp;gt;
+      &amp;lt;arg type='u' name='version' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="411">a version number.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="391">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="392">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="im_is_system_default"
+              c:identifier="imsettings_client_im_is_system_default"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1122">Checks whether @module is the system default or not.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='IsSystemDefault'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='imname' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1143">%TRUE if it is, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1124">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1125">an Input Method name to ask.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1126">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="im_is_user_default"
+              c:identifier="imsettings_client_im_is_user_default"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1176">Checks whether @module is the user default or not.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='IsUserDefault'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='imname' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1197">%TRUE if it is, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1178">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1179">an Input Method name to ask.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1180">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="im_is_xim"
+              c:identifier="imsettings_client_im_is_xim"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1230">Checks whether @module is the Input Method for XIM only or not.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='IsXIM'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='imname' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1251">%TRUE if it is, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1232">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1233">an Input Method name to ask.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1234">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_action_needed"
+              c:identifier="imsettings_client_is_action_needed"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1671">Check if IMSettings is supposed to be taken any acttions.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='IsActionNeeded'&amp;gt;
+      &amp;lt;arg type='s' name='desktop' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='module' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction'out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1692">if any actions needed, returns %TRUE otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1673">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1674">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_action_needed_finish"
+              c:identifier="imsettings_client_is_action_needed_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1763">Obtains the result of the request from
+imsettings_client_is_action_needed_start().</doc>
+        <source-position filename="imsettings-client.h" line="195"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1772">if the operation is successfully done, returns %TRUE
+         otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1765">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1766">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_action_needed_start"
+              c:identifier="imsettings_client_is_action_needed_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1728">Request asking if IMSettings is supposed to be taken any actions</doc>
+        <source-position filename="imsettings-client.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1730">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1731">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1732">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1733">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_supported_desktop"
+              c:identifier="imsettings_client_is_supported_desktop"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1471">Check if current desktop is supported by IMSettings or not.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='IsSupportedDesktop'&amp;gt;
+      &amp;lt;arg type='s' name='desktop' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction'out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1490">if supported, returns %TRUE otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1473">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1474">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_supported_desktop_finish"
+              c:identifier="imsettings_client_is_supported_desktop_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1554">Obtains the result of the request from
+imsettings_client_is_supported_desktop_start().</doc>
+        <source-position filename="imsettings-client.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1563">if the operation is successfully done, returns %TRUE
+         otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1556">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1557">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_supported_desktop_start"
+              c:identifier="imsettings_client_is_supported_desktop_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1522">Request asking if current desktop is supported or not asynchronously</doc>
+        <source-position filename="imsettings-client.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1524">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1525">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1526">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1527">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ping" c:identifier="imsettings_client_ping">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1430">Check whether the process is running.</doc>
+        <source-position filename="imsettings-client.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1436">%TRUE if imsettings-daemon is running. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1432">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reload" c:identifier="imsettings_client_reload" throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1284">Reloads imsettings-daemon.
+
+Note that @send_signal option is for the backward compatibility.
+imsettings-daemon doesn't do anything since %IMSETTINGS_SETTINGS_API_VERSION
+is 4. so you will get the expected behavior with:
+
+|[
+  int api_version;
+
+  if ((api_version = imsettings_client_get_version(client)) != IMSETTINGS_SETTINGS_API_VERSION) {
+      imsettings_client_reload(client, api_version &lt; 4, NULL, &amp;error);
+  }
+]|
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;signal name='Reload'&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/signal&amp;gt;
+    &amp;lt;method name='StopService'&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1318">%TRUE if the operation is successfully done, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1286">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="send_signal" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1287">%TRUE to send a signal instead of invoking a method.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1288">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_desktop"
+              c:identifier="imsettings_client_set_desktop"
+              glib:set-property="desktop">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="341">Update the desktop name in @client to @desktop. if @desktop is %NULL,
+the desktop detection will be done in the server side.</doc>
+        <source-position filename="imsettings-client.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="349">%TRUE if successfully updated, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="343">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="desktop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="344">a current desktop name going to operate.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_locale"
+              c:identifier="imsettings_client_set_locale"
+              glib:set-property="locale">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="280">Update the locale information in @client with @locale.</doc>
+        <source-position filename="imsettings-client.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="288">%TRUE if successfully updated, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="282">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="locale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="283">a locale to obtain information for or to give it for Input Method.
+         or %NULL if you want to pass current locale.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="switch_im"
+              c:identifier="imsettings_client_switch_im"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="913">Changes the Input Method to @module.
+
+You could access through DBus API instead:
+
+|[
+  &amp;lt;interface name='com.redhat.imsettings'&amp;gt;
+    &amp;lt;method name='SwitchIM'&amp;gt;
+      &amp;lt;arg type='s' name='lang' direction='in' /&amp;gt;
+      &amp;lt;arg type='s' name='module' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='update_xinputrc' direction='in' /&amp;gt;
+      &amp;lt;arg type='b' name='ret' direction='out' /&amp;gt;
+    &amp;lt;/method&amp;gt;
+  &amp;lt;/interface&amp;gt;
+]|</doc>
+        <source-position filename="imsettings-client.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="937">if the operation is successfully done, returns %TRUE
+         otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="915">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="916">an Input Method name changing to, or %NULL to disable
+         the Input Method.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="update_xinputrc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="918">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="919">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="switch_im_finish"
+              c:identifier="imsettings_client_switch_im_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="1054">Obtains the result of the request from
+imsettings_client_switch_im_start().</doc>
+        <source-position filename="imsettings-client.h" line="204"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-client.c"
+               line="1063">if the operation is successfully done, returns %TRUE
+         otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1056">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1057">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="switch_im_start"
+              c:identifier="imsettings_client_switch_im_start">
+        <doc xml:space="preserve"
+             filename="imsettings-client.c"
+             line="994">Request changing asynchronously the Input Method to @module.</doc>
+        <source-position filename="imsettings-client.h" line="198"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="996">a #IMSettingsClient.</doc>
+            <type name="Client" c:type="IMSettingsClient*"/>
+          </instance-parameter>
+          <parameter name="module" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="997">an Input Method name changing to, or %NULL to disable
+         the Input Method.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="update_xinputrc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="999">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1000">a #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1001">a #GAsyncReadyCallback.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="imsettings-client.c"
+                 line="1002">a pointer of the user data to give it to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="desktop"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_desktop"
+                getter="get_desktop"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="locale"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_locale"
+                getter="get_locale"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <doc xml:space="preserve"
+             filename="imsettings-client.h"
+             line="63">The object class structure needs to be the first
+  element in the imsettings client class structure in order for
+  the class mechanism to work correctly.  This allows a
+  IMSettingsClientClass pointer to be cast to a GObjectClass
+  pointer.</doc>
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientClass"
+            c:type="IMSettingsClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="imsettings-client.h" line="60"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="imsettings-client.h"
+             line="47">The object class structure needs to be the first
+  element in the imsettings client class structure in order for
+  the class mechanism to work correctly.  This allows a
+  IMSettingsClientClass pointer to be cast to a GObjectClass
+  pointer.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="imsettings-client.h" line="56"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="imsettings-client.h" line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="imsettings-client.h" line="58"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="imsettings-client.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="ClientPrivate"
+            c:type="IMSettingsClientPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="imsettings-client.h" line="43"/>
+    </record>
+    <enumeration name="Error" c:type="IMSettingsError">
+      <doc xml:space="preserve"
+           filename="imsettings-utils.h"
+           line="41">Error codes used in imsettings.</doc>
+      <source-position filename="imsettings-utils.h" line="60"/>
+      <member name="unknown"
+              value="0"
+              c:identifier="IMSETTINGS_GERROR_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="43">unknown error happened.</doc>
+      </member>
+      <member name="configuration_error"
+              value="1"
+              c:identifier="IMSETTINGS_GERROR_CONFIGURATION_ERROR">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="44">misconfigured.</doc>
+      </member>
+      <member name="im_not_found"
+              value="2"
+              c:identifier="IMSETTINGS_GERROR_IM_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="45">the Input Method in request doesn't found.</doc>
+      </member>
+      <member name="unable_to_track_im"
+              value="3"
+              c:identifier="IMSETTINGS_GERROR_UNABLE_TO_TRACK_IM">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="46">the Input Method isn't managed by imsettings.</doc>
+      </member>
+      <member name="oom" value="4" c:identifier="IMSETTINGS_GERROR_OOM">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="47">Out of memory occured.</doc>
+      </member>
+      <member name="not_targeted_desktop"
+              value="5"
+              c:identifier="IMSETTINGS_GERROR_NOT_TARGETED_DESKTOP">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.h"
+             line="48">current desktop isn't targeted by Input Method.</doc>
+      </member>
+    </enumeration>
+    <constant name="GLOBAL_XINPUT_CONF"
+              value="xinputrc"
+              c:type="IMSETTINGS_GLOBAL_XINPUT_CONF">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="83">The global configuration filename.</doc>
+      <source-position filename="imsettings.h" line="88"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="INFO"
+                    c:identifier="IMSETTINGS_INFO"
+                    introspectable="0">
+      <source-position filename="imsettings-info.h" line="33"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INFO_CLASS"
+                    c:identifier="IMSETTINGS_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-info.h" line="34"/>
+      <parameters>
+        <parameter name="_c_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INFO_GET_CLASS"
+                    c:identifier="IMSETTINGS_INFO_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-info.h" line="35"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="INTERFACE_DBUS"
+              value="com.redhat.imsettings"
+              c:type="IMSETTINGS_INTERFACE_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="51">An interface name for imsettings used in DBus.</doc>
+      <source-position filename="imsettings.h" line="56"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="IS_CLIENT"
+                    c:identifier="IMSETTINGS_IS_CLIENT"
+                    introspectable="0">
+      <source-position filename="imsettings-client.h" line="38"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLIENT_CLASS"
+                    c:identifier="IMSETTINGS_IS_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-client.h" line="39"/>
+      <parameters>
+        <parameter name="_c_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INFO"
+                    c:identifier="IMSETTINGS_IS_INFO"
+                    introspectable="0">
+      <source-position filename="imsettings-info.h" line="36"/>
+      <parameters>
+        <parameter name="_o_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INFO_CLASS"
+                    c:identifier="IMSETTINGS_IS_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="imsettings-info.h" line="37"/>
+      <parameters>
+        <parameter name="_c_">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Info"
+           c:symbol-prefix="info"
+           c:type="IMSettingsInfo"
+           parent="GObject.Object"
+           glib:type-name="IMSettingsInfo"
+           glib:get-type="imsettings_info_get_type"
+           glib:type-struct="InfoClass">
+      <source-position filename="imsettings-info.h" line="54"/>
+      <constructor name="new" c:identifier="imsettings_info_new">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="444">Creates an instance of #IMSettingsInfo.</doc>
+        <source-position filename="imsettings-info.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="450">a #IMSettingsInfo or %NULL if giving an invalid @parameters.</doc>
+          <type name="Info" c:type="IMSettingsInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="parameters" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="446">a #GVariant generated by imsettings_info_variant_new().</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="variant_new" c:identifier="imsettings_info_variant_new">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="425">Generates a #GVariant from the content of @filename.
+This API is mainly used in imsettings-daemon and not supposed to
+be used in any applications.</doc>
+        <source-position filename="imsettings-info.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="434">a #GVariant that can be converted to #IMSettingsInfo with
+         imsettings_info_new().</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="427">a filename to the xinput configuration file.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="428">a locale being desired to work on.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="variant_new_with_desktop"
+                c:identifier="imsettings_info_variant_new_with_desktop">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="284">Generates a #GVariant from the content of @filename.
+This API is mainly used in imsettings-daemon and not supposed to
+be used in any applications.</doc>
+        <source-position filename="imsettings-info.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="294">a #GVariant that can be converted to #IMSettingsInfo with
+         imsettings_info_new().</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="286">a filename to the xinput configuration file.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="287">a locale being desired to work on.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="desktop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="288">a desktop name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="compare" c:identifier="imsettings_info_compare">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="986">Compares two #IMSettingsInfo instance.
+This function would simply compares the result of the real value in
+the xinput configuration file. so the result of
+imsettings_info_is_script(), imsettings_info_get_language(),
+imsettings_info_get_filename(), imsettings_info_is_xim()
+imsettings_info_get_im_name() and imsettings_info_get_sub_im_name()
+will be ignored.</doc>
+        <source-position filename="imsettings-info.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="999">%TRUE if @i1 and @i2 match, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="988">a #IMSettingsInfo to compare with @i2.</doc>
+            <type name="Info" c:type="const IMSettingsInfo*"/>
+          </instance-parameter>
+          <parameter name="info2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="989">a #IMSettingsInfo to compare with @i1.</doc>
+            <type name="Info" c:type="const IMSettingsInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_aux_args" c:identifier="imsettings_info_get_aux_args">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="657">Obtains the arguments of the auxiliary program.
+
+This gives you same value of %AUXILIARY_ARGS parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="666">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="659">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_aux_program"
+              c:identifier="imsettings_info_get_aux_program">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="644">Obtains the auxiliary program name, which will be invoked by imsettings-daemon
+with the arguments from imsettings_info_get_aux_args().
+
+This gives you same value of %AUXILIARY_PROGRAM parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="654">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="646">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_filename" c:identifier="imsettings_info_get_filename">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="543">Obtains the xinput configuration filename.</doc>
+        <source-position filename="imsettings-info.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="549">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="545">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_gtkimm" c:identifier="imsettings_info_get_gtkimm">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="561">Obtains the GTK+ immodule name. this is same value of %GTK_IM_MODULE
+parameter in the xinput configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="568">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="563">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_file"
+              c:identifier="imsettings_info_get_icon_file">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="669">Obtains the icon filename for the Input Method.
+
+This gives you same value of %ICON parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="678">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="671">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_im_name" c:identifier="imsettings_info_get_im_name">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="729">Obtains the Input Method name. this is same value of %SHORT_DESC
+if it doesn't contain the sub module information that is separate with ':'
+like:
+
+|[
+  SHORT_DESC=foo-im:bar-subim
+]|</doc>
+        <source-position filename="imsettings-info.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="741">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="731">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language" c:identifier="imsettings_info_get_language">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="552">Obtains the language that @info genereated by.</doc>
+        <source-position filename="imsettings-info.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="558">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="554">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_long_desc"
+              c:identifier="imsettings_info_get_long_desc">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="840">Obtains the long description for Input Method.
+
+This gives you same value of %LONG_DESC parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="849">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="842">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_non_target"
+              c:identifier="imsettings_info_get_non_target">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="681">Obtains non-targeted desktop session for the Input Method.
+
+This gives you same value of %NOT_RUN parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="690">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="683">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_prefs_args"
+              c:identifier="imsettings_info_get_prefs_args">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="632">Obtains the arguments of the preference program.
+
+This gives you same value of %PREFERENCE_ARGS parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="641">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="634">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_prefs_program"
+              c:identifier="imsettings_info_get_prefs_program">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="620">Obtains the preference program name for the Input Method.
+
+This gives you same value of %PREFERENCE_PROGRAM parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="629">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="622">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_qtimm" c:identifier="imsettings_info_get_qtimm">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="571">Obtains the Qt immodule name.
+
+This gives you same value of %QT_IM_MODULE parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="580">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="573">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_desc"
+              c:identifier="imsettings_info_get_short_desc">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="694">Obtains the short description for Input Method.
+
+This gives you same value of %SHORT_DESC parameter in the xinput
+configuration file.  If it doesn't contain, the result would be same
+to what imsettings_info_get_xim() returns.</doc>
+        <source-position filename="imsettings-info.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="704">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="696">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sub_im_name"
+              c:identifier="imsettings_info_get_sub_im_name">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="785">Obtains the sub Input Method name.</doc>
+        <source-position filename="imsettings-info.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="791">a string or %NULL if %SHORT_DESC doesn't contain any information
+         for sub Input Method.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="787">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_xim" c:identifier="imsettings_info_get_xim">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="583">Obtains the XIM atom that is supposed to be used with XMODIFIERS=\@im=.
+
+This gives you same value of %XIM parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="592">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="585">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_xim_args" c:identifier="imsettings_info_get_xim_args">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="608">Obtains the arguments of XIM program.
+
+This gives you same value of %XIM_ARGS parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="617">a string or %NULL if it's not specified. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="610">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_xim_program"
+              c:identifier="imsettings_info_get_xim_program">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="595">Obtains the XIM program name, which will be invoked by imsettings-daemon
+with the arguments from imsettings_info_get_xim_args().
+
+This gives you same value of %XIM_PROGRAM parameter in the xinput
+configuration file.</doc>
+        <source-position filename="imsettings-info.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="605">a string. this shouldn't be freed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="597">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_action_needed"
+              c:identifier="imsettings_info_is_action_needed">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="887">Checks whether the IMSettings need to be taken any actions for.</doc>
+        <source-position filename="imsettings-info.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="893">%TRUE if it is, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="889">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_immodule_only"
+              c:identifier="imsettings_info_is_immodule_only">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="963">Checks whether the Input Method in @info is supposed to work for
+immodule only.</doc>
+        <source-position filename="imsettings-info.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="970">%TRUE if it is. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="965">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_script" c:identifier="imsettings_info_is_script">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="864">Checks whether the xinput configuration file is the scripting language.
+
+This is useful to see if the result may be different when the condition
+is changed.</doc>
+        <source-position filename="imsettings-info.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="873">%TRUE if the xinput configuration file is the scripting language.
+         otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="866">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_system_default"
+              c:identifier="imsettings_info_is_system_default">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="897">Checks whether the Input Method in @info is the system default.</doc>
+        <source-position filename="imsettings-info.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="903">%TRUE if it is. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="899">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_user_default"
+              c:identifier="imsettings_info_is_user_default">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="930">Checks whether the Input Method in @info is the user default.</doc>
+        <source-position filename="imsettings-info.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="936">%TRUE if it is. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="932">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_visible" c:identifier="imsettings_info_is_visible">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="852">Checks whether the Input Method is visible.
+
+The result would be same what the xinput configuration file specifies in
+%IMSETTINGS_IGNORE_ME.</doc>
+        <source-position filename="imsettings-info.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="861">%TRUE if it's visible, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="854">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_xim" c:identifier="imsettings_info_is_xim">
+        <doc xml:space="preserve"
+             filename="imsettings-info.c"
+             line="877">Checks whether the Input Method in @info is supposed to work on XIM only.</doc>
+        <source-position filename="imsettings-info.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="imsettings-info.c"
+               line="883">%TRUE if it is, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="imsettings-info.c"
+                 line="879">a #IMSettingsInfo.</doc>
+            <type name="Info" c:type="IMSettingsInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="InfoClass"
+            c:type="IMSettingsInfoClass"
+            glib:is-gtype-struct-for="Info">
+      <source-position filename="imsettings-info.h" line="54"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="imsettings-info.h"
+             line="46">The object class structure needs to be the first
+  element in the imsettings information class structure in order for
+  the class mechanism to work correctly.  This allows a
+  IMSettingsInfoClass pointer to be cast to a GObjectClass
+  pointer.</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="InfoPrivate"
+            c:type="IMSettingsInfoPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="imsettings-info.h" line="42"/>
+    </record>
+    <constant name="NONE_CONF" value="none" c:type="IMSETTINGS_NONE_CONF">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="95">The configuration filename used for "disabled".
+The real filename would be %IMSETTINGS_NONE_CONF + something specified
+with --xinput-suffix build option that the default value is ".conf".</doc>
+      <source-position filename="imsettings.h" line="102"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="PATH_DBUS"
+              value="/com/redhat/imsettings"
+              c:type="IMSETTINGS_PATH_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="45">A path name for imsettings used in DBus.</doc>
+      <source-position filename="imsettings.h" line="50"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SERVICE_DBUS"
+              value="com.redhat.imsettings"
+              c:type="IMSETTINGS_SERVICE_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="39">A service name for imsettings used in DBus.</doc>
+      <source-position filename="imsettings.h" line="44"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SETTINGS_API_VERSION"
+              value="8"
+              c:type="IMSETTINGS_SETTINGS_API_VERSION">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="76">A DBus API version in imsettings.</doc>
+      <source-position filename="imsettings.h" line="81"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="USER_XINPUT_CONF"
+              value="xinputrc"
+              c:type="IMSETTINGS_USER_XINPUT_CONF">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="89">The user configuration filename.</doc>
+      <source-position filename="imsettings.h" line="94"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="XIM_CONF" value="xim" c:type="IMSETTINGS_XIM_CONF">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="103">The configuration filename used for XIM.
+The real filename would be %IMSETTINGS_XIM_CONF + something specified
+with --xinput-suffix build option that the default value is ".conf".</doc>
+      <source-position filename="imsettings.h" line="110"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="XIM_INTERFACE_DBUS"
+              value="com.redhat.imsettings.xim"
+              c:type="IMSETTINGS_XIM_INTERFACE_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="69">An interface name for imsettings-xim XIM server used in DBus.</doc>
+      <source-position filename="imsettings.h" line="74"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="XIM_PATH_DBUS"
+              value="/com/redhat/imsettings/xim"
+              c:type="IMSETTINGS_XIM_PATH_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="63">A path name for imsettings-xim XIM server used in DBus.</doc>
+      <source-position filename="imsettings.h" line="68"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="XIM_SERVICE_DBUS"
+              value="com.redhat.imsettings.xim"
+              c:type="IMSETTINGS_XIM_SERVICE_DBUS">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="57">A service name for imsettings-xim XIM server used in DBus.</doc>
+      <source-position filename="imsettings.h" line="62"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="g_error_quark" c:identifier="imsettings_g_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="get_interface_info"
+              c:identifier="imsettings_get_interface_info">
+      <doc xml:space="preserve"
+           filename="imsettings-utils.c"
+           line="147">Returns the #GDBusInterfaceInfo, if any, specifying the minimal
+interface that imsettings conforms to.
+
+See the #GDBusProxy:g-interface-info property for more details.</doc>
+      <source-position filename="imsettings-utils.h" line="63"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.c"
+             line="155">a #GDBusInterfaceInfo or %NULL.  Do not unref the returned
+object, it is owned by an instance of #GDBusProxy.</doc>
+        <type name="Gio.DBusInterfaceInfo" c:type="GDBusInterfaceInfo*"/>
+      </return-value>
+    </function>
+    <docsection name="imsettings">
+      <doc xml:space="preserve"
+           filename="imsettings.h"
+           line="31">This section describes some macros used in imsettings.</doc>
+    </docsection>
+    <docsection name="imsettings-client">
+      <doc xml:space="preserve"
+           filename="imsettings-client.c"
+           line="41">IMSettingsClient provides interface methods to imsettings-daemon to obtain
+a sort of informations for Input Method, operating something through
+imsettings-daemon to Input Method.
+This class is supposed to be the main entrance for all the client
+applications.
+
+Either of functionalities in imsettings-daemon can be accessed through DBus
+instead of this class though, results of them needs to be sorted out to
+the appropriate types of values as needed.
+
+Please see documentation of each methods for more details of DBus call.</doc>
+    </docsection>
+    <docsection name="imsettings-info">
+      <doc xml:space="preserve"
+           filename="imsettings-info.c"
+           line="38">IMSettingsInfo provides interfaces to access the Input Method information
+provided by the xinput configuration file.
+
+Please note that this simply holds the static snapshot information when
+one requests imsettings-daemon to obtain. that may be obsoletes if keeping
+an instance a long time.</doc>
+    </docsection>
+    <docsection name="imsettings-utils">
+      <doc xml:space="preserve"
+           filename="imsettings-utils.c"
+           line="31">This section describes utilities functions that used in imsettings library.</doc>
+    </docsection>
+    <function name="is_enabled" c:identifier="imsettings_is_enabled">
+      <doc xml:space="preserve"
+           filename="imsettings-utils.c"
+           line="181">Check if current environment are supposed to work with imsettings.</doc>
+      <source-position filename="imsettings-utils.h" line="64"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="imsettings-utils.c"
+             line="186">%TRUE if imsettings is enabled, otherwise %FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

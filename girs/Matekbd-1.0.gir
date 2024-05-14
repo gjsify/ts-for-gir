@@ -1,0 +1,1722 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Xkl" version="1.0"/>
+  <include name="xlib" version="2.0"/>
+  <namespace name="Matekbd"
+             version="1.0"
+             shared-library="libmatekbd.so.4,libmatekbdui.so.4"
+             c:identifier-prefixes="Matekbd"
+             c:symbol-prefixes="matekbd">
+    <record name="DesktopConfig" c:type="MatekbdDesktopConfig">
+      <source-position filename="matekbd-desktop-config.h" line="48"/>
+      <field name="default_group" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="group_per_app" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="handle_indicators" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="layout_names_as_group_names" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="load_extra_items" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="matekbd_desktop_config_activate">
+        <source-position filename="matekbd-desktop-config.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="matekbd_desktop_config_init">
+        <source-position filename="matekbd-desktop-config.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_gsettings"
+              c:identifier="matekbd_desktop_config_load_from_gsettings">
+        <source-position filename="matekbd-desktop-config.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_group_descriptions"
+              c:identifier="matekbd_desktop_config_load_group_descriptions">
+        <source-position filename="matekbd-desktop-config.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="layout_ids" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="variant_ids" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="short_group_names" transfer-ownership="none">
+            <type name="utf8" c:type="gchar***"/>
+          </parameter>
+          <parameter name="full_group_names" transfer-ownership="none">
+            <type name="utf8" c:type="gchar***"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lock_next_group"
+              c:identifier="matekbd_desktop_config_lock_next_group">
+        <source-position filename="matekbd-desktop-config.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lock_prev_group"
+              c:identifier="matekbd_desktop_config_lock_prev_group">
+        <source-position filename="matekbd-desktop-config.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="restore_group"
+              c:identifier="matekbd_desktop_config_restore_group">
+        <source-position filename="matekbd-desktop-config.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_to_gsettings"
+              c:identifier="matekbd_desktop_config_save_to_gsettings">
+        <source-position filename="matekbd-desktop-config.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="matekbd_desktop_config_start_listen">
+        <source-position filename="matekbd-desktop-config.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="matekbd-desktop-config.c"
+                 line="244">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="matekbd_desktop_config_stop_listen">
+        <source-position filename="matekbd-desktop-config.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="matekbd_desktop_config_term">
+        <source-position filename="matekbd-desktop-config.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="MatekbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="INDICATOR"
+                    c:identifier="MATEKBD_INDICATOR"
+                    introspectable="0">
+      <source-position filename="matekbd-indicator.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INDICATOR_CLASS"
+                    c:identifier="MATEKBD_INDICATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-indicator.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INDICATOR_GET_CLASS"
+                    c:identifier="MATEKBD_INDICATOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-indicator.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INDICATOR"
+                    c:identifier="MATEKBD_IS_INDICATOR"
+                    introspectable="0">
+      <source-position filename="matekbd-indicator.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INDICATOR_CLASS"
+                    c:identifier="MATEKBD_IS_INDICATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-indicator.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEYBOARD_DRAWING"
+                    c:identifier="MATEKBD_IS_KEYBOARD_DRAWING"
+                    introspectable="0">
+      <source-position filename="matekbd-keyboard-drawing.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STATUS"
+                    c:identifier="MATEKBD_IS_STATUS"
+                    introspectable="0">
+      <source-position filename="matekbd-status.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STATUS_CLASS"
+                    c:identifier="MATEKBD_IS_STATUS_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-status.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Indicator"
+           c:symbol-prefix="indicator"
+           c:type="MatekbdIndicator"
+           parent="Gtk.Notebook"
+           glib:type-name="MatekbdIndicator"
+           glib:get-type="matekbd_indicator_get_type"
+           glib:type-struct="IndicatorClass">
+      <source-position filename="matekbd-indicator.h" line="51"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="matekbd_indicator_new">
+        <source-position filename="matekbd-indicator.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="get_group_names"
+                c:identifier="matekbd_indicator_get_group_names">
+        <source-position filename="matekbd-indicator.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="matekbd-indicator.c"
+               line="877">List of group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <function name="get_image_filename"
+                c:identifier="matekbd_indicator_get_image_filename">
+        <source-position filename="matekbd-indicator.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_max_width_height_ratio"
+                c:identifier="matekbd_indicator_get_max_width_height_ratio">
+        <source-position filename="matekbd-indicator.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+      </function>
+      <function name="get_xkl_engine"
+                c:identifier="matekbd_indicator_get_xkl_engine">
+        <source-position filename="matekbd-indicator.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="matekbd-indicator.c"
+               line="866">The engine shared by all MatekbdIndicator objects</doc>
+          <type name="Xkl.Engine" c:type="XklEngine*"/>
+        </return-value>
+      </function>
+      <function name="set_tooltips_format"
+                c:identifier="matekbd_indicator_set_tooltips_format">
+        <source-position filename="matekbd-indicator.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="reinit_ui" invoker="reinit_ui">
+        <source-position filename="matekbd-indicator.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="MatekbdIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="reinit_ui" c:identifier="matekbd_indicator_reinit_ui">
+        <source-position filename="matekbd-indicator.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="MatekbdIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_angle" c:identifier="matekbd_indicator_set_angle">
+        <source-position filename="matekbd-indicator.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="MatekbdIndicator*"/>
+          </instance-parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_tooltips"
+              c:identifier="matekbd_indicator_set_parent_tooltips">
+        <source-position filename="matekbd-indicator.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="MatekbdIndicator*"/>
+          </instance-parameter>
+          <parameter name="ifset" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.Notebook" c:type="GtkNotebook"/>
+      </field>
+      <field name="priv">
+        <type name="IndicatorPrivate" c:type="MatekbdIndicatorPrivate*"/>
+      </field>
+      <glib:signal name="reinit-ui" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="IndicatorClass"
+            c:type="MatekbdIndicatorClass"
+            glib:is-gtype-struct-for="Indicator">
+      <source-position filename="matekbd-indicator.h" line="51"/>
+      <field name="parent_class">
+        <type name="Gtk.NotebookClass" c:type="GtkNotebookClass"/>
+      </field>
+      <field name="reinit_ui">
+        <callback name="reinit_ui">
+          <source-position filename="matekbd-indicator.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gki" transfer-ownership="none">
+              <type name="Indicator" c:type="MatekbdIndicator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="IndicatorConfig" c:type="MatekbdIndicatorConfig">
+      <source-position filename="matekbd-indicator-config.h" line="45"/>
+      <field name="secondary_groups_mask" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="show_flags" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="font_family" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="foreground_color" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="background_color" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="image_filenames" writable="1">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="icon_theme" writable="1">
+        <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="matekbd_indicator_config_activate">
+        <source-position filename="matekbd-indicator-config.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free_image_filenames"
+              c:identifier="matekbd_indicator_config_free_image_filenames">
+        <source-position filename="matekbd-indicator-config.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_images_file"
+              c:identifier="matekbd_indicator_config_get_images_file">
+        <source-position filename="matekbd-indicator-config.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="matekbd_indicator_config_init">
+        <source-position filename="matekbd-indicator-config.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_gsettings"
+              c:identifier="matekbd_indicator_config_load_from_gsettings">
+        <source-position filename="matekbd-indicator-config.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_image_filenames"
+              c:identifier="matekbd_indicator_config_load_image_filenames">
+        <source-position filename="matekbd-indicator-config.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="refresh_style"
+              c:identifier="matekbd_indicator_config_refresh_style">
+        <source-position filename="matekbd-indicator-config.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_to_gsettings"
+              c:identifier="matekbd_indicator_config_save_to_gsettings">
+        <source-position filename="matekbd-indicator-config.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="matekbd_indicator_config_start_listen">
+        <source-position filename="matekbd-indicator-config.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="matekbd-indicator-config.c"
+                 line="320">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="matekbd_indicator_config_stop_listen">
+        <source-position filename="matekbd-indicator-config.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="matekbd_indicator_config_term">
+        <source-position filename="matekbd-indicator-config.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="MatekbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="IndicatorPrivate"
+            c:type="MatekbdIndicatorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="matekbd-indicator.h" line="32"/>
+    </record>
+    <function-macro name="KEYBOARD_DRAWING"
+                    c:identifier="MATEKBD_KEYBOARD_DRAWING"
+                    introspectable="0">
+      <source-position filename="matekbd-keyboard-drawing.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD_DRAWING_CLASS"
+                    c:identifier="MATEKBD_KEYBOARD_DRAWING_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-keyboard-drawing.h" line="32"/>
+      <parameters>
+        <parameter name="clazz">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="KEYBOARD_DRAWING_H"
+              value="1"
+              c:type="MATEKBD_KEYBOARD_DRAWING_H">
+      <source-position filename="matekbd-keyboard-drawing.h" line="21"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="KeyboardConfig" c:type="MatekbdKeyboardConfig">
+      <source-position filename="matekbd-keyboard-config.h" line="45"/>
+      <field name="model" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="layouts_variants" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="options" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="matekbd_keyboard_config_activate">
+        <source-position filename="matekbd-keyboard-config.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equals" c:identifier="matekbd_keyboard_config_equals">
+        <source-position filename="matekbd-keyboard-config.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config1" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config2" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="matekbd_keyboard_config_init">
+        <source-position filename="matekbd-keyboard-config.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_gsettings"
+              c:identifier="matekbd_keyboard_config_load_from_gsettings">
+        <source-position filename="matekbd-keyboard-config.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config_default" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_x_current"
+              c:identifier="matekbd_keyboard_config_load_from_x_current">
+        <source-position filename="matekbd-keyboard-config.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="buf" transfer-ownership="none">
+            <type name="Xkl.ConfigRec" c:type="XklConfigRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_x_initial"
+              c:identifier="matekbd_keyboard_config_load_from_x_initial">
+        <source-position filename="matekbd-keyboard-config.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="buf" transfer-ownership="none">
+            <type name="Xkl.ConfigRec" c:type="XklConfigRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_to_gsettings"
+              c:identifier="matekbd_keyboard_config_save_to_gsettings">
+        <source-position filename="matekbd-keyboard-config.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="matekbd_keyboard_config_start_listen">
+        <source-position filename="matekbd-keyboard-config.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-config.c"
+                 line="638">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="matekbd_keyboard_config_stop_listen">
+        <source-position filename="matekbd-keyboard-config.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="matekbd_keyboard_config_term">
+        <source-position filename="matekbd-keyboard-config.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="matekbd_keyboard_config_to_string">
+        <source-position filename="matekbd-keyboard-config.h" line="111"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="const MatekbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="add_default_switch_option_if_necessary"
+                c:identifier="matekbd_keyboard_config_add_default_switch_option_if_necessary">
+        <source-position filename="matekbd-keyboard-config.h" line="115"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="matekbd-keyboard-config.c"
+               line="756">List of options</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="layouts_list" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="options_list" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="was_appended" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="format_full_layout"
+                c:identifier="matekbd_keyboard_config_format_full_layout">
+        <source-position filename="matekbd-keyboard-config.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="layout_descr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="variant_descr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_descriptions"
+                c:identifier="matekbd_keyboard_config_get_descriptions">
+        <source-position filename="matekbd-keyboard-config.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="config_registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="layout_short_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="layout_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="variant_short_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="variant_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="merge_items"
+                c:identifier="matekbd_keyboard_config_merge_items">
+        <source-position filename="matekbd-keyboard-config.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="split_items"
+                c:identifier="matekbd_keyboard_config_split_items">
+        <source-position filename="matekbd-keyboard-config.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="merged" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <class name="KeyboardDrawing"
+           c:symbol-prefix="keyboard_drawing"
+           c:type="MatekbdKeyboardDrawing"
+           parent="Gtk.DrawingArea"
+           glib:type-name="MatekbdKeyboardDrawing"
+           glib:get-type="matekbd_keyboard_drawing_get_type"
+           glib:type-struct="KeyboardDrawingClass">
+      <source-position filename="matekbd-keyboard-drawing.h" line="169"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="matekbd_keyboard_drawing_new">
+        <source-position filename="matekbd-keyboard-drawing.h" line="172"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_dialog"
+                   c:identifier="matekbd_keyboard_drawing_new_dialog">
+        <source-position filename="matekbd-keyboard-drawing.h" line="207"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="group_name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="bad_keycode">
+        <source-position filename="matekbd-keyboard-drawing.h" line="168"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="drawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_compat"
+              c:identifier="matekbd_keyboard_drawing_get_compat">
+        <source-position filename="matekbd-keyboard-drawing.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_geometry"
+              c:identifier="matekbd_keyboard_drawing_get_geometry">
+        <source-position filename="matekbd-keyboard-drawing.h" line="185"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keycodes"
+              c:identifier="matekbd_keyboard_drawing_get_keycodes">
+        <source-position filename="matekbd-keyboard-drawing.h" line="184"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_symbols"
+              c:identifier="matekbd_keyboard_drawing_get_symbols">
+        <source-position filename="matekbd-keyboard-drawing.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_types"
+              c:identifier="matekbd_keyboard_drawing_get_types">
+        <source-position filename="matekbd-keyboard-drawing.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="print" c:identifier="matekbd_keyboard_drawing_print">
+        <source-position filename="matekbd-keyboard-drawing.h" line="202"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="drawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="render" c:identifier="matekbd_keyboard_drawing_render">
+        <doc xml:space="preserve"
+             filename="matekbd-keyboard-drawing.c"
+             line="2424">Renders a keyboard layout to a cairo_t context.  @cr and @layout can be got
+from e.g. a GtkWidget or a GtkPrintContext.  @cr and @layout may be modified
+by the function but will not be unreffed.</doc>
+        <source-position filename="matekbd-keyboard-drawing.h" line="174"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="matekbd-keyboard-drawing.c"
+               line="2438">%TRUE on success, %FALSE on failure</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2426">keyboard layout to render</doc>
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2427">Cairo context to render to</doc>
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+          <parameter name="layout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2428">Pango layout to use to render text</doc>
+            <type name="Pango.Layout" c:type="PangoLayout*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2429">left coordinate (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2430">top coordinate (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2431">width (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="matekbd-keyboard-drawing.c"
+                 line="2432">height (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="dpi_x" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="dpi_y" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_groups_levels"
+              c:identifier="matekbd_keyboard_drawing_set_groups_levels">
+        <source-position filename="matekbd-keyboard-drawing.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="groupLevels" transfer-ownership="none">
+            <type name="KeyboardDrawingGroupLevel"
+                  c:type="MatekbdKeyboardDrawingGroupLevel**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keyboard"
+              c:identifier="matekbd_keyboard_drawing_set_keyboard"
+              introspectable="0">
+        <source-position filename="matekbd-keyboard-drawing.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="names" transfer-ownership="none">
+            <type c:type="XkbComponentNamesRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_track_config"
+              c:identifier="matekbd_keyboard_drawing_set_track_config">
+        <source-position filename="matekbd-keyboard-drawing.h" line="193"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_track_modifiers"
+              c:identifier="matekbd_keyboard_drawing_set_track_modifiers">
+        <source-position filename="matekbd-keyboard-drawing.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <field name="surface" readable="0" private="1">
+        <type name="cairo.Surface" c:type="cairo_surface_t*"/>
+      </field>
+      <field name="xkb" introspectable="0" readable="0" private="1">
+        <type c:type="XkbDescRec*"/>
+      </field>
+      <field name="xkbOnDisplay" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="l3mod" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="renderContext" readable="0" private="1">
+        <type name="KeyboardDrawingRenderContext"
+              c:type="MatekbdKeyboardDrawingRenderContext*"/>
+      </field>
+      <field name="keys" readable="0" private="1">
+        <type name="KeyboardDrawingKey" c:type="MatekbdKeyboardDrawingKey*"/>
+      </field>
+      <field name="keyboard_items" readable="0" private="1">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="colors" readable="0" private="1">
+        <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+      </field>
+      <field name="timeout" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="idle_redraw" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="groupLevels" readable="0" private="1">
+        <type name="KeyboardDrawingGroupLevel"
+              c:type="MatekbdKeyboardDrawingGroupLevel**"/>
+      </field>
+      <field name="mods" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="display" readable="0" private="1">
+        <type name="xlib.Display" c:type="Display*"/>
+      </field>
+      <field name="screen_num" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="xkb_event_type" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="physical_indicators" readable="0" private="1">
+        <type name="KeyboardDrawingDoodad"
+              c:type="MatekbdKeyboardDrawingDoodad**"/>
+      </field>
+      <field name="physical_indicators_size" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="track_config" readable="0" bits="1" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="track_modifiers" readable="0" bits="1" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <glib:signal name="bad-keycode" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="KeyboardDrawingClass"
+            c:type="MatekbdKeyboardDrawingClass"
+            glib:is-gtype-struct-for="KeyboardDrawing">
+      <source-position filename="matekbd-keyboard-drawing.h" line="169"/>
+      <field name="parent_class">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+      <field name="bad_keycode">
+        <callback name="bad_keycode">
+          <source-position filename="matekbd-keyboard-drawing.h" line="168"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="drawing" transfer-ownership="none">
+              <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
+            </parameter>
+            <parameter name="keycode" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="KeyboardDrawingDoodad" c:type="MatekbdKeyboardDrawingDoodad">
+      <source-position filename="matekbd-keyboard-drawing.h" line="103"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="MatekbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="doodad" introspectable="0" readable="0" private="1">
+        <type c:type="XkbDoodadRec*"/>
+      </field>
+      <field name="on" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
+    <record name="KeyboardDrawingGroupLevel"
+            c:type="MatekbdKeyboardDrawingGroupLevel">
+      <source-position filename="matekbd-keyboard-drawing.h" line="108"/>
+      <field name="group" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="level" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+    </record>
+    <enumeration name="KeyboardDrawingGroupLevelPosition"
+                 c:type="MatekbdKeyboardDrawingGroupLevelPosition">
+      <source-position filename="matekbd-keyboard-drawing.h" line="63"/>
+      <member name="topleft"
+              value="0"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT">
+      </member>
+      <member name="topright"
+              value="1"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT">
+      </member>
+      <member name="bottomleft"
+              value="2"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT">
+      </member>
+      <member name="bottomright"
+              value="3"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT">
+      </member>
+      <member name="total"
+              value="4"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_TOTAL">
+      </member>
+      <member name="first"
+              value="0"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_FIRST">
+      </member>
+      <member name="last"
+              value="3"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_POS_LAST">
+      </member>
+    </enumeration>
+    <record name="KeyboardDrawingItem" c:type="MatekbdKeyboardDrawingItem">
+      <source-position filename="matekbd-keyboard-drawing.h" line="74"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="MatekbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <enumeration name="KeyboardDrawingItemType"
+                 c:type="MatekbdKeyboardDrawingItemType">
+      <source-position filename="matekbd-keyboard-drawing.h" line="51"/>
+      <member name="invalid"
+              value="0"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID">
+      </member>
+      <member name="key"
+              value="1"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY">
+      </member>
+      <member name="key_extra"
+              value="2"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA">
+      </member>
+      <member name="doodad"
+              value="3"
+              c:identifier="MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD">
+      </member>
+    </enumeration>
+    <record name="KeyboardDrawingKey" c:type="MatekbdKeyboardDrawingKey">
+      <source-position filename="matekbd-keyboard-drawing.h" line="89"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="MatekbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="xkbkey" introspectable="0" readable="0" private="1">
+        <type c:type="XkbKeyRec*"/>
+      </field>
+      <field name="pressed" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="keycode" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <record name="KeyboardDrawingRenderContext"
+            c:type="MatekbdKeyboardDrawingRenderContext">
+      <source-position filename="matekbd-keyboard-drawing.h" line="121"/>
+      <field name="cr" writable="1">
+        <type name="cairo.Context" c:type="cairo_t*"/>
+      </field>
+      <field name="angle" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="layout" writable="1">
+        <type name="Pango.Layout" c:type="PangoLayout*"/>
+      </field>
+      <field name="font_desc" writable="1">
+        <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+      </field>
+      <field name="scale_numerator" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="scale_denominator" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="dark_color" writable="1">
+        <type name="Gdk.RGBA" c:type="GdkRGBA"/>
+      </field>
+    </record>
+    <function-macro name="STATUS"
+                    c:identifier="MATEKBD_STATUS"
+                    introspectable="0">
+      <source-position filename="matekbd-status.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STATUS_CLASS"
+                    c:identifier="MATEKBD_STATUS_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-status.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STATUS_GET_CLASS"
+                    c:identifier="MATEKBD_STATUS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="matekbd-status.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Status"
+           c:symbol-prefix="status"
+           c:type="MatekbdStatus"
+           parent="Gtk.StatusIcon"
+           glib:type-name="MatekbdStatus"
+           glib:get-type="matekbd_status_get_type"
+           glib:type-struct="StatusClass">
+      <source-position filename="matekbd-status.h" line="49"/>
+      <constructor name="new" c:identifier="matekbd_status_new">
+        <source-position filename="matekbd-status.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+        </return-value>
+      </constructor>
+      <function name="get_group_names"
+                c:identifier="matekbd_status_get_group_names">
+        <source-position filename="matekbd-status.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="matekbd-status.c"
+               line="844">List of group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <function name="get_image_filename"
+                c:identifier="matekbd_status_get_image_filename">
+        <source-position filename="matekbd-status.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_xkl_engine"
+                c:identifier="matekbd_status_get_xkl_engine">
+        <source-position filename="matekbd-status.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="matekbd-status.c"
+               line="833">The engine shared by all MatekbdStatus objects</doc>
+          <type name="Xkl.Engine" c:type="XklEngine*"/>
+        </return-value>
+      </function>
+      <function name="set_tooltips_format"
+                c:identifier="matekbd_status_set_tooltips_format">
+        <source-position filename="matekbd-status.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="reinit_ui" c:identifier="matekbd_status_reinit_ui">
+        <source-position filename="matekbd-status.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Status" c:type="MatekbdStatus*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_angle" c:identifier="matekbd_status_set_angle">
+        <source-position filename="matekbd-status.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Status" c:type="MatekbdStatus*"/>
+          </instance-parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.StatusIcon" c:type="GtkStatusIcon"/>
+      </field>
+      <field name="priv">
+        <type name="StatusPrivate" c:type="MatekbdStatusPrivate*"/>
+      </field>
+    </class>
+    <record name="StatusClass"
+            c:type="MatekbdStatusClass"
+            glib:is-gtype-struct-for="Status">
+      <source-position filename="matekbd-status.h" line="49"/>
+      <field name="parent_class">
+        <type name="Gtk.NotebookClass" c:type="GtkNotebookClass"/>
+      </field>
+    </record>
+    <record name="StatusPrivate"
+            c:type="MatekbdStatusPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="matekbd-status.h" line="32"/>
+    </record>
+    <function name="install_glib_log_appender"
+              c:identifier="matekbd_install_glib_log_appender">
+      <source-position filename="matekbd-util.h" line="26"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="keyboard_config_add_default_switch_option_if_necessary"
+              c:identifier="matekbd_keyboard_config_add_default_switch_option_if_necessary"
+              moved-to="KeyboardConfig.add_default_switch_option_if_necessary">
+      <source-position filename="matekbd-keyboard-config.h" line="115"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="matekbd-keyboard-config.c"
+             line="756">List of options</doc>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="layouts_list" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="options_list" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="was_appended" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_format_full_layout"
+              c:identifier="matekbd_keyboard_config_format_full_layout"
+              moved-to="KeyboardConfig.format_full_layout">
+      <source-position filename="matekbd-keyboard-config.h" line="105"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="layout_descr" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="variant_descr" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_get_descriptions"
+              c:identifier="matekbd_keyboard_config_get_descriptions"
+              moved-to="KeyboardConfig.get_descriptions">
+      <source-position filename="matekbd-keyboard-config.h" line="93"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="config_registry" transfer-ownership="none">
+          <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="layout_short_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="layout_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="variant_short_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="variant_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_merge_items"
+              c:identifier="matekbd_keyboard_config_merge_items"
+              moved-to="KeyboardConfig.merge_items">
+      <source-position filename="matekbd-keyboard-config.h" line="86"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_split_items"
+              c:identifier="matekbd_keyboard_config_split_items"
+              moved-to="KeyboardConfig.split_items">
+      <source-position filename="matekbd-keyboard-config.h" line="89"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="merged" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="preview_load_position"
+              c:identifier="matekbd_preview_load_position">
+      <source-position filename="matekbd-util.h" line="28"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="matekbd-util.c"
+             line="62">A rectangle to use</doc>
+        <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+      </return-value>
+    </function>
+    <function name="preview_save_position"
+              c:identifier="matekbd_preview_save_position">
+      <source-position filename="matekbd-util.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="rect" transfer-ownership="none">
+          <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="strv_append" c:identifier="matekbd_strv_append">
+      <source-position filename="matekbd-util.h" line="33"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="matekbd-util.c"
+             line="118">Append string to strv array</doc>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="arr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="element" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

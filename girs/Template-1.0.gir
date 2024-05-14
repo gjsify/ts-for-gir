@@ -1,0 +1,2289 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="template-glib-1.0"/>
+  <c:include name="tmpl-glib.h"/>
+  <namespace name="Template"
+             version="1.0"
+             shared-library="libtemplate_glib-1.0.so.0"
+             c:identifier-prefixes="Tmpl"
+             c:symbol-prefixes="tmpl">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="TMPL_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/tmpl-version.h"
+           line="74">Compile-time version checking. Evaluates to %TRUE if the version
+of template-glib is greater than the required one.</doc>
+      <source-position filename="src/tmpl-version.h" line="82"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/tmpl-version.h"
+               line="76">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/tmpl-version.h"
+               line="77">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/tmpl-version.h"
+               line="78">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="TMPL_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="src/tmpl-version-macros.h" line="36"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_28_FOR"
+                    c:identifier="TMPL_DEPRECATED_IN_3_28_FOR"
+                    introspectable="0">
+      <source-position filename="src/tmpl-version-macros.h" line="120"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_36_FOR"
+                    c:identifier="TMPL_DEPRECATED_IN_3_36_FOR"
+                    introspectable="0">
+      <source-position filename="src/tmpl-version-macros.h" line="134"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="ENABLE_TRACE" value="0" c:type="TMPL_ENABLE_TRACE">
+      <source-position filename="src/tmpl-debug.h" line="27"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="TMPL_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/tmpl-version.h" line="62"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="Error"
+                 glib:type-name="TmplError"
+                 glib:get-type="tmpl_error_get_type"
+                 c:type="TmplError"
+                 glib:error-domain="tmpl-error">
+      <member name="invalid_state"
+              value="1"
+              c:identifier="TMPL_ERROR_INVALID_STATE"
+              glib:nick="invalid-state"
+              glib:name="TMPL_ERROR_INVALID_STATE">
+      </member>
+      <member name="template_not_found"
+              value="2"
+              c:identifier="TMPL_ERROR_TEMPLATE_NOT_FOUND"
+              glib:nick="template-not-found"
+              glib:name="TMPL_ERROR_TEMPLATE_NOT_FOUND">
+      </member>
+      <member name="circular_include"
+              value="3"
+              c:identifier="TMPL_ERROR_CIRCULAR_INCLUDE"
+              glib:nick="circular-include"
+              glib:name="TMPL_ERROR_CIRCULAR_INCLUDE">
+      </member>
+      <member name="syntax_error"
+              value="4"
+              c:identifier="TMPL_ERROR_SYNTAX_ERROR"
+              glib:nick="syntax-error"
+              glib:name="TMPL_ERROR_SYNTAX_ERROR">
+      </member>
+      <member name="lexer_failure"
+              value="5"
+              c:identifier="TMPL_ERROR_LEXER_FAILURE"
+              glib:nick="lexer-failure"
+              glib:name="TMPL_ERROR_LEXER_FAILURE">
+      </member>
+      <member name="type_mismatch"
+              value="6"
+              c:identifier="TMPL_ERROR_TYPE_MISMATCH"
+              glib:nick="type-mismatch"
+              glib:name="TMPL_ERROR_TYPE_MISMATCH">
+      </member>
+      <member name="invalid_op_code"
+              value="7"
+              c:identifier="TMPL_ERROR_INVALID_OP_CODE"
+              glib:nick="invalid-op-code"
+              glib:name="TMPL_ERROR_INVALID_OP_CODE">
+      </member>
+      <member name="divide_by_zero"
+              value="8"
+              c:identifier="TMPL_ERROR_DIVIDE_BY_ZERO"
+              glib:nick="divide-by-zero"
+              glib:name="TMPL_ERROR_DIVIDE_BY_ZERO">
+      </member>
+      <member name="missing_symbol"
+              value="9"
+              c:identifier="TMPL_ERROR_MISSING_SYMBOL"
+              glib:nick="missing-symbol"
+              glib:name="TMPL_ERROR_MISSING_SYMBOL">
+      </member>
+      <member name="symbol_redefined"
+              value="10"
+              c:identifier="TMPL_ERROR_SYMBOL_REDEFINED"
+              glib:nick="symbol-redefined"
+              glib:name="TMPL_ERROR_SYMBOL_REDEFINED">
+      </member>
+      <member name="not_an_object"
+              value="11"
+              c:identifier="TMPL_ERROR_NOT_AN_OBJECT"
+              glib:nick="not-an-object"
+              glib:name="TMPL_ERROR_NOT_AN_OBJECT">
+      </member>
+      <member name="null_pointer"
+              value="12"
+              c:identifier="TMPL_ERROR_NULL_POINTER"
+              glib:nick="null-pointer"
+              glib:name="TMPL_ERROR_NULL_POINTER">
+      </member>
+      <member name="no_such_property"
+              value="13"
+              c:identifier="TMPL_ERROR_NO_SUCH_PROPERTY"
+              glib:nick="no-such-property"
+              glib:name="TMPL_ERROR_NO_SUCH_PROPERTY">
+      </member>
+      <member name="gi_failure"
+              value="14"
+              c:identifier="TMPL_ERROR_GI_FAILURE"
+              glib:nick="gi-failure"
+              glib:name="TMPL_ERROR_GI_FAILURE">
+      </member>
+      <member name="runtime_error"
+              value="15"
+              c:identifier="TMPL_ERROR_RUNTIME_ERROR"
+              glib:nick="runtime-error"
+              glib:name="TMPL_ERROR_RUNTIME_ERROR">
+      </member>
+      <member name="not_implemented"
+              value="16"
+              c:identifier="TMPL_ERROR_NOT_IMPLEMENTED"
+              glib:nick="not-implemented"
+              glib:name="TMPL_ERROR_NOT_IMPLEMENTED">
+      </member>
+      <member name="not_a_value"
+              value="17"
+              c:identifier="TMPL_ERROR_NOT_A_VALUE"
+              glib:nick="not-a-value"
+              glib:name="TMPL_ERROR_NOT_A_VALUE">
+      </member>
+      <member name="not_a_function"
+              value="18"
+              c:identifier="TMPL_ERROR_NOT_A_FUNCTION"
+              glib:nick="not-a-function"
+              glib:name="TMPL_ERROR_NOT_A_FUNCTION">
+      </member>
+      <function name="quark" c:identifier="tmpl_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <union name="Expr"
+           c:type="TmplExpr"
+           glib:type-name="TmplExpr"
+           glib:get-type="tmpl_expr_get_type"
+           c:symbol-prefix="expr">
+      <source-position filename="src/tmpl-expr-types.h" line="38"/>
+      <constructor name="new_boolean" c:identifier="tmpl_expr_new_boolean">
+        <source-position filename="src/tmpl-expr.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_flow" c:identifier="tmpl_expr_new_flow">
+        <source-position filename="src/tmpl-expr.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ExprType" c:type="TmplExprType"/>
+          </parameter>
+          <parameter name="condition" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+          <parameter name="primary" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+          <parameter name="secondary" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_fn_call" c:identifier="tmpl_expr_new_fn_call">
+        <source-position filename="src/tmpl-expr.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="builtin" transfer-ownership="none">
+            <type name="ExprBuiltin" c:type="TmplExprBuiltin"/>
+          </parameter>
+          <parameter name="param" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_func" c:identifier="tmpl_expr_new_func">
+        <source-position filename="src/tmpl-expr.h" line="90"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="symlist" transfer-ownership="none">
+            <type name="utf8" c:type="char**"/>
+          </parameter>
+          <parameter name="list" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_nop" c:identifier="tmpl_expr_new_nop">
+        <source-position filename="src/tmpl-expr.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_null" c:identifier="tmpl_expr_new_null">
+        <source-position filename="src/tmpl-expr.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_number" c:identifier="tmpl_expr_new_number">
+        <source-position filename="src/tmpl-expr.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_require" c:identifier="tmpl_expr_new_require">
+        <source-position filename="src/tmpl-expr.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="typelib" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="version" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_simple" c:identifier="tmpl_expr_new_simple">
+        <source-position filename="src/tmpl-expr.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ExprType" c:type="TmplExprType"/>
+          </parameter>
+          <parameter name="left" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+          <parameter name="right" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_stmt_list"
+                   c:identifier="tmpl_expr_new_stmt_list"
+                   version="3.36">
+        <doc xml:space="preserve"
+             filename="src/tmpl-expr.c"
+             line="173">Creates a new statement list for which the last item will be
+used as the "return value" from execution.</doc>
+        <source-position filename="src/tmpl-expr.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-expr.c"
+               line="181">a new #TmplExpr</doc>
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="stmts" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-expr.c"
+                 line="175">a #GPtrArray of
+  #TmplExpr which will be evaluated in sequence.</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="Expr"/>
+            </array>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_string" c:identifier="tmpl_expr_new_string">
+        <source-position filename="src/tmpl-expr.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_symbol_assign"
+                   c:identifier="tmpl_expr_new_symbol_assign">
+        <source-position filename="src/tmpl-expr.h" line="85"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="symbol" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="right" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_symbol_ref"
+                   c:identifier="tmpl_expr_new_symbol_ref">
+        <source-position filename="src/tmpl-expr.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="symbol" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_user_fn_call"
+                   c:identifier="tmpl_expr_new_user_fn_call">
+        <source-position filename="src/tmpl-expr.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="param" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="eval" c:identifier="tmpl_expr_eval" throws="1">
+        <source-position filename="src/tmpl-expr.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="expr" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+          <parameter name="scope" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </parameter>
+          <parameter name="return_value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_anon_call" c:identifier="tmpl_expr_new_anon_call">
+        <source-position filename="src/tmpl-expr.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="func" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_getattr" c:identifier="tmpl_expr_new_getattr">
+        <source-position filename="src/tmpl-expr.h" line="49"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="left" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+          <parameter name="attr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_gi_call" c:identifier="tmpl_expr_new_gi_call">
+        <source-position filename="src/tmpl-expr.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="left" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_invert_boolean"
+              c:identifier="tmpl_expr_new_invert_boolean">
+        <source-position filename="src/tmpl-expr.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="left" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="new_setattr" c:identifier="tmpl_expr_new_setattr">
+        <source-position filename="src/tmpl-expr.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="left" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+          <parameter name="attr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="right" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="tmpl_expr_ref">
+        <source-position filename="src/tmpl-expr.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="expr" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="tmpl_expr_unref">
+        <source-position filename="src/tmpl-expr.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="expr" transfer-ownership="none">
+            <type name="Expr" c:type="TmplExpr*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="from_string"
+                c:identifier="tmpl_expr_from_string"
+                throws="1">
+        <source-position filename="src/tmpl-expr.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </union>
+    <enumeration name="ExprBuiltin"
+                 glib:type-name="TmplExprBuiltin"
+                 glib:get-type="tmpl_expr_builtin_get_type"
+                 c:type="TmplExprBuiltin">
+      <member name="abs"
+              value="0"
+              c:identifier="TMPL_EXPR_BUILTIN_ABS"
+              glib:nick="abs"
+              glib:name="TMPL_EXPR_BUILTIN_ABS">
+      </member>
+      <member name="ceil"
+              value="1"
+              c:identifier="TMPL_EXPR_BUILTIN_CEIL"
+              glib:nick="ceil"
+              glib:name="TMPL_EXPR_BUILTIN_CEIL">
+      </member>
+      <member name="floor"
+              value="2"
+              c:identifier="TMPL_EXPR_BUILTIN_FLOOR"
+              glib:nick="floor"
+              glib:name="TMPL_EXPR_BUILTIN_FLOOR">
+      </member>
+      <member name="hex"
+              value="3"
+              c:identifier="TMPL_EXPR_BUILTIN_HEX"
+              glib:nick="hex"
+              glib:name="TMPL_EXPR_BUILTIN_HEX">
+      </member>
+      <member name="log"
+              value="4"
+              c:identifier="TMPL_EXPR_BUILTIN_LOG"
+              glib:nick="log"
+              glib:name="TMPL_EXPR_BUILTIN_LOG">
+      </member>
+      <member name="print"
+              value="5"
+              c:identifier="TMPL_EXPR_BUILTIN_PRINT"
+              glib:nick="print"
+              glib:name="TMPL_EXPR_BUILTIN_PRINT">
+      </member>
+      <member name="repr"
+              value="6"
+              c:identifier="TMPL_EXPR_BUILTIN_REPR"
+              glib:nick="repr"
+              glib:name="TMPL_EXPR_BUILTIN_REPR">
+      </member>
+      <member name="sqrt"
+              value="7"
+              c:identifier="TMPL_EXPR_BUILTIN_SQRT"
+              glib:nick="sqrt"
+              glib:name="TMPL_EXPR_BUILTIN_SQRT">
+      </member>
+      <member name="typeof"
+              value="8"
+              c:identifier="TMPL_EXPR_BUILTIN_TYPEOF"
+              glib:nick="typeof"
+              glib:name="TMPL_EXPR_BUILTIN_TYPEOF">
+      </member>
+      <member name="assert"
+              value="9"
+              c:identifier="TMPL_EXPR_BUILTIN_ASSERT"
+              glib:nick="assert"
+              glib:name="TMPL_EXPR_BUILTIN_ASSERT">
+      </member>
+      <member name="sin"
+              value="10"
+              c:identifier="TMPL_EXPR_BUILTIN_SIN"
+              glib:nick="sin"
+              glib:name="TMPL_EXPR_BUILTIN_SIN">
+      </member>
+      <member name="tan"
+              value="11"
+              c:identifier="TMPL_EXPR_BUILTIN_TAN"
+              glib:nick="tan"
+              glib:name="TMPL_EXPR_BUILTIN_TAN">
+      </member>
+      <member name="cos"
+              value="12"
+              c:identifier="TMPL_EXPR_BUILTIN_COS"
+              glib:nick="cos"
+              glib:name="TMPL_EXPR_BUILTIN_COS">
+      </member>
+      <member name="printerr"
+              value="13"
+              c:identifier="TMPL_EXPR_BUILTIN_PRINTERR"
+              glib:nick="printerr"
+              glib:name="TMPL_EXPR_BUILTIN_PRINTERR">
+      </member>
+      <member name="cast_byte"
+              value="14"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_BYTE"
+              glib:nick="cast-byte"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_BYTE">
+      </member>
+      <member name="cast_char"
+              value="15"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_CHAR"
+              glib:nick="cast-char"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_CHAR">
+      </member>
+      <member name="cast_i32"
+              value="16"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_I32"
+              glib:nick="cast-i32"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_I32">
+      </member>
+      <member name="cast_u32"
+              value="17"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_U32"
+              glib:nick="cast-u32"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_U32">
+      </member>
+      <member name="cast_i64"
+              value="18"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_I64"
+              glib:nick="cast-i64"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_I64">
+      </member>
+      <member name="cast_u64"
+              value="19"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_U64"
+              glib:nick="cast-u64"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_U64">
+      </member>
+      <member name="cast_float"
+              value="20"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_FLOAT"
+              glib:nick="cast-float"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_FLOAT">
+      </member>
+      <member name="cast_double"
+              value="21"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_DOUBLE"
+              glib:nick="cast-double"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_DOUBLE">
+      </member>
+      <member name="cast_bool"
+              value="22"
+              c:identifier="TMPL_EXPR_BUILTIN_CAST_BOOL"
+              glib:nick="cast-bool"
+              glib:name="TMPL_EXPR_BUILTIN_CAST_BOOL">
+      </member>
+    </enumeration>
+    <enumeration name="ExprType"
+                 glib:type-name="TmplExprType"
+                 glib:get-type="tmpl_expr_type_get_type"
+                 c:type="TmplExprType">
+      <member name="add"
+              value="1"
+              c:identifier="TMPL_EXPR_ADD"
+              glib:nick="add"
+              glib:name="TMPL_EXPR_ADD">
+      </member>
+      <member name="sub"
+              value="2"
+              c:identifier="TMPL_EXPR_SUB"
+              glib:nick="sub"
+              glib:name="TMPL_EXPR_SUB">
+      </member>
+      <member name="mul"
+              value="3"
+              c:identifier="TMPL_EXPR_MUL"
+              glib:nick="mul"
+              glib:name="TMPL_EXPR_MUL">
+      </member>
+      <member name="div"
+              value="4"
+              c:identifier="TMPL_EXPR_DIV"
+              glib:nick="div"
+              glib:name="TMPL_EXPR_DIV">
+      </member>
+      <member name="boolean"
+              value="5"
+              c:identifier="TMPL_EXPR_BOOLEAN"
+              glib:nick="boolean"
+              glib:name="TMPL_EXPR_BOOLEAN">
+      </member>
+      <member name="number"
+              value="6"
+              c:identifier="TMPL_EXPR_NUMBER"
+              glib:nick="number"
+              glib:name="TMPL_EXPR_NUMBER">
+      </member>
+      <member name="string"
+              value="7"
+              c:identifier="TMPL_EXPR_STRING"
+              glib:nick="string"
+              glib:name="TMPL_EXPR_STRING">
+      </member>
+      <member name="gt"
+              value="8"
+              c:identifier="TMPL_EXPR_GT"
+              glib:nick="gt"
+              glib:name="TMPL_EXPR_GT">
+      </member>
+      <member name="lt"
+              value="9"
+              c:identifier="TMPL_EXPR_LT"
+              glib:nick="lt"
+              glib:name="TMPL_EXPR_LT">
+      </member>
+      <member name="ne"
+              value="10"
+              c:identifier="TMPL_EXPR_NE"
+              glib:nick="ne"
+              glib:name="TMPL_EXPR_NE">
+      </member>
+      <member name="eq"
+              value="11"
+              c:identifier="TMPL_EXPR_EQ"
+              glib:nick="eq"
+              glib:name="TMPL_EXPR_EQ">
+      </member>
+      <member name="gte"
+              value="12"
+              c:identifier="TMPL_EXPR_GTE"
+              glib:nick="gte"
+              glib:name="TMPL_EXPR_GTE">
+      </member>
+      <member name="lte"
+              value="13"
+              c:identifier="TMPL_EXPR_LTE"
+              glib:nick="lte"
+              glib:name="TMPL_EXPR_LTE">
+      </member>
+      <member name="unary_minus"
+              value="14"
+              c:identifier="TMPL_EXPR_UNARY_MINUS"
+              glib:nick="unary-minus"
+              glib:name="TMPL_EXPR_UNARY_MINUS">
+      </member>
+      <member name="stmt_list"
+              value="15"
+              c:identifier="TMPL_EXPR_STMT_LIST"
+              glib:nick="stmt-list"
+              glib:name="TMPL_EXPR_STMT_LIST">
+      </member>
+      <member name="if"
+              value="16"
+              c:identifier="TMPL_EXPR_IF"
+              glib:nick="if"
+              glib:name="TMPL_EXPR_IF">
+      </member>
+      <member name="while"
+              value="17"
+              c:identifier="TMPL_EXPR_WHILE"
+              glib:nick="while"
+              glib:name="TMPL_EXPR_WHILE">
+      </member>
+      <member name="symbol_ref"
+              value="18"
+              c:identifier="TMPL_EXPR_SYMBOL_REF"
+              glib:nick="symbol-ref"
+              glib:name="TMPL_EXPR_SYMBOL_REF">
+      </member>
+      <member name="symbol_assign"
+              value="19"
+              c:identifier="TMPL_EXPR_SYMBOL_ASSIGN"
+              glib:nick="symbol-assign"
+              glib:name="TMPL_EXPR_SYMBOL_ASSIGN">
+      </member>
+      <member name="fn_call"
+              value="20"
+              c:identifier="TMPL_EXPR_FN_CALL"
+              glib:nick="fn-call"
+              glib:name="TMPL_EXPR_FN_CALL">
+      </member>
+      <member name="anon_fn_call"
+              value="21"
+              c:identifier="TMPL_EXPR_ANON_FN_CALL"
+              glib:nick="anon-fn-call"
+              glib:name="TMPL_EXPR_ANON_FN_CALL">
+      </member>
+      <member name="user_fn_call"
+              value="22"
+              c:identifier="TMPL_EXPR_USER_FN_CALL"
+              glib:nick="user-fn-call"
+              glib:name="TMPL_EXPR_USER_FN_CALL">
+      </member>
+      <member name="getattr"
+              value="23"
+              c:identifier="TMPL_EXPR_GETATTR"
+              glib:nick="getattr"
+              glib:name="TMPL_EXPR_GETATTR">
+      </member>
+      <member name="setattr"
+              value="24"
+              c:identifier="TMPL_EXPR_SETATTR"
+              glib:nick="setattr"
+              glib:name="TMPL_EXPR_SETATTR">
+      </member>
+      <member name="gi_call"
+              value="25"
+              c:identifier="TMPL_EXPR_GI_CALL"
+              glib:nick="gi-call"
+              glib:name="TMPL_EXPR_GI_CALL">
+      </member>
+      <member name="require"
+              value="26"
+              c:identifier="TMPL_EXPR_REQUIRE"
+              glib:nick="require"
+              glib:name="TMPL_EXPR_REQUIRE">
+      </member>
+      <member name="and"
+              value="27"
+              c:identifier="TMPL_EXPR_AND"
+              glib:nick="and"
+              glib:name="TMPL_EXPR_AND">
+      </member>
+      <member name="or"
+              value="28"
+              c:identifier="TMPL_EXPR_OR"
+              glib:nick="or"
+              glib:name="TMPL_EXPR_OR">
+      </member>
+      <member name="invert_boolean"
+              value="29"
+              c:identifier="TMPL_EXPR_INVERT_BOOLEAN"
+              glib:nick="invert-boolean"
+              glib:name="TMPL_EXPR_INVERT_BOOLEAN">
+      </member>
+      <member name="args"
+              value="30"
+              c:identifier="TMPL_EXPR_ARGS"
+              glib:nick="args"
+              glib:name="TMPL_EXPR_ARGS">
+      </member>
+      <member name="func"
+              value="31"
+              c:identifier="TMPL_EXPR_FUNC"
+              glib:nick="func"
+              glib:name="TMPL_EXPR_FUNC">
+      </member>
+      <member name="nop"
+              value="32"
+              c:identifier="TMPL_EXPR_NOP"
+              glib:nick="nop"
+              glib:name="TMPL_EXPR_NOP">
+      </member>
+      <member name="null"
+              value="33"
+              c:identifier="TMPL_EXPR_NULL"
+              glib:nick="null"
+              glib:name="TMPL_EXPR_NULL">
+      </member>
+    </enumeration>
+    <function-macro name="GOTO" c:identifier="TMPL_GOTO" introspectable="0">
+      <source-position filename="src/tmpl-debug.h" line="45"/>
+      <parameters>
+        <parameter name="_l">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="LOG_LEVEL_TRACE" value="1" c:type="TMPL_LOG_LEVEL_TRACE">
+      <source-position filename="src/tmpl-debug.h" line="33"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MAJOR_VERSION" value="3" c:type="TMPL_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/tmpl-version.h"
+           line="26">Template-GLibl major version component (e.g. 1 if %TMPL_VERSION is 1.2.3)</doc>
+      <source-position filename="src/tmpl-version.h" line="31"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="2" c:type="TMPL_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="src/tmpl-version.h"
+           line="40">Template-GLibl micro version component (e.g. 3 if %TMPL_VERSION is 1.2.3)</doc>
+      <source-position filename="src/tmpl-version.h" line="45"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="36" c:type="TMPL_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/tmpl-version.h"
+           line="33">Template-GLibl minor version component (e.g. 2 if %TMPL_VERSION is 1.2.3)</doc>
+      <source-position filename="src/tmpl-version.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="RETURN"
+                    c:identifier="TMPL_RETURN"
+                    introspectable="0">
+      <source-position filename="src/tmpl-debug.h" line="51"/>
+      <parameters>
+        <parameter name="_r">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Scope"
+            c:type="TmplScope"
+            opaque="1"
+            glib:type-name="TmplScope"
+            glib:get-type="tmpl_scope_get_type"
+            c:symbol-prefix="scope">
+      <source-position filename="src/tmpl-expr-types.h" line="39"/>
+      <constructor name="new" c:identifier="tmpl_scope_new">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="66">Creates a new scope to contain variables and custom expressions,</doc>
+        <source-position filename="src/tmpl-scope.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="71">A newly created #TmplScope.</doc>
+          <type name="Scope" c:type="TmplScope*"/>
+        </return-value>
+      </constructor>
+      <method name="dup_string"
+              c:identifier="tmpl_scope_dup_string"
+              version="3.36">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="497">Gets a string if the symbol @name is a string.
+
+Otherwise, %NULL is returned.</doc>
+        <source-position filename="src/tmpl-scope.h" line="106"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="505">a string or %NULL</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="499">a #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get" c:identifier="tmpl_scope_get">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="157">If the symbol could not be found, it will be allocated.</doc>
+        <source-position filename="src/tmpl-scope.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="162">A #TmplSymbol.</doc>
+          <type name="Symbol" c:type="TmplSymbol*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_symbols" c:identifier="tmpl_scope_list_symbols">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="460">Gets the names of all symbols within the scope.</doc>
+        <source-position filename="src/tmpl-scope.h" line="100"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="467">
+  an array containing the names of all symbols within the scope.</doc>
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="462">a #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="recursive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="463">if the parent scopes should be included</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_with_parent" c:identifier="tmpl_scope_new_with_parent">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="85">Creates a new scope to contain variables and custom expressions,
+If @parent is set, the parent scope will be inherited.</doc>
+        <source-position filename="src/tmpl-scope.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="92">A newly created #TmplScope.</doc>
+          <type name="Scope" c:type="TmplScope*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="parent"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="87">An optional parent scope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="peek" c:identifier="tmpl_scope_peek">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="367">If the symbol could not be found, %NULL is returned.</doc>
+        <source-position filename="src/tmpl-scope.h" line="46"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="372">A #TmplSymbol or %NULL.</doc>
+          <type name="Symbol" c:type="TmplSymbol*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="tmpl_scope_ref">
+        <source-position filename="src/tmpl-scope.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <type name="Scope" c:type="TmplScope*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="require" c:identifier="tmpl_scope_require">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="409">Imports @namespace_ into @self so it can be used by expressions.</doc>
+        <source-position filename="src/tmpl-scope.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/tmpl-scope.c"
+               line="417">%TRUE if successful; otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="411">a #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="namespace_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="412">the namespace to import into the scope</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="version"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="413">the version of @namespace_ to import</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set" c:identifier="tmpl_scope_set">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="206">If the symbol already exists, it will be overwritten.
+
+If @symbol is %NULL, the symbol will be removed from scope.</doc>
+        <source-position filename="src/tmpl-scope.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="208">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="209">the name of the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="symbol"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="210">An #TmplSymbol or %NULL.</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_boolean" c:identifier="tmpl_scope_set_boolean">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="248">Sets the value of the symbol named @name to a gboolean value of @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="250">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="251">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="252">a #gboolean</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_double" c:identifier="tmpl_scope_set_double">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="267">Sets the value of the symbol named @name to a gdouble value of @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="269">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="270">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="271">a #gdouble</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_null" c:identifier="tmpl_scope_set_null">
+        <source-position filename="src/tmpl-scope.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_object" c:identifier="tmpl_scope_set_object">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="286">Sets the value of the symbol named @name to the object @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="288">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="289">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="290">a #GObject or %NULL.</doc>
+            <type name="GObject.Object" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_resolver" c:identifier="tmpl_scope_set_resolver">
+        <source-position filename="src/tmpl-scope.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="resolver"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1"
+                     destroy="2">
+            <type name="ScopeResolver" c:type="TmplScopeResolver"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy" transfer-ownership="none" scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string" c:identifier="tmpl_scope_set_string">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="348">Sets the value of the symbol named @name to a string matching @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="350">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="351">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="352">A string or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_strv" c:identifier="tmpl_scope_set_strv">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="328">Sets the value of the symbol named @name to the strv @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="330">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="331">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="332">the value to set it to, or %NULL</doc>
+            <array c:type="const gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_value" c:identifier="tmpl_scope_set_value">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="229">Sets the contents of the symbol named @name to the value @value.</doc>
+        <source-position filename="src/tmpl-scope.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="231">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="232">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="233">A #GValue or %NULL</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_variant" c:identifier="tmpl_scope_set_variant">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="306">Sets the value of the symbol named @name to the variant @value.
+
+If @value has a floating reference, it is consumed.</doc>
+        <source-position filename="src/tmpl-scope.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="308">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="309">a name for the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="310">the variant to set it to, or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take" c:identifier="tmpl_scope_take">
+        <doc xml:space="preserve"
+             filename="src/tmpl-scope.c"
+             line="171">Sets the symbol named @name to @symbol in @scope.
+
+This differs from tmpl_scope_set() in that it takes ownership
+of @symbol.</doc>
+        <source-position filename="src/tmpl-scope.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="173">A #TmplScope</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="174">The name of the symbol</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="symbol"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-scope.c"
+                 line="175">A #TmplSymbol or %NULL</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="tmpl_scope_unref">
+        <source-position filename="src/tmpl-scope.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Scope" c:type="TmplScope*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="ScopeResolver" c:type="TmplScopeResolver">
+      <source-position filename="src/tmpl-scope.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="scope" transfer-ownership="none">
+          <type name="Scope" c:type="TmplScope*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="symbol" transfer-ownership="none">
+          <type name="Symbol" c:type="TmplSymbol**"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="Symbol"
+            c:type="TmplSymbol"
+            opaque="1"
+            glib:type-name="TmplSymbol"
+            glib:get-type="tmpl_symbol_get_type"
+            c:symbol-prefix="symbol">
+      <source-position filename="src/tmpl-expr-types.h" line="40"/>
+      <constructor name="new" c:identifier="tmpl_symbol_new">
+        <source-position filename="src/tmpl-symbol.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <type name="Symbol" c:type="TmplSymbol*"/>
+        </return-value>
+      </constructor>
+      <method name="assign_boolean" c:identifier="tmpl_symbol_assign_boolean">
+        <source-position filename="src/tmpl-symbol.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="v_bool" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_double" c:identifier="tmpl_symbol_assign_double">
+        <source-position filename="src/tmpl-symbol.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="v_double" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_expr"
+              c:identifier="tmpl_symbol_assign_expr"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="src/tmpl-symbol.c"
+             line="103">Sets the symbol as a %TMPL_SYMBOL_EXPR with the given ordered and
+named parameters.</doc>
+        <source-position filename="src/tmpl-symbol.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="105">A #TmplSymbol.</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="expr"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="106">An expression to assign, or %NULL.</doc>
+            <type name="Expr" c:type="TmplExpr*"/>
+          </parameter>
+          <parameter name="args" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="107">A #GPtrArray of strings.</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_object" c:identifier="tmpl_symbol_assign_object">
+        <doc xml:space="preserve"
+             filename="src/tmpl-symbol.c"
+             line="225">Sets the value to the object @v_object.</doc>
+        <source-position filename="src/tmpl-symbol.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="227">A #TmplSymbol</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="v_object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="228">a #GObject or %NULL.</doc>
+            <type name="GObject.Object" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_string" c:identifier="tmpl_symbol_assign_string">
+        <source-position filename="src/tmpl-symbol.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="v_string" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_strv" c:identifier="tmpl_symbol_assign_strv">
+        <doc xml:space="preserve"
+             filename="src/tmpl-symbol.c"
+             line="269">Sets the value to the strv @strv.</doc>
+        <source-position filename="src/tmpl-symbol.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="271">A #TmplSymbol</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="strv"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="272">the value to set, or %NULL</doc>
+            <array c:type="const gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_value" c:identifier="tmpl_symbol_assign_value">
+        <source-position filename="src/tmpl-symbol.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="assign_variant" c:identifier="tmpl_symbol_assign_variant">
+        <doc xml:space="preserve"
+             filename="src/tmpl-symbol.c"
+             line="246">Sets the value to the #GVariant @v_variant.
+
+If @v_variant has a floating reference, it is consumed.</doc>
+        <source-position filename="src/tmpl-symbol.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="248">A #TmplSymbol</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="v_variant"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="249">a #GVariant or %NULL.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_boxed" c:identifier="tmpl_symbol_get_boxed">
+        <source-position filename="src/tmpl-symbol.h" line="47"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_expr" c:identifier="tmpl_symbol_get_expr">
+        <source-position filename="src/tmpl-symbol.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/tmpl-symbol.c"
+               line="143">A #TmplExpr.</doc>
+          <type name="Expr" c:type="TmplExpr*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="140">A #TmplSymbol</doc>
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="params"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-symbol.c"
+                 line="141">A list of parameters</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_symbol_type"
+              c:identifier="tmpl_symbol_get_symbol_type">
+        <source-position filename="src/tmpl-symbol.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="SymbolType" c:type="TmplSymbolType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value" c:identifier="tmpl_symbol_get_value">
+        <source-position filename="src/tmpl-symbol.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="holds" c:identifier="tmpl_symbol_holds">
+        <source-position filename="src/tmpl-symbol.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="tmpl_symbol_ref">
+        <source-position filename="src/tmpl-symbol.h" line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="Symbol" c:type="TmplSymbol*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="tmpl_symbol_unref">
+        <source-position filename="src/tmpl-symbol.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Symbol" c:type="TmplSymbol*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="SymbolType"
+                 glib:type-name="TmplSymbolType"
+                 glib:get-type="tmpl_symbol_type_get_type"
+                 c:type="TmplSymbolType">
+      <member name="expr"
+              value="0"
+              c:identifier="TMPL_SYMBOL_EXPR"
+              glib:nick="expr"
+              glib:name="TMPL_SYMBOL_EXPR">
+      </member>
+      <member name="value"
+              value="1"
+              c:identifier="TMPL_SYMBOL_VALUE"
+              glib:nick="value"
+              glib:name="TMPL_SYMBOL_VALUE">
+      </member>
+    </enumeration>
+    <function-macro name="TODO" c:identifier="TMPL_TODO" introspectable="0">
+      <source-position filename="src/tmpl-debug.h" line="40"/>
+      <parameters>
+        <parameter name="_msg">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_MSG"
+                    c:identifier="TMPL_TRACE_MSG"
+                    introspectable="0">
+      <source-position filename="src/tmpl-debug.h" line="36"/>
+      <parameters>
+        <parameter name="fmt">
+        </parameter>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Template"
+           c:symbol-prefix="template"
+           c:type="TmplTemplate"
+           parent="GObject.Object"
+           glib:type-name="TmplTemplate"
+           glib:get-type="tmpl_template_get_type"
+           glib:type-struct="TemplateClass">
+      <source-position filename="src/tmpl-template.h" line="42"/>
+      <constructor name="new" c:identifier="tmpl_template_new">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template.c"
+             line="139">Creates a new #TmplTemplate.
+
+If @locator is specified, @locator will be used to resolve include
+directives when parsing the template.</doc>
+        <source-position filename="src/tmpl-template.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template.c"
+               line="148">A #TmplTemplate.</doc>
+          <type name="Template" c:type="TmplTemplate*"/>
+        </return-value>
+        <parameters>
+          <parameter name="locator"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="141">A #TmplTemplateLocator or %NULL.</doc>
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="expand" c:identifier="tmpl_template_expand" throws="1">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template.c"
+             line="415">Expands a template into @stream using the @scope provided.
+
+@scope should have all of the variables set that are required to expand
+the template, or you will get a symbol reference error and %FALSE will
+be returned.
+
+To set a symbol value, get the symbol with tmpl_scope_get() and assign
+a value using tmpl_scope_assign_value() or similar methods.</doc>
+        <source-position filename="src/tmpl-template.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template.c"
+               line="432">%TRUE if successful, otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="417">A TmplTemplate.</doc>
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="418">a #GOutputStream to write the results to</doc>
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+          <parameter name="scope"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="419">A #TmplScope containing state for the template, or %NULL.</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="420">An optional cancellable for the operation.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand_string"
+              c:identifier="tmpl_template_expand_string"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template.c"
+             line="488">Expands the template and returns the result as a string.</doc>
+        <source-position filename="src/tmpl-template.h" line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template.c"
+               line="496">A newly allocated string, or %NULL upon failure.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="490">A #TmplTemplate.</doc>
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="scope"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="491">A #TmplScope or %NULL.</doc>
+            <type name="Scope" c:type="TmplScope*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_locator"
+              c:identifier="tmpl_template_get_locator"
+              glib:get-property="locator">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template.c"
+             line="534">Gets the template locator used when resolving template includes.</doc>
+        <source-position filename="src/tmpl-template.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template.c"
+               line="540">a #TmplTemplateLocator or %NULL.</doc>
+          <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template.c"
+                 line="536">A #TmplTemplate</doc>
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="parse" c:identifier="tmpl_template_parse" throws="1">
+        <source-position filename="src/tmpl-template.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_file"
+              c:identifier="tmpl_template_parse_file"
+              throws="1">
+        <source-position filename="src/tmpl-template.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_path"
+              c:identifier="tmpl_template_parse_path"
+              throws="1">
+        <source-position filename="src/tmpl-template.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_resource"
+              c:identifier="tmpl_template_parse_resource"
+              throws="1">
+        <source-position filename="src/tmpl-template.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_string"
+              c:identifier="tmpl_template_parse_string"
+              throws="1">
+        <source-position filename="src/tmpl-template.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_locator"
+              c:identifier="tmpl_template_set_locator"
+              glib:set-property="locator">
+        <source-position filename="src/tmpl-template.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Template" c:type="TmplTemplate*"/>
+          </instance-parameter>
+          <parameter name="locator" transfer-ownership="none">
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="locator"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_locator"
+                getter="get_locator">
+        <type name="TemplateLocator"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="TemplateClass"
+            c:type="TmplTemplateClass"
+            glib:is-gtype-struct-for="Template">
+      <source-position filename="src/tmpl-template.h" line="42"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="TemplateLocator"
+           c:symbol-prefix="template_locator"
+           c:type="TmplTemplateLocator"
+           parent="GObject.Object"
+           glib:type-name="TmplTemplateLocator"
+           glib:get-type="tmpl_template_locator_get_type"
+           glib:type-struct="TemplateLocatorClass">
+      <doc xml:space="preserve"
+           filename="src/tmpl-template-locator.c"
+           line="24">The #TmplTemplateLoader class is used to specify how templates
+should be loaded. This can be used directly by your code that
+will compile the data streams into #TmplTemplate instances, or
+by a #TmplTemplate that is resolving includes from the
+`{{include "path.tmpl"}}` directive.
+
+See #TmplTemplate:locator for more information.</doc>
+      <source-position filename="src/tmpl-template-locator.h" line="45"/>
+      <constructor name="new" c:identifier="tmpl_template_locator_new">
+        <source-position filename="src/tmpl-template-locator.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="locate" invoker="locate" throws="1">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template-locator.c"
+             line="216">This will resolve the relative path using the search paths found within
+the template loader.</doc>
+        <source-position filename="src/tmpl-template-locator.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template-locator.c"
+               line="224">A #GInputStream or %NULL and @error is set.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="218">A #TmplTemplateLocator.</doc>
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="219">a relative path to the file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="append_search_path"
+              c:identifier="tmpl_template_locator_append_search_path">
+        <source-position filename="src/tmpl-template-locator.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_search_path"
+              c:identifier="tmpl_template_locator_get_search_path">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template-locator.c"
+             line="179">Gets the current search path used by the template locator.</doc>
+        <source-position filename="src/tmpl-template-locator.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template-locator.c"
+               line="185">A %NULL-terminated array of strings.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="181">A #TmplTemplateLocator</doc>
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="locate"
+              c:identifier="tmpl_template_locator_locate"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/tmpl-template-locator.c"
+             line="216">This will resolve the relative path using the search paths found within
+the template loader.</doc>
+        <source-position filename="src/tmpl-template-locator.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/tmpl-template-locator.c"
+               line="224">A #GInputStream or %NULL and @error is set.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="218">A #TmplTemplateLocator.</doc>
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="219">a relative path to the file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="prepend_search_path"
+              c:identifier="tmpl_template_locator_prepend_search_path">
+        <source-position filename="src/tmpl-template-locator.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="TemplateLocatorClass"
+            c:type="TmplTemplateLocatorClass"
+            glib:is-gtype-struct-for="TemplateLocator">
+      <source-position filename="src/tmpl-template-locator.h" line="45"/>
+      <field name="parent_instance">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="locate">
+        <callback name="locate" throws="1">
+          <source-position filename="src/tmpl-template-locator.h" line="42"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/tmpl-template-locator.c"
+                 line="224">A #GInputStream or %NULL and @error is set.</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/tmpl-template-locator.c"
+                   line="218">A #TmplTemplateLocator.</doc>
+              <type name="TemplateLocator" c:type="TmplTemplateLocator*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/tmpl-template-locator.c"
+                   line="219">a relative path to the file</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="TMPL_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="src/tmpl-version-macros.h" line="37"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_S" value="3.36.2" c:type="TMPL_VERSION_S">
+      <doc xml:space="preserve"
+           filename="src/tmpl-version.h"
+           line="54">Template-GLib version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/tmpl-version.h" line="60"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="error_quark"
+              c:identifier="tmpl_error_quark"
+              moved-to="Error.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="expr_from_string"
+              c:identifier="tmpl_expr_from_string"
+              moved-to="Expr.from_string"
+              throws="1">
+      <source-position filename="src/tmpl-expr.h" line="33"/>
+      <return-value transfer-ownership="full">
+        <type name="Expr" c:type="TmplExpr*"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -10,7 +10,7 @@ export class InterfaceVisitor extends GirVisitor {
 
             if (!GObject) {
                 throw new Error(
-                    `GObject.Object could not be found while generating ${node.namespace.name}.${node.name}`
+                    `GObject.Object could not be found while generating ${node.namespace.namespace}.${node.name}`
                 );
             }
 

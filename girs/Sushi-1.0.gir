@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="Clutter" version="1.0"/>
+  <include name="Cogl" version="1.0"/>
+  <include name="CoglPango" version="1.0"/>
+  <include name="EvinceDocument" version="3.0"/>
+  <include name="GL" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="GstBase" version="0.10"/>
+  <include name="GstPbutils" version="0.10"/>
+  <include name="GstTag" version="0.10"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="GtkSource" version="3.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="PangoCairo" version="1.0"/>
+  <include name="PangoFT2" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="fontconfig" version="2.0"/>
+  <include name="freetype2" version="2.0"/>
+  <include name="libxml2" version="2.0"/>
+  <include name="xlib" version="2.0"/>
+  <namespace name="Sushi"
+             version="1.0"
+             shared-library="libsushi-1.0.so.0"
+             c:identifier-prefixes="Sushi"
+             c:symbol-prefixes="sushi">
+    <class name="CoverArtFetcher"
+           c:symbol-prefix="cover_art_fetcher"
+           c:type="SushiCoverArtFetcher"
+           parent="GObject.Object"
+           glib:type-name="SushiCoverArtFetcher"
+           glib:get-type="sushi_cover_art_fetcher_get_type"
+           glib:type-struct="CoverArtFetcherClass">
+      <constructor name="new" c:identifier="sushi_cover_art_fetcher_new">
+        <return-value transfer-ownership="full">
+          <type name="CoverArtFetcher" c:type="SushiCoverArtFetcher*"/>
+        </return-value>
+        <parameters>
+          <parameter name="taglist" transfer-ownership="none">
+            <type name="Gst.TagList" c:type="GstTagList*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="cover" transfer-ownership="none">
+        <type name="GdkPixbuf.Pixbuf"/>
+      </property>
+      <property name="taglist" writable="1" transfer-ownership="none">
+        <type name="Gst.TagList"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="CoverArtFetcherPrivate"
+              c:type="SushiCoverArtFetcherPrivate*"/>
+      </field>
+    </class>
+    <record name="CoverArtFetcherClass"
+            c:type="SushiCoverArtFetcherClass"
+            glib:is-gtype-struct-for="CoverArtFetcher">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="CoverArtFetcherPrivate"
+            c:type="SushiCoverArtFetcherPrivate"
+            disguised="1">
+    </record>
+    <class name="FileLoader"
+           c:symbol-prefix="file_loader"
+           c:type="SushiFileLoader"
+           parent="GObject.Object"
+           glib:type-name="SushiFileLoader"
+           glib:get-type="sushi_file_loader_get_type"
+           glib:type-struct="FileLoaderClass">
+      <constructor name="new" c:identifier="sushi_file_loader_new">
+        <return-value transfer-ownership="full">
+          <type name="FileLoader" c:type="SushiFileLoader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_content_type_string"
+              c:identifier="sushi_file_loader_get_content_type_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_date_string"
+              c:identifier="sushi_file_loader_get_date_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_display_name"
+              c:identifier="sushi_file_loader_get_display_name">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_icon" c:identifier="sushi_file_loader_get_icon">
+        <return-value transfer-ownership="full">
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+      </method>
+      <method name="get_loading" c:identifier="sushi_file_loader_get_loading">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_size_string"
+              c:identifier="sushi_file_loader_get_size_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="stop" c:identifier="sushi_file_loader_stop">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <property name="content-type" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="file" writable="1" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="icon" transfer-ownership="none">
+        <type name="GdkPixbuf.Pixbuf"/>
+      </property>
+      <property name="name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="size" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="time" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="FileLoaderPrivate" c:type="SushiFileLoaderPrivate*"/>
+      </field>
+    </class>
+    <record name="FileLoaderClass"
+            c:type="SushiFileLoaderClass"
+            glib:is-gtype-struct-for="FileLoader">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="FileLoaderPrivate"
+            c:type="SushiFileLoaderPrivate"
+            disguised="1">
+    </record>
+    <class name="FontWidget"
+           c:symbol-prefix="font_widget"
+           c:type="SushiFontWidget"
+           parent="Gtk.DrawingArea"
+           glib:type-name="SushiFontWidget"
+           glib:get-type="sushi_font_widget_get_type"
+           glib:type-struct="FontWidgetClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="sushi_font_widget_new">
+        <return-value transfer-ownership="none">
+          <type name="FontWidget" c:type="SushiFontWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="uri" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <field name="priv">
+        <type name="FontWidgetPrivate" c:type="SushiFontWidgetPrivate*"/>
+      </field>
+      <glib:signal name="loaded" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="FontWidgetClass"
+            c:type="SushiFontWidgetClass"
+            glib:is-gtype-struct-for="FontWidget">
+      <field name="parent_class">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+    </record>
+    <record name="FontWidgetPrivate"
+            c:type="SushiFontWidgetPrivate"
+            disguised="1">
+    </record>
+    <class name="PdfLoader"
+           c:symbol-prefix="pdf_loader"
+           c:type="SushiPdfLoader"
+           parent="GObject.Object"
+           glib:type-name="SushiPdfLoader"
+           glib:get-type="sushi_pdf_loader_get_type"
+           glib:type-struct="PdfLoaderClass">
+      <constructor name="new" c:identifier="sushi_pdf_loader_new">
+        <return-value transfer-ownership="full">
+          <type name="PdfLoader" c:type="SushiPdfLoader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="cleanup_document"
+              c:identifier="sushi_pdf_loader_cleanup_document">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="get_max_page_size"
+              c:identifier="sushi_pdf_loader_get_max_page_size">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="document" transfer-ownership="none">
+        <type name="EvinceDocument.Document"/>
+      </property>
+      <property name="uri" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="PdfLoaderPrivate" c:type="SushiPdfLoaderPrivate*"/>
+      </field>
+    </class>
+    <record name="PdfLoaderClass"
+            c:type="SushiPdfLoaderClass"
+            glib:is-gtype-struct-for="PdfLoader">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="PdfLoaderPrivate"
+            c:type="SushiPdfLoaderPrivate"
+            disguised="1">
+    </record>
+    <class name="SoundPlayer"
+           c:symbol-prefix="sound_player"
+           c:type="SushiSoundPlayer"
+           parent="GObject.Object"
+           glib:type-name="SushiSoundPlayer"
+           glib:get-type="sushi_sound_player_get_type"
+           glib:type-struct="SoundPlayerClass">
+      <property name="duration" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="playing" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="progress" writable="1" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="state" transfer-ownership="none">
+        <type name="SoundPlayerState"/>
+      </property>
+      <property name="taglist" transfer-ownership="none">
+        <type name="Gst.TagList"/>
+      </property>
+      <property name="uri"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="SoundPlayerPrivate" c:type="SushiSoundPlayerPrivate*"/>
+      </field>
+    </class>
+    <record name="SoundPlayerClass"
+            c:type="SushiSoundPlayerClass"
+            glib:is-gtype-struct-for="SoundPlayer">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="SoundPlayerPrivate"
+            c:type="SushiSoundPlayerPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="SoundPlayerState"
+                 glib:type-name="SushiSoundPlayerState"
+                 glib:get-type="sushi_sound_player_state_get_type"
+                 c:type="SushiSoundPlayerState">
+      <member name="unknown"
+              value="0"
+              c:identifier="SUSHI_SOUND_PLAYER_STATE_UNKNOWN"
+              glib:nick="unknown"/>
+      <member name="idle"
+              value="1"
+              c:identifier="SUSHI_SOUND_PLAYER_STATE_IDLE"
+              glib:nick="idle"/>
+      <member name="playing"
+              value="2"
+              c:identifier="SUSHI_SOUND_PLAYER_STATE_PLAYING"
+              glib:nick="playing"/>
+      <member name="done"
+              value="3"
+              c:identifier="SUSHI_SOUND_PLAYER_STATE_DONE"
+              glib:nick="done"/>
+      <member name="error"
+              value="4"
+              c:identifier="SUSHI_SOUND_PLAYER_STATE_ERROR"
+              glib:nick="error"/>
+    </enumeration>
+    <class name="TextLoader"
+           c:symbol-prefix="text_loader"
+           c:type="SushiTextLoader"
+           parent="GObject.Object"
+           glib:type-name="SushiTextLoader"
+           glib:get-type="sushi_text_loader_get_type"
+           glib:type-struct="TextLoaderClass">
+      <constructor name="new" c:identifier="sushi_text_loader_new">
+        <return-value transfer-ownership="full">
+          <type name="TextLoader" c:type="SushiTextLoader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="uri" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="TextLoaderPrivate" c:type="SushiTextLoaderPrivate*"/>
+      </field>
+      <glib:signal name="loaded" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GtkSource.Buffer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TextLoaderClass"
+            c:type="SushiTextLoaderClass"
+            glib:is-gtype-struct-for="TextLoader">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="TextLoaderPrivate"
+            c:type="SushiTextLoaderPrivate"
+            disguised="1">
+    </record>
+    <function name="create_foreign_window"
+              c:identifier="sushi_create_foreign_window">
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">a #GdkWindow</doc>
+        <type name="Gdk.Window" c:type="GdkWindow*"/>
+      </return-value>
+      <parameters>
+        <parameter name="xid" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="create_rounded_background"
+              c:identifier="sushi_create_rounded_background">
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">a #ClutterActor</doc>
+        <type name="Clutter.Actor" c:type="ClutterActor*"/>
+      </return-value>
+    </function>
+    <function name="new_ft_face_from_uri_async"
+              c:identifier="sushi_new_ft_face_from_uri_async"
+              introspectable="0">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   allow-none="1"
+                   scope="async"
+                   closure="2">
+          <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="new_ft_face_from_uri_finish"
+              c:identifier="sushi_new_ft_face_from_uri_finish"
+              introspectable="0"
+              throws="1">
+      <return-value>
+        <type name="freetype2.Face" c:type="FT_Face"/>
+      </return-value>
+      <parameters>
+        <parameter name="result" transfer-ownership="none">
+          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+        </parameter>
+        <parameter name="contents" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="query_supported_document_types"
+              c:identifier="sushi_query_supported_document_types">
+      <return-value transfer-ownership="full">
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

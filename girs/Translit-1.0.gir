@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libtranslit"/>
+  <namespace name="Translit"
+             version="1.0"
+             shared-library="libtranslit.so.0"
+             c:identifier-prefixes="Translit"
+             c:symbol-prefixes="translit">
+    <enumeration name="ErrorEnum" c:type="TranslitErrorEnum">
+      <source-position filename="translittransliterator.h" line="65"/>
+      <member name="no_such_backend"
+              value="0"
+              c:identifier="TRANSLIT_ERROR_NO_SUCH_BACKEND">
+      </member>
+      <member name="load_failed"
+              value="1"
+              c:identifier="TRANSLIT_ERROR_LOAD_FAILED">
+      </member>
+      <member name="invalid_input"
+              value="2"
+              c:identifier="TRANSLIT_ERROR_INVALID_INPUT">
+      </member>
+      <member name="failed" value="3" c:identifier="TRANSLIT_ERROR_FAILED">
+      </member>
+    </enumeration>
+    <function-macro name="IS_TRANSLITERATOR"
+                    c:identifier="TRANSLIT_IS_TRANSLITERATOR"
+                    introspectable="0">
+      <source-position filename="translittransliterator.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TRANSLITERATOR_CLASS"
+                    c:identifier="TRANSLIT_IS_TRANSLITERATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="translittransliterator.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRANSLITERATOR"
+                    c:identifier="TRANSLIT_TRANSLITERATOR"
+                    introspectable="0">
+      <source-position filename="translittransliterator.h" line="27"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRANSLITERATOR_CLASS"
+                    c:identifier="TRANSLIT_TRANSLITERATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="translittransliterator.h" line="28"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRANSLITERATOR_GET_CLASS"
+                    c:identifier="TRANSLIT_TRANSLITERATOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="translittransliterator.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Transliterator"
+           c:symbol-prefix="transliterator"
+           c:type="TranslitTransliterator"
+           parent="GObject.Object"
+           glib:type-name="TranslitTransliterator"
+           glib:get-type="translit_transliterator_get_type"
+           glib:type-struct="TransliteratorClass">
+      <source-position filename="translittransliterator.h" line="55"/>
+      <function name="get"
+                c:identifier="translit_transliterator_get"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="translittransliterator.c"
+             line="355">Get a transliterator instance whose name is @name.</doc>
+        <source-position filename="translittransliterator.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="translittransliterator.c"
+               line="363">a #TranslitTransliterator</doc>
+          <type name="Transliterator" c:type="TranslitTransliterator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="backend" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="357">backend name (e.g. "m17n")</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="358">name of the transliterator (e.g. "hi-inscript")</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="transliterate" invoker="transliterate" throws="1">
+        <source-position filename="translittransliterator.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="translittransliterator.c"
+               line="272">a newly allocated output string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="transliterator" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="267">a #TranslitTransliterator</doc>
+            <type name="Transliterator" c:type="TranslitTransliterator*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="268">an input string in UTF-8</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="endpos"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="269">ending position of transliteration (in chars)</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="transliterate"
+              c:identifier="translit_transliterator_transliterate"
+              throws="1">
+        <source-position filename="translittransliterator.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="translittransliterator.c"
+               line="272">a newly allocated output string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="transliterator" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="267">a #TranslitTransliterator</doc>
+            <type name="Transliterator" c:type="TranslitTransliterator*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="268">an input string in UTF-8</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="endpos"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="269">ending position of transliteration (in chars)</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="translittransliterator.c"
+             line="246">The transliteration which #TranslitTransliterator supports</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="TransliteratorPrivate"
+              c:type="TranslitTransliteratorPrivate*"/>
+      </field>
+    </class>
+    <record name="TransliteratorClass"
+            c:type="TranslitTransliteratorClass"
+            glib:is-gtype-struct-for="Transliterator">
+      <source-position filename="translittransliterator.h" line="55"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="transliterate">
+        <callback name="transliterate" throws="1">
+          <source-position filename="translittransliterator.h" line="51"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="translittransliterator.c"
+                 line="272">a newly allocated output string</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="transliterator" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="translittransliterator.c"
+                   line="267">a #TranslitTransliterator</doc>
+              <type name="Transliterator" c:type="TranslitTransliterator*"/>
+            </parameter>
+            <parameter name="input" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="translittransliterator.c"
+                   line="268">an input string in UTF-8</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="endpos"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full"
+                       optional="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="translittransliterator.c"
+                   line="269">ending position of transliteration (in chars)</doc>
+              <type name="guint" c:type="guint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="TransliteratorPrivate"
+            c:type="TranslitTransliteratorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="translittransliterator.h" line="35"/>
+    </record>
+    <function name="error_quark" c:identifier="translit_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="implement_transliterator"
+              c:identifier="translit_implement_transliterator">
+      <source-position filename="translittransliterator.h" line="79"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="backend" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

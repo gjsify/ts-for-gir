@@ -1,0 +1,1330 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gdk" version="3.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="SugarGestures-1.0"/>
+  <namespace name="SugarGestures"
+             version="1.0"
+             shared-library="libsugar-eventcontroller.so.0"
+             c:identifier-prefixes="Sugar"
+             c:symbol-prefixes="sugar">
+    <function-macro name="EVENT_CONTROLLER"
+                    c:identifier="SUGAR_EVENT_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-event-controller.h" line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EVENT_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_EVENT_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-event-controller.h" line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EVENT_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_EVENT_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-event-controller.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="EventController"
+           c:symbol-prefix="event_controller"
+           c:type="SugarEventController"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="SugarEventController"
+           glib:get-type="sugar_event_controller_get_type"
+           glib:type-struct="EventControllerClass">
+      <source-position filename="sugar-event-controller.h" line="77"/>
+      <virtual-method name="began">
+        <source-position filename="sugar-event-controller.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="ended">
+        <source-position filename="sugar-event-controller.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_state" invoker="get_state">
+        <source-position filename="sugar-event-controller.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="EventControllerState"
+                c:type="SugarEventControllerState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_event" invoker="handle_event">
+        <source-position filename="sugar-event-controller.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <type name="Gdk.Event" c:type="GdkEvent*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="reset">
+        <source-position filename="sugar-event-controller.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="updated">
+        <source-position filename="sugar-event-controller.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="attach" c:identifier="sugar_event_controller_attach">
+        <source-position filename="sugar-event-controller.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="EventControllerFlags"
+                  c:type="SugarEventControllerFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="detach" c:identifier="sugar_event_controller_detach">
+        <source-position filename="sugar-event-controller.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="sugar_event_controller_get_state"
+              glib:get-property="state">
+        <source-position filename="sugar-event-controller.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="EventControllerState"
+                c:type="SugarEventControllerState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="handle_event"
+              c:identifier="sugar_event_controller_handle_event">
+        <source-position filename="sugar-event-controller.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <type name="Gdk.Event" c:type="GdkEvent*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="sugar_event_controller_reset">
+        <source-position filename="sugar-event-controller.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="EventController" c:type="SugarEventController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="state"
+                transfer-ownership="none"
+                getter="get_state"
+                default-value="SUGAR_EVENT_CONTROLLER_STATE_NONE">
+        <type name="EventControllerState"/>
+      </property>
+      <property name="widget" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="EventControllerPrivate"
+              c:type="SugarEventControllerPrivate*"/>
+      </field>
+      <glib:signal name="began" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="ended" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="EventControllerClass"
+            c:type="SugarEventControllerClass"
+            glib:is-gtype-struct-for="EventController">
+      <source-position filename="sugar-event-controller.h" line="77"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="began">
+        <callback name="began">
+          <source-position filename="sugar-event-controller.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="updated">
+        <callback name="updated">
+          <source-position filename="sugar-event-controller.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="ended">
+        <callback name="ended">
+          <source-position filename="sugar-event-controller.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="handle_event">
+        <callback name="handle_event">
+          <source-position filename="sugar-event-controller.h" line="73"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="Gdk.Event" c:type="GdkEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_state">
+        <callback name="get_state">
+          <source-position filename="sugar-event-controller.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="EventControllerState"
+                  c:type="SugarEventControllerState"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reset">
+        <callback name="reset">
+          <source-position filename="sugar-event-controller.h" line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="EventController" c:type="SugarEventController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <bitfield name="EventControllerFlags"
+              glib:type-name="SugarEventControllerFlags"
+              glib:get-type="sugar_event_controller_flags_get_type"
+              c:type="SugarEventControllerFlags">
+      <member name="none"
+              value="0"
+              c:identifier="SUGAR_EVENT_CONTROLLER_FLAG_NONE"
+              glib:nick="none"
+              glib:name="SUGAR_EVENT_CONTROLLER_FLAG_NONE">
+      </member>
+      <member name="exclusive"
+              value="1"
+              c:identifier="SUGAR_EVENT_CONTROLLER_FLAG_EXCLUSIVE"
+              glib:nick="exclusive"
+              glib:name="SUGAR_EVENT_CONTROLLER_FLAG_EXCLUSIVE">
+      </member>
+    </bitfield>
+    <record name="EventControllerPrivate" c:type="SugarEventControllerPrivate">
+      <source-position filename="sugar-event-controller.h" line="82"/>
+      <field name="widget" writable="1">
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </field>
+    </record>
+    <enumeration name="EventControllerState"
+                 glib:type-name="SugarEventControllerState"
+                 glib:get-type="sugar_event_controller_state_get_type"
+                 c:type="SugarEventControllerState">
+      <member name="none"
+              value="0"
+              c:identifier="SUGAR_EVENT_CONTROLLER_STATE_NONE"
+              glib:nick="none"
+              glib:name="SUGAR_EVENT_CONTROLLER_STATE_NONE">
+      </member>
+      <member name="collecting"
+              value="1"
+              c:identifier="SUGAR_EVENT_CONTROLLER_STATE_COLLECTING"
+              glib:nick="collecting"
+              glib:name="SUGAR_EVENT_CONTROLLER_STATE_COLLECTING">
+      </member>
+      <member name="recognized"
+              value="2"
+              c:identifier="SUGAR_EVENT_CONTROLLER_STATE_RECOGNIZED"
+              glib:nick="recognized"
+              glib:name="SUGAR_EVENT_CONTROLLER_STATE_RECOGNIZED">
+      </member>
+      <member name="not_recognized"
+              value="3"
+              c:identifier="SUGAR_EVENT_CONTROLLER_STATE_NOT_RECOGNIZED"
+              glib:nick="not-recognized"
+              glib:name="SUGAR_EVENT_CONTROLLER_STATE_NOT_RECOGNIZED">
+      </member>
+    </enumeration>
+    <function-macro name="IS_EVENT_CONTROLLER"
+                    c:identifier="SUGAR_IS_EVENT_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-event-controller.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EVENT_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_EVENT_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-event-controller.h" line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LONG_PRESS_CONTROLLER"
+                    c:identifier="SUGAR_IS_LONG_PRESS_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-long-press-controller.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LONG_PRESS_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_LONG_PRESS_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-long-press-controller.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ROTATE_CONTROLLER"
+                    c:identifier="SUGAR_IS_ROTATE_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-rotate-controller.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ROTATE_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_ROTATE_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-rotate-controller.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SWIPE_CONTROLLER"
+                    c:identifier="SUGAR_IS_SWIPE_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-swipe-controller.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SWIPE_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_SWIPE_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-swipe-controller.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TOUCH_CONTROLLER"
+                    c:identifier="SUGAR_IS_TOUCH_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-touch-controller.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TOUCH_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_TOUCH_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-touch-controller.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ZOOM_CONTROLLER"
+                    c:identifier="SUGAR_IS_ZOOM_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-zoom-controller.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ZOOM_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_IS_ZOOM_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-zoom-controller.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LONG_PRESS_CONTROLLER"
+                    c:identifier="SUGAR_LONG_PRESS_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-long-press-controller.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LONG_PRESS_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_LONG_PRESS_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-long-press-controller.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LONG_PRESS_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_LONG_PRESS_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-long-press-controller.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="LongPressController"
+           c:symbol-prefix="long_press_controller"
+           c:type="SugarLongPressController"
+           parent="EventController"
+           glib:type-name="SugarLongPressController"
+           glib:get-type="sugar_long_press_controller_get_type"
+           glib:type-struct="LongPressControllerClass">
+      <source-position filename="sugar-long-press-controller.h" line="58"/>
+      <constructor name="new" c:identifier="sugar_long_press_controller_new">
+        <source-position filename="sugar-long-press-controller.h" line="77"/>
+        <return-value transfer-ownership="full">
+          <type name="EventController" c:type="SugarEventController*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="pressed">
+        <source-position filename="sugar-long-press-controller.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="LongPressController"
+                  c:type="SugarLongPressController*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <property name="threshold"
+                writable="1"
+                transfer-ownership="none"
+                default-value="32">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="trigger-delay"
+                writable="1"
+                transfer-ownership="none"
+                default-value="600">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="EventController" c:type="SugarEventController"/>
+      </field>
+      <field name="priv">
+        <type name="LongPressControllerPrivate"
+              c:type="SugarLongPressControllerPrivate*"/>
+      </field>
+      <glib:signal name="pressed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="LongPressControllerClass"
+            c:type="SugarLongPressControllerClass"
+            glib:is-gtype-struct-for="LongPressController">
+      <source-position filename="sugar-long-press-controller.h" line="58"/>
+      <field name="parent_class">
+        <type name="EventControllerClass" c:type="SugarEventControllerClass"/>
+      </field>
+      <field name="pressed">
+        <callback name="pressed">
+          <source-position filename="sugar-long-press-controller.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="LongPressController"
+                    c:type="SugarLongPressController*"/>
+            </parameter>
+            <parameter name="x" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+            <parameter name="y" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="LongPressControllerPrivate"
+            c:type="SugarLongPressControllerPrivate">
+      <source-position filename="sugar-long-press-controller.h" line="74"/>
+      <field name="device" writable="1">
+        <type name="Gdk.Device" c:type="GdkDevice*"/>
+      </field>
+      <field name="sequence" writable="1">
+        <type name="Gdk.EventSequence" c:type="GdkEventSequence*"/>
+      </field>
+      <field name="start_time" writable="1">
+        <type name="gint64" c:type="gint64"/>
+      </field>
+      <field name="x" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="y" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="root_x" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="root_y" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="timeout_id" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="threshold" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="delay" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="cancelled" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="triggered" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <function-macro name="ROTATE_CONTROLLER"
+                    c:identifier="SUGAR_ROTATE_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-rotate-controller.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ROTATE_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_ROTATE_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-rotate-controller.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ROTATE_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_ROTATE_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-rotate-controller.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="RotateController"
+           c:symbol-prefix="rotate_controller"
+           c:type="SugarRotateController"
+           parent="TouchController"
+           glib:type-name="SugarRotateController"
+           glib:get-type="sugar_rotate_controller_get_type"
+           glib:type-struct="RotateControllerClass">
+      <source-position filename="sugar-rotate-controller.h" line="58"/>
+      <constructor name="new" c:identifier="sugar_rotate_controller_new">
+        <source-position filename="sugar-rotate-controller.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <type name="EventController" c:type="SugarEventController*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="angle_changed">
+        <source-position filename="sugar-rotate-controller.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="RotateController" c:type="SugarRotateController*"/>
+          </instance-parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="delta" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_angle_delta"
+              c:identifier="sugar_rotate_controller_get_angle_delta">
+        <doc xml:space="preserve"
+             filename="sugar-rotate-controller.c"
+             line="180">If @controller is on state %SUGAR_EVENT_CONTROLLER_STATE_RECOGNIZED,
+this function returns %TRUE and fills in @delta with the angle difference
+in radians since the gesture was first recognized.</doc>
+        <source-position filename="sugar-rotate-controller.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-rotate-controller.c"
+               line="189">%TRUE if @controller is recognizing a rotate gesture</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-rotate-controller.c"
+                 line="182">a #SugarRotateController</doc>
+            <type name="RotateController" c:type="SugarRotateController*"/>
+          </instance-parameter>
+          <parameter name="delta"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-rotate-controller.c"
+                 line="183">angle delta</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="TouchController" c:type="SugarTouchController"/>
+      </field>
+      <field name="priv">
+        <type name="RotateControllerPrivate"
+              c:type="SugarRotateControllerPrivate*"/>
+      </field>
+      <glib:signal name="angle-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="angle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-rotate-controller.c"
+                 line="160">Current angle in radians</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="angle_delta" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-rotate-controller.c"
+                 line="161">Difference with the starting angle in radians</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="RotateControllerClass"
+            c:type="SugarRotateControllerClass"
+            glib:is-gtype-struct-for="RotateController">
+      <source-position filename="sugar-rotate-controller.h" line="58"/>
+      <field name="parent_class">
+        <type name="TouchControllerClass" c:type="SugarTouchControllerClass"/>
+      </field>
+      <field name="angle_changed">
+        <callback name="angle_changed">
+          <source-position filename="sugar-rotate-controller.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="RotateController" c:type="SugarRotateController*"/>
+            </parameter>
+            <parameter name="angle" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+            <parameter name="delta" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="RotateControllerPrivate"
+            c:type="SugarRotateControllerPrivate">
+      <source-position filename="sugar-rotate-controller.h" line="63"/>
+      <field name="initial_angle" writable="1">
+        <type name="gdouble" c:type="gdouble"/>
+      </field>
+    </record>
+    <function-macro name="SWIPE_CONTROLLER"
+                    c:identifier="SUGAR_SWIPE_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-swipe-controller.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SWIPE_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_SWIPE_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-swipe-controller.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SWIPE_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_SWIPE_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-swipe-controller.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SwipeController"
+           c:symbol-prefix="swipe_controller"
+           c:type="SugarSwipeController"
+           parent="EventController"
+           glib:type-name="SugarSwipeController"
+           glib:get-type="sugar_swipe_controller_get_type"
+           glib:type-struct="SwipeControllerClass">
+      <source-position filename="sugar-swipe-controller.h" line="71"/>
+      <constructor name="new" c:identifier="sugar_swipe_controller_new">
+        <source-position filename="sugar-swipe-controller.h" line="84"/>
+        <return-value transfer-ownership="full">
+          <type name="EventController" c:type="SugarEventController*"/>
+        </return-value>
+        <parameters>
+          <parameter name="directions" transfer-ownership="none">
+            <type name="SwipeDirectionFlags"
+                  c:type="SugarSwipeDirectionFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="swipe_ended">
+        <source-position filename="sugar-swipe-controller.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="SwipeController" c:type="SugarSwipeController*"/>
+          </instance-parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="SwipeDirection" c:type="SugarSwipeDirection"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <property name="directions"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="SwipeDirectionFlags"/>
+      </property>
+      <field name="parent_instance">
+        <type name="EventController" c:type="SugarEventController"/>
+      </field>
+      <field name="priv">
+        <type name="SwipeControllerPrivate"
+              c:type="SugarSwipeControllerPrivate*"/>
+      </field>
+      <glib:signal name="swipe-ended" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="SwipeDirection"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="SwipeControllerClass"
+            c:type="SugarSwipeControllerClass"
+            glib:is-gtype-struct-for="SwipeController">
+      <source-position filename="sugar-swipe-controller.h" line="71"/>
+      <field name="parent_class">
+        <type name="EventControllerClass" c:type="SugarEventControllerClass"/>
+      </field>
+      <field name="swipe_ended">
+        <callback name="swipe_ended">
+          <source-position filename="sugar-swipe-controller.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="SwipeController" c:type="SugarSwipeController*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="SwipeDirection" c:type="SugarSwipeDirection"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="SwipeControllerPrivate" c:type="SugarSwipeControllerPrivate">
+      <source-position filename="sugar-swipe-controller.h" line="81"/>
+      <field name="device" writable="1">
+        <type name="Gdk.Device" c:type="GdkDevice*"/>
+      </field>
+      <field name="sequence" writable="1">
+        <type name="Gdk.EventSequence" c:type="GdkEventSequence*"/>
+      </field>
+      <field name="event_data" writable="1">
+        <array name="GLib.Array" c:type="GArray*">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <field name="swiping" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="swiped" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="directions" writable="1" bits="4">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <enumeration name="SwipeDirection"
+                 glib:type-name="SugarSwipeDirection"
+                 glib:get-type="sugar_swipe_direction_get_type"
+                 c:type="SugarSwipeDirection">
+      <member name="left"
+              value="0"
+              c:identifier="SUGAR_SWIPE_DIRECTION_LEFT"
+              glib:nick="left"
+              glib:name="SUGAR_SWIPE_DIRECTION_LEFT">
+      </member>
+      <member name="right"
+              value="1"
+              c:identifier="SUGAR_SWIPE_DIRECTION_RIGHT"
+              glib:nick="right"
+              glib:name="SUGAR_SWIPE_DIRECTION_RIGHT">
+      </member>
+      <member name="up"
+              value="2"
+              c:identifier="SUGAR_SWIPE_DIRECTION_UP"
+              glib:nick="up"
+              glib:name="SUGAR_SWIPE_DIRECTION_UP">
+      </member>
+      <member name="down"
+              value="3"
+              c:identifier="SUGAR_SWIPE_DIRECTION_DOWN"
+              glib:nick="down"
+              glib:name="SUGAR_SWIPE_DIRECTION_DOWN">
+      </member>
+    </enumeration>
+    <bitfield name="SwipeDirectionFlags"
+              glib:type-name="SugarSwipeDirectionFlags"
+              glib:get-type="sugar_swipe_direction_flags_get_type"
+              c:type="SugarSwipeDirectionFlags">
+      <member name="left"
+              value="1"
+              c:identifier="SUGAR_SWIPE_DIRECTION_FLAG_LEFT"
+              glib:nick="left"
+              glib:name="SUGAR_SWIPE_DIRECTION_FLAG_LEFT">
+      </member>
+      <member name="right"
+              value="2"
+              c:identifier="SUGAR_SWIPE_DIRECTION_FLAG_RIGHT"
+              glib:nick="right"
+              glib:name="SUGAR_SWIPE_DIRECTION_FLAG_RIGHT">
+      </member>
+      <member name="up"
+              value="4"
+              c:identifier="SUGAR_SWIPE_DIRECTION_FLAG_UP"
+              glib:nick="up"
+              glib:name="SUGAR_SWIPE_DIRECTION_FLAG_UP">
+      </member>
+      <member name="down"
+              value="8"
+              c:identifier="SUGAR_SWIPE_DIRECTION_FLAG_DOWN"
+              glib:nick="down"
+              glib:name="SUGAR_SWIPE_DIRECTION_FLAG_DOWN">
+      </member>
+    </bitfield>
+    <function-macro name="TOUCH_CONTROLLER"
+                    c:identifier="SUGAR_TOUCH_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-touch-controller.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TOUCH_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_TOUCH_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-touch-controller.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TOUCH_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_TOUCH_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-touch-controller.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TouchController"
+           c:symbol-prefix="touch_controller"
+           c:type="SugarTouchController"
+           parent="EventController"
+           abstract="1"
+           glib:type-name="SugarTouchController"
+           glib:get-type="sugar_touch_controller_get_type"
+           glib:type-struct="TouchControllerClass">
+      <source-position filename="sugar-touch-controller.h" line="54"/>
+      <method name="get_center"
+              c:identifier="sugar_touch_controller_get_center">
+        <doc xml:space="preserve"
+             filename="sugar-touch-controller.c"
+             line="219">If a gesture is ongoing, this function returns the center of
+the bounding box containing all ongoing touches.</doc>
+        <source-position filename="sugar-touch-controller.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-touch-controller.c"
+               line="228">%TRUE if a gesture is in progress</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="221">a #SugarTouchController</doc>
+            <type name="TouchController" c:type="SugarTouchController*"/>
+          </instance-parameter>
+          <parameter name="center_x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="222">Return location for the X axis of the bounding box center</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="center_y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="223">Return location for the Y axis of the bounding box center</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_coords"
+              c:identifier="sugar_touch_controller_get_coords">
+        <doc xml:space="preserve"
+             filename="sugar-touch-controller.c"
+             line="314">If @sequence is operating on @controller, this function returns %TRUE and
+fills in @x and @y with the latest coordinates for that @sequence.</doc>
+        <source-position filename="sugar-touch-controller.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-touch-controller.c"
+               line="324">%TRUE if @sequence operates on @controller</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="316">a #SugarTouchController</doc>
+            <type name="TouchController" c:type="SugarTouchController*"/>
+          </instance-parameter>
+          <parameter name="sequence" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="317">a #GdkEventSequence</doc>
+            <type name="Gdk.EventSequence" c:type="GdkEventSequence*"/>
+          </parameter>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="318">Return location for the X coordinate of the touch</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="319">Return location for the X coordinate of the touch</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_num_touches"
+              c:identifier="sugar_touch_controller_get_num_touches">
+        <doc xml:space="preserve"
+             filename="sugar-touch-controller.c"
+             line="274">Returns the number of touches currently operating on @controller</doc>
+        <source-position filename="sugar-touch-controller.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-touch-controller.c"
+               line="280">The number of touches</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="276">a #SugarTouchController</doc>
+            <type name="TouchController" c:type="SugarTouchController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sequences"
+              c:identifier="sugar_touch_controller_get_sequences">
+        <doc xml:space="preserve"
+             filename="sugar-touch-controller.c"
+             line="294">Returns the touch sequences currently operating on @controller</doc>
+        <source-position filename="sugar-touch-controller.h" line="69"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="sugar-touch-controller.c"
+               line="300">The list of sequences</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Gdk.EventSequence"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-touch-controller.c"
+                 line="296">a #SugarTouchController</doc>
+            <type name="TouchController" c:type="SugarTouchController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="max-touches"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="min-touches"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="EventController" c:type="SugarEventController"/>
+      </field>
+      <field name="priv">
+        <type name="TouchControllerPrivate"
+              c:type="SugarTouchControllerPrivate*"/>
+      </field>
+    </class>
+    <record name="TouchControllerClass"
+            c:type="SugarTouchControllerClass"
+            glib:is-gtype-struct-for="TouchController">
+      <source-position filename="sugar-touch-controller.h" line="54"/>
+      <field name="parent_class">
+        <type name="EventControllerClass" c:type="SugarEventControllerClass"/>
+      </field>
+    </record>
+    <record name="TouchControllerPrivate" c:type="SugarTouchControllerPrivate">
+      <source-position filename="sugar-touch-controller.h" line="61"/>
+      <field name="touches" writable="1">
+        <type name="GLib.HashTable" c:type="GHashTable*">
+          <type name="gpointer" c:type="gpointer"/>
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="min_touches" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="max_touches" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+    </record>
+    <function-macro name="ZOOM_CONTROLLER"
+                    c:identifier="SUGAR_ZOOM_CONTROLLER"
+                    introspectable="0">
+      <source-position filename="sugar-zoom-controller.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ZOOM_CONTROLLER_CLASS"
+                    c:identifier="SUGAR_ZOOM_CONTROLLER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-zoom-controller.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ZOOM_CONTROLLER_GET_CLASS"
+                    c:identifier="SUGAR_ZOOM_CONTROLLER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-zoom-controller.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ZoomController"
+           c:symbol-prefix="zoom_controller"
+           c:type="SugarZoomController"
+           parent="TouchController"
+           glib:type-name="SugarZoomController"
+           glib:get-type="sugar_zoom_controller_get_type"
+           glib:type-struct="ZoomControllerClass">
+      <source-position filename="sugar-zoom-controller.h" line="57"/>
+      <constructor name="new" c:identifier="sugar_zoom_controller_new">
+        <source-position filename="sugar-zoom-controller.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <type name="EventController" c:type="SugarEventController*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="scale_changed">
+        <source-position filename="sugar-zoom-controller.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <type name="ZoomController" c:type="SugarZoomController*"/>
+          </instance-parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_scale_delta"
+              c:identifier="sugar_zoom_controller_get_scale_delta">
+        <doc xml:space="preserve"
+             filename="sugar-zoom-controller.c"
+             line="176">If @controller is on state %SUGAR_EVENT_CONTROLLER_STATE_RECOGNIZED,
+this function returns %TRUE and fills in @scale with the zooming
+difference since the gesture was recognized (hence the starting point
+is considered 1x).</doc>
+        <source-position filename="sugar-zoom-controller.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-zoom-controller.c"
+               line="186">%TRUE if @controller is recognizing a zoom gesture</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="controller" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-zoom-controller.c"
+                 line="178">a #SugarZoomController</doc>
+            <type name="ZoomController" c:type="SugarZoomController*"/>
+          </instance-parameter>
+          <parameter name="scale"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-zoom-controller.c"
+                 line="179">zoom delta</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="TouchController" c:type="SugarTouchController"/>
+      </field>
+      <field name="priv">
+        <type name="ZoomControllerPrivate"
+              c:type="SugarZoomControllerPrivate*"/>
+      </field>
+      <glib:signal name="scale-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="scale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-zoom-controller.c"
+                 line="157">Difference with the starting zooming state</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ZoomControllerClass"
+            c:type="SugarZoomControllerClass"
+            glib:is-gtype-struct-for="ZoomController">
+      <source-position filename="sugar-zoom-controller.h" line="57"/>
+      <field name="parent_class">
+        <type name="TouchControllerClass" c:type="SugarTouchControllerClass"/>
+      </field>
+      <field name="scale_changed">
+        <callback name="scale_changed">
+          <source-position filename="sugar-zoom-controller.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="controller" transfer-ownership="none">
+              <type name="ZoomController" c:type="SugarZoomController*"/>
+            </parameter>
+            <parameter name="scale" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ZoomControllerPrivate" c:type="SugarZoomControllerPrivate">
+      <source-position filename="sugar-zoom-controller.h" line="62"/>
+      <field name="initial_distance" writable="1">
+        <type name="gdouble" c:type="gdouble"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

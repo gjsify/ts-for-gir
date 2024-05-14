@@ -30,7 +30,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    const generateConfig = Config.getGenerateConfig(config)
+    const generateConfig = Config.getOptionsGeneration(config)
     const moduleLoader = new ModuleLoader(generateConfig)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,
@@ -41,6 +41,8 @@ const handler = async (args: ConfigFlags) => {
     if (keep.length === 0) {
         return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
+
+    moduleLoader.parse(keep)
 
     const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
 
@@ -77,10 +79,6 @@ class TypeScriptFormatter extends Formatter {
             })
         } catch (error) {
             return Promise.resolve(input)
-            // TODO: Don't return invalid TypeScript, useful for debugging for now.
-            // console.error('Failed to format output...')
-            // console.error(input)
-            // throw error
         }
     }
 }

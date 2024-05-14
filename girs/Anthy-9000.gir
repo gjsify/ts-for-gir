@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <package name="anthy"/>
+  <namespace name="Anthy"
+             version="9000"
+             shared-library="libanthygobject-1.0.so.5,libanthy.so.0"
+             c:identifier-prefixes="Anthy"
+             c:symbol-prefixes="anthy">
+    <constant name="COMPILED_ENCODING"
+              value="0"
+              c:type="ANTHY_COMPILED_ENCODING">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="EUC_JP_ENCODING" value="1" c:type="ANTHY_EUC_JP_ENCODING">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="GContext"
+           c:symbol-prefix="gcontext"
+           c:type="AnthyGContext"
+           parent="GObject.InitiallyUnowned"
+           glib:type-name="AnthyGContext"
+           glib:get-type="anthy_gcontext_get_type"
+           glib:type-struct="GContextClass">
+      <doc xml:space="preserve">An #AnthyGContext is an object that handles conversion strings.</doc>
+      <constructor name="new" c:identifier="anthy_gcontext_new">
+        <doc xml:space="preserve">New an #AnthyGobject.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A newly allocated #AnthyGContext</doc>
+          <type name="GContext" c:type="AnthyGContext*"/>
+        </return-value>
+      </constructor>
+      <method name="commit_prediction"
+              c:identifier="anthy_gcontext_commit_prediction">
+        <doc xml:space="preserve">Commit a prediction string with @ntg_seg .</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth_seg" transfer-ownership="none">
+            <doc xml:space="preserve">Nth segment</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="commit_segment"
+              c:identifier="anthy_gcontext_commit_segment">
+        <doc xml:space="preserve">Commit a string with @ntg_seg and @nth_lookup.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth_seg" transfer-ownership="none">
+            <doc xml:space="preserve">Nth segment</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="nth_lookup" transfer-ownership="none">
+            <doc xml:space="preserve">Nth lookup</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="do_set_personality"
+              c:identifier="anthy_gcontext_do_set_personality">
+        <doc xml:space="preserve">Set a personal dictionary.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="dict_name" transfer-ownership="none">
+            <doc xml:space="preserve">a Dictionary name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_nr_candidates"
+              c:identifier="anthy_gcontext_get_nr_candidates">
+        <doc xml:space="preserve">The number of the candidates</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The number of the candidates</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth_seg" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_nr_predictions"
+              c:identifier="anthy_gcontext_get_nr_predictions">
+        <doc xml:space="preserve">The number of the converted segments in the current prediction string.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The number of the converted segments in the current
+       prediction string.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nr_segments"
+              c:identifier="anthy_gcontext_get_nr_segments">
+        <doc xml:space="preserve">The number of the converted segments</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The number of the converted segments</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_prediction"
+              c:identifier="anthy_gcontext_get_prediction">
+        <doc xml:space="preserve">A newly assigned string with @ntg_seg .</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A newly assigned string.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth_seg" transfer-ownership="none">
+            <doc xml:space="preserve">Nth segment</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_segment" c:identifier="anthy_gcontext_get_segment">
+        <doc xml:space="preserve">A newly assigned string with @ntg_seg and @nth_lookup .</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A newly assigned string.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth_seg" transfer-ownership="none">
+            <doc xml:space="preserve">Nth segment</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="nth_lookup" transfer-ownership="none">
+            <doc xml:space="preserve">Nth lookup</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_personality"
+              c:identifier="anthy_gcontext_init_personality">
+        <doc xml:space="preserve">Initialize the personal dictionaries.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="resize_segment"
+              c:identifier="anthy_gcontext_resize_segment">
+        <doc xml:space="preserve">Resize the nth segment.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="nth" transfer-ownership="none">
+            <doc xml:space="preserve">nth segment</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="resize" transfer-ownership="none">
+            <doc xml:space="preserve">size</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_encoding" c:identifier="anthy_gcontext_set_encoding">
+        <doc xml:space="preserve">Set an encoding.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="encoding" transfer-ownership="none">
+            <doc xml:space="preserve">An encoding</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_prediction_string"
+              c:identifier="anthy_gcontext_set_prediction_string">
+        <doc xml:space="preserve">Set a prediction string.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="string" transfer-ownership="none">
+            <doc xml:space="preserve">A prediction string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string" c:identifier="anthy_gcontext_set_string">
+        <doc xml:space="preserve">Set a conversion string.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="obj" transfer-ownership="none">
+            <type name="GContext" c:type="AnthyGContext*"/>
+          </instance-parameter>
+          <parameter name="string" transfer-ownership="none">
+            <doc xml:space="preserve">A conversion string</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.InitiallyUnowned" c:type="GInitiallyUnowned"/>
+      </field>
+      <field name="priv">
+        <type name="GContextPrivate" c:type="AnthyGContextPrivate*"/>
+      </field>
+      <field name="pdummy" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="GContextClass"
+            c:type="AnthyGContextClass"
+            glib:is-gtype-struct-for="GContext">
+      <field name="parent">
+        <type name="GObject.InitiallyUnownedClass"
+              c:type="GInitiallyUnownedClass"/>
+      </field>
+      <field name="pdummy" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="GContextPrivate" c:type="AnthyGContextPrivate" disguised="1">
+    </record>
+    <constant name="NTH_HALFKANA_CANDIDATE"
+              value="-4"
+              c:type="NTH_HALFKANA_CANDIDATE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="NTH_HIRAGANA_CANDIDATE"
+              value="-3"
+              c:type="NTH_HIRAGANA_CANDIDATE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="NTH_KATAKANA_CANDIDATE"
+              value="-2"
+              c:type="NTH_KATAKANA_CANDIDATE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="NTH_UNCONVERTED_CANDIDATE"
+              value="-1"
+              c:type="NTH_UNCONVERTED_CANDIDATE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="RECONVERT_ALWAYS"
+              value="2"
+              c:type="ANTHY_RECONVERT_ALWAYS">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="RECONVERT_AUTO" value="0" c:type="ANTHY_RECONVERT_AUTO">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="RECONVERT_DISABLE"
+              value="1"
+              c:type="ANTHY_RECONVERT_DISABLE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="UTF8_ENCODING" value="2" c:type="ANTHY_UTF8_ENCODING">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="anthy_context_t" c:type="anthy_context_t" disguised="1">
+    </record>
+    <record name="anthy_conv_stat" c:type="anthy_conv_stat">
+      <field name="nr_segment" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+    </record>
+    <record name="anthy_prediction_stat" c:type="anthy_prediction_stat">
+      <field name="nr_prediction" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+    </record>
+    <record name="anthy_segment_stat" c:type="anthy_segment_stat">
+      <field name="nr_candidate" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="seg_len" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+    </record>
+    <function name="commit_prediction" c:identifier="anthy_commit_prediction">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="commit_segment" c:identifier="anthy_commit_segment">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg2" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="conf_override" c:identifier="anthy_conf_override">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="context_set_encoding"
+              c:identifier="anthy_context_set_encoding">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="ac" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="encoding" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="create_context"
+              c:identifier="anthy_create_context"
+              introspectable="0">
+      <return-value>
+        <type name="anthy_context_t" c:type="anthy_context_t"/>
+      </return-value>
+    </function>
+    <function name="get_prediction" c:identifier="anthy_get_prediction">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg2" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter name="arg3" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_prediction_stat"
+              c:identifier="anthy_get_prediction_stat">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gpointer" c:type="anthy_prediction_stat*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_segment" c:identifier="anthy_get_segment">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg2" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg3" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter name="arg4" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_segment_stat" c:identifier="anthy_get_segment_stat">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg2" transfer-ownership="none">
+          <type name="gpointer" c:type="anthy_segment_stat*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_stat" c:identifier="anthy_get_stat">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gpointer" c:type="anthy_conv_stat*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_version_string"
+              c:identifier="anthy_get_version_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="anthy_init">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+    </function>
+    <callback name="logger" c:type="anthy_logger">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="level" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="print_context" c:identifier="anthy_print_context">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="quit" c:identifier="anthy_quit">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="release_context" c:identifier="anthy_release_context">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="reset_context" c:identifier="anthy_reset_context">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="resize_segment" c:identifier="anthy_resize_segment">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="arg2" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_logger"
+              c:identifier="anthy_set_logger"
+              introspectable="0">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="logger" c:type="anthy_logger"/>
+        </parameter>
+        <parameter name="level" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_personality" c:identifier="anthy_set_personality">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_prediction_string"
+              c:identifier="anthy_set_prediction_string">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_reconversion_mode"
+              c:identifier="anthy_set_reconversion_mode">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="ac" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_string" c:identifier="anthy_set_string">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="anthy_context_t" c:type="anthy_context_t"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

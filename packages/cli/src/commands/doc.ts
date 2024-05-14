@@ -28,7 +28,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    const generateConfig = Config.getGenerateConfig(config)
+    const generateConfig = Config.getOptionsGeneration(config)
     const moduleLoader = new ModuleLoader(generateConfig)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,

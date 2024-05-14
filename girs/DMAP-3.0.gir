@@ -1,0 +1,3785 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Soup" version="2.4"/>
+  <namespace name="DMAP"
+             version="3.0"
+             shared-library="libdmapsharing-3.0.so.2"
+             c:identifier-prefixes="DMAP"
+             c:symbol-prefixes="dmap">
+    <class name="Connection"
+           c:symbol-prefix="connection"
+           c:type="DMAPConnection"
+           parent="GObject.Object"
+           glib:type-name="DMAPConnection"
+           glib:get-type="dmap_connection_get_type"
+           glib:type-struct="ConnectionClass">
+      <virtual-method name="authenticate">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="build_message"
+                      invoker="build_message"
+                      introspectable="0">
+        <return-value>
+          <type name="Soup.Message" c:type="SoupMessage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="need_hash" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="version" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="req_id" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="send_close" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="connected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="connecting">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="ConnectionState" c:type="DMAPConnectionState"/>
+          </parameter>
+          <parameter name="progress" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="disconnected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_protocol_version_cc">
+        <return-value transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_query_metadata">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_mlcl" introspectable="0">
+        <return-value>
+          <type name="Record" c:type="DMAPRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="factory" transfer-ownership="none">
+            <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
+          </parameter>
+          <parameter name="mlcl" transfer-ownership="none">
+            <type name="GLib.Node" c:type="GNode*"/>
+          </parameter>
+          <parameter name="item_id" transfer-ownership="none">
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="operation_done">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="authenticate_message"
+              c:identifier="dmap_connection_authenticate_message">
+        <doc xml:space="preserve">Attach an authentication credential to a request. This
+method should be called by a function that is connected to the
+#DMAPConnection::authenticate signal. The signal will provide the
+connection, session, message and auth to that function. That function
+should obtain a password and provide it to this method.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve">A #DMAPConnection</doc>
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve">A #SoupSession</doc>
+            <type name="Soup.Session" c:type="SoupSession*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve">A #SoupMessage</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="auth" transfer-ownership="none">
+            <doc xml:space="preserve">A #SoupAuth</doc>
+            <type name="Soup.Auth" c:type="SoupAuth*"/>
+          </parameter>
+          <parameter name="password" transfer-ownership="none">
+            <doc xml:space="preserve">A password</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="build_message"
+              c:identifier="dmap_connection_build_message"
+              introspectable="0">
+        <return-value>
+          <type name="Soup.Message" c:type="SoupMessage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="need_hash" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="version" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="req_id" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="send_close" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect"
+              c:identifier="dmap_connection_connect"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="callback" transfer-ownership="none" closure="1">
+            <type name="ConnectionCallback" c:type="DMAPConnectionCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="disconnect"
+              c:identifier="dmap_connection_disconnect"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="callback" transfer-ownership="none" closure="1">
+            <type name="ConnectionCallback" c:type="DMAPConnectionCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get" c:identifier="dmap_connection_get" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="need_hash" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="handler" transfer-ownership="none" closure="3">
+            <type name="ResponseHandler" c:type="DMAPResponseHandler"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_headers" c:identifier="dmap_connection_get_headers">
+        <return-value transfer-ownership="full">
+          <type name="Soup.MessageHeaders" c:type="SoupMessageHeaders*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_playlists"
+              c:identifier="dmap_connection_get_playlists"
+              introspectable="0">
+        <return-value>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_connected" c:identifier="dmap_connection_is_connected">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="setup" c:identifier="dmap_connection_setup">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="connection" transfer-ownership="none">
+            <type name="Connection" c:type="DMAPConnection*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="base-uri" writable="1" transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="database-id" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="db"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="dmap-version" writable="1" transfer-ownership="none">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="factory"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="host"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="password"
+                readable="0"
+                writable="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="port"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="revision-number" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="session-id" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="username"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ConnectionPrivate" c:type="DMAPConnectionPrivate*"/>
+      </field>
+      <glib:signal name="authenticate" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Soup.Session"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="Soup.Auth"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="connected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="connecting" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gulong" c:type="gulong"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="disconnected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="operation-done" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <callback name="ConnectionCallback" c:type="DMAPConnectionCallback">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="connection" transfer-ownership="none">
+          <type name="Connection" c:type="DMAPConnection*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="reason" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="ConnectionClass"
+            c:type="DMAPConnectionClass"
+            glib:is-gtype-struct-for="Connection">
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_protocol_version_cc">
+        <callback name="get_protocol_version_cc">
+          <return-value transfer-ownership="none">
+            <type name="ContentCode" c:type="DMAPContentCode"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_query_metadata">
+        <callback name="get_query_metadata">
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="handle_mlcl" introspectable="0">
+        <callback name="handle_mlcl" introspectable="0">
+          <return-value>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+            <parameter name="factory" transfer-ownership="none">
+              <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
+            </parameter>
+            <parameter name="mlcl" transfer-ownership="none">
+              <type name="GLib.Node" c:type="GNode*"/>
+            </parameter>
+            <parameter name="item_id" transfer-ownership="none">
+              <type name="gint" c:type="gint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="build_message" introspectable="0">
+        <callback name="build_message" introspectable="0">
+          <return-value>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="need_hash" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+            <parameter name="version" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+            <parameter name="req_id" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+            <parameter name="send_close" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="connected">
+        <callback name="connected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="disconnected">
+        <callback name="disconnected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="authenticate">
+        <callback name="authenticate">
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="connecting">
+        <callback name="connecting">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <type name="ConnectionState" c:type="DMAPConnectionState"/>
+            </parameter>
+            <parameter name="progress" transfer-ownership="none">
+              <type name="gfloat" c:type="float"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="operation_done">
+        <callback name="operation_done">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="connection" transfer-ownership="none">
+              <type name="Connection" c:type="DMAPConnection*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ConnectionPrivate"
+            c:type="DMAPConnectionPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="ConnectionState"
+                 glib:type-name="DMAPConnectionState"
+                 glib:get-type="dmap_connection_state_get_type"
+                 c:type="DMAPConnectionState">
+      <member name="get_info"
+              value="0"
+              c:identifier="DMAP_GET_INFO"
+              glib:nick="get-info">
+      </member>
+      <member name="login"
+              value="1"
+              c:identifier="DMAP_LOGIN"
+              glib:nick="login">
+      </member>
+      <member name="get_revision_number"
+              value="2"
+              c:identifier="DMAP_GET_REVISION_NUMBER"
+              glib:nick="get-revision-number">
+      </member>
+      <member name="get_db_info"
+              value="3"
+              c:identifier="DMAP_GET_DB_INFO"
+              glib:nick="get-db-info">
+      </member>
+      <member name="get_songs"
+              value="4"
+              c:identifier="DMAP_GET_SONGS"
+              glib:nick="get-songs">
+      </member>
+      <member name="get_playlists"
+              value="5"
+              c:identifier="DMAP_GET_PLAYLISTS"
+              glib:nick="get-playlists">
+      </member>
+      <member name="get_playlist_entries"
+              value="6"
+              c:identifier="DMAP_GET_PLAYLIST_ENTRIES"
+              glib:nick="get-playlist-entries">
+      </member>
+      <member name="logout"
+              value="7"
+              c:identifier="DMAP_LOGOUT"
+              glib:nick="logout">
+      </member>
+      <member name="done" value="8" c:identifier="DMAP_DONE" glib:nick="done">
+      </member>
+    </enumeration>
+    <interface name="ContainerDb"
+               c:symbol-prefix="container_db"
+               c:type="DMAPContainerDb"
+               glib:type-name="DMAPContainerDb"
+               glib:get-type="dmap_container_db_get_type"
+               glib:type-struct="ContainerDbIface">
+      <virtual-method name="add" invoker="add">
+        <doc xml:space="preserve">Add a record to the database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A record.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="count">
+        <return-value transfer-ownership="none">
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="foreach" invoker="foreach" introspectable="0">
+        <doc xml:space="preserve">Apply a function to each record in a container database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="func" transfer-ownership="none" closure="1">
+            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">User data to pass to the function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="lookup_by_id"
+                      invoker="lookup_by_id"
+                      introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed when no longer required.</doc>
+          <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add" c:identifier="dmap_container_db_add">
+        <doc xml:space="preserve">Add a record to the database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A record.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="count" c:identifier="dmap_container_db_count">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the number of records in the database.</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="foreach"
+              c:identifier="dmap_container_db_foreach"
+              introspectable="0">
+        <doc xml:space="preserve">Apply a function to each record in a container database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="func" transfer-ownership="none" closure="1">
+            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">User data to pass to the function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_by_id"
+              c:identifier="dmap_container_db_lookup_by_id"
+              introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed when no longer required.</doc>
+          <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A container database.</doc>
+            <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ContainerDbIface"
+            c:type="DMAPContainerDbIface"
+            glib:is-gtype-struct-for="ContainerDb">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="add">
+        <callback name="add">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A container database.</doc>
+              <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+            </parameter>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A record.</doc>
+              <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="lookup_by_id" introspectable="0">
+        <callback name="lookup_by_id" introspectable="0">
+          <return-value>
+            <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed when no longer required.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A container database.</doc>
+              <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <doc xml:space="preserve">A record ID.</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="foreach" introspectable="0">
+        <callback name="foreach" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A container database.</doc>
+              <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+            </parameter>
+            <parameter name="func" transfer-ownership="none" closure="2">
+              <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+              <type name="GLib.HFunc" c:type="GHFunc"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <doc xml:space="preserve">User data to pass to the function.</doc>
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="count">
+        <callback name="count">
+          <return-value transfer-ownership="none">
+            <type name="gint64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <type name="ContainerDb" c:type="DMAPContainerDb*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="ContainerRecord"
+               c:symbol-prefix="container_record"
+               c:type="DMAPContainerRecord"
+               glib:type-name="DMAPContainerRecord"
+               glib:get-type="dmap_container_record_get_type"
+               glib:type-struct="ContainerRecordIface">
+      <virtual-method name="add_entry" invoker="add_entry">
+        <doc xml:space="preserve">Add a record to the database. It is assumed that the record is placed
+directly into the database (not copied) and not freed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container_record"
+                              transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">The record's ID.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_entries"
+                      invoker="get_entries"
+                      introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+          <type name="Db" c:type="DMAPDb*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_entry_count" invoker="get_entry_count">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the number of records in the container record.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_id" invoker="get_id">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the ID for the given record.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_entry" c:identifier="dmap_container_record_add_entry">
+        <doc xml:space="preserve">Add a record to the database. It is assumed that the record is placed
+directly into the database (not copied) and not freed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container_record"
+                              transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">The record's ID.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_entries"
+              c:identifier="dmap_container_record_get_entries"
+              introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+          <type name="Db" c:type="DMAPDb*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_entry_count"
+              c:identifier="dmap_container_record_get_entry_count">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the number of records in the container record.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="dmap_container_record_get_id">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the ID for the given record.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="name" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </interface>
+    <record name="ContainerRecordIface"
+            c:type="DMAPContainerRecordIface"
+            glib:is-gtype-struct-for="ContainerRecord">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_id">
+        <callback name="get_id">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the ID for the given record.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_entry">
+        <callback name="add_entry">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="container_record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+            </parameter>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPRecord.</doc>
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <doc xml:space="preserve">The record's ID.</doc>
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_entry_count">
+        <callback name="get_entry_count">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the number of records in the container record.</doc>
+            <type name="guint64" c:type="guint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_entries" introspectable="0">
+        <callback name="get_entries" introspectable="0">
+          <return-value>
+            <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </return-value>
+          <parameters>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="ContentCode" c:type="DMAPContentCode">
+      <member name="cc_invalid" value="0" c:identifier="DMAP_CC_INVALID">
+      </member>
+      <member name="raw" value="1" c:identifier="DMAP_RAW">
+      </member>
+      <member name="cc_mdcl" value="2" c:identifier="DMAP_CC_MDCL">
+      </member>
+      <member name="cc_mstt" value="3" c:identifier="DMAP_CC_MSTT">
+      </member>
+      <member name="cc_miid" value="4" c:identifier="DMAP_CC_MIID">
+      </member>
+      <member name="cc_minm" value="5" c:identifier="DMAP_CC_MINM">
+      </member>
+      <member name="cc_mikd" value="6" c:identifier="DMAP_CC_MIKD">
+      </member>
+      <member name="cc_mper" value="7" c:identifier="DMAP_CC_MPER">
+      </member>
+      <member name="cc_mcon" value="8" c:identifier="DMAP_CC_MCON">
+      </member>
+      <member name="cc_mcti" value="9" c:identifier="DMAP_CC_MCTI">
+      </member>
+      <member name="cc_mpco" value="10" c:identifier="DMAP_CC_MPCO">
+      </member>
+      <member name="cc_msts" value="11" c:identifier="DMAP_CC_MSTS">
+      </member>
+      <member name="cc_mimc" value="12" c:identifier="DMAP_CC_MIMC">
+      </member>
+      <member name="cc_mctc" value="13" c:identifier="DMAP_CC_MCTC">
+      </member>
+      <member name="cc_mrco" value="14" c:identifier="DMAP_CC_MRCO">
+      </member>
+      <member name="cc_mtco" value="15" c:identifier="DMAP_CC_MTCO">
+      </member>
+      <member name="cc_mlcl" value="16" c:identifier="DMAP_CC_MLCL">
+      </member>
+      <member name="cc_mlit" value="17" c:identifier="DMAP_CC_MLIT">
+      </member>
+      <member name="cc_mbcl" value="18" c:identifier="DMAP_CC_MBCL">
+      </member>
+      <member name="cc_msrv" value="19" c:identifier="DMAP_CC_MSRV">
+      </member>
+      <member name="cc_msau" value="20" c:identifier="DMAP_CC_MSAU">
+      </member>
+      <member name="cc_mslr" value="21" c:identifier="DMAP_CC_MSLR">
+      </member>
+      <member name="cc_mpro" value="22" c:identifier="DMAP_CC_MPRO">
+      </member>
+      <member name="cc_msal" value="23" c:identifier="DMAP_CC_MSAL">
+      </member>
+      <member name="cc_msup" value="24" c:identifier="DMAP_CC_MSUP">
+      </member>
+      <member name="cc_mspi" value="25" c:identifier="DMAP_CC_MSPI">
+      </member>
+      <member name="cc_msex" value="26" c:identifier="DMAP_CC_MSEX">
+      </member>
+      <member name="cc_msbr" value="27" c:identifier="DMAP_CC_MSBR">
+      </member>
+      <member name="cc_msqy" value="28" c:identifier="DMAP_CC_MSQY">
+      </member>
+      <member name="cc_msix" value="29" c:identifier="DMAP_CC_MSIX">
+      </member>
+      <member name="cc_msrs" value="30" c:identifier="DMAP_CC_MSRS">
+      </member>
+      <member name="cc_mstm" value="31" c:identifier="DMAP_CC_MSTM">
+      </member>
+      <member name="cc_msdc" value="32" c:identifier="DMAP_CC_MSDC">
+      </member>
+      <member name="cc_mccr" value="33" c:identifier="DMAP_CC_MCCR">
+      </member>
+      <member name="cc_mcnm" value="34" c:identifier="DMAP_CC_MCNM">
+      </member>
+      <member name="cc_mcna" value="35" c:identifier="DMAP_CC_MCNA">
+      </member>
+      <member name="cc_mcty" value="36" c:identifier="DMAP_CC_MCTY">
+      </member>
+      <member name="cc_mlog" value="37" c:identifier="DMAP_CC_MLOG">
+      </member>
+      <member name="cc_mlid" value="38" c:identifier="DMAP_CC_MLID">
+      </member>
+      <member name="cc_mupd" value="39" c:identifier="DMAP_CC_MUPD">
+      </member>
+      <member name="cc_musr" value="40" c:identifier="DMAP_CC_MUSR">
+      </member>
+      <member name="cc_muty" value="41" c:identifier="DMAP_CC_MUTY">
+      </member>
+      <member name="cc_mudl" value="42" c:identifier="DMAP_CC_MUDL">
+      </member>
+      <member name="cc_msma" value="43" c:identifier="DMAP_CC_MSMA">
+      </member>
+      <member name="cc_fquesch" value="44" c:identifier="DMAP_CC_FQUESCH">
+      </member>
+      <member name="cc_apro" value="45" c:identifier="DMAP_CC_APRO">
+      </member>
+      <member name="cc_avdb" value="46" c:identifier="DMAP_CC_AVDB">
+      </member>
+      <member name="cc_abro" value="47" c:identifier="DMAP_CC_ABRO">
+      </member>
+      <member name="cc_abal" value="48" c:identifier="DMAP_CC_ABAL">
+      </member>
+      <member name="cc_abar" value="49" c:identifier="DMAP_CC_ABAR">
+      </member>
+      <member name="cc_abcp" value="50" c:identifier="DMAP_CC_ABCP">
+      </member>
+      <member name="cc_abgn" value="51" c:identifier="DMAP_CC_ABGN">
+      </member>
+      <member name="cc_adbs" value="52" c:identifier="DMAP_CC_ADBS">
+      </member>
+      <member name="cc_asal" value="53" c:identifier="DMAP_CC_ASAL">
+      </member>
+      <member name="cc_asai" value="54" c:identifier="DMAP_CC_ASAI">
+      </member>
+      <member name="cc_asaa" value="55" c:identifier="DMAP_CC_ASAA">
+      </member>
+      <member name="cc_asar" value="56" c:identifier="DMAP_CC_ASAR">
+      </member>
+      <member name="cc_asbt" value="57" c:identifier="DMAP_CC_ASBT">
+      </member>
+      <member name="cc_asbr" value="58" c:identifier="DMAP_CC_ASBR">
+      </member>
+      <member name="cc_ascm" value="59" c:identifier="DMAP_CC_ASCM">
+      </member>
+      <member name="cc_asco" value="60" c:identifier="DMAP_CC_ASCO">
+      </member>
+      <member name="cc_asda" value="61" c:identifier="DMAP_CC_ASDA">
+      </member>
+      <member name="cc_asdm" value="62" c:identifier="DMAP_CC_ASDM">
+      </member>
+      <member name="cc_asdc" value="63" c:identifier="DMAP_CC_ASDC">
+      </member>
+      <member name="cc_asdn" value="64" c:identifier="DMAP_CC_ASDN">
+      </member>
+      <member name="cc_asdb" value="65" c:identifier="DMAP_CC_ASDB">
+      </member>
+      <member name="cc_aseq" value="66" c:identifier="DMAP_CC_ASEQ">
+      </member>
+      <member name="cc_asfm" value="67" c:identifier="DMAP_CC_ASFM">
+      </member>
+      <member name="cc_asgn" value="68" c:identifier="DMAP_CC_ASGN">
+      </member>
+      <member name="cc_asdt" value="69" c:identifier="DMAP_CC_ASDT">
+      </member>
+      <member name="cc_asrv" value="70" c:identifier="DMAP_CC_ASRV">
+      </member>
+      <member name="cc_assr" value="71" c:identifier="DMAP_CC_ASSR">
+      </member>
+      <member name="cc_assz" value="72" c:identifier="DMAP_CC_ASSZ">
+      </member>
+      <member name="cc_asst" value="73" c:identifier="DMAP_CC_ASST">
+      </member>
+      <member name="cc_assp" value="74" c:identifier="DMAP_CC_ASSP">
+      </member>
+      <member name="cc_astm" value="75" c:identifier="DMAP_CC_ASTM">
+      </member>
+      <member name="cc_astc" value="76" c:identifier="DMAP_CC_ASTC">
+      </member>
+      <member name="cc_astn" value="77" c:identifier="DMAP_CC_ASTN">
+      </member>
+      <member name="cc_asur" value="78" c:identifier="DMAP_CC_ASUR">
+      </member>
+      <member name="cc_asyr" value="79" c:identifier="DMAP_CC_ASYR">
+      </member>
+      <member name="cc_asdk" value="80" c:identifier="DMAP_CC_ASDK">
+      </member>
+      <member name="cc_asul" value="81" c:identifier="DMAP_CC_ASUL">
+      </member>
+      <member name="cc_assu" value="82" c:identifier="DMAP_CC_ASSU">
+      </member>
+      <member name="cc_assa" value="83" c:identifier="DMAP_CC_ASSA">
+      </member>
+      <member name="cc_aply" value="84" c:identifier="DMAP_CC_APLY">
+      </member>
+      <member name="cc_abpl" value="85" c:identifier="DMAP_CC_ABPL">
+      </member>
+      <member name="cc_apso" value="86" c:identifier="DMAP_CC_APSO">
+      </member>
+      <member name="cc_prsv" value="87" c:identifier="DMAP_CC_PRSV">
+      </member>
+      <member name="cc_arif" value="88" c:identifier="DMAP_CC_ARIF">
+      </member>
+      <member name="cc_msas" value="89" c:identifier="DMAP_CC_MSAS">
+      </member>
+      <member name="cc_agrp" value="90" c:identifier="DMAP_CC_AGRP">
+      </member>
+      <member name="cc_agal" value="91" c:identifier="DMAP_CC_AGAL">
+      </member>
+      <member name="cc_ascp" value="92" c:identifier="DMAP_CC_ASCP">
+      </member>
+      <member name="cc_ppro" value="93" c:identifier="DMAP_CC_PPRO">
+      </member>
+      <member name="cc_pasp" value="94" c:identifier="DMAP_CC_PASP">
+      </member>
+      <member name="cc_pfdt" value="95" c:identifier="DMAP_CC_PFDT">
+      </member>
+      <member name="cc_picd" value="96" c:identifier="DMAP_CC_PICD">
+      </member>
+      <member name="cc_pimf" value="97" c:identifier="DMAP_CC_PIMF">
+      </member>
+      <member name="cc_pfmt" value="98" c:identifier="DMAP_CC_PFMT">
+      </member>
+      <member name="cc_pifs" value="99" c:identifier="DMAP_CC_PIFS">
+      </member>
+      <member name="cc_plsz" value="100" c:identifier="DMAP_CC_PLSZ">
+      </member>
+      <member name="cc_phgt" value="101" c:identifier="DMAP_CC_PHGT">
+      </member>
+      <member name="cc_pwth" value="102" c:identifier="DMAP_CC_PWTH">
+      </member>
+      <member name="cc_prat" value="103" c:identifier="DMAP_CC_PRAT">
+      </member>
+      <member name="cc_pcmt" value="104" c:identifier="DMAP_CC_PCMT">
+      </member>
+      <member name="cc_pret" value="105" c:identifier="DMAP_CC_PRET">
+      </member>
+      <member name="cc_aesv" value="106" c:identifier="DMAP_CC_AESV">
+      </member>
+      <member name="cc_aehv" value="107" c:identifier="DMAP_CC_AEHV">
+      </member>
+      <member name="cc_aesp" value="108" c:identifier="DMAP_CC_AESP">
+      </member>
+      <member name="cc_aepp" value="109" c:identifier="DMAP_CC_AEPP">
+      </member>
+      <member name="cc_aeps" value="110" c:identifier="DMAP_CC_AEPS">
+      </member>
+      <member name="cc_aesg" value="111" c:identifier="DMAP_CC_AESG">
+      </member>
+      <member name="cc_aemk" value="112" c:identifier="DMAP_CC_AEMK">
+      </member>
+      <member name="cc_aefp" value="113" c:identifier="DMAP_CC_AEFP">
+      </member>
+      <member name="cc_cmpa" value="114" c:identifier="DMAP_CC_CMPA">
+      </member>
+      <member name="cc_cmnm" value="115" c:identifier="DMAP_CC_CMNM">
+      </member>
+      <member name="cc_cmty" value="116" c:identifier="DMAP_CC_CMTY">
+      </member>
+      <member name="cc_cmpg" value="117" c:identifier="DMAP_CC_CMPG">
+      </member>
+      <member name="cc_caci" value="118" c:identifier="DMAP_CC_CACI">
+      </member>
+      <member name="cc_caps" value="119" c:identifier="DMAP_CC_CAPS">
+      </member>
+      <member name="cc_cash" value="120" c:identifier="DMAP_CC_CASH">
+      </member>
+      <member name="cc_carp" value="121" c:identifier="DMAP_CC_CARP">
+      </member>
+      <member name="cc_caas" value="122" c:identifier="DMAP_CC_CAAS">
+      </member>
+      <member name="cc_caar" value="123" c:identifier="DMAP_CC_CAAR">
+      </member>
+      <member name="cc_caia" value="124" c:identifier="DMAP_CC_CAIA">
+      </member>
+      <member name="cc_canp" value="125" c:identifier="DMAP_CC_CANP">
+      </member>
+      <member name="cc_cann" value="126" c:identifier="DMAP_CC_CANN">
+      </member>
+      <member name="cc_cana" value="127" c:identifier="DMAP_CC_CANA">
+      </member>
+      <member name="cc_canl" value="128" c:identifier="DMAP_CC_CANL">
+      </member>
+      <member name="cc_cang" value="129" c:identifier="DMAP_CC_CANG">
+      </member>
+      <member name="cc_cant" value="130" c:identifier="DMAP_CC_CANT">
+      </member>
+      <member name="cc_casp" value="131" c:identifier="DMAP_CC_CASP">
+      </member>
+      <member name="cc_cass" value="132" c:identifier="DMAP_CC_CASS">
+      </member>
+      <member name="cc_cast" value="133" c:identifier="DMAP_CC_CAST">
+      </member>
+      <member name="cc_casu" value="134" c:identifier="DMAP_CC_CASU">
+      </member>
+      <member name="cc_casg" value="135" c:identifier="DMAP_CC_CASG">
+      </member>
+      <member name="cc_cacr" value="136" c:identifier="DMAP_CC_CACR">
+      </member>
+      <member name="cc_cmcp" value="137" c:identifier="DMAP_CC_CMCP">
+      </member>
+      <member name="cc_cmgt" value="138" c:identifier="DMAP_CC_CMGT">
+      </member>
+      <member name="cc_cmik" value="139" c:identifier="DMAP_CC_CMIK">
+      </member>
+      <member name="cc_cmsp" value="140" c:identifier="DMAP_CC_CMSP">
+      </member>
+      <member name="cc_cmst" value="141" c:identifier="DMAP_CC_CMST">
+      </member>
+      <member name="cc_cmsv" value="142" c:identifier="DMAP_CC_CMSV">
+      </member>
+      <member name="cc_cmsr" value="143" c:identifier="DMAP_CC_CMSR">
+      </member>
+      <member name="cc_cmmk" value="144" c:identifier="DMAP_CC_CMMK">
+      </member>
+      <member name="cc_cmvo" value="145" c:identifier="DMAP_CC_CMVO">
+      </member>
+      <member name="cc_cmpr" value="146" c:identifier="DMAP_CC_CMPR">
+      </member>
+      <member name="cc_capr" value="147" c:identifier="DMAP_CC_CAPR">
+      </member>
+      <member name="cc_aefr" value="148" c:identifier="DMAP_CC_AEFR">
+      </member>
+      <member name="cc_caov" value="149" c:identifier="DMAP_CC_CAOV">
+      </member>
+      <member name="cc_cmrl" value="150" c:identifier="DMAP_CC_CMRL">
+      </member>
+      <member name="cc_cahp" value="151" c:identifier="DMAP_CC_CAHP">
+      </member>
+      <member name="cc_caiv" value="152" c:identifier="DMAP_CC_CAIV">
+      </member>
+      <member name="cc_cavc" value="153" c:identifier="DMAP_CC_CAVC">
+      </member>
+    </enumeration>
+    <record name="ContentCodeDefinition" c:type="DMAPContentCodeDefinition">
+      <field name="code" writable="1">
+        <type name="ContentCode" c:type="DMAPContentCode"/>
+      </field>
+      <field name="int_code" writable="1">
+        <type name="gint32" c:type="gint32"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="string" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="Type" c:type="DMAPType"/>
+      </field>
+    </record>
+    <interface name="Db"
+               c:symbol-prefix="db"
+               c:type="DMAPDb"
+               glib:type-name="DMAPDb"
+               glib:get-type="dmap_db_get_type"
+               glib:type-struct="DbIface">
+      <virtual-method name="add" invoker="add">
+        <doc xml:space="preserve">Add a record to the database.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+will be retained by the database (if required; an adapter-type
+implementation may not want to retain a reference as the record data may
+be placed elsewhere). In all cases, the record should be unrefed by the
+calling code.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A database record.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_path" invoker="add_path">
+        <doc xml:space="preserve">Create a record and add it to the database.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve">A path to an appropriate media file.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_with_id" invoker="add_with_id">
+        <doc xml:space="preserve">Add a record to the database and assign it the given ID.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A database record.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A database record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="count">
+        <return-value transfer-ownership="none">
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="foreach" invoker="foreach" introspectable="0">
+        <doc xml:space="preserve">Apply a function to each record in a media database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="func" transfer-ownership="none" closure="1">
+            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">User data to pass to the function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="lookup_by_id"
+                      invoker="lookup_by_id"
+                      introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed by the calling code when no longer required.
+
+If you are implementing a full database using this API, then you
+probably want to increment the reference count before returning a record
+pointer.
+
+On the other hand, if you are implementing an adapter class
+and the records are stored elsewhere, then you will probably return a
+transient record. That is, once the user is done using it, the returned
+record should be free'd because it is a adapter copy of the real record.
+In this case, the reference count should not be incremented before
+returning a record pointer.</doc>
+          <type name="Record" c:type="DMAPRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="lookup_id_by_location"
+                      invoker="lookup_id_by_location">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+such a record does not exist.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve">A record location.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add" c:identifier="dmap_db_add">
+        <doc xml:space="preserve">Add a record to the database.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+will be retained by the database (if required; an adapter-type
+implementation may not want to retain a reference as the record data may
+be placed elsewhere). In all cases, the record should be unrefed by the
+calling code.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A database record.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_path" c:identifier="dmap_db_add_path">
+        <doc xml:space="preserve">Create a record and add it to the database.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve">A path to an appropriate media file.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_with_id" c:identifier="dmap_db_add_with_id">
+        <doc xml:space="preserve">Add a record to the database and assign it the given ID.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A database record.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A database record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="apply_filter"
+              c:identifier="dmap_db_apply_filter"
+              introspectable="0">
+        <return-value>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="gpointer" c:type="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <type name="Db" c:type="DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="filter_def" transfer-ownership="none">
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="count" c:identifier="dmap_db_count">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the number of records in the database.</doc>
+          <type name="gulong" c:type="gulong"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="foreach" c:identifier="dmap_db_foreach" introspectable="0">
+        <doc xml:space="preserve">Apply a function to each record in a media database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="func" transfer-ownership="none" closure="1">
+            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <type name="GLib.HFunc" c:type="GHFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">User data to pass to the function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_by_id"
+              c:identifier="dmap_db_lookup_by_id"
+              introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed by the calling code when no longer required.
+
+If you are implementing a full database using this API, then you
+probably want to increment the reference count before returning a record
+pointer.
+
+On the other hand, if you are implementing an adapter class
+and the records are stored elsewhere, then you will probably return a
+transient record. That is, once the user is done using it, the returned
+record should be free'd because it is a adapter copy of the real record.
+In this case, the reference count should not be incremented before
+returning a record pointer.</doc>
+          <type name="Record" c:type="DMAPRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">A record ID.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_id_by_location"
+              c:identifier="dmap_db_lookup_id_by_location">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+such a record does not exist.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve">A media database.</doc>
+            <type name="Db" c:type="const DMAPDb*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve">A record location.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="DbFilterDefinition" c:type="DMAPDbFilterDefinition">
+      <field name="key" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="value" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="negate" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
+    <record name="DbIface" c:type="DMAPDbIface" glib:is-gtype-struct-for="Db">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="add">
+        <callback name="add">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+will be retained by the database (if required; an adapter-type
+implementation may not want to retain a reference as the record data may
+be placed elsewhere). In all cases, the record should be unrefed by the
+calling code.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="DMAPDb*"/>
+            </parameter>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A database record.</doc>
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_with_id">
+        <callback name="add_with_id">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="DMAPDb*"/>
+            </parameter>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A database record.</doc>
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <doc xml:space="preserve">A database record ID.</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_path">
+        <callback name="add_path">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">The ID for the newly added record.
+
+See also the notes for dmap_db_add regarding reference counting.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="DMAPDb*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <doc xml:space="preserve">A path to an appropriate media file.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="lookup_by_id" introspectable="0">
+        <callback name="lookup_by_id" introspectable="0">
+          <return-value>
+            <doc xml:space="preserve">the database record corresponding to @id. This record should
+be unrefed by the calling code when no longer required.
+
+If you are implementing a full database using this API, then you
+probably want to increment the reference count before returning a record
+pointer.
+
+On the other hand, if you are implementing an adapter class
+and the records are stored elsewhere, then you will probably return a
+transient record. That is, once the user is done using it, the returned
+record should be free'd because it is a adapter copy of the real record.
+In this case, the reference count should not be incremented before
+returning a record pointer.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="const DMAPDb*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <doc xml:space="preserve">A record ID.</doc>
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="lookup_id_by_location">
+        <callback name="lookup_id_by_location">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+such a record does not exist.</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="const DMAPDb*"/>
+            </parameter>
+            <parameter name="location" transfer-ownership="none">
+              <doc xml:space="preserve">A record location.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="foreach" introspectable="0">
+        <callback name="foreach" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <doc xml:space="preserve">A media database.</doc>
+              <type name="Db" c:type="const DMAPDb*"/>
+            </parameter>
+            <parameter name="func" transfer-ownership="none" closure="2">
+              <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+              <type name="GLib.HFunc" c:type="GHFunc"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <doc xml:space="preserve">User data to pass to the function.</doc>
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="count">
+        <callback name="count">
+          <return-value transfer-ownership="none">
+            <type name="gint64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="db" transfer-ownership="none">
+              <type name="Db" c:type="const DMAPDb*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="GstInputStream"
+           c:symbol-prefix="gst_input_stream"
+           c:type="DMAPGstInputStream"
+           parent="Gio.InputStream"
+           glib:type-name="DMAPGstInputStream"
+           glib:get-type="dmap_gst_input_stream_get_type"
+           glib:type-struct="GstInputStreamClass">
+      <implements name="Gio.Seekable"/>
+      <constructor name="new" c:identifier="dmap_gst_input_stream_new">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="transcode_mimetype" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="src_stream" transfer-ownership="none">
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="kill_pipeline">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="arg0" transfer-ownership="none">
+            <type name="GstInputStream" c:type="DMAPGstInputStream*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <field name="parent">
+        <type name="Gio.InputStream" c:type="GInputStream"/>
+      </field>
+      <field name="priv">
+        <type name="GstInputStreamPrivate"
+              c:type="DMAPGstInputStreamPrivate*"/>
+      </field>
+    </class>
+    <record name="GstInputStreamClass"
+            c:type="DMAPGstInputStreamClass"
+            glib:is-gtype-struct-for="GstInputStream">
+      <field name="parent">
+        <type name="Gio.InputStreamClass" c:type="GInputStreamClass"/>
+      </field>
+      <field name="kill_pipeline">
+        <callback name="kill_pipeline">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="arg0" transfer-ownership="none">
+              <type name="GstInputStream" c:type="DMAPGstInputStream*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="GstInputStreamPrivate"
+            c:type="DMAPGstInputStreamPrivate"
+            disguised="1">
+    </record>
+    <constant name="HASH_SIZE" value="16" c:type="DMAP_HASH_SIZE">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="HashContext" c:type="DMAPHashContext">
+      <field name="buf" writable="1">
+        <array zero-terminated="0" c:type="guint32" fixed-size="4">
+          <type name="guint32" c:type="guint32"/>
+        </array>
+      </field>
+      <field name="bits" writable="1">
+        <array zero-terminated="0" c:type="guint32" fixed-size="2">
+          <type name="guint32" c:type="guint32"/>
+        </array>
+      </field>
+      <field name="in" writable="1">
+        <array zero-terminated="0" c:type="unsigned" fixed-size="64">
+          <type name="guint" c:type="unsigned"/>
+        </array>
+      </field>
+      <field name="version" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+    </record>
+    <class name="MdnsBrowser"
+           c:symbol-prefix="mdns_browser"
+           c:type="DMAPMdnsBrowser"
+           parent="GObject.Object"
+           glib:type-name="DMAPMdnsBrowser"
+           glib:get-type="dmap_mdns_browser_get_type"
+           glib:type-struct="MdnsBrowserClass">
+      <constructor name="new" c:identifier="dmap_mdns_browser_new">
+        <doc xml:space="preserve">Creates a new mDNS browser.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a pointer to a DMAPMdnsBrowser.</doc>
+          <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">The type of service to browse.</doc>
+            <type name="MdnsBrowserServiceType"
+                  c:type="DMAPMdnsBrowserServiceType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="service_added">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <type name="MdnsBrowserService" c:type="DMAPMdnsBrowserService*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="service_removed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <type name="MdnsBrowserService" c:type="DMAPMdnsBrowserService*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_service_type"
+              c:identifier="dmap_mdns_browser_get_service_type">
+        <return-value transfer-ownership="none">
+          <type name="MdnsBrowserServiceType"
+                c:type="DMAPMdnsBrowserServiceType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_services"
+              c:identifier="dmap_mdns_browser_get_services"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="GLib.SList" c:type="const GSList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="dmap_mdns_browser_start" throws="1">
+        <doc xml:space="preserve">Starts a DMAPMdnsBrowser.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success, else FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPMdnsBrowser.</doc>
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="dmap_mdns_browser_stop" throws="1">
+        <doc xml:space="preserve">Stops a DMAPMdnsBrowser.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success, else FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="browser" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPMdnsBrowser.</doc>
+            <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MdnsBrowserPrivate" c:type="DMAPMdnsBrowserPrivate*"/>
+      </field>
+      <glib:signal name="service-added" when="last">
+        <doc xml:space="preserve">Emitted each time a service becomes available to @browser</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">#DMAPMdnsBrowserService</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="service-removed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MdnsBrowserClass"
+            c:type="DMAPMdnsBrowserClass"
+            glib:is-gtype-struct-for="MdnsBrowser">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="service_added">
+        <callback name="service_added">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="browser" transfer-ownership="none">
+              <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+            </parameter>
+            <parameter name="service" transfer-ownership="none">
+              <type name="MdnsBrowserService"
+                    c:type="DMAPMdnsBrowserService*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="service_removed">
+        <callback name="service_removed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="browser" transfer-ownership="none">
+              <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
+            </parameter>
+            <parameter name="service" transfer-ownership="none">
+              <type name="MdnsBrowserService"
+                    c:type="DMAPMdnsBrowserService*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="MdnsBrowserError"
+                 glib:type-name="DMAPMdnsBrowserError"
+                 glib:get-type="dmap_mdns_browser_error_get_type"
+                 c:type="DMAPMdnsBrowserError"
+                 glib:error-domain="dmap_mdns_browser_error">
+      <member name="not_running"
+              value="0"
+              c:identifier="DMAP_MDNS_BROWSER_ERROR_NOT_RUNNING"
+              glib:nick="not-running">
+      </member>
+      <member name="failed"
+              value="1"
+              c:identifier="DMAP_MDNS_BROWSER_ERROR_FAILED"
+              glib:nick="failed">
+      </member>
+      <function name="quark" c:identifier="dmap_mdns_browser_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="MdnsBrowserPrivate"
+            c:type="DMAPMdnsBrowserPrivate"
+            disguised="1">
+    </record>
+    <record name="MdnsBrowserService" c:type="DMAPMdnsBrowserService">
+      <field name="service_name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="host" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="port" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="password_protected" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="pair" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="transport_protocol" writable="1">
+        <type name="MdnsBrowserTransportProtocol"
+              c:type="DMAPMdnsBrowserTransportProtocol"/>
+      </field>
+    </record>
+    <enumeration name="MdnsBrowserServiceType"
+                 glib:type-name="DMAPMdnsBrowserServiceType"
+                 glib:get-type="dmap_mdns_browser_service_type_get_type"
+                 c:type="DMAPMdnsBrowserServiceType">
+      <member name="invalid"
+              value="0"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID"
+              glib:nick="invalid">
+      </member>
+      <member name="daap"
+              value="1"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP"
+              glib:nick="daap">
+      </member>
+      <member name="dpap"
+              value="2"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP"
+              glib:nick="dpap">
+      </member>
+      <member name="dacp"
+              value="3"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP"
+              glib:nick="dacp">
+      </member>
+      <member name="raop"
+              value="4"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP"
+              glib:nick="raop">
+      </member>
+      <member name="last"
+              value="4"
+              c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST"
+              glib:nick="last">
+      </member>
+    </enumeration>
+    <enumeration name="MdnsBrowserTransportProtocol"
+                 glib:type-name="DMAPMdnsBrowserTransportProtocol"
+                 glib:get-type="dmap_mdns_browser_transport_protocol_get_type"
+                 c:type="DMAPMdnsBrowserTransportProtocol">
+      <member name="tcp"
+              value="0"
+              c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP"
+              glib:nick="tcp">
+      </member>
+      <member name="udp"
+              value="1"
+              c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP"
+              glib:nick="udp">
+      </member>
+      <member name="last"
+              value="1"
+              c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST"
+              glib:nick="last">
+      </member>
+    </enumeration>
+    <class name="MdnsPublisher"
+           c:symbol-prefix="mdns_publisher"
+           c:type="DMAPMdnsPublisher"
+           parent="GObject.Object"
+           glib:type-name="DMAPMdnsPublisher"
+           glib:get-type="dmap_mdns_publisher_get_type"
+           glib:type-struct="MdnsPublisherClass">
+      <constructor name="new" c:identifier="dmap_mdns_publisher_new">
+        <return-value transfer-ownership="full">
+          <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="name_collision">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="published">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="publish"
+              c:identifier="dmap_mdns_publisher_publish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="type_of_service" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="password_required" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="txt_records" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rename_at_port"
+              c:identifier="dmap_mdns_publisher_rename_at_port"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </instance-parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="withdraw"
+              c:identifier="dmap_mdns_publisher_withdraw"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </instance-parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MdnsPublisherPrivate" c:type="DMAPMdnsPublisherPrivate*"/>
+      </field>
+      <glib:signal name="name-collision" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="published" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MdnsPublisherClass"
+            c:type="DMAPMdnsPublisherClass"
+            glib:is-gtype-struct-for="MdnsPublisher">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="published">
+        <callback name="published">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="publisher" transfer-ownership="none">
+              <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="name_collision">
+        <callback name="name_collision">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="publisher" transfer-ownership="none">
+              <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="MdnsPublisherError"
+                 glib:type-name="DMAPMdnsPublisherError"
+                 glib:get-type="dmap_mdns_publisher_error_get_type"
+                 c:type="DMAPMdnsPublisherError"
+                 glib:error-domain="dmap_mdns_publisher_error">
+      <member name="not_running"
+              value="0"
+              c:identifier="DMAP_MDNS_PUBLISHER_ERROR_NOT_RUNNING"
+              glib:nick="not-running">
+      </member>
+      <member name="failed"
+              value="1"
+              c:identifier="DMAP_MDNS_PUBLISHER_ERROR_FAILED"
+              glib:nick="failed">
+      </member>
+      <function name="quark" c:identifier="dmap_mdns_publisher_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="MdnsPublisherPrivate"
+            c:type="DMAPMdnsPublisherPrivate"
+            disguised="1">
+    </record>
+    <enumeration name="MediaKind"
+                 glib:type-name="DMAPMediaKind"
+                 glib:get-type="dmap_media_kind_get_type"
+                 c:type="DMAPMediaKind">
+      <member name="music"
+              value="1"
+              c:identifier="DMAP_MEDIA_KIND_MUSIC"
+              glib:nick="music">
+      </member>
+      <member name="movie"
+              value="2"
+              c:identifier="DMAP_MEDIA_KIND_MOVIE"
+              glib:nick="movie">
+      </member>
+      <member name="podcast"
+              value="32"
+              c:identifier="DMAP_MEDIA_KIND_PODCAST"
+              glib:nick="podcast">
+      </member>
+      <member name="tv_show"
+              value="64"
+              c:identifier="DMAP_MEDIA_KIND_TV_SHOW"
+              glib:nick="tv-show">
+      </member>
+    </enumeration>
+    <record name="MetaDataMap" c:type="DMAPMetaDataMap">
+      <field name="tag" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="md" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <record name="Playlist" c:type="DMAPPlaylist">
+      <field name="name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="uris" writable="1">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+    </record>
+    <interface name="Record"
+               c:symbol-prefix="record"
+               c:type="DMAPRecord"
+               glib:type-name="DMAPRecord"
+               glib:get-type="dmap_record_get_type"
+               glib:type-struct="RecordIface">
+      <virtual-method name="set_from_blob" invoker="set_from_blob">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <type name="Record" c:type="DMAPRecord*"/>
+          </instance-parameter>
+          <parameter name="blob" transfer-ownership="none">
+            <array name="GLib.ByteArray" c:type="GByteArray*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="to_blob" invoker="to_blob" introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">A byte array representation of the record.</doc>
+          <array name="GLib.ByteArray" c:type="GByteArray*">
+            <type name="guint8" c:type="guint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="set_from_blob" c:identifier="dmap_record_set_from_blob">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <type name="Record" c:type="DMAPRecord*"/>
+          </instance-parameter>
+          <parameter name="blob" transfer-ownership="none">
+            <array name="GLib.ByteArray" c:type="GByteArray*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_blob"
+              c:identifier="dmap_record_to_blob"
+              introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">A byte array representation of the record.</doc>
+          <array name="GLib.ByteArray" c:type="GByteArray*">
+            <type name="guint8" c:type="guint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <interface name="RecordFactory"
+               c:symbol-prefix="record_factory"
+               c:type="DMAPRecordFactory"
+               glib:type-name="DMAPRecordFactory"
+               glib:get-type="dmap_record_factory_get_type"
+               glib:type-struct="RecordFactoryIface">
+      <virtual-method name="create" invoker="create" introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+          <type name="Record" c:type="DMAPRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+            <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
+          </instance-parameter>
+          <parameter name="user_data" transfer-ownership="none" closure="0">
+            <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create"
+              c:identifier="dmap_record_factory_create"
+              introspectable="0">
+        <return-value>
+          <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+          <type name="Record" c:type="DMAPRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+            <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
+          </instance-parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="RecordFactoryIface"
+            c:type="DMAPRecordFactoryIface"
+            glib:is-gtype-struct-for="RecordFactory">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="create" introspectable="0">
+        <callback name="create" introspectable="0">
+          <return-value>
+            <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+            <type name="Record" c:type="DMAPRecord*"/>
+          </return-value>
+          <parameters>
+            <parameter name="factory" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+              <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
+            </parameter>
+            <parameter name="user_data" transfer-ownership="none" closure="1">
+              <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="RecordIface"
+            c:type="DMAPRecordIface"
+            glib:is-gtype-struct-for="Record">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="to_blob" introspectable="0">
+        <callback name="to_blob" introspectable="0">
+          <return-value>
+            <doc xml:space="preserve">A byte array representation of the record.</doc>
+            <array name="GLib.ByteArray" c:type="GByteArray*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </return-value>
+          <parameters>
+            <parameter name="record" transfer-ownership="none">
+              <doc xml:space="preserve">A DMAPRecord.</doc>
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_from_blob">
+        <callback name="set_from_blob">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="record" transfer-ownership="none">
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+            <parameter name="blob" transfer-ownership="none">
+              <array name="GLib.ByteArray" c:type="GByteArray*">
+                <type name="guint8" c:type="guint8"/>
+              </array>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="ResponseHandler" c:type="DMAPResponseHandler">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="connection" transfer-ownership="none">
+          <type name="Connection" c:type="DMAPConnection*"/>
+        </parameter>
+        <parameter name="status" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <constant name="STATUS_OK" value="200" c:type="DMAP_STATUS_OK">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Share"
+           c:symbol-prefix="share"
+           c:type="DMAPShare"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="DMAPShare"
+           glib:get-type="dmap_share_get_type"
+           glib:type-struct="ShareClass">
+      <function name="free_filter"
+                c:identifier="dmap_share_free_filter"
+                introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="filter" transfer-ownership="none">
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="content_codes">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="ctrl_int">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="databases">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="databases_browse_xxx">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="databases_items_xxx">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_desired_port">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_meta_data_map" introspectable="0">
+        <return-value>
+          <type name="gpointer" c:type="DMAPMetaDataMap*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_type_of_service">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="login">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="logout">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="message_add_standard_headers">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="name_collision">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="published">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="publisher" transfer-ownership="none">
+            <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="server_info">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="share" transfer-ownership="none">
+            <type name="Share" c:type="DMAPShare*"/>
+          </instance-parameter>
+          <parameter name="server" transfer-ownership="none">
+            <type name="Soup.Server" c:type="SoupServer*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <property name="auth-method" writable="1" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="container-db"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="db"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="password" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="revision-number" writable="1" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="server-ipv4" transfer-ownership="none">
+        <type name="Soup.Server"/>
+      </property>
+      <property name="server-ipv6" transfer-ownership="none">
+        <type name="Soup.Server"/>
+      </property>
+      <property name="transcode-mimetype"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="txt-records" writable="1" transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="SharePrivate" c:type="DMAPSharePrivate*"/>
+      </field>
+    </class>
+    <record name="ShareClass"
+            c:type="DMAPShareClass"
+            glib:is-gtype-struct-for="Share">
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_desired_port">
+        <callback name="get_desired_port">
+          <return-value transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_type_of_service">
+        <callback name="get_type_of_service">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="message_add_standard_headers">
+        <callback name="message_add_standard_headers">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="msg" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_meta_data_map" introspectable="0">
+        <callback name="get_meta_data_map" introspectable="0">
+          <return-value>
+            <type name="gpointer" c:type="DMAPMetaDataMap*"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_entry_to_mlcl">
+        <callback name="add_entry_to_mlcl">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="id" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+            <parameter name="record" transfer-ownership="none">
+              <type name="Record" c:type="DMAPRecord*"/>
+            </parameter>
+            <parameter name="mb" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="databases_browse_xxx">
+        <callback name="databases_browse_xxx">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="msg" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="context" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="databases_items_xxx">
+        <callback name="databases_items_xxx">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="msg" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="context" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="server_info">
+        <callback name="server_info">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="content_codes">
+        <callback name="content_codes">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="login">
+        <callback name="login">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="logout">
+        <callback name="logout">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="update">
+        <callback name="update">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="ctrl_int">
+        <callback name="ctrl_int">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="ctx" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="published">
+        <callback name="published">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="publisher" transfer-ownership="none">
+              <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="name_collision">
+        <callback name="name_collision">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="publisher" transfer-ownership="none">
+              <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="databases">
+        <callback name="databases">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="share" transfer-ownership="none">
+              <type name="Share" c:type="DMAPShare*"/>
+            </parameter>
+            <parameter name="server" transfer-ownership="none">
+              <type name="Soup.Server" c:type="SoupServer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="GLib.HashTable" c:type="GHashTable*">
+                <type name="gpointer" c:type="gpointer"/>
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+            <parameter name="context" transfer-ownership="none">
+              <type name="Soup.ClientContext" c:type="SoupClientContext*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="SharePrivate" c:type="DMAPSharePrivate" disguised="1">
+    </record>
+    <record name="StructureItem" c:type="DMAPStructureItem">
+      <field name="content_code" writable="1">
+        <type name="ContentCode" c:type="DMAPContentCode"/>
+      </field>
+      <field name="content" writable="1">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+    </record>
+    <enumeration name="Type"
+                 glib:type-name="DMAPType"
+                 glib:get-type="dmap_type_get_type"
+                 c:type="DMAPType">
+      <member name="byte"
+              value="1"
+              c:identifier="DMAP_TYPE_BYTE"
+              glib:nick="byte">
+      </member>
+      <member name="signed_int"
+              value="2"
+              c:identifier="DMAP_TYPE_SIGNED_INT"
+              glib:nick="signed-int">
+      </member>
+      <member name="short"
+              value="3"
+              c:identifier="DMAP_TYPE_SHORT"
+              glib:nick="short">
+      </member>
+      <member name="int"
+              value="5"
+              c:identifier="DMAP_TYPE_INT"
+              glib:nick="int">
+      </member>
+      <member name="int64"
+              value="7"
+              c:identifier="DMAP_TYPE_INT64"
+              glib:nick="int64">
+      </member>
+      <member name="string"
+              value="9"
+              c:identifier="DMAP_TYPE_STRING"
+              glib:nick="string">
+      </member>
+      <member name="date"
+              value="10"
+              c:identifier="DMAP_TYPE_DATE"
+              glib:nick="date">
+      </member>
+      <member name="version"
+              value="11"
+              c:identifier="DMAP_TYPE_VERSION"
+              glib:nick="version">
+      </member>
+      <member name="container"
+              value="12"
+              c:identifier="DMAP_TYPE_CONTAINER"
+              glib:nick="container">
+      </member>
+      <member name="pointer"
+              value="42"
+              c:identifier="DMAP_TYPE_POINTER"
+              glib:nick="pointer">
+      </member>
+    </enumeration>
+    <function name="content_code_dmap_type"
+              c:identifier="dmap_content_code_dmap_type">
+      <return-value transfer-ownership="none">
+        <type name="Type" c:type="DMAPType"/>
+      </return-value>
+      <parameters>
+        <parameter name="code" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="content_code_name" c:identifier="dmap_content_code_name">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="code" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="content_code_read_from_buffer"
+              c:identifier="dmap_content_code_read_from_buffer">
+      <return-value transfer-ownership="none">
+        <type name="ContentCode" c:type="DMAPContentCode"/>
+      </return-value>
+      <parameters>
+        <parameter name="buf" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="content_code_string"
+              c:identifier="dmap_content_code_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="code" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="content_code_string_as_int32"
+              c:identifier="dmap_content_code_string_as_int32">
+      <return-value transfer-ownership="none">
+        <type name="gint32" c:type="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="content_codes" c:identifier="dmap_content_codes">
+      <return-value transfer-ownership="none">
+        <type name="ContentCodeDefinition"
+              c:type="const DMAPContentCodeDefinition*"/>
+      </return-value>
+      <parameters>
+        <parameter name="number" transfer-ownership="none">
+          <type name="guint" c:type="guint*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="hash_generate" c:identifier="dmap_hash_generate">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="version_major" transfer-ownership="none">
+          <type name="gshort" c:type="short"/>
+        </parameter>
+        <parameter name="url" transfer-ownership="none">
+          <type name="guint8" c:type="const guchar*"/>
+        </parameter>
+        <parameter name="hash_select" transfer-ownership="none">
+          <type name="guint8" c:type="guchar"/>
+        </parameter>
+        <parameter name="out" transfer-ownership="none">
+          <type name="guint8" c:type="guchar*"/>
+        </parameter>
+        <parameter name="request_id" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="hash_progressive_final"
+              c:identifier="dmap_hash_progressive_final">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <type name="HashContext" c:type="DMAPHashContext*"/>
+        </parameter>
+        <parameter name="digest" transfer-ownership="none">
+          <type name="guint8" c:type="unsigned char"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="hash_progressive_init"
+              c:identifier="dmap_hash_progressive_init">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <type name="HashContext" c:type="DMAPHashContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="hash_progressive_to_string"
+              c:identifier="dmap_hash_progressive_to_string">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="digest" transfer-ownership="none">
+          <type name="guint8" c:type="const unsigned char*"/>
+        </parameter>
+        <parameter name="string" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="hash_progressive_update"
+              c:identifier="dmap_hash_progressive_update">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <type name="HashContext" c:type="DMAPHashContext*"/>
+        </parameter>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="guint8" c:type="unsigned char*"/>
+        </parameter>
+        <parameter name="length" transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="mdns_browser_error_quark"
+              c:identifier="dmap_mdns_browser_error_quark"
+              moved-to="MdnsBrowserError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="mdns_publisher_error_quark"
+              c:identifier="dmap_mdns_publisher_error_quark"
+              moved-to="MdnsPublisherError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="mime_to_format" c:identifier="dmap_mime_to_format">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="transcode_mimetype" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_add"
+              c:identifier="dmap_structure_add"
+              introspectable="0">
+      <return-value>
+        <type name="GLib.Node" c:type="GNode*"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="cc" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_destroy" c:identifier="dmap_structure_destroy">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_find_item"
+              c:identifier="dmap_structure_find_item"
+              introspectable="0">
+      <return-value>
+        <type name="StructureItem" c:type="DMAPStructureItem*"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_find_node"
+              c:identifier="dmap_structure_find_node"
+              introspectable="0">
+      <return-value>
+        <type name="GLib.Node" c:type="GNode*"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="code" transfer-ownership="none">
+          <type name="ContentCode" c:type="DMAPContentCode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_get_size" c:identifier="dmap_structure_get_size">
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_increase_by_predicted_size"
+              c:identifier="dmap_structure_increase_by_predicted_size">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_parse"
+              c:identifier="dmap_structure_parse"
+              introspectable="0">
+      <return-value>
+        <type name="GLib.Node" c:type="GNode*"/>
+      </return-value>
+      <parameters>
+        <parameter name="buf" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="buf_length" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_print" c:identifier="dmap_structure_print">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="structure_serialize"
+              c:identifier="dmap_structure_serialize">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="structure" transfer-ownership="none">
+          <type name="GLib.Node" c:type="GNode*"/>
+        </parameter>
+        <parameter name="length" transfer-ownership="none">
+          <type name="guint" c:type="guint*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

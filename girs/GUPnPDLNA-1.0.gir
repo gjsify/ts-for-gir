@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="1.0"/>
+  <include name="GstPbutils" version="1.0"/>
+  <include name="libxml2" version="2.0"/>
+  <package name="gupnp-dlna-1.0"/>
+  <namespace name="GUPnPDLNA"
+             version="1.0"
+             shared-library="libgupnp-dlna-1.0.so.2,libgstreamer-0.10.so.0"
+             c:identifier-prefixes="GUPnPDLNA"
+             c:symbol-prefixes="gupnp_dlna">
+    <class name="Discoverer"
+           c:symbol-prefix="discoverer"
+           c:type="GUPnPDLNADiscoverer"
+           parent="GstPbutils.Discoverer"
+           glib:type-name="GUPnPDLNADiscoverer"
+           glib:get-type="gupnp_dlna_discoverer_get_type"
+           glib:type-struct="DiscovererClass">
+      <doc xml:whitespace="preserve">The top-level object used to for metadata extraction.</doc>
+      <constructor name="new" c:identifier="gupnp_dlna_discoverer_new">
+        <doc xml:whitespace="preserve">Creates a new #GUPnPDLNADiscoverer object with the given default timeout
+value.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">A new #GUPnPDLNADiscoverer object.</doc>
+          <type name="Discoverer" c:type="GUPnPDLNADiscoverer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="timeout" transfer-ownership="none">
+            <doc xml:whitespace="preserve">default discovery timeout, in nanoseconds</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+          <parameter name="relaxed_mode" transfer-ownership="none">
+            <doc xml:whitespace="preserve">set to TRUE, to enable relaxed mode support. FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="extended_mode" transfer-ownership="none">
+            <doc xml:whitespace="preserve">set to TRUE, to enable extended mode support. FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="done">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dlna" transfer-ownership="none">
+            <type name="Information" c:type="GUPnPDLNAInformation*"/>
+          </parameter>
+          <parameter name="err" transfer-ownership="none">
+            <type name="GLib.Error" c:type="GError*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="discover_uri"
+              c:identifier="gupnp_dlna_discoverer_discover_uri">
+        <doc xml:whitespace="preserve">Queues @uri for metadata discovery. When discovery is completed, the
+"discovered" signal is emitted on @discoverer.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">TRUE if @uri was successfully queued, FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:whitespace="preserve">URI to gather metadata for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="discover_uri_sync"
+              c:identifier="gupnp_dlna_discoverer_discover_uri_sync"
+              throws="1">
+        <doc xml:whitespace="preserve">Synchronously gathers metadata for @uri.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #GUPnPDLNAInformation with the metadata for @uri on success, NULL otherwise</doc>
+          <type name="Information" c:type="GUPnPDLNAInformation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:whitespace="preserve">URI to gather metadata for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_extended_mode"
+              c:identifier="gupnp_dlna_discoverer_get_extended_mode">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">true if application is using extended mode and false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_profile"
+              c:identifier="gupnp_dlna_discoverer_get_profile">
+        <doc xml:whitespace="preserve">Given @name, this finds the corresponding DLNA profile information (stored
+as a #GUPnPDLNAProfile).</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #GUPnPDLNAProfile on success, NULL otherwise.</doc>
+          <type name="Profile" c:type="GUPnPDLNAProfile*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">The name of the DLNA profile to be retrieved</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_relaxed_mode"
+              c:identifier="gupnp_dlna_discoverer_get_relaxed_mode">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">true if relaxed mode is set and false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="list_profiles"
+              c:identifier="gupnp_dlna_discoverer_list_profiles">
+        <doc xml:whitespace="preserve">Retuns a list of the all the DLNA profiles supported by @self.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GList of #GUPnPDLNAProfile on success, NULL otherwise.</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="Profile"/>
+          </type>
+        </return-value>
+      </method>
+      <property name="extended-mode"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="relaxed-mode"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="GstPbutils.Discoverer" c:type="GstDiscoverer"/>
+      </field>
+      <glib:signal name="done" when="last">
+        <doc xml:whitespace="preserve">Will be emitted when all information on a URI could be discovered.
+
+The reciever must unref @dlna with when done using it.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="dlna" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the results as #GUPnPDLNAInformation</doc>
+            <type name="Information"/>
+          </parameter>
+          <parameter name="err" transfer-ownership="none">
+            <doc xml:whitespace="preserve">contains details of the error if discovery fails, else is NULL</doc>
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DiscovererClass"
+            c:type="GUPnPDLNADiscovererClass"
+            glib:is-gtype-struct-for="Discoverer">
+      <field name="parent_class">
+        <type name="GstPbutils.DiscovererClass" c:type="GstDiscovererClass"/>
+      </field>
+      <field name="done">
+        <callback name="done">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="discoverer" transfer-ownership="none">
+              <type name="Discoverer" c:type="GUPnPDLNADiscoverer*"/>
+            </parameter>
+            <parameter name="dlna" transfer-ownership="none">
+              <type name="Information" c:type="GUPnPDLNAInformation*"/>
+            </parameter>
+            <parameter name="err" transfer-ownership="none">
+              <type name="GLib.Error" c:type="GError*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="profiles_list" readable="0" private="1">
+        <array zero-terminated="0" c:type="GList" fixed-size="2">
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </array>
+      </field>
+    </record>
+    <class name="Information"
+           c:symbol-prefix="information"
+           c:type="GUPnPDLNAInformation"
+           parent="GObject.Object"
+           glib:type-name="GUPnPDLNAInformation"
+           glib:get-type="gupnp_dlna_information_get_type"
+           glib:type-struct="InformationClass">
+      <constructor name="new" c:identifier="gupnp_dlna_information_new">
+        <doc xml:whitespace="preserve">Creates a new #GUPnPDLNAInformation object with the given properties.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">A newly created #GUPnPDLNAInformation object.</doc>
+          <type name="Information" c:type="GUPnPDLNAInformation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">DLNA media profile name corresponding to the media</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="mime" transfer-ownership="none">
+            <doc xml:whitespace="preserve">DLNA MIME type for the media</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#GstDiscovererInfo type with additional metadata about the stream</doc>
+            <type name="GstPbutils.DiscovererInfo"
+                  c:type="GstDiscovererInfo*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_discoverer_info"
+                   c:identifier="gupnp_dlna_information_new_from_discoverer_info"
+                   introspectable="0">
+        <return-value transfer-ownership="full">
+          <type name="Information" c:type="GUPnPDLNAInformation*"/>
+        </return-value>
+        <parameters>
+          <parameter name="info" transfer-ownership="none">
+            <type name="GstPbutils.DiscovererInfo"
+                  c:type="GstDiscovererInfo*"/>
+          </parameter>
+          <parameter name="profiles" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_info" c:identifier="gupnp_dlna_information_get_info">
+        <return-value transfer-ownership="none">
+          <type name="GstPbutils.DiscovererInfo"
+                c:type="const GstDiscovererInfo*"/>
+        </return-value>
+      </method>
+      <method name="get_mime" c:identifier="gupnp_dlna_information_get_mime">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the DLNA MIME type of the stream represented by @self. Do not free this string.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="gupnp_dlna_information_get_name">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the DLNA profile name of the stream represented by @self. Do not free this string.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+      </method>
+      <property name="info"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="GstPbutils.DiscovererInfo"/>
+      </property>
+      <property name="mime"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="InformationClass"
+            c:type="GUPnPDLNAInformationClass"
+            glib:is-gtype-struct-for="Information">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Profile"
+           c:symbol-prefix="profile"
+           c:type="GUPnPDLNAProfile"
+           parent="GObject.Object"
+           glib:type-name="GUPnPDLNAProfile"
+           glib:get-type="gupnp_dlna_profile_get_type"
+           glib:type-struct="ProfileClass">
+      <doc xml:whitespace="preserve">The top-level object used for the in-memory representation of the DLNA
+Profiles.</doc>
+      <method name="get_encoding_profile"
+              c:identifier="gupnp_dlna_profile_get_encoding_profile">
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #GstEncodingProfile object that, in a future version, can be used to transcode a given stream to match the DLNA profile represented by @self. The receiver must unref the returned #GstEncodingProfile when done using it.</doc>
+          <type name="GstPbutils.EncodingProfile"
+                c:type="GstEncodingProfile*"/>
+        </return-value>
+      </method>
+      <method name="get_extended"
+              c:identifier="gupnp_dlna_profile_get_extended">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">true if application is using extended mode and false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_mime" c:identifier="gupnp_dlna_profile_get_mime">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the DLNA MIME type of the DLNA profile represented by @self</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="gupnp_dlna_profile_get_name">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the name of the DLNA profile represented by @self</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+      </method>
+      <property name="encoding-profile" transfer-ownership="none">
+        <type name="GstPbutils.EncodingProfile"/>
+      </property>
+      <property name="extended"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="mime"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ProfileClass"
+            c:type="GUPnPDLNAProfileClass"
+            glib:is-gtype-struct-for="Profile">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

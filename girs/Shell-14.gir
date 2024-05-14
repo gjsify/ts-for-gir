@@ -149,7 +149,9 @@ event timestamp.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="activate_action" c:identifier="shell_app_activate_action">
+      <method name="activate_action"
+              c:identifier="shell_app_activate_action"
+              glib:finish-func="activate_action_finish">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
              line="1560">This activates an action using 'org.freedesktop.Application' DBus interface.
@@ -2811,7 +2813,8 @@ checks done. %TRUE is returned if the prompt actually should complete.</doc>
         </parameters>
       </method>
       <method name="search_vpn_plugin"
-              c:identifier="shell_network_agent_search_vpn_plugin">
+              c:identifier="shell_network_agent_search_vpn_plugin"
+              glib:finish-func="search_vpn_plugin_finish">
         <source-position filename="src/shell-network-agent.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3600,7 +3603,8 @@ in the log.</doc>
         </return-value>
       </constructor>
       <function name="composite_to_stream"
-                c:identifier="shell_screenshot_composite_to_stream">
+                c:identifier="shell_screenshot_composite_to_stream"
+                glib:finish-func="composite_to_stream_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="1242">Composite a rectangle defined by x, y, width, height from the texture to a
@@ -3727,7 +3731,9 @@ operation was successful, or NULL on error.</doc>
           </parameter>
         </parameters>
       </function>
-      <method name="pick_color" c:identifier="shell_screenshot_pick_color">
+      <method name="pick_color"
+              c:identifier="shell_screenshot_pick_color"
+              glib:finish-func="pick_color_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="1117">Picks the pixel at @x, @y and returns its color as #ClutterColor.</doc>
@@ -3812,7 +3818,9 @@ and obtain its result.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="screenshot" c:identifier="shell_screenshot_screenshot">
+      <method name="screenshot"
+              c:identifier="shell_screenshot_screenshot"
+              glib:finish-func="screenshot_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="701">Takes a screenshot of the whole screen
@@ -3864,7 +3872,8 @@ of the async grabbing</doc>
         </parameters>
       </method>
       <method name="screenshot_area"
-              c:identifier="shell_screenshot_screenshot_area">
+              c:identifier="shell_screenshot_screenshot_area"
+              glib:finish-func="screenshot_area_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="919">Takes a screenshot of the passed in area and saves it
@@ -4010,7 +4019,8 @@ and obtain its result.</doc>
         </parameters>
       </method>
       <method name="screenshot_stage_to_content"
-              c:identifier="shell_screenshot_screenshot_stage_to_content">
+              c:identifier="shell_screenshot_screenshot_stage_to_content"
+              glib:finish-func="screenshot_stage_to_content_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="820">Takes a screenshot of the whole screen as #ClutterContent.</doc>
@@ -4123,7 +4133,8 @@ draw the cursor content</doc>
         </parameters>
       </method>
       <method name="screenshot_window"
-              c:identifier="shell_screenshot_screenshot_window">
+              c:identifier="shell_screenshot_screenshot_window"
+              glib:finish-func="screenshot_window_finish">
         <doc xml:space="preserve"
              filename="src/shell-screenshot.c"
              line="1034">Takes a screenshot of the focused window (optionally omitting the frame)

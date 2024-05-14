@@ -9,18 +9,19 @@ import { IntrospectedStaticClassFunction } from "./function.js";
 import { IntrospectedNamespace } from "./namespace.js";
 import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
     members = new Map<string, GirEnumMember>();
     flags: boolean = false;
-    ns: string;
+    ns: IntrospectedNamespace;
 
     constructor(name: string, namespace: IntrospectedNamespace, options: { isIntrospectable?: boolean } = {}) {
-        super(sanitizeIdentifierName(namespace.name, name), namespace, options);
+        super(sanitizeIdentifierName(namespace.namespace, name), namespace, options);
 
-        this.ns = namespace.name;
+        this.ns = namespace;
     }
 
     copy({
@@ -57,7 +58,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     }
 
     getType(): TypeIdentifier {
-        return new TypeIdentifier(this.name, this.ns);
+        return new TypeIdentifier(this.name, this.ns.namespace);
     }
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateEnum"]> {
@@ -92,7 +93,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     static fromXML(
         element: GirEnumElement | GirBitfieldElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions,
+        options: OptionsLoad,
         flags = false
     ): IntrospectedEnum {
         const em = new IntrospectedEnum(sanitizeMemberName(element.$.name), ns);
@@ -100,13 +101,13 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
         if (element.$["glib:type-name"]) {
             em.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.name, em.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, em.name);
         }
 
         if (element.$["c:type"]) {
             em.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.name, em.name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, em.name);
         }
 
         if (options.loadDocs) {
@@ -155,7 +156,7 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
         return new GirEnumMember(name, value, parent, c_identifier)._copyBaseProperties(this);
     }
 
-    static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: LoadOptions): GirEnumMember {
+    static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: OptionsLoad): GirEnumMember {
         const upper = element.$.name.toUpperCase();
         const c_identifier = element.$["c:identifier"];
 
@@ -211,20 +212,20 @@ export class IntrospectedError extends IntrospectedEnum {
     static fromXML(
         element: GirEnumElement | GirBitfieldElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedEnum {
         const err = new IntrospectedError(sanitizeMemberName(element.$.name), ns);
 
         if (element.$["glib:type-name"]) {
             err.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.name, err.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, err.name);
         }
 
         if (element.$["c:type"]) {
             err.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.name, err.name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, err.name);
         }
 
         if (options.loadDocs) {

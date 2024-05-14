@@ -1,4 +1,6 @@
-import { FileInfo } from './file-info.js'
+import type { FileInfo } from './index.js'
+import type { LibraryVersion } from '../library-version.js'
+import { GirXML } from '@gi.ts/parser'
 
 export interface Dependency extends FileInfo {
     /**
@@ -6,9 +8,18 @@ export interface Dependency extends FileInfo {
      */
     namespace: string
     /**
+     * E.g. 'Gtk40'
+     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
+     */
+    importNamespace: string
+    /**
      * E.g. '4.0'
      */
     version: string
+    /**
+     * E.g. '4.14.0'
+     */
+    libraryVersion: LibraryVersion
     /**
      * E.g. 'Gtk-4.0'
      */
@@ -28,4 +39,6 @@ export interface Dependency extends FileInfo {
      * E.g. `import type Gtk from '@girs/Gtk-3.0'`
      */
     importDef: string
+
+    girXML: GirXML | null
 }

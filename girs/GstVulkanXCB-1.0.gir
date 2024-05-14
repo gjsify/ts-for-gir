@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gst" version="1.0"/>
+  <include name="GstBase" version="1.0"/>
+  <include name="GstVideo" version="1.0"/>
+  <include name="GstVulkan" version="1.0"/>
+  <include name="Vulkan" version="1.0"/>
+  <package name="gstreamer-vulkan-xcb-1.0"/>
+  <c:include name="gst/vulkan/xcb/xcb.h"/>
+  <namespace name="GstVulkanXCB"
+             version="1.0"
+             shared-library="libgstvulkan-1.0.so.0"
+             c:identifier-prefixes="Gst"
+             c:symbol-prefixes="gst">
+    <function-macro name="IS_VULKAN_DISPLAY_XCB"
+                    c:identifier="GST_IS_VULKAN_DISPLAY_XCB"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VULKAN_DISPLAY_XCB_CLASS"
+                    c:identifier="GST_IS_VULKAN_DISPLAY_XCB_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB_CAST"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB_CAST"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB_CLASS"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB_CONNECTION"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB_CONNECTION"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="46"/>
+      <parameters>
+        <parameter name="d">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB_ROOT_WINDOW"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB_ROOT_WINDOW"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="47"/>
+      <parameters>
+        <parameter name="d">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VULKAN_DISPLAY_XCB_SCREEN"
+                    c:identifier="GST_VULKAN_DISPLAY_XCB_SCREEN"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="48"/>
+      <parameters>
+        <parameter name="d">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="VulkanDisplayXCB"
+           c:symbol-prefix="vulkan_display_xcb"
+           c:type="GstVulkanDisplayXCB"
+           version="1.18"
+           parent="GstVulkan.VulkanDisplay"
+           glib:type-name="GstVulkanDisplayXCB"
+           glib:get-type="gst_vulkan_display_xcb_get_type"
+           glib:type-struct="VulkanDisplayXCBClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+           line="50">the contents of a #GstVulkanDisplayXCB are private and should only be accessed
+through the provided API</doc>
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="86"/>
+      <constructor name="new"
+                   c:identifier="gst_vulkan_display_xcb_new"
+                   version="1.18">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.c"
+             line="83">Create a new #GstVulkanDisplayXCB from the xcb display name.  See XOpenDisplay\()
+for details on what is a valid name.</doc>
+        <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                         line="89"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.c"
+               line="90">a new #GstVulkanDisplayXCB or %NULL</doc>
+          <type name="VulkanDisplayXCB" c:type="GstVulkanDisplayXCB*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.c"
+                 line="85">a display name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="VulkanDisplayXCBClass"
+            c:type="GstVulkanDisplayXCBClass"
+            glib:is-gtype-struct-for="VulkanDisplayXCB"
+            version="1.18">
+      <source-position filename="gst-libs/gst/vulkan/xcb/gstvkdisplay_xcb.h"
+                       line="86"/>
+      <field name="object_class">
+        <type name="GstVulkan.VulkanDisplayClass"
+              c:type="GstVulkanDisplayClass"/>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+  </namespace>
+</repository>

@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Libxfce4windowing" version="0.0"/>
+  <package name="libxfce4windowingui-0"/>
+  <c:include name="libxfce4windowingui/libxfce4windowingui.h"/>
+  <namespace name="Libxfce4windowingui"
+             version="0.0"
+             shared-library="libxfce4windowingui-0.so.0,libxfce4windowing-0.so.0"
+             c:identifier-prefixes="libxfce4windowingui,Xfw"
+             c:symbol-prefixes="libxfce4windowingui,xfw">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="LIBXFCE4WINDOWINGUI_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.h"
+           line="58">A macro to compare libxfce4windowingui versions to determine if a particular
+function is available.</doc>
+      <source-position filename="libxfce4windowingui-config.h" line="68"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.h"
+               line="60">The major version of the library, i.e. 4</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.h"
+               line="61">The minor version of the library, i.e. 18</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.h"
+               line="62">The micro release of the library, i.e. 0</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAJOR_VERSION"
+              value="4"
+              c:type="LIBXFCE4WINDOWINGUI_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.h"
+           line="31">A macro that evaluates to the major version of libxfce4windowingui, in a format
+that can be used by the C pre-processor.</doc>
+      <source-position filename="libxfce4windowingui-config.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION"
+              value="3"
+              c:type="LIBXFCE4WINDOWINGUI_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.h"
+           line="49">A macro that evaluates to the micro version of libxfce4windowingui, in a format
+that can be used by the C pre-processor.</doc>
+      <source-position filename="libxfce4windowingui-config.h" line="56"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION"
+              value="19"
+              c:type="LIBXFCE4WINDOWINGUI_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.h"
+           line="40">A macro that evaluates to the minor version of libxfce4windowingui, in a format
+that can be used by the C pre-processor.</doc>
+      <source-position filename="libxfce4windowingui-config.h" line="47"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="WindowActionMenu"
+           c:symbol-prefix="window_action_menu"
+           c:type="XfwWindowActionMenu"
+           parent="Gtk.Menu"
+           glib:type-name="XfwWindowActionMenu"
+           glib:get-type="xfw_window_action_menu_get_type"
+           glib:type-struct="WindowActionMenuClass">
+      <source-position filename="xfw-window-action-menu.h" line="29"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="xfw_window_action_menu_new">
+        <doc xml:space="preserve"
+             filename="xfw-window-action-menu.c"
+             line="560">Creates a new window action menu that acts on @window.</doc>
+        <source-position filename="xfw-window-action-menu.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfw-window-action-menu.c"
+               line="566">a new #XfwWindowActionMenu
+instance, with a floating reference owned by the caller.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-window-action-menu.c"
+                 line="562">an #XfwWindow.</doc>
+            <type name="Libxfce4windowing.Window" c:type="XfwWindow*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="window"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfw-window-action-menu.c"
+             line="129">The #XfwWindow instance used to create the action menu.</doc>
+        <type name="Libxfce4windowing.Window"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.Menu" c:type="GtkMenu"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="WindowActionMenuPrivate"
+              c:type="XfwWindowActionMenuPrivate*"/>
+      </field>
+    </class>
+    <record name="WindowActionMenuClass"
+            c:type="XfwWindowActionMenuClass"
+            glib:is-gtype-struct-for="WindowActionMenu">
+      <source-position filename="xfw-window-action-menu.h" line="29"/>
+      <field name="parent_class">
+        <type name="Gtk.MenuClass" c:type="GtkMenuClass"/>
+      </field>
+    </record>
+    <record name="WindowActionMenuPrivate"
+            c:type="XfwWindowActionMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="xfw-window-action-menu.h" line="31"/>
+    </record>
+    <function name="check_version"
+              c:identifier="libxfce4windowingui_check_version">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.c"
+           line="60">Checks that the libxfce4windowingui library
+in use is compatible with the given version. Generally you would pass in
+the constants #LIBXFCE4WINDOWINGUI_MAJOR_VERSION, #LIBXFCE4WINDOWINGUI_MINOR_VERSION and
+#LIBXFCE4WINDOWINGUI_MICRO_VERSION as the three arguments to this function; that produces
+a check that the library in use is compatible with the version of
+libxfce4windowingui the extension was compiled against.
+
+|[&lt;!-- language="C" --&gt;
+const gchar *mismatch;
+mismatch = libxfce4windowingui_check_version(LIBXFCE4WINDOWINGUI_MAJOR_VERSION,
+                                             LIBXFCE4WINDOWINGUI_MINOR_VERSION,
+                                             LIBXFCE4WINDOWINGUI_MICRO_VERSION);
+if (G_UNLIKELY(mismatch != NULL)) {
+  g_error("Version mismatch: %s", mismatch);
+}
+]|</doc>
+      <source-position filename="libxfce4windowingui-config.h" line="80"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="libxfce4windowingui-config.c"
+             line="83">%NULL if the library is compatible
+with the given version, or a string describing the version mismatch. The
+returned string is owned by the library and must not be freed or modified by
+the caller.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="required_major" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.c"
+               line="62">the required major version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_minor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.c"
+               line="63">the required minor version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_micro" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4windowingui-config.c"
+               line="64">the required micro version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="libxfce4windowingui-config">
+      <doc xml:space="preserve"
+           filename="libxfce4windowingui-config.c"
+           line="20">Variables and functions to check the libxfce4windowingui version.</doc>
+    </docsection>
+    <docsection name="xfw-window-action-menu">
+      <doc xml:space="preserve"
+           filename="xfw-window-action-menu.c"
+           line="20">#XfwWindowActionMenu is a #GtkMenu that contains actions that can be
+performed on a toplevel window, such as minimizing, maximizing, pinning,
+and moving to another workspace.</doc>
+    </docsection>
+  </namespace>
+</repository>

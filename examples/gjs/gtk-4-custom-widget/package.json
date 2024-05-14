@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gjs-gtk-4-custom-widget-example",
-  "version": "4.0.0-beta.2",
+  "version": "4.0.0-beta.5",
   "description": "This example shows the usage of custom widgets and virtual functions in GJS",
   "main": "dist/index.js",
   "type": "module",
@@ -21,8 +21,8 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.20.1",
-    "typescript": "^5.4.2"
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

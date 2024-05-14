@@ -1,0 +1,3568 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <c:include name="lightdm.h"/>
+  <namespace name="LightDM"
+             version="1"
+             shared-library="liblightdm-gobject-1.so.0"
+             c:identifier-prefixes="LightDM"
+             c:symbol-prefixes="lightdm">
+    <function-macro name="GREETER"
+                    c:identifier="LIGHTDM_GREETER"
+                    introspectable="0">
+      <source-position filename="lightdm/greeter.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GREETER_CLASS"
+                    c:identifier="LIGHTDM_GREETER_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/greeter.h" line="21"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GREETER_GET_CLASS"
+                    c:identifier="LIGHTDM_GREETER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/greeter.h" line="24"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="GREETER_SIGNAL_AUTHENTICATION_COMPLETE"
+              value="authentication-complete"
+              c:type="LIGHTDM_GREETER_SIGNAL_AUTHENTICATION_COMPLETE">
+      <source-position filename="lightdm/greeter.h" line="33"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="GREETER_SIGNAL_AUTOLOGIN_TIMER_EXPIRED"
+              value="autologin-timer-expired"
+              c:type="LIGHTDM_GREETER_SIGNAL_AUTOLOGIN_TIMER_EXPIRED">
+      <source-position filename="lightdm/greeter.h" line="34"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="GREETER_SIGNAL_IDLE"
+              value="idle"
+              c:type="LIGHTDM_GREETER_SIGNAL_IDLE">
+      <source-position filename="lightdm/greeter.h" line="35"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="GREETER_SIGNAL_RESET"
+              value="reset"
+              c:type="LIGHTDM_GREETER_SIGNAL_RESET">
+      <source-position filename="lightdm/greeter.h" line="36"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="GREETER_SIGNAL_SHOW_MESSAGE"
+              value="show-message"
+              c:type="LIGHTDM_GREETER_SIGNAL_SHOW_MESSAGE">
+      <source-position filename="lightdm/greeter.h" line="32"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="GREETER_SIGNAL_SHOW_PROMPT"
+              value="show-prompt"
+              c:type="LIGHTDM_GREETER_SIGNAL_SHOW_PROMPT">
+      <source-position filename="lightdm/greeter.h" line="31"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Greeter"
+           c:symbol-prefix="greeter"
+           c:type="LightDMGreeter"
+           parent="GObject.Object"
+           glib:type-name="LightDMGreeter"
+           glib:get-type="lightdm_greeter_get_type"
+           glib:type-struct="GreeterClass">
+      <doc xml:space="preserve"
+           filename="greeter.c"
+           line="75">#LightDMGreeter is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/greeter.h" line="88"/>
+      <constructor name="new" c:identifier="lightdm_greeter_new">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="281">Create a new greeter.</doc>
+        <source-position filename="lightdm/greeter.h" line="123"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="286">the new #LightDMGreeter</doc>
+          <type name="Greeter" c:type="LightDMGreeter*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="authentication_complete">
+        <source-position filename="lightdm/greeter.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="autologin_timer_expired">
+        <source-position filename="lightdm/greeter.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="idle">
+        <source-position filename="lightdm/greeter.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="reset">
+        <source-position filename="lightdm/greeter.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="show_message">
+        <source-position filename="lightdm/greeter.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MessageType" c:type="LightDMMessageType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="show_prompt">
+        <source-position filename="lightdm/greeter.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="PromptType" c:type="LightDMPromptType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="authenticate"
+              c:identifier="lightdm_greeter_authenticate"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1311">Starts the authentication procedure for a user.</doc>
+        <source-position filename="lightdm/greeter.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1319">#TRUE if authentication request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1313">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="username"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1314">A username or #NULL to prompt for a username.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="authenticate_as_guest"
+              c:identifier="lightdm_greeter_authenticate_as_guest"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1349">Starts the authentication procedure for the guest user.</doc>
+        <source-position filename="lightdm/greeter.h" line="163"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1356">#TRUE if authentication request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1351">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="authenticate_autologin"
+              c:identifier="lightdm_greeter_authenticate_autologin"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1382">Starts the authentication procedure for the automatic login user.</doc>
+        <source-position filename="lightdm/greeter.h" line="165"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1389">#TRUE if authentication request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1384">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="authenticate_remote"
+              c:identifier="lightdm_greeter_authenticate_remote"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1407">Start authentication for a remote session type.</doc>
+        <source-position filename="lightdm/greeter.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1416">#TRUE if authentication request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1409">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1410">The name of a remote session</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="username"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1411">A username of #NULL to prompt for a username.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="cancel_authentication"
+              c:identifier="lightdm_greeter_cancel_authentication"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1500">Cancel the current user authentication.</doc>
+        <source-position filename="lightdm/greeter.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1507">#TRUE if cancel request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1502">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="cancel_autologin"
+              c:identifier="lightdm_greeter_cancel_autologin">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1293">Cancel the automatic login.</doc>
+        <source-position filename="lightdm/greeter.h" line="159"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1295">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="connect_sync"
+              c:identifier="lightdm_greeter_connect_sync"
+              deprecated="1"
+              deprecated-version="1.11.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1049">Connects the greeter to the display manager.  Will block until connected.</doc>
+        <doc-deprecated xml:space="preserve">Use lightdm_greeter_connect_to_daemon_sync() instead</doc-deprecated>
+        <source-position filename="lightdm/greeter.h" line="194"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1056">#TRUE if successfully connected</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1051">The greeter to connect</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="connect_to_daemon"
+              c:identifier="lightdm_greeter_connect_to_daemon">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="963">Asynchronously connects the greeter to the display manager.
+
+When the operation is finished, @callback will be invoked. You can then call lightdm_greeter_connect_to_daemon_finish() to get the result of the operation.
+
+See lightdm_greeter_connect_to_daemon_sync() for the synchronous version.</doc>
+        <source-position filename="lightdm/greeter.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="965">The greeter to connect</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="966">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="967">A #GAsyncReadyCallback to call when completed or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="968">data to pass to the @callback or %NULL.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_to_daemon_finish"
+              c:identifier="lightdm_greeter_connect_to_daemon_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="995">Finishes an operation started with lightdm_greeter_connect_to_daemon().</doc>
+        <source-position filename="lightdm/greeter.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1003">#TRUE if successfully connected</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="997">The greeter the the request was done with</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="998">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_to_daemon_sync"
+              c:identifier="lightdm_greeter_connect_to_daemon_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1016">Connects the greeter to the display manager.  Will block until connected.</doc>
+        <source-position filename="lightdm/greeter.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1023">#TRUE if successfully connected</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1018">The greeter to connect</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ensure_shared_data_dir"
+              c:identifier="lightdm_greeter_ensure_shared_data_dir">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1691">Ensure that a shared data dir for the given user is available.  Both the
+greeter user and @username will have write access to that folder.  The
+intention is that larger pieces of shared data would be stored there (files
+that the greeter creates but wants to give to a user -- like camera
+photos -- or files that the user creates but wants the greeter to
+see -- like contact avatars).
+
+LightDM will automatically create these if the user actually logs in, so
+greeters only need to call this method if they want to store something in
+the directory themselves.</doc>
+        <source-position filename="lightdm/greeter.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1693">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1694">A username</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1695">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1696">A #GAsyncReadyCallback to call when completed or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1697">data to pass to the @callback or %NULL.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ensure_shared_data_dir_finish"
+              c:identifier="lightdm_greeter_ensure_shared_data_dir_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1727">Function to call from lightdm_greeter_ensure_shared_data_dir callback.</doc>
+        <source-position filename="lightdm/greeter.h" line="189"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1735">The path to the shared directory, free with g_free.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1730">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1729">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ensure_shared_data_dir_sync"
+              c:identifier="lightdm_greeter_ensure_shared_data_dir_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1748">Ensure that a shared data dir for the given user is available.  Both the
+greeter user and @username will have write access to that folder.  The
+intention is that larger pieces of shared data would be stored there (files
+that the greeter creates but wants to give to a user -- like camera
+photos -- or files that the user creates but wants the greeter to
+see -- like contact avatars).
+
+LightDM will automatically create these if the user actually logs in, so
+greeters only need to call this method if they want to store something in
+the directory themselves.</doc>
+        <source-position filename="lightdm/greeter.h" line="191"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1765">The path to the shared directory, free with g_free.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1750">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1751">A username</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_authentication_user"
+              c:identifier="lightdm_greeter_get_authentication_user"
+              glib:get-property="authentication-user">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1559">Get the user that is being authenticated.</doc>
+        <source-position filename="lightdm/greeter.h" line="177"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1565">The username of the authentication user being authenticated or #NULL if no authentication in progress.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1561">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_autologin_guest_hint"
+              c:identifier="lightdm_greeter_get_autologin_guest_hint"
+              glib:get-property="autologin-guest-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1255">Check if the guest account should be automatically logged into when the timer expires.</doc>
+        <source-position filename="lightdm/greeter.h" line="155"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1261">#TRUE if the guest account should be automatically logged into.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1257">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_autologin_session_hint"
+              c:identifier="lightdm_greeter_get_autologin_session_hint"
+              glib:get-property="autologin-session-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1240">Get the session used to automatically log into when the timer expires.</doc>
+        <source-position filename="lightdm/greeter.h" line="153"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1246">The session name or %NULL if configured to use the default.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1242">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_autologin_timeout_hint"
+              c:identifier="lightdm_greeter_get_autologin_timeout_hint"
+              glib:get-property="autologin-timeout-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1270">Get the number of seconds to wait before automatically logging in.</doc>
+        <source-position filename="lightdm/greeter.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1276">The number of seconds to wait before automatically logging in or 0 for no timeout.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1272">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_autologin_user_hint"
+              c:identifier="lightdm_greeter_get_autologin_user_hint"
+              glib:get-property="autologin-user-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1225">Get the user account to automatically log into when the timer expires.</doc>
+        <source-position filename="lightdm/greeter.h" line="151"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1231">The user account to automatically log into or %NULL if none configured.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1227">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_session_hint"
+              c:identifier="lightdm_greeter_get_default_session_hint"
+              glib:get-property="default-session-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1084">Get the default session to use.</doc>
+        <source-position filename="lightdm/greeter.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1090">The session name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1086">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_has_guest_account_hint"
+              c:identifier="lightdm_greeter_get_has_guest_account_hint"
+              glib:get-property="has-guest-account-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1176">Check if guest sessions are supported.</doc>
+        <source-position filename="lightdm/greeter.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1182">#TRUE if guest sessions are supported.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1178">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hide_users_hint"
+              c:identifier="lightdm_greeter_get_hide_users_hint"
+              glib:get-property="hide-users-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1106">Check if user accounts should be shown.  If this is TRUE then the list of
+accounts should be taken from #LightDMUserList and displayed in the greeter
+for the user to choose from.  Note that this list can be empty and it is
+recommended you show a method for the user to enter a username manually.
+
+If this option is shown the greeter should only allow these users to be
+chosen for login unless the manual login hint is set.</doc>
+        <source-position filename="lightdm/greeter.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1118">#TRUE if the available users should not be shown.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1108">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hint" c:identifier="lightdm_greeter_get_hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1066">Get a hint.</doc>
+        <source-position filename="lightdm/greeter.h" line="133"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1073">The value for this hint or #NULL if not set.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1068">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1069">The hint name to query.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_in_authentication"
+              c:identifier="lightdm_greeter_get_in_authentication"
+              glib:get-property="in-authentication">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1525">Checks if the greeter is in the process of authenticating.</doc>
+        <source-position filename="lightdm/greeter.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1531">#TRUE if the greeter is authenticating a user.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1527">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_authenticated"
+              c:identifier="lightdm_greeter_get_is_authenticated"
+              glib:get-property="is-authenticated">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1542">Checks if the greeter has successfully authenticated.</doc>
+        <source-position filename="lightdm/greeter.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1548">#TRUE if the greeter is authenticated for login.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1544">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_lock_hint"
+              c:identifier="lightdm_greeter_get_lock_hint"
+              glib:get-property="lock-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1161">Check if the greeter is acting as a lock screen.</doc>
+        <source-position filename="lightdm/greeter.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1167">#TRUE if the greeter was triggered by locking the seat.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1163">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_select_guest_hint"
+              c:identifier="lightdm_greeter_get_select_guest_hint"
+              glib:get-property="select-guest-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1210">Check if the guest account should be selected by default.</doc>
+        <source-position filename="lightdm/greeter.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1216">#TRUE if the guest account should be selected by default.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1212">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_select_user_hint"
+              c:identifier="lightdm_greeter_get_select_user_hint"
+              glib:get-property="select-user-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1195">Get the user to select by default.</doc>
+        <source-position filename="lightdm/greeter.h" line="147"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1201">A username or %NULL if no particular user should be selected.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1197">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_manual_login_hint"
+              c:identifier="lightdm_greeter_get_show_manual_login_hint"
+              glib:get-property="show-manual-login-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1127">Check if a manual login option should be shown.  If set the GUI
+should provide a way for a username to be entered manually.
+Without this hint a greeter which is showing a user list can
+limit logins to only those users.</doc>
+        <source-position filename="lightdm/greeter.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1136">#TRUE if a manual login option should be shown.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1129">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_remote_login_hint"
+              c:identifier="lightdm_greeter_get_show_remote_login_hint"
+              glib:get-property="show-remote-login-hint">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1145">Check if a remote login option should be shown.  If set the GUI
+should provide a way for a user to log into a remote desktop server.</doc>
+        <source-position filename="lightdm/greeter.h" line="141"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1152">#TRUE if a remote login option should be shown.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1147">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="respond" c:identifier="lightdm_greeter_respond" throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1448">Provide response to a prompt.  May be one in a series.</doc>
+        <source-position filename="lightdm/greeter.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1456">#TRUE if response sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1450">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="response" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1451">Response to a prompt</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_language"
+              c:identifier="lightdm_greeter_set_language"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1576">Set the language for the currently authenticated user.</doc>
+        <source-position filename="lightdm/greeter.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1584">#TRUE if set language request sent.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1578">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1579">The language to use for this user in the form of a locale specification (e.g. "de_DE.UTF-8").</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_resettable"
+              c:identifier="lightdm_greeter_set_resettable">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="294">Set whether the greeter will be reset instead of killed after the user logs in.
+This must be called before lightdm_greeter_connect is called.</doc>
+        <source-position filename="lightdm/greeter.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="296">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="resettable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="297">Whether the greeter wants to be reset instead of killed after the user logs in</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_session"
+              c:identifier="lightdm_greeter_start_session">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1602">Asynchronously start a session for the authenticated user.
+
+When the operation is finished, @callback will be invoked. You can then call lightdm_greeter_start_session_finish() to get the result of the operation.
+
+See lightdm_greeter_start_session_sync() for the synchronous version.</doc>
+        <source-position filename="lightdm/greeter.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1604">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="session"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1605">The session to log into or #NULL to use the default.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1606">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1607">A #GAsyncReadyCallback to call when completed or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1608">data to pass to the @callback or %NULL.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_session_finish"
+              c:identifier="lightdm_greeter_start_session_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1633">Start a session for the authenticated user.</doc>
+        <source-position filename="lightdm/greeter.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1641">TRUE if the session was started.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1635">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1636">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_session_sync"
+              c:identifier="lightdm_greeter_start_session_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="1654">Start a session for the authenticated user.</doc>
+        <source-position filename="lightdm/greeter.h" line="185"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="greeter.c"
+               line="1662">TRUE if the session was started.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="greeter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1656">A #LightDMGreeter</doc>
+            <type name="Greeter" c:type="LightDMGreeter*"/>
+          </instance-parameter>
+          <parameter name="session"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="1657">The session to log into or #NULL to use the default.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="authentication-user"
+                transfer-ownership="none"
+                getter="get_authentication_user"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="autologin-guest-hint"
+                transfer-ownership="none"
+                getter="get_autologin_guest_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="autologin-session-hint"
+                transfer-ownership="none"
+                getter="get_autologin_session_hint"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="autologin-timeout-hint"
+                transfer-ownership="none"
+                getter="get_autologin_timeout_hint"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="autologin-user-hint"
+                transfer-ownership="none"
+                getter="get_autologin_user_hint"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="default-session-hint"
+                transfer-ownership="none"
+                getter="get_default_session_hint"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="has-guest-account-hint"
+                transfer-ownership="none"
+                getter="get_has_guest_account_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="hide-users-hint"
+                transfer-ownership="none"
+                getter="get_hide_users_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="in-authentication"
+                transfer-ownership="none"
+                getter="get_in_authentication"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="is-authenticated"
+                transfer-ownership="none"
+                getter="get_is_authenticated"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="lock-hint"
+                transfer-ownership="none"
+                getter="get_lock_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="select-guest-hint"
+                transfer-ownership="none"
+                getter="get_select_guest_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="select-user-hint"
+                transfer-ownership="none"
+                getter="get_select_user_hint"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="show-manual-login-hint"
+                transfer-ownership="none"
+                getter="get_show_manual_login_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-remote-login-hint"
+                transfer-ownership="none"
+                getter="get_show_remote_login_hint"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="authentication-complete" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2068">The ::authentication-complete signal gets emitted when the greeter
+has completed authentication.
+
+Call lightdm_greeter_get_is_authenticated() to check if the authentication
+was successful.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="autologin-timer-expired" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2087">The ::timed-login signal gets emitted when the automatic login timer has expired.
+The application should then call lightdm_greeter_authenticate_autologin().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="idle" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2103">The ::idle signal gets emitted when the user has logged in and the
+greeter is no longer needed.
+
+This signal only matters if the greeter has marked itself as
+resettable using lightdm_greeter_set_resettable().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="reset" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2122">The ::reset signal gets emitted when the user is returning to a greeter
+that was previously marked idle.
+
+This signal only matters if the greeter has marked itself as
+resettable using lightdm_greeter_set_resettable().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="show-message" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2050">The ::show-message signal gets emitted when the greeter
+should show a message to the user.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="2053">Message text</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="2054">Message type</doc>
+            <type name="MessageType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="show-prompt" when="last">
+        <doc xml:space="preserve"
+             filename="greeter.c"
+             line="2028">The ::show-prompt signal gets emitted when the greeter should show a
+prompt to the user.  The given text should be displayed and an input
+field for the user to provide a response.
+
+Call lightdm_greeter_respond() with the resultant input or
+lightdm_greeter_cancel_authentication() to abort the authentication.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="2031">Prompt text</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="greeter.c"
+                 line="2032">Prompt type</doc>
+            <type name="PromptType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="GreeterClass"
+            c:type="LightDMGreeterClass"
+            glib:is-gtype-struct-for="Greeter">
+      <doc xml:space="preserve"
+           filename="greeter.c"
+           line="82">Class structure for #LightDMGreeter.</doc>
+      <source-position filename="lightdm/greeter.h" line="88"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="show_message">
+        <callback name="show_message">
+          <source-position filename="lightdm/greeter.h" line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+            <parameter name="text" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="MessageType" c:type="LightDMMessageType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="show_prompt">
+        <callback name="show_prompt">
+          <source-position filename="lightdm/greeter.h" line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+            <parameter name="text" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="PromptType" c:type="LightDMPromptType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="authentication_complete">
+        <callback name="authentication_complete">
+          <source-position filename="lightdm/greeter.h" line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="autologin_timer_expired">
+        <callback name="autologin_timer_expired">
+          <source-position filename="lightdm/greeter.h" line="79"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="idle">
+        <callback name="idle">
+          <source-position filename="lightdm/greeter.h" line="80"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reset">
+        <callback name="reset">
+          <source-position filename="lightdm/greeter.h" line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="greeter" transfer-ownership="none">
+              <type name="Greeter" c:type="LightDMGreeter*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/greeter.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/greeter.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/greeter.h" line="86"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/greeter.h" line="87"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="GreeterError"
+                 glib:type-name="LightDMGreeterError"
+                 glib:get-type="lightdm_greeter_error_get_type"
+                 c:type="LightDMGreeterError"
+                 glib:error-domain="lightdm_greeter_error">
+      <doc xml:space="preserve"
+           filename="lightdm/greeter.h"
+           line="98">Error codes returned by greeter operations.</doc>
+      <member name="communication_error"
+              value="0"
+              c:identifier="LIGHTDM_GREETER_ERROR_COMMUNICATION_ERROR"
+              glib:nick="communication-error"
+              glib:name="LIGHTDM_GREETER_ERROR_COMMUNICATION_ERROR">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="100">error communicating with daemon.</doc>
+      </member>
+      <member name="connection_failed"
+              value="1"
+              c:identifier="LIGHTDM_GREETER_ERROR_CONNECTION_FAILED"
+              glib:nick="connection-failed"
+              glib:name="LIGHTDM_GREETER_ERROR_CONNECTION_FAILED">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="101">failed to connect to the daemon.</doc>
+      </member>
+      <member name="session_failed"
+              value="2"
+              c:identifier="LIGHTDM_GREETER_ERROR_SESSION_FAILED"
+              glib:nick="session-failed"
+              glib:name="LIGHTDM_GREETER_ERROR_SESSION_FAILED">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="102">requested session failed to start.</doc>
+      </member>
+      <member name="no_autologin"
+              value="3"
+              c:identifier="LIGHTDM_GREETER_ERROR_NO_AUTOLOGIN"
+              glib:nick="no-autologin"
+              glib:name="LIGHTDM_GREETER_ERROR_NO_AUTOLOGIN">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="103">autologin not configured.</doc>
+      </member>
+      <member name="invalid_user"
+              value="4"
+              c:identifier="LIGHTDM_GREETER_ERROR_INVALID_USER"
+              glib:nick="invalid-user"
+              glib:name="LIGHTDM_GREETER_ERROR_INVALID_USER">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="104">autologin not configured.</doc>
+      </member>
+      <function name="quark" c:identifier="lightdm_greeter_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <function-macro name="IS_GREETER"
+                    c:identifier="LIGHTDM_IS_GREETER"
+                    introspectable="0">
+      <source-position filename="lightdm/greeter.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GREETER_CLASS"
+                    c:identifier="LIGHTDM_IS_GREETER_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/greeter.h" line="23"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LANGUAGE"
+                    c:identifier="LIGHTDM_IS_LANGUAGE"
+                    introspectable="0">
+      <source-position filename="lightdm/language.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LANGUAGE_CLASS"
+                    c:identifier="LIGHTDM_IS_LANGUAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/language.h" line="22"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LAYOUT"
+                    c:identifier="LIGHTDM_IS_LAYOUT"
+                    introspectable="0">
+      <source-position filename="lightdm/layout.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LAYOUT_CLASS"
+                    c:identifier="LIGHTDM_IS_LAYOUT_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/layout.h" line="22"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SESSION"
+                    c:identifier="LIGHTDM_IS_SESSION"
+                    introspectable="0">
+      <source-position filename="lightdm/session.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SESSION_CLASS"
+                    c:identifier="LIGHTDM_IS_SESSION_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/session.h" line="22"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER"
+                    c:identifier="LIGHTDM_IS_USER"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER_CLASS"
+                    c:identifier="LIGHTDM_IS_USER_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER_LIST"
+                    c:identifier="LIGHTDM_IS_USER_LIST"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER_LIST_CLASS"
+                    c:identifier="LIGHTDM_IS_USER_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="22"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LANGUAGE"
+                    c:identifier="LIGHTDM_LANGUAGE"
+                    introspectable="0">
+      <source-position filename="lightdm/language.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LANGUAGE_CLASS"
+                    c:identifier="LIGHTDM_LANGUAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/language.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LANGUAGE_GET_CLASS"
+                    c:identifier="LIGHTDM_LANGUAGE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/language.h" line="23"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LAYOUT"
+                    c:identifier="LIGHTDM_LAYOUT"
+                    introspectable="0">
+      <source-position filename="lightdm/layout.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LAYOUT_CLASS"
+                    c:identifier="LIGHTDM_LAYOUT_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/layout.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LAYOUT_GET_CLASS"
+                    c:identifier="LIGHTDM_LAYOUT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/layout.h" line="23"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Language"
+           c:symbol-prefix="language"
+           c:type="LightDMLanguage"
+           parent="GObject.Object"
+           glib:type-name="LightDMLanguage"
+           glib:get-type="lightdm_language_get_type"
+           glib:type-struct="LanguageClass">
+      <doc xml:space="preserve"
+           filename="language.c"
+           line="27">#LightDMLanguage is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/language.h" line="45"/>
+      <method name="get_code"
+              c:identifier="lightdm_language_get_code"
+              glib:get-property="code">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="179">Get the code of a language (e.g. "de_DE.UTF-8")</doc>
+        <source-position filename="lightdm/language.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="language.c"
+               line="185">The code of the language</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="language.c"
+                 line="181">A #LightDMLanguage</doc>
+            <type name="Language" c:type="LightDMLanguage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="lightdm_language_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="196">Get the name of a language.</doc>
+        <source-position filename="lightdm/language.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="language.c"
+               line="202">The name of the language</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="language.c"
+                 line="198">A #LightDMLanguage</doc>
+            <type name="Language" c:type="LightDMLanguage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_territory"
+              c:identifier="lightdm_language_get_territory"
+              glib:get-property="territory">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="236">Get the territory the language is used in.</doc>
+        <source-position filename="lightdm/language.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="language.c"
+               line="242">The territory the language is used in.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="language.c"
+                 line="238">A #LightDMLanguage</doc>
+            <type name="Language" c:type="LightDMLanguage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="matches" c:identifier="lightdm_language_matches">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="276">Check if a language code matches this language.</doc>
+        <source-position filename="lightdm/language.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="language.c"
+               line="283">#TRUE if the code matches this language.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="language.c"
+                 line="278">A #LightDMLanguage</doc>
+            <type name="Language" c:type="LightDMLanguage*"/>
+          </instance-parameter>
+          <parameter name="code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="language.c"
+                 line="279">A language code</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="code"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_code"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="territory"
+                transfer-ownership="none"
+                getter="get_territory"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="LanguageClass"
+            c:type="LightDMLanguageClass"
+            glib:is-gtype-struct-for="Language">
+      <doc xml:space="preserve"
+           filename="language.c"
+           line="34">Class structure for #LightDMLanguage.</doc>
+      <source-position filename="lightdm/language.h" line="45"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/language.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/language.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/language.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/language.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="lightdm/language.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved6">
+        <callback name="reserved6">
+          <source-position filename="lightdm/language.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="Layout"
+           c:symbol-prefix="layout"
+           c:type="LightDMLayout"
+           parent="GObject.Object"
+           glib:type-name="LightDMLayout"
+           glib:get-type="lightdm_layout_get_type"
+           glib:type-struct="LayoutClass">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="24">#LightDMLayout is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/layout.h" line="45"/>
+      <method name="get_description"
+              c:identifier="lightdm_layout_get_description"
+              glib:get-property="description">
+        <doc xml:space="preserve"
+             filename="layout.c"
+             line="236">Get the long description of a layout.</doc>
+        <source-position filename="lightdm/layout.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="layout.c"
+               line="242">A long description of the layout</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="layout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="layout.c"
+                 line="238">A #LightDMLayout</doc>
+            <type name="Layout" c:type="LightDMLayout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="lightdm_layout_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="layout.c"
+             line="202">Get the name of a layout.</doc>
+        <source-position filename="lightdm/layout.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="layout.c"
+               line="208">The name of the layout</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="layout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="layout.c"
+                 line="204">A #LightDMLayout</doc>
+            <type name="Layout" c:type="LightDMLayout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_description"
+              c:identifier="lightdm_layout_get_short_description"
+              glib:get-property="short-description">
+        <doc xml:space="preserve"
+             filename="layout.c"
+             line="219">Get the short description of a layout.</doc>
+        <source-position filename="lightdm/layout.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="layout.c"
+               line="225">A short description of the layout</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="layout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="layout.c"
+                 line="221">A #LightDMLayout</doc>
+            <type name="Layout" c:type="LightDMLayout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="description"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_description"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="short-description"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_short_description"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="LayoutClass"
+            c:type="LightDMLayoutClass"
+            glib:is-gtype-struct-for="Layout">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="31">Class structure for #LightDMLayout.</doc>
+      <source-position filename="lightdm/layout.h" line="45"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/layout.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/layout.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/layout.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/layout.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="lightdm/layout.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved6">
+        <callback name="reserved6">
+          <source-position filename="lightdm/layout.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="MessageType"
+                 glib:type-name="LightDMMessageType"
+                 glib:get-type="lightdm_message_type_get_type"
+                 c:type="LightDMMessageType">
+      <member name="info"
+              value="0"
+              c:identifier="LIGHTDM_MESSAGE_TYPE_INFO"
+              glib:nick="info"
+              glib:name="LIGHTDM_MESSAGE_TYPE_INFO">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="55">Informational message.</doc>
+      </member>
+      <member name="error"
+              value="1"
+              c:identifier="LIGHTDM_MESSAGE_TYPE_ERROR"
+              glib:nick="error"
+              glib:name="LIGHTDM_MESSAGE_TYPE_ERROR">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="56">Error message.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="PromptType"
+                 glib:type-name="LightDMPromptType"
+                 glib:get-type="lightdm_prompt_type_get_type"
+                 c:type="LightDMPromptType">
+      <doc xml:space="preserve"
+           filename="lightdm/greeter.h"
+           line="38">Prompt types the client is required to display.</doc>
+      <member name="question"
+              value="0"
+              c:identifier="LIGHTDM_PROMPT_TYPE_QUESTION"
+              glib:nick="question"
+              glib:name="LIGHTDM_PROMPT_TYPE_QUESTION">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="40">prompt is a question.  The information can be shown as it is entered.</doc>
+      </member>
+      <member name="secret"
+              value="1"
+              c:identifier="LIGHTDM_PROMPT_TYPE_SECRET"
+              glib:nick="secret"
+              glib:name="LIGHTDM_PROMPT_TYPE_SECRET">
+        <doc xml:space="preserve"
+             filename="lightdm/greeter.h"
+             line="41">prompt is for secret information.  The entered information should be obscured so it can't be publically visible.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="SESSION"
+                    c:identifier="LIGHTDM_SESSION"
+                    introspectable="0">
+      <source-position filename="lightdm/session.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SESSION_CLASS"
+                    c:identifier="LIGHTDM_SESSION_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/session.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SESSION_GET_CLASS"
+                    c:identifier="LIGHTDM_SESSION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/session.h" line="23"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="SIGNAL_USER_CHANGED"
+              value="changed"
+              c:type="LIGHTDM_SIGNAL_USER_CHANGED">
+      <source-position filename="lightdm/user.h" line="42"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="LightDMSession"
+           parent="GObject.Object"
+           glib:type-name="LightDMSession"
+           glib:get-type="lightdm_session_get_type"
+           glib:type-struct="SessionClass">
+      <doc xml:space="preserve"
+           filename="session.c"
+           line="25">#LightDMSession is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/session.h" line="45"/>
+      <method name="get_comment"
+              c:identifier="lightdm_session_get_comment"
+              glib:get-property="comment">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="291">Get the comment for a session</doc>
+        <source-position filename="lightdm/session.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="session.c"
+               line="297">The session comment</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="session.c"
+                 line="293">A #LightDMSession</doc>
+            <type name="Session" c:type="LightDMSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_key"
+              c:identifier="lightdm_session_get_key"
+              glib:get-property="key">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="240">Get the key for a session</doc>
+        <source-position filename="lightdm/session.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="session.c"
+               line="246">The session key</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="session.c"
+                 line="242">A #LightDMSession</doc>
+            <type name="Session" c:type="LightDMSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="lightdm_session_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="274">Get the name for a session</doc>
+        <source-position filename="lightdm/session.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="session.c"
+               line="280">The session name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="session.c"
+                 line="276">A #LightDMSession</doc>
+            <type name="Session" c:type="LightDMSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_session_type"
+              c:identifier="lightdm_session_get_session_type">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="257">Get the type a session</doc>
+        <source-position filename="lightdm/session.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="session.c"
+               line="263">The session type, e.g. x or mir</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="session.c"
+                 line="259">A #LightDMSession</doc>
+            <type name="Session" c:type="LightDMSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="comment"
+                transfer-ownership="none"
+                getter="get_comment"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="key"
+                transfer-ownership="none"
+                getter="get_key"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="SessionClass"
+            c:type="LightDMSessionClass"
+            glib:is-gtype-struct-for="Session">
+      <doc xml:space="preserve"
+           filename="session.c"
+           line="32">Class structure for #LightDMSession.</doc>
+      <source-position filename="lightdm/session.h" line="45"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/session.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/session.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/session.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/session.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="lightdm/session.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved6">
+        <callback name="reserved6">
+          <source-position filename="lightdm/session.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="USER" c:identifier="LIGHTDM_USER" introspectable="0">
+      <source-position filename="lightdm/user.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_CLASS"
+                    c:identifier="LIGHTDM_USER_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_GET_CLASS"
+                    c:identifier="LIGHTDM_USER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_LIST"
+                    c:identifier="LIGHTDM_USER_LIST"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_LIST_CLASS"
+                    c:identifier="LIGHTDM_USER_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_LIST_GET_CLASS"
+                    c:identifier="LIGHTDM_USER_LIST_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lightdm/user.h" line="23"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="USER_LIST_SIGNAL_USER_ADDED"
+              value="user-added"
+              c:type="LIGHTDM_USER_LIST_SIGNAL_USER_ADDED">
+      <source-position filename="lightdm/user.h" line="38"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="USER_LIST_SIGNAL_USER_CHANGED"
+              value="user-changed"
+              c:type="LIGHTDM_USER_LIST_SIGNAL_USER_CHANGED">
+      <source-position filename="lightdm/user.h" line="39"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="USER_LIST_SIGNAL_USER_REMOVED"
+              value="user-removed"
+              c:type="LIGHTDM_USER_LIST_SIGNAL_USER_REMOVED">
+      <source-position filename="lightdm/user.h" line="40"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="User"
+           c:symbol-prefix="user"
+           c:type="LightDMUser"
+           parent="GObject.Object"
+           glib:type-name="LightDMUser"
+           glib:get-type="lightdm_user_get_type"
+           glib:type-struct="UserClass">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="48">#LightDMUser is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/user.h" line="63"/>
+      <virtual-method name="changed">
+        <source-position filename="lightdm/user.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_background"
+              c:identifier="lightdm_user_get_background"
+              glib:get-property="background">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="488">Get the background file path for a user.</doc>
+        <source-position filename="lightdm/user.h" line="123"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="494">The background file path for the given user or #NULL if no path</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="490">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="lightdm_user_get_display_name"
+              glib:get-property="display-name">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="437">Get the display name of a user.</doc>
+        <source-position filename="lightdm/user.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="443">The display name of the given user</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="439">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_has_messages"
+              c:identifier="lightdm_user_get_has_messages"
+              glib:get-property="has-messages">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="590">Check if a user has waiting messages.</doc>
+        <source-position filename="lightdm/user.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="596">#TRUE if the user has waiting messages.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="592">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_home_directory"
+              c:identifier="lightdm_user_get_home_directory"
+              glib:get-property="home-directory">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="454">Get the home directory for a user.</doc>
+        <source-position filename="lightdm/user.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="460">The users home directory</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="456">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image"
+              c:identifier="lightdm_user_get_image"
+              glib:get-property="image">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="471">Get the image URI for a user.</doc>
+        <source-position filename="lightdm/user.h" line="121"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="477">The image URI for the given user or #NULL if no URI</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="473">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_locked"
+              c:identifier="lightdm_user_get_is_locked"
+              glib:get-property="is-locked">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="624">Get if the user is locked.</doc>
+        <source-position filename="lightdm/user.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="630">%TRUE if the user is locked</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="626">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="lightdm_user_get_language"
+              glib:get-property="language">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="505">Get the language for a user.</doc>
+        <source-position filename="lightdm/user.h" line="125"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="511">The language in the form of a local specification (e.g. "de_DE.UTF-8") for the given user or #NULL if using the system default locale.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="507">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_layout"
+              c:identifier="lightdm_user_get_layout"
+              glib:get-property="layout">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="522">Get the keyboard layout for a user.</doc>
+        <source-position filename="lightdm/user.h" line="127"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="528">The keyboard layout for the given user or #NULL if using system defaults.  Copy the value if you want to use it long term.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="524">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_layouts"
+              c:identifier="lightdm_user_get_layouts"
+              glib:get-property="layouts">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="539">Get the configured keyboard layouts for a user.</doc>
+        <source-position filename="lightdm/user.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="545">A NULL-terminated array of keyboard layouts for the given user.  Copy the values if you want to use them long term.</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="541">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_logged_in"
+              c:identifier="lightdm_user_get_logged_in"
+              glib:get-property="logged-in">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="573">Check if a user is logged in.</doc>
+        <source-position filename="lightdm/user.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="579">#TRUE if the user is currently logged in.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="575">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="lightdm_user_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="403">Get the name of a user.</doc>
+        <source-position filename="lightdm/user.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="409">The name of the given user</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="405">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_real_name"
+              c:identifier="lightdm_user_get_real_name"
+              glib:get-property="real-name">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="420">Get the real name of a user.</doc>
+        <source-position filename="lightdm/user.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="426">The real name of the given user</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="422">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_session"
+              c:identifier="lightdm_user_get_session"
+              glib:get-property="session">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="556">Get the session for a user.</doc>
+        <source-position filename="lightdm/user.h" line="131"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="562">The session for the given user or #NULL if using system defaults.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="558">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uid"
+              c:identifier="lightdm_user_get_uid"
+              glib:get-property="uid">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="607">Get the uid of a user.</doc>
+        <source-position filename="lightdm/user.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="613">The uid of the given user</doc>
+          <type name="guint" c:type="uid_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="609">A #LightDMUser</doc>
+            <type name="User" c:type="LightDMUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="background"
+                transfer-ownership="none"
+                getter="get_background"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="common-user"
+                introspectable="0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="display-name"
+                transfer-ownership="none"
+                getter="get_display_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="has-messages"
+                transfer-ownership="none"
+                getter="get_has_messages"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="home-directory"
+                transfer-ownership="none"
+                getter="get_home_directory"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="image"
+                transfer-ownership="none"
+                getter="get_image"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="is-locked"
+                transfer-ownership="none"
+                getter="get_is_locked"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="language"
+                transfer-ownership="none"
+                getter="get_language"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="layout"
+                transfer-ownership="none"
+                getter="get_layout"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="layouts" transfer-ownership="none" getter="get_layouts">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="logged-in"
+                transfer-ownership="none"
+                getter="get_logged_in"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="name"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="real-name"
+                transfer-ownership="none"
+                getter="get_real_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="session"
+                transfer-ownership="none"
+                getter="get_session"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="uid"
+                transfer-ownership="none"
+                getter="get_uid"
+                default-value="0">
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="changed" when="last">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="849">The ::changed signal gets emitted this user account is modified.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="UserClass"
+            c:type="LightDMUserClass"
+            glib:is-gtype-struct-for="User">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="55">Class structure for #LightDMUser.</doc>
+      <source-position filename="lightdm/user.h" line="63"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="lightdm/user.h" line="54"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="user" transfer-ownership="none">
+              <type name="User" c:type="LightDMUser*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/user.h" line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/user.h" line="58"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/user.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/user.h" line="60"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="lightdm/user.h" line="61"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved6">
+        <callback name="reserved6">
+          <source-position filename="lightdm/user.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="UserList"
+           c:symbol-prefix="user_list"
+           c:type="LightDMUserList"
+           parent="GObject.Object"
+           glib:type-name="LightDMUserList"
+           glib:get-type="lightdm_user_list_get_type"
+           glib:type-struct="UserListClass">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="35">#LightDMUserList is an opaque data structure and can only be accessed
+using the provided functions.</doc>
+      <source-position filename="lightdm/user.h" line="86"/>
+      <function name="get_instance"
+                c:identifier="lightdm_user_list_get_instance">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="121">Get the user list.</doc>
+        <source-position filename="lightdm/user.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="126">the #LightDMUserList</doc>
+          <type name="UserList" c:type="LightDMUserList*"/>
+        </return-value>
+      </function>
+      <virtual-method name="user_added">
+        <source-position filename="lightdm/user.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+          <parameter name="user" transfer-ownership="none">
+            <type name="User" c:type="LightDMUser*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="user_changed">
+        <source-position filename="lightdm/user.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+          <parameter name="user" transfer-ownership="none">
+            <type name="User" c:type="LightDMUser*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="user_removed">
+        <source-position filename="lightdm/user.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+          <parameter name="user" transfer-ownership="none">
+            <type name="User" c:type="LightDMUser*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_length"
+              c:identifier="lightdm_user_list_get_length"
+              glib:get-property="length">
+        <source-position filename="lightdm/user.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="217">The number of users able to log in</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="215">a #LightDMUserList</doc>
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_by_name"
+              c:identifier="lightdm_user_list_get_user_by_name">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="248">Get information about a given user or #NULL if this user doesn't exist.</doc>
+        <source-position filename="lightdm/user.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="255">A #LightDMUser entry for the given user.</doc>
+          <type name="User" c:type="LightDMUser*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="250">A #LightDMUserList</doc>
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="251">Name of user to get.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_users" c:identifier="lightdm_user_list_get_users">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="229">Get a list of users to present to the user.  This list may be a subset of the
+available users and may be empty depending on the server configuration.</doc>
+        <source-position filename="lightdm/user.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="user.c"
+               line="236">A list of #LightDMUser that should be presented to the user.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="User"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="231">A #LightDMUserList</doc>
+            <type name="UserList" c:type="LightDMUserList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="length"
+                transfer-ownership="none"
+                getter="get_length"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="num-users" transfer-ownership="none" default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="user-added" when="last">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="354">The ::user-added signal gets emitted when a user account is created.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="357">The #LightDMUser that has been added.</doc>
+            <type name="User"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="user-changed" when="last">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="370">The ::user-changed signal gets emitted when a user account is modified.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="373">The #LightDMUser that has been changed.</doc>
+            <type name="User"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="user-removed" when="last">
+        <doc xml:space="preserve"
+             filename="user.c"
+             line="386">The ::user-removed signal gets emitted when a user account is removed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="user.c"
+                 line="389">The #LightDMUser that has been removed.</doc>
+            <type name="User"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="UserListClass"
+            c:type="LightDMUserListClass"
+            glib:is-gtype-struct-for="UserList">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="42">Class structure for #LightDMUserList.</doc>
+      <source-position filename="lightdm/user.h" line="86"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="user_added">
+        <callback name="user_added">
+          <source-position filename="lightdm/user.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="user_list" transfer-ownership="none">
+              <type name="UserList" c:type="LightDMUserList*"/>
+            </parameter>
+            <parameter name="user" transfer-ownership="none">
+              <type name="User" c:type="LightDMUser*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="user_changed">
+        <callback name="user_changed">
+          <source-position filename="lightdm/user.h" line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="user_list" transfer-ownership="none">
+              <type name="UserList" c:type="LightDMUserList*"/>
+            </parameter>
+            <parameter name="user" transfer-ownership="none">
+              <type name="User" c:type="LightDMUser*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="user_removed">
+        <callback name="user_removed">
+          <source-position filename="lightdm/user.h" line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="user_list" transfer-ownership="none">
+              <type name="UserList" c:type="LightDMUserList*"/>
+            </parameter>
+            <parameter name="user" transfer-ownership="none">
+              <type name="User" c:type="LightDMUser*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="lightdm/user.h" line="80"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="lightdm/user.h" line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="lightdm/user.h" line="82"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="lightdm/user.h" line="83"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="lightdm/user.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved6">
+        <callback name="reserved6">
+          <source-position filename="lightdm/user.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <function name="get_can_hibernate"
+              c:identifier="lightdm_get_can_hibernate">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="179">Checks if is authorized to do a system hibernate.</doc>
+      <source-position filename="lightdm/power.h" line="20"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="184">#TRUE if can hibernate the system</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="get_can_restart" c:identifier="lightdm_get_can_restart">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="249">Checks if is authorized to do a system restart.</doc>
+      <source-position filename="lightdm/power.h" line="24"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="254">#TRUE if can restart the system</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="get_can_shutdown" c:identifier="lightdm_get_can_shutdown">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="300">Checks if is authorized to do a system shutdown.</doc>
+      <source-position filename="lightdm/power.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="305">#TRUE if can shutdown the system</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="get_can_suspend" c:identifier="lightdm_get_can_suspend">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="109">Checks if authorized to do a system suspend.</doc>
+      <source-position filename="lightdm/power.h" line="16"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="114">#TRUE if can suspend the system</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="get_hostname" c:identifier="lightdm_get_hostname">
+      <source-position filename="lightdm/system.h" line="18"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="27">The name of the host we are running on.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_language" c:identifier="lightdm_get_language">
+      <doc xml:space="preserve"
+           filename="language.c"
+           line="141">Get the current language.</doc>
+      <source-position filename="lightdm/language.h" line="59"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="146">The current language or #NULL if no language.</doc>
+        <type name="Language" c:type="LightDMLanguage*"/>
+      </return-value>
+    </function>
+    <function name="get_languages" c:identifier="lightdm_get_languages">
+      <doc xml:space="preserve"
+           filename="language.c"
+           line="165">Get a list of languages to present to the user.</doc>
+      <source-position filename="lightdm/language.h" line="57"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="language.c"
+             line="170">A list of #LightDMLanguage that should be presented to the user.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Language"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="get_layout" c:identifier="lightdm_get_layout">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="171">Get the current keyboard layout.</doc>
+      <source-position filename="lightdm/layout.h" line="61"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="layout.c"
+             line="176">The currently active layout for this user.</doc>
+        <type name="Layout" c:type="LightDMLayout*"/>
+      </return-value>
+    </function>
+    <function name="get_layouts" c:identifier="lightdm_get_layouts">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="109">Get a list of keyboard layouts to present to the user.</doc>
+      <source-position filename="lightdm/layout.h" line="57"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="layout.c"
+             line="114">A list of #LightDMLayout that should be presented to the user.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Layout"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="get_motd" c:identifier="lightdm_get_motd">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="163">Get a system message that should be presented to the user.
+e.g. "Welcome to Yoyodyne"</doc>
+      <source-position filename="lightdm/system.h" line="30"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="169">a string (the contents of /etc/motd) or %NULL if not set.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_os_id" c:identifier="lightdm_get_os_id">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="88">Get a word describing the OS, suitable for checking which OS the greeter is running on.
+e.g. "ubuntu"</doc>
+      <source-position filename="lightdm/system.h" line="20"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="94">a string (ID variable from /etc/os-release) or %NULL if not set.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_os_name" c:identifier="lightdm_get_os_name">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="103">Get a line of text describing the OS without version information, suitable for presentation to the user.
+e.g. "Ubuntu"</doc>
+      <source-position filename="lightdm/system.h" line="22"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="109">a string (NAME variable from /etc/os-release) or %NULL if not set.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_os_pretty_name"
+              c:identifier="lightdm_get_os_pretty_name">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="118">Get a line of text describing the OS, suitable for presentation to the user.
+e.g. "Ubuntu 16.04.1 LTS"</doc>
+      <source-position filename="lightdm/system.h" line="24"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="124">a string (PRETTY_NAME variable from /etc/os-release) or %NULL if not set.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_os_version" c:identifier="lightdm_get_os_version">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="133">Get a line of text describing the OS version, suitable for presentation to the user.
+e.g. "16.04.1 LTS (Xenial Xapus)"</doc>
+      <source-position filename="lightdm/system.h" line="26"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="139">a string (VERSION variable from /etc/os-release) or %NULL if not set.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_os_version_id"
+              c:identifier="lightdm_get_os_version_id">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="148">Get a word descibing the OS version, suitable for checking which version of the OS this greeter is running on.
+e.g. "16.04"</doc>
+      <source-position filename="lightdm/system.h" line="28"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="system.c"
+             line="154">a string (VERSION_ID variable from /etc/os-release) or %NULL if not set.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="get_remote_sessions"
+              c:identifier="lightdm_get_remote_sessions">
+      <doc xml:space="preserve"
+           filename="session.c"
+           line="226">Get the available remote sessions.</doc>
+      <source-position filename="lightdm/session.h" line="59"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="231">A list of #LightDMSession</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Session"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="get_sessions" c:identifier="lightdm_get_sessions">
+      <doc xml:space="preserve"
+           filename="session.c"
+           line="212">Get the available sessions.</doc>
+      <source-position filename="lightdm/session.h" line="57"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="session.c"
+             line="217">A list of #LightDMSession</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Session"/>
+        </type>
+      </return-value>
+    </function>
+    <docsection name="greeter">
+      <doc xml:space="preserve"
+           filename="greeter.c"
+           line="21">#LightDMGreeter is an object that manages the connection to the LightDM server and provides common greeter functionality.
+
+An example of a simple greeter:
+|[
+int main ()
+{
+    GMainLoop *main_loop;
+    LightDMGreeter *greeter
+
+    main_loop = g_main_loop_new ();
+
+    greeter = lightdm_greeter_new ();
+    g_object_connect (greeter, "show-prompt", G_CALLBACK (show_prompt_cb), NULL);
+    g_object_connect (greeter, "authentication-complete", G_CALLBACK (authentication_complete_cb), NULL);
+
+    // Connect to LightDM daemon
+    if (!lightdm_greeter_connect_to_daemon_sync (greeter, NULL))
+        return EXIT_FAILURE;
+
+    // Start authentication
+    lightdm_greeter_authenticate (greeter, NULL);
+
+    g_main_loop_run (main_loop);
+
+    return EXIT_SUCCESS;
+}
+
+static void show_prompt_cb (LightDMGreeter *greeter, const char *text, LightDMPromptType type)
+{
+    // Show the user the message and prompt for some response
+    gchar *secret = prompt_user (text, type);
+
+    // Give the result to the user
+    lightdm_greeter_respond (greeter, response);
+}
+
+static void authentication_complete_cb (LightDMGreeter *greeter)
+{
+    // Start the session
+    if (!lightdm_greeter_get_is_authenticated (greeter) ||
+        !lightdm_greeter_start_session_sync (greeter, NULL))
+    {
+        // Failed authentication, try again
+        lightdm_greeter_authenticate (greeter, NULL);
+    }
+}
+]|</doc>
+    </docsection>
+    <function name="greeter_error_quark"
+              c:identifier="lightdm_greeter_error_quark"
+              moved-to="GreeterError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="hibernate" c:identifier="lightdm_hibernate" throws="1">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="220">Triggers a system hibernate.</doc>
+      <source-position filename="lightdm/power.h" line="22"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="226">#TRUE if hibernate initiated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <docsection name="language">
+      <doc xml:space="preserve"
+           filename="language.c"
+           line="19">#LightDMLanguage is an object that describes a language that is available on the system.</doc>
+    </docsection>
+    <docsection name="layout">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="16">#LightDMLayout is an object that describes a keyboard that is available on the system.</doc>
+    </docsection>
+    <docsection name="power">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="18">Helper functions to perform power management operations.</doc>
+    </docsection>
+    <function name="restart" c:identifier="lightdm_restart" throws="1">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="280">Triggers a system restart.</doc>
+      <source-position filename="lightdm/power.h" line="26"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="286">#TRUE if restart initiated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <docsection name="session">
+      <doc xml:space="preserve"
+           filename="session.c"
+           line="17">Object containing information about a session type. #LightDMSession objects are not created by the user, but provided by the #LightDMGreeter object.</doc>
+    </docsection>
+    <function name="set_layout" c:identifier="lightdm_set_layout">
+      <doc xml:space="preserve"
+           filename="layout.c"
+           line="141">Set the layout for this session.</doc>
+      <source-position filename="lightdm/layout.h" line="59"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="layout" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="layout.c"
+               line="143">The layout to use</doc>
+          <type name="Layout" c:type="LightDMLayout*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutdown" c:identifier="lightdm_shutdown" throws="1">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="331">Triggers a system shutdown.</doc>
+      <source-position filename="lightdm/power.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="337">#TRUE if shutdown initiated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="suspend" c:identifier="lightdm_suspend" throws="1">
+      <doc xml:space="preserve"
+           filename="power.c"
+           line="150">Triggers a system suspend.</doc>
+      <source-position filename="lightdm/power.h" line="18"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="power.c"
+             line="156">#TRUE if suspend initiated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <docsection name="system">
+      <doc xml:space="preserve"
+           filename="system.c"
+           line="15">Helper functions to get system information.</doc>
+    </docsection>
+    <docsection name="user">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="27">Information about a local user account.</doc>
+    </docsection>
+    <docsection name="user-list">
+      <doc xml:space="preserve"
+           filename="user.c"
+           line="19">An object that contains information about local user accounts.</doc>
+    </docsection>
+  </namespace>
+</repository>

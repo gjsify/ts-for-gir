@@ -12,14 +12,14 @@ import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
 // import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
-import type { GenerateConfig, NSRegistry } from '@ts-for-gir/lib'
+import type { OptionsGeneration, NSRegistry } from '@ts-for-gir/lib'
 
 export class GenerationHandler {
     log: Logger
     generator: Generator
 
     constructor(
-        private readonly config: GenerateConfig,
+        private readonly config: OptionsGeneration,
         type: GeneratorType,
     ) {
         this.log = new Logger(config.verbose, 'GenerationHandler')
@@ -61,8 +61,6 @@ export class GenerationHandler {
 
         for (const girModule of girModules) {
             this.log.log(` - ${girModule.packageName} ...`)
-            girModule.start(girModules)
-
             await this.generator.generate(registry, girModule)
         }
 

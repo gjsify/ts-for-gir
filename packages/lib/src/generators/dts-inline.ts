@@ -1,14 +1,13 @@
 import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
-
-import { GenerationOptions } from "../types.js";
-
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
 import { DtsGenerator } from "./dts.js";
 import { IntrospectedNamespaceMember } from "../gir/base.js";
 
+import type { OptionsGeneration } from "../types/index.js";
+
 export class DtsInlineGenerator extends DtsGenerator {
-    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 
@@ -16,23 +15,23 @@ export class DtsInlineGenerator extends DtsGenerator {
         const { namespace, options } = this;
 
         if (options.verbose) {
-            console.debug(`Resolving the types of ${namespace.name}...`);
+            console.debug(`Resolving the types of ${namespace.namespace}...`);
         }
 
         let suffix = "";
 
-        if (!options.noAdvancedVariants && node.name === "GLib") {
+        if (!options.noAdvancedVariants && node.namespace === "GLib") {
             suffix = `\n${overrideGLib(node)}\n`;
-        } else if (node.name === "GObject") {
+        } else if (node.namespace === "GObject") {
             suffix = `\n${overrideGObject(node)}\n`;
         }
 
         try {
-            const { name } = node;
+            const { namespace: name, version } = node.dependency;
 
             const header = `
 /**
- * ${name} ${node.version}
+ * ${name} ${version}
  * 
  * Generated from ${node.package_version.join(".")}
  */
@@ -56,12 +55,12 @@ export class DtsInlineGenerator extends DtsGenerator {
             const output = [header, base, content, suffix].join("\n\n");
 
             if (options.verbose) {
-                console.debug(`Printing ${namespace.name}...`);
+                console.debug(`Printing ${namespace.namespace}...`);
             }
 
             return Promise.resolve(output);
         } catch (err) {
-            console.error(`Failed to generate namespace: ${node.name}`);
+            console.error(`Failed to generate namespace: ${node.namespace}`);
             console.error(err);
 
             return Promise.resolve(null);

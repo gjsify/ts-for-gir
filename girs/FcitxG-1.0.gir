@@ -1,0 +1,978 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="FcitxG"
+             version="1.0"
+             shared-library="libFcitx5GClient.so.2"
+             c:identifier-prefixes="FcitxG"
+             c:symbol-prefixes="fcitx_g">
+    <record name="CandidateItem" c:type="FcitxGCandidateItem">
+      <source-position filename="fcitxgclient.h" line="36"/>
+      <field name="label" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="candidate" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </record>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="FcitxGClient"
+           parent="GObject.Object"
+           glib:type-name="FcitxGClient"
+           glib:get-type="fcitx_g_client_get_type"
+           glib:type-struct="ClientClass">
+      <doc xml:space="preserve"
+           filename="fcitxgclient.c"
+           line="12">A #FcitxGClient allow to create a input context via DBus</doc>
+      <source-position filename="fcitxgclient.h" line="22"/>
+      <constructor name="new" c:identifier="fcitx_g_client_new">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1085">New a #FcitxGClient</doc>
+        <source-position filename="fcitxgclient.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="1090">A newly allocated #FcitxGClient</doc>
+          <type name="Client" c:type="FcitxGClient*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_watcher"
+                   c:identifier="fcitx_g_client_new_with_watcher">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1097">New a #FcitxGClient</doc>
+        <source-position filename="fcitxgclient.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="1103">A newly allocated #FcitxGClient</doc>
+          <type name="Client" c:type="FcitxGClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="watcher" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1099">the FcitxGWatcher to be used with this client</doc>
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="focus_in" c:identifier="fcitx_g_client_focus_in">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="444">tell fcitx current client has focus</doc>
+        <source-position filename="fcitxgclient.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="446">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="focus_out" c:identifier="fcitx_g_client_focus_out">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="456">tell fcitx current client has lost focus</doc>
+        <source-position filename="fcitxgclient.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="458">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uuid" c:identifier="fcitx_g_client_get_uuid">
+        <source-position filename="fcitxgclient.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="438">the current uuid of input context.</doc>
+          <type name="guint8" c:type="const guint8*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="436">a #FcitxGWatcher</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_valid" c:identifier="fcitx_g_client_is_valid">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1146">Check #FcitxGClient is valid to communicate with Fcitx</doc>
+        <source-position filename="fcitxgclient.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="1152">#FcitxGClient is valid or not</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1148">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_page" c:identifier="fcitx_g_client_next_page">
+        <source-position filename="fcitxgclient.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="prev_page" c:identifier="fcitx_g_client_prev_page">
+        <source-position filename="fcitxgclient.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="process_key" c:identifier="fcitx_g_client_process_key">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="664">use this function with #fcitx_g_client_process_key_finish</doc>
+        <source-position filename="fcitxgclient.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="666">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="667">key value</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="668">hardware key code</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="669">key state</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="isRelease" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="670">event type is key release</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="t" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="671">timestamp</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="timeout_msec" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="672">timeout in millisecond</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="673">cancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="8">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="674">callback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="675">user data</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="process_key_finish"
+              c:identifier="fcitx_g_client_process_key_finish">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="629">use this function with #fcitx_g_client_process_key_async</doc>
+        <source-position filename="fcitxgclient.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="636">process key result</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="631">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="632">result</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="process_key_sync"
+              c:identifier="fcitx_g_client_process_key_sync">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="700">send a key event to fcitx synchronizely</doc>
+        <source-position filename="fcitxgclient.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgclient.c"
+               line="711">the key is processed or not</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="702">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="703">key value</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="704">hardware key code</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="705">key state</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="isRelease" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="706">is key release</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="t" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="707">timestamp</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="fcitx_g_client_reset">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="468">tell fcitx current client is reset from client side</doc>
+        <source-position filename="fcitxgclient.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="470">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="select_candidate"
+              c:identifier="fcitx_g_client_select_candidate">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="558">tell fcitx current client to select candidate.</doc>
+        <source-position filename="fcitxgclient.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="560">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="561">Candidate index</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_capability"
+              c:identifier="fcitx_g_client_set_capability">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="480">set client capability of input context.</doc>
+        <source-position filename="fcitxgclient.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="482">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="483">capability</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cursor_rect"
+              c:identifier="fcitx_g_client_set_cursor_rect">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="494">tell fcitx current client's cursor geometry info</doc>
+        <source-position filename="fcitxgclient.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="496">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="497">x of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="498">y of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="w" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="499">width of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="h" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="500">height of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cursor_rect_with_scale_factor"
+              c:identifier="fcitx_g_client_set_cursor_rect_with_scale_factor">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="513">tell fcitx current client's cursor geometry info</doc>
+        <source-position filename="fcitxgclient.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="515">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="516">x of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="517">y of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="w" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="518">width of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="h" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="519">height of cursor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="520">scale factor of surface</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_display" c:identifier="fcitx_g_client_set_display">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1110">Set the display name</doc>
+        <source-position filename="fcitxgclient.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1112">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1113">display name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_program" c:identifier="fcitx_g_client_set_program">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1122">Set the program name</doc>
+        <source-position filename="fcitxgclient.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1124">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="program" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1125">program name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_surrounding_text"
+              c:identifier="fcitx_g_client_set_surrounding_text">
+        <source-position filename="fcitxgclient.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="574">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="575">surroundng text</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="cursor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="576">cursor position coresponding to text</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="anchor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="577">anchor position coresponding to text</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_use_batch_process_key_event"
+              c:identifier="fcitx_g_client_set_use_batch_process_key_event">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="1134">Set whether use ProcessKeyEventBatch if supports, default is true.</doc>
+        <source-position filename="fcitxgclient.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1136">A #FcitxGClient</doc>
+            <type name="Client" c:type="FcitxGClient*"/>
+          </instance-parameter>
+          <parameter name="batch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="1137">whether use ProcessKeyEventBatch</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="watcher"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Watcher"/>
+      </property>
+      <glib:signal name="commit-string" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="292">Emit when input method commit one string</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="string" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="295">string to be commited</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="connected" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="269">Emit when connected to fcitx and created ic</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="current-im" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="356">Emit when input method used in input context changed</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="359">name of input method</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="unique_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="360">unique name of input method</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="lang_code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="361">language code of input method</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="delete-surrounding-text" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="303">Emit when input method need to delete surrounding text</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cursor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="306">deletion start</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="len" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="307">deletion length</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="forward-key" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="279">Emit when input method ask for forward a key</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="282">key value</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="283">key state</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="284">event type</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="notify-focus-out" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="369">Emit when focus out happens on server side</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="update-client-side-ui" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="330">Emit when input method needs to update the client-side user interface</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="preedit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="333">A
+#FcitxGPreeditItem List</doc>
+            <array name="GLib.PtrArray">
+              <type name="PreeditItem"/>
+            </array>
+          </parameter>
+          <parameter name="preedit_cursor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="335">preedit cursor position by utf8 byte</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="aux_up" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="336">A
+#FcitxGPreeditItem List</doc>
+            <array name="GLib.PtrArray">
+              <type name="PreeditItem"/>
+            </array>
+          </parameter>
+          <parameter name="aux_down" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="338">A
+#FcitxGPreeditItem List</doc>
+            <array name="GLib.PtrArray">
+              <type name="PreeditItem"/>
+            </array>
+          </parameter>
+          <parameter name="candidate_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="340">A
+#FcitxGCandidateItem List</doc>
+            <array name="GLib.PtrArray">
+              <type name="CandidateItem"/>
+            </array>
+          </parameter>
+          <parameter name="candidate_cursor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="342">candidate cursor position</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="candidate_layout_hint" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="343">candidate layout hint</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="has_prev" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="344">has prev page</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="has_next" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="345">has next page</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="update-formatted-preedit" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgclient.c"
+             line="316">Emit when input method needs to update formatted preedit</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="preedit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="319">A
+#FcitxGPreeditItem List</doc>
+            <array name="GLib.PtrArray">
+              <type name="PreeditItem"/>
+            </array>
+          </parameter>
+          <parameter name="cursor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgclient.c"
+                 line="321">cursor position by utf8 byte</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="FcitxGClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="fcitxgclient.h" line="22"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ClientPrivate"
+            c:type="FcitxGClientPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="fcitxgclient.h" line="24"/>
+    </record>
+    <record name="PreeditItem" c:type="FcitxGPreeditItem">
+      <source-position filename="fcitxgclient.h" line="31"/>
+      <field name="string" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="gint32" c:type="gint32"/>
+      </field>
+    </record>
+    <class name="Watcher"
+           c:symbol-prefix="watcher"
+           c:type="FcitxGWatcher"
+           parent="GObject.Object"
+           glib:type-name="FcitxGWatcher"
+           glib:get-type="fcitx_g_watcher_get_type"
+           glib:type-struct="WatcherClass">
+      <doc xml:space="preserve"
+           filename="fcitxgwatcher.c"
+           line="20">A FcitxGWatcher allow to create a input context via DBus</doc>
+      <source-position filename="fcitxgwatcher.h" line="20"/>
+      <constructor name="new" c:identifier="fcitx_g_watcher_new">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="244">New a #FcitxGWatcher</doc>
+        <source-position filename="fcitxgwatcher.h" line="22"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="fcitxgwatcher.c"
+               line="249">A newly allocated #FcitxGWatcher</doc>
+          <type name="Watcher" c:type="FcitxGWatcher*"/>
+        </return-value>
+      </constructor>
+      <method name="get_connection"
+              c:identifier="fcitx_g_watcher_get_connection">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="268">self: A #FcitxGWatcher
+Return the current #GDBusConnection</doc>
+        <source-position filename="fcitxgwatcher.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgwatcher.c"
+               line="274">#GDBusConnection for current connection</doc>
+          <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service_name"
+              c:identifier="fcitx_g_watcher_get_service_name">
+        <source-position filename="fcitxgwatcher.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="fcitxgwatcher.c"
+               line="326">an available service name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgwatcher.c"
+                 line="324">A #FcitxGWatcher</doc>
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_service_available"
+              c:identifier="fcitx_g_watcher_is_service_available">
+        <source-position filename="fcitxgwatcher.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_watch_portal"
+              c:identifier="fcitx_g_watcher_set_watch_portal">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="303">self: A #FcitxGWatcher
+watch: to monitor the portal service or not.</doc>
+        <source-position filename="fcitxgwatcher.h" line="27"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+          <parameter name="watch" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unwatch" c:identifier="fcitx_g_watcher_unwatch">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="231">Unwatch for the fcitx serivce, should only be called after
+calling fcitx_g_watcher_watch.</doc>
+        <source-position filename="fcitxgwatcher.h" line="25"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgwatcher.c"
+                 line="233">a #FcitxGWatcher</doc>
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="watch" c:identifier="fcitx_g_watcher_watch">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="153">Watch for the fcitx serivce.</doc>
+        <source-position filename="fcitxgwatcher.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgwatcher.c"
+                 line="155">a #FcitxGWatcher</doc>
+            <type name="Watcher" c:type="FcitxGWatcher*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="availability-changed" when="last">
+        <doc xml:space="preserve"
+             filename="fcitxgwatcher.c"
+             line="60">Emit when connected to fcitx and created ic</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="available" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="fcitxgwatcher.c"
+                 line="63">whether fcitx service is available.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="WatcherClass"
+            c:type="FcitxGWatcherClass"
+            glib:is-gtype-struct-for="Watcher">
+      <source-position filename="fcitxgwatcher.h" line="20"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

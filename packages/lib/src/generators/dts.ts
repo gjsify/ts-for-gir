@@ -46,7 +46,7 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { AnyIntrospectedType } from "../gir/base.js";
-import { GenerateConfig } from "../types/generate-config.js";
+import { OptionsGeneration } from "../types/options-generation.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
     const versionSlug = version.toLowerCase().split(".")[0];
@@ -60,7 +60,7 @@ export function versionImportFormat(versionFormat: string, namespace: string, ve
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-    constructor(namespace: IntrospectedNamespace, options: GenerateConfig) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 
@@ -174,7 +174,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
 
         return `
 export namespace ${node.name} {
-    export const $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${node.name}>;
+    export const $gtype: ${namespace.namespace !== "GObject" ? "GObject." : ""}GType<${node.name}>;
 }
 
 ${this.docString(node)}export enum ${node.name} {
@@ -229,7 +229,7 @@ ${this.docString(node)}export enum ${node.name} {
 
             if (!identifier) {
                 throw new Error(
-                    `Unable to resolve type: ${i.name} from ${i.namespace} in ${node.namespace.name} ${node.namespace.version}`
+                    `Unable to resolve type: ${i.name} from ${i.namespace} in ${node.namespace.namespace} ${node.namespace.version}`
                 );
             }
 
@@ -259,7 +259,7 @@ ${this.docString(node)}export enum ${node.name} {
             }
 
             throw new Error(
-                `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.name} ${node.namespace.version}`
+                `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}`
             );
         }
 
@@ -269,7 +269,7 @@ ${this.docString(node)}export enum ${node.name} {
     generateInterface(node: IntrospectedInterface): string {
         const { namespace, options } = this;
 
-        const isGObject = node.someParent(p => p.namespace.name === "GObject" && p.name === "Object");
+        const isGObject = node.someParent(p => p.namespace.namespace === "GObject" && p.name === "Object");
 
         const name = node.name;
 
@@ -317,7 +317,7 @@ ${this.docString(node)}export enum ${node.name} {
       ${
           hasNamespace
               ? `${this.docString(node)}export interface ${name}Namespace {
-    ${isGObject ? `$gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;` : ""}
+    ${isGObject ? `$gtype: ${namespace.namespace !== "GObject" ? "GObject." : ""}GType<${name}>;` : ""}
     prototype: ${name}Prototype;
     ${staticFields.length > 0 ? staticFields.map(sf => sf.asString(this)).join("\n") : ""}
     ${
@@ -397,7 +397,7 @@ export interface ${name}Prototype${Generics}${Extends} {${node.__ts__indexSignat
 ${this.docString(node)}export class ${name}${Generics}${Extends} {${
             node.__ts__indexSignature ? `\n${node.__ts__indexSignature}\n` : ""
         }
-    static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
+    static $gtype: ${namespace.namespace !== "GObject" ? "GObject." : ""}GType<${name}>;
 
     ${MainConstructor}
     constructor(copy: ${node.name});
@@ -622,7 +622,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
       export ${node.isAbstract ? "abstract " : ""}class ${name}${Generics}${Extends}${Implements} {${
           node.__ts__indexSignature ? `\n${node.__ts__indexSignature}\n` : ""
       }
-      static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
+      static $gtype: ${namespace.namespace !== "GObject" ? "GObject." : ""}GType<${name}>;
 
       ${MainConstructor}
       
@@ -808,7 +808,7 @@ ${node.doc
         // Register our identifier with the sanitized identifiers.
         // We avoid doing this in fromXML because other class-level function classes
         // depends on that code.
-        sanitizeIdentifierName(namespace.name, node.raw_name);
+        sanitizeIdentifierName(namespace.namespace, node.raw_name);
 
         const Parameters = this.generateParameters(node.parameters);
         const ReturnType = this.generateReturn(node.return(), node.output_parameters);

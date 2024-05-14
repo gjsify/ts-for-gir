@@ -1,0 +1,1509 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <package name="amtk-4"/>
+  <c:include name="amtk/amtk.h"/>
+  <namespace name="Amtk"
+             version="4"
+             shared-library="libamtk-4.so.0"
+             c:identifier-prefixes="Amtk"
+             c:symbol-prefixes="amtk">
+    <record name="ActionInfo"
+            c:type="AmtkActionInfo"
+            glib:type-name="AmtkActionInfo"
+            glib:get-type="amtk_action_info_get_type"
+            c:symbol-prefix="action_info">
+      <constructor name="new"
+                   c:identifier="amtk_action_info_new"
+                   version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AmtkActionInfo.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_entry"
+                   c:identifier="amtk_action_info_new_from_entry"
+                   version="2.0">
+        <doc xml:space="preserve">Creates a new #AmtkActionInfo from an #AmtkActionInfoEntry.
+
+If @translation_domain is not %NULL, g_dgettext() is used to translate the
+@label and @tooltip before setting them to the #AmtkActionInfo.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AmtkActionInfo.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="info_entry" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfoEntry.</doc>
+            <type name="ActionInfoEntry" c:type="const AmtkActionInfoEntry*"/>
+          </parameter>
+          <parameter name="translation_domain"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a gettext domain, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy" c:identifier="amtk_action_info_copy" version="2.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a copy of @info. The copy will have a reference
+count of one.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_accels"
+              c:identifier="amtk_action_info_get_accels"
+              version="2.0">
+        <doc xml:space="preserve">Returns the accelerators. This function never returns %NULL, it always
+returns a %NULL-terminated array, to be suitable for
+gtk_application_set_accels_for_action().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a %NULL-terminated array
+of accelerators in the format understood by gtk_accelerator_parse().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action_name"
+              c:identifier="amtk_action_info_get_action_name"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the action name, or %NULL. Example: `"win.save"`.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="amtk_action_info_get_icon_name"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the icon name, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label"
+              c:identifier="amtk_action_info_get_label"
+              version="2.0">
+        <doc xml:space="preserve">Gets the label. The label has normally a mnemonic.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the label (i.e. a short description), or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tooltip"
+              c:identifier="amtk_action_info_get_tooltip"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_been_used"
+              c:identifier="amtk_action_info_has_been_used"
+              version="3.0">
+        <doc xml:space="preserve">Returns whether @info has been used (for example by an #AmtkFactory
+function). See also amtk_action_info_store_check_all_used().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">whether @info has been used.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="mark_as_used"
+              c:identifier="amtk_action_info_mark_as_used"
+              version="3.0">
+        <doc xml:space="preserve">Mark @info as used. An #AmtkFactory function that uses an #AmtkActionInfo
+should call this function. See amtk_action_info_store_check_all_used().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="amtk_action_info_ref" version="2.0">
+        <doc xml:space="preserve">Increments the reference count of @info by one.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the passed in @info.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_accels"
+              c:identifier="amtk_action_info_set_accels"
+              version="2.0">
+        <doc xml:space="preserve">A function similar to gtk_application_set_accels_for_action().
+
+@accels must not be %NULL, it must be a %NULL-terminated array, to be
+consistent with gtk_application_set_accels_for_action().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+          <parameter name="accels" transfer-ownership="none">
+            <doc xml:space="preserve">a %NULL-terminated array of accelerators
+in the format understood by gtk_accelerator_parse().</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_action_name"
+              c:identifier="amtk_action_info_set_action_name"
+              version="2.0">
+        <doc xml:space="preserve">Sets the action name, for example `"win.save"`.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">the action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name"
+              c:identifier="amtk_action_info_set_icon_name"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+          <parameter name="icon_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the icon name, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label"
+              c:identifier="amtk_action_info_set_label"
+              version="2.0">
+        <doc xml:space="preserve">Sets the label with a mnemonic.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+          <parameter name="label"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the label (i.e. a short description), or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_tooltip"
+              c:identifier="amtk_action_info_set_tooltip"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+          <parameter name="tooltip"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="amtk_action_info_unref" version="2.0">
+        <doc xml:space="preserve">Decrements the reference count of @info by one. If the reference count drops
+to 0, @info is freed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <class name="ActionInfoCentralStore"
+           c:symbol-prefix="action_info_central_store"
+           c:type="AmtkActionInfoCentralStore"
+           parent="GObject.Object"
+           glib:type-name="AmtkActionInfoCentralStore"
+           glib:get-type="amtk_action_info_central_store_get_type"
+           glib:type-struct="ActionInfoCentralStoreClass">
+      <function name="get_singleton"
+                c:identifier="amtk_action_info_central_store_get_singleton"
+                version="3.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #AmtkActionInfoCentralStore singleton instance.</doc>
+          <type name="ActionInfoCentralStore"
+                c:type="AmtkActionInfoCentralStore*"/>
+        </return-value>
+      </function>
+      <method name="lookup"
+              c:identifier="amtk_action_info_central_store_lookup"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the found #AmtkActionInfo, or %NULL.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="central_store" transfer-ownership="none">
+            <doc xml:space="preserve">the #AmtkActionInfoCentralStore.</doc>
+            <type name="ActionInfoCentralStore"
+                  c:type="AmtkActionInfoCentralStore*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ActionInfoCentralStorePrivate"
+              c:type="AmtkActionInfoCentralStorePrivate*"/>
+      </field>
+    </class>
+    <record name="ActionInfoCentralStoreClass"
+            c:type="AmtkActionInfoCentralStoreClass"
+            glib:is-gtype-struct-for="ActionInfoCentralStore">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ActionInfoCentralStorePrivate"
+            c:type="AmtkActionInfoCentralStorePrivate"
+            disguised="1">
+    </record>
+    <record name="ActionInfoEntry" c:type="AmtkActionInfoEntry" version="2.0">
+      <doc xml:space="preserve">This struct defines a set of information for a single action. It is for use
+with amtk_action_info_store_add_entries().
+
+Like #GActionEntry, it is permissible to use an incomplete initialiser in
+order to leave some of the later values as %NULL. Additional optional fields
+may be added in the future.</doc>
+      <field name="action_name" writable="1">
+        <doc xml:space="preserve">the action name.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="icon_name" writable="1">
+        <doc xml:space="preserve">the icon name, or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="label" writable="1">
+        <doc xml:space="preserve">the label (i.e. a short description) with a mnemonic, or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="accel" writable="1">
+        <doc xml:space="preserve">the accelerator, in the format understood by gtk_accelerator_parse().
+Or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="tooltip" writable="1">
+        <doc xml:space="preserve">the tooltip (i.e. a long description), or %NULL.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="ActionInfoStore"
+           c:symbol-prefix="action_info_store"
+           c:type="AmtkActionInfoStore"
+           parent="GObject.Object"
+           glib:type-name="AmtkActionInfoStore"
+           glib:get-type="amtk_action_info_store_get_type"
+           glib:type-struct="ActionInfoStoreClass">
+      <constructor name="new"
+                   c:identifier="amtk_action_info_store_new"
+                   version="3.0">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AmtkActionInfoStore.</doc>
+          <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
+        </return-value>
+      </constructor>
+      <method name="add"
+              c:identifier="amtk_action_info_store_add"
+              version="2.0">
+        <doc xml:space="preserve">Inserts @info into @store and into the #AmtkActionInfoCentralStore. Both the
+@store and central store must &lt;emphasis&gt;not&lt;/emphasis&gt; already contain an
+#AmtkActionInfo with the same action name. The stores take their own
+reference on @info.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfo.</doc>
+            <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_entries"
+              c:identifier="amtk_action_info_store_add_entries"
+              version="2.0">
+        <doc xml:space="preserve">Calls amtk_action_info_store_add() for each entry.
+
+If @translation_domain is not %NULL, g_dgettext() is used to translate the
+@label and @tooltip of each entry before setting them to the #AmtkActionInfo.
+
+An API similar to g_action_map_add_action_entries().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="entries" transfer-ownership="none">
+            <doc xml:space="preserve">a
+pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
+            <array length="1"
+                   zero-terminated="0"
+                   c:type="AmtkActionInfoEntry*">
+              <type name="ActionInfoEntry"/>
+            </array>
+          </parameter>
+          <parameter name="n_entries" transfer-ownership="none">
+            <doc xml:space="preserve">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="translation_domain"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a gettext domain, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="check_all_used"
+              c:identifier="amtk_action_info_store_check_all_used"
+              version="2.0">
+        <doc xml:space="preserve">Checks for each #AmtkActionInfo of @store that it has been used (see
+amtk_action_info_has_been_used()). If an #AmtkActionInfo has not been used, a
+warning is printed and might indicate dead code.
+
+You probably want to call this function on the application store after
+creating the menu and toolbar. But it can also be useful for a store provided
+by a library, to easily see which actions are not used by the application.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lookup"
+              c:identifier="amtk_action_info_store_lookup"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the found #AmtkActionInfo, or %NULL.</doc>
+          <type name="ActionInfo" c:type="AmtkActionInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="store" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkActionInfoStore.</doc>
+            <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ActionInfoStorePrivate"
+              c:type="AmtkActionInfoStorePrivate*"/>
+      </field>
+    </class>
+    <record name="ActionInfoStoreClass"
+            c:type="AmtkActionInfoStoreClass"
+            glib:is-gtype-struct-for="ActionInfoStore">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ActionInfoStorePrivate"
+            c:type="AmtkActionInfoStorePrivate"
+            disguised="1">
+    </record>
+    <class name="ApplicationWindow"
+           c:symbol-prefix="application_window"
+           c:type="AmtkApplicationWindow"
+           parent="GObject.Object"
+           glib:type-name="AmtkApplicationWindow"
+           glib:get-type="amtk_application_window_get_type"
+           glib:type-struct="ApplicationWindowClass">
+      <function name="get_from_gtk_application_window"
+                c:identifier="amtk_application_window_get_from_gtk_application_window"
+                version="2.0">
+        <doc xml:space="preserve">Returns the #AmtkApplicationWindow of @gtk_window. The returned object is
+guaranteed to be the same for the lifetime of @gtk_window.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #AmtkApplicationWindow of @gtk_window.</doc>
+          <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkApplicationWindow.</doc>
+            <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="connect_menu_to_statusbar"
+              c:identifier="amtk_application_window_connect_menu_to_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">Connects to the #AmtkMenuShell::menu-item-selected and
+#AmtkMenuShell::menu-item-deselected signals of @menu_shell to push/pop the
+long description of #GtkMenuItem's to the #AmtkApplicationWindow:statusbar.
+
+The long description is retrieved with amtk_menu_item_get_long_description().
+So amtk_menu_item_set_long_description() must have been called, which is the
+case if the #GtkMenuItem has been created with #AmtkFactory.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkMenuShell.</doc>
+            <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_recent_chooser_menu_to_statusbar"
+              c:identifier="amtk_application_window_connect_recent_chooser_menu_to_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">An alternative to gtk_recent_chooser_set_show_tips(). Shows the full path in
+the #AmtkApplicationWindow:statusbar when a #GtkMenuItem of @menu is
+selected.
+
+The full path is retrieved with
+amtk_utils_recent_chooser_menu_get_item_uri().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkRecentChooserMenu.</doc>
+            <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_open_recent_menu"
+              c:identifier="amtk_application_window_create_open_recent_menu"
+              version="3.0">
+        <doc xml:space="preserve">Creates a simple and generic #GtkRecentChooserMenu.
+
+The #GtkRecentChooser is configured to show files only recently used with the
+current application, as returned by g_get_application_name(). If recent files
+are added to the default #GtkRecentManager with
+gtk_recent_manager_add_item(), the files will normally show up in the
+#GtkRecentChooserMenu.
+
+The #GtkRecentChooserMenu is connected to the statusbar with
+amtk_application_window_connect_recent_chooser_menu_to_statusbar().
+
+When the #GtkRecentChooser::item-activated signal is emitted,
+g_application_open() is called (with an empty hint), so the #GApplication
+must have the %G_APPLICATION_HANDLES_OPEN flag set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkRecentChooserMenu.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="create_open_recent_menu_item"
+              c:identifier="amtk_application_window_create_open_recent_menu_item"
+              version="2.0">
+        <doc xml:space="preserve">Creates a #GtkMenuItem with a simple and generic #GtkRecentChooserMenu as
+submenu. The #GtkRecentChooserMenu is created with
+amtk_application_window_create_open_recent_menu().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuItem.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application_window"
+              c:identifier="amtk_application_window_get_application_window"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtkApplicationWindow of @amtk_window.</doc>
+          <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_statusbar"
+              c:identifier="amtk_application_window_get_statusbar"
+              version="2.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #AmtkApplicationWindow:statusbar.</doc>
+          <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_statusbar"
+              c:identifier="amtk_application_window_set_statusbar"
+              version="2.0">
+        <doc xml:space="preserve">Sets the #AmtkApplicationWindow:statusbar property.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_window" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkApplicationWindow.</doc>
+            <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
+          </instance-parameter>
+          <parameter name="statusbar"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GtkStatusbar, or %NULL.</doc>
+            <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application-window"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkApplicationWindow.</doc>
+        <type name="Gtk.ApplicationWindow"/>
+      </property>
+      <property name="statusbar"
+                version="2.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkStatusbar. %NULL by default.</doc>
+        <type name="Gtk.Statusbar"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ApplicationWindowPrivate"
+              c:type="AmtkApplicationWindowPrivate*"/>
+      </field>
+    </class>
+    <record name="ApplicationWindowClass"
+            c:type="AmtkApplicationWindowClass"
+            glib:is-gtype-struct-for="ApplicationWindow">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ApplicationWindowPrivate"
+            c:type="AmtkApplicationWindowPrivate"
+            disguised="1">
+    </record>
+    <class name="Factory"
+           c:symbol-prefix="factory"
+           c:type="AmtkFactory"
+           parent="GObject.Object"
+           glib:type-name="AmtkFactory"
+           glib:get-type="amtk_factory_get_type"
+           glib:type-struct="FactoryClass">
+      <constructor name="new" c:identifier="amtk_factory_new" version="3.0">
+        <doc xml:space="preserve">Creates a new #AmtkFactory object. Associating a #GtkApplication is optional,
+if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AmtkFactory.</doc>
+          <type name="Factory" c:type="AmtkFactory*"/>
+        </return-value>
+        <parameters>
+          <parameter name="application"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GtkApplication, or %NULL.</doc>
+            <type name="Gtk.Application" c:type="GtkApplication*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_default_application"
+                   c:identifier="amtk_factory_new_with_default_application"
+                   version="3.0">
+        <doc xml:space="preserve">Calls amtk_factory_new() with g_application_get_default() (it must be a
+#GtkApplication).</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AmtkFactory with the default #GtkApplication.</doc>
+          <type name="Factory" c:type="AmtkFactory*"/>
+        </return-value>
+      </constructor>
+      <method name="create_check_menu_item"
+              c:identifier="amtk_factory_create_check_menu_item"
+              version="3.0">
+        <doc xml:space="preserve">Creates a new #GtkCheckMenuItem for @action_name with the
+#AmtkFactory:default-flags.
+
+See the documentation of amtk_factory_create_check_menu_item_full() for more
+information.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkCheckMenuItem for @action_name.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_check_menu_item_full"
+              c:identifier="amtk_factory_create_check_menu_item_full"
+              version="3.0">
+        <doc xml:space="preserve">This function ignores the #AmtkFactory:default-flags property and takes the
+@flags argument instead.
+
+Note that since it is a #GtkCheckMenuItem the icon is not set, even if it
+would be possible with amtk_menu_item_set_icon_name().
+
+If the action controls a boolean property, think about using
+#GPropertyAction.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkCheckMenuItem for @action_name.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">#AmtkFactoryFlags.</doc>
+            <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_menu_item"
+              c:identifier="amtk_factory_create_menu_item"
+              version="3.0">
+        <doc xml:space="preserve">Creates a new #GtkMenuItem for @action_name with the
+#AmtkFactory:default-flags.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuItem for @action_name.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_menu_item_full"
+              c:identifier="amtk_factory_create_menu_item_full"
+              version="3.0">
+        <doc xml:space="preserve">This function ignores the #AmtkFactory:default-flags property and takes the
+@flags argument instead.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuItem for @action_name.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">#AmtkFactoryFlags.</doc>
+            <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_menu_tool_button"
+              c:identifier="amtk_factory_create_menu_tool_button"
+              version="3.0">
+        <doc xml:space="preserve">Creates a new #GtkMenuToolButton for @action_name with the
+#AmtkFactory:default-flags.
+
+See the documentation of amtk_factory_create_menu_tool_button_full() for more
+information.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuToolButton for @action_name.</doc>
+          <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_menu_tool_button_full"
+              c:identifier="amtk_factory_create_menu_tool_button_full"
+              version="3.0">
+        <doc xml:space="preserve">This function ignores the #AmtkFactory:default-flags property and takes the
+@flags argument instead.
+
+After calling this function, you need to use the #GtkMenuToolButton API to
+set the menu and also possibly set a tooltip to the arrow.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkMenuToolButton for @action_name.</doc>
+          <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">#AmtkFactoryFlags.</doc>
+            <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_tool_button"
+              c:identifier="amtk_factory_create_tool_button"
+              version="3.0">
+        <doc xml:space="preserve">Creates a new #GtkToolButton for @action_name with the
+#AmtkFactory:default-flags.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkToolButton for @action_name.</doc>
+          <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_tool_button_full"
+              c:identifier="amtk_factory_create_tool_button_full"
+              version="3.0">
+        <doc xml:space="preserve">This function ignores the #AmtkFactory:default-flags property and takes the
+@flags argument instead.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a new #GtkToolButton for @action_name.</doc>
+          <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve">an action name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">#AmtkFactoryFlags.</doc>
+            <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_application"
+              c:identifier="amtk_factory_get_application"
+              version="3.0">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">the #AmtkFactory:application.</doc>
+          <type name="Gtk.Application" c:type="GtkApplication*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_flags"
+              c:identifier="amtk_factory_get_default_flags"
+              version="3.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #AmtkFactory:default-flags.</doc>
+          <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_default_flags"
+              c:identifier="amtk_factory_set_default_flags"
+              version="3.0">
+        <doc xml:space="preserve">Sets the #AmtkFactory:default-flags property.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="factory" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkFactory.</doc>
+            <type name="Factory" c:type="AmtkFactory*"/>
+          </instance-parameter>
+          <parameter name="default_flags" transfer-ownership="none">
+            <doc xml:space="preserve">the new value.</doc>
+            <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application"
+                version="3.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The associated #GtkApplication (it is optional, it can be %NULL).
+#AmtkFactory has a weak reference to the #GtkApplication.</doc>
+        <type name="Gtk.Application"/>
+      </property>
+      <property name="default-flags"
+                version="3.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The default #AmtkFactoryFlags.</doc>
+        <type name="FactoryFlags"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="FactoryPrivate" c:type="AmtkFactoryPrivate*"/>
+      </field>
+    </class>
+    <record name="FactoryClass"
+            c:type="AmtkFactoryClass"
+            glib:is-gtype-struct-for="Factory">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <bitfield name="FactoryFlags"
+              version="3.0"
+              glib:type-name="AmtkFactoryFlags"
+              glib:get-type="amtk_factory_flags_get_type"
+              c:type="AmtkFactoryFlags">
+      <doc xml:space="preserve">#AmtkFactoryFlags permits to control how a factory function creates the
+object, to ignore some steps.</doc>
+      <member name="flags_none"
+              value="0"
+              c:identifier="AMTK_FACTORY_FLAGS_NONE"
+              glib:nick="flags-none">
+        <doc xml:space="preserve">No flags.</doc>
+      </member>
+      <member name="ignore_gaction"
+              value="1"
+              c:identifier="AMTK_FACTORY_IGNORE_GACTION"
+              glib:nick="ignore-gaction">
+        <doc xml:space="preserve">Do not call gtk_actionable_set_action_name().</doc>
+      </member>
+      <member name="ignore_icon"
+              value="2"
+              c:identifier="AMTK_FACTORY_IGNORE_ICON"
+              glib:nick="ignore-icon">
+        <doc xml:space="preserve">Do not set an icon.</doc>
+      </member>
+      <member name="ignore_label"
+              value="4"
+              c:identifier="AMTK_FACTORY_IGNORE_LABEL"
+              glib:nick="ignore-label">
+        <doc xml:space="preserve">Do not set a label/short description.</doc>
+      </member>
+      <member name="ignore_tooltip"
+              value="8"
+              c:identifier="AMTK_FACTORY_IGNORE_TOOLTIP"
+              glib:nick="ignore-tooltip">
+        <doc xml:space="preserve">Do not set a tooltip/long description.</doc>
+      </member>
+      <member name="ignore_accels"
+              value="16"
+              c:identifier="AMTK_FACTORY_IGNORE_ACCELS"
+              glib:nick="ignore-accels">
+        <doc xml:space="preserve">Ignore completely the accelerators.</doc>
+      </member>
+      <member name="ignore_accels_for_doc"
+              value="32"
+              c:identifier="AMTK_FACTORY_IGNORE_ACCELS_FOR_DOC"
+              glib:nick="ignore-accels-for-doc">
+        <doc xml:space="preserve">Ignore the accelerators for
+  documentation purposes only. For example do not add/configure a
+  #GtkAccelLabel.</doc>
+      </member>
+      <member name="ignore_accels_for_app"
+              value="64"
+              c:identifier="AMTK_FACTORY_IGNORE_ACCELS_FOR_APP"
+              glib:nick="ignore-accels-for-app">
+        <doc xml:space="preserve">Do not call
+  gtk_application_set_accels_for_action().</doc>
+      </member>
+    </bitfield>
+    <record name="FactoryPrivate" c:type="AmtkFactoryPrivate" disguised="1">
+    </record>
+    <class name="MenuShell"
+           c:symbol-prefix="menu_shell"
+           c:type="AmtkMenuShell"
+           parent="GObject.Object"
+           glib:type-name="AmtkMenuShell"
+           glib:get-type="amtk_menu_shell_get_type"
+           glib:type-struct="MenuShellClass">
+      <function name="get_from_gtk_menu_shell"
+                c:identifier="amtk_menu_shell_get_from_gtk_menu_shell"
+                version="2.0">
+        <doc xml:space="preserve">Returns the #AmtkMenuShell of @gtk_menu_shell. The returned object is
+guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #AmtkMenuShell of @gtk_menu_shell.</doc>
+          <type name="MenuShell" c:type="AmtkMenuShell*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gtk_menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">a #GtkMenuShell.</doc>
+            <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="menu_item_deselected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_menu_shell" transfer-ownership="none">
+            <type name="MenuShell" c:type="AmtkMenuShell*"/>
+          </instance-parameter>
+          <parameter name="menu_item" transfer-ownership="none">
+            <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="menu_item_selected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_menu_shell" transfer-ownership="none">
+            <type name="MenuShell" c:type="AmtkMenuShell*"/>
+          </instance-parameter>
+          <parameter name="menu_item" transfer-ownership="none">
+            <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_menu_shell"
+              c:identifier="amtk_menu_shell_get_menu_shell"
+              version="2.0">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GtkMenuShell of @amtk_menu_shell.</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="amtk_menu_shell" transfer-ownership="none">
+            <doc xml:space="preserve">an #AmtkMenuShell.</doc>
+            <type name="MenuShell" c:type="AmtkMenuShell*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="menu-shell"
+                version="2.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #GtkMenuShell.</doc>
+        <type name="Gtk.MenuShell"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuShellPrivate" c:type="AmtkMenuShellPrivate*"/>
+      </field>
+      <glib:signal name="menu-item-deselected" when="first" version="2.0">
+        <doc xml:space="preserve">The ::menu-item-deselected signal is emitted when the
+#GtkMenuItem::deselect signal is emitted on a #GtkMenuItem belonging
+(directly or indirectly through submenus) to @amtk_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_item" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtkMenuItem that has been deselected.</doc>
+            <type name="Gtk.MenuItem"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="menu-item-selected" when="first" version="2.0">
+        <doc xml:space="preserve">The ::menu-item-selected signal is emitted when the
+#GtkMenuItem::select signal is emitted on a #GtkMenuItem belonging
+(directly or indirectly through submenus) to @amtk_menu_shell.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_item" transfer-ownership="none">
+            <doc xml:space="preserve">the #GtkMenuItem that has been selected.</doc>
+            <type name="Gtk.MenuItem"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MenuShellClass"
+            c:type="AmtkMenuShellClass"
+            glib:is-gtype-struct-for="MenuShell">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="menu_item_selected">
+        <callback name="menu_item_selected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="amtk_menu_shell" transfer-ownership="none">
+              <type name="MenuShell" c:type="AmtkMenuShell*"/>
+            </parameter>
+            <parameter name="menu_item" transfer-ownership="none">
+              <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="menu_item_deselected">
+        <callback name="menu_item_deselected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="amtk_menu_shell" transfer-ownership="none">
+              <type name="MenuShell" c:type="AmtkMenuShell*"/>
+            </parameter>
+            <parameter name="menu_item" transfer-ownership="none">
+              <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="MenuShellPrivate"
+            c:type="AmtkMenuShellPrivate"
+            disguised="1">
+    </record>
+    <function name="action_map_add_action_entries_check_dups"
+              c:identifier="amtk_action_map_add_action_entries_check_dups"
+              version="2.0">
+      <doc xml:space="preserve">A wrapper function for g_action_map_add_action_entries() that checks
+duplicates.
+
+This function first checks - for each entry - that the @action_map doesn't
+already contain a #GAction with the same name. A warning is printed if an old
+action will be dropped. In any case, it then calls
+g_action_map_add_action_entries() with the same arguments as passed to this
+function.
+
+This function also checks if there are duplicates in the @entries array
+itself.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_map" transfer-ownership="none">
+          <doc xml:space="preserve">a #GActionMap.</doc>
+          <type name="Gio.ActionMap" c:type="GActionMap*"/>
+        </parameter>
+        <parameter name="entries" transfer-ownership="none">
+          <doc xml:space="preserve">a pointer to
+          the first item in an array of #GActionEntry structs.</doc>
+          <array length="2" zero-terminated="0" c:type="GActionEntry*">
+            <type name="Gio.ActionEntry"/>
+          </array>
+        </parameter>
+        <parameter name="n_entries" transfer-ownership="none">
+          <doc xml:space="preserve">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the user data for signal connections.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="finalize" c:identifier="amtk_finalize" version="3.0">
+      <doc xml:space="preserve">Free the resources allocated by Amtk. For example it unrefs the singleton
+objects.
+
+It is not mandatory to call this function, it's just to be friendlier to
+memory debugging tools. This function is meant to be called at the end of
+main(). It can be called several times.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="amtk_init" version="3.0">
+      <doc xml:space="preserve">Initializes the Amtk library (e.g. for the internationalization).
+
+This function can be called several times, but is meant to be called at the
+beginning of main(), before any other Amtk function call.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="menu_item_get_long_description"
+              c:identifier="amtk_menu_item_get_long_description"
+              version="2.0">
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve">the long description of @menu_item, previously set with
+  amtk_menu_item_set_long_description().</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu_item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="menu_item_set_icon_name"
+              c:identifier="amtk_menu_item_set_icon_name"
+              version="2.0">
+      <doc xml:space="preserve">Sets an icon to a #GtkMenuItem.
+
+If the child widget of @item is already a #GtkBox, all #GtkImage widgets
+inside that box are first destroyed. A #GtkImage for @icon_name is then
+inserted to the box.
+
+If the child widget of @item is not a #GtkBox (it's usually the
+#GtkAccelLabel), it is replaced by a new #GtkBox and the initial child widget
+is inserted to the #GtkBox, alongside the icon.
+
+As a consequence, if you want to call functions on the #GtkAccelLabel, it's
+easier to do it before calling this function.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+        <parameter name="icon_name" transfer-ownership="none">
+          <doc xml:space="preserve">an icon name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="menu_item_set_long_description"
+              c:identifier="amtk_menu_item_set_long_description"
+              version="2.0">
+      <doc xml:space="preserve">Sets the long description of @menu_item. A possible use-case is to display it
+in a #GtkStatusbar, or as a tooltip.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu_item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+        <parameter name="long_description"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the long description, or %NULL to unset it.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_bind_g_action_to_gtk_action"
+              c:identifier="amtk_utils_bind_g_action_to_gtk_action"
+              version="4.0">
+      <doc xml:space="preserve">Utility function to be able to port an application gradually to #GAction,
+when #GtkUIManager and #GtkAction are still used. Porting to #GAction should
+be the first step.
+
+For @detailed_g_action_name_without_prefix, see the
+g_action_parse_detailed_name() function.  The `"app."` or `"win."` prefix (or
+any other #GActionMap prefix) must not be included in
+@detailed_g_action_name_without_prefix. For example a valid
+@detailed_g_action_name_without_prefix is `"open"` or
+`"insert-command::foobar"`.
+
+The same #GAction can be bound to several #GtkAction's (with different
+parameter values for the #GAction), but the reverse is not true, one
+#GtkAction cannot be bound to several #GAction's.
+
+This function:
+- Calls g_action_activate() when the #GtkAction #GtkAction::activate signal
+  is emitted.
+- Binds the #GAction #GAction:enabled property to the #GtkAction
+  #GtkAction:sensitive property. The binding is done with the
+  %G_BINDING_BIDIRECTIONAL and %G_BINDING_SYNC_CREATE flags, the source is
+  the #GAction and the target is the #GtkAction.
+
+When using this function, you should set the callback to %NULL in the
+corresponding #GtkActionEntry.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="g_action_map" transfer-ownership="none">
+          <doc xml:space="preserve">a #GActionMap.</doc>
+          <type name="Gio.ActionMap" c:type="GActionMap*"/>
+        </parameter>
+        <parameter name="detailed_g_action_name_without_prefix"
+                   transfer-ownership="none">
+          <doc xml:space="preserve">a detailed #GAction name without the
+  #GActionMap prefix; the #GAction must be present in @g_action_map.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="gtk_action_group" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkActionGroup.</doc>
+          <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+        </parameter>
+        <parameter name="gtk_action_name" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkAction name present in @gtk_action_group.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_create_gtk_action"
+              c:identifier="amtk_utils_create_gtk_action"
+              version="4.0">
+      <doc xml:space="preserve">Utility function to be able to port an application gradually to #GAction and
+#AmtkActionInfo, when #GtkUIManager is still used. This function goes one
+step further compared to amtk_utils_bind_g_action_to_gtk_action(). With
+amtk_utils_bind_g_action_to_gtk_action(), only the #GAction must exist. With
+amtk_utils_create_gtk_action(), both the #GAction and #AmtkActionInfo must
+exist (so typically you need to convert the #GtkActionEntry's into
+#AmtkActionInfoEntry's).
+
+This function creates a #GtkAction from a #GAction plus its corresponding
+#AmtkActionInfo.
+
+The #GtkAction is created with the information provided by the
+#AmtkActionInfo (retrieved with amtk_action_info_central_store_lookup() with
+@detailed_g_action_name_with_prefix as argument). Only the first accelerator
+is taken into account.
+
+Once the #GtkAction is created, it is added to the @gtk_action_group, and
+amtk_utils_bind_g_action_to_gtk_action() is called.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="g_action_map" transfer-ownership="none">
+          <doc xml:space="preserve">a #GActionMap.</doc>
+          <type name="Gio.ActionMap" c:type="GActionMap*"/>
+        </parameter>
+        <parameter name="detailed_g_action_name_with_prefix"
+                   transfer-ownership="none">
+          <doc xml:space="preserve">a detailed #GAction name with the
+  #GActionMap prefix; the #GAction must be present in @g_action_map.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="gtk_action_group" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkActionGroup.</doc>
+          <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+        </parameter>
+        <parameter name="gtk_action_name" transfer-ownership="none">
+          <doc xml:space="preserve">the name of the #GtkAction to create and add to
+  @gtk_action_group.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_recent_chooser_menu_get_item_uri"
+              c:identifier="amtk_utils_recent_chooser_menu_get_item_uri"
+              version="2.0">
+      <doc xml:space="preserve">Gets the URI of @item. @item must be a child of @menu. @menu must be a
+#GtkRecentChooserMenu.
+
+This function has been written because the value returned by
+gtk_recent_chooser_get_current_uri() is not updated when #GtkMenuItem's of a
+#GtkRecentChooserMenu are selected/deselected.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">the URI of @item. Free with g_free() when no longer needed.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkRecentChooserMenu.</doc>
+          <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
+        </parameter>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">a #GtkMenuItem.</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

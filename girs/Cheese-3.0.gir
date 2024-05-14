@@ -1,0 +1,1840 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Clutter" version="1.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gst" version="1.0"/>
+  <package name="cheese"/>
+  <namespace name="Cheese"
+             version="3.0"
+             shared-library="libcheese.so.8"
+             c:identifier-prefixes="Cheese"
+             c:symbol-prefixes="cheese">
+    <function-macro name="CAMERA"
+                    c:identifier="CHEESE_CAMERA"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CAMERA_CLASS"
+                    c:identifier="CHEESE_CAMERA_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera.h" line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CAMERA_DEVICE_MONITOR"
+                    c:identifier="CHEESE_CAMERA_DEVICE_MONITOR"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CAMERA_DEVICE_MONITOR_CLASS"
+                    c:identifier="CHEESE_CAMERA_DEVICE_MONITOR_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CAMERA_DEVICE_MONITOR_GET_CLASS"
+                    c:identifier="CHEESE_CAMERA_DEVICE_MONITOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CAMERA_GET_CLASS"
+                    c:identifier="CHEESE_CAMERA_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera.h" line="40"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Camera"
+           c:symbol-prefix="camera"
+           c:type="CheeseCamera"
+           parent="GObject.Object"
+           glib:type-name="CheeseCamera"
+           glib:get-type="cheese_camera_get_type"
+           glib:type-struct="CameraClass">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera.h"
+           line="68">Use the accessor functions below.</doc>
+      <source-position filename="libcheese/cheese-camera.h" line="66"/>
+      <constructor name="new" c:identifier="cheese_camera_new">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1503">Create a new #CheeseCamera object.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="98"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1512">a new #CheeseCamera</doc>
+          <type name="Camera" c:type="CheeseCamera*"/>
+        </return-value>
+        <parameters>
+          <parameter name="video_texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1505">an actor in which to render the video</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1506">the name of the device</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="x_resolution" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1507">the resolution width</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="y_resolution" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1508">the resolution height</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="photo_saved">
+        <source-position filename="libcheese/cheese-camera.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="photo_taken">
+        <source-position filename="libcheese/cheese-camera.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="state_flags_changed">
+        <source-position filename="libcheese/cheese-camera.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="new_state" transfer-ownership="none">
+            <type name="Gst.State" c:type="GstState"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="video_saved">
+        <source-position filename="libcheese/cheese-camera.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="connect_effect_texture"
+              c:identifier="cheese_camera_connect_effect_texture">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1018">Connect the supplied @texture to the @camera, using @effect.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1020">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1021">a #CheeseEffect</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </parameter>
+          <parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1022">a #ClutterActor</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_balance_property_range"
+              c:identifier="cheese_camera_get_balance_property_range">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1766">Get the minimum, maximum and default values for the requested @property of
+the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1777">%TRUE if the operation was successful, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1768">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1769">name of the balance property</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1770">minimum value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1771">maximum value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="def"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1772">default value</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_camera_devices"
+              c:identifier="cheese_camera_get_camera_devices">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1653">Get the list of #CheeseCameraDevice objects, representing active video
+capture devices on the system.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="116"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1660">an array
+of #CheeseCameraDevice</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="CameraDevice"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1655">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_video_format"
+              c:identifier="cheese_camera_get_current_video_format">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1746">Get the #CheeseVideoFormat that is currently set on the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1752">the #CheeseVideoFormat set on the #CheeseCamera</doc>
+          <type name="VideoFormat" c:type="const CheeseVideoFormat*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1748">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_recorded_time"
+              c:identifier="cheese_camera_get_recorded_time">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1829">Get a string representation of the playing time
+of the current video recording</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="127"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1836">A string with the time representation.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1831">A #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected_device"
+              c:identifier="cheese_camera_get_selected_device">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="667">Get the currently-selected #CheeseCameraDevice of the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="673">a #CheeseCameraDevice, or %NULL if there is no
+selected device</doc>
+          <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="669">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_formats"
+              c:identifier="cheese_camera_get_video_formats">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1675">Gets the list of #CheeseVideoFormat supported by the selected
+#CheeseCameraDevice on the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="119"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1682">a #GList of
+#CheeseVideoFormat, or %NULL if there was no device selected</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="VideoFormat"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1677">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play" c:identifier="cheese_camera_play">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="736">Set the state of the GStreamer pipeline associated with the #CheeseCamera to
+playing.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="738">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_balance_property"
+              c:identifier="cheese_camera_set_balance_property">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1809">Set the requested @property on the @camera to @value.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1811">A #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1812">name of the balance property</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1813">value to be set</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_device"
+              c:identifier="cheese_camera_set_device"
+              glib:set-property="device">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1534">Set the active video capture device of the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1536">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1537">the device object</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_effect" c:identifier="cheese_camera_set_effect">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="942">Set the @effect on the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="944">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="945">a #CheeseEffect</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_video_format"
+              c:identifier="cheese_camera_set_video_format">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1717">Sets a #CheeseVideoFormat on a #CheeseCamera, restarting the video stream if
+necessary.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1719">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1720">a #CheeseVideoFormat</doc>
+            <type name="VideoFormat" c:type="CheeseVideoFormat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup" c:identifier="cheese_camera_setup" throws="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1557">Setup a video capture device.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1559">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="device"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1560">the video capture device, or %NULL</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_video_recording"
+              c:identifier="cheese_camera_start_video_recording">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1112">Start a video recording with the @camera and save it to @filename.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1114">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1115">the name of the video file to where the
+recording will be saved</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="cheese_camera_stop">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="823">Set the state of the GStreamer pipeline associated with the #CheeseCamera to
+NULL.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="825">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop_video_recording"
+              c:identifier="cheese_camera_stop_video_recording">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1163">Stop recording video on the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1165">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="switch_camera_device"
+              c:identifier="cheese_camera_switch_camera_device">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="692">Toggle the playing/recording state of the @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="694">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="take_photo" c:identifier="cheese_camera_take_photo">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1191">Save a photo taken with the @camera to a new file at @filename.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1198">%TRUE on success, %FALSE if an error occurred</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1193">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1194">name of the file to save a photo to</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take_photo_pixbuf"
+              c:identifier="cheese_camera_take_photo_pixbuf">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1234">Take a photo with the @camera and emit it in the ::capture-start signal as a
+#GdkPixbuf.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera.c"
+               line="1241">%TRUE if the photo was successfully captured, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1236">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="toggle_effects_pipeline"
+              c:identifier="cheese_camera_toggle_effects_pipeline">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="982">Control whether the effects pipeline is enabled for @camera.</doc>
+        <source-position filename="libcheese/cheese-camera.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="camera" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="984">a #CheeseCamera</doc>
+            <type name="Camera" c:type="CheeseCamera*"/>
+          </instance-parameter>
+          <parameter name="active" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="985">%TRUE if effects pipeline is active, %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="device"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_device">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1452">The device object to capture from.</doc>
+        <type name="CameraDevice"/>
+      </property>
+      <property name="format" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1464">The format of the video capture device.</doc>
+        <type name="VideoFormat"/>
+      </property>
+      <property name="num-camera-devices"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1476">The currently number of camera devices available for being used.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="video-texture" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1441">The video texture for the #CheeseCamera to render into.</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <glib:signal name="photo-saved" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1386">Emitted when a photo was saved to disk.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="photo-taken" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1399">Emitted when a photo was taken.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1402">a #GdkPixbuf of the photo which was taken</doc>
+            <type name="GdkPixbuf.Pixbuf"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="state-flags-changed" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1426">Emitted when the state of the @camera #GstElement changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera.c"
+                 line="1429">the #GstState which @camera changed to</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="video-saved" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.c"
+             line="1413">Emitted when a video was saved to disk.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="CameraClass"
+            c:type="CheeseCameraClass"
+            glib:is-gtype-struct-for="Camera">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera.h"
+           line="46">Class for #CheeseCamera.</doc>
+      <source-position filename="libcheese/cheese-camera.h" line="66"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="photo_saved">
+        <callback name="photo_saved">
+          <source-position filename="libcheese/cheese-camera.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="camera" transfer-ownership="none">
+              <type name="Camera" c:type="CheeseCamera*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="photo_taken">
+        <callback name="photo_taken">
+          <source-position filename="libcheese/cheese-camera.h" line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="camera" transfer-ownership="none">
+              <type name="Camera" c:type="CheeseCamera*"/>
+            </parameter>
+            <parameter name="pixbuf" transfer-ownership="none">
+              <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="video_saved">
+        <callback name="video_saved">
+          <source-position filename="libcheese/cheese-camera.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="camera" transfer-ownership="none">
+              <type name="Camera" c:type="CheeseCamera*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="state_flags_changed">
+        <callback name="state_flags_changed">
+          <source-position filename="libcheese/cheese-camera.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="camera" transfer-ownership="none">
+              <type name="Camera" c:type="CheeseCamera*"/>
+            </parameter>
+            <parameter name="new_state" transfer-ownership="none">
+              <type name="Gst.State" c:type="GstState"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="CameraDevice"
+           c:symbol-prefix="camera_device"
+           c:type="CheeseCameraDevice"
+           parent="GObject.Object"
+           glib:type-name="CheeseCameraDevice"
+           glib:get-type="cheese_camera_device_get_type"
+           glib:type-struct="CameraDeviceClass">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device.h"
+           line="31">Use the accessor functions below.</doc>
+      <source-position filename="libcheese/cheese-camera-device.h" line="65"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="cheese_camera_device_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="770">Tries to create a new #CheeseCameraDevice with the supplied device. If
+construction fails, %NULL is returned, and @error is set.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="778">a new #CheeseCameraDevice, or %NULL</doc>
+          <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="772">The GStreamer the device, as supplied by GstDeviceMonitor</doc>
+            <type name="Gst.Device" c:type="GstDevice*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="supported_format_caps"
+                c:identifier="cheese_camera_device_supported_format_caps">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="996">Get the #GstCaps that are supported for all #CheeseCameraDevice</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="79"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="1001">the #GstCaps</doc>
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </return-value>
+      </function>
+      <method name="get_best_format"
+              c:identifier="cheese_camera_device_get_best_format">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="871">Get the #CheeseVideoFormat with the highest resolution with a width greater
+than 640 pixels and a framerate of greater than 15 FPS for this @device. If
+no such format is found, get the highest available resolution instead.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="72"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="879">the highest-resolution supported
+#CheeseVideoFormat</doc>
+          <type name="VideoFormat" c:type="CheeseVideoFormat*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="873">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_caps_for_format"
+              c:identifier="cheese_camera_device_get_caps_for_format">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="939">Get the #GstCaps for the given @format on the @device.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="946">the #GstCaps for the given @format</doc>
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="941">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="942">a #CheeseVideoFormat</doc>
+            <type name="VideoFormat" c:type="CheeseVideoFormat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_format_list"
+              c:identifier="cheese_camera_device_get_format_list">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="790">Get the sorted list of #CheeseVideoFormat that the @device supports.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="73"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="796">list of
+#CheeseVideoFormat</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="VideoFormat"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="792">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="cheese_camera_device_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="830">Get a human-readable name for the device, as reported by udev, which is
+suitable for display to a user.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="837">the human-readable name of the video capture device</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="832">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_path"
+              c:identifier="cheese_camera_device_get_path"
+              glib:get-property="path">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="811">Get path for the device, as reported by udev.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="817">the path of the video capture device</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="813">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_src" c:identifier="cheese_camera_device_get_src">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="851">Get the source GStreamer element for the @device.</doc>
+        <source-position filename="libcheese/cheese-camera-device.h"
+                         line="77"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device.c"
+               line="857">the source GStreamer element</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device.c"
+                 line="853">a #CheeseCameraDevice</doc>
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="device"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="708">GStreamer device object of the video capture device.</doc>
+        <type name="Gst.Device"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="683">Human-readable name of the video capture device, for display to the user.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_path"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.c"
+             line="696">Path of the video capture device.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </class>
+    <record name="CameraDeviceClass"
+            c:type="CheeseCameraDeviceClass"
+            glib:is-gtype-struct-for="CameraDevice">
+      <source-position filename="libcheese/cheese-camera-device.h" line="65"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CameraDeviceMonitor"
+           c:symbol-prefix="camera_device_monitor"
+           c:type="CheeseCameraDeviceMonitor"
+           parent="GObject.Object"
+           glib:type-name="CheeseCameraDeviceMonitor"
+           glib:get-type="cheese_camera_device_monitor_get_type"
+           glib:type-struct="CameraDeviceMonitorClass">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device-monitor.h"
+           line="46">Use the accessor functions below.</doc>
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="75"/>
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="cheese_camera_device_monitor_new">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="335">Returns a new #CheeseCameraDeviceMonitor object. The initialization may block.
+See cheese_camera_device_monitor_new_async() for the asynchronous version.</doc>
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device-monitor.c"
+               line="341">a new #CheeseCameraDeviceMonitor object.</doc>
+          <type name="CameraDeviceMonitor"
+                c:type="CheeseCameraDeviceMonitor*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_finish"
+                   c:identifier="cheese_camera_device_monitor_new_finish"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="369">Finishes creating a new #CheeseCameraDeviceMonitor object.</doc>
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-camera-device-monitor.c"
+               line="376">a new #CheeseCameraDeviceMonitor object or NULL if error is set.</doc>
+          <type name="CameraDeviceMonitor"
+                c:type="CheeseCameraDeviceMonitor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="371">the GAsyncResult from the callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new_async"
+                c:identifier="cheese_camera_device_monitor_new_async">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="349">Creates a new #CheeseCameraDeviceMonitor object asynchronously. Callback
+will be called when it is done. Use cheese_camera_device_monitor_new_finish()
+to get the result.
+
+See cheese_camera_device_monitor_new() for the synchronous version.</doc>
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="351">a #GCancellable or NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="352">a GAsyncReadyCallback to call when the initialization is finished</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="353">user data to pass to callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="added">
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="monitor" transfer-ownership="none">
+            <type name="CameraDeviceMonitor"
+                  c:type="CheeseCameraDeviceMonitor*"/>
+          </instance-parameter>
+          <parameter name="device" transfer-ownership="none">
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="removed">
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="monitor" transfer-ownership="none">
+            <type name="CameraDeviceMonitor"
+                  c:type="CheeseCameraDeviceMonitor*"/>
+          </instance-parameter>
+          <parameter name="device" transfer-ownership="none">
+            <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="coldplug"
+              c:identifier="cheese_camera_device_monitor_coldplug">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="203">Enumerate plugged in cameras and emit ::added for those which already exist.
+This is only required when your program starts, so be sure to connect to
+at least the ::added signal before calling this function.</doc>
+        <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                         line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="monitor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="205">a #CheeseCameraDeviceMonitor</doc>
+            <type name="CameraDeviceMonitor"
+                  c:type="CheeseCameraDeviceMonitor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <glib:signal name="added" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="261">The ::added signal is emitted when a camera is added, or on start-up
+after cheese_camera_device_monitor_coldplug() is called.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="264">a new #CheeseCameraDevice representing the video capture device</doc>
+            <type name="CameraDevice"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="removed" when="last" action="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device-monitor.c"
+             line="276">The ::removed signal is emitted when a camera is unplugged, or disabled on
+the system.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-camera-device-monitor.c"
+                 line="279">the #CheeseCameraDevice that was removed</doc>
+            <type name="CameraDevice"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="CameraDeviceMonitorClass"
+            c:type="CheeseCameraDeviceMonitorClass"
+            glib:is-gtype-struct-for="CameraDeviceMonitor">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device-monitor.h"
+           line="58">Class for #CheeseCameraDeviceMonitor.</doc>
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="75"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="added">
+        <callback name="added">
+          <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                           line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="monitor" transfer-ownership="none">
+              <type name="CameraDeviceMonitor"
+                    c:type="CheeseCameraDeviceMonitor*"/>
+            </parameter>
+            <parameter name="device" transfer-ownership="none">
+              <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="removed">
+        <callback name="removed">
+          <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                           line="73"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="monitor" transfer-ownership="none">
+              <type name="CameraDeviceMonitor"
+                    c:type="CheeseCameraDeviceMonitor*"/>
+            </parameter>
+            <parameter name="device" transfer-ownership="none">
+              <type name="CameraDevice" c:type="CheeseCameraDevice*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="CameraDeviceMonitorPrivate"
+            c:type="CheeseCameraDeviceMonitorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="42"/>
+    </record>
+    <enumeration name="CameraError" c:type="CheeseCameraError">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera.h"
+           line="80">Errors that can occur during camera setup, when calling
+cheese_camera_setup().</doc>
+      <source-position filename="libcheese/cheese-camera.h" line="95"/>
+      <member name="unknown"
+              value="0"
+              c:identifier="CHEESE_CAMERA_ERROR_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="82">unknown error</doc>
+      </member>
+      <member name="element_not_found"
+              value="1"
+              c:identifier="CHEESE_CAMERA_ERROR_ELEMENT_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="83">a required GStreamer element was not
+found</doc>
+      </member>
+      <member name="no_device"
+              value="2"
+              c:identifier="CHEESE_CAMERA_ERROR_NO_DEVICE">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera.h"
+             line="85">a #CheeseCameraDevice was not found</doc>
+      </member>
+    </enumeration>
+    <record name="CameraPrivate"
+            c:type="CheeseCameraPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libcheese/cheese-camera.h" line="42"/>
+    </record>
+    <class name="Effect"
+           c:symbol-prefix="effect"
+           c:type="CheeseEffect"
+           parent="GObject.Object"
+           glib:type-name="CheeseEffect"
+           glib:get-type="cheese_effect_get_type"
+           glib:type-struct="EffectClass">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-effect.h"
+           line="27">Use the accessor functions below.</doc>
+      <source-position filename="libcheese/cheese-effect.h" line="40"/>
+      <constructor name="new" c:identifier="cheese_effect_new">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="272">Create a new #CheeseEffect.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="279">a new #CheeseEffect</doc>
+          <type name="Effect" c:type="CheeseEffect*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="274">name of the effect</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="pipeline_desc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="275">GStreamer pipeline of the new effect</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="load_effects" c:identifier="cheese_effect_load_effects">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="410">Load effects from standard directories, including the user's data directory.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="415">a list of
+#CheeseEffect, or %NULL if no effects could be found</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Effect"/>
+          </type>
+        </return-value>
+      </function>
+      <function name="load_from_file"
+                c:identifier="cheese_effect_load_from_file">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="290">Load effect from file.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="297">a #CheeseEffect, or %NULL on error</doc>
+          <type name="Effect" c:type="CheeseEffect*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="292">name of the file containing the effect
+specification</doc>
+            <type name="filename" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="disable_preview"
+              c:identifier="cheese_effect_disable_preview">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="249">Disable the preview of a #CheeseEffect.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="251">the #CheeseEffect to disable the preview of</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="enable_preview"
+              c:identifier="cheese_effect_enable_preview">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="231">Enable the preview of a #CheeseEffect.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="233">the #CheeseEffect to enable the preview of</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="cheese_effect_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="171">Get the human-readable name of the @effect.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="177">the human-readable name of the effect.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="173">a #CheeseEffect</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pipeline_desc"
+              c:identifier="cheese_effect_get_pipeline_desc"
+              glib:get-property="pipeline-desc">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="191">Get the Gstreamer pipeline description of the @effect.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="197">the Gstreamer pipeline description of the effect.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="193">a #CheeseEffect</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_preview_connected"
+              c:identifier="cheese_effect_is_preview_connected">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="211">Get whether the @effect is connected to a video stream, for previews.</doc>
+        <source-position filename="libcheese/cheese-effect.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-effect.c"
+               line="217">%TRUE if the preview is connected, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-effect.c"
+                 line="213">a #CheeseEffect</doc>
+            <type name="Effect" c:type="CheeseEffect*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="control-valve" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="154">If the control valve is active, then the effect is currently connected to
+a video stream, for previews.</doc>
+        <type name="Gst.Element"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="128">Name of the effect, for display in a UI.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="pipeline-desc"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_pipeline_desc">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-effect.c"
+             line="141">Description of the GStreamer pipeline associated with the effect.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </class>
+    <record name="EffectClass"
+            c:type="CheeseEffectClass"
+            glib:is-gtype-struct-for="Effect">
+      <source-position filename="libcheese/cheese-effect.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="FileUtil"
+           c:symbol-prefix="fileutil"
+           c:type="CheeseFileUtil"
+           parent="GObject.Object"
+           glib:type-name="CheeseFileUtil"
+           glib:get-type="cheese_fileutil_get_type"
+           glib:type-struct="FileUtilClass">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-fileutil.h"
+           line="43">Use the accessor functions below.</doc>
+      <source-position filename="libcheese/cheese-fileutil.h" line="73"/>
+      <constructor name="new" c:identifier="cheese_fileutil_new">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.c"
+             line="315">Create a new #CheeseFileUtil object.</doc>
+        <source-position filename="libcheese/cheese-fileutil.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-fileutil.c"
+               line="320">a new #CheeseFileUtil</doc>
+          <type name="FileUtil" c:type="CheeseFileUtil*"/>
+        </return-value>
+      </constructor>
+      <method name="get_new_media_filename"
+              c:identifier="cheese_fileutil_get_new_media_filename">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.c"
+             line="108">Creates a filename for one of the three media types: photo, photo burst or
+video. If a filename for a photo burst image was previously created, this
+function increments the burst count automatically. To start a new burst,
+first call cheese_fileutil_reset_burst().</doc>
+        <source-position filename="libcheese/cheese-fileutil.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-fileutil.c"
+               line="118">a new filename</doc>
+          <type name="filename" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fileutil" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-fileutil.c"
+                 line="110">a #CheeseFileUtil</doc>
+            <type name="FileUtil" c:type="CheeseFileUtil*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-fileutil.c"
+                 line="111">the type of media to create a filename for</doc>
+            <type name="MediaMode" c:type="CheeseMediaMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_photo_path"
+              c:identifier="cheese_fileutil_get_photo_path">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.c"
+             line="76">Get the path where Cheese photo files are stored.</doc>
+        <source-position filename="libcheese/cheese-fileutil.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-fileutil.c"
+               line="82">the Cheese photo path</doc>
+          <type name="filename" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fileutil" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-fileutil.c"
+                 line="78">a #CheeseFileUtil</doc>
+            <type name="FileUtil" c:type="CheeseFileUtil*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_path"
+              c:identifier="cheese_fileutil_get_video_path">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.c"
+             line="56">Get the path where Cheese video files are stored.</doc>
+        <source-position filename="libcheese/cheese-fileutil.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libcheese/cheese-fileutil.c"
+               line="62">the Cheese video path</doc>
+          <type name="filename" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fileutil" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-fileutil.c"
+                 line="58">a #CheeseFileUtil</doc>
+            <type name="FileUtil" c:type="CheeseFileUtil*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset_burst" c:identifier="cheese_fileutil_reset_burst">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.c"
+             line="215">Resets the burst counter, so that calling
+cheese_fileutil_get_new_media_filename() with a photo burst starts a new
+burst of photos.</doc>
+        <source-position filename="libcheese/cheese-fileutil.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fileutil" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcheese/cheese-fileutil.c"
+                 line="217">a #CheeseFileUtil</doc>
+            <type name="FileUtil" c:type="CheeseFileUtil*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="unused" readable="0" private="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </class>
+    <record name="FileUtilClass"
+            c:type="CheeseFileUtilClass"
+            glib:is-gtype-struct-for="FileUtil">
+      <source-position filename="libcheese/cheese-fileutil.h" line="73"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_CAMERA"
+                    c:identifier="CHEESE_IS_CAMERA"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CAMERA_CLASS"
+                    c:identifier="CHEESE_IS_CAMERA_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera.h" line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CAMERA_DEVICE_MONITOR"
+                    c:identifier="CHEESE_IS_CAMERA_DEVICE_MONITOR"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CAMERA_DEVICE_MONITOR_CLASS"
+                    c:identifier="CHEESE_IS_CAMERA_DEVICE_MONITOR_CLASS"
+                    introspectable="0">
+      <source-position filename="libcheese/cheese-camera-device-monitor.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="MediaMode" c:type="CheeseMediaMode">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-fileutil.h"
+           line="55">The media type, used for generating filenames with
+cheese_fileutil_get_new_media_filename().</doc>
+      <source-position filename="libcheese/cheese-fileutil.h" line="69"/>
+      <member name="photo" value="0" c:identifier="CHEESE_MEDIA_MODE_PHOTO">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.h"
+             line="57">photo</doc>
+      </member>
+      <member name="video" value="1" c:identifier="CHEESE_MEDIA_MODE_VIDEO">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.h"
+             line="58">video</doc>
+      </member>
+      <member name="burst" value="2" c:identifier="CHEESE_MEDIA_MODE_BURST">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-fileutil.h"
+             line="59">a burst of photos</doc>
+      </member>
+    </enumeration>
+    <constant name="PHOTO_NAME_SUFFIX"
+              value=".jpg"
+              c:type="CHEESE_PHOTO_NAME_SUFFIX">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-fileutil.h"
+           line="27">The filename suffix for photos saved by Cheese.</doc>
+      <source-position filename="libcheese/cheese-fileutil.h" line="32"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="VIDEO_NAME_SUFFIX"
+              value=".webm"
+              c:type="CHEESE_VIDEO_NAME_SUFFIX">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-fileutil.h"
+           line="34">The filename suffix for videos saved by Cheese.</doc>
+      <source-position filename="libcheese/cheese-fileutil.h" line="39"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="VideoFormat"
+            c:type="CheeseVideoFormat"
+            glib:type-name="CheeseVideoFormat"
+            glib:get-type="cheese_video_format_get_type"
+            c:symbol-prefix="video_format">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device.h"
+           line="45">A description of the resolution, in pixels, of the format to capture with a
+#CheeseCameraDevice.</doc>
+      <source-position filename="libcheese/cheese-camera-device.h" line="58"/>
+      <field name="width" writable="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.h"
+             line="47">the width of of the video, in pixels</doc>
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="height" writable="1">
+        <doc xml:space="preserve"
+             filename="libcheese/cheese-camera-device.h"
+             line="48">the height of the video, in pixels</doc>
+        <type name="gint" c:type="gint"/>
+      </field>
+    </record>
+    <docsection name="cheese-camera">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera.c"
+           line="47">#CheeseCamera represents the video capture device used to drive a
+#CheeseWidget.</doc>
+    </docsection>
+    <docsection name="cheese-camera-device">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device.c"
+           line="33">#CheeseCameraDevice provides an abstraction of a video capture device.</doc>
+    </docsection>
+    <docsection name="cheese-camera-device-monitor">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-camera-device-monitor.c"
+           line="31">#CheeseCameraDeviceMonitor provides a basic interface for video device
+enumeration and hotplugging.
+
+It uses GstDeviceMonitor to list video devices. It is also capable to
+monitor device plugging and emit a CheeseCameraDeviceMonitor::added or
+CheeseCameraDeviceMonitor::removed signal when an event happens.</doc>
+    </docsection>
+    <docsection name="cheese-effect">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-effect.c"
+           line="24">#CheeseEffect provides an abstraction of an effect to apply to a stream
+from a video capture device.</doc>
+    </docsection>
+    <docsection name="cheese-file-util">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese-fileutil.c"
+           line="33">#CheeseFileUtil provides some helpful utility functions for looking up paths
+for photos and videos.</doc>
+    </docsection>
+    <docsection name="cheese-init">
+      <doc xml:space="preserve"
+           filename="libcheese/cheese.c"
+           line="24">Call cheese_init() to initialize libcheese.</doc>
+    </docsection>
+  </namespace>
+</repository>

@@ -25,7 +25,7 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
-    const generateConfig = Config.getGenerateConfig(config)
+    const generateConfig = Config.getOptionsGeneration(config)
     const moduleLoader = new ModuleLoader(generateConfig)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)
@@ -43,10 +43,16 @@ const handler = async (args: ConfigFlags) => {
         (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
     )
 
+    Logger.info('\nSearch for gir files in:')
+    for (const dir of config.girDirectories) {
+        Logger.white(`- ${dir}`)
+    }
+
     Logger.info('\nSelected Modules:')
     for (const moduleGroup of byHandModules) {
         for (const depModule of moduleGroup.modules) {
             Logger.white(`- ${depModule.packageName}`)
+            Logger.gray(`  - ${depModule.path}`)
         }
     }
 
@@ -55,6 +61,7 @@ const handler = async (args: ConfigFlags) => {
         for (const moduleGroup of depModules) {
             for (const depModule of moduleGroup.modules) {
                 Logger.white(`- ${depModule.packageName}`)
+                Logger.gray(`- ${depModule.path}`)
             }
         }
     }
@@ -65,6 +72,7 @@ const handler = async (args: ConfigFlags) => {
             Logger.white(`- ${moduleGroup.namespace}`)
             for (const conflictModule of moduleGroup.modules) {
                 Logger.white(`  - ${conflictModule.packageName}`)
+                Logger.gray(`  - ${conflictModule.path}`)
             }
         }
     }

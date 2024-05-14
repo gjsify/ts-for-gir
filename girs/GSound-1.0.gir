@@ -1,0 +1,1278 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <c:include name="gsound.h"/>
+  <namespace name="GSound"
+             version="1.0"
+             shared-library="libgsound.so.0"
+             c:identifier-prefixes="GSound"
+             c:symbol-prefixes="gsound">
+    <constant name="ATTR_APPLICATION_ICON"
+              value="application.icon"
+              c:type="GSOUND_ATTR_APPLICATION_ICON">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="322">Binary icon data in PNG format for the application this sound event
+is triggered by.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="328"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_ICON_NAME"
+              value="application.icon_name"
+              c:type="GSOUND_ATTR_APPLICATION_ICON_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="330">An icon name for the application this sound event is triggered by,
+as defined in the XDG icon naming specification.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="336"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_ID"
+              value="application.id"
+              c:type="GSOUND_ATTR_APPLICATION_ID">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="302">An identifier for the program this sound event was triggered
+by. (e.g. "org.gnu.emacs").
+
+&gt; This attribute will automatically be added to the #GSoundContext with
+&gt; the #GApplication:application-id if you are using #GApplication, so you
+&gt; normally do not need to supply this yourself.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="312"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_LANGUAGE"
+              value="application.language"
+              c:type="GSOUND_ATTR_APPLICATION_LANGUAGE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="338">The locale string the application that is triggering this sound
+event is running in. A POSIX locale string such as de_DE@euro.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="344"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_NAME"
+              value="application.name"
+              c:type="GSOUND_ATTR_APPLICATION_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="289">The name of the application this sound event was triggered by as
+human readable string. (e.g. "GNU Emacs") Localized if possible and
+applicable.
+
+&gt; This attribute will automatically be added to the #GSoundContext if
+&gt; it has previously been set with g_set_application_name(), so you normally
+&gt; do not need to supply this yourself.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="300"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_PROCESS_BINARY"
+              value="application.process.binary"
+              c:type="GSOUND_ATTR_APPLICATION_PROCESS_BINARY">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="353">The path to the process binary of the process that is triggering this sound event.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="358"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_PROCESS_HOST"
+              value="application.process.host"
+              c:type="GSOUND_ATTR_APPLICATION_PROCESS_HOST">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="367">The host name of the host the process that is triggering this sound event runs on.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="372"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_PROCESS_ID"
+              value="application.process.id"
+              c:type="GSOUND_ATTR_APPLICATION_PROCESS_ID">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="346">The unix PID of the process that is triggering this sound event, formatted as string.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="351"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_PROCESS_USER"
+              value="application.process.user"
+              c:type="GSOUND_ATTR_APPLICATION_PROCESS_USER">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="360">The user that owns the process that is triggering this sound event.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="365"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_APPLICATION_VERSION"
+              value="application.version"
+              c:type="GSOUND_ATTR_APPLICATION_VERSION">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="314">A version number for the program this sound event was triggered
+by. (e.g. "22.2")</doc>
+      <source-position filename="gsound/gsound-attr.h" line="320"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_CACHE_CONTROL"
+              value="canberra.cache-control"
+              c:type="GSOUND_ATTR_CANBERRA_CACHE_CONTROL">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="374">A special attribute that can be used to control the automatic sound
+caching of sounds in the sound server. One of "permanent",
+"volatile", "never". "permanent" will cause this sample to be
+cached in the server permanently. This is useful for very
+frequently used sound events such as those used for input
+feedback. "volatile" may be used for cacheing sounds in the sound
+server temporarily. They will expire after some time or on cache
+pressure. Finally, "never" may be used for sounds that should never
+be cached, because they are only generated very seldomly or even
+only once at most (such as desktop login sounds).
+
+If this attribute is not explicitly passed to gsound_context_play_simple()
+or gsound_context_play_full() it will default to "never". If it is not
+explicitly passed to gsound_context_cache() it will default to "permanent".
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="395"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_ENABLE"
+              value="canberra.enable"
+              c:type="GSOUND_ATTR_CANBERRA_ENABLE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="432">A special attribute that can be used to control whether any sounds
+are played at all. If this attribute is "1" or unset sounds are
+played as normal. However, if it is "0" all calls to
+gsound_context_play_simple() or `play_full()` will fail with
+GSOUND_ERROR_DISABLED.
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="444"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_FORCE_CHANNEL"
+              value="canberra.force_channel"
+              c:type="GSOUND_ATTR_CANBERRA_FORCE_CHANNEL">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="446">A special attribute that can be used to control on which channel a
+sound is played. The value should be one of mono, front-left,
+front-right, front-center, rear-left, rear-right, rear-center, lfe,
+front-left-of-center, front-right-of-center, side-left, side-right,
+top-center, top-front-left, top-front-right, top-front-center,
+top-rear-left, top-rear-right, top-rear-center. This attribute is
+only honoured by some backends, other backends may choose to ignore
+it completely.
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="461"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_VOLUME"
+              value="canberra.volume"
+              c:type="GSOUND_ATTR_CANBERRA_VOLUME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="397">A special attribute that can be used to control the volume this
+sound event is played in if the backend supports it. A floating
+point value for the decibel multiplier for the sound. 0 dB relates
+to zero gain, and is the default volume these sounds are played in.
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="408"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_XDG_THEME_NAME"
+              value="canberra.xdg-theme.name"
+              c:type="GSOUND_ATTR_CANBERRA_XDG_THEME_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="410">A special attribute that can be used to control the XDG sound theme that
+is used for this sample.
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="419"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_CANBERRA_XDG_THEME_OUTPUT_PROFILE"
+              value="canberra.xdg-theme.output-profile"
+              c:type="GSOUND_ATTR_CANBERRA_XDG_THEME_OUTPUT_PROFILE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="421">A special attribute that can be used to control the XDG sound theme
+output profile that is used for this sample.
+
+If the list of attributes is handed on to the sound server this
+attribute is stripped from it.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="430"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_DESCRIPTION"
+              value="event.description"
+              c:type="GSOUND_ATTR_EVENT_DESCRIPTION">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="104">A descriptive string for the sound event. Localized if possible and applicable.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="109"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_ID"
+              value="event.id"
+              c:type="GSOUND_ATTR_EVENT_ID">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="97">A textual id for an event sound, as mandated by the XDG sound naming specification.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="102"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_MOUSE_BUTTON"
+              value="event.mouse.button"
+              c:type="GSOUND_ATTR_EVENT_MOUSE_BUTTON">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="147">If this sound event was triggered by a mouse input event, the
+number of the mouse button that triggered it, formatted as string. 1
+for left mouse button, 3 for right, 2 for middle.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="154"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_MOUSE_HPOS"
+              value="event.mouse.hpos"
+              c:type="GSOUND_ATTR_EVENT_MOUSE_HPOS">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="127">If this sound event was triggered by a mouse input event, the X
+position of the mouse cursor as fractional value between 0 and 1,
+formatted as string, 0 reflecting the left side of the screen, 1
+the right side.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="135"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_MOUSE_VPOS"
+              value="event.mouse.vpos"
+              c:type="GSOUND_ATTR_EVENT_MOUSE_VPOS">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="137">If this sound event was triggered by a mouse input event, the Y
+position of the mouse cursor as fractional value between 0 and 1,
+formatted as string, 0 reflecting the top end of the screen, 1
+the bottom end.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="145"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_MOUSE_X"
+              value="event.mouse.x"
+              c:type="GSOUND_ATTR_EVENT_MOUSE_X">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="111">If this sound event was triggered by a mouse input event, the X
+position of the mouse cursor on the screen, formatted as string.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="117"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_EVENT_MOUSE_Y"
+              value="event.mouse.y"
+              c:type="GSOUND_ATTR_EVENT_MOUSE_Y">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="119">If this sound event was triggered by a mouse input event, the Y
+position of the mouse cursor on the screen, formatted as string.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="125"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_ARTIST"
+              value="media.artist"
+              c:type="GSOUND_ATTR_MEDIA_ARTIST">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="54">The artist of this media. Localized if possible and applicable.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="59"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_FILENAME"
+              value="media.filename"
+              c:type="GSOUND_ATTR_MEDIA_FILENAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="68">The file name this media was or can be loaded from.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="73"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_ICON"
+              value="media.icon"
+              c:type="GSOUND_ATTR_MEDIA_ICON">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="75">An icon for this media in binary PNG format.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="80"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_ICON_NAME"
+              value="media.icon_name"
+              c:type="GSOUND_ATTR_MEDIA_ICON_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="82">An icon name as defined in the XDG icon naming specifcation.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="87"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_LANGUAGE"
+              value="media.language"
+              c:type="GSOUND_ATTR_MEDIA_LANGUAGE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="61">The language this media is in, in some standard POSIX locale string, such as "de_DE".</doc>
+      <source-position filename="gsound/gsound-attr.h" line="66"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_NAME"
+              value="media.name"
+              c:type="GSOUND_ATTR_MEDIA_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="40">A name describing the media being played. Localized if possible and applicable.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="45"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_ROLE"
+              value="media.role"
+              c:type="GSOUND_ATTR_MEDIA_ROLE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="89">The "role" this media is played in. For event sounds the string
+"event". For other cases strings like "music", "video", "game", ...</doc>
+      <source-position filename="gsound/gsound-attr.h" line="95"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_MEDIA_TITLE"
+              value="media.title"
+              c:type="GSOUND_ATTR_MEDIA_TITLE">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="47">A (song) title describing the media being played. Localized if possible and applicable.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="52"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_DESKTOP"
+              value="window.desktop"
+              c:type="GSOUND_ATTR_WINDOW_DESKTOP">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="244">If this sound event was triggered by a window on the screen and the
+windowing system supports multiple desktops, a comma seperated list
+of indexes of the desktops this window is visible on. If this
+attribute is an empty string, it is visible on all desktops
+(i.e. 'sticky'). The first desktop is 0. (e.g. "0,2,3")</doc>
+      <source-position filename="gsound/gsound-attr.h" line="253"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_HEIGHT"
+              value="window.height"
+              c:type="GSOUND_ATTR_WINDOW_HEIGHT">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="216">If this sound event was triggered by a window on the screen, the
+pixel height of the window.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="222"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_HPOS"
+              value="window.hpos"
+              c:type="GSOUND_ATTR_WINDOW_HPOS">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="224">If this sound event was triggered by a window on the screen, the X
+position of the center of the window as fractional value between 0
+and 1, formatted as string, 0 reflecting the left side of the
+screen, 1 the right side.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="232"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_ICON"
+              value="window.icon"
+              c:type="GSOUND_ATTR_WINDOW_ICON">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="173">If this sound event was triggered by a window on the screen, binary
+icon data in PNG format for this window.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="179"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_ICON_NAME"
+              value="window.icon_name"
+              c:type="GSOUND_ATTR_WINDOW_ICON_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="181">If this sound event was triggered by a window on the screen, an
+icon name for this window, as defined in the XDG icon naming
+specification.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="188"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_ID"
+              value="window.id"
+              c:type="GSOUND_ATTR_WINDOW_ID">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="164">If this sound event was triggered by a window on the screen, some
+identification string for this window, so that the sound system can
+recognize specific windows.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="171"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_NAME"
+              value="window.name"
+              c:type="GSOUND_ATTR_WINDOW_NAME">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="156">If this sound event was triggered by a window on the screen, the
+name of this window as human readable string.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="162"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_VPOS"
+              value="window.vpos"
+              c:type="GSOUND_ATTR_WINDOW_VPOS">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="234">If this sound event was triggered by a window on the screen, the Y
+position of the center of the window as fractional value between 0
+and 1, formatted as string, 0 reflecting the top side of the
+screen, 1 the bottom side.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="242"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_WIDTH"
+              value="window.width"
+              c:type="GSOUND_ATTR_WINDOW_WIDTH">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="208">If this sound event was triggered by a window on the screen, the
+pixel width of the window.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="214"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_X"
+              value="window.x"
+              c:type="GSOUND_ATTR_WINDOW_X">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="190">If this sound event was triggered by a window on the screen, the X
+position of the window measured from the top left corner of the
+screen to the top left corner of the window.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="197"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_X11_DISPLAY"
+              value="window.x11.display"
+              c:type="GSOUND_ATTR_WINDOW_X11_DISPLAY">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="255">If this sound event was triggered by a window on the screen and the
+windowing system is X11, the X display name of the window (e.g. ":0").</doc>
+      <source-position filename="gsound/gsound-attr.h" line="261"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_X11_MONITOR"
+              value="window.x11.monitor"
+              c:type="GSOUND_ATTR_WINDOW_X11_MONITOR">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="272">If this sound event was triggered by a window on the screen and the
+windowing system is X11, the X monitor id of the window formatted as
+string (e.g. "0").</doc>
+      <source-position filename="gsound/gsound-attr.h" line="279"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_X11_SCREEN"
+              value="window.x11.screen"
+              c:type="GSOUND_ATTR_WINDOW_X11_SCREEN">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="263">If this sound event was triggered by a window on the screen and the
+windowing system is X11, the X screen id of the window formatted as
+string (e.g. "0").</doc>
+      <source-position filename="gsound/gsound-attr.h" line="270"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_X11_XID"
+              value="window.x11.xid"
+              c:type="GSOUND_ATTR_WINDOW_X11_XID">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="281">If this sound event was triggered by a window on the screen and the
+windowing system is X11, the XID of the window formatted as string.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="287"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ATTR_WINDOW_Y"
+              value="window.y"
+              c:type="GSOUND_ATTR_WINDOW_Y">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="199">If this sound event was triggered by a window on the screen, the y
+position of the window measured from the top left corner of the
+screen to the top left corner of the window.</doc>
+      <source-position filename="gsound/gsound-attr.h" line="206"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="CONTEXT"
+                    c:identifier="GSOUND_CONTEXT"
+                    introspectable="0">
+      <source-position filename="gsound/gsound-context.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTEXT_CLASS"
+                    c:identifier="GSOUND_CONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="gsound/gsound-context.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTEXT_GET_CLASS"
+                    c:identifier="GSOUND_CONTEXT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gsound/gsound-context.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Context"
+           c:symbol-prefix="context"
+           c:type="GSoundContext"
+           parent="GObject.Object"
+           glib:type-name="GSoundContext"
+           glib:get-type="gsound_context_get_type"
+           glib:type-struct="ContextClass">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-context.h"
+           line="36">ca: the wrapped context
+Wrapper for ca_context.</doc>
+      <source-position filename="gsound/gsound-context.h" line="34"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gsound_context_new" throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="257">Creates and initializes a new #GSoundContext. If the an error occured
+during initialization, #NULL is returned and @error will be set
+appropriately.</doc>
+        <source-position filename="gsound/gsound-context.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="266">A new #GSoundContext</doc>
+          <type name="Context" c:type="GSoundContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="259">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="cache"
+              c:identifier="gsound_context_cache"
+              shadowed-by="cachev"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="660">Requests that a sound be cached on the server. See [#caching][gsound-GSound-Context#caching].</doc>
+        <source-position filename="gsound/gsound-context.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="668">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="662">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="663">Return location for error</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="664">A %NULL-terminated list of attribute-value pairs</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="cachev"
+              c:identifier="gsound_context_cachev"
+              shadows="cache"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="695">Requests that a sound be cached on the server. See [#caching][gsound-GSound-Context#caching].
+
+This function is intented to be used by language bindings.</doc>
+        <source-position filename="gsound/gsound-context.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="697">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="698">Hash table of attrerties</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open" c:identifier="gsound_context_open" throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="277">Attempts to open a connection to the backend sound driver. It is recommended
+that you set context attributes with gsound_context_set_attributes() before
+calling this function.
+
+&gt; A connection is automatically opened before playing or caching sounds,
+&gt; so you rarely need to call this yourself.</doc>
+        <source-position filename="gsound/gsound-context.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="289">%TRUE if the output device was opened successfully, or %FALSE
+         (populating @error)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="279">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play_full"
+              c:identifier="gsound_context_play_full"
+              shadowed-by="play_fullv"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="506">Asynchronously request a sound to be played. When playback is finished
+(or if an error occurs) then @callback will be called, following the
+normal GIO async pattern.
+
+If playback is cancelled via @cancellable, then @callback will be called
+with #G_IO_ERROR_CANCELLED.
+
+If you do not need notification of when playback is complete, you should
+use gsound_context_play_simple().</doc>
+        <source-position filename="gsound/gsound-context.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="508">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="509">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="510">callback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="511">User data passed to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="512">A %NULL-terminated list of attribute-value pairs</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="play_full_finish"
+              c:identifier="gsound_context_play_full_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="637">Finish an async operation started by gsound_context_play_full(). You
+must call this function in the callback to free memory and receive any
+errors which occurred.</doc>
+        <source-position filename="gsound/gsound-context.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="648">%TRUE if playing finished successfully</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="639">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="640">Result object passed to the callback of
+  gsound_context_play_full()</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="play_fullv"
+              c:identifier="gsound_context_play_fullv"
+              shadows="play_full">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="572">Asynchronously request a sound to be played. When playback is finished
+(or if an error occurs) then @callback will be called, following the
+normal GIO async pattern.
+
+If playback is cancelled via @cancellable, then @callback will be called
+with #G_IO_ERROR_CANCELLED.
+
+If you do not need notification of when playback is complete, you should
+use gsound_context_play_simple().
+
+This function is intented to be used by language bindings.</doc>
+        <source-position filename="gsound/gsound-context.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="574">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="575">Attributes</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="576">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="577">callback</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="578">user_data</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="play_simple"
+              c:identifier="gsound_context_play_simple"
+              shadowed-by="play_simplev"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="404">The basic "fire-and-forget" play command. This function will not block, and
+just sends a request to the sound server before immediately returning.
+
+If you need to know when a sound finishes playing then you should call
+gsound_context_play_full() instead.
+
+You can cancel playback at any time by calling g_cancellable_cancel() on
+@cancellable, if supplied.</doc>
+        <source-position filename="gsound/gsound-context.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="420">%TRUE on success, or %FALSE, populating @error</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="406">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="407">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="408">Return location for error, or %NULL</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="409">A %NULL-terminated list of attribute-value pairs</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="play_simplev"
+              c:identifier="gsound_context_play_simplev"
+              shadows="play_simple"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="456">The basic "fire-and-forget" play command. This function will not block, and
+just sends a request to the sound server before immediately returning.
+
+If you need to know when a sound finishes playing then you should call
+gsound_context_play_full() instead.
+
+You can cancel playback at any time by calling g_cancellable_cancel() on
+@cancellable, if supplied.
+
+This function is intented to be used by language bindings.</doc>
+        <source-position filename="gsound/gsound-context.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="474">%TRUE on success, %FALSE on error</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="458">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="459">Attributes</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="460">A #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attributes"
+              c:identifier="gsound_context_set_attributes"
+              shadowed-by="set_attributesv"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="324">Set attributes or change attributes on @context. Subsequent calls to this
+function calling the same attributes will override the earlier values.
+
+Note that GSound will set the #GSOUND_ATTR_APPLICATION_NAME and
+#GSOUND_ATTR_APPLICATION_ID for you if using #GApplication, so you do
+not normally need to set these yourself.</doc>
+        <source-position filename="gsound/gsound-context.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="337">%TRUE if attributes were updated successfully</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="326">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="327">Return location for error</doc>
+            <type name="GLib.Error" c:type="GError**"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="328">%NULL terminated list of attribute name-value pairs</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attributesv"
+              c:identifier="gsound_context_set_attributesv"
+              shadows="set_attributes"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="364">Set attributes or change attributes on @context. Subsequent calls to this
+function calling the same attributes will override the earlier values.
+
+Note that GSound will set the #GSOUND_ATTR_APPLICATION_NAME and
+#GSOUND_ATTR_APPLICATION_ID for you if using #GApplication, so you do
+not normally need to set these yourself.
+
+This function is intented to be used by language bindings.</doc>
+        <source-position filename="gsound/gsound-context.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="379">%TRUE if attributes were updated successfully</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="366">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="attrs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="367">Hash table of attributes to set</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_driver"
+              c:identifier="gsound_context_set_driver"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gsound/gsound-context.c"
+             line="300">Sets the libcanberra driver to @driver, for example "pulse", "alsa" or "null".
+You normally do not need to set this yourself.
+
+Note that this function may return %TRUE even if the specified driver is
+not available: see the libcanberra documentation for details.</doc>
+        <source-position filename="gsound/gsound-context.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gsound/gsound-context.c"
+               line="312">%TRUE if the libcanberra driver was set successfully</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="302">A #GSoundContext</doc>
+            <type name="Context" c:type="GSoundContext*"/>
+          </instance-parameter>
+          <parameter name="driver" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsound/gsound-context.c"
+                 line="303">libcanberra driver to use</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ContextClass"
+            c:type="GSoundContextClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Context">
+      <source-position filename="gsound/gsound-context.h" line="34"/>
+    </record>
+    <enumeration name="Error"
+                 c:type="GSoundError"
+                 glib:error-domain="gsound - error - quark">
+      <source-position filename="gsound/gsound-context.h" line="66"/>
+      <member name="notsupported"
+              value="-1"
+              c:identifier="GSOUND_ERROR_NOTSUPPORTED">
+      </member>
+      <member name="invalid" value="-2" c:identifier="GSOUND_ERROR_INVALID">
+      </member>
+      <member name="state" value="-3" c:identifier="GSOUND_ERROR_STATE">
+      </member>
+      <member name="oom" value="-4" c:identifier="GSOUND_ERROR_OOM">
+      </member>
+      <member name="nodriver" value="-5" c:identifier="GSOUND_ERROR_NODRIVER">
+      </member>
+      <member name="system" value="-6" c:identifier="GSOUND_ERROR_SYSTEM">
+      </member>
+      <member name="corrupt" value="-7" c:identifier="GSOUND_ERROR_CORRUPT">
+      </member>
+      <member name="toobig" value="-8" c:identifier="GSOUND_ERROR_TOOBIG">
+      </member>
+      <member name="notfound" value="-9" c:identifier="GSOUND_ERROR_NOTFOUND">
+      </member>
+      <member name="destroyed"
+              value="-10"
+              c:identifier="GSOUND_ERROR_DESTROYED">
+      </member>
+      <member name="canceled" value="-11" c:identifier="GSOUND_ERROR_CANCELED">
+      </member>
+      <member name="notavailable"
+              value="-12"
+              c:identifier="GSOUND_ERROR_NOTAVAILABLE">
+      </member>
+      <member name="access" value="-13" c:identifier="GSOUND_ERROR_ACCESS">
+      </member>
+      <member name="io" value="-14" c:identifier="GSOUND_ERROR_IO">
+      </member>
+      <member name="internal" value="-15" c:identifier="GSOUND_ERROR_INTERNAL">
+      </member>
+      <member name="disabled" value="-16" c:identifier="GSOUND_ERROR_DISABLED">
+      </member>
+      <member name="forked" value="-17" c:identifier="GSOUND_ERROR_FORKED">
+      </member>
+      <member name="disconnected"
+              value="-18"
+              c:identifier="GSOUND_ERROR_DISCONNECTED">
+      </member>
+    </enumeration>
+    <function-macro name="IS_CONTEXT"
+                    c:identifier="GSOUND_IS_CONTEXT"
+                    introspectable="0">
+      <source-position filename="gsound/gsound-context.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CONTEXT_CLASS"
+                    c:identifier="GSOUND_IS_CONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="gsound/gsound-context.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="error_quark" c:identifier="gsound_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <docsection name="gsound-attr">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-attr.h"
+           line="30">Attributes which can be applied to a #GSoundContext or passed to one of
+the `play()` or `cache()` methods.</doc>
+    </docsection>
+    <docsection name="gsound-context">
+      <doc xml:space="preserve"
+           filename="gsound/gsound-context.c"
+           line="18">A #GSoundContext is used for playing system sounds. The typical use pattern
+is:
+
+* Initialize the #GSoundContext
+* [Optional] Set any global attributes using gsound_context_set_attributes()
+* [Optional] Cache any frequently-used sounds (for example, sound
+  effects for a game) using gsound_context_cache()
+* Play sounds using gsound_context_play_simple() or gsound_context_play_full()
+* Close the connection to the sound server and clean up the context using
+  g_object_unref()
+
+#GSoundContext implements the #GInitable interface, so if created with
+g_object_new() (as typically happens with language bindings) then you must
+call the g_initable_init() method before attempting to use it.
+
+# Simple Examples
+
+In C:
+
+|[&lt;!-- language="C" --&gt;
+GSoundContext *ctx = NULL;
+GCancellable *cancellable = g_cancellable_new();
+GError *error = NULL;
+
+ctx = gsound_context_new(cancellable, &amp;error);
+if (error) {
+    // handle error
+}
+
+gsound_context_play_simple(ctx, cancellable, &amp;error,
+                           GSOUND_ATTR_EVENT_ID, "phone-incoming-call",
+                           // other attributes...
+                           NULL);
+]|
+
+or, using Python via GObject Introspection:
+
+|[&lt;!-- language="Python" --&gt;
+from gi.repository import GSound
+
+ctx = GSound.Context()
+
+try:
+    ctx.init();
+    ctx.play_simple({ GSound.ATTR_EVENT_ID : "phone-incoming-call" })
+except:
+    # Handle error
+    pass
+]|
+
+or using Vala:
+
+|[&lt;!-- language="Vala" --&gt;
+try {
+    var ctx = new GSound.Context();
+    ctx.play_simple(null, GSound.Attribute.EVENT_ID, "phone-incoming-call");
+} catch (Error e) {
+    // handle error
+}
+]|
+
+# `play_simple()` versus `play_full()`
+
+The above examples use the gsound_context_play_simple() method for
+playing sounds. This is a "fire and forget" method which returns
+immediately and does not block your program, and is suitable for most use
+cases.
+
+If you need to find out when the sound finished (for example to repeat the
+sound) then you can use the gsound_context_play_full() version. This
+is an asynchronous method using the standard GIO async pattern, which will
+run the supplied #GAsyncReadyCallback when the sound server has finished.
+It is guaranteed that the callback will be run exactly once.
+
+Note that calling gsound_context_play_full() with a %NULL callback is not
+equivalent to calling gsound_context_play_simple(). When calling
+play_simple(), errors which occur before the sound is passed to the sound
+server are reported immediately, whereas with `play_full()` these are reported
+in the callback. If you pass a %NULL callback to gsound_context_play_full()
+you will not be able to receive these errors, so it is strongly recommended
+to avoid doing this and use gsound_context_play_simple() in the case when
+you don't need to be notified when the sound has finished.
+
+# Passing Attributes
+
+GSound supplies information to the sound server by means of attributes.
+Attributes can be set on the #GSoundContext itself using
+gsound_context_set_attributes(), or supplied in a `play()` call. Attributes
+set on the context will automatically applied to any subsequent `play()`
+calls, unless overridden by that call.
+
+In C and Vala, attributes are passed as %NULL-terminated list of
+(attribute, value) pairs. When using GObject introspection, attributes are
+typically passed using a language-specific associated array, for example
+a dict in Python or an object in JavaScript.
+
+For the list of attributes supported by GSound, see
+[GSound Attributes][gsound-GSound-Attributes].
+
+# Caching # {#caching}
+
+If supported by the sound server, frequently-used sounds may be cached. This
+may be useful, for example, for sound effects in a game. To cache a sound,
+either call gsound_context_cache(), or pass the special
+#GSOUND_ATTR_CANBERRA_CACHE_CONTROL attribute to one of the `play()`
+functions.
+
+For example, in the startup code for a game you might include something
+like the following (error checking omitted):
+
+|[ &lt;-- language="C" --&gt;
+GSoundContext *ctx = gsound_context_new (NULL, NULL);
+gsound_context_cache(ctx, NULL,
+                     GSOUND_ATTR_MEDIA_FILENAME,
+                     "/path/to/player-spaceship-fire-laser.ogg",
+                     NULL);
+]|
+
+There are three caching modes available, "permanent", "volatile" and "never".
+The default mode when calling gsound_context_cache() is "permanent", and
+the default mode for gsound_context_play_simple() and `play_full()` is
+"never".
+
+See the documentation for #GSOUND_ATTR_CANBERRA_CACHE_CONTROL for more
+details.</doc>
+    </docsection>
+  </namespace>
+</repository>

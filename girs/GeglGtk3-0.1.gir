@@ -1,0 +1,534 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gegl" version="0.4"/>
+  <include name="Gtk" version="3.0"/>
+  <namespace name="GeglGtk3"
+             version="0.1"
+             shared-library="libgegl-gtk3-0.1.so.0"
+             c:identifier-prefixes="GeglGtk"
+             c:symbol-prefixes="gegl_gtk">
+    <function-macro name="IS_VIEW"
+                    c:identifier="GEGL_GTK_IS_VIEW"
+                    introspectable="0">
+      <source-position filename="gegl-gtk-view.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VIEW_CLASS"
+                    c:identifier="GEGL_GTK_IS_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="gegl-gtk-view.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VIEW"
+                    c:identifier="GEGL_GTK_VIEW"
+                    introspectable="0">
+      <source-position filename="gegl-gtk-view.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VIEW_CLASS"
+                    c:identifier="GEGL_GTK_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="gegl-gtk-view.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VIEW_GET_CLASS"
+                    c:identifier="GEGL_GTK_VIEW_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gegl-gtk-view.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="View"
+           c:symbol-prefix="view"
+           c:type="GeglGtkView"
+           parent="Gtk.DrawingArea"
+           glib:type-name="GeglGtkView"
+           glib:get-type="gegl_gtk_view_get_type"
+           glib:type-struct="ViewClass">
+      <source-position filename="gegl-gtk-view.h" line="51"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gegl_gtk_view_new">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="452">Create a new #GeglGtkView</doc>
+        <source-position filename="gegl-gtk-view.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gegl-gtk-view.c"
+               line="457">New #GeglGtkView</doc>
+          <type name="View" c:type="GeglGtkView*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_for_buffer"
+                   c:identifier="gegl_gtk_view_new_for_buffer">
+        <source-position filename="gegl-gtk-view.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="View" c:type="GeglGtkView*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gegl.Buffer" c:type="GeglBuffer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_node"
+                   c:identifier="gegl_gtk_view_new_for_node">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="476">Create a new #GeglGtkView for a given #GeglNode</doc>
+        <source-position filename="gegl-gtk-view.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gegl-gtk-view.c"
+               line="482">New #GeglGtkView displaying @node</doc>
+          <type name="View" c:type="GeglGtkView*"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="478">The #GeglNode to display</doc>
+            <type name="Gegl.Node" c:type="GeglNode*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_autoscale_policy"
+              c:identifier="gegl_gtk_view_get_autoscale_policy">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="629">Get the autoscaling policy</doc>
+        <source-position filename="gegl-gtk-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gegl-gtk-view.c"
+               line="635">Current #GeglGtkViewAutoscale policy in use</doc>
+          <type name="ViewAutoscale" c:type="GeglGtkViewAutoscale"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="631">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_node" c:identifier="gegl_gtk_view_get_node">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="505">Get the displayed #GeglNode</doc>
+        <source-position filename="gegl-gtk-view.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gegl-gtk-view.c"
+               line="510">The #GeglNode this widget displays</doc>
+          <type name="Gegl.Node" c:type="GeglNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="507">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scale" c:identifier="gegl_gtk_view_get_scale">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="531">Getter for the :scale property</doc>
+        <source-position filename="gegl-gtk-view.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="533">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_transformation"
+              c:identifier="gegl_gtk_view_get_transformation">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="599">Get the model-&gt;view transformation
+
+The transformation matrix describes the transformation between the
+model (the output of the GeglNode) and the view (the display in the widget).
+To transform coordinates use gegl_matrix3_transform_point().
+To get a matrix representing the view-&gt;model space transformation, use gegl_matrix3_invert()</doc>
+        <source-position filename="gegl-gtk-view.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="601">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="matrix"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="602">Pointer to location for transformation matrix</doc>
+            <type name="Gegl.Matrix3" c:type="GeglMatrix3*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_x" c:identifier="gegl_gtk_view_get_x">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="558">Getter for the :x property</doc>
+        <source-position filename="gegl-gtk-view.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="560">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_y" c:identifier="gegl_gtk_view_get_y">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="585">Getter for the :y property</doc>
+        <source-position filename="gegl-gtk-view.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="587">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_autoscale_policy"
+              c:identifier="gegl_gtk_view_set_autoscale_policy">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="616">Set the autoscaling policy</doc>
+        <source-position filename="gegl-gtk-view.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="618">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="autoscale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="619">#GeglGtkViewAutoscale policy to use</doc>
+            <type name="ViewAutoscale" c:type="GeglGtkViewAutoscale"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_node" c:identifier="gegl_gtk_view_set_node">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="492">Change the #GeglNode to display</doc>
+        <source-position filename="gegl-gtk-view.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="494">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="node"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="495">a #GeglNode instance or %NULL</doc>
+            <type name="Gegl.Node" c:type="GeglNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scale" c:identifier="gegl_gtk_view_set_scale">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="518">Setter for the :scale property</doc>
+        <source-position filename="gegl-gtk-view.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="520">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_x" c:identifier="gegl_gtk_view_set_x">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="545">Setter for the :x property</doc>
+        <source-position filename="gegl-gtk-view.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="547">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_y" c:identifier="gegl_gtk_view_set_y">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="572">Setter for the :y property</doc>
+        <source-position filename="gegl-gtk-view.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="574">A #GeglGtkView</doc>
+            <type name="View" c:type="GeglGtkView*"/>
+          </instance-parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="autoscale-policy"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="ViewAutoscale"/>
+      </property>
+      <property name="block" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="node"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="GObject.Object"/>
+      </property>
+      <property name="scale"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="x" writable="1" construct="1" transfer-ownership="none">
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <property name="y" writable="1" construct="1" transfer-ownership="none">
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ViewPrivate" c:type="GeglGtkViewPrivate*"/>
+      </field>
+      <glib:signal name="draw-background">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="205">Emitted during painting, before the node contents has been rendered.
+Allows consumers to draw a custom background for the widget.
+
+Note:
+Manipulating the view widget in the signal handler is not supported.
+This signal is only available if GEGL-GTK was build with Cairo GObject support.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="208">the #CairoContext to render to</doc>
+            <type name="cairo.Context"/>
+          </parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="209">the area that was updated, view coordinates</doc>
+            <type name="Gdk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="draw-overlay">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-view.c"
+             line="219">Emitted during painting, before the node contents has been rendered.
+
+Allows consumers to draw an overlay for the widget, for instance
+for simple user interface elements.
+
+Note:
+Manipulating the view widget in the signal handler is not supported.
+This signal is only available if GEGL-GTK was build with Cairo GObject support.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="222">the #CairoContext to render to</doc>
+            <type name="cairo.Context"/>
+          </parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl-gtk-view.c"
+                 line="223">the area that was updated, in view coordinates</doc>
+            <type name="Gdk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <enumeration name="ViewAutoscale"
+                 glib:type-name="GeglGtkViewAutoscale"
+                 glib:get-type="gegl_gtk_view_autoscale_get_type"
+                 c:type="GeglGtkViewAutoscale">
+      <doc xml:space="preserve"
+           filename="gegl-gtk-enums.h"
+           line="24">Specifies the autoscaling behavior of #GeglGtkView.</doc>
+      <member name="disabled"
+              value="0"
+              c:identifier="GEGL_GTK_VIEW_AUTOSCALE_DISABLED"
+              glib:nick="disabled">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-enums.h"
+             line="26">Do not autoscale</doc>
+      </member>
+      <member name="widget"
+              value="1"
+              c:identifier="GEGL_GTK_VIEW_AUTOSCALE_WIDGET"
+              glib:nick="widget">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-enums.h"
+             line="27">Automatically scale the widget size</doc>
+      </member>
+      <member name="content"
+              value="2"
+              c:identifier="GEGL_GTK_VIEW_AUTOSCALE_CONTENT"
+              glib:nick="content">
+        <doc xml:space="preserve"
+             filename="gegl-gtk-enums.h"
+             line="28">Automatically scale content to fit widget</doc>
+      </member>
+    </enumeration>
+    <record name="ViewClass"
+            c:type="GeglGtkViewClass"
+            glib:is-gtype-struct-for="View">
+      <source-position filename="gegl-gtk-view.h" line="51"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+    </record>
+    <record name="ViewPrivate" c:type="GeglGtkViewPrivate" disguised="1">
+      <source-position filename="gegl-gtk-view.h" line="40"/>
+    </record>
+    <docsection name="gegl-gtk">
+      <doc xml:space="preserve"
+           filename="gegl-gtk.h"
+           line="4">For building GEGL-GTK, please refer to the README file included
+in the source code tarball.
+
+GEGL-GTK supports both GTK+ 2 and 3. It can be used directly as a C library,
+or in languages with bindings provided by GObject Introspection.
+
+GEGL-GTK is licensed under the GNU LGPL v3+, and maintained by Jon Nordby
+
+Homepage: &lt;ulink url="http://www.gegl.org/gegl-gtk"&gt;http://www.gegl.org/gegl-gtk&lt;/ulink&gt;
+
+Code: &lt;ulink url="http://git.gnome.org/browse/gegl-gtk/"&gt;http://git.gnome.org/browse/gegl-gtk/&lt;/ulink&gt;
+
+Bugtracker: &lt;ulink url="http://bugs.gnome.org"&gt;http://bugs.gnome.org&lt;/ulink&gt;, product GEGL, component gegl-gtk
+
+Mailinglist: &lt;ulink url="http://mail.gnome.org/mailman/listinfo/gegl-developer-list"&gt;gegl-developer@lists.gnome.org&lt;/ulink&gt;
+
+For usage examples, see &lt;ulink url="http://git.gnome.org/browse/gegl-gtk/tree/examples"&gt;http://git.gnome.org/browse/gegl-gtk/tree/examples&lt;/ulink&gt;
+
+GEGL-GTK provides one class: #GeglGtkView</doc>
+    </docsection>
+    <docsection name="gegl-gtk-view">
+      <doc xml:space="preserve"
+           filename="gegl-gtk-view.c"
+           line="34">The view widget displays the output of a node in a GEGL graph.
+It will tracks changes in the node, and will therefore automatically
+show the correct content when the GEGL graph is changed.
+
+For setting which #GeglNode to display, use gegl_gtk_view_set_node(),
+or use the gegl_gtk_view_new_for_node() convenience constructor.
+
+Transformations:
+
+The widget can show a transformed view of the GeglNode. Scaling and
+transformations are supported, as well as autoscaling.
+For manual control over the transformation see
+methods gegl_gtk_view_set_scale(), gegl_gtk_view_set_x() and
+gegl_gtk_view_set_y(), or use the corresponding properties.
+For changing the autoscaling behavior, see
+gegl_gtk_view_set_autoscale_policy()
+For getting the effective affine transformation applied, use
+gegl_gtk_view_get_transformation()
+
+Examples:
+
+In the GEGL-GTK example directories, you can find code examples for
+how to use #GeglGtkView in files with names starting with gegl-gtk-view</doc>
+    </docsection>
+  </namespace>
+</repository>

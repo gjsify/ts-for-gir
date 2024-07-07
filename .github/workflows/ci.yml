@@ -68,7 +68,7 @@ jobs:
       run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
     - run: yarn install
     - run: yarn build
-    - run: yarn build:types:packages:no-install
+    - run: yarn build:types:packages
     - name: Show diff
       run: (cd ./types && git diff | cat)
     - run: yarn install

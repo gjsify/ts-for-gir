@@ -63,7 +63,7 @@ and/or use gtk-doc annotations.  -->
                  c:type="GstRTSPAuthMethod">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="209">Authentication methods, ordered by strength</doc>
+           line="220">Authentication methods, ordered by strength</doc>
       <member name="none"
               value="0"
               c:identifier="GST_RTSP_AUTH_NONE"
@@ -71,7 +71,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="GST_RTSP_AUTH_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="211">no authentication</doc>
+             line="222">no authentication</doc>
       </member>
       <member name="basic"
               value="1"
@@ -80,7 +80,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="GST_RTSP_AUTH_BASIC">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="212">basic authentication</doc>
+             line="223">basic authentication</doc>
       </member>
       <member name="digest"
               value="2"
@@ -89,7 +89,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="GST_RTSP_AUTH_DIGEST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="213">digest authentication</doc>
+             line="224">digest authentication</doc>
       </member>
     </enumeration>
     <record name="RTSPAuthParam"
@@ -150,11 +150,46 @@ and/or use gtk-doc annotations.  -->
 to receive and send bytes and messages.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                        line="61"/>
+      <method name="add_extra_http_request_header"
+              c:identifier="gst_rtsp_connection_add_extra_http_request_header"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.c"
+             line="3783">Add header to be appended to any HTTP request made by connection.
+If the header already exists then the old header is replaced by the new header.
+
+Only applicable in HTTP tunnel mode.</doc>
+        <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+                         line="245"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="conn" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtsp/gstrtspconnection.c"
+                 line="3785">a #GstRTSPConnection</doc>
+            <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtsp/gstrtspconnection.c"
+                 line="3786">HTTP header name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtsp/gstrtspconnection.c"
+                 line="3787">HTTP header value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="clear_auth_params"
               c:identifier="gst_rtsp_connection_clear_auth_params">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3312">Clear the list of authentication directives stored in @conn.</doc>
+             line="3457">Clear the list of authentication directives stored in @conn.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="184"/>
         <return-value transfer-ownership="none">
@@ -164,7 +199,7 @@ to receive and send bytes and messages.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3314">a #GstRTSPConnection</doc>
+                 line="3459">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -172,21 +207,21 @@ to receive and send bytes and messages.</doc>
       <method name="close" c:identifier="gst_rtsp_connection_close">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="2901">Close the connected @conn. After this call, the connection is in the same
+             line="3037">Close the connected @conn. After this call, the connection is in the same
 state as when it was first created.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="2908">#GST_RTSP_OK on success.</doc>
+               line="3044">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2903">a #GstRTSPConnection</doc>
+                 line="3039">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -197,31 +232,31 @@ state as when it was first created.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5019">Attempt to connect to the url of @conn made with
+             line="5189">Attempt to connect to the url of @conn made with
 gst_rtsp_connection_create(). If @timeout is %NULL this function can block
 forever. If @timeout contains a valid timeout, this function will return
 #GST_RTSP_ETIMEOUT after the timeout expired.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="351"/>
+                         line="354"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5031">#GST_RTSP_OK when a connection could be made.</doc>
+               line="5201">#GST_RTSP_OK when a connection could be made.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5021">a #GstRTSPConnection</doc>
+                 line="5191">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5022">a GTimeVal timeout</doc>
+                 line="5192">a GTimeVal timeout</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -231,7 +266,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="1256">Attempt to connect to the url of @conn made with
+             line="1392">Attempt to connect to the url of @conn made with
 gst_rtsp_connection_create(). If @timeout is 0 this function can block
 forever. If @timeout contains a valid timeout, this function will return
 #GST_RTSP_ETIMEOUT after the timeout expired.
@@ -242,20 +277,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="1268">#GST_RTSP_OK when a connection could be made.</doc>
+               line="1404">#GST_RTSP_OK when a connection could be made.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1258">a #GstRTSPConnection</doc>
+                 line="1394">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1259">a timeout in microseconds</doc>
+                 line="1395">a timeout in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -267,7 +302,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5041">Attempt to connect to the url of @conn made with
+             line="5211">Attempt to connect to the url of @conn made with
 gst_rtsp_connection_create(). If @timeout is %NULL this function can block
 forever. If @timeout contains a valid timeout, this function will return
 #GST_RTSP_ETIMEOUT after the timeout expired.  If @conn is set to tunneled,
@@ -275,30 +310,30 @@ forever. If @timeout contains a valid timeout, this function will return
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="354"/>
+                         line="357"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5055">#GST_RTSP_OK when a connection could be made.</doc>
+               line="5225">#GST_RTSP_OK when a connection could be made.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5043">a #GstRTSPConnection</doc>
+                 line="5213">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5044">a GTimeVal timeout</doc>
+                 line="5214">a GTimeVal timeout</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
           <parameter name="response" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5045">a #GstRTSPMessage</doc>
+                 line="5215">a #GstRTSPMessage</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
         </parameters>
@@ -308,7 +343,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="1054">Attempt to connect to the url of @conn made with
+             line="1132">Attempt to connect to the url of @conn made with
 gst_rtsp_connection_create(). If @timeout is 0 this function can block
 forever. If @timeout contains a valid timeout, this function will return
 #GST_RTSP_ETIMEOUT after the timeout expired.  If @conn is set to tunneled,
@@ -320,26 +355,26 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="1068">#GST_RTSP_OK when a connection could be made.</doc>
+               line="1146">#GST_RTSP_OK when a connection could be made.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1056">a #GstRTSPConnection</doc>
+                 line="1134">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1057">a timeout in microseconds</doc>
+                 line="1135">a timeout in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="response" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1058">a #GstRTSPMessage</doc>
+                 line="1136">a #GstRTSPMessage</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
         </parameters>
@@ -347,7 +382,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
       <method name="do_tunnel" c:identifier="gst_rtsp_connection_do_tunnel">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3638">If @conn received the first tunnel connection and @conn2 received
+             line="3808">If @conn received the first tunnel connection and @conn2 received
 the second tunnel connection, link the two connections together so that
 @conn manages the tunneled connection.
 
@@ -361,14 +396,14 @@ If @conn2 is %NULL then only the base64 decoding context will be setup for
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3653">return GST_RTSP_OK on success.</doc>
+               line="3823">return GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3640">a #GstRTSPConnection</doc>
+                 line="3810">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="conn2"
@@ -377,7 +412,7 @@ If @conn2 is %NULL then only the base64 decoding context will be setup for
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3641">a #GstRTSPConnection or %NULL</doc>
+                 line="3811">a #GstRTSPConnection or %NULL</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </parameter>
         </parameters>
@@ -385,7 +420,7 @@ If @conn2 is %NULL then only the base64 decoding context will be setup for
       <method name="flush" c:identifier="gst_rtsp_connection_flush">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3154">Start or stop the flushing action on @conn. When flushing, all current
+             line="3299">Start or stop the flushing action on @conn. When flushing, all current
 and future actions on @conn will return #GST_RTSP_EINTR until the connection
 is set to non-flushing mode again.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -393,20 +428,20 @@ is set to non-flushing mode again.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3163">#GST_RTSP_OK.</doc>
+               line="3308">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3156">a #GstRTSPConnection</doc>
+                 line="3301">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="flush" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3157">start or stop the flush</doc>
+                 line="3302">start or stop the flush</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -414,20 +449,20 @@ is set to non-flushing mode again.</doc>
       <method name="free" c:identifier="gst_rtsp_connection_free">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="2963">Close and free @conn.</doc>
+             line="3099">Close and free @conn.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="2969">#GST_RTSP_OK on success.</doc>
+               line="3105">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2965">a #GstRTSPConnection</doc>
+                 line="3101">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -437,13 +472,13 @@ is set to non-flushing mode again.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3619">Get the ignore_x_server_reply value.</doc>
+             line="3764">Get the ignore_x_server_reply value.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="242"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3625">returns %TRUE if the x-server-ip-address header reply will be
+               line="3770">returns %TRUE if the x-server-ip-address header reply will be
          ignored, else returns %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -451,7 +486,7 @@ is set to non-flushing mode again.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3621">a #GstRTSPConnection</doc>
+                 line="3766">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -459,13 +494,13 @@ is set to non-flushing mode again.</doc>
       <method name="get_ip" c:identifier="gst_rtsp_connection_get_ip">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3460">Retrieve the IP address of the other end of @conn.</doc>
+             line="3605">Retrieve the IP address of the other end of @conn.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="203"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3466">The IP address as a string. this value remains valid until the
+               line="3611">The IP address as a string. this value remains valid until the
 connection is closed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -473,7 +508,7 @@ connection is closed.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3462">a #GstRTSPConnection</doc>
+                 line="3607">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -482,13 +517,13 @@ connection is closed.</doc>
               c:identifier="gst_rtsp_connection_get_read_socket">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3493">Get the file descriptor for reading.</doc>
+             line="3638">Get the file descriptor for reading.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="209"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3499">the file descriptor used for reading or %NULL on
+               line="3644">the file descriptor used for reading or %NULL on
 error. The file descriptor remains valid until the connection is closed.</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </return-value>
@@ -496,7 +531,7 @@ error. The file descriptor remains valid until the connection is closed.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3495">a #GstRTSPConnection</doc>
+                 line="3640">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -508,7 +543,7 @@ error. The file descriptor remains valid until the connection is closed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3751">%TRUE if the #GstRTSPConnection remembers the session id in the
+               line="3921">%TRUE if the #GstRTSPConnection remembers the session id in the
 last response to set it on any further request.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -516,7 +551,7 @@ last response to set it on any further request.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3749">a #GstRTSPConnection</doc>
+                 line="3919">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -527,7 +562,7 @@ last response to set it on any further request.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="597">Get the TLS connection of @conn.
+             line="629">Get the TLS connection of @conn.
 
 For client side this will return the #GTlsClientConnection when connected
 over TLS.
@@ -540,14 +575,14 @@ calls. The server is then responsible for configuring the TLS connection.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="611">the TLS connection for @conn.</doc>
+               line="643">the TLS connection for @conn.</doc>
           <type name="Gio.TlsConnection" c:type="GTlsConnection*"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="599">a #GstRTSPConnection</doc>
+                 line="631">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -557,7 +592,7 @@ calls. The server is then responsible for configuring the TLS connection.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="740">Gets the anchor certificate authorities database that will be used
+             line="772">Gets the anchor certificate authorities database that will be used
 after a server certificate can't be verified with the default
 certificate database.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -565,7 +600,7 @@ certificate database.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="748">the anchor certificate authorities database, or NULL if no
+               line="780">the anchor certificate authorities database, or NULL if no
 database has been previously set. Use g_object_unref() to release the
 certificate database.</doc>
           <type name="Gio.TlsDatabase" c:type="GTlsDatabase*"/>
@@ -574,7 +609,7 @@ certificate database.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="742">a #GstRTSPConnection</doc>
+                 line="774">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -584,7 +619,7 @@ certificate database.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="796">Gets a #GTlsInteraction object to be used when the connection or certificate
+             line="828">Gets a #GTlsInteraction object to be used when the connection or certificate
 database need to interact with the user. This will be used to prompt the
 user for passwords where necessary.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -592,7 +627,7 @@ user for passwords where necessary.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="804">a reference on the #GTlsInteraction. Use
+               line="836">a reference on the #GTlsInteraction. Use
 g_object_unref() to release.</doc>
           <type name="Gio.TlsInteraction" c:type="GTlsInteraction*"/>
         </return-value>
@@ -600,7 +635,7 @@ g_object_unref() to release.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="798">a #GstRTSPConnection</doc>
+                 line="830">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -610,7 +645,7 @@ g_object_unref() to release.</doc>
               version="1.2.1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="681">Gets the TLS validation flags used to verify the peer certificate
+             line="713">Gets the TLS validation flags used to verify the peer certificate
 when a TLS connection is established.
 
 GLib guarantees that if certificate verification fails, at least one error
@@ -626,14 +661,14 @@ the only error flag set even if other problems exist with the certificate.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="697">the validation flags.</doc>
+               line="729">the validation flags.</doc>
           <type name="Gio.TlsCertificateFlags" c:type="GTlsCertificateFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="683">a #GstRTSPConnection</doc>
+                 line="715">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -642,20 +677,20 @@ the only error flag set even if other problems exist with the certificate.</doc>
               c:identifier="gst_rtsp_connection_get_tunnelid">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3580">Get the tunnel session id the connection.</doc>
+             line="3725">Get the tunnel session id the connection.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="227"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3586">returns a non-empty string if @conn is being tunneled over HTTP.</doc>
+               line="3731">returns a non-empty string if @conn is being tunneled over HTTP.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3582">a #GstRTSPConnection</doc>
+                 line="3727">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -663,13 +698,13 @@ the only error flag set even if other problems exist with the certificate.</doc>
       <method name="get_url" c:identifier="gst_rtsp_connection_get_url">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3443">Retrieve the URL of the other end of @conn.</doc>
+             line="3588">Retrieve the URL of the other end of @conn.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="200"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3449">The URL. This value remains valid until the
+               line="3594">The URL. This value remains valid until the
 connection is freed.</doc>
           <type name="RTSPUrl" c:type="GstRTSPUrl*"/>
         </return-value>
@@ -677,7 +712,7 @@ connection is freed.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3445">a #GstRTSPConnection</doc>
+                 line="3590">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -686,13 +721,13 @@ connection is freed.</doc>
               c:identifier="gst_rtsp_connection_get_write_socket">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3511">Get the file descriptor for writing.</doc>
+             line="3656">Get the file descriptor for writing.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="212"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3517">the file descriptor used for writing or NULL on
+               line="3662">the file descriptor used for writing or NULL on
 error. The file descriptor remains valid until the connection is closed.</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </return-value>
@@ -700,7 +735,7 @@ error. The file descriptor remains valid until the connection is closed.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3513">a #GstRTSPConnection</doc>
+                 line="3658">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -709,20 +744,20 @@ error. The file descriptor remains valid until the connection is closed.</doc>
               c:identifier="gst_rtsp_connection_is_tunneled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3564">Get the tunneling state of the connection.</doc>
+             line="3709">Get the tunneling state of the connection.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="224"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3570">if @conn is using HTTP tunneling.</doc>
+               line="3715">if @conn is using HTTP tunneling.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3566">a #GstRTSPConnection</doc>
+                 line="3711">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="const GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -733,26 +768,26 @@ error. The file descriptor remains valid until the connection is closed.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5217">Calculate the next timeout for @conn, storing the result in @timeout.</doc>
+             line="5387">Calculate the next timeout for @conn, storing the result in @timeout.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="383"/>
+                         line="386"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5224">#GST_RTSP_OK.</doc>
+               line="5394">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5219">a #GstRTSPConnection</doc>
+                 line="5389">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5220">a timeout</doc>
+                 line="5390">a timeout</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -762,20 +797,20 @@ error. The file descriptor remains valid until the connection is closed.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3088">Calculate the next timeout for @conn</doc>
+             line="3233">Calculate the next timeout for @conn</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3094">#the next timeout in microseconds</doc>
+               line="3239">#the next timeout in microseconds</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3090">a #GstRTSPConnection</doc>
+                 line="3235">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -786,7 +821,7 @@ error. The file descriptor remains valid until the connection is closed.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5189">Wait up to the specified @timeout for the connection to become available for
+             line="5359">Wait up to the specified @timeout for the connection to become available for
 at least one of the operations specified in @events. When the function returns
 with #GST_RTSP_OK, @revents will contain a bitmask of available operations on
 @conn.
@@ -795,24 +830,24 @@ with #GST_RTSP_OK, @revents will contain a bitmask of available operations on
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="379"/>
+                         line="382"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5205">#GST_RTSP_OK on success.</doc>
+               line="5375">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5191">a #GstRTSPConnection</doc>
+                 line="5361">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="events" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5192">a bitmask of #GstRTSPEvent flags to check</doc>
+                 line="5362">a bitmask of #GstRTSPEvent flags to check</doc>
             <type name="RTSPEvent" c:type="GstRTSPEvent"/>
           </parameter>
           <parameter name="revents"
@@ -821,13 +856,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5193">location for result flags</doc>
+                 line="5363">location for result flags</doc>
             <type name="RTSPEvent" c:type="GstRTSPEvent*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5194">a timeout</doc>
+                 line="5364">a timeout</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -837,7 +872,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3002">Wait up to the specified @timeout for the connection to become available for
+             line="3147">Wait up to the specified @timeout for the connection to become available for
 at least one of the operations specified in @events. When the function returns
 with #GST_RTSP_OK, @revents will contain a bitmask of available operations on
 @conn.
@@ -850,20 +885,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3018">#GST_RTSP_OK on success.</doc>
+               line="3163">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3004">a #GstRTSPConnection</doc>
+                 line="3149">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="events" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3005">a bitmask of #GstRTSPEvent flags to check</doc>
+                 line="3150">a bitmask of #GstRTSPEvent flags to check</doc>
             <type name="RTSPEvent" c:type="GstRTSPEvent"/>
           </parameter>
           <parameter name="revents"
@@ -872,13 +907,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3006">location for result flags</doc>
+                 line="3151">location for result flags</doc>
             <type name="RTSPEvent" c:type="GstRTSPEvent*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3007">a timeout in microseconds</doc>
+                 line="3152">a timeout in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -889,30 +924,30 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5068">Attempt to read @size bytes into @data from the connected @conn, blocking up to
+             line="5238">Attempt to read @size bytes into @data from the connected @conn, blocking up to
 the specified @timeout. @timeout can be %NULL, in which case this function
 might block forever.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="358"/>
+                         line="361"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5081">#GST_RTSP_OK on success.</doc>
+               line="5251">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5070">a #GstRTSPConnection</doc>
+                 line="5240">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5071">the data to read</doc>
+                 line="5241">the data to read</doc>
             <array length="1" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -920,13 +955,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5072">the size of @data</doc>
+                 line="5242">the size of @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5073">a timeout value or %NULL</doc>
+                 line="5243">a timeout value or %NULL</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -936,7 +971,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="2734">Attempt to read @size bytes into @data from the connected @conn, blocking up to
+             line="2870">Attempt to read @size bytes into @data from the connected @conn, blocking up to
 the specified @timeout. @timeout can be 0, in which case this function
 might block forever.
 
@@ -946,20 +981,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="2747">#GST_RTSP_OK on success.</doc>
+               line="2883">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2736">a #GstRTSPConnection</doc>
+                 line="2872">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2737">the data to read</doc>
+                 line="2873">the data to read</doc>
             <array length="1" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -967,13 +1002,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2738">the size of @data</doc>
+                 line="2874">the size of @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2739">a timeout value in microseconds</doc>
+                 line="2875">a timeout value in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -984,36 +1019,36 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5166">Attempt to read into @message from the connected @conn, blocking up to
+             line="5336">Attempt to read into @message from the connected @conn, blocking up to
 the specified @timeout. @timeout can be %NULL, in which case this function
 might block forever.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="375"/>
+                         line="378"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5178">#GST_RTSP_OK on success.</doc>
+               line="5348">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5168">a #GstRTSPConnection</doc>
+                 line="5338">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5169">the message to read</doc>
+                 line="5339">the message to read</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5170">a timeout value or %NULL</doc>
+                 line="5340">a timeout value or %NULL</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -1023,7 +1058,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="2815">Attempt to read into @message from the connected @conn, blocking up to
+             line="2951">Attempt to read into @message from the connected @conn, blocking up to
 the specified @timeout. @timeout can be 0, in which case this function
 might block forever.
 
@@ -1033,26 +1068,26 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="2827">#GST_RTSP_OK on success.</doc>
+               line="2963">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2817">a #GstRTSPConnection</doc>
+                 line="2953">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2818">the message to read</doc>
+                 line="2954">the message to read</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="2819">a timeout value or 0</doc>
+                 line="2955">a timeout value or 0</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1061,20 +1096,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               c:identifier="gst_rtsp_connection_reset_timeout">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3136">Reset the timeout of @conn.</doc>
+             line="3281">Reset the timeout of @conn.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3142">#GST_RTSP_OK.</doc>
+               line="3287">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3138">a #GstRTSPConnection</doc>
+                 line="3283">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
         </parameters>
@@ -1085,36 +1120,36 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5117">Attempt to send @message to the connected @conn, blocking up to
+             line="5287">Attempt to send @message to the connected @conn, blocking up to
 the specified @timeout. @timeout can be %NULL, in which case this function
 might block forever.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="367"/>
+                         line="370"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5129">#GST_RTSP_OK on success.</doc>
+               line="5299">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5119">a #GstRTSPConnection</doc>
+                 line="5289">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5120">the message to send</doc>
+                 line="5290">the message to send</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5121">a timeout value or %NULL</doc>
+                 line="5291">a timeout value or %NULL</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -1126,30 +1161,30 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5140">Attempt to send @messages to the connected @conn, blocking up to
+             line="5310">Attempt to send @messages to the connected @conn, blocking up to
 the specified @timeout. @timeout can be %NULL, in which case this function
 might block forever.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="371"/>
+                         line="374"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5153">#GST_RTSP_OK on success.</doc>
+               line="5323">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5142">a #GstRTSPConnection</doc>
+                 line="5312">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5143">the messages to send</doc>
+                 line="5313">the messages to send</doc>
             <array length="1" zero-terminated="0" c:type="GstRTSPMessage*">
               <type name="RTSPMessage" c:type="GstRTSPMessage"/>
             </array>
@@ -1157,13 +1192,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="n_messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5144">the number of messages to send</doc>
+                 line="5314">the number of messages to send</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5145">a timeout value or %NULL</doc>
+                 line="5315">a timeout value or %NULL</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -1173,7 +1208,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="1950">Attempt to send @messages to the connected @conn, blocking up to
+             line="2086">Attempt to send @messages to the connected @conn, blocking up to
 the specified @timeout. @timeout can be 0, in which case this function
 might block forever.
 
@@ -1183,20 +1218,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="1963">#GST_RTSP_OK on Since.</doc>
+               line="2099">#GST_RTSP_OK on Since.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1952">a #GstRTSPConnection</doc>
+                 line="2088">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1953">the messages to send</doc>
+                 line="2089">the messages to send</doc>
             <array length="1" zero-terminated="0" c:type="GstRTSPMessage*">
               <type name="RTSPMessage" c:type="GstRTSPMessage"/>
             </array>
@@ -1204,13 +1239,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="n_messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1954">the number of messages to send</doc>
+                 line="2090">the number of messages to send</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1955">a timeout value in microseconds</doc>
+                 line="2091">a timeout value in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1220,7 +1255,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="1924">Attempt to send @message to the connected @conn, blocking up to
+             line="2060">Attempt to send @message to the connected @conn, blocking up to
 the specified @timeout. @timeout can be 0, in which case this function
 might block forever.
 
@@ -1230,26 +1265,26 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="1936">#GST_RTSP_OK on success.</doc>
+               line="2072">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1926">a #GstRTSPConnection</doc>
+                 line="2062">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1927">the message to send</doc>
+                 line="2063">the message to send</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1928">a timeout value in microseconds</doc>
+                 line="2064">a timeout value in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1259,7 +1294,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="822">Sets a custom accept-certificate function for checking certificates for
+             line="854">Sets a custom accept-certificate function for checking certificates for
 validity. This will directly map to #GTlsConnection 's "accept-certificate"
 signal and be performed after the default checks of #GstRTSPConnection
 (checking against the #GTlsDatabase with the given #GTlsCertificateFlags)
@@ -1274,7 +1309,7 @@ be called.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="824">a #GstRTSPConnection</doc>
+                 line="856">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="func"
@@ -1284,7 +1319,7 @@ be called.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="825">a #GstRTSPConnectionAcceptCertificateFunc to check certificates</doc>
+                 line="857">a #GstRTSPConnectionAcceptCertificateFunc to check certificates</doc>
             <type name="RTSPConnectionAcceptCertificateFunc"
                   c:type="GstRTSPConnectionAcceptCertificateFunc"/>
           </parameter>
@@ -1294,7 +1329,7 @@ be called.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="827">User data passed to @func</doc>
+                 line="859">User data passed to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_notify"
@@ -1302,7 +1337,7 @@ be called.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="826">#GDestroyNotify for @user_data</doc>
+                 line="858">#GDestroyNotify for @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -1310,39 +1345,39 @@ be called.</doc>
       <method name="set_auth" c:identifier="gst_rtsp_connection_set_auth">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3207">Configure @conn for authentication mode @method with @user and @pass as the
+             line="3352">Configure @conn for authentication mode @method with @user and @pass as the
 user and password respectively.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="175"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3217">#GST_RTSP_OK.</doc>
+               line="3362">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3209">a #GstRTSPConnection</doc>
+                 line="3354">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3210">authentication method</doc>
+                 line="3355">authentication method</doc>
             <type name="RTSPAuthMethod" c:type="GstRTSPAuthMethod"/>
           </parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3211">the user</doc>
+                 line="3356">the user</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="pass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3212">the password</doc>
+                 line="3357">the password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1351,7 +1386,7 @@ user and password respectively.</doc>
               c:identifier="gst_rtsp_connection_set_auth_param">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3286">Setup @conn with authentication directives. This is not necessary for
+             line="3431">Setup @conn with authentication directives. This is not necessary for
 methods #GST_RTSP_AUTH_NONE and #GST_RTSP_AUTH_BASIC. For
 #GST_RTSP_AUTH_DIGEST, directives should be taken from the digest challenge
 in the WWW-Authenticate response header and can include realm, domain,
@@ -1365,19 +1400,19 @@ nonce, opaque, stale, algorithm, qop as per RFC2617.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3288">a #GstRTSPConnection</doc>
+                 line="3433">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="param" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3289">authentication directive</doc>
+                 line="3434">authentication directive</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3290">value</doc>
+                 line="3435">value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1387,7 +1422,7 @@ nonce, opaque, stale, algorithm, qop as per RFC2617.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3423">Configure @conn to use the specified Content-Length limit.
+             line="3568">Configure @conn to use the specified Content-Length limit.
 Both requests and responses are validated. If content-length is
 exceeded, ENOMEM error will be returned.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -1399,13 +1434,13 @@ exceeded, ENOMEM error will be returned.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3425">a #GstRTSPConnection</doc>
+                 line="3570">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="limit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3426">Content-Length limit</doc>
+                 line="3571">Content-Length limit</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1414,7 +1449,7 @@ exceeded, ENOMEM error will be returned.</doc>
               c:identifier="gst_rtsp_connection_set_http_mode">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3529">By setting the HTTP mode to %TRUE the message parsing will support HTTP
+             line="3674">By setting the HTTP mode to %TRUE the message parsing will support HTTP
 messages in addition to the RTSP messages. It will also disable the
 automatic handling of setting up an HTTP tunnel.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -1426,13 +1461,13 @@ automatic handling of setting up an HTTP tunnel.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3531">a #GstRTSPConnection</doc>
+                 line="3676">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3532">%TRUE to enable manual HTTP mode</doc>
+                 line="3677">%TRUE to enable manual HTTP mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1442,7 +1477,7 @@ automatic handling of setting up an HTTP tunnel.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3599">Set whether to ignore the x-server-ip-address header reply or not. If the
+             line="3744">Set whether to ignore the x-server-ip-address header reply or not. If the
 header is ignored, the original address will be used instead.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="239"/>
@@ -1453,13 +1488,13 @@ header is ignored, the original address will be used instead.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3601">a #GstRTSPConnection</doc>
+                 line="3746">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="ignore" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3602">%TRUE to ignore the x-server-ip-address header reply or %FALSE to
+                 line="3747">%TRUE to ignore the x-server-ip-address header reply or %FALSE to
          comply with it (%FALSE is the default).</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -1468,7 +1503,7 @@ header is ignored, the original address will be used instead.</doc>
       <method name="set_ip" c:identifier="gst_rtsp_connection_set_ip">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3477">Set the IP address of the server.</doc>
+             line="3622">Set the IP address of the server.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -1478,13 +1513,13 @@ header is ignored, the original address will be used instead.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3479">a #GstRTSPConnection</doc>
+                 line="3624">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="ip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3480">an ip address</doc>
+                 line="3625">an ip address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1492,32 +1527,32 @@ header is ignored, the original address will be used instead.</doc>
       <method name="set_proxy" c:identifier="gst_rtsp_connection_set_proxy">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3184">Set the proxy host and port.</doc>
+             line="3329">Set the proxy host and port.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="169"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3192">#GST_RTSP_OK.</doc>
+               line="3337">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3186">a #GstRTSPConnection</doc>
+                 line="3331">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3187">the proxy host</doc>
+                 line="3332">the proxy host</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3188">the proxy port</doc>
+                 line="3333">the proxy port</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1526,26 +1561,26 @@ header is ignored, the original address will be used instead.</doc>
               c:identifier="gst_rtsp_connection_set_qos_dscp">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3398">Configure @conn to use the specified DSCP value.</doc>
+             line="3543">Configure @conn to use the specified DSCP value.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="3405">#GST_RTSP_OK on success.</doc>
+               line="3550">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3400">a #GstRTSPConnection</doc>
+                 line="3545">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="qos_dscp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3401">DSCP value</doc>
+                 line="3546">DSCP value</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1554,7 +1589,7 @@ header is ignored, the original address will be used instead.</doc>
               c:identifier="gst_rtsp_connection_set_remember_session_id">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3727">Sets if the #GstRTSPConnection should remember the session id from the last
+             line="3897">Sets if the #GstRTSPConnection should remember the session id from the last
 response received and force it onto any further requests.
 
 The default value is %TRUE</doc>
@@ -1567,13 +1602,13 @@ The default value is %TRUE</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3729">a #GstRTSPConnection</doc>
+                 line="3899">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="remember" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3730">%TRUE if the connection should remember the session id</doc>
+                 line="3900">%TRUE if the connection should remember the session id</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1583,7 +1618,7 @@ The default value is %TRUE</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="711">Sets the anchor certificate authorities database. This certificate
+             line="743">Sets the anchor certificate authorities database. This certificate
 database will be used to verify the server's certificate in case it
 can't be verified with the default certificate database first.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -1595,7 +1630,7 @@ can't be verified with the default certificate database first.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="713">a #GstRTSPConnection</doc>
+                 line="745">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="database"
@@ -1604,7 +1639,7 @@ can't be verified with the default certificate database first.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="714">a #GTlsDatabase</doc>
+                 line="746">a #GTlsDatabase</doc>
             <type name="Gio.TlsDatabase" c:type="GTlsDatabase*"/>
           </parameter>
         </parameters>
@@ -1614,7 +1649,7 @@ can't be verified with the default certificate database first.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="767">Sets a #GTlsInteraction object to be used when the connection or certificate
+             line="799">Sets a #GTlsInteraction object to be used when the connection or certificate
 database need to interact with the user. This will be used to prompt the
 user for passwords where necessary.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -1626,7 +1661,7 @@ user for passwords where necessary.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="769">a #GstRTSPConnection</doc>
+                 line="801">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="interaction"
@@ -1635,7 +1670,7 @@ user for passwords where necessary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="770">a #GTlsInteraction</doc>
+                 line="802">a #GTlsInteraction</doc>
             <type name="Gio.TlsInteraction" c:type="GTlsInteraction*"/>
           </parameter>
         </parameters>
@@ -1645,7 +1680,7 @@ user for passwords where necessary.</doc>
               version="1.2.1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="642">Sets the TLS validation flags to be used to verify the peer
+             line="674">Sets the TLS validation flags to be used to verify the peer
 certificate when a TLS connection is established.
 
 GLib guarantees that if certificate verification fails, at least one error
@@ -1661,7 +1696,7 @@ the only error flag set even if other problems exist with the certificate.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="659">TRUE if the validation flags are set correctly, or FALSE if
+               line="691">TRUE if the validation flags are set correctly, or FALSE if
 @conn is NULL or is not a TLS connection.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1669,13 +1704,13 @@ the only error flag set even if other problems exist with the certificate.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="644">a #GstRTSPConnection</doc>
+                 line="676">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="645">the validation flags.</doc>
+                 line="677">the validation flags.</doc>
             <type name="Gio.TlsCertificateFlags"
                   c:type="GTlsCertificateFlags"/>
           </parameter>
@@ -1685,7 +1720,7 @@ the only error flag set even if other problems exist with the certificate.</doc>
               c:identifier="gst_rtsp_connection_set_tunneled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="3546">Set the HTTP tunneling state of the connection. This must be configured before
+             line="3691">Set the HTTP tunneling state of the connection. This must be configured before
 the @conn is connected.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="221"/>
@@ -1696,13 +1731,13 @@ the @conn is connected.</doc>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3548">a #GstRTSPConnection</doc>
+                 line="3693">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="tunneled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="3549">the new state</doc>
+                 line="3694">the new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1713,30 +1748,30 @@ the @conn is connected.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5092">Attempt to write @size bytes of @data to the connected @conn, blocking up to
+             line="5262">Attempt to write @size bytes of @data to the connected @conn, blocking up to
 the specified @timeout. @timeout can be %NULL, in which case this function
 might block forever.
 
 This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="363"/>
+                         line="366"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5105">#GST_RTSP_OK on success.</doc>
+               line="5275">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5094">a #GstRTSPConnection</doc>
+                 line="5264">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5095">the data to write</doc>
+                 line="5265">the data to write</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -1744,13 +1779,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5096">the size of @data</doc>
+                 line="5266">the size of @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5097">a timeout value or %NULL</doc>
+                 line="5267">a timeout value or %NULL</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -1760,7 +1795,7 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="1747">Attempt to write @size bytes of @data to the connected @conn, blocking up to
+             line="1883">Attempt to write @size bytes of @data to the connected @conn, blocking up to
 the specified @timeout. @timeout can be 0, in which case this function
 might block forever.
 
@@ -1770,20 +1805,20 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="1760">#GST_RTSP_OK on success.</doc>
+               line="1896">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1749">a #GstRTSPConnection</doc>
+                 line="1885">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1750">the data to write</doc>
+                 line="1886">the data to write</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -1791,13 +1826,13 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1751">the size of @data</doc>
+                 line="1887">the size of @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="1752">a timeout value or 0</doc>
+                 line="1888">a timeout value or 0</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -1805,21 +1840,21 @@ This function can be cancelled with gst_rtsp_connection_flush().</doc>
       <function name="accept" c:identifier="gst_rtsp_connection_accept">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="533">Accept a new connection on @socket and create a new #GstRTSPConnection for
+             line="565">Accept a new connection on @socket and create a new #GstRTSPConnection for
 handling communication on new socket.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="542">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+               line="574">#GST_RTSP_OK when @conn contains a valid connection.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="socket" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="535">a socket</doc>
+                 line="567">a socket</doc>
             <type name="Gio.Socket" c:type="GSocket*"/>
           </parameter>
           <parameter name="conn"
@@ -1829,7 +1864,7 @@ handling communication on new socket.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="536">storage for a #GstRTSPConnection</doc>
+                 line="568">storage for a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
           </parameter>
           <parameter name="cancellable"
@@ -1838,7 +1873,7 @@ handling communication on new socket.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="537">a #GCancellable to cancel the operation</doc>
+                 line="569">a #GCancellable to cancel the operation</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1846,7 +1881,7 @@ handling communication on new socket.</doc>
       <function name="create" c:identifier="gst_rtsp_connection_create">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="370">Create a newly allocated #GstRTSPConnection from @url and store it in @conn.
+             line="399">Create a newly allocated #GstRTSPConnection from @url and store it in @conn.
 The connection will not yet attempt to connect to @url, use
 gst_rtsp_connection_connect().
 
@@ -1856,14 +1891,14 @@ A copy of @url will be made.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="381">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+               line="410">#GST_RTSP_OK when @conn contains a valid connection.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="372">a #GstRTSPUrl</doc>
+                 line="401">a #GstRTSPUrl</doc>
             <type name="RTSPUrl" c:type="const GstRTSPUrl*"/>
           </parameter>
           <parameter name="conn"
@@ -1872,7 +1907,7 @@ A copy of @url will be made.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="373">storage for a #GstRTSPConnection</doc>
+                 line="402">storage for a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
           </parameter>
         </parameters>
@@ -1881,7 +1916,7 @@ A copy of @url will be made.</doc>
                 c:identifier="gst_rtsp_connection_create_from_socket">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="450">Create a new #GstRTSPConnection for handling communication on the existing
+             line="482">Create a new #GstRTSPConnection for handling communication on the existing
 socket @socket. The @initial_buffer contains zero terminated data already
 read from @socket which should be used before starting to read new data.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -1889,32 +1924,32 @@ read from @socket which should be used before starting to read new data.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="462">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+               line="494">#GST_RTSP_OK when @conn contains a valid connection.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="socket" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="452">a #GSocket</doc>
+                 line="484">a #GSocket</doc>
             <type name="Gio.Socket" c:type="GSocket*"/>
           </parameter>
           <parameter name="ip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="453">the IP address of the other end</doc>
+                 line="485">the IP address of the other end</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="454">the port used by the other end</doc>
+                 line="486">the port used by the other end</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="initial_buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="455">data already read from @fd</doc>
+                 line="487">data already read from @fd</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="conn"
@@ -1924,7 +1959,7 @@ read from @socket which should be used before starting to read new data.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="456">storage for a #GstRTSPConnection</doc>
+                 line="488">storage for a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
           </parameter>
         </parameters>
@@ -1962,7 +1997,7 @@ read from @socket which should be used before starting to read new data.</doc>
               c:type="GstRTSPEvent">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="111">The possible events for the connection.</doc>
+           line="122">The possible events for the connection.</doc>
       <member name="read"
               value="1"
               c:identifier="GST_RTSP_EV_READ"
@@ -1970,7 +2005,7 @@ read from @socket which should be used before starting to read new data.</doc>
               glib:name="GST_RTSP_EV_READ">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="113">connection is readable</doc>
+             line="124">connection is readable</doc>
       </member>
       <member name="write"
               value="2"
@@ -1979,7 +2014,7 @@ read from @socket which should be used before starting to read new data.</doc>
               glib:name="GST_RTSP_EV_WRITE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="114">connection is writable</doc>
+             line="125">connection is writable</doc>
       </member>
     </bitfield>
     <interface name="RTSPExtension"
@@ -2548,7 +2583,7 @@ read from @socket which should be used before starting to read new data.</doc>
                  c:type="GstRTSPFamily">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="123">The possible network families.</doc>
+           line="134">The possible network families.</doc>
       <member name="none"
               value="0"
               c:identifier="GST_RTSP_FAM_NONE"
@@ -2556,7 +2591,7 @@ read from @socket which should be used before starting to read new data.</doc>
               glib:name="GST_RTSP_FAM_NONE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="125">unknown network family</doc>
+             line="136">unknown network family</doc>
       </member>
       <member name="inet"
               value="1"
@@ -2565,7 +2600,7 @@ read from @socket which should be used before starting to read new data.</doc>
               glib:name="GST_RTSP_FAM_INET">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="126">internet</doc>
+             line="137">internet</doc>
       </member>
       <member name="inet6"
               value="2"
@@ -2574,7 +2609,7 @@ read from @socket which should be used before starting to read new data.</doc>
               glib:name="GST_RTSP_FAM_INET6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="127">internet V6</doc>
+             line="138">internet V6</doc>
       </member>
     </enumeration>
     <enumeration name="RTSPHeaderField"
@@ -2583,7 +2618,7 @@ read from @socket which should be used before starting to read new data.</doc>
                  c:type="GstRTSPHeaderField">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="230">Enumeration of rtsp header fields</doc>
+           line="241">Enumeration of rtsp header fields</doc>
       <member name="invalid"
               value="0"
               c:identifier="GST_RTSP_HDR_INVALID"
@@ -4355,7 +4390,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               c:type="GstRTSPMethod">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="173">The different supported RTSP methods.</doc>
+           line="184">The different supported RTSP methods.</doc>
       <member name="invalid"
               value="0"
               c:identifier="GST_RTSP_INVALID"
@@ -4363,7 +4398,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_INVALID">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="175">invalid method</doc>
+             line="186">invalid method</doc>
       </member>
       <member name="describe"
               value="1"
@@ -4372,7 +4407,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_DESCRIBE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="176">the DESCRIBE method</doc>
+             line="187">the DESCRIBE method</doc>
       </member>
       <member name="announce"
               value="2"
@@ -4381,7 +4416,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_ANNOUNCE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="177">the ANNOUNCE method</doc>
+             line="188">the ANNOUNCE method</doc>
       </member>
       <member name="get_parameter"
               value="4"
@@ -4390,7 +4425,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_GET_PARAMETER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="178">the GET_PARAMETER method</doc>
+             line="189">the GET_PARAMETER method</doc>
       </member>
       <member name="options"
               value="8"
@@ -4399,7 +4434,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_OPTIONS">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="179">the OPTIONS method</doc>
+             line="190">the OPTIONS method</doc>
       </member>
       <member name="pause"
               value="16"
@@ -4408,7 +4443,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_PAUSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="180">the PAUSE method</doc>
+             line="191">the PAUSE method</doc>
       </member>
       <member name="play"
               value="32"
@@ -4417,7 +4452,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_PLAY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="181">the PLAY method</doc>
+             line="192">the PLAY method</doc>
       </member>
       <member name="record"
               value="64"
@@ -4426,7 +4461,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_RECORD">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="182">the RECORD method</doc>
+             line="193">the RECORD method</doc>
       </member>
       <member name="redirect"
               value="128"
@@ -4435,7 +4470,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_REDIRECT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="183">the REDIRECT method</doc>
+             line="194">the REDIRECT method</doc>
       </member>
       <member name="setup"
               value="256"
@@ -4444,7 +4479,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_SETUP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="184">the SETUP method</doc>
+             line="195">the SETUP method</doc>
       </member>
       <member name="set_parameter"
               value="512"
@@ -4453,7 +4488,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_SET_PARAMETER">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="185">the SET_PARAMETER method</doc>
+             line="196">the SET_PARAMETER method</doc>
       </member>
       <member name="teardown"
               value="1024"
@@ -4462,7 +4497,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_TEARDOWN">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="186">the TEARDOWN method</doc>
+             line="197">the TEARDOWN method</doc>
       </member>
       <member name="get"
               value="2048"
@@ -4471,7 +4506,7 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_GET">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="187">the GET method (HTTP).</doc>
+             line="198">the GET method (HTTP).</doc>
       </member>
       <member name="post"
               value="4096"
@@ -4480,14 +4515,14 @@ gst_rtsp_message_init_data() on stack allocated #GstRTSPMessage structures.</doc
               glib:name="GST_RTSP_POST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="188">the POST method (HTTP).</doc>
+             line="199">the POST method (HTTP).</doc>
       </member>
       <function name="as_text" c:identifier="gst_rtsp_method_as_text">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
              line="310">Convert @method to a string.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-                         line="409"/>
+                         line="439"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -4853,6 +4888,16 @@ UTC times will be converted to nanoseconds since 1900.</doc>
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
              line="67">no error</doc>
       </member>
+      <member name="ok_redirect"
+              value="1"
+              c:identifier="GST_RTSP_OK_REDIRECT"
+              version="1.24"
+              glib:nick="ok-redirect"
+              glib:name="GST_RTSP_OK_REDIRECT">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspdefs.h"
+             line="92">RTSP request is successful, but was redirected.</doc>
+      </member>
       <member name="error"
               value="-1"
               c:identifier="GST_RTSP_ERROR"
@@ -4860,7 +4905,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ERROR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="68">some unspecified error occurred</doc>
+             line="69">some unspecified error occurred</doc>
       </member>
       <member name="einval"
               value="-2"
@@ -4869,7 +4914,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EINVAL">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="69">invalid arguments were provided to a function</doc>
+             line="70">invalid arguments were provided to a function</doc>
       </member>
       <member name="eintr"
               value="-3"
@@ -4878,7 +4923,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EINTR">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="70">an operation was canceled</doc>
+             line="71">an operation was canceled</doc>
       </member>
       <member name="enomem"
               value="-4"
@@ -4887,7 +4932,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ENOMEM">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="71">no memory was available for the operation</doc>
+             line="72">no memory was available for the operation</doc>
       </member>
       <member name="eresolv"
               value="-5"
@@ -4896,7 +4941,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ERESOLV">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="72">a host resolve error occurred</doc>
+             line="73">a host resolve error occurred</doc>
       </member>
       <member name="enotimpl"
               value="-6"
@@ -4905,7 +4950,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ENOTIMPL">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="73">function not implemented</doc>
+             line="74">function not implemented</doc>
       </member>
       <member name="esys"
               value="-7"
@@ -4914,7 +4959,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ESYS">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="74">a system error occurred, errno contains more details</doc>
+             line="75">a system error occurred, errno contains more details</doc>
       </member>
       <member name="eparse"
               value="-8"
@@ -4923,7 +4968,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EPARSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="75">a parsing error occurred</doc>
+             line="76">a parsing error occurred</doc>
       </member>
       <member name="ewsastart"
               value="-9"
@@ -4932,7 +4977,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EWSASTART">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="76">windows networking could not start</doc>
+             line="77">windows networking could not start</doc>
       </member>
       <member name="ewsaversion"
               value="-10"
@@ -4941,7 +4986,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EWSAVERSION">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="77">windows networking stack has wrong version</doc>
+             line="78">windows networking stack has wrong version</doc>
       </member>
       <member name="eeof"
               value="-11"
@@ -4950,7 +4995,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_EEOF">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="78">end-of-file was reached</doc>
+             line="79">end-of-file was reached</doc>
       </member>
       <member name="enet"
               value="-12"
@@ -4959,7 +5004,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ENET">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="79">a network problem occurred, h_errno contains more details</doc>
+             line="80">a network problem occurred, h_errno contains more details</doc>
       </member>
       <member name="enotip"
               value="-13"
@@ -4968,7 +5013,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ENOTIP">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="80">the host is not an IP host</doc>
+             line="81">the host is not an IP host</doc>
       </member>
       <member name="etimeout"
               value="-14"
@@ -4977,7 +5022,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ETIMEOUT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="81">a timeout occurred</doc>
+             line="82">a timeout occurred</doc>
       </member>
       <member name="etget"
               value="-15"
@@ -4986,7 +5031,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ETGET">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="82">the tunnel GET request has been performed</doc>
+             line="83">the tunnel GET request has been performed</doc>
       </member>
       <member name="etpost"
               value="-16"
@@ -4995,7 +5040,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ETPOST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="83">the tunnel POST request has been performed</doc>
+             line="84">the tunnel POST request has been performed</doc>
       </member>
       <member name="elast"
               value="-17"
@@ -5004,7 +5049,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_ELAST">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="84">last error</doc>
+             line="85">last error</doc>
       </member>
     </enumeration>
     <enumeration name="RTSPState"
@@ -5013,7 +5058,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
                  c:type="GstRTSPState">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="137">The different RTSP states.</doc>
+           line="148">The different RTSP states.</doc>
       <member name="invalid"
               value="0"
               c:identifier="GST_RTSP_STATE_INVALID"
@@ -5021,7 +5066,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_INVALID">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="139">invalid state</doc>
+             line="150">invalid state</doc>
       </member>
       <member name="init"
               value="1"
@@ -5030,7 +5075,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_INIT">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="140">initializing</doc>
+             line="151">initializing</doc>
       </member>
       <member name="ready"
               value="2"
@@ -5039,7 +5084,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_READY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="141">ready for operation</doc>
+             line="152">ready for operation</doc>
       </member>
       <member name="seeking"
               value="3"
@@ -5048,7 +5093,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_SEEKING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="142">seeking in progress</doc>
+             line="153">seeking in progress</doc>
       </member>
       <member name="playing"
               value="4"
@@ -5057,7 +5102,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_PLAYING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="143">playing</doc>
+             line="154">playing</doc>
       </member>
       <member name="recording"
               value="5"
@@ -5066,7 +5111,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               glib:name="GST_RTSP_STATE_RECORDING">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="144">recording</doc>
+             line="155">recording</doc>
       </member>
     </enumeration>
     <enumeration name="RTSPStatusCode"
@@ -5075,7 +5120,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
                  c:type="GstRTSPStatusCode">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="351">Enumeration of rtsp status codes</doc>
+           line="362">Enumeration of rtsp status codes</doc>
       <member name="invalid"
               value="0"
               c:identifier="GST_RTSP_STS_INVALID"
@@ -5141,6 +5186,26 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               c:identifier="GST_RTSP_STS_USE_PROXY"
               glib:nick="use-proxy"
               glib:name="GST_RTSP_STS_USE_PROXY">
+      </member>
+      <member name="redirect_temporarily"
+              value="307"
+              c:identifier="GST_RTSP_STS_REDIRECT_TEMPORARILY"
+              version="1.24"
+              glib:nick="redirect-temporarily"
+              glib:name="GST_RTSP_STS_REDIRECT_TEMPORARILY">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspdefs.h"
+             line="380">RTSP request is temporarily redirected</doc>
+      </member>
+      <member name="redirect_permanently"
+              value="308"
+              c:identifier="GST_RTSP_STS_REDIRECT_PERMANENTLY"
+              version="1.24"
+              glib:nick="redirect-permanently"
+              glib:name="GST_RTSP_STS_REDIRECT_PERMANENTLY">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspdefs.h"
+             line="389">RTSP request is permanently redirected</doc>
       </member>
       <member name="bad_request"
               value="400"
@@ -5635,14 +5700,14 @@ UTC times will be converted to nanoseconds since 1900.</doc>
       <method name="as_text" c:identifier="gst_rtsp_transport_as_text">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="588">Convert @transport into a string that can be used to signal the transport in
+             line="592">Convert @transport into a string that can be used to signal the transport in
 an RTSP SETUP response.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="184"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="595">a string describing the RTSP transport
+               line="599">a string describing the RTSP transport
 or %NULL when the transport is invalid.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5650,7 +5715,7 @@ or %NULL when the transport is invalid.</doc>
           <instance-parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="590">a #GstRTSPTransport</doc>
+                 line="594">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </instance-parameter>
         </parameters>
@@ -5658,20 +5723,20 @@ or %NULL when the transport is invalid.</doc>
       <method name="free" c:identifier="gst_rtsp_transport_free">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="759">Free the memory used by @transport.</doc>
+             line="763">Free the memory used by @transport.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="765">#GST_RTSP_OK.</doc>
+               line="769">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="761">a #GstRTSPTransport</doc>
+                 line="765">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </instance-parameter>
         </parameters>
@@ -5681,21 +5746,21 @@ or %NULL when the transport is invalid.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="236">Get the media type of @transport. This media type is typically
+             line="240">Get the media type of @transport. This media type is typically
 used to generate #GstCaps events.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="193"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="246">#GST_RTSP_OK.</doc>
+               line="250">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="238">a #GstRTSPTransport</doc>
+                 line="242">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </instance-parameter>
           <parameter name="media_type"
@@ -5704,7 +5769,7 @@ used to generate #GstCaps events.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="239">media type of @transport</doc>
+                 line="243">media type of @transport</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
@@ -5713,7 +5778,7 @@ used to generate #GstCaps events.</doc>
                 c:identifier="gst_rtsp_transport_get_manager">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="279">Get the #GstElement that can handle the buffers transported over @trans.
+             line="283">Get the #GstElement that can handle the buffers transported over @trans.
 
 It is possible that there are several managers available, use @option to
 selected one.
@@ -5725,14 +5790,14 @@ needed/available for @trans.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="293">#GST_RTSP_OK.</doc>
+               line="297">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="trans" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="281">a #GstRTSPTransMode</doc>
+                 line="285">a #GstRTSPTransMode</doc>
             <type name="RTSPTransMode" c:type="GstRTSPTransMode"/>
           </parameter>
           <parameter name="manager"
@@ -5742,13 +5807,13 @@ needed/available for @trans.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="282">location to hold the result</doc>
+                 line="286">location to hold the result</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="option" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="283">option index.</doc>
+                 line="287">option index.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -5758,7 +5823,7 @@ needed/available for @trans.</doc>
                 deprecated="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="205">Get the mime type of the transport mode @trans. This mime type is typically
+             line="209">Get the mime type of the transport mode @trans. This mime type is typically
 used to generate #GstCaps events.</doc>
         <doc-deprecated xml:space="preserve">This functions only deals with the GstRTSPTransMode and only
    returns the mime type for #GST_RTSP_PROFILE_AVP. Use
@@ -5768,14 +5833,14 @@ used to generate #GstCaps events.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="217">#GST_RTSP_OK.</doc>
+               line="221">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="trans" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="207">a #GstRTSPTransMode</doc>
+                 line="211">a #GstRTSPTransMode</doc>
             <type name="RTSPTransMode" c:type="GstRTSPTransMode"/>
           </parameter>
           <parameter name="mime"
@@ -5784,7 +5849,7 @@ used to generate #GstCaps events.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="208">location to hold the result</doc>
+                 line="212">location to hold the result</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
@@ -5792,13 +5857,13 @@ used to generate #GstCaps events.</doc>
       <function name="init" c:identifier="gst_rtsp_transport_init">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="169">Initialize @transport so that it can be used.</doc>
+             line="173">Initialize @transport so that it can be used.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="178"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="175">#GST_RTSP_OK.</doc>
+               line="179">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
@@ -5808,7 +5873,7 @@ used to generate #GstCaps events.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="171">a #GstRTSPTransport</doc>
+                 line="175">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </parameter>
         </parameters>
@@ -5816,14 +5881,14 @@ used to generate #GstCaps events.</doc>
       <function name="new" c:identifier="gst_rtsp_transport_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="146">Allocate a new initialized #GstRTSPTransport. Use gst_rtsp_transport_free()
+             line="150">Allocate a new initialized #GstRTSPTransport. Use gst_rtsp_transport_free()
 after usage.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="175"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="153">a #GstRTSPResult.</doc>
+               line="157">a #GstRTSPResult.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
@@ -5833,7 +5898,7 @@ after usage.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="148">location to hold the new #GstRTSPTransport</doc>
+                 line="152">location to hold the new #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport**"/>
           </parameter>
         </parameters>
@@ -5841,20 +5906,20 @@ after usage.</doc>
       <function name="parse" c:identifier="gst_rtsp_transport_parse">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="433">Parse the RTSP transport string @str into @transport.</doc>
+             line="437">Parse the RTSP transport string @str into @transport.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="181"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="440">a #GstRTSPResult.</doc>
+               line="444">a #GstRTSPResult.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="435">a transport string</doc>
+                 line="439">a transport string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="transport"
@@ -5863,7 +5928,7 @@ after usage.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="436">a #GstRTSPTransport</doc>
+                 line="440">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </parameter>
         </parameters>
@@ -6141,7 +6206,7 @@ with gst_rtsp_url_free().</doc>
                  c:type="GstRTSPVersion">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-           line="157">The supported RTSP versions.</doc>
+           line="168">The supported RTSP versions.</doc>
       <member name="invalid"
               value="0"
               c:identifier="GST_RTSP_VERSION_INVALID"
@@ -6149,7 +6214,7 @@ with gst_rtsp_url_free().</doc>
               glib:name="GST_RTSP_VERSION_INVALID">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="159">unknown/invalid version</doc>
+             line="170">unknown/invalid version</doc>
       </member>
       <member name="1_0"
               value="16"
@@ -6158,7 +6223,7 @@ with gst_rtsp_url_free().</doc>
               glib:name="GST_RTSP_VERSION_1_0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="160">version 1.0</doc>
+             line="171">version 1.0</doc>
       </member>
       <member name="1_1"
               value="17"
@@ -6167,7 +6232,7 @@ with gst_rtsp_url_free().</doc>
               glib:name="GST_RTSP_VERSION_1_1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="161">version 1.1.</doc>
+             line="172">version 1.1.</doc>
       </member>
       <member name="2_0"
               value="32"
@@ -6176,14 +6241,14 @@ with gst_rtsp_url_free().</doc>
               glib:name="GST_RTSP_VERSION_2_0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-             line="162">version 2.0.</doc>
+             line="173">version 2.0.</doc>
       </member>
       <function name="as_text" c:identifier="gst_rtsp_version_as_text">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
              line="334">Convert @version to a string.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h"
-                         line="412"/>
+                         line="442"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -6203,27 +6268,27 @@ with gst_rtsp_url_free().</doc>
     <record name="RTSPWatch" c:type="GstRTSPWatch" disguised="1" opaque="1">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-           line="246">Opaque RTSP watch object that can be used for asynchronous RTSP
+           line="249">Opaque RTSP watch object that can be used for asynchronous RTSP
 operations.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                       line="252"/>
+                       line="255"/>
       <method name="attach" c:identifier="gst_rtsp_watch_attach">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4478">Adds a #GstRTSPWatch to a context so that it will be executed within that context.</doc>
+             line="4648">Adds a #GstRTSPWatch to a context so that it will be executed within that context.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="310"/>
+                         line="313"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4485">the ID (greater than 0) for the watch within the GMainContext.</doc>
+               line="4655">the ID (greater than 0) for the watch within the GMainContext.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4480">a #GstRTSPWatch</doc>
+                 line="4650">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="context"
@@ -6232,7 +6297,7 @@ operations.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4481">a GMainContext (if NULL, the default context will be used)</doc>
+                 line="4651">a GMainContext (if NULL, the default context will be used)</doc>
             <type name="GLib.MainContext" c:type="GMainContext*"/>
           </parameter>
         </parameters>
@@ -6242,10 +6307,10 @@ operations.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4541">Get the maximum amount of bytes and messages that will be queued in @watch.
+             line="4711">Get the maximum amount of bytes and messages that will be queued in @watch.
 See gst_rtsp_watch_set_send_backlog().</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="318"/>
+                         line="321"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6253,7 +6318,7 @@ See gst_rtsp_watch_set_send_backlog().</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4543">a #GstRTSPWatch</doc>
+                 line="4713">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="bytes"
@@ -6264,7 +6329,7 @@ See gst_rtsp_watch_set_send_backlog().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4544">maximum bytes</doc>
+                 line="4714">maximum bytes</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
           <parameter name="messages"
@@ -6275,7 +6340,7 @@ See gst_rtsp_watch_set_send_backlog().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4545">maximum messages</doc>
+                 line="4715">maximum messages</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -6283,10 +6348,10 @@ See gst_rtsp_watch_set_send_backlog().</doc>
       <method name="reset" c:identifier="gst_rtsp_watch_reset">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4422">Reset @watch, this is usually called after gst_rtsp_connection_do_tunnel()
+             line="4592">Reset @watch, this is usually called after gst_rtsp_connection_do_tunnel()
 when the file descriptors of the connection might have changed.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="304"/>
+                         line="307"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6294,7 +6359,7 @@ when the file descriptors of the connection might have changed.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4424">a #GstRTSPWatch</doc>
+                 line="4594">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
         </parameters>
@@ -6302,31 +6367,31 @@ when the file descriptors of the connection might have changed.</doc>
       <method name="send_message" c:identifier="gst_rtsp_watch_send_message">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4846">Send a @message using the connection of the @watch. If it cannot be sent
+             line="5016">Send a @message using the connection of the @watch. If it cannot be sent
 immediately, it will be queued for transmission in @watch. The contents of
 @message will then be serialized and transmitted when the connection of the
 @watch becomes writable. In case the @message is queued, the ID returned in
 @id will be non-zero and used as the ID argument in the message_sent
 callback.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="327"/>
+                         line="330"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4859">#GST_RTSP_OK on success.</doc>
+               line="5029">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4848">a #GstRTSPWatch</doc>
+                 line="5018">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4849">a #GstRTSPMessage</doc>
+                 line="5019">a #GstRTSPMessage</doc>
             <type name="RTSPMessage" c:type="GstRTSPMessage*"/>
           </parameter>
           <parameter name="id"
@@ -6337,7 +6402,7 @@ callback.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4850">location for a message ID or %NULL</doc>
+                 line="5020">location for a message ID or %NULL</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -6347,7 +6412,7 @@ callback.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4871">Sends @messages using the connection of the @watch. If they cannot be sent
+             line="5041">Sends @messages using the connection of the @watch. If they cannot be sent
 immediately, they will be queued for transmission in @watch. The contents of
 @messages will then be serialized and transmitted when the connection of the
 @watch becomes writable. In case the @messages are queued, the ID returned in
@@ -6355,24 +6420,24 @@ immediately, they will be queued for transmission in @watch. The contents of
 callback once the last message is sent. The callback will only be called
 once for the last message.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="332"/>
+                         line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4886">#GST_RTSP_OK on success.</doc>
+               line="5056">#GST_RTSP_OK on success.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4873">a #GstRTSPWatch</doc>
+                 line="5043">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4874">the messages to send</doc>
+                 line="5044">the messages to send</doc>
             <array length="1" zero-terminated="0" c:type="GstRTSPMessage*">
               <type name="RTSPMessage" c:type="GstRTSPMessage"/>
             </array>
@@ -6380,7 +6445,7 @@ once for the last message.</doc>
           <parameter name="n_messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4875">the number of messages to send</doc>
+                 line="5045">the number of messages to send</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="id"
@@ -6391,7 +6456,7 @@ once for the last message.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4876">location for a message ID or %NULL</doc>
+                 line="5046">location for a message ID or %NULL</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -6401,11 +6466,11 @@ once for the last message.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4985">When @flushing is %TRUE, abort a call to gst_rtsp_watch_wait_backlog()
+             line="5155">When @flushing is %TRUE, abort a call to gst_rtsp_watch_wait_backlog()
 and make sure gst_rtsp_watch_write_data() returns immediately with
 #GST_RTSP_EINTR. And empty the queue.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="342"/>
+                         line="345"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6413,13 +6478,13 @@ and make sure gst_rtsp_watch_write_data() returns immediately with
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4987">a #GstRTSPWatch</doc>
+                 line="5157">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="flushing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4988">new flushing state</doc>
+                 line="5158">new flushing state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6429,13 +6494,13 @@ and make sure gst_rtsp_watch_write_data() returns immediately with
               version="1.2">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4510">Set the maximum amount of bytes and messages that will be queued in @watch.
+             line="4680">Set the maximum amount of bytes and messages that will be queued in @watch.
 When the maximum amounts are exceeded, gst_rtsp_watch_write_data() and
 gst_rtsp_watch_send_message() will return #GST_RTSP_ENOMEM.
 
 A value of 0 for @bytes or @messages means no limits.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="314"/>
+                         line="317"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6443,19 +6508,19 @@ A value of 0 for @bytes or @messages means no limits.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4512">a #GstRTSPWatch</doc>
+                 line="4682">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4513">maximum bytes</doc>
+                 line="4683">maximum bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="messages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4514">maximum messages</doc>
+                 line="4684">maximum messages</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -6463,10 +6528,10 @@ A value of 0 for @bytes or @messages means no limits.</doc>
       <method name="unref" c:identifier="gst_rtsp_watch_unref">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4495">Decreases the reference count of @watch by one. If the resulting reference
+             line="4665">Decreases the reference count of @watch by one. If the resulting reference
 count is zero the watch and associated memory will be destroyed.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="307"/>
+                         line="310"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6474,7 +6539,7 @@ count is zero the watch and associated memory will be destroyed.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4497">a #GstRTSPWatch</doc>
+                 line="4667">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
         </parameters>
@@ -6486,7 +6551,7 @@ count is zero the watch and associated memory will be destroyed.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="5244">Wait until there is place in the backlog queue, @timeout is reached
+             line="5414">Wait until there is place in the backlog queue, @timeout is reached
 or @watch is set to flushing.
 
 If @timeout is %NULL this function can block forever. If @timeout
@@ -6497,11 +6562,11 @@ The typically use of this function is when gst_rtsp_watch_write_data
 returns %GST_RTSP_ENOMEM. The caller then calls this function to wait for
 free space in the backlog queue and try again.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="386"/>
+                         line="389"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="5260">%GST_RTSP_OK when if there is room in queue.
+               line="5430">%GST_RTSP_OK when if there is room in queue.
          %GST_RTSP_ETIMEOUT when @timeout was reached.
          %GST_RTSP_EINTR when @watch is flushing
          %GST_RTSP_EINVAL when called with invalid parameters.</doc>
@@ -6511,13 +6576,13 @@ free space in the backlog queue and try again.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5246">a #GstRTSPWatch</doc>
+                 line="5416">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="5247">a GTimeVal timeout</doc>
+                 line="5417">a GTimeVal timeout</doc>
             <type name="GLib.TimeVal" c:type="GTimeVal*"/>
           </parameter>
         </parameters>
@@ -6527,7 +6592,7 @@ free space in the backlog queue and try again.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4920">Wait until there is place in the backlog queue, @timeout is reached
+             line="5090">Wait until there is place in the backlog queue, @timeout is reached
 or @watch is set to flushing.
 
 If @timeout is 0 this function can block forever. If @timeout
@@ -6538,11 +6603,11 @@ The typically use of this function is when gst_rtsp_watch_write_data
 returns %GST_RTSP_ENOMEM. The caller then calls this function to wait for
 free space in the backlog queue and try again.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="338"/>
+                         line="341"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4936">%GST_RTSP_OK when if there is room in queue.
+               line="5106">%GST_RTSP_OK when if there is room in queue.
          %GST_RTSP_ETIMEOUT when @timeout was reached.
          %GST_RTSP_EINTR when @watch is flushing
          %GST_RTSP_EINVAL when called with invalid parameters.</doc>
@@ -6552,13 +6617,13 @@ free space in the backlog queue and try again.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4922">a #GstRTSPWatch</doc>
+                 line="5092">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4923">a timeout in microseconds</doc>
+                 line="5093">a timeout in microseconds</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -6566,7 +6631,7 @@ free space in the backlog queue and try again.</doc>
       <method name="write_data" c:identifier="gst_rtsp_watch_write_data">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4808">Write @data using the connection of the @watch. If it cannot be sent
+             line="4978">Write @data using the connection of the @watch. If it cannot be sent
 immediately, it will be queued for transmission in @watch. The contents of
 @message will then be serialized and transmitted when the connection of the
 @watch becomes writable. In case the @message is queued, the ID returned in
@@ -6579,11 +6644,11 @@ If the amount of queued data exceeds the limits set with
 gst_rtsp_watch_set_send_backlog(), this function will return
 #GST_RTSP_ENOMEM.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="322"/>
+                         line="325"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4828">#GST_RTSP_OK on success. #GST_RTSP_ENOMEM when the backlog limits
+               line="4998">#GST_RTSP_OK on success. #GST_RTSP_ENOMEM when the backlog limits
 are reached. #GST_RTSP_EINTR when @watch was flushing.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
@@ -6591,13 +6656,13 @@ are reached. #GST_RTSP_EINTR when @watch was flushing.</doc>
           <instance-parameter name="watch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4810">a #GstRTSPWatch</doc>
+                 line="4980">a #GstRTSPWatch</doc>
             <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4811">the data to queue</doc>
+                 line="4981">the data to queue</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -6605,7 +6670,7 @@ are reached. #GST_RTSP_EINTR when @watch was flushing.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4812">the size of @data</doc>
+                 line="4982">the size of @data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="id"
@@ -6616,7 +6681,7 @@ are reached. #GST_RTSP_EINTR when @watch was flushing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4813">location for a message ID or %NULL</doc>
+                 line="4983">location for a message ID or %NULL</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -6626,7 +6691,7 @@ are reached. #GST_RTSP_EINTR when @watch was flushing.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4371">Create a watch object for @conn. The functions provided in @funcs will be
+             line="4541">Create a watch object for @conn. The functions provided in @funcs will be
 called with @user_data when activity happened on the watch.
 
 The new watch is usually created so that it can be attached to a
@@ -6634,11 +6699,11 @@ maincontext with gst_rtsp_watch_attach().
 
 @conn must exist for the entire lifetime of the watch.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                         line="298"/>
+                         line="301"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4386">a #GstRTSPWatch that can be used for asynchronous RTSP
+               line="4556">a #GstRTSPWatch that can be used for asynchronous RTSP
 communication. Free with gst_rtsp_watch_unref () after usage.</doc>
           <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
         </return-value>
@@ -6646,13 +6711,13 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
           <parameter name="conn" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4373">a #GstRTSPConnection</doc>
+                 line="4543">a #GstRTSPConnection</doc>
             <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
           </parameter>
           <parameter name="funcs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4374">watch functions</doc>
+                 line="4544">watch functions</doc>
             <type name="RTSPWatchFuncs" c:type="GstRTSPWatchFuncs*"/>
           </parameter>
           <parameter name="user_data"
@@ -6661,13 +6726,13 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4375">user data to pass to @funcs</doc>
+                 line="4545">user data to pass to @funcs</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-                 line="4376">notify when @user_data is not referenced anymore</doc>
+                 line="4546">notify when @user_data is not referenced anymore</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -6676,16 +6741,16 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
     <record name="RTSPWatchFuncs" c:type="GstRTSPWatchFuncs">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-           line="254">Callback functions from a #GstRTSPWatch.</doc>
+           line="257">Callback functions from a #GstRTSPWatch.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                       line="295"/>
+                       line="298"/>
       <field name="message_received">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="256">callback when a message was received</doc>
+             line="259">callback when a message was received</doc>
         <callback name="message_received">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="275"/>
+                           line="278"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6709,10 +6774,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="message_sent">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="257">callback when a message was sent</doc>
+             line="260">callback when a message was sent</doc>
         <callback name="message_sent">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="277"/>
+                           line="280"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6736,10 +6801,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="closed">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="258">callback when the connection is closed</doc>
+             line="261">callback when the connection is closed</doc>
         <callback name="closed">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="279"/>
+                           line="282"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6760,10 +6825,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="error">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="259">callback when an error occurred</doc>
+             line="262">callback when an error occurred</doc>
         <callback name="error">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="280"/>
+                           line="283"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6787,11 +6852,11 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="tunnel_start">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="260">a client started a tunneled connection. The tunnelid of the
+             line="263">a client started a tunneled connection. The tunnelid of the
   connection must be saved.</doc>
         <callback name="tunnel_start">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="282"/>
+                           line="285"/>
           <return-value transfer-ownership="none">
             <type name="RTSPStatusCode" c:type="GstRTSPStatusCode"/>
           </return-value>
@@ -6812,12 +6877,12 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="tunnel_complete">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="262">a client finished a tunneled connection. In this callback
+             line="265">a client finished a tunneled connection. In this callback
   you usually pair the tunnelid of this connection with the saved one using
   gst_rtsp_connection_do_tunnel().</doc>
         <callback name="tunnel_complete">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="283"/>
+                           line="286"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6838,11 +6903,11 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="error_full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="265">callback when an error occurred with more information than
+             line="268">callback when an error occurred with more information than
   the @error callback.</doc>
         <callback name="error_full">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="284"/>
+                           line="287"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6872,10 +6937,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="tunnel_lost">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="267">callback when the post connection of a tunnel is closed.</doc>
+             line="270">callback when the post connection of a tunnel is closed.</doc>
         <callback name="tunnel_lost">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="287"/>
+                           line="290"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -6896,12 +6961,12 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <field name="tunnel_http_response">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-             line="268">callback when an HTTP response to the GET request
+             line="271">callback when an HTTP response to the GET request
   is about to be sent for a tunneled connection. The response can be
   modified in the callback. Since: 1.4.</doc>
         <callback name="tunnel_http_response">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                           line="288"/>
+                           line="291"/>
           <return-value transfer-ownership="none">
             <type name="RTSPResult" c:type="GstRTSPResult"/>
           </return-value>
@@ -7041,21 +7106,21 @@ gst_rtsp_message_parse_auth_credentials().</doc>
               moved-to="RTSPConnection.accept">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-           line="533">Accept a new connection on @socket and create a new #GstRTSPConnection for
+           line="565">Accept a new connection on @socket and create a new #GstRTSPConnection for
 handling communication on new socket.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                        line="76"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="542">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+             line="574">#GST_RTSP_OK when @conn contains a valid connection.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="socket" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="535">a socket</doc>
+               line="567">a socket</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </parameter>
         <parameter name="conn"
@@ -7065,7 +7130,7 @@ handling communication on new socket.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="536">storage for a #GstRTSPConnection</doc>
+               line="568">storage for a #GstRTSPConnection</doc>
           <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
         </parameter>
         <parameter name="cancellable"
@@ -7074,7 +7139,7 @@ handling communication on new socket.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="537">a #GCancellable to cancel the operation</doc>
+               line="569">a #GCancellable to cancel the operation</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -7084,7 +7149,7 @@ handling communication on new socket.</doc>
               moved-to="RTSPConnection.create">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-           line="370">Create a newly allocated #GstRTSPConnection from @url and store it in @conn.
+           line="399">Create a newly allocated #GstRTSPConnection from @url and store it in @conn.
 The connection will not yet attempt to connect to @url, use
 gst_rtsp_connection_connect().
 
@@ -7094,14 +7159,14 @@ A copy of @url will be made.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="381">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+             line="410">#GST_RTSP_OK when @conn contains a valid connection.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="url" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="372">a #GstRTSPUrl</doc>
+               line="401">a #GstRTSPUrl</doc>
           <type name="RTSPUrl" c:type="const GstRTSPUrl*"/>
         </parameter>
         <parameter name="conn"
@@ -7110,7 +7175,7 @@ A copy of @url will be made.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="373">storage for a #GstRTSPConnection</doc>
+               line="402">storage for a #GstRTSPConnection</doc>
           <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
         </parameter>
       </parameters>
@@ -7120,7 +7185,7 @@ A copy of @url will be made.</doc>
               moved-to="RTSPConnection.create_from_socket">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-           line="450">Create a new #GstRTSPConnection for handling communication on the existing
+           line="482">Create a new #GstRTSPConnection for handling communication on the existing
 socket @socket. The @initial_buffer contains zero terminated data already
 read from @socket which should be used before starting to read new data.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
@@ -7128,32 +7193,32 @@ read from @socket which should be used before starting to read new data.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="462">#GST_RTSP_OK when @conn contains a valid connection.</doc>
+             line="494">#GST_RTSP_OK when @conn contains a valid connection.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="socket" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="452">a #GSocket</doc>
+               line="484">a #GSocket</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </parameter>
         <parameter name="ip" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="453">the IP address of the other end</doc>
+               line="485">the IP address of the other end</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="port" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="454">the port used by the other end</doc>
+               line="486">the port used by the other end</doc>
           <type name="guint16" c:type="guint16"/>
         </parameter>
         <parameter name="initial_buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="455">data already read from @fd</doc>
+               line="487">data already read from @fd</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="conn"
@@ -7163,7 +7228,7 @@ read from @socket which should be used before starting to read new data.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="456">storage for a #GstRTSPConnection</doc>
+               line="488">storage for a #GstRTSPConnection</doc>
           <type name="RTSPConnection" c:type="GstRTSPConnection**"/>
         </parameter>
       </parameters>
@@ -7173,7 +7238,7 @@ read from @socket which should be used before starting to read new data.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="397">Convert @header to a #GstRTSPHeaderField.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="427"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="457"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7194,7 +7259,7 @@ header field is unknown.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="419">Convert @method to a #GstRTSPMethod.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="430"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="460"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7220,7 +7285,7 @@ method is unknown.</doc>
 the username and password. See RFC2069 for details.
 
 Currently only supported algorithm "md5".</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="436"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="466"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7287,7 +7352,7 @@ This function is useful when the passwords are not stored in clear text,
 but instead in the same format as the .htdigest file.
 
 Currently only supported algorithm "md5".</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="445"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="475"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7335,7 +7400,7 @@ Currently only supported algorithm "md5".</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="526">Check whether @field may appear multiple times in a message.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="433"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="463"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7356,7 +7421,7 @@ Currently only supported algorithm "md5".</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="361">Convert @field to a string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="415"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="445"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7527,7 +7592,7 @@ response message.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="310">Convert @method to a string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="409"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="439"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7548,7 +7613,7 @@ response message.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="441">Convert @options to a string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="421"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="451"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7571,7 +7636,7 @@ response message.</doc>
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="486">Convert the comma separated list @options to a #GstRTSPMethod bitwise or
 of methods. This functions is the reverse of gst_rtsp_options_as_text().</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="424"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="454"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7741,7 +7806,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="378">Convert @code to a string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="418"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="448"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7761,7 +7826,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="258">Convert @result in a human readable string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="406"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="436"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -7782,7 +7847,7 @@ UTC times will be converted to nanoseconds since 1900.</doc>
               moved-to="RTSPTransport.get_manager">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-           line="279">Get the #GstElement that can handle the buffers transported over @trans.
+           line="283">Get the #GstElement that can handle the buffers transported over @trans.
 
 It is possible that there are several managers available, use @option to
 selected one.
@@ -7794,14 +7859,14 @@ needed/available for @trans.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="293">#GST_RTSP_OK.</doc>
+             line="297">#GST_RTSP_OK.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="trans" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="281">a #GstRTSPTransMode</doc>
+               line="285">a #GstRTSPTransMode</doc>
           <type name="RTSPTransMode" c:type="GstRTSPTransMode"/>
         </parameter>
         <parameter name="manager"
@@ -7811,13 +7876,13 @@ needed/available for @trans.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="282">location to hold the result</doc>
+               line="286">location to hold the result</doc>
           <type name="utf8" c:type="const gchar**"/>
         </parameter>
         <parameter name="option" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="283">option index.</doc>
+               line="287">option index.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -7828,7 +7893,7 @@ needed/available for @trans.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-           line="205">Get the mime type of the transport mode @trans. This mime type is typically
+           line="209">Get the mime type of the transport mode @trans. This mime type is typically
 used to generate #GstCaps events.</doc>
       <doc-deprecated xml:space="preserve">This functions only deals with the GstRTSPTransMode and only
    returns the mime type for #GST_RTSP_PROFILE_AVP. Use
@@ -7838,14 +7903,14 @@ used to generate #GstCaps events.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="217">#GST_RTSP_OK.</doc>
+             line="221">#GST_RTSP_OK.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="trans" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="207">a #GstRTSPTransMode</doc>
+               line="211">a #GstRTSPTransMode</doc>
           <type name="RTSPTransMode" c:type="GstRTSPTransMode"/>
         </parameter>
         <parameter name="mime"
@@ -7854,7 +7919,7 @@ used to generate #GstCaps events.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="208">location to hold the result</doc>
+               line="212">location to hold the result</doc>
           <type name="utf8" c:type="const gchar**"/>
         </parameter>
       </parameters>
@@ -7864,13 +7929,13 @@ used to generate #GstCaps events.</doc>
               moved-to="RTSPTransport.init">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-           line="169">Initialize @transport so that it can be used.</doc>
+           line="173">Initialize @transport so that it can be used.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                        line="178"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="175">#GST_RTSP_OK.</doc>
+             line="179">#GST_RTSP_OK.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
@@ -7880,7 +7945,7 @@ used to generate #GstCaps events.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="171">a #GstRTSPTransport</doc>
+               line="175">a #GstRTSPTransport</doc>
           <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
         </parameter>
       </parameters>
@@ -7890,14 +7955,14 @@ used to generate #GstCaps events.</doc>
               moved-to="RTSPTransport.new">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-           line="146">Allocate a new initialized #GstRTSPTransport. Use gst_rtsp_transport_free()
+           line="150">Allocate a new initialized #GstRTSPTransport. Use gst_rtsp_transport_free()
 after usage.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                        line="175"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="153">a #GstRTSPResult.</doc>
+             line="157">a #GstRTSPResult.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
@@ -7907,7 +7972,7 @@ after usage.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="148">location to hold the new #GstRTSPTransport</doc>
+               line="152">location to hold the new #GstRTSPTransport</doc>
           <type name="RTSPTransport" c:type="GstRTSPTransport**"/>
         </parameter>
       </parameters>
@@ -7917,20 +7982,20 @@ after usage.</doc>
               moved-to="RTSPTransport.parse">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-           line="433">Parse the RTSP transport string @str into @transport.</doc>
+           line="437">Parse the RTSP transport string @str into @transport.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                        line="181"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="440">a #GstRTSPResult.</doc>
+             line="444">a #GstRTSPResult.</doc>
         <type name="RTSPResult" c:type="GstRTSPResult"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="435">a transport string</doc>
+               line="439">a transport string</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="transport"
@@ -7939,7 +8004,7 @@ after usage.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="436">a #GstRTSPTransport</doc>
+               line="440">a #GstRTSPTransport</doc>
           <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
         </parameter>
       </parameters>
@@ -7983,7 +8048,7 @@ with gst_rtsp_url_free().</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspdefs.c"
            line="334">Convert @version to a string.</doc>
-      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="412"/>
+      <source-position filename="gst-libs/gst/rtsp/gstrtspdefs.h" line="442"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspdefs.c"
@@ -8005,7 +8070,7 @@ with gst_rtsp_url_free().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-           line="4371">Create a watch object for @conn. The functions provided in @funcs will be
+           line="4541">Create a watch object for @conn. The functions provided in @funcs will be
 called with @user_data when activity happened on the watch.
 
 The new watch is usually created so that it can be attached to a
@@ -8013,11 +8078,11 @@ maincontext with gst_rtsp_watch_attach().
 
 @conn must exist for the entire lifetime of the watch.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
-                       line="298"/>
+                       line="301"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-             line="4386">a #GstRTSPWatch that can be used for asynchronous RTSP
+             line="4556">a #GstRTSPWatch that can be used for asynchronous RTSP
 communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         <type name="RTSPWatch" c:type="GstRTSPWatch*"/>
       </return-value>
@@ -8025,13 +8090,13 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         <parameter name="conn" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4373">a #GstRTSPConnection</doc>
+               line="4543">a #GstRTSPConnection</doc>
           <type name="RTSPConnection" c:type="GstRTSPConnection*"/>
         </parameter>
         <parameter name="funcs" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4374">watch functions</doc>
+               line="4544">watch functions</doc>
           <type name="RTSPWatchFuncs" c:type="GstRTSPWatchFuncs*"/>
         </parameter>
         <parameter name="user_data"
@@ -8040,13 +8105,13 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4375">user data to pass to @funcs</doc>
+               line="4545">user data to pass to @funcs</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtspconnection.c"
-               line="4376">notify when @user_data is not referenced anymore</doc>
+               line="4546">notify when @user_data is not referenced anymore</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
       </parameters>

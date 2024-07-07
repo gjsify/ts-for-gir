@@ -3077,12 +3077,12 @@ through the public API.</doc>
       <constructor name="new" c:identifier="st_icon_new">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="635">Create a newly allocated #StIcon.</doc>
+             line="677">Create a newly allocated #StIcon.</doc>
         <source-position filename="src/st/st-icon.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="640">A newly allocated #StIcon</doc>
+               line="682">A newly allocated #StIcon</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
@@ -3091,19 +3091,19 @@ through the public API.</doc>
               glib:get-property="fallback-gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="742">Gets the currently set fallback #GIcon.</doc>
+             line="784">Gets the currently set fallback #GIcon.</doc>
         <source-position filename="src/st/st-icon.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="748">The fallback #GIcon, if set, otherwise %NULL</doc>
+               line="790">The fallback #GIcon, if set, otherwise %NULL</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="744">a #StIcon</doc>
+                 line="786">a #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3113,20 +3113,20 @@ through the public API.</doc>
               glib:get-property="fallback-icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="827">This is a convenience method to get the icon name of the fallback
+             line="869">This is a convenience method to get the icon name of the fallback
 #GThemedIcon that is currently set.</doc>
         <source-position filename="src/st/st-icon.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="834">The name of the icon or %NULL if no icon is set</doc>
+               line="876">The name of the icon or %NULL if no icon is set</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="829">an #StIcon</doc>
+                 line="871">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3136,19 +3136,19 @@ through the public API.</doc>
               glib:get-property="gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="703">Gets the current #GIcon in use.</doc>
+             line="745">Gets the current #GIcon in use.</doc>
         <source-position filename="src/st/st-icon.h" line="59"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="709">The current #GIcon, if set, otherwise %NULL</doc>
+               line="751">The current #GIcon, if set, otherwise %NULL</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="705">an #StIcon</doc>
+                 line="747">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3158,20 +3158,20 @@ through the public API.</doc>
               glib:get-property="icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="648">This is a convenience method to get the icon name of the current icon, if it
+             line="690">This is a convenience method to get the icon name of the current icon, if it
 is currently a #GThemedIcon, or %NULL otherwise.</doc>
         <source-position filename="src/st/st-icon.h" line="67"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="655">The name of the icon or %NULL</doc>
+               line="697">The name of the icon or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="650">an #StIcon</doc>
+                 line="692">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3181,20 +3181,39 @@ is currently a #GThemedIcon, or %NULL otherwise.</doc>
               glib:get-property="icon-size">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="783">Gets the explicit size set using st_icon_set_icon_size() for the icon.
+             line="825">Gets the explicit size set using st_icon_set_icon_size() for the icon.
 This is not necessarily the size that the icon will be displayed at.</doc>
         <source-position filename="src/st/st-icon.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="790">The explicitly set size, or -1 if no size has been set</doc>
+               line="832">The explicitly set size, or -1 if no size has been set</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="785">an #StIcon</doc>
+                 line="827">an #StIcon</doc>
+            <type name="Icon" c:type="StIcon*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_symbolic"
+              c:identifier="st_icon_get_is_symbolic"
+              glib:get-property="is-symbolic">
+        <source-position filename="src/st/st-icon.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/st/st-icon.c"
+               line="929">Whether the displayed icon is symbolic</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="icon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/st/st-icon.c"
+                 line="927">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3204,7 +3223,7 @@ This is not necessarily the size that the icon will be displayed at.</doc>
               glib:set-property="fallback-gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="758">Sets a fallback #GIcon to show if the normal icon fails to load.
+             line="800">Sets a fallback #GIcon to show if the normal icon fails to load.
 If @fallback_gicon is %NULL or fails to load, the icon is unset and no
 texture will be visible for the fallback icon.</doc>
         <source-position filename="src/st/st-icon.h" line="64"/>
@@ -3215,7 +3234,7 @@ texture will be visible for the fallback icon.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="760">a #StIcon</doc>
+                 line="802">a #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="fallback_gicon"
@@ -3224,7 +3243,7 @@ texture will be visible for the fallback icon.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="761">the fallback #GIcon</doc>
+                 line="803">the fallback #GIcon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -3234,7 +3253,7 @@ texture will be visible for the fallback icon.</doc>
               glib:set-property="fallback-icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="851">This is a convenience method to set the fallback #GIcon to a #GThemedIcon
+             line="893">This is a convenience method to set the fallback #GIcon to a #GThemedIcon
 created using the given icon name. If @fallback_icon_name is an empty
 string, %NULL or fails to load, the icon is unset and no texture will
 be visible for the fallback icon.</doc>
@@ -3246,7 +3265,7 @@ be visible for the fallback icon.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="853">an #StIcon</doc>
+                 line="895">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="fallback_icon_name"
@@ -3255,7 +3274,7 @@ be visible for the fallback icon.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="854">the name of the fallback icon</doc>
+                 line="896">the name of the fallback icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3265,7 +3284,7 @@ be visible for the fallback icon.</doc>
               glib:set-property="gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="719">Sets a #GIcon to show for the icon. If @gicon is %NULL or fails to load,
+             line="761">Sets a #GIcon to show for the icon. If @gicon is %NULL or fails to load,
 the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
         <source-position filename="src/st/st-icon.h" line="60"/>
         <return-value transfer-ownership="none">
@@ -3275,7 +3294,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="721">an #StIcon</doc>
+                 line="763">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="gicon"
@@ -3284,7 +3303,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="722">a #GIcon</doc>
+                 line="764">a #GIcon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -3294,7 +3313,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
               glib:set-property="icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="672">This is a convenience method to set the #GIcon to a #GThemedIcon created
+             line="714">This is a convenience method to set the #GIcon to a #GThemedIcon created
 using the given icon name. If @icon_name is an empty string, %NULL or
 fails to load, the fallback icon will be shown.</doc>
         <source-position filename="src/st/st-icon.h" line="68"/>
@@ -3305,7 +3324,7 @@ fails to load, the fallback icon will be shown.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="674">an #StIcon</doc>
+                 line="716">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="icon_name"
@@ -3314,7 +3333,7 @@ fails to load, the fallback icon will be shown.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="675">the name of the icon</doc>
+                 line="717">the name of the icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3324,7 +3343,7 @@ fails to load, the fallback icon will be shown.</doc>
               glib:set-property="icon-size">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="800">Sets an explicit size for the icon. Setting @size to -1 will use the size
+             line="842">Sets an explicit size for the icon. Setting @size to -1 will use the size
 defined by the current style or the default icon size.</doc>
         <source-position filename="src/st/st-icon.h" line="76"/>
         <return-value transfer-ownership="none">
@@ -3334,13 +3353,13 @@ defined by the current style or the default icon size.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="802">an #StIcon</doc>
+                 line="844">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="803">if positive, the new size, otherwise the size will be
+                 line="845">if positive, the new size, otherwise the size will be
   derived from the current style</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -3353,7 +3372,7 @@ defined by the current style or the default icon size.</doc>
                 getter="get_fallback_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="312">The fallback #GIcon to display if #StIcon:gicon fails to load.</doc>
+             line="320">The fallback #GIcon to display if #StIcon:gicon fails to load.</doc>
         <type name="Gio.Icon"/>
       </property>
       <property name="fallback-icon-name"
@@ -3364,7 +3383,7 @@ defined by the current style or the default icon size.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="349">The fallback icon name of the #StIcon. See st_icon_set_fallback_icon_name()
+             line="357">The fallback icon name of the #StIcon. See st_icon_set_fallback_icon_name()
 for details.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -3375,7 +3394,7 @@ for details.</doc>
                 getter="get_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="300">The #GIcon being displayed by this #StIcon.</doc>
+             line="308">The #GIcon being displayed by this #StIcon.</doc>
         <type name="Gio.Icon"/>
       </property>
       <property name="icon-name"
@@ -3386,7 +3405,7 @@ for details.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="324">The name of the icon if the icon being displayed is a #GThemedIcon.</doc>
+             line="332">The name of the icon if the icon being displayed is a #GThemedIcon.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-size"
@@ -3397,9 +3416,15 @@ for details.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="336">The size of the icon, if greater than `0`. Otherwise the icon size is derived
+             line="344">The size of the icon, if greater than `0`. Otherwise the icon size is derived
 from the current style.</doc>
         <type name="gint" c:type="gint"/>
+      </property>
+      <property name="is-symbolic"
+                transfer-ownership="none"
+                getter="get_is_symbolic"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent" readable="0" private="1">
         <type name="Widget" c:type="StWidget"/>
@@ -4965,7 +4990,7 @@ icon theme.</doc>
                 c:identifier="st_image_content_new_with_preferred_size">
         <doc xml:space="preserve"
              filename="src/st/st-image-content.c"
-             line="327">Creates a new #StImageContent, a simple content for sized images.
+             line="328">Creates a new #StImageContent, a simple content for sized images.
 
 See #ClutterImage for setting the actual image to display or #StIcon for
 displaying icons.</doc>
@@ -4973,7 +4998,7 @@ displaying icons.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-image-content.c"
-               line="337">the newly created #StImageContent content
+               line="338">the newly created #StImageContent content
   Use g_object_unref() when done.</doc>
           <type name="Clutter.Content" c:type="ClutterContent*"/>
         </return-value>
@@ -4981,13 +5006,13 @@ displaying icons.</doc>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="329">The preferred width to be used when drawing the content</doc>
+                 line="330">The preferred width to be used when drawing the content</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-image-content.c"
-                 line="330">The preferred width to be used when drawing the content</doc>
+                 line="331">The preferred width to be used when drawing the content</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -6875,7 +6900,7 @@ are implemented, currently.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1655">The global texture cache</doc>
+               line="1659">The global texture cache</doc>
           <type name="TextureCache" c:type="StTextureCache*"/>
         </return-value>
       </function>
@@ -6885,7 +6910,7 @@ are implemented, currently.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="860">Load an arbitrary texture, caching it.  The string chosen for @key
+             line="864">Load an arbitrary texture, caching it.  The string chosen for @key
 should be of the form "type-prefix:type-uuid".  For example,
 "url:file:///usr/share/icons/hicolor/48x48/apps/firefox.png", or
 "stock-icon:gtk-ok".</doc>
@@ -6893,32 +6918,32 @@ should be of the form "type-prefix:type-uuid".  For example,
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="874">A newly-referenced handle to the texture</doc>
+               line="878">A newly-referenced handle to the texture</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="862">A #StTextureCache</doc>
+                 line="866">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="863">Arbitrary string used to refer to item</doc>
+                 line="867">Arbitrary string used to refer to item</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="864">Caching policy</doc>
+                 line="868">Caching policy</doc>
             <type name="TextureCachePolicy" c:type="StTextureCachePolicy"/>
           </parameter>
           <parameter name="load" transfer-ownership="none" closure="3">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="865">Function to create the texture, if not already cached</doc>
+                 line="869">Function to create the texture, if not already cached</doc>
             <type name="TextureCacheLoader" c:type="StTextureCacheLoader"/>
           </parameter>
           <parameter name="data"
@@ -6927,7 +6952,7 @@ should be of the form "type-prefix:type-uuid".  For example,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="866">User data passed to @load</doc>
+                 line="870">User data passed to @load</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
@@ -6936,25 +6961,25 @@ should be of the form "type-prefix:type-uuid".  For example,
               c:identifier="st_texture_cache_load_cairo_surface_to_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="841">Create a #GIcon from @surface.</doc>
+             line="845">Create a #GIcon from @surface.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="848">A new #GIcon</doc>
+               line="852">A new #GIcon</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="843">A #StTextureCache</doc>
+                 line="847">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="844">A #cairo_surface_t</doc>
+                 line="848">A #cairo_surface_t</doc>
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </parameter>
         </parameters>
@@ -6963,51 +6988,51 @@ should be of the form "type-prefix:type-uuid".  For example,
               c:identifier="st_texture_cache_load_file_async">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="1412">Asynchronously load an image.   Initially, the returned texture will have a natural
+             line="1416">Asynchronously load an image.   Initially, the returned texture will have a natural
 size of zero.  At some later point, either the image will be loaded successfully
 and at that point size will be negotiated, or upon an error, no image will be set.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1425">A new #ClutterActor with no image loaded initially.</doc>
+               line="1429">A new #ClutterActor with no image loaded initially.</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1414">A #StTextureCache</doc>
+                 line="1418">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1415">a #GFile of the image file from which to create a pixbuf</doc>
+                 line="1419">a #GFile of the image file from which to create a pixbuf</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="available_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1416">available width for the image, can be -1 if not limited</doc>
+                 line="1420">available width for the image, can be -1 if not limited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="available_height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1417">available height for the image, can be -1 if not limited</doc>
+                 line="1421">available height for the image, can be -1 if not limited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="paint_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1418">scale factor of the display</doc>
+                 line="1422">scale factor of the display</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="resource_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1419">Resource scale factor</doc>
+                 line="1423">Resource scale factor</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -7016,39 +7041,39 @@ and at that point size will be negotiated, or upon an error, no image will be se
               c:identifier="st_texture_cache_load_file_to_cairo_surface">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="1613">This function synchronously loads the given file path
+             line="1617">This function synchronously loads the given file path
 into a cairo surface.  On error, a warning is emitted
 and %NULL is returned.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="89"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1624">a new #cairo_surface_t</doc>
+               line="1628">a new #cairo_surface_t</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1615">A #StTextureCache</doc>
+                 line="1619">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1616">A #GFile in supported image format</doc>
+                 line="1620">A #GFile in supported image format</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="paint_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1617">Scale factor of the display</doc>
+                 line="1621">Scale factor of the display</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="resource_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1618">Resource scale factor</doc>
+                 line="1622">Resource scale factor</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -7058,39 +7083,39 @@ and %NULL is returned.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="1576">This function synchronously loads the given file path
+             line="1580">This function synchronously loads the given file path
 into a COGL texture.  On error, a warning is emitted
 and %NULL is returned.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="84"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1587">a new #CoglTexture</doc>
+               line="1591">a new #CoglTexture</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1578">A #StTextureCache</doc>
+                 line="1582">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1579">A #GFile in supported image format</doc>
+                 line="1583">A #GFile in supported image format</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="paint_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1580">Scale factor of the display</doc>
+                 line="1584">Scale factor of the display</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="resource_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1581">Resource scale factor</doc>
+                 line="1585">Resource scale factor</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -7098,21 +7123,21 @@ and %NULL is returned.</doc>
       <method name="load_gicon" c:identifier="st_texture_cache_load_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="953">This method returns a new #ClutterActor for a given #GIcon. If the
+             line="957">This method returns a new #ClutterActor for a given #GIcon. If the
 icon isn't loaded already, the texture will be filled
 asynchronously.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="70"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="967">A new #ClutterActor for the icon, or %NULL if not found</doc>
+               line="971">A new #ClutterActor for the icon, or %NULL if not found</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="955">A #StTextureCache</doc>
+                 line="959">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="theme_node"
@@ -7121,32 +7146,32 @@ asynchronously.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="956">The #StThemeNode to use for colors, or %NULL
+                 line="960">The #StThemeNode to use for colors, or %NULL
                            if the icon must not be recolored</doc>
             <type name="ThemeNode" c:type="StThemeNode*"/>
           </parameter>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="958">the #GIcon to load</doc>
+                 line="962">the #GIcon to load</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="959">Size of themed</doc>
+                 line="963">Size of themed</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="paint_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="960">Scale factor of display</doc>
+                 line="964">Scale factor of display</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="resource_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="961">Resource scale factor</doc>
+                 line="965">Resource scale factor</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -7155,7 +7180,7 @@ asynchronously.</doc>
               c:identifier="st_texture_cache_load_sliced_image">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="1351">This function reads a single image file which contains multiple images internally.
+             line="1355">This function reads a single image file which contains multiple images internally.
 The image file will be divided using @grid_width and @grid_height;
 note that the dimensions of the image loaded from @path
 should be a multiple of the specified grid dimensions.</doc>
@@ -7163,38 +7188,38 @@ should be a multiple of the specified grid dimensions.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1366">A new #ClutterActor</doc>
+               line="1370">A new #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1353">A #StTextureCache</doc>
+                 line="1357">A #StTextureCache</doc>
             <type name="TextureCache" c:type="StTextureCache*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1354">A #GFile</doc>
+                 line="1358">A #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="grid_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1355">Width in pixels</doc>
+                 line="1359">Width in pixels</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="grid_height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1356">Height in pixels</doc>
+                 line="1360">Height in pixels</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="paint_scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1357">Scale factor of the display</doc>
+                 line="1361">Scale factor of the display</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="resource_scale" transfer-ownership="none">
@@ -7208,7 +7233,7 @@ should be a multiple of the specified grid dimensions.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1358">Function called when the image is loaded, or %NULL</doc>
+                 line="1362">Function called when the image is loaded, or %NULL</doc>
             <type name="GLib.Func" c:type="GFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -7217,7 +7242,7 @@ should be a multiple of the specified grid dimensions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-texture-cache.c"
-                 line="1359">Data to pass to the load callback</doc>
+                 line="1363">Data to pass to the load callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -7226,12 +7251,12 @@ should be a multiple of the specified grid dimensions.</doc>
               c:identifier="st_texture_cache_rescan_icon_theme">
         <doc xml:space="preserve"
              filename="src/st/st-texture-cache.c"
-             line="1665">Rescan the current icon theme, if necessary.</doc>
+             line="1669">Rescan the current icon theme, if necessary.</doc>
         <source-position filename="src/st/st-texture-cache.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-texture-cache.c"
-               line="1670">%TRUE if the icon theme has changed and needed to be reloaded.</doc>
+               line="1674">%TRUE if the icon theme has changed and needed to be reloaded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>

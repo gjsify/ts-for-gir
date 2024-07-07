@@ -3813,7 +3813,39 @@ audio codec</doc>
            glib:type-struct="RTPBaseDepayloadClass">
       <doc xml:space="preserve"
            filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-           line="21">Provides a base class for RTP depayloaders</doc>
+           line="21">Provides a base class for RTP depayloaders
+
+In order to handle RTP header extensions correctly if the
+depayloader aggregates multiple RTP packet payloads into one output
+buffer this class provides the function
+gst_rtp_base_depayload_set_aggregate_hdrext_enabled(). If the
+aggregation is enabled the virtual functions
+@GstRTPBaseDepayload.process or
+@GstRTPBaseDepayload.process_rtp_packet must tell the base class
+what happens to the current RTP packet. By default the base class
+assumes that the packet payload is used with the next output
+buffer.
+
+If the RTP packet will not be used with an output buffer
+gst_rtp_base_depayload_dropped() must be called. A typical
+situation would be if we are waiting for a keyframe.
+
+If the RTP packet will be used but not with the current output
+buffer but with the next one gst_rtp_base_depayload_delayed() must
+be called. This may happen if the current RTP packet signals the
+start of a new output buffer and the currently processed output
+buffer will be pushed first. The undelay happens implicitly once
+the current buffer has been pushed or
+gst_rtp_base_depayload_flush() has been called.
+
+If gst_rtp_base_depayload_flush() is called all RTP packets that
+have not been dropped since the last output buffer are dropped,
+e.g. if an output buffer is discarded due to malformed data. This
+may or may not include the current RTP packet depending on the 2nd
+parameter @keep_current.
+
+Be aware that in case gst_rtp_base_depayload_push_list() is used
+each buffer will see the same list of RTP header extensions.</doc>
       <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                        line="112"/>
       <virtual-method name="handle_event">
@@ -3917,25 +3949,151 @@ buffer and the output buffer will be pushed out. If this function returns
           </parameter>
         </parameters>
       </virtual-method>
-      <method name="is_source_info_enabled"
-              c:identifier="gst_rtp_base_depayload_is_source_info_enabled"
-              version="1.16">
+      <method name="delayed"
+              c:identifier="gst_rtp_base_depayload_delayed"
+              version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="1706">Queries whether #GstRTPSourceMeta will be added to depayloaded buffers.</doc>
+             line="1979">Called from @GstRTPBaseDepayload.process or
+@GstRTPBaseDepayload.process_rtp_packet when the depayloader needs
+to keep the current input RTP header for use with the next output
+buffer.
+
+The delayed buffer will remain until the end of processing the
+current output buffer and then enqueued for processing with the
+next output buffer.
+
+A typical use-case is when the depayloader implementation will
+start a new output buffer for the current input RTP buffer but push
+the current output buffer first.
+
+Must be called with the stream lock held.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
-                         line="124"/>
+                         line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="depayload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="1981">a #GstRTPBaseDepayload</doc>
+            <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="dropped"
+              c:identifier="gst_rtp_base_depayload_dropped"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="1949">Called from @GstRTPBaseDepayload.process or
+@GstRTPBaseDepayload.process_rtp_packet if the depayloader does not
+use the current buffer for the output buffer. This will either drop
+the delayed buffer or the last buffer from the header extension
+cache.
+
+A typical use-case is when the depayloader implementation is
+dropping an input RTP buffer while waiting for the first keyframe.
+
+Must be called with the stream lock held.</doc>
+        <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+                         line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="depayload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="1951">a #GstRTPBaseDepayload</doc>
+            <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="flush"
+              c:identifier="gst_rtp_base_depayload_flush"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="2013">If @GstRTPBaseDepayload.process or
+@GstRTPBaseDepayload.process_rtp_packet drop an output buffer this
+function tells the base class to flush header extension cache as
+well.
+
+This will not drop an input RTP header marked as delayed from
+gst_rtp_base_depayload_delayed().
+
+If @keep_current is %TRUE the current input RTP header will be kept
+and enqueued after flushing the previous input RTP headers.
+
+A typical use-case for @keep_current is when the depayloader
+implementation invalidates the current output buffer and starts a
+new one with the current RTP input buffer.
+
+Must be called with the stream lock held.</doc>
+        <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+                         line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="depayload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="2015">a #GstRTPBaseDepayload</doc>
+            <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
+          </instance-parameter>
+          <parameter name="keep_current" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="2016">if the current RTP buffer shall be kept</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_aggregate_hdrext_enabled"
+              c:identifier="gst_rtp_base_depayload_is_aggregate_hdrext_enabled"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="1932">Queries whether header extensions will be aggregated per depayloaded buffers.</doc>
+        <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+                         line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-               line="1712">%TRUE if source-info is enabled.</doc>
+               line="1938">%TRUE if aggregate-header-extension is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="depayload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1708">a #GstRTPBaseDepayload</doc>
+                 line="1934">a #GstRTPBaseDepayload</doc>
+            <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_source_info_enabled"
+              c:identifier="gst_rtp_base_depayload_is_source_info_enabled"
+              version="1.16">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="1898">Queries whether #GstRTPSourceMeta will be added to depayloaded buffers.</doc>
+        <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+                         line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+               line="1904">%TRUE if source-info is enabled.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="depayload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="1900">a #GstRTPBaseDepayload</doc>
             <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
           </instance-parameter>
         </parameters>
@@ -3943,7 +4101,7 @@ buffer and the output buffer will be pushed out. If this function returns
       <method name="push" c:identifier="gst_rtp_base_depayload_push">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="1453">Push @out_buf to the peer of @filter. This function takes ownership of
+             line="1638">Push @out_buf to the peer of @filter. This function takes ownership of
 @out_buf.
 
 This function will by default apply the last incoming timestamp on
@@ -3953,20 +4111,20 @@ the outgoing buffer when it didn't have a timestamp already.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-               line="1464">a #GstFlowReturn.</doc>
+               line="1649">a #GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1455">a #GstRTPBaseDepayload</doc>
+                 line="1640">a #GstRTPBaseDepayload</doc>
             <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
           </instance-parameter>
           <parameter name="out_buf" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1456">a #GstBuffer</doc>
+                 line="1641">a #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -3974,28 +4132,54 @@ the outgoing buffer when it didn't have a timestamp already.</doc>
       <method name="push_list" c:identifier="gst_rtp_base_depayload_push_list">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="1479">Push @out_list to the peer of @filter. This function takes ownership of
+             line="1664">Push @out_list to the peer of @filter. This function takes ownership of
 @out_list.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-               line="1487">a #GstFlowReturn.</doc>
+               line="1672">a #GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1481">a #GstRTPBaseDepayload</doc>
+                 line="1666">a #GstRTPBaseDepayload</doc>
             <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
           </instance-parameter>
           <parameter name="out_list" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1482">a #GstBufferList</doc>
+                 line="1667">a #GstBufferList</doc>
             <type name="Gst.BufferList" c:type="GstBufferList*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_aggregate_hdrext_enabled"
+              c:identifier="gst_rtp_base_depayload_set_aggregate_hdrext_enabled"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="1914">Enable or disable aggregating header extensions.</doc>
+        <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+                         line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="depayload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="1916">a #GstRTPBaseDepayload</doc>
+            <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+                 line="1917">whether to aggregate header extensions per output buffer</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
@@ -4004,7 +4188,7 @@ the outgoing buffer when it didn't have a timestamp already.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="1690">Enable or disable adding #GstRTPSourceMeta to depayloaded buffers.</doc>
+             line="1882">Enable or disable adding #GstRTPSourceMeta to depayloaded buffers.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="127"/>
         <return-value transfer-ownership="none">
@@ -4014,13 +4198,13 @@ the outgoing buffer when it didn't have a timestamp already.</doc>
           <instance-parameter name="depayload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1692">a #GstRTPBaseDepayload</doc>
+                 line="1884">a #GstRTPBaseDepayload</doc>
             <type name="RTPBaseDepayload" c:type="GstRTPBaseDepayload*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="1693">whether to add meta about RTP sources to buffer</doc>
+                 line="1885">whether to add meta about RTP sources to buffer</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4032,11 +4216,29 @@ the outgoing buffer when it didn't have a timestamp already.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="287">If enabled, the depayloader will automatically try to enable all the
+             line="335">If enabled, the depayloader will automatically try to enable all the
 RTP header extensions provided in the sink caps, saving the application
 the need to handle these extensions manually using the
 GstRTPBaseDepayload::request-extension: signal.</doc>
         <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="extensions"
+                version="1.24"
+                transfer-ownership="none"
+                default-value="&lt;  &gt;">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
+             line="410">A list of already enabled RTP header extensions. This may be useful for finding
+out which extensions are already enabled (with add-extension signal) and picking a non-conflicting
+ID for a new extension that needs to be added on top of the existing ones.
+
+Note that the value returned by reading this property is not dynamically updated when the set of
+enabled extensions changes by any of existing action signals. Rather, it represents the current state
+at the time the property is read.
+
+Dynamic updates of this property can be received by subscribing to its corresponding "notify" signal, i.e.
+"notify::extensions".</doc>
+        <type name="Gst.ValueArray"/>
       </property>
       <property name="max-reorder"
                 version="1.18"
@@ -4045,7 +4247,7 @@ GstRTPBaseDepayload::request-extension: signal.</doc>
                 default-value="100">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="272">Max seqnum reorder before the sender is assumed to have restarted.
+             line="320">Max seqnum reorder before the sender is assumed to have restarted.
 
 When max-reorder is set to 0 all reordered/duplicate packets are
 considered coming from a restarted sender.</doc>
@@ -4058,13 +4260,13 @@ considered coming from a restarted sender.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="260">Add RTP source information found in RTP header as meta to output buffer.</doc>
+             line="308">Add RTP source information found in RTP header as meta to output buffer.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="stats" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="236">Various depayloader statistics retrieved atomically (and are therefore
+             line="284">Various depayloader statistics retrieved atomically (and are therefore
 synchroized with each other). This property return a GstStructure named
 application/x-rtp-depayload-stats containing the following fields relating to
 the last processed buffer and current state of the stream being depayloaded:
@@ -4112,7 +4314,7 @@ the last processed buffer and current state of the stream being depayloaded:
       <glib:signal name="add-extension" when="last" action="1" version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="324">Add @ext as an extension for reading part of an RTP header extension from
+             line="372">Add @ext as an extension for reading part of an RTP header extension from
 incoming RTP packets.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4121,7 +4323,7 @@ incoming RTP packets.</doc>
           <parameter name="ext" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="327">the #GstRTPHeaderExtension</doc>
+                 line="375">the #GstRTPHeaderExtension</doc>
             <type name="RTPHeaderExtension"/>
           </parameter>
         </parameters>
@@ -4132,7 +4334,7 @@ incoming RTP packets.</doc>
                    version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="340">Clear all RTP header extensions used by this depayloader.</doc>
+             line="388">Clear all RTP header extensions used by this depayloader.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4140,19 +4342,19 @@ incoming RTP packets.</doc>
       <glib:signal name="request-extension" when="last" version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-             line="304">The returned @ext must be configured with the correct @ext_id and with the
+             line="352">The returned @ext must be configured with the correct @ext_id and with the
 necessary attributes as required by the extension implementation.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-               line="313">the #GstRTPHeaderExtension for @ext_id, or %NULL</doc>
+               line="361">the #GstRTPHeaderExtension for @ext_id, or %NULL</doc>
           <type name="RTPHeaderExtension"/>
         </return-value>
         <parameters>
           <parameter name="ext_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="307">the extension id being requested</doc>
+                 line="355">the extension id being requested</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="ext_uri"
@@ -4161,7 +4363,7 @@ necessary attributes as required by the extension implementation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasedepayload.c"
-                 line="308">the extension URI being requested</doc>
+                 line="356">the extension URI being requested</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -4437,7 +4639,7 @@ buffer and the output buffer will be pushed out. If this function returns
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="2036">Allocate a new #GstBuffer with enough data to hold an RTP packet with
+             line="2099">Allocate a new #GstBuffer with enough data to hold an RTP packet with
 minimum @csrc_count CSRCs, a payload length of @payload_len and padding of
 @pad_len. If @payload has #GstRTPBasePayload:source-info %TRUE additional
 CSRCs may be allocated and filled with RTP source information.</doc>
@@ -4446,7 +4648,7 @@ CSRCs may be allocated and filled with RTP source information.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="2048">A newly allocated buffer that can hold an RTP packet with given
+               line="2111">A newly allocated buffer that can hold an RTP packet with given
 parameters.</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
@@ -4454,25 +4656,25 @@ parameters.</doc>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2038">a #GstRTPBasePayload</doc>
+                 line="2101">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="payload_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2039">the length of the payload</doc>
+                 line="2102">the length of the payload</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="pad_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2040">the amount of padding</doc>
+                 line="2103">the amount of padding</doc>
             <type name="guint8" c:type="guint8"/>
           </parameter>
           <parameter name="csrc_count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2041">the minimum number of CSRC entries</doc>
+                 line="2104">the minimum number of CSRC entries</doc>
             <type name="guint8" c:type="guint8"/>
           </parameter>
         </parameters>
@@ -4482,7 +4684,7 @@ parameters.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="2355">Count the total number of RTP sources found in the meta of @buffer, which
+             line="2421">Count the total number of RTP sources found in the meta of @buffer, which
 will be automically added by gst_rtp_base_payload_allocate_output_buffer().
 If #GstRTPBasePayload:source-info is %FALSE the count will be 0.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
@@ -4490,20 +4692,20 @@ If #GstRTPBasePayload:source-info is %FALSE the count will be 0.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="2364">The number of sources.</doc>
+               line="2430">The number of sources.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2357">a #GstRTPBasePayload</doc>
+                 line="2423">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2358">a #GstBuffer, typically the buffer to payload</doc>
+                 line="2424">a #GstBuffer, typically the buffer to payload</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -4511,14 +4713,14 @@ If #GstRTPBasePayload:source-info is %FALSE the count will be 0.</doc>
       <method name="is_filled" c:identifier="gst_rtp_base_payload_is_filled">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="1527">Check if the packet with @size and @duration would exceed the configured
+             line="1562">Check if the packet with @size and @duration would exceed the configured
 maximum size.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="168"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="1536">%TRUE if the packet of @size and @duration would exceed the
+               line="1571">%TRUE if the packet of @size and @duration would exceed the
 configured MTU or max_ptime.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4526,19 +4728,19 @@ configured MTU or max_ptime.</doc>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1529">a #GstRTPBasePayload</doc>
+                 line="1564">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1530">the size of the packet</doc>
+                 line="1565">the size of the packet</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="duration" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1531">the duration of the packet</doc>
+                 line="1566">the duration of the packet</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -4548,21 +4750,21 @@ configured MTU or max_ptime.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="2337">Queries whether the payloader will add contributing sources (CSRCs) to the
+             line="2403">Queries whether the payloader will add contributing sources (CSRCs) to the
 RTP header from #GstRTPSourceMeta.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="2344">%TRUE if source-info is enabled.</doc>
+               line="2410">%TRUE if source-info is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2339">a #GstRTPBasePayload</doc>
+                 line="2405">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
         </parameters>
@@ -4570,7 +4772,7 @@ RTP header from #GstRTPSourceMeta.</doc>
       <method name="push" c:identifier="gst_rtp_base_payload_push">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="2003">Push @buffer to the peer element of the payloader. The SSRC, payload type,
+             line="2066">Push @buffer to the peer element of the payloader. The SSRC, payload type,
 seqnum and timestamp of the RTP buffer will be updated first.
 
 This function takes ownership of @buffer.</doc>
@@ -4579,20 +4781,20 @@ This function takes ownership of @buffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="2013">a #GstFlowReturn.</doc>
+               line="2076">a #GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2005">a #GstRTPBasePayload</doc>
+                 line="2068">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2006">a #GstBuffer</doc>
+                 line="2069">a #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -4600,7 +4802,7 @@ This function takes ownership of @buffer.</doc>
       <method name="push_list" c:identifier="gst_rtp_base_payload_push_list">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="1969">Push @list to the peer element of the payloader. The SSRC, payload type,
+             line="2032">Push @list to the peer element of the payloader. The SSRC, payload type,
 seqnum and timestamp of the RTP buffer will be updated first.
 
 This function takes ownership of @list.</doc>
@@ -4609,20 +4811,20 @@ This function takes ownership of @list.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="1979">a #GstFlowReturn.</doc>
+               line="2042">a #GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1971">a #GstRTPBasePayload</doc>
+                 line="2034">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="list" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1972">a #GstBufferList</doc>
+                 line="2035">a #GstBufferList</doc>
             <type name="Gst.BufferList" c:type="GstBufferList*"/>
           </parameter>
         </parameters>
@@ -4631,7 +4833,7 @@ This function takes ownership of @list.</doc>
               c:identifier="gst_rtp_base_payload_set_options">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="907">Set the rtp options of the payloader. These options will be set in the caps
+             line="939">Set the rtp options of the payloader. These options will be set in the caps
 of the payloader. Subclasses must call this method before calling
 gst_rtp_base_payload_push() or gst_rtp_base_payload_set_outcaps().</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
@@ -4643,31 +4845,31 @@ gst_rtp_base_payload_push() or gst_rtp_base_payload_set_outcaps().</doc>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="909">a #GstRTPBasePayload</doc>
+                 line="941">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="media" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="910">the media type (typically "audio" or "video")</doc>
+                 line="942">the media type (typically "audio" or "video")</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dynamic" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="911">if the payload type is dynamic</doc>
+                 line="943">if the payload type is dynamic</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="encoding_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="912">the encoding name</doc>
+                 line="944">the encoding name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="clock_rate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="913">the clock rate of the media</doc>
+                 line="945">the clock rate of the media</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -4677,7 +4879,7 @@ gst_rtp_base_payload_push() or gst_rtp_base_payload_set_outcaps().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="1004">Configure the output caps with the optional parameters.
+             line="1036">Configure the output caps with the optional parameters.
 
 Variable arguments should be in the form field name, field type
 (as a GType), value(s).  The last variable argument should be NULL.</doc>
@@ -4686,26 +4888,26 @@ Variable arguments should be in the form field name, field type
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="1015">%TRUE if the caps could be set.</doc>
+               line="1047">%TRUE if the caps could be set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1006">a #GstRTPBasePayload</doc>
+                 line="1038">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="fieldname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1007">the first field name or %NULL</doc>
+                 line="1039">the first field name or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="1008">field values</doc>
+                 line="1040">field values</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -4715,20 +4917,20 @@ Variable arguments should be in the form field name, field type
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="967">Configure the output caps with the optional fields.</doc>
+             line="999">Configure the output caps with the optional fields.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="164"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="974">%TRUE if the caps could be set.</doc>
+               line="1006">%TRUE if the caps could be set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="969">a #GstRTPBasePayload</doc>
+                 line="1001">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="s"
@@ -4737,7 +4939,7 @@ Variable arguments should be in the form field name, field type
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="970">a #GstStructure with the caps fields</doc>
+                 line="1002">a #GstStructure with the caps fields</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
         </parameters>
@@ -4747,7 +4949,7 @@ Variable arguments should be in the form field name, field type
               version="1.16">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="2320">Enable or disable adding contributing sources to RTP packets from
+             line="2386">Enable or disable adding contributing sources to RTP packets from
 #GstRTPSourceMeta.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="185"/>
@@ -4758,13 +4960,13 @@ Variable arguments should be in the form field name, field type
           <instance-parameter name="payload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2322">a #GstRTPBasePayload</doc>
+                 line="2388">a #GstRTPBasePayload</doc>
             <type name="RTPBasePayload" c:type="GstRTPBasePayload*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="2323">whether to add contributing sources to RTP packets</doc>
+                 line="2389">whether to add contributing sources to RTP packets</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4776,11 +4978,29 @@ Variable arguments should be in the form field name, field type
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="428">If enabled, the payloader will automatically try to enable all the
+             line="433">If enabled, the payloader will automatically try to enable all the
 RTP header extensions provided in the src caps, saving the application
 the need to handle these extensions manually using the
 GstRTPBasePayload::request-extension: signal.</doc>
         <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="extensions"
+                version="1.24"
+                transfer-ownership="none"
+                default-value="&lt;  &gt;">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
+             line="458">A list of already enabled RTP header extensions. This may be useful for finding
+out which extensions are already enabled (with add-extension signal) and picking a non-conflicting
+ID for a new extension that needs to be added on top of the existing ones.
+
+Note that the value returned by reading this property is not dynamically updated when the set of
+enabled extensions changes by any of existing action signals. Rather, it represents the current state
+at the time the property is read.
+
+Dynamic updates of this property can be received by subscribing to its corresponding "notify" signal, i.e.
+"notify::extensions".</doc>
+        <type name="Gst.ValueArray"/>
       </property>
       <property name="max-ptime"
                 writable="1"
@@ -4794,7 +5014,7 @@ GstRTPBasePayload::request-extension: signal.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="305">Minimum duration of the packet data in ns (can't go above MTU)</doc>
+             line="310">Minimum duration of the packet data in ns (can't go above MTU)</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="mtu"
@@ -4810,7 +5030,7 @@ GstRTPBasePayload::request-extension: signal.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="394">Make the payloader timestamp packets according to the Rate-Control=no
+             line="399">Make the payloader timestamp packets according to the Rate-Control=no
 behaviour specified in the ONVIF replay spec.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -4820,7 +5040,7 @@ behaviour specified in the ONVIF replay spec.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="325">Try to use the offset fields to generate perfect RTP timestamps. When this
+             line="330">Try to use the offset fields to generate perfect RTP timestamps. When this
 option is disabled, RTP timestamps are generated from GST_BUFFER_PTS of
 each payloaded buffer. The PTSes of buffers may not necessarily increment
 with the amount of data in each input buffer, consider e.g. the case where
@@ -4849,7 +5069,7 @@ timestamps for audio streams.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="348">Force buffers to be multiples of this duration in ns (0 disables)</doc>
+             line="353">Force buffers to be multiples of this duration in ns (0 disables)</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="scale-rtptime"
@@ -4859,7 +5079,7 @@ timestamps for audio streams.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="409">Make the RTP packets' timestamps be scaled with the segment's rate
+             line="414">Make the RTP packets' timestamps be scaled with the segment's rate
 (corresponding to RTSP speed parameter). Disabling this property means
 the timestamps will not be affected by the set delivery speed (RTSP speed).
 
@@ -4885,7 +5105,7 @@ server has this property disabled.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="381">Enable writing the CSRC field in allocated RTP header based on RTP source
+             line="386">Enable writing the CSRC field in allocated RTP header based on RTP source
 information found in the input buffer's #GstRTPSourceMeta.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -4898,7 +5118,7 @@ information found in the input buffer's #GstRTPSourceMeta.</doc>
       <property name="stats" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="359">Various payloader statistics retrieved atomically (and are therefore
+             line="364">Various payloader statistics retrieved atomically (and are therefore
 synchroized with each other), these can be used e.g. to generate an
 RTP-Info header. This property return a GstStructure named
 application/x-rtp-payload-stats containing the following fields relating to
@@ -5000,7 +5220,7 @@ the last processed buffer and current state of the stream being payloaded:
       <glib:signal name="add-extension" when="last" action="1" version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="445">Add @ext as an extension for writing part of an RTP header extension onto
+             line="477">Add @ext as an extension for writing part of an RTP header extension onto
 outgoing RTP packets.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5009,7 +5229,7 @@ outgoing RTP packets.</doc>
           <parameter name="ext" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="448">the #GstRTPHeaderExtension</doc>
+                 line="480">the #GstRTPHeaderExtension</doc>
             <type name="RTPHeaderExtension"/>
           </parameter>
         </parameters>
@@ -5020,7 +5240,7 @@ outgoing RTP packets.</doc>
                    version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="481">Clear all RTP header extensions used by this payloader.</doc>
+             line="513">Clear all RTP header extensions used by this payloader.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5028,25 +5248,25 @@ outgoing RTP packets.</doc>
       <glib:signal name="request-extension" when="last" version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-             line="461">The returned @ext must be configured with the correct @ext_id and with the
+             line="493">The returned @ext must be configured with the correct @ext_id and with the
 necessary attributes as required by the extension implementation.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-               line="470">the #GstRTPHeaderExtension for @ext_id, or %NULL</doc>
+               line="502">the #GstRTPHeaderExtension for @ext_id, or %NULL</doc>
           <type name="RTPHeaderExtension"/>
         </return-value>
         <parameters>
           <parameter name="ext_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="464">the extension id being requested</doc>
+                 line="496">the extension id being requested</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="ext_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtp/gstrtpbasepayload.c"
-                 line="465">the extension URI being requested</doc>
+                 line="497">the extension URI being requested</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>

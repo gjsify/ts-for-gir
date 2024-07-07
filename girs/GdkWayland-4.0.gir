@@ -401,20 +401,20 @@ with [method@GdkWayland.WaylandDisplay.query_registry].</doc>
               deprecated-version="4.10.">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="951">Gets the startup notification ID for a Wayland display, or %NULL
+             line="955">Gets the startup notification ID for a Wayland display, or %NULL
 if no ID has been defined.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="56"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="958">the startup notification ID for @display</doc>
+               line="962">the startup notification ID for @display</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="953">a `GdkDisplay`</doc>
+                 line="957">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -424,19 +424,19 @@ if no ID has been defined.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1294">Returns the Wayland `wl_compositor` of a `GdkDisplay`.</doc>
+             line="1298">Returns the Wayland `wl_compositor` of a `GdkDisplay`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="50"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1300">a Wayland `wl_compositor`</doc>
+               line="1304">a Wayland `wl_compositor`</doc>
           <type name="gpointer" c:type="wl_compositor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1296">a `GdkDisplay`</doc>
+                 line="1300">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -446,19 +446,19 @@ if no ID has been defined.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1278">Returns the Wayland `wl_display` of a `GdkDisplay`.</doc>
+             line="1282">Returns the Wayland `wl_display` of a `GdkDisplay`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1284">a Wayland `wl_display`</doc>
+               line="1288">a Wayland `wl_display`</doc>
           <type name="gpointer" c:type="wl_display*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1280">a `GdkDisplay`</doc>
+                 line="1284">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -467,26 +467,26 @@ if no ID has been defined.</doc>
               c:identifier="gdk_wayland_display_query_registry">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="2808">Returns %TRUE if the interface was found in the display
+             line="2812">Returns %TRUE if the interface was found in the display
 `wl_registry.global` handler.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="2816">%TRUE if the global is offered by the compositor</doc>
+               line="2820">%TRUE if the global is offered by the compositor</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="2810">a `GdkDisplay`</doc>
+                 line="2814">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="2811">global interface to query in the registry</doc>
+                 line="2815">global interface to query in the registry</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -495,7 +495,7 @@ if no ID has been defined.</doc>
               c:identifier="gdk_wayland_display_set_cursor_theme">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1191">Sets the cursor theme for the given @display.</doc>
+             line="1195">Sets the cursor theme for the given @display.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -504,19 +504,19 @@ if no ID has been defined.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1193">a `GdkDisplay`</doc>
+                 line="1197">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1194">the new cursor theme</doc>
+                 line="1198">the new cursor theme</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1195">the size to use for cursors</doc>
+                 line="1199">the size to use for cursors</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -527,7 +527,7 @@ if no ID has been defined.</doc>
               deprecated-version="4.10.">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="968">Sets the startup notification ID for a display.
+             line="972">Sets the startup notification ID for a display.
 
 This is usually taken from the value of the `DESKTOP_STARTUP_ID`
 environment variable, but in some cases (such as the application not
@@ -545,13 +545,13 @@ complete (for example, when opening a window or when calling
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="970">a `GdkDisplay`</doc>
+                 line="974">a `GdkDisplay`</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="startup_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="971">the startup notification ID (must be valid utf8)</doc>
+                 line="975">the startup notification ID (must be valid utf8)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>

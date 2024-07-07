@@ -2971,7 +2971,8 @@ or to set the acceptance policy, with webkit_cookie_manager_get_accept_policy().
                        line="37"/>
       <method name="add_cookie"
               c:identifier="webkit_cookie_manager_add_cookie"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="add_cookie_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="269">Asynchronously add a #SoupCookie to the underlying storage.
@@ -3059,7 +3060,8 @@ webkit_cookie_manager_add_cookie_finish() to get the result of the operation.</d
       </method>
       <method name="delete_cookie"
               c:identifier="webkit_cookie_manager_delete_cookie"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="delete_cookie_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="373">Asynchronously delete a #SoupCookie from the current session.
@@ -3146,7 +3148,8 @@ webkit_cookie_manager_delete_cookie_finish() to get the result of the operation.
         </parameters>
       </method>
       <method name="get_accept_policy"
-              c:identifier="webkit_cookie_manager_get_accept_policy">
+              c:identifier="webkit_cookie_manager_get_accept_policy"
+              glib:finish-func="get_accept_policy_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="223">Asynchronously get the cookie acceptance policy of @cookie_manager.
@@ -3231,7 +3234,8 @@ webkit_cookie_manager_get_accept_policy_finish() to get the result of the operat
       </method>
       <method name="get_all_cookies"
               c:identifier="webkit_cookie_manager_get_all_cookies"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="get_all_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="571">Asynchronously get a list of #SoupCookie from @cookie_manager.
@@ -3318,7 +3322,8 @@ with g_list_free_full() and soup_cookie_free().</doc>
       </method>
       <method name="get_cookies"
               c:identifier="webkit_cookie_manager_get_cookies"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="get_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="315">Asynchronously get a list of #SoupCookie from @cookie_manager.
@@ -3414,7 +3419,8 @@ with g_list_free_full() and soup_cookie_free().</doc>
       </method>
       <method name="replace_cookies"
               c:identifier="webkit_cookie_manager_replace_cookies"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="replace_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="521">Asynchronously replace all cookies in @cookie_manager with the given list of @cookies.
@@ -4961,7 +4967,8 @@ the in-memory cache during the current execution.</doc>
         </parameters>
       </method>
       <method name="get_favicon"
-              c:identifier="webkit_favicon_database_get_favicon">
+              c:identifier="webkit_favicon_database_get_favicon"
+              glib:finish-func="get_favicon_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
              line="201">Asynchronously obtains a favicon image.
@@ -8684,6 +8691,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="set_enable_preedit">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="151">Called via webkit_input_method_context_set_enable_preedit() to
+  control the use of the preedit string.</doc>
         <callback name="set_enable_preedit">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="105"/>
@@ -8708,6 +8719,13 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="get_preedit">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="153">Called via webkit_input_method_context_get_preedit() to
+  retrieve the text currently being preedited for display at the cursor
+  position. Any input method which composes complex characters or any
+  other compositions from multiple sequential key presses should override
+  this method to provide feedback.</doc>
         <callback name="get_preedit">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="107"/>
@@ -8758,6 +8776,16 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="filter_key_event">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="158">Called via webkit_input_method_context_filter_key_event() on every
+  key press or release event. Every non-trivial input method needs to
+  override this in order to implement the mapping from key events to text.
+  A return value of %TRUE indicates to the caller that the event was
+  consumed by the input method. In that case, the #WebKitInputMethodContext::committed
+  signal should be emitted upon completion of a key sequence to pass the
+  resulting text back to the editable element. Alternatively, %FALSE may be
+  returned to indicate that the event wasn’t handled by the input method.</doc>
         <callback name="filter_key_event">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="111"/>
@@ -8785,6 +8813,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_focus_in">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="166">Called via webkit_input_method_context_notify_focus_in() when
+  an editable element of the #WebKitWebView has gained focus.</doc>
         <callback name="notify_focus_in">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="113"/>
@@ -8803,6 +8835,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_focus_out">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="168">Called via webkit_input_method_context_notify_focus_out() when
+  an editable element of the #WebKitWebView has lost focus.</doc>
         <callback name="notify_focus_out">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="114"/>
@@ -8821,6 +8857,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_cursor_area">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="170">Called via webkit_input_method_context_notify_cursor_area()
+  to inform the input method of the current cursor location relative to
+  the client window.</doc>
         <callback name="notify_cursor_area">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="115"/>
@@ -8863,6 +8904,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_surrounding">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="173">Called via webkit_input_method_context_notify_surrounding() to
+  update the context surrounding the cursor. The provided text should not include
+  the preedit string.</doc>
         <callback name="notify_surrounding">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="120"/>
@@ -8905,6 +8951,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="reset">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="176">Called via webkit_input_method_context_reset() to signal a change that
+  requires a reset. An input method that implements preediting
+  should override this method to clear the preedit state on reset.</doc>
         <callback name="reset">
           <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="125"/>
@@ -9409,7 +9460,7 @@ against at application run time.</doc>
                        line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -10765,7 +10816,8 @@ webkit_web_view_download_uri() instead.</doc>
       </method>
       <method name="get_itp_summary"
               c:identifier="webkit_network_session_get_itp_summary"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="get_itp_summary_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitNetworkSession.cpp"
              line="554">Asynchronously get the list of #WebKitITPThirdParty seen for @session.
@@ -12563,7 +12615,7 @@ autoplay policy in this case would be set in the @policies.</doc>
            glib:type-struct="PrintOperationClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-           line="46">Controls a print operation.
+           line="52">Controls a print operation.
 
 A #WebKitPrintOperation controls a print operation in WebKit. With
 a similar API to #GtkPrintOperation, it lets you set the print
@@ -12574,20 +12626,20 @@ display the print dialog with webkit_print_operation_run_dialog().</doc>
       <constructor name="new" c:identifier="webkit_print_operation_new">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="418">Create a new #WebKitPrintOperation to print @web_view contents.</doc>
+             line="699">Create a new #WebKitPrintOperation to print @web_view contents.</doc>
         <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitPrintOperation.h"
                          line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="424">a new #WebKitPrintOperation.</doc>
+               line="705">a new #WebKitPrintOperation.</doc>
           <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
         </return-value>
         <parameters>
           <parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="420">a #WebKitWebView</doc>
+                 line="701">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </parameter>
         </parameters>
@@ -12597,7 +12649,7 @@ display the print dialog with webkit_print_operation_run_dialog().</doc>
               glib:get-property="page-setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="474">Return the current page setup of @print_operation.
+             line="755">Return the current page setup of @print_operation.
 
 It returns %NULL until
 either webkit_print_operation_set_page_setup() or webkit_print_operation_run_dialog()
@@ -12607,14 +12659,14 @@ have been called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="484">the current #GtkPageSetup of @print_operation.</doc>
+               line="765">the current #GtkPageSetup of @print_operation.</doc>
           <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="476">a #WebKitPrintOperation</doc>
+                 line="757">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
@@ -12624,7 +12676,7 @@ have been called.</doc>
               glib:get-property="print-settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="433">Return the current print settings of @print_operation.
+             line="714">Return the current print settings of @print_operation.
 
 It returns %NULL until
 either webkit_print_operation_set_print_settings() or webkit_print_operation_run_dialog()
@@ -12634,22 +12686,25 @@ have been called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="443">the current #GtkPrintSettings of @print_operation.</doc>
+               line="724">the current #GtkPrintSettings of @print_operation.</doc>
           <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
         </return-value>
         <parameters>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="435">a #WebKitPrintOperation</doc>
+                 line="716">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="print" c:identifier="webkit_print_operation_print">
+      <method name="print"
+              c:identifier="webkit_print_operation_print"
+              deprecated="1"
+              deprecated-version="2.46.">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="569">Start a print operation using current print settings and page setup.
+             line="850">Start a print operation using current print settings and page setup.
 
 Start a print operation using current print settings and page setup
 without showing the print dialog. If either print settings or page setup
@@ -12659,6 +12714,7 @@ and the print job will be sent to the default printer.
 The #WebKitPrintOperation::finished signal is emitted when the printing
 operation finishes. If an error occurs while printing the signal
 #WebKitPrintOperation::failed is emitted before #WebKitPrintOperation::finished.</doc>
+        <doc-deprecated xml:space="preserve">This function does nothing if the app is sandboxed.</doc-deprecated>
         <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitPrintOperation.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -12668,7 +12724,7 @@ operation finishes. If an error occurs while printing the signal
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="571">a #WebKitPrintOperation</doc>
+                 line="852">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
@@ -12677,7 +12733,7 @@ operation finishes. If an error occurs while printing the signal
               c:identifier="webkit_print_operation_run_dialog">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="515">Run the print dialog and start printing.
+             line="796">Run the print dialog and start printing.
 
 Run the print dialog and start printing using the options selected by
 the user. This method returns when the print dialog is closed.
@@ -12696,7 +12752,7 @@ after this method.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="535">the #WebKitPrintOperationResponse of the print dialog</doc>
+               line="816">the #WebKitPrintOperationResponse of the print dialog</doc>
           <type name="PrintOperationResponse"
                 c:type="WebKitPrintOperationResponse"/>
         </return-value>
@@ -12704,7 +12760,7 @@ after this method.</doc>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="517">a #WebKitPrintOperation</doc>
+                 line="798">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -12713,7 +12769,7 @@ after this method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="518">transient parent of the print dialog</doc>
+                 line="799">transient parent of the print dialog</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
         </parameters>
@@ -12723,7 +12779,7 @@ after this method.</doc>
               glib:set-property="page-setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="493">Set the current page setup of @print_operation.
+             line="774">Set the current page setup of @print_operation.
 
 Current page setup is used for the
 initial values of the print dialog when webkit_print_operation_run_dialog() is called.</doc>
@@ -12736,13 +12792,13 @@ initial values of the print dialog when webkit_print_operation_run_dialog() is c
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="495">a #WebKitPrintOperation</doc>
+                 line="776">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="page_setup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="496">a #GtkPageSetup to set</doc>
+                 line="777">a #GtkPageSetup to set</doc>
             <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
           </parameter>
         </parameters>
@@ -12752,7 +12808,7 @@ initial values of the print dialog when webkit_print_operation_run_dialog() is c
               glib:set-property="print-settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="452">Set the current print settings of @print_operation.
+             line="733">Set the current print settings of @print_operation.
 
 Set the current print settings of @print_operation. Current print settings are used for
 the initial values of the print dialog when webkit_print_operation_run_dialog() is called.</doc>
@@ -12765,13 +12821,13 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="454">a #WebKitPrintOperation</doc>
+                 line="735">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="print_settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="455">a #GtkPrintSettings to set</doc>
+                 line="736">a #GtkPrintSettings to set</doc>
             <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
           </parameter>
         </parameters>
@@ -12783,7 +12839,7 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 getter="get_page_setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="172">The initial #GtkPageSetup for the print operation.</doc>
+             line="188">The initial #GtkPageSetup for the print operation.</doc>
         <type name="Gtk.PageSetup"/>
       </property>
       <property name="print-settings"
@@ -12793,7 +12849,7 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 getter="get_print_settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="161">The initial #GtkPrintSettings for the print operation.</doc>
+             line="177">The initial #GtkPrintSettings for the print operation.</doc>
         <type name="Gtk.PrintSettings"/>
       </property>
       <property name="web-view"
@@ -12802,13 +12858,13 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="149">The #WebKitWebView that will be printed.</doc>
+             line="165">The #WebKitWebView that will be printed.</doc>
         <type name="WebView"/>
       </property>
       <glib:signal name="failed" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="201">Emitted when an error occurs while printing. The given @error, of the domain
+             line="217">Emitted when an error occurs while printing. The given @error, of the domain
 %WEBKIT_PRINT_ERROR, contains further details of the failure.
 The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
         <return-value transfer-ownership="none">
@@ -12818,7 +12874,7 @@ The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="204">the #GError that was triggered</doc>
+                 line="220">the #GError that was triggered</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -12826,7 +12882,7 @@ The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
       <glib:signal name="finished" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="186">Emitted when the print operation has finished doing everything
+             line="202">Emitted when the print operation has finished doing everything
 required for printing.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -19111,7 +19167,8 @@ The path must point to a local filesystem, and will be created if needed.</doc>
       </constructor>
       <method name="fetch_identifiers"
               c:identifier="webkit_user_content_filter_store_fetch_identifiers"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="fetch_identifiers_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="483">Asynchronously retrieve a list of the identifiers for all the stored filters.
@@ -19225,7 +19282,8 @@ started with webkit_user_content_filter_store_fetch_identifiers().</doc>
       </method>
       <method name="load"
               c:identifier="webkit_user_content_filter_store_load"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="load_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="421">Asynchronously load a content filter given its @identifier.
@@ -19319,7 +19377,8 @@ webkit_user_content_filter_store_load().</doc>
       </method>
       <method name="remove"
               c:identifier="webkit_user_content_filter_store_remove"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="362">Asynchronously remove a content filter given its @identifier.
@@ -19411,7 +19470,8 @@ webkit_user_content_filter_store_remove().</doc>
       </method>
       <method name="save"
               c:identifier="webkit_user_content_filter_store_save"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="212">Asynchronously save a content filter from a set source rule.
@@ -19516,7 +19576,8 @@ webkit_user_content_filter_store_save().</doc>
       </method>
       <method name="save_from_file"
               c:identifier="webkit_user_content_filter_store_save_from_file"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="save_from_file_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="278">Asynchronously save a content filter from the contents of a file.
@@ -22278,7 +22339,9 @@ webkit_web_resource_get_response(), as well as the raw data, using
 webkit_web_resource_get_data().</doc>
       <source-position filename="redhat-linux-build/webkitgtk-6.0/WebKitGTK/DerivedSources/webkit/WebKitWebResource.h"
                        line="36"/>
-      <method name="get_data" c:identifier="webkit_web_resource_get_data">
+      <method name="get_data"
+              c:identifier="webkit_web_resource_get_data"
+              glib:finish-func="get_data_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebResource.cpp"
              line="369">Asynchronously get the raw data for @resource.
@@ -23032,7 +23095,8 @@ webkit_web_view_new_with_settings().</doc>
       </virtual-method>
       <method name="call_async_javascript_function"
               c:identifier="webkit_web_view_call_async_javascript_function"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="call_async_javascript_function_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4281">Asynchronously call @body with @arguments in the script world with name @world_name of the main frame current context in @web_view.
@@ -23207,7 +23271,8 @@ web_view_evaluate_promise (WebKitWebView *web_view)
         </parameters>
       </method>
       <method name="can_execute_editing_command"
-              c:identifier="webkit_web_view_can_execute_editing_command">
+              c:identifier="webkit_web_view_can_execute_editing_command"
+              glib:finish-func="can_execute_editing_command_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="3943">Asynchronously check if it is possible to execute the given editing command.
@@ -23393,7 +23458,8 @@ webkit_web_view_can_execute_editing_command_finish() to get the result of the op
       </method>
       <method name="evaluate_javascript"
               c:identifier="webkit_web_view_evaluate_javascript"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="evaluate_javascript_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4145">Asynchronously evaluate @script in the script world with name @world_name of the main frame current context in @web_view.
@@ -24171,7 +24237,9 @@ the settings of a #WebKitWebView would affect other
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_snapshot" c:identifier="webkit_web_view_get_snapshot">
+      <method name="get_snapshot"
+              c:identifier="webkit_web_view_get_snapshot"
+              glib:finish-func="get_snapshot_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4904">Asynchronously retrieves a snapshot of @web_view for @region.
@@ -25029,7 +25097,9 @@ using any cached data.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save" c:identifier="webkit_web_view_save">
+      <method name="save"
+              c:identifier="webkit_web_view_save"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4701">Asynchronously save the current web page.
@@ -25120,7 +25190,9 @@ operation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_to_file" c:identifier="webkit_web_view_save_to_file">
+      <method name="save_to_file"
+              c:identifier="webkit_web_view_save_to_file"
+              glib:finish-func="save_to_file_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4765">Asynchronously save the current web page.
@@ -25218,7 +25290,8 @@ operation.</doc>
       </method>
       <method name="send_message_to_page"
               c:identifier="webkit_web_view_send_message_to_page"
-              version="2.28">
+              version="2.28"
+              glib:finish-func="send_message_to_page_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="5159">Send @message to the #WebKitWebPage corresponding to @web_view.
@@ -28171,7 +28244,8 @@ period of time.</doc>
                        line="39"/>
       <method name="clear"
               c:identifier="webkit_website_data_manager_clear"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="clear_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1318">Asynchronously clear the website data of the given @types modified in the past @timespan.
@@ -28273,7 +28347,8 @@ future.</doc>
       </method>
       <method name="fetch"
               c:identifier="webkit_website_data_manager_fetch"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="fetch_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1197">Asynchronously get the list of #WebKitWebsiteData for the given @types.
@@ -28466,7 +28541,8 @@ webkit_website_data_manager_fetch_finish() to get the result of the operation.</
       </method>
       <method name="get_itp_summary"
               c:identifier="webkit_website_data_manager_get_itp_summary"
-              version="2.30">
+              version="2.30"
+              glib:finish-func="get_itp_summary_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1640">Asynchronously get the list of #WebKitITPThirdParty seen for @manager.
@@ -28583,7 +28659,8 @@ See #WebKitWebsiteDataManager:is-ephemeral for more details.</doc>
       </method>
       <method name="remove"
               c:identifier="webkit_website_data_manager_remove"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1251">Asynchronously removes the website data in the given @website_data list.

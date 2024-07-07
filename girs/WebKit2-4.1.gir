@@ -12412,7 +12412,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="1" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -16358,7 +16358,7 @@ according to their values.</doc>
            glib:type-struct="PrintOperationClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-           line="46">Controls a print operation.
+           line="52">Controls a print operation.
 
 A #WebKitPrintOperation controls a print operation in WebKit. With
 a similar API to #GtkPrintOperation, it lets you set the print
@@ -16369,20 +16369,20 @@ display the print dialog with webkit_print_operation_run_dialog().</doc>
       <constructor name="new" c:identifier="webkit_print_operation_new">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="418">Create a new #WebKitPrintOperation to print @web_view contents.</doc>
+             line="699">Create a new #WebKitPrintOperation to print @web_view contents.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitPrintOperation.h"
                          line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="424">a new #WebKitPrintOperation.</doc>
+               line="705">a new #WebKitPrintOperation.</doc>
           <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
         </return-value>
         <parameters>
           <parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="420">a #WebKitWebView</doc>
+                 line="701">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </parameter>
         </parameters>
@@ -16392,7 +16392,7 @@ display the print dialog with webkit_print_operation_run_dialog().</doc>
               glib:get-property="page-setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="474">Return the current page setup of @print_operation.
+             line="755">Return the current page setup of @print_operation.
 
 It returns %NULL until
 either webkit_print_operation_set_page_setup() or webkit_print_operation_run_dialog()
@@ -16402,14 +16402,14 @@ have been called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="484">the current #GtkPageSetup of @print_operation.</doc>
+               line="765">the current #GtkPageSetup of @print_operation.</doc>
           <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="476">a #WebKitPrintOperation</doc>
+                 line="757">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
@@ -16419,7 +16419,7 @@ have been called.</doc>
               glib:get-property="print-settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="433">Return the current print settings of @print_operation.
+             line="714">Return the current print settings of @print_operation.
 
 It returns %NULL until
 either webkit_print_operation_set_print_settings() or webkit_print_operation_run_dialog()
@@ -16429,22 +16429,25 @@ have been called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="443">the current #GtkPrintSettings of @print_operation.</doc>
+               line="724">the current #GtkPrintSettings of @print_operation.</doc>
           <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
         </return-value>
         <parameters>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="435">a #WebKitPrintOperation</doc>
+                 line="716">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="print" c:identifier="webkit_print_operation_print">
+      <method name="print"
+              c:identifier="webkit_print_operation_print"
+              deprecated="1"
+              deprecated-version="2.46.">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="569">Start a print operation using current print settings and page setup.
+             line="850">Start a print operation using current print settings and page setup.
 
 Start a print operation using current print settings and page setup
 without showing the print dialog. If either print settings or page setup
@@ -16454,6 +16457,7 @@ and the print job will be sent to the default printer.
 The #WebKitPrintOperation::finished signal is emitted when the printing
 operation finishes. If an error occurs while printing the signal
 #WebKitPrintOperation::failed is emitted before #WebKitPrintOperation::finished.</doc>
+        <doc-deprecated xml:space="preserve">This function does nothing if the app is sandboxed.</doc-deprecated>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitPrintOperation.h"
                          line="87"/>
         <return-value transfer-ownership="none">
@@ -16463,7 +16467,7 @@ operation finishes. If an error occurs while printing the signal
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="571">a #WebKitPrintOperation</doc>
+                 line="852">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
         </parameters>
@@ -16472,7 +16476,7 @@ operation finishes. If an error occurs while printing the signal
               c:identifier="webkit_print_operation_run_dialog">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="515">Run the print dialog and start printing.
+             line="796">Run the print dialog and start printing.
 
 Run the print dialog and start printing using the options selected by
 the user. This method returns when the print dialog is closed.
@@ -16491,7 +16495,7 @@ after this method.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="535">the #WebKitPrintOperationResponse of the print dialog</doc>
+               line="816">the #WebKitPrintOperationResponse of the print dialog</doc>
           <type name="PrintOperationResponse"
                 c:type="WebKitPrintOperationResponse"/>
         </return-value>
@@ -16499,7 +16503,7 @@ after this method.</doc>
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="517">a #WebKitPrintOperation</doc>
+                 line="798">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -16508,7 +16512,7 @@ after this method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="518">transient parent of the print dialog</doc>
+                 line="799">transient parent of the print dialog</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
         </parameters>
@@ -16518,7 +16522,7 @@ after this method.</doc>
               glib:set-property="page-setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="493">Set the current page setup of @print_operation.
+             line="774">Set the current page setup of @print_operation.
 
 Current page setup is used for the
 initial values of the print dialog when webkit_print_operation_run_dialog() is called.</doc>
@@ -16531,13 +16535,13 @@ initial values of the print dialog when webkit_print_operation_run_dialog() is c
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="495">a #WebKitPrintOperation</doc>
+                 line="776">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="page_setup" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="496">a #GtkPageSetup to set</doc>
+                 line="777">a #GtkPageSetup to set</doc>
             <type name="Gtk.PageSetup" c:type="GtkPageSetup*"/>
           </parameter>
         </parameters>
@@ -16547,7 +16551,7 @@ initial values of the print dialog when webkit_print_operation_run_dialog() is c
               glib:set-property="print-settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="452">Set the current print settings of @print_operation.
+             line="733">Set the current print settings of @print_operation.
 
 Set the current print settings of @print_operation. Current print settings are used for
 the initial values of the print dialog when webkit_print_operation_run_dialog() is called.</doc>
@@ -16560,13 +16564,13 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
           <instance-parameter name="print_operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="454">a #WebKitPrintOperation</doc>
+                 line="735">a #WebKitPrintOperation</doc>
             <type name="PrintOperation" c:type="WebKitPrintOperation*"/>
           </instance-parameter>
           <parameter name="print_settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="455">a #GtkPrintSettings to set</doc>
+                 line="736">a #GtkPrintSettings to set</doc>
             <type name="Gtk.PrintSettings" c:type="GtkPrintSettings*"/>
           </parameter>
         </parameters>
@@ -16578,7 +16582,7 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 getter="get_page_setup">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="172">The initial #GtkPageSetup for the print operation.</doc>
+             line="188">The initial #GtkPageSetup for the print operation.</doc>
         <type name="Gtk.PageSetup"/>
       </property>
       <property name="print-settings"
@@ -16588,7 +16592,7 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 getter="get_print_settings">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="161">The initial #GtkPrintSettings for the print operation.</doc>
+             line="177">The initial #GtkPrintSettings for the print operation.</doc>
         <type name="Gtk.PrintSettings"/>
       </property>
       <property name="web-view"
@@ -16597,7 +16601,7 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="149">The #WebKitWebView that will be printed.</doc>
+             line="165">The #WebKitWebView that will be printed.</doc>
         <type name="WebView"/>
       </property>
       <field name="parent">
@@ -16614,21 +16618,21 @@ the initial values of the print dialog when webkit_print_operation_run_dialog() 
                    deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="223">Emitted when displaying the print dialog with webkit_print_operation_run_dialog().
+             line="239">Emitted when displaying the print dialog with webkit_print_operation_run_dialog().
 The returned #WebKitPrintCustomWidget will be added to the print dialog and
 it will be owned by the @print_operation. However, the object is guaranteed
 to be alive until the #WebKitPrintCustomWidget::apply is emitted.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-               line="232">A #WebKitPrintCustomWidget that will be embedded in the dialog.</doc>
+               line="248">A #WebKitPrintCustomWidget that will be embedded in the dialog.</doc>
           <type name="PrintCustomWidget"/>
         </return-value>
       </glib:signal>
       <glib:signal name="failed" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="201">Emitted when an error occurs while printing. The given @error, of the domain
+             line="217">Emitted when an error occurs while printing. The given @error, of the domain
 %WEBKIT_PRINT_ERROR, contains further details of the failure.
 The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
         <return-value transfer-ownership="none">
@@ -16638,7 +16642,7 @@ The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-                 line="204">the #GError that was triggered</doc>
+                 line="220">the #GError that was triggered</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -16646,7 +16650,7 @@ The #WebKitPrintOperation::finished signal is emitted after this one.</doc>
       <glib:signal name="finished" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/gtk/WebKitPrintOperation.cpp"
-             line="186">Emitted when the print operation has finished doing everything
+             line="202">Emitted when the print operation has finished doing everything
 required for printing.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

@@ -45,7 +45,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_CONTEXT"
                     c:identifier="AGS_APPLICATION_CONTEXT"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="36"/>
+      <source-position filename="object/ags_application_context.h" line="38"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -54,7 +54,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_CONTEXT_CLASS"
                     c:identifier="AGS_APPLICATION_CONTEXT_CLASS"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="37"/>
+      <source-position filename="object/ags_application_context.h" line="39"/>
       <parameters>
         <parameter name="class">
         </parameter>
@@ -63,7 +63,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_CONTEXT_GET_CLASS"
                     c:identifier="AGS_APPLICATION_CONTEXT_GET_CLASS"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="40"/>
+      <source-position filename="object/ags_application_context.h" line="42"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -72,7 +72,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_CONTEXT_GET_OBJ_MUTEX"
                     c:identifier="AGS_APPLICATION_CONTEXT_GET_OBJ_MUTEX"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="42"/>
+      <source-position filename="object/ags_application_context.h" line="44"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -388,7 +388,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="AgsApplicationContext"
            glib:get-type="ags_application_context_get_type"
            glib:type-struct="ApplicationContextClass">
-      <source-position filename="object/ags_application_context.h" line="122"/>
+      <source-position filename="object/ags_application_context.h" line="124"/>
       <implements name="Connectable"/>
       <constructor name="new"
                    c:identifier="ags_application_context_new"
@@ -397,7 +397,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1166">Create a new instance of #AgsApplicationContext</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="144"/>
+                         line="146"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -432,7 +432,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1140">Get your application context instance.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="143"/>
+                         line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -445,7 +445,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1020">Signal to load and parse configuration.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="111"/>
+                         line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -464,7 +464,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1045">Prepare @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="113"/>
+                         line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -483,7 +483,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1121">Calls exit()</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="121"/>
+                         line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -504,7 +504,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1095">Notification to register your types.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="116"/>
+                         line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -523,7 +523,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1070">Setup @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="114"/>
+                         line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -544,7 +544,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1020">Signal to load and parse configuration.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="134"/>
+                         line="136"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -565,7 +565,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1045">Prepare @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="136"/>
+                         line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -586,7 +586,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1121">Calls exit()</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="141"/>
+                         line="143"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -607,7 +607,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1095">Notification to register your types.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="139"/>
+                         line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -628,7 +628,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="950">Enable a feature of #AgsApplicationContext.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="129"/>
+                         line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -656,7 +656,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="1070">Setup @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="137"/>
+                         line="139"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -677,7 +677,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="914">Test @flags to be set on @application_context.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="127"/>
+                         line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_application_context.c"
@@ -708,7 +708,7 @@ and/or use gtk-doc annotations.  -->
              filename="object/ags_application_context.c"
              line="982">Disable a feature of AgsApplicationContext.</doc>
         <source-position filename="object/ags_application_context.h"
-                         line="131"/>
+                         line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -863,14 +863,14 @@ your application context.</doc>
     <record name="ApplicationContextClass"
             c:type="AgsApplicationContextClass"
             glib:is-gtype-struct-for="ApplicationContext">
-      <source-position filename="object/ags_application_context.h" line="122"/>
+      <source-position filename="object/ags_application_context.h" line="124"/>
       <field name="gobject">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load_config">
         <callback name="load_config">
           <source-position filename="object/ags_application_context.h"
-                           line="111"/>
+                           line="113"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -887,7 +887,7 @@ your application context.</doc>
       <field name="prepare">
         <callback name="prepare">
           <source-position filename="object/ags_application_context.h"
-                           line="113"/>
+                           line="115"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -904,7 +904,7 @@ your application context.</doc>
       <field name="setup">
         <callback name="setup">
           <source-position filename="object/ags_application_context.h"
-                           line="114"/>
+                           line="116"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -921,7 +921,7 @@ your application context.</doc>
       <field name="register_types">
         <callback name="register_types">
           <source-position filename="object/ags_application_context.h"
-                           line="116"/>
+                           line="118"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -938,7 +938,7 @@ your application context.</doc>
       <field name="read">
         <callback name="read">
           <source-position filename="object/ags_application_context.h"
-                           line="118"/>
+                           line="120"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -958,7 +958,7 @@ your application context.</doc>
       <field name="write" introspectable="0">
         <callback name="write" introspectable="0">
           <source-position filename="object/ags_application_context.h"
-                           line="119"/>
+                           line="121"/>
           <return-value>
             <type name="libxml2.Node" c:type="xmlNode*"/>
           </return-value>
@@ -978,7 +978,7 @@ your application context.</doc>
       <field name="quit">
         <callback name="quit">
           <source-position filename="object/ags_application_context.h"
-                           line="121"/>
+                           line="123"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -999,7 +999,7 @@ your application context.</doc>
               c:type="AgsApplicationContextFlags">
       <doc xml:space="preserve"
            filename="object/ags_application_context.h"
-           line="64">Enum values to control the behavior or indicate internal state of #AgsApplicationContext by
+           line="66">Enum values to control the behavior or indicate internal state of #AgsApplicationContext by
 enable/disable as flags.</doc>
       <member name="application_context_types_registered"
               value="1"
@@ -1008,7 +1008,7 @@ enable/disable as flags.</doc>
               glib:name="AGS_APPLICATION_CONTEXT_TYPES_REGISTERED">
         <doc xml:space="preserve"
              filename="object/ags_application_context.h"
-             line="66">indicates the types have been registered</doc>
+             line="68">indicates the types have been registered</doc>
       </member>
     </bitfield>
     <class name="AuthSecurityContext"
@@ -2213,7 +2213,7 @@ enable/disable as flags.</doc>
     <constant name="BUILD_ID"
               value="Wed Jan 10 08:49:34 UTC 2024"
               c:type="AGS_BUILD_ID">
-      <source-position filename="object/ags_application_context.h" line="50"/>
+      <source-position filename="object/ags_application_context.h" line="52"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="BUSINESS_GROUP"
@@ -6787,12 +6787,12 @@ enable/disable as flags.</doc>
       <constructor name="new" c:identifier="ags_config_new" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="997">Create a new instance of #AgsConfig.</doc>
+             line="1006">Create a new instance of #AgsConfig.</doc>
         <source-position filename="object/ags_config.h" line="95"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="1002">the new #AgsConfig.</doc>
+               line="1011">the new #AgsConfig.</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </constructor>
@@ -6801,43 +6801,43 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="972">Get config instance.</doc>
+             line="981">Get config instance.</doc>
         <source-position filename="object/ags_config.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="977">the config instance</doc>
+               line="986">the config instance</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </function>
       <virtual-method name="get_value" invoker="get_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="904">Retrieve config by @group and @key.</doc>
+             line="913">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="75"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="912">the property's value</doc>
+               line="921">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="906">the #AgsConfig</doc>
+                 line="915">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="907">the config group identifier</doc>
+                 line="916">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="908">the key of the property</doc>
+                 line="917">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6847,7 +6847,7 @@ enable/disable as flags.</doc>
                       version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="449">Load configuration from default values.</doc>
+             line="458">Load configuration from default values.</doc>
         <source-position filename="object/ags_config.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6856,7 +6856,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="451">the #AgsConfig</doc>
+                 line="460">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6864,7 +6864,7 @@ enable/disable as flags.</doc>
       <virtual-method name="set_value" invoker="set_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="853">Set config by @group and @key, applying @value.</doc>
+             line="862">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6873,25 +6873,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="855">the #AgsConfig</doc>
+                 line="864">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="856">the config group identifier</doc>
+                 line="865">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="857">the key of the property</doc>
+                 line="866">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="858">the value to set</doc>
+                 line="867">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6899,7 +6899,7 @@ enable/disable as flags.</doc>
       <method name="clear" c:identifier="ags_config_clear" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="933">Clears configuration.</doc>
+             line="942">Clears configuration.</doc>
         <source-position filename="object/ags_config.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6908,7 +6908,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="935">the #AgsConfig</doc>
+                 line="944">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6918,31 +6918,31 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="904">Retrieve config by @group and @key.</doc>
+             line="913">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="912">the property's value</doc>
+               line="921">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="906">the #AgsConfig</doc>
+                 line="915">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="907">the config group identifier</doc>
+                 line="916">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="908">the key of the property</doc>
+                 line="917">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6952,7 +6952,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="449">Load configuration from default values.</doc>
+             line="458">Load configuration from default values.</doc>
         <source-position filename="object/ags_config.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6961,7 +6961,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="451">the #AgsConfig</doc>
+                 line="460">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6971,7 +6971,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="560">Read configuration in memory.</doc>
+             line="569">Read configuration in memory.</doc>
         <source-position filename="object/ags_config.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6980,19 +6980,19 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="562">the #AgsConfig</doc>
+                 line="571">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="563">the data buffer</doc>
+                 line="572">the data buffer</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
           <parameter name="buffer_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="564">the size of the buffer</doc>
+                 line="573">the size of the buffer</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -7002,7 +7002,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="468">Load configuration from @filename.</doc>
+             line="477">Load configuration from @filename.</doc>
         <source-position filename="object/ags_config.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7011,13 +7011,13 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="470">the #AgsConfig</doc>
+                 line="479">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="471">the configuration file</doc>
+                 line="480">the configuration file</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7025,7 +7025,7 @@ enable/disable as flags.</doc>
       <method name="save" c:identifier="ags_config_save" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="704">Save configuration.</doc>
+             line="713">Save configuration.</doc>
         <source-position filename="object/ags_config.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7034,7 +7034,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="706">the #AgsConfig</doc>
+                 line="715">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -7044,7 +7044,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="853">Set config by @group and @key, applying @value.</doc>
+             line="862">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7053,25 +7053,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="855">the #AgsConfig</doc>
+                 line="864">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="856">the config group identifier</doc>
+                 line="865">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="857">the key of the property</doc>
+                 line="866">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="858">the value to set</doc>
+                 line="867">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7079,7 +7079,7 @@ enable/disable as flags.</doc>
       <method name="to_data" c:identifier="ags_config_to_data" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="652">Save configuration.</doc>
+             line="661">Save configuration.</doc>
         <source-position filename="object/ags_config.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7088,19 +7088,19 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="654">the #AgsConfig</doc>
+                 line="663">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="655">the data buffer</doc>
+                 line="664">the data buffer</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
           <parameter name="buffer_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="656">the size of the buffer</doc>
+                 line="665">the size of the buffer</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -7202,7 +7202,7 @@ enable/disable as flags.</doc>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="451">the #AgsConfig</doc>
+                   line="460">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
           </parameters>
@@ -7218,25 +7218,25 @@ enable/disable as flags.</doc>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="855">the #AgsConfig</doc>
+                   line="864">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="856">the config group identifier</doc>
+                   line="865">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="857">the key of the property</doc>
+                   line="866">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="value" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="858">the value to set</doc>
+                   line="867">the value to set</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -7248,26 +7248,26 @@ enable/disable as flags.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="912">the property's value</doc>
+                 line="921">the property's value</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="906">the #AgsConfig</doc>
+                   line="915">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="907">the config group identifier</doc>
+                   line="916">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="908">the key of the property</doc>
+                   line="917">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -9750,19 +9750,19 @@ otherwise if %TRUE convert back to original format.</doc>
     <constant name="DEFAULT_BUNDLE_ID"
               value="org.nongnu.gsequencer.gsequencer"
               c:type="AGS_DEFAULT_BUNDLE_ID">
-      <source-position filename="object/ags_application_context.h" line="56"/>
+      <source-position filename="object/ags_application_context.h" line="58"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DEFAULT_CONFIG"
               value="ags.conf"
               c:type="AGS_DEFAULT_CONFIG">
-      <source-position filename="object/ags_application_context.h" line="53"/>
+      <source-position filename="object/ags_application_context.h" line="55"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="DEFAULT_DIRECTORY"
               value=".gsequencer"
               c:type="AGS_DEFAULT_DIRECTORY">
-      <source-position filename="object/ags_application_context.h" line="52"/>
+      <source-position filename="object/ags_application_context.h" line="54"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="DESTROY_ENTRY"
@@ -13925,7 +13925,7 @@ enable/disable as flags.</doc>
     <function-macro name="IS_APPLICATION_CONTEXT"
                     c:identifier="AGS_IS_APPLICATION_CONTEXT"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="38"/>
+      <source-position filename="object/ags_application_context.h" line="40"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -13934,7 +13934,7 @@ enable/disable as flags.</doc>
     <function-macro name="IS_APPLICATION_CONTEXT_CLASS"
                     c:identifier="AGS_IS_APPLICATION_CONTEXT_CLASS"
                     introspectable="0">
-      <source-position filename="object/ags_application_context.h" line="39"/>
+      <source-position filename="object/ags_application_context.h" line="41"/>
       <parameters>
         <parameter name="class">
         </parameter>
@@ -22485,7 +22485,7 @@ enable/disable as flags.</doc>
     <constant name="SOUNDCARD_DEFAULT_BPM"
               value="120.000000"
               c:type="AGS_SOUNDCARD_DEFAULT_BPM">
-      <source-position filename="object/ags_soundcard.h" line="55"/>
+      <source-position filename="object/ags_soundcard.h" line="59"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_BUFFER_SIZE"
@@ -22494,16 +22494,22 @@ enable/disable as flags.</doc>
       <source-position filename="object/ags_soundcard.h" line="51"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <constant name="SOUNDCARD_DEFAULT_CACHE_BUFFER_SIZE"
+              value="4096"
+              c:type="AGS_SOUNDCARD_DEFAULT_CACHE_BUFFER_SIZE">
+      <source-position filename="object/ags_soundcard.h" line="57"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <constant name="SOUNDCARD_DEFAULT_DELAY"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_DELAY">
-      <source-position filename="object/ags_soundcard.h" line="64"/>
+      <source-position filename="object/ags_soundcard.h" line="68"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_DELAY_FACTOR"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_DELAY_FACTOR">
-      <source-position filename="object/ags_soundcard.h" line="56"/>
+      <source-position filename="object/ags_soundcard.h" line="60"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_DSP_CHANNELS"
@@ -22515,19 +22521,19 @@ enable/disable as flags.</doc>
     <constant name="SOUNDCARD_DEFAULT_LOOP_LEFT"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_LOOP_LEFT">
-      <source-position filename="object/ags_soundcard.h" line="68"/>
+      <source-position filename="object/ags_soundcard.h" line="72"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_LOOP_RIGHT"
               value="64"
               c:type="AGS_SOUNDCARD_DEFAULT_LOOP_RIGHT">
-      <source-position filename="object/ags_soundcard.h" line="69"/>
+      <source-position filename="object/ags_soundcard.h" line="73"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_OVERCLOCK"
               value="2.000000"
               c:type="AGS_SOUNDCARD_DEFAULT_OVERCLOCK">
-      <source-position filename="object/ags_soundcard.h" line="72"/>
+      <source-position filename="object/ags_soundcard.h" line="76"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_PCM_CHANNELS"
@@ -22539,7 +22545,7 @@ enable/disable as flags.</doc>
     <constant name="SOUNDCARD_DEFAULT_PERIOD"
               value="2048.000000"
               c:type="AGS_SOUNDCARD_DEFAULT_PERIOD">
-      <source-position filename="object/ags_soundcard.h" line="66"/>
+      <source-position filename="object/ags_soundcard.h" line="70"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_SAMPLERATE"
@@ -22551,32 +22557,38 @@ enable/disable as flags.</doc>
     <constant name="SOUNDCARD_DEFAULT_SCALE"
               value="1.000000"
               c:type="AGS_SOUNDCARD_DEFAULT_SCALE">
-      <source-position filename="object/ags_soundcard.h" line="63"/>
+      <source-position filename="object/ags_soundcard.h" line="67"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_SUB_BLOCK_COUNT"
               value="8"
               c:type="AGS_SOUNDCARD_DEFAULT_SUB_BLOCK_COUNT">
-      <source-position filename="object/ags_soundcard.h" line="77"/>
+      <source-position filename="object/ags_soundcard.h" line="81"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_TACT"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_TACT">
-      <source-position filename="object/ags_soundcard.h" line="59"/>
+      <source-position filename="object/ags_soundcard.h" line="63"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_TACTRATE"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_TACTRATE">
-      <source-position filename="object/ags_soundcard.h" line="61"/>
+      <source-position filename="object/ags_soundcard.h" line="65"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="SOUNDCARD_DEFAULT_TACT_JIFFIE"
               value="0"
               c:type="AGS_SOUNDCARD_DEFAULT_TACT_JIFFIE">
-      <source-position filename="object/ags_soundcard.h" line="60"/>
+      <source-position filename="object/ags_soundcard.h" line="64"/>
       <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="SOUNDCARD_DEFAULT_USE_CACHE"
+              value="false"
+              c:type="AGS_SOUNDCARD_DEFAULT_USE_CACHE">
+      <source-position filename="object/ags_soundcard.h" line="55"/>
+      <type name="gboolean" c:type="gboolean"/>
     </constant>
     <function-macro name="SOUNDCARD_GET_INTERFACE"
                     c:identifier="AGS_SOUNDCARD_GET_INTERFACE"
@@ -25320,13 +25332,13 @@ about a newly played buffer.</doc>
                    version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server_application_context.c"
-             line="1160">Instantiate server application context.</doc>
+             line="1161">Instantiate server application context.</doc>
         <source-position filename="server/ags_server_application_context.h"
                          line="78"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="server/ags_server_application_context.c"
-               line="1165">the new #AgsServerApplicationContext</doc>
+               line="1166">the new #AgsServerApplicationContext</doc>
           <type name="ServerApplicationContext"
                 c:type="AgsServerApplicationContext*"/>
         </return-value>
@@ -28427,7 +28439,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
                glib:type-name="AgsSoundcard"
                glib:get-type="ags_soundcard_get_type"
                glib:type-struct="SoundcardInterface">
-      <source-position filename="object/ags_soundcard.h" line="243"/>
+      <source-position filename="object/ags_soundcard.h" line="247"/>
       <function name="helper_config_get_buffer_size"
                 c:identifier="ags_soundcard_helper_config_get_buffer_size"
                 version="3.0.0">
@@ -28446,6 +28458,28 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
             <doc xml:space="preserve"
                  filename="util/ags_soundcard_helper.c"
                  line="167">the #AgsConfig</doc>
+            <type name="Config" c:type="AgsConfig*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="helper_config_get_cache_buffer_size"
+                c:identifier="ags_soundcard_helper_config_get_cache_buffer_size"
+                version="6.10.4">
+        <doc xml:space="preserve"
+             filename="util/ags_soundcard_helper.c"
+             line="300">Get cache buffer size.</doc>
+        <source-position filename="util/ags_soundcard_helper.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="util/ags_soundcard_helper.c"
+               line="306">the cache buffer size</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="util/ags_soundcard_helper.c"
+                 line="302">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </parameter>
         </parameters>
@@ -28538,13 +28572,35 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
           </parameter>
         </parameters>
       </function>
+      <function name="helper_config_get_use_cache"
+                c:identifier="ags_soundcard_helper_config_get_use_cache"
+                version="6.10.4">
+        <doc xml:space="preserve"
+             filename="util/ags_soundcard_helper.c"
+             line="253">Get use cache.</doc>
+        <source-position filename="util/ags_soundcard_helper.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="util/ags_soundcard_helper.c"
+               line="259">if use cache %TRUE, otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="util/ags_soundcard_helper.c"
+                 line="255">the #AgsConfig</doc>
+            <type name="Config" c:type="AgsConfig*"/>
+          </parameter>
+        </parameters>
+      </function>
       <virtual-method name="get_absolute_delay"
                       invoker="get_absolute_delay"
                       version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="810">Get current playback delay.</doc>
-        <source-position filename="object/ags_soundcard.h" line="191"/>
+        <source-position filename="object/ags_soundcard.h" line="195"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28564,7 +28620,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="854">Get current playback attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="194"/>
+        <source-position filename="object/ags_soundcard.h" line="198"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28584,7 +28640,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="744">Get current playback bpm.</doc>
-        <source-position filename="object/ags_soundcard.h" line="185"/>
+        <source-position filename="object/ags_soundcard.h" line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28604,7 +28660,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="610">Get current playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="174"/>
+        <source-position filename="object/ags_soundcard.h" line="178"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28626,7 +28682,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="339">Retrieve #AgsSoundcardCapability-enum information.</doc>
-        <source-position filename="object/ags_soundcard.h" line="134"/>
+        <source-position filename="object/ags_soundcard.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28646,7 +28702,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="832">Get current playback delay.</doc>
-        <source-position filename="object/ags_soundcard.h" line="193"/>
+        <source-position filename="object/ags_soundcard.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28668,7 +28724,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="876">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="196"/>
+        <source-position filename="object/ags_soundcard.h" line="200"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28690,7 +28746,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="788">Get current playback delay factor.</doc>
-        <source-position filename="object/ags_soundcard.h" line="189"/>
+        <source-position filename="object/ags_soundcard.h" line="193"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28710,7 +28766,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="198">Get device.</doc>
-        <source-position filename="object/ags_soundcard.h" line="126"/>
+        <source-position filename="object/ags_soundcard.h" line="130"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28730,7 +28786,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1201">Get loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="213"/>
+        <source-position filename="object/ags_soundcard.h" line="217"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -28776,7 +28832,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1227">Get current playback loop offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="217"/>
+        <source-position filename="object/ags_soundcard.h" line="221"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28798,7 +28854,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="632">Get future playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="175"/>
+        <source-position filename="object/ags_soundcard.h" line="179"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28820,7 +28876,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1056">Get current playback note 256th attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="230"/>
+        <source-position filename="object/ags_soundcard.h" line="234"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -28850,8 +28906,8 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
                       version="6.2.2">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
-             line="1082">Get current playback note 256th attack position within AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="234"/>
+             line="1082">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
+        <source-position filename="object/ags_soundcard.h" line="238"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -28877,7 +28933,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1012">Get note 256th attack of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="241"/>
+        <source-position filename="object/ags_soundcard.h" line="245"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28899,7 +28955,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1034">Get note 256th attack position of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="242"/>
+        <source-position filename="object/ags_soundcard.h" line="246"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -28920,8 +28976,8 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
                       version="6.2.2">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
-             line="1105">Get current playback note 256th attack position within AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="237"/>
+             line="1105">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
+        <source-position filename="object/ags_soundcard.h" line="241"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -28954,7 +29010,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="986">Get current playback note 256th offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="226"/>
+        <source-position filename="object/ags_soundcard.h" line="230"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -28985,7 +29041,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="964">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="204"/>
+        <source-position filename="object/ags_soundcard.h" line="208"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29007,7 +29063,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1153">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="208"/>
+        <source-position filename="object/ags_soundcard.h" line="212"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29027,7 +29083,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="220">Get presets.</doc>
-        <source-position filename="object/ags_soundcard.h" line="141"/>
+        <source-position filename="object/ags_soundcard.h" line="145"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29082,7 +29138,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="654">Get future playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="176"/>
+        <source-position filename="object/ags_soundcard.h" line="180"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29104,7 +29160,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="920">Get start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="200"/>
+        <source-position filename="object/ags_soundcard.h" line="204"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29126,7 +29182,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1249">Get sub block count.</doc>
-        <source-position filename="object/ags_soundcard.h" line="219"/>
+        <source-position filename="object/ags_soundcard.h" line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29146,7 +29202,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="453">Get playback time as string.</doc>
-        <source-position filename="object/ags_soundcard.h" line="156"/>
+        <source-position filename="object/ags_soundcard.h" line="160"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29168,7 +29224,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="365">Get available.</doc>
-        <source-position filename="object/ags_soundcard.h" line="150"/>
+        <source-position filename="object/ags_soundcard.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29188,7 +29244,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="409">Get playing.</doc>
-        <source-position filename="object/ags_soundcard.h" line="153"/>
+        <source-position filename="object/ags_soundcard.h" line="157"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29210,7 +29266,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="431">Get recording.</doc>
-        <source-position filename="object/ags_soundcard.h" line="154"/>
+        <source-position filename="object/ags_soundcard.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29230,7 +29286,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="387">Get starting.</doc>
-        <source-position filename="object/ags_soundcard.h" line="152"/>
+        <source-position filename="object/ags_soundcard.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29250,7 +29306,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="282">Retrieve @card_id and @card_name as a list of strings.</doc>
-        <source-position filename="object/ags_soundcard.h" line="147"/>
+        <source-position filename="object/ags_soundcard.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29289,7 +29345,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="676">Lock @buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="178"/>
+        <source-position filename="object/ags_soundcard.h" line="182"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29317,7 +29373,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="591">Callback when counter expires minor note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="171"/>
+        <source-position filename="object/ags_soundcard.h" line="175"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29343,7 +29399,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="304">Retrieve detailed information of @card_id soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="128"/>
+        <source-position filename="object/ags_soundcard.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29420,7 +29476,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="497">Plays the current buffer of soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="160"/>
+        <source-position filename="object/ags_soundcard.h" line="164"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29440,7 +29496,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="475">Initializes the soundcard for playback.</doc>
-        <source-position filename="object/ags_soundcard.h" line="158"/>
+        <source-position filename="object/ags_soundcard.h" line="162"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29460,7 +29516,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="541">Records the current buffer of soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="165"/>
+        <source-position filename="object/ags_soundcard.h" line="169"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29480,7 +29536,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="519">Initializes the soundcard for recordback.</doc>
-        <source-position filename="object/ags_soundcard.h" line="163"/>
+        <source-position filename="object/ags_soundcard.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29497,7 +29553,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="722">Set current playback bpm.</doc>
-        <source-position filename="object/ags_soundcard.h" line="183"/>
+        <source-position filename="object/ags_soundcard.h" line="187"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29522,7 +29578,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="766">Set current playback delay factor.</doc>
-        <source-position filename="object/ags_soundcard.h" line="187"/>
+        <source-position filename="object/ags_soundcard.h" line="191"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29545,7 +29601,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="176">Set device.</doc>
-        <source-position filename="object/ags_soundcard.h" line="124"/>
+        <source-position filename="object/ags_soundcard.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29568,7 +29624,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1175">Set loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="210"/>
+        <source-position filename="object/ags_soundcard.h" line="214"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29605,7 +29661,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="942">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="202"/>
+        <source-position filename="object/ags_soundcard.h" line="206"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29630,7 +29686,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1131">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="206"/>
+        <source-position filename="object/ags_soundcard.h" line="210"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29653,7 +29709,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="251">Set presets.</doc>
-        <source-position filename="object/ags_soundcard.h" line="136"/>
+        <source-position filename="object/ags_soundcard.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29696,7 +29752,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="898">Set start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="198"/>
+        <source-position filename="object/ags_soundcard.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29719,7 +29775,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="563">Stops the soundcard from playing to it.</doc>
-        <source-position filename="object/ags_soundcard.h" line="168"/>
+        <source-position filename="object/ags_soundcard.h" line="172"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29736,7 +29792,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="577">Every call to play may generate a tic.</doc>
-        <source-position filename="object/ags_soundcard.h" line="170"/>
+        <source-position filename="object/ags_soundcard.h" line="174"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29755,7 +29811,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1271">Trylock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="221"/>
+        <source-position filename="object/ags_soundcard.h" line="225"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29792,7 +29848,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="699">Unlock @buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="180"/>
+        <source-position filename="object/ags_soundcard.h" line="184"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29820,7 +29876,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1297">Unlock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="223"/>
+        <source-position filename="object/ags_soundcard.h" line="227"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -29854,7 +29910,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="810">Get current playback delay.</doc>
-        <source-position filename="object/ags_soundcard.h" line="315"/>
+        <source-position filename="object/ags_soundcard.h" line="319"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29876,7 +29932,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="854">Get current playback attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="318"/>
+        <source-position filename="object/ags_soundcard.h" line="322"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29898,7 +29954,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="744">Get current playback bpm.</doc>
-        <source-position filename="object/ags_soundcard.h" line="309"/>
+        <source-position filename="object/ags_soundcard.h" line="313"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29920,7 +29976,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="610">Get current playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="298"/>
+        <source-position filename="object/ags_soundcard.h" line="302"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29942,7 +29998,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="339">Retrieve #AgsSoundcardCapability-enum information.</doc>
-        <source-position filename="object/ags_soundcard.h" line="272"/>
+        <source-position filename="object/ags_soundcard.h" line="276"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29964,7 +30020,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="832">Get current playback delay.</doc>
-        <source-position filename="object/ags_soundcard.h" line="317"/>
+        <source-position filename="object/ags_soundcard.h" line="321"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -29986,7 +30042,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="876">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="320"/>
+        <source-position filename="object/ags_soundcard.h" line="324"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30008,7 +30064,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="788">Get current playback delay factor.</doc>
-        <source-position filename="object/ags_soundcard.h" line="313"/>
+        <source-position filename="object/ags_soundcard.h" line="317"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30030,7 +30086,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="198">Get device.</doc>
-        <source-position filename="object/ags_soundcard.h" line="251"/>
+        <source-position filename="object/ags_soundcard.h" line="255"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30052,7 +30108,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1201">Get loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="355"/>
+        <source-position filename="object/ags_soundcard.h" line="359"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30098,7 +30154,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1227">Get current playback loop offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="359"/>
+        <source-position filename="object/ags_soundcard.h" line="363"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30120,7 +30176,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="632">Get future playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="299"/>
+        <source-position filename="object/ags_soundcard.h" line="303"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30142,7 +30198,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1056">Get current playback note 256th attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="337"/>
+        <source-position filename="object/ags_soundcard.h" line="341"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30172,8 +30228,8 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
               version="6.2.2">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
-             line="1082">Get current playback note 256th attack position within AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="341"/>
+             line="1082">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
+        <source-position filename="object/ags_soundcard.h" line="345"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -30199,7 +30255,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1012">Get note 256th attack of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="334"/>
+        <source-position filename="object/ags_soundcard.h" line="338"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30221,7 +30277,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1034">Get note 256th attack position of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="335"/>
+        <source-position filename="object/ags_soundcard.h" line="339"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30242,8 +30298,8 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
               version="6.2.2">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
-             line="1105">Get current playback note 256th attack position within AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="344"/>
+             line="1105">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
+        <source-position filename="object/ags_soundcard.h" line="348"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30276,7 +30332,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="986">Get current playback note 256th offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="330"/>
+        <source-position filename="object/ags_soundcard.h" line="334"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30307,7 +30363,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="964">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="328"/>
+        <source-position filename="object/ags_soundcard.h" line="332"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30329,7 +30385,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1153">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="350"/>
+        <source-position filename="object/ags_soundcard.h" line="354"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30351,7 +30407,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="220">Get presets.</doc>
-        <source-position filename="object/ags_soundcard.h" line="258"/>
+        <source-position filename="object/ags_soundcard.h" line="262"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30406,7 +30462,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="654">Get future playback buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="300"/>
+        <source-position filename="object/ags_soundcard.h" line="304"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30428,7 +30484,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="920">Get start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="324"/>
+        <source-position filename="object/ags_soundcard.h" line="328"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30450,7 +30506,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1249">Get sub block count.</doc>
-        <source-position filename="object/ags_soundcard.h" line="361"/>
+        <source-position filename="object/ags_soundcard.h" line="365"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30472,7 +30528,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="453">Get playback time as string.</doc>
-        <source-position filename="object/ags_soundcard.h" line="280"/>
+        <source-position filename="object/ags_soundcard.h" line="284"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30494,7 +30550,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="365">Get available.</doc>
-        <source-position filename="object/ags_soundcard.h" line="274"/>
+        <source-position filename="object/ags_soundcard.h" line="278"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30516,7 +30572,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="409">Get playing.</doc>
-        <source-position filename="object/ags_soundcard.h" line="277"/>
+        <source-position filename="object/ags_soundcard.h" line="281"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30538,7 +30594,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="431">Get recording.</doc>
-        <source-position filename="object/ags_soundcard.h" line="278"/>
+        <source-position filename="object/ags_soundcard.h" line="282"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30560,7 +30616,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="387">Get starting.</doc>
-        <source-position filename="object/ags_soundcard.h" line="276"/>
+        <source-position filename="object/ags_soundcard.h" line="280"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30582,7 +30638,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="282">Retrieve @card_id and @card_name as a list of strings.</doc>
-        <source-position filename="object/ags_soundcard.h" line="264"/>
+        <source-position filename="object/ags_soundcard.h" line="268"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30623,7 +30679,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="676">Lock @buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="302"/>
+        <source-position filename="object/ags_soundcard.h" line="306"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30651,7 +30707,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="591">Callback when counter expires minor note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="295"/>
+        <source-position filename="object/ags_soundcard.h" line="299"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30677,7 +30733,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="304">Retrieve detailed information of @card_id soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="266"/>
+        <source-position filename="object/ags_soundcard.h" line="270"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30757,7 +30813,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="497">Plays the current buffer of soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="284"/>
+        <source-position filename="object/ags_soundcard.h" line="288"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30777,7 +30833,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="475">Initializes the soundcard for playback.</doc>
-        <source-position filename="object/ags_soundcard.h" line="282"/>
+        <source-position filename="object/ags_soundcard.h" line="286"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30797,7 +30853,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="541">Records the current buffer of soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="289"/>
+        <source-position filename="object/ags_soundcard.h" line="293"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30817,7 +30873,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="519">Initializes the soundcard for recordback.</doc>
-        <source-position filename="object/ags_soundcard.h" line="287"/>
+        <source-position filename="object/ags_soundcard.h" line="291"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30836,7 +30892,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="722">Set current playback bpm.</doc>
-        <source-position filename="object/ags_soundcard.h" line="307"/>
+        <source-position filename="object/ags_soundcard.h" line="311"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30861,7 +30917,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="766">Set current playback delay factor.</doc>
-        <source-position filename="object/ags_soundcard.h" line="311"/>
+        <source-position filename="object/ags_soundcard.h" line="315"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30886,7 +30942,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="176">Set device.</doc>
-        <source-position filename="object/ags_soundcard.h" line="249"/>
+        <source-position filename="object/ags_soundcard.h" line="253"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30911,7 +30967,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1175">Set loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="352"/>
+        <source-position filename="object/ags_soundcard.h" line="356"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30948,7 +31004,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="942">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="326"/>
+        <source-position filename="object/ags_soundcard.h" line="330"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30973,7 +31029,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1131">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="348"/>
+        <source-position filename="object/ags_soundcard.h" line="352"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30998,7 +31054,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="251">Set presets.</doc>
-        <source-position filename="object/ags_soundcard.h" line="253"/>
+        <source-position filename="object/ags_soundcard.h" line="257"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31041,7 +31097,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="898">Set start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="322"/>
+        <source-position filename="object/ags_soundcard.h" line="326"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31064,7 +31120,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="563">Stops the soundcard from playing to it.</doc>
-        <source-position filename="object/ags_soundcard.h" line="292"/>
+        <source-position filename="object/ags_soundcard.h" line="296"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31081,7 +31137,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="577">Every call to play may generate a tic.</doc>
-        <source-position filename="object/ags_soundcard.h" line="294"/>
+        <source-position filename="object/ags_soundcard.h" line="298"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31100,7 +31156,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1271">Trylock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="363"/>
+        <source-position filename="object/ags_soundcard.h" line="367"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -31137,7 +31193,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="699">Unlock @buffer.</doc>
-        <source-position filename="object/ags_soundcard.h" line="304"/>
+        <source-position filename="object/ags_soundcard.h" line="308"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31165,7 +31221,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1297">Unlock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="365"/>
+        <source-position filename="object/ags_soundcard.h" line="369"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31235,7 +31291,7 @@ about a newly played buffer.</doc>
               c:type="AgsSoundcardCapability">
       <doc xml:space="preserve"
            filename="object/ags_soundcard.h"
-           line="106">Enum values to tell about capability.</doc>
+           line="110">Enum values to tell about capability.</doc>
       <member name="soundcard_capability_playback"
               value="1"
               c:identifier="AGS_SOUNDCARD_CAPABILITY_PLAYBACK"
@@ -31243,7 +31299,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_CAPABILITY_PLAYBACK">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="108">capability playback</doc>
+             line="112">capability playback</doc>
       </member>
       <member name="soundcard_capability_capture"
               value="2"
@@ -31252,7 +31308,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_CAPABILITY_CAPTURE">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="109">capability capture</doc>
+             line="113">capability capture</doc>
       </member>
       <member name="soundcard_capability_duplex"
               value="4"
@@ -31261,7 +31317,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_CAPABILITY_DUPLEX">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="110">capability duplex</doc>
+             line="114">capability duplex</doc>
       </member>
     </bitfield>
     <enumeration name="SoundcardFormat"
@@ -31270,7 +31326,7 @@ about a newly played buffer.</doc>
                  c:type="AgsSoundcardFormat">
       <doc xml:space="preserve"
            filename="object/ags_soundcard.h"
-           line="82">#AgsSoundcardFormat specifies the audio data representation to be used.</doc>
+           line="86">#AgsSoundcardFormat specifies the audio data representation to be used.</doc>
       <member name="soundcard_signed_8_bit"
               value="8"
               c:identifier="AGS_SOUNDCARD_SIGNED_8_BIT"
@@ -31278,7 +31334,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_SIGNED_8_BIT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="84">signed 8 bit raw pcm data</doc>
+             line="88">signed 8 bit raw pcm data</doc>
       </member>
       <member name="soundcard_signed_16_bit"
               value="16"
@@ -31287,7 +31343,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_SIGNED_16_BIT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="85">signed 16 bit raw pcm data</doc>
+             line="89">signed 16 bit raw pcm data</doc>
       </member>
       <member name="soundcard_signed_24_bit"
               value="24"
@@ -31296,7 +31352,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_SIGNED_24_BIT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="86">signed 24 bit raw pcm data</doc>
+             line="90">signed 24 bit raw pcm data</doc>
       </member>
       <member name="soundcard_signed_32_bit"
               value="32"
@@ -31305,7 +31361,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_SIGNED_32_BIT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="87">signed 32 bit raw pcm data</doc>
+             line="91">signed 32 bit raw pcm data</doc>
       </member>
       <member name="soundcard_signed_64_bit"
               value="64"
@@ -31314,7 +31370,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_SIGNED_64_BIT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="88">signed 64 bit raw pcm data</doc>
+             line="92">signed 64 bit raw pcm data</doc>
       </member>
       <member name="soundcard_float"
               value="-16"
@@ -31323,7 +31379,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_FLOAT">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="89">float raw pcm data</doc>
+             line="93">float raw pcm data</doc>
       </member>
       <member name="soundcard_double"
               value="-15"
@@ -31332,7 +31388,7 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_DOUBLE">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="90">double raw pcm data</doc>
+             line="94">double raw pcm data</doc>
       </member>
       <member name="soundcard_complex"
               value="-8"
@@ -31341,19 +31397,19 @@ about a newly played buffer.</doc>
               glib:name="AGS_SOUNDCARD_COMPLEX">
         <doc xml:space="preserve"
              filename="object/ags_soundcard.h"
-             line="91">complex audio data</doc>
+             line="95">complex audio data</doc>
       </member>
     </enumeration>
     <record name="SoundcardInterface"
             c:type="AgsSoundcardInterface"
             glib:is-gtype-struct-for="Soundcard">
-      <source-position filename="object/ags_soundcard.h" line="243"/>
+      <source-position filename="object/ags_soundcard.h" line="247"/>
       <field name="ginterface">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="set_device">
         <callback name="set_device">
-          <source-position filename="object/ags_soundcard.h" line="124"/>
+          <source-position filename="object/ags_soundcard.h" line="128"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31375,7 +31431,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_device">
         <callback name="get_device">
-          <source-position filename="object/ags_soundcard.h" line="126"/>
+          <source-position filename="object/ags_soundcard.h" line="130"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31394,7 +31450,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="pcm_info">
         <callback name="pcm_info" throws="1">
-          <source-position filename="object/ags_soundcard.h" line="128"/>
+          <source-position filename="object/ags_soundcard.h" line="132"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31470,7 +31526,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_capability">
         <callback name="get_capability">
-          <source-position filename="object/ags_soundcard.h" line="134"/>
+          <source-position filename="object/ags_soundcard.h" line="138"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31489,7 +31545,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_presets">
         <callback name="set_presets">
-          <source-position filename="object/ags_soundcard.h" line="136"/>
+          <source-position filename="object/ags_soundcard.h" line="140"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31529,7 +31585,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_presets">
         <callback name="get_presets">
-          <source-position filename="object/ags_soundcard.h" line="141"/>
+          <source-position filename="object/ags_soundcard.h" line="145"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31581,7 +31637,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="list_cards">
         <callback name="list_cards">
-          <source-position filename="object/ags_soundcard.h" line="147"/>
+          <source-position filename="object/ags_soundcard.h" line="151"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31619,7 +31675,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="is_available">
         <callback name="is_available">
-          <source-position filename="object/ags_soundcard.h" line="150"/>
+          <source-position filename="object/ags_soundcard.h" line="154"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31638,7 +31694,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="is_starting">
         <callback name="is_starting">
-          <source-position filename="object/ags_soundcard.h" line="152"/>
+          <source-position filename="object/ags_soundcard.h" line="156"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31657,7 +31713,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="is_playing">
         <callback name="is_playing">
-          <source-position filename="object/ags_soundcard.h" line="153"/>
+          <source-position filename="object/ags_soundcard.h" line="157"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31676,7 +31732,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="is_recording">
         <callback name="is_recording">
-          <source-position filename="object/ags_soundcard.h" line="154"/>
+          <source-position filename="object/ags_soundcard.h" line="158"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31695,7 +31751,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_uptime">
         <callback name="get_uptime">
-          <source-position filename="object/ags_soundcard.h" line="156"/>
+          <source-position filename="object/ags_soundcard.h" line="160"/>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31714,7 +31770,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="play_init">
         <callback name="play_init" throws="1">
-          <source-position filename="object/ags_soundcard.h" line="158"/>
+          <source-position filename="object/ags_soundcard.h" line="162"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31730,7 +31786,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="play">
         <callback name="play" throws="1">
-          <source-position filename="object/ags_soundcard.h" line="160"/>
+          <source-position filename="object/ags_soundcard.h" line="164"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31746,7 +31802,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="record_init">
         <callback name="record_init" throws="1">
-          <source-position filename="object/ags_soundcard.h" line="163"/>
+          <source-position filename="object/ags_soundcard.h" line="167"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31762,7 +31818,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="record">
         <callback name="record" throws="1">
-          <source-position filename="object/ags_soundcard.h" line="165"/>
+          <source-position filename="object/ags_soundcard.h" line="169"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31778,7 +31834,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="stop">
         <callback name="stop">
-          <source-position filename="object/ags_soundcard.h" line="168"/>
+          <source-position filename="object/ags_soundcard.h" line="172"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31794,7 +31850,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="tic">
         <callback name="tic">
-          <source-position filename="object/ags_soundcard.h" line="170"/>
+          <source-position filename="object/ags_soundcard.h" line="174"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31810,7 +31866,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="offset_changed">
         <callback name="offset_changed">
-          <source-position filename="object/ags_soundcard.h" line="171"/>
+          <source-position filename="object/ags_soundcard.h" line="175"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31832,7 +31888,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_buffer">
         <callback name="get_buffer">
-          <source-position filename="object/ags_soundcard.h" line="174"/>
+          <source-position filename="object/ags_soundcard.h" line="178"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31851,7 +31907,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_next_buffer">
         <callback name="get_next_buffer">
-          <source-position filename="object/ags_soundcard.h" line="175"/>
+          <source-position filename="object/ags_soundcard.h" line="179"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31870,7 +31926,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_prev_buffer">
         <callback name="get_prev_buffer">
-          <source-position filename="object/ags_soundcard.h" line="176"/>
+          <source-position filename="object/ags_soundcard.h" line="180"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31889,7 +31945,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="lock_buffer">
         <callback name="lock_buffer">
-          <source-position filename="object/ags_soundcard.h" line="178"/>
+          <source-position filename="object/ags_soundcard.h" line="182"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31914,7 +31970,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="unlock_buffer">
         <callback name="unlock_buffer">
-          <source-position filename="object/ags_soundcard.h" line="180"/>
+          <source-position filename="object/ags_soundcard.h" line="184"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31939,7 +31995,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_bpm">
         <callback name="set_bpm">
-          <source-position filename="object/ags_soundcard.h" line="183"/>
+          <source-position filename="object/ags_soundcard.h" line="187"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -31961,7 +32017,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_bpm">
         <callback name="get_bpm">
-          <source-position filename="object/ags_soundcard.h" line="185"/>
+          <source-position filename="object/ags_soundcard.h" line="189"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -31980,7 +32036,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_delay_factor">
         <callback name="set_delay_factor">
-          <source-position filename="object/ags_soundcard.h" line="187"/>
+          <source-position filename="object/ags_soundcard.h" line="191"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32002,7 +32058,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_delay_factor">
         <callback name="get_delay_factor">
-          <source-position filename="object/ags_soundcard.h" line="189"/>
+          <source-position filename="object/ags_soundcard.h" line="193"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32021,7 +32077,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_absolute_delay">
         <callback name="get_absolute_delay">
-          <source-position filename="object/ags_soundcard.h" line="191"/>
+          <source-position filename="object/ags_soundcard.h" line="195"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32040,7 +32096,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_delay">
         <callback name="get_delay">
-          <source-position filename="object/ags_soundcard.h" line="193"/>
+          <source-position filename="object/ags_soundcard.h" line="197"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32059,7 +32115,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_attack">
         <callback name="get_attack">
-          <source-position filename="object/ags_soundcard.h" line="194"/>
+          <source-position filename="object/ags_soundcard.h" line="198"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32078,7 +32134,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_delay_counter">
         <callback name="get_delay_counter">
-          <source-position filename="object/ags_soundcard.h" line="196"/>
+          <source-position filename="object/ags_soundcard.h" line="200"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32097,7 +32153,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_start_note_offset">
         <callback name="set_start_note_offset">
-          <source-position filename="object/ags_soundcard.h" line="198"/>
+          <source-position filename="object/ags_soundcard.h" line="202"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32119,7 +32175,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_start_note_offset">
         <callback name="get_start_note_offset">
-          <source-position filename="object/ags_soundcard.h" line="200"/>
+          <source-position filename="object/ags_soundcard.h" line="204"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32138,7 +32194,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_note_offset">
         <callback name="set_note_offset">
-          <source-position filename="object/ags_soundcard.h" line="202"/>
+          <source-position filename="object/ags_soundcard.h" line="206"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32160,7 +32216,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_offset">
         <callback name="get_note_offset">
-          <source-position filename="object/ags_soundcard.h" line="204"/>
+          <source-position filename="object/ags_soundcard.h" line="208"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32179,7 +32235,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_note_offset_absolute">
         <callback name="set_note_offset_absolute">
-          <source-position filename="object/ags_soundcard.h" line="206"/>
+          <source-position filename="object/ags_soundcard.h" line="210"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32201,7 +32257,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_offset_absolute">
         <callback name="get_note_offset_absolute">
-          <source-position filename="object/ags_soundcard.h" line="208"/>
+          <source-position filename="object/ags_soundcard.h" line="212"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32220,7 +32276,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="set_loop">
         <callback name="set_loop">
-          <source-position filename="object/ags_soundcard.h" line="210"/>
+          <source-position filename="object/ags_soundcard.h" line="214"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32254,7 +32310,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_loop">
         <callback name="get_loop">
-          <source-position filename="object/ags_soundcard.h" line="213"/>
+          <source-position filename="object/ags_soundcard.h" line="217"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32297,7 +32353,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_loop_offset">
         <callback name="get_loop_offset">
-          <source-position filename="object/ags_soundcard.h" line="217"/>
+          <source-position filename="object/ags_soundcard.h" line="221"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32316,7 +32372,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_sub_block_count">
         <callback name="get_sub_block_count">
-          <source-position filename="object/ags_soundcard.h" line="219"/>
+          <source-position filename="object/ags_soundcard.h" line="223"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32335,7 +32391,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="trylock_sub_block">
         <callback name="trylock_sub_block">
-          <source-position filename="object/ags_soundcard.h" line="221"/>
+          <source-position filename="object/ags_soundcard.h" line="225"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32369,7 +32425,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="unlock_sub_block">
         <callback name="unlock_sub_block">
-          <source-position filename="object/ags_soundcard.h" line="223"/>
+          <source-position filename="object/ags_soundcard.h" line="227"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32400,7 +32456,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_offset">
         <callback name="get_note_256th_offset">
-          <source-position filename="object/ags_soundcard.h" line="226"/>
+          <source-position filename="object/ags_soundcard.h" line="230"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32430,7 +32486,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_attack">
         <callback name="get_note_256th_attack">
-          <source-position filename="object/ags_soundcard.h" line="230"/>
+          <source-position filename="object/ags_soundcard.h" line="234"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32460,7 +32516,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_attack_at_position">
         <callback name="get_note_256th_attack_at_position">
-          <source-position filename="object/ags_soundcard.h" line="234"/>
+          <source-position filename="object/ags_soundcard.h" line="238"/>
           <return-value transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -32483,7 +32539,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_attack_position">
         <callback name="get_note_256th_attack_position">
-          <source-position filename="object/ags_soundcard.h" line="237"/>
+          <source-position filename="object/ags_soundcard.h" line="241"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -32513,7 +32569,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_attack_of_16th_pulse">
         <callback name="get_note_256th_attack_of_16th_pulse">
-          <source-position filename="object/ags_soundcard.h" line="241"/>
+          <source-position filename="object/ags_soundcard.h" line="245"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -32532,7 +32588,7 @@ about a newly played buffer.</doc>
       </field>
       <field name="get_note_256th_attack_of_16th_pulse_position">
         <callback name="get_note_256th_attack_of_16th_pulse_position">
-          <source-position filename="object/ags_soundcard.h" line="242"/>
+          <source-position filename="object/ags_soundcard.h" line="246"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_soundcard.c"
@@ -39728,7 +39784,7 @@ enable/disable as sync_flags.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION" value="6.3.0" c:type="AGS_VERSION">
-      <source-position filename="object/ags_application_context.h" line="45"/>
+      <source-position filename="object/ags_application_context.h" line="47"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="WORKER_THREAD"
@@ -40445,13 +40501,13 @@ enable/disable as status flags.</doc>
                    version="3.0.0">
         <doc xml:space="preserve"
              filename="server/security/ags_xml_password_store.c"
-             line="789">Create #AgsXmlPasswordStore.</doc>
+             line="788">Create #AgsXmlPasswordStore.</doc>
         <source-position filename="server/security/ags_xml_password_store.h"
                          line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="server/security/ags_xml_password_store.c"
-               line="794">the new #AgsXmlPasswordStore instance</doc>
+               line="793">the new #AgsXmlPasswordStore instance</doc>
           <type name="XmlPasswordStore" c:type="AgsXmlPasswordStore*"/>
         </return-value>
       </constructor>
@@ -40460,13 +40516,13 @@ enable/disable as status flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="server/security/ags_xml_password_store.c"
-             line="705">Find ags-srv-user xmlNode containing @login.</doc>
+             line="704">Find ags-srv-user xmlNode containing @login.</doc>
         <source-position filename="server/security/ags_xml_password_store.h"
                          line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="server/security/ags_xml_password_store.c"
-               line="712">the matching xmlNode or %NULL</doc>
+               line="711">the matching xmlNode or %NULL</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </return-value>
         <parameters>
@@ -40474,13 +40530,13 @@ enable/disable as status flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/security/ags_xml_password_store.c"
-                 line="707">the #AgsXmlPasswordStore</doc>
+                 line="706">the #AgsXmlPasswordStore</doc>
             <type name="XmlPasswordStore" c:type="AgsXmlPasswordStore*"/>
           </instance-parameter>
           <parameter name="login" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/security/ags_xml_password_store.c"
-                 line="708">the login</doc>
+                 line="707">the login</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -40490,7 +40546,7 @@ enable/disable as status flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="server/security/ags_xml_password_store.c"
-             line="660">Open @filename.</doc>
+             line="659">Open @filename.</doc>
         <source-position filename="server/security/ags_xml_password_store.h"
                          line="63"/>
         <return-value transfer-ownership="none">
@@ -40501,13 +40557,13 @@ enable/disable as status flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/security/ags_xml_password_store.c"
-                 line="662">the #AgsXmlPasswordStore</doc>
+                 line="661">the #AgsXmlPasswordStore</doc>
             <type name="XmlPasswordStore" c:type="AgsXmlPasswordStore*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/security/ags_xml_password_store.c"
-                 line="663">the filename</doc>
+                 line="662">the filename</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -41105,7 +41161,7 @@ server.</doc>
     <docsection name="ags_xml_password_store">
       <doc xml:space="preserve"
            filename="server/security/ags_xml_password_store.c"
-           line="79">The #AgsXmlPasswordStore is an object to keep passwords.</doc>
+           line="78">The #AgsXmlPasswordStore is an object to keep passwords.</doc>
     </docsection>
     <function name="buffer_util_char_buffer_read_complex"
               c:identifier="ags_buffer_util_char_buffer_read_complex"
@@ -46389,6 +46445,29 @@ the locale to C and then reverts it.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="soundcard_helper_config_get_cache_buffer_size"
+              c:identifier="ags_soundcard_helper_config_get_cache_buffer_size"
+              moved-to="Soundcard.helper_config_get_cache_buffer_size"
+              version="6.10.4">
+      <doc xml:space="preserve"
+           filename="util/ags_soundcard_helper.c"
+           line="300">Get cache buffer size.</doc>
+      <source-position filename="util/ags_soundcard_helper.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="util/ags_soundcard_helper.c"
+             line="306">the cache buffer size</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="util/ags_soundcard_helper.c"
+               line="302">the #AgsConfig</doc>
+          <type name="Config" c:type="AgsConfig*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="soundcard_helper_config_get_dsp_channels"
               c:identifier="ags_soundcard_helper_config_get_dsp_channels"
               moved-to="Soundcard.helper_config_get_dsp_channels"
@@ -46477,6 +46556,29 @@ the locale to C and then reverts it.</doc>
           <doc xml:space="preserve"
                filename="util/ags_soundcard_helper.c"
                line="124">the #AgsConfig</doc>
+          <type name="Config" c:type="AgsConfig*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="soundcard_helper_config_get_use_cache"
+              c:identifier="ags_soundcard_helper_config_get_use_cache"
+              moved-to="Soundcard.helper_config_get_use_cache"
+              version="6.10.4">
+      <doc xml:space="preserve"
+           filename="util/ags_soundcard_helper.c"
+           line="253">Get use cache.</doc>
+      <source-position filename="util/ags_soundcard_helper.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="util/ags_soundcard_helper.c"
+             line="259">if use cache %TRUE, otherwise %FALSE</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="util/ags_soundcard_helper.c"
+               line="255">the #AgsConfig</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </parameter>
       </parameters>

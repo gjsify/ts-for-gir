@@ -63,7 +63,7 @@ _%>
       }
     },
     "scripts": {
-      "test": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts"
+      "test": "tsc --project tsconfig.json"
     },
     "dependencies": {
       <%_ if (packageName !== 'Gjs') { _%>

@@ -20,7 +20,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="CHECK_VERSION"
                     c:identifier="CD_CHECK_VERSION"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-version.h" line="66"/>
+      <source-position filename="libcolord-gtk/cd-version.h" line="66"/>
       <parameters>
         <parameter name="major">
         </parameter>
@@ -31,22 +31,21 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function-macro>
     <constant name="GTK_MAJOR_VERSION" value="0" c:type="CD_GTK_MAJOR_VERSION">
-      <source-position filename="../libcolord-gtk/cd-version.h" line="44"/>
+      <source-position filename="libcolord-gtk/cd-version.h" line="44"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="GTK_MICRO_VERSION" value="1" c:type="CD_GTK_MICRO_VERSION">
-      <source-position filename="../libcolord-gtk/cd-version.h" line="58"/>
+      <source-position filename="libcolord-gtk/cd-version.h" line="58"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="GTK_MINOR_VERSION" value="2" c:type="CD_GTK_MINOR_VERSION">
-      <source-position filename="../libcolord-gtk/cd-version.h" line="51"/>
+    <constant name="GTK_MINOR_VERSION" value="3" c:type="CD_GTK_MINOR_VERSION">
+      <source-position filename="libcolord-gtk/cd-version.h" line="51"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="IS_SAMPLE_WIDGET"
                     c:identifier="CD_IS_SAMPLE_WIDGET"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="37"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="37"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -55,8 +54,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_SAMPLE_WIDGET_CLASS"
                     c:identifier="CD_IS_SAMPLE_WIDGET_CLASS"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="38"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="38"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -65,8 +63,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_SAMPLE_WINDOW"
                     c:identifier="CD_IS_SAMPLE_WINDOW"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-window.h"
-                       line="37"/>
+      <source-position filename="libcolord-gtk/cd-sample-window.h" line="37"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -75,7 +72,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_WINDOW"
                     c:identifier="CD_IS_WINDOW"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="38"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="38"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -84,7 +81,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_WINDOW_CLASS"
                     c:identifier="CD_IS_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="39"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="39"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -93,8 +90,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="SAMPLE_WIDGET"
                     c:identifier="CD_SAMPLE_WIDGET"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="35"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="35"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -103,8 +99,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="SAMPLE_WIDGET_CLASS"
                     c:identifier="CD_SAMPLE_WIDGET_CLASS"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="36"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="36"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -113,8 +108,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="SAMPLE_WINDOW"
                     c:identifier="CD_SAMPLE_WINDOW"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-sample-window.h"
-                       line="36"/>
+      <source-position filename="libcolord-gtk/cd-sample-window.h" line="36"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -127,18 +121,17 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CdSampleWidget"
            glib:get-type="cd_sample_widget_get_type"
            glib:type-struct="SampleWidgetClass">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="54"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="54"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
                    c:identifier="cd_sample_widget_new"
                    version="0.1.24">
-        <source-position filename="../libcolord-gtk/cd-sample-widget.h"
+        <source-position filename="libcolord-gtk/cd-sample-widget.h"
                          line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-sample-widget.c"
+               filename="libcolord-gtk/cd-sample-widget.c"
                line="255">A new #CdSampleWidget object.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -148,9 +141,9 @@ and/or use gtk-doc annotations.  -->
               glib:set-property="color"
               version="0.1.24">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-sample-widget.c"
+             filename="libcolord-gtk/cd-sample-widget.c"
              line="232">Sets the color for the sample widget</doc>
-        <source-position filename="../libcolord-gtk/cd-sample-widget.h"
+        <source-position filename="libcolord-gtk/cd-sample-widget.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -158,13 +151,13 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="sample" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-widget.c"
+                 filename="libcolord-gtk/cd-sample-widget.c"
                  line="234">This class instance</doc>
             <type name="SampleWidget" c:type="CdSampleWidget*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-widget.c"
+                 filename="libcolord-gtk/cd-sample-widget.c"
                  line="235">A color</doc>
             <type name="Colord.ColorRGB" c:type="const CdColorRGB*"/>
           </parameter>
@@ -186,17 +179,16 @@ and/or use gtk-doc annotations.  -->
     <record name="SampleWidgetClass"
             c:type="CdSampleWidgetClass"
             glib:is-gtype-struct-for="SampleWidget">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="54"/>
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="54"/>
       <field name="parent_class">
         <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
       </field>
     </record>
     <record name="SampleWidgetPrivate"
             c:type="CdSampleWidgetPrivate"
-            disguised="1">
-      <source-position filename="../libcolord-gtk/cd-sample-widget.h"
-                       line="43"/>
+            disguised="1"
+            opaque="1">
+      <source-position filename="libcolord-gtk/cd-sample-widget.h" line="43"/>
     </record>
     <class name="SampleWindow"
            c:symbol-prefix="sample_window"
@@ -205,18 +197,17 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CdSampleWindow"
            glib:get-type="cd_sample_window_get_type"
            glib:type-struct="SampleWindowClass">
-      <source-position filename="../libcolord-gtk/cd-sample-window.h"
-                       line="52"/>
+      <source-position filename="libcolord-gtk/cd-sample-window.h" line="52"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
                    c:identifier="cd_sample_window_new"
                    version="0.1.22">
-        <source-position filename="../libcolord-gtk/cd-sample-window.h"
+        <source-position filename="libcolord-gtk/cd-sample-window.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-sample-window.c"
+               filename="libcolord-gtk/cd-sample-window.c"
                line="217">a new #CdSampleWindow object.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -225,9 +216,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cd_sample_window_set_color"
               version="0.1.22">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-sample-window.c"
+             filename="libcolord-gtk/cd-sample-window.c"
              line="95">Sets the window to a specific color.</doc>
-        <source-position filename="../libcolord-gtk/cd-sample-window.h"
+        <source-position filename="libcolord-gtk/cd-sample-window.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -235,13 +226,13 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="sample_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-window.c"
+                 filename="libcolord-gtk/cd-sample-window.c"
                  line="97">a valid #CdSampleWindow instance</doc>
             <type name="SampleWindow" c:type="CdSampleWindow*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-window.c"
+                 filename="libcolord-gtk/cd-sample-window.c"
                  line="98">the color</doc>
             <type name="Colord.ColorRGB" c:type="const CdColorRGB*"/>
           </parameter>
@@ -251,9 +242,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cd_sample_window_set_fraction"
               version="0.1.22">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-sample-window.c"
+             filename="libcolord-gtk/cd-sample-window.c"
              line="60">Sets the percentage value on the window.</doc>
-        <source-position filename="../libcolord-gtk/cd-sample-window.h"
+        <source-position filename="libcolord-gtk/cd-sample-window.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -261,13 +252,13 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="sample_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-window.c"
+                 filename="libcolord-gtk/cd-sample-window.c"
                  line="62">a valid #CdSampleWindow instance</doc>
             <type name="SampleWindow" c:type="CdSampleWindow*"/>
           </instance-parameter>
           <parameter name="fraction" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-sample-window.c"
+                 filename="libcolord-gtk/cd-sample-window.c"
                  line="63">the fraction value to show, or -1 for pulsing.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -283,23 +274,22 @@ and/or use gtk-doc annotations.  -->
     <record name="SampleWindowClass"
             c:type="CdSampleWindowClass"
             glib:is-gtype-struct-for="SampleWindow">
-      <source-position filename="../libcolord-gtk/cd-sample-window.h"
-                       line="52"/>
+      <source-position filename="libcolord-gtk/cd-sample-window.h" line="52"/>
       <field name="parent_class">
         <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
       </field>
     </record>
     <record name="SampleWindowPrivate"
             c:type="CdSampleWindowPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-sample-window.c"
+           filename="libcolord-gtk/cd-sample-window.c"
            line="36">Private #CdSampleWindow data</doc>
-      <source-position filename="../libcolord-gtk/cd-sample-window.h"
-                       line="39"/>
+      <source-position filename="libcolord-gtk/cd-sample-window.h" line="39"/>
     </record>
     <function-macro name="WINDOW" c:identifier="CD_WINDOW" introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="36"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="36"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -308,7 +298,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="WINDOW_CLASS"
                     c:identifier="CD_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="37"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="37"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -317,7 +307,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="WINDOW_GET_CLASS"
                     c:identifier="CD_WINDOW_GET_CLASS"
                     introspectable="0">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="40"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="40"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -330,16 +320,16 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CdWindow"
            glib:get-type="cd_window_get_type"
            glib:type-struct="WindowClass">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="67"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="67"/>
       <constructor name="new" c:identifier="cd_window_new" version="0.1.20">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.c"
-             line="578">Creates a new #CdWindow object.</doc>
-        <source-position filename="../libcolord-gtk/cd-window.h" line="83"/>
+             filename="libcolord-gtk/cd-window.c"
+             line="579">Creates a new #CdWindow object.</doc>
+        <source-position filename="libcolord-gtk/cd-window.h" line="83"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-window.c"
-               line="583">a new CdWindow object.</doc>
+               filename="libcolord-gtk/cd-window.c"
+               line="584">a new CdWindow object.</doc>
           <type name="Window" c:type="CdWindow*"/>
         </return-value>
       </constructor>
@@ -348,13 +338,13 @@ and/or use gtk-doc annotations.  -->
                 version="0.1.20">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-window.c"
+               filename="libcolord-gtk/cd-window.c"
                line="81">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
       <virtual-method name="changed">
-        <source-position filename="../libcolord-gtk/cd-window.h" line="55"/>
+        <source-position filename="libcolord-gtk/cd-window.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -371,19 +361,19 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cd_window_get_last_profile"
               version="0.1.20">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.c"
+             filename="libcolord-gtk/cd-window.c"
              line="95">Gets the color profile to use for this widget.</doc>
-        <source-position filename="../libcolord-gtk/cd-window.h" line="96"/>
+        <source-position filename="libcolord-gtk/cd-window.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-window.c"
+               filename="libcolord-gtk/cd-window.c"
                line="101">a #CdProfile</doc>
           <type name="Colord.Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="97">a #CdWindow instance.</doc>
             <type name="Window" c:type="CdWindow*"/>
           </instance-parameter>
@@ -393,7 +383,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="cd_window_get_profile"
               version="0.1.20">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.c"
+             filename="libcolord-gtk/cd-window.c"
              line="425">Gets the screen profile that should be used for the widget,
 which corresponds to the screen output the widget most covers.
 
@@ -402,20 +392,20 @@ g_signal_connect (dialog, "map", G_CALLBACK (map_cb), priv);
 
 Note, the returned profile from cd_client_get_profile_for_widget_finish()
 has already been connected to, as is ready to use.</doc>
-        <source-position filename="../libcolord-gtk/cd-window.h" line="86"/>
+        <source-position filename="libcolord-gtk/cd-window.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="427">a #CdWindow instance.</doc>
             <type name="Window" c:type="CdWindow*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="428">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -424,7 +414,7 @@ has already been connected to, as is ready to use.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="429">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -435,7 +425,7 @@ has already been connected to, as is ready to use.</doc>
                      scope="async"
                      closure="3">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="430">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -444,7 +434,7 @@ has already been connected to, as is ready to use.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="431">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -455,25 +445,25 @@ has already been connected to, as is ready to use.</doc>
               version="0.1.20"
               throws="1">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.c"
+             filename="libcolord-gtk/cd-window.c"
              line="118">Gets the result from the asynchronous function.</doc>
-        <source-position filename="../libcolord-gtk/cd-window.h" line="91"/>
+        <source-position filename="libcolord-gtk/cd-window.h" line="91"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-window.c"
+               filename="libcolord-gtk/cd-window.c"
                line="126">a #CdProfile or %NULL</doc>
           <type name="Colord.Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="120">a #CdWindow instance.</doc>
             <type name="Window" c:type="CdWindow*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window.c"
+                 filename="libcolord-gtk/cd-window.c"
                  line="121">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
@@ -484,30 +474,29 @@ has already been connected to, as is ready to use.</doc>
               version="0.1.20"
               throws="1">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window-sync.c"
+             filename="libcolord-gtk/cd-window-sync.c"
              line="63">Gets the screen profile that should be used for the widget,
 which corresponds to the screen output the widget most covers.
 
 WARNING: This function is synchronous, and may block.
 Do not use it in GUI applications.</doc>
-        <source-position filename="../libcolord-gtk/cd-window-sync.h"
-                         line="34"/>
+        <source-position filename="libcolord-gtk/cd-window-sync.h" line="34"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../libcolord-gtk/cd-window-sync.c"
+               filename="libcolord-gtk/cd-window-sync.c"
                line="76">a #CdProfile or %NULL</doc>
           <type name="Colord.Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window-sync.c"
+                 filename="libcolord-gtk/cd-window-sync.c"
                  line="65">a #CdWindow instance.</doc>
             <type name="Window" c:type="CdWindow*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window-sync.c"
+                 filename="libcolord-gtk/cd-window-sync.c"
                  line="66">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -516,13 +505,13 @@ Do not use it in GUI applications.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="../libcolord-gtk/cd-window-sync.c"
+                 filename="libcolord-gtk/cd-window-sync.c"
                  line="67">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
-      <property name="Profile" transfer-ownership="none">
+      <property name="Profile" transfer-ownership="none" default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -533,7 +522,7 @@ Do not use it in GUI applications.</doc>
       </field>
       <glib:signal name="changed" when="last" version="0.1.20">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.c"
+             filename="libcolord-gtk/cd-window.c"
              line="521">The ::changed signal is emitted when the device profile has
 changed. The #CdProfile that is referenced in the callback
 has not been connected to, and you will need to call
@@ -542,7 +531,10 @@ cd_profile_connect() if the ICC filename is required.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="object" transfer-ownership="none">
+          <parameter name="profile" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libcolord-gtk/cd-window.c"
+                 line="524">the #CdProfile</doc>
             <type name="Colord.Profile"/>
           </parameter>
         </parameters>
@@ -551,13 +543,13 @@ cd_profile_connect() if the ICC filename is required.</doc>
     <record name="WindowClass"
             c:type="CdWindowClass"
             glib:is-gtype-struct-for="Window">
-      <source-position filename="../libcolord-gtk/cd-window.h" line="67"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="67"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="changed">
         <callback name="changed">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="55"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="55"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -573,7 +565,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved1" introspectable="0">
         <callback name="_cd_window_reserved1">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="59"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="59"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -581,7 +573,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved2" introspectable="0">
         <callback name="_cd_window_reserved2">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="60"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="60"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -589,7 +581,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved3" introspectable="0">
         <callback name="_cd_window_reserved3">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="61"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="61"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -597,7 +589,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved4" introspectable="0">
         <callback name="_cd_window_reserved4">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="62"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="62"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -605,7 +597,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved5" introspectable="0">
         <callback name="_cd_window_reserved5">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="63"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="63"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -613,7 +605,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved6" introspectable="0">
         <callback name="_cd_window_reserved6">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="64"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="64"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -621,7 +613,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved7" introspectable="0">
         <callback name="_cd_window_reserved7">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="65"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="65"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -629,7 +621,7 @@ cd_profile_connect() if the ICC filename is required.</doc>
       </field>
       <field name="_cd_window_reserved8" introspectable="0">
         <callback name="_cd_window_reserved8">
-          <source-position filename="../libcolord-gtk/cd-window.h" line="66"/>
+          <source-position filename="libcolord-gtk/cd-window.h" line="66"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -638,26 +630,29 @@ cd_profile_connect() if the ICC filename is required.</doc>
     </record>
     <enumeration name="WindowError" c:type="CdWindowError">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-window.h"
+           filename="libcolord-gtk/cd-window.h"
            line="69">Errors that can be thrown</doc>
-      <source-position filename="../libcolord-gtk/cd-window.h" line="79"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="79"/>
       <member name="failed" value="0" c:identifier="CD_WINDOW_ERROR_FAILED">
         <doc xml:space="preserve"
-             filename="../libcolord-gtk/cd-window.h"
+             filename="libcolord-gtk/cd-window.h"
              line="71">the transaction failed for an unknown reason</doc>
       </member>
       <member name="last" value="1" c:identifier="CD_WINDOW_ERROR_LAST">
       </member>
     </enumeration>
-    <record name="WindowPrivate" c:type="CdWindowPrivate" disguised="1">
+    <record name="WindowPrivate"
+            c:type="CdWindowPrivate"
+            disguised="1"
+            opaque="1">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-window.c"
+           filename="libcolord-gtk/cd-window.c"
            line="48">Private #CdWindow data</doc>
-      <source-position filename="../libcolord-gtk/cd-window.h" line="44"/>
+      <source-position filename="libcolord-gtk/cd-window.h" line="44"/>
     </record>
     <docsection name="cd-version">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-version.h"
+           filename="libcolord-gtk/cd-version.h"
            line="22">These compile time macros allow the user to enable parts of client code
 depending on the version of libcolord installed.
 
@@ -665,7 +660,7 @@ See also: #CdClient, #CdDevice</doc>
     </docsection>
     <docsection name="cd-window">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-window.c"
+           filename="libcolord-gtk/cd-window.c"
            line="22">These functions are useful when GTK is being used alongside colord and
 are just provided for convenience.
 
@@ -673,7 +668,7 @@ See also: #CdDevice</doc>
     </docsection>
     <docsection name="cd-window-sync">
       <doc xml:space="preserve"
-           filename="../libcolord-gtk/cd-window-sync.c"
+           filename="libcolord-gtk/cd-window-sync.c"
            line="22">These helper functions provide a simple way to use the async functions
 in command line tools.
 

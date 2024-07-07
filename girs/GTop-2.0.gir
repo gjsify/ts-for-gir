@@ -2080,7 +2080,7 @@ and/or use gtk-doc annotations.  -->
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="LIBGTOP_MICRO_VERSION"
-              value="1"
+              value="3"
               c:type="LIBGTOP_MICRO_VERSION">
       <source-position filename="libgtopconfig.h" line="6"/>
       <type name="gint" c:type="gint"/>

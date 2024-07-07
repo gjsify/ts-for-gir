@@ -6453,7 +6453,7 @@ age acts as a hard limit on cache entries.</doc>
             <doc xml:space="preserve"
                  filename="src/camel/camel-data-cache.c"
                  line="327">Timeout for access, or -1 to disable access expiry.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -6485,7 +6485,7 @@ age acts as a hard limit on cache entries.</doc>
             <doc xml:space="preserve"
                  filename="src/camel/camel-data-cache.c"
                  line="303">Timeout for age expiry, or -1 to disable.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -16495,14 +16495,14 @@ implement a search for any sort of backend.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-folder-search.c"
                line="2590">a new #time_t value</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-folder-search.c"
                  line="2584">Initial time</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="months" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -16585,7 +16585,7 @@ a string or an integer, to be converted into time_t.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-folder-search.c"
                line="2647">time_t equivalent of the passed in argument, or (time_t) -1 on error.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <parameter name="argc" transfer-ownership="none">
@@ -34953,7 +34953,7 @@ See camel_mime_message_set_date() for information about the @offset format.</doc
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-message.c"
                line="569">the date of the message</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="message" transfer-ownership="none">
@@ -34984,7 +34984,7 @@ See camel_mime_message_set_date() for information about the @offset format.</doc
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-message.c"
                line="589">the received date of the message</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="message" transfer-ownership="none">
@@ -35260,7 +35260,7 @@ camel_mime_message_set_date (message, CAMEL_MESSAGE_DATE_CURRENT, 0);
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-message.c"
                  line="525">a time_t date or %CAMEL_MESSAGE_DATE_CURRENT to use the current local date and time</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -44350,10 +44350,10 @@ for any other types of the function symbols.</doc>
             <type name="SExp" c:type="CamelSExp*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
-            <type name="glong" c:type="time_t*"/>
+            <type name="time_t" c:type="time_t*"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
-            <type name="glong" c:type="time_t*"/>
+            <type name="time_t" c:type="time_t*"/>
           </parameter>
         </parameters>
       </method>
@@ -44803,7 +44803,7 @@ when the @result is %NULL.</doc>
           <type name="gint" c:type="gint"/>
         </field>
         <field name="time" writable="1">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </field>
       </union>
       <field name="time_generator" writable="1">
@@ -44816,13 +44816,13 @@ when the @result is %NULL.</doc>
         <doc xml:space="preserve"
              filename="src/camel/camel-sexp.h"
              line="87">start time</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
       <field name="occuring_end" writable="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-sexp.h"
              line="88">end time</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </field>
     </record>
     <enumeration name="SExpResultType"
@@ -44943,7 +44943,7 @@ when the @result is %NULL.</doc>
           <type name="gint" c:type="gint"/>
         </field>
         <field name="time" writable="1">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </field>
         <record name="func" c:type="func">
           <source-position filename="src/camel/camel-sexp.h" line="208"/>
@@ -64309,7 +64309,7 @@ richtext version of @in.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-file-utils.c"
                line="221">pointer to a variable to put the value in</doc>
-          <type name="gsize" c:type="off_t*"/>
+          <type name="off_t" c:type="off_t*"/>
         </parameter>
       </parameters>
     </function>
@@ -64369,7 +64369,7 @@ richtext version of @in.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-file-utils.c"
                line="199">pointer to a variable to store the value in</doc>
-          <type name="glong" c:type="time_t*"/>
+          <type name="time_t" c:type="time_t*"/>
         </parameter>
       </parameters>
     </function>
@@ -64560,7 +64560,7 @@ Unlike @camel_file_util_encode_string, it pads the
           <doc xml:space="preserve"
                filename="src/camel/camel-file-utils.c"
                line="210">value to output</doc>
-          <type name="gsize" c:type="off_t"/>
+          <type name="off_t" c:type="off_t"/>
         </parameter>
       </parameters>
     </function>
@@ -64620,7 +64620,7 @@ Unlike @camel_file_util_encode_string, it pads the
           <doc xml:space="preserve"
                filename="src/camel/camel-file-utils.c"
                line="188">value to output</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>
@@ -65167,7 +65167,7 @@ nothing when the @host is %NULL.</doc>
              line="4629">the time_t representation of the date string specified by
 @str or (time_t) 0 on error. If @tz_offset is non-NULL, the value
 of the timezone offset will be stored.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
@@ -65336,7 +65336,7 @@ string represented by @time and @tz_offset.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-utils.c"
                line="4115">time_t date representation</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="tz_offset" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -65857,7 +65857,7 @@ seconds from UTC time, stored in @offset.</doc>
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-utils.c"
                line="142">the #time_t to convert</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="tm"
                    transfer-ownership="none"
@@ -66466,7 +66466,7 @@ is to align to native structures.</doc>
         <doc xml:space="preserve"
              filename="src/camel/camel-mime-utils.c"
              line="112">the calendar time representation of @tm</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="tm"
@@ -67868,14 +67868,14 @@ to the beginning of the day.</doc>
              filename="src/camel/camel-utils.c"
              line="185">@src_time modified by the given parameters as date, with
    the time part being beginning of the day.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="src_time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-utils.c"
                line="177">a time_t to apply the value to, or -1 to use the current time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="unit" transfer-ownership="none">
           <doc xml:space="preserve"

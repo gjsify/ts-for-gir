@@ -3420,7 +3420,9 @@ See goa_account_proxy_new() for the asynchronous version of this constructor.</d
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_account_proxy_new">
+      <function name="new"
+                c:identifier="goa_account_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2866">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Account.top_of_page"&gt;org.gnome.OnlineAccounts.Account&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -3493,7 +3495,8 @@ See goa_account_proxy_new_sync() for the synchronous, blocking version of this c
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_account_proxy_new_for_bus">
+                c:identifier="goa_account_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2956">Like goa_account_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -4379,7 +4382,9 @@ See goa_calendar_proxy_new() for the asynchronous version of this constructor.</
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_calendar_proxy_new">
+      <function name="new"
+                c:identifier="goa_calendar_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="11835">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Calendar.top_of_page"&gt;org.gnome.OnlineAccounts.Calendar&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -4452,7 +4457,8 @@ See goa_calendar_proxy_new_sync() for the synchronous, blocking version of this 
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_calendar_proxy_new_for_bus">
+                c:identifier="goa_calendar_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="11925">Like goa_calendar_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -4836,7 +4842,9 @@ See goa_chat_proxy_new() for the asynchronous version of this constructor.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_chat_proxy_new">
+      <function name="new"
+                c:identifier="goa_chat_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="13874">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Chat.top_of_page"&gt;org.gnome.OnlineAccounts.Chat&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -4908,7 +4916,9 @@ See goa_chat_proxy_new_sync() for the synchronous, blocking version of this cons
           </parameter>
         </parameters>
       </function>
-      <function name="new_for_bus" c:identifier="goa_chat_proxy_new_for_bus">
+      <function name="new_for_bus"
+                c:identifier="goa_chat_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="13964">Like goa_chat_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -5121,7 +5131,9 @@ g_object_unref() when done with it.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_client_new">
+      <function name="new"
+                c:identifier="goa_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
              line="231">Asynchronously gets a #GoaClient. When the operation is
@@ -5819,7 +5831,9 @@ See goa_contacts_proxy_new() for the asynchronous version of this constructor.</
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_contacts_proxy_new">
+      <function name="new"
+                c:identifier="goa_contacts_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="12969">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Contacts.top_of_page"&gt;org.gnome.OnlineAccounts.Contacts&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -5892,7 +5906,8 @@ See goa_contacts_proxy_new_sync() for the synchronous, blocking version of this 
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_contacts_proxy_new_for_bus">
+                c:identifier="goa_contacts_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="13059">Like goa_contacts_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -6369,7 +6384,8 @@ See goa_documents_proxy_new() for the asynchronous version of this constructor.<
       </constructor>
       <function name="new"
                 c:identifier="goa_documents_proxy_new"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="14610">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Documents.top_of_page"&gt;org.gnome.OnlineAccounts.Documents&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -6444,7 +6460,8 @@ See goa_documents_proxy_new_sync() for the synchronous, blocking version of this
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_documents_proxy_new_for_bus"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="14706">Like goa_documents_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -7258,7 +7275,8 @@ See goa_exchange_proxy_new() for the asynchronous version of this constructor.</
       </constructor>
       <function name="new"
                 c:identifier="goa_exchange_proxy_new"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="19035">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Exchange.top_of_page"&gt;org.gnome.OnlineAccounts.Exchange&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -7332,7 +7350,8 @@ See goa_exchange_proxy_new_sync() for the synchronous, blocking version of this 
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_exchange_proxy_new_for_bus"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="19131">Like goa_exchange_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -8062,7 +8081,10 @@ See goa_files_proxy_new() for the asynchronous version of this constructor.</doc
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_files_proxy_new" version="3.8.0">
+      <function name="new"
+                c:identifier="goa_files_proxy_new"
+                version="3.8.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="17857">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Files.top_of_page"&gt;org.gnome.OnlineAccounts.Files&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -8136,7 +8158,8 @@ See goa_files_proxy_new_sync() for the synchronous, blocking version of this con
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_files_proxy_new_for_bus"
-                version="3.8.0">
+                version="3.8.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="17953">Like goa_files_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -9663,7 +9686,7 @@ linked against at application run time.</doc>
       </parameters>
     </function-macro>
     <constant name="MICRO_VERSION"
-              value="1"
+              value="2"
               c:type="GOA_MICRO_VERSION"
               version="3.8">
       <doc xml:space="preserve"
@@ -12175,7 +12198,9 @@ See goa_mail_proxy_new() for the asynchronous version of this constructor.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_mail_proxy_new">
+      <function name="new"
+                c:identifier="goa_mail_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="10493">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Mail.top_of_page"&gt;org.gnome.OnlineAccounts.Mail&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -12247,7 +12272,9 @@ See goa_mail_proxy_new_sync() for the synchronous, blocking version of this cons
           </parameter>
         </parameters>
       </function>
-      <function name="new_for_bus" c:identifier="goa_mail_proxy_new_for_bus">
+      <function name="new_for_bus"
+                c:identifier="goa_mail_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="10583">Like goa_mail_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -13238,7 +13265,9 @@ See goa_manager_proxy_new() for the asynchronous version of this constructor.</d
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_manager_proxy_new">
+      <function name="new"
+                c:identifier="goa_manager_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="8254">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Manager.top_of_page"&gt;org.gnome.OnlineAccounts.Manager&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -13311,7 +13340,8 @@ See goa_manager_proxy_new_sync() for the synchronous, blocking version of this c
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_manager_proxy_new_for_bus">
+                c:identifier="goa_manager_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="8344">Like goa_manager_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -13726,7 +13756,8 @@ See goa_maps_proxy_new() for the asynchronous version of this constructor.</doc>
       <function name="new"
                 c:identifier="goa_maps_proxy_new"
                 version="3.14.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="15376">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Maps.top_of_page"&gt;org.gnome.OnlineAccounts.Maps&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -13802,7 +13833,8 @@ See goa_maps_proxy_new_sync() for the synchronous, blocking version of this cons
       <function name="new_for_bus"
                 c:identifier="goa_maps_proxy_new_for_bus"
                 version="3.14.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="15478">Like goa_maps_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -14509,7 +14541,8 @@ See goa_media_server_proxy_new() for the asynchronous version of this constructo
       <function name="new"
                 c:identifier="goa_media_server_proxy_new"
                 version="3.14"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="20281">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-MediaServer.top_of_page"&gt;org.gnome.OnlineAccounts.MediaServer&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -14585,7 +14618,8 @@ See goa_media_server_proxy_new_sync() for the synchronous, blocking version of t
       <function name="new_for_bus"
                 c:identifier="goa_media_server_proxy_new_for_bus"
                 version="3.14"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="20383">Like goa_media_server_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -14994,7 +15028,10 @@ See goa_music_proxy_new() for the asynchronous version of this constructor.</doc
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_music_proxy_new" version="3.18.0">
+      <function name="new"
+                c:identifier="goa_music_proxy_new"
+                version="3.18.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="16134">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Music.top_of_page"&gt;org.gnome.OnlineAccounts.Music&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -15068,7 +15105,8 @@ See goa_music_proxy_new_sync() for the synchronous, blocking version of this con
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_music_proxy_new_for_bus"
-                version="3.18.0">
+                version="3.18.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="16230">Like goa_music_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -16138,7 +16176,9 @@ See goa_oauth2_based_proxy_new() for the asynchronous version of this constructo
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_oauth2_based_proxy_new">
+      <function name="new"
+                c:identifier="goa_oauth2_based_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="4493">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-OAuth2Based.top_of_page"&gt;org.gnome.OnlineAccounts.OAuth2Based&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -16211,7 +16251,8 @@ See goa_oauth2_based_proxy_new_sync() for the synchronous, blocking version of t
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_oauth2_based_proxy_new_for_bus">
+                c:identifier="goa_oauth2_based_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="4583">Like goa_oauth2_based_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -17162,7 +17203,9 @@ See goa_oauth_based_proxy_new() for the asynchronous version of this constructor
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_oauth_based_proxy_new">
+      <function name="new"
+                c:identifier="goa_oauth_based_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="5881">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-OAuthBased.top_of_page"&gt;org.gnome.OnlineAccounts.OAuthBased&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -17235,7 +17278,8 @@ See goa_oauth_based_proxy_new_sync() for the synchronous, blocking version of th
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_oauth_based_proxy_new_for_bus">
+                c:identifier="goa_oauth_based_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="5971">Like goa_oauth_based_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -18934,7 +18978,9 @@ See goa_object_manager_client_new() for the asynchronous version of this constru
           </parameter>
         </parameters>
       </function>
-      <function name="new" c:identifier="goa_object_manager_client_new">
+      <function name="new"
+                c:identifier="goa_object_manager_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="26704">Asynchronously creates #GDBusObjectManagerClient using goa_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new() for more details.
@@ -19008,7 +19054,8 @@ See goa_object_manager_client_new_sync() for the synchronous, blocking version o
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="goa_object_manager_client_new_for_bus">
+                c:identifier="goa_object_manager_client_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="26794">Like goa_object_manager_client_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -20512,7 +20559,8 @@ See goa_password_based_proxy_new() for the asynchronous version of this construc
       </constructor>
       <function name="new"
                 c:identifier="goa_password_based_proxy_new"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="7024">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-PasswordBased.top_of_page"&gt;org.gnome.OnlineAccounts.PasswordBased&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -20586,7 +20634,8 @@ See goa_password_based_proxy_new_sync() for the synchronous, blocking version of
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_password_based_proxy_new_for_bus"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="7120">Like goa_password_based_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -20986,7 +21035,10 @@ See goa_photos_proxy_new() for the asynchronous version of this constructor.</do
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="goa_photos_proxy_new" version="3.8.0">
+      <function name="new"
+                c:identifier="goa_photos_proxy_new"
+                version="3.8.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="16874">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Photos.top_of_page"&gt;org.gnome.OnlineAccounts.Photos&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -21060,7 +21112,8 @@ See goa_photos_proxy_new_sync() for the synchronous, blocking version of this co
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_photos_proxy_new_for_bus"
-                version="3.8.0">
+                version="3.8.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="16970">Like goa_photos_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -21479,7 +21532,8 @@ See goa_printers_proxy_new() for the asynchronous version of this constructor.</
       <function name="new"
                 c:identifier="goa_printers_proxy_new"
                 version="3.12.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="24086">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Printers.top_of_page"&gt;org.gnome.OnlineAccounts.Printers&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -21555,7 +21609,8 @@ See goa_printers_proxy_new_sync() for the synchronous, blocking version of this 
       <function name="new_for_bus"
                 c:identifier="goa_printers_proxy_new_for_bus"
                 version="3.12.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="24188">Like goa_printers_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -22056,7 +22111,8 @@ See goa_read_later_proxy_new() for the asynchronous version of this constructor.
       <function name="new"
                 c:identifier="goa_read_later_proxy_new"
                 version="3.12.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="23302">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-ReadLater.top_of_page"&gt;org.gnome.OnlineAccounts.ReadLater&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -22132,7 +22188,8 @@ See goa_read_later_proxy_new_sync() for the synchronous, blocking version of thi
       <function name="new_for_bus"
                 c:identifier="goa_read_later_proxy_new_for_bus"
                 version="3.12.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="23404">Like goa_read_later_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -23033,7 +23090,8 @@ See goa_ticketing_proxy_new() for the asynchronous version of this constructor.<
       </constructor>
       <function name="new"
                 c:identifier="goa_ticketing_proxy_new"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="21570">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Ticketing.top_of_page"&gt;org.gnome.OnlineAccounts.Ticketing&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -23107,7 +23165,8 @@ See goa_ticketing_proxy_new_sync() for the synchronous, blocking version of this
       </function>
       <function name="new_for_bus"
                 c:identifier="goa_ticketing_proxy_new_for_bus"
-                version="3.6.0">
+                version="3.6.0"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="21666">Like goa_ticketing_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -23527,7 +23586,8 @@ See goa_todo_proxy_new() for the asynchronous version of this constructor.</doc>
       <function name="new"
                 c:identifier="goa_todo_proxy_new"
                 version="3.26.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="22518">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-gnome-OnlineAccounts-Todo.top_of_page"&gt;org.gnome.OnlineAccounts.Todo&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -23603,7 +23663,8 @@ See goa_todo_proxy_new_sync() for the synchronous, blocking version of this cons
       <function name="new_for_bus"
                 c:identifier="goa_todo_proxy_new_for_bus"
                 version="3.26.0"
-                deprecated="1">
+                deprecated="1"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="22620">Like goa_todo_proxy_new() but takes a #GBusType instead of a #GDBusConnection.

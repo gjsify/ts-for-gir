@@ -1466,13 +1466,13 @@ as soon as the callback returns.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2696">Start time for query.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2697">End time for query.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
                      transfer-ownership="none"
@@ -1549,13 +1549,13 @@ as soon as the callback returns.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2864">Start time for query.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2865">End time for query.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
                      transfer-ownership="none"
@@ -1630,13 +1630,13 @@ as soon as the callback returns.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2947">Start time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2948">End time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
                      transfer-ownership="none"
@@ -1701,13 +1701,13 @@ as soon as the callback returns.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="3023">Start time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="3024">End time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
                      transfer-ownership="none"
@@ -1765,13 +1765,13 @@ as soon as the callback returns.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2755">Start time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="2756">End time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
                      transfer-ownership="none"
@@ -2201,13 +2201,13 @@ the @callback.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="4218">Start time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="4219">End time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="users" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -2322,13 +2322,13 @@ the components between this complete list and those received through the signal.
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="4306">Start time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-client.c"
                  line="4307">End time for query</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="users" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -9152,19 +9152,19 @@ Free the instance with e_cal_component_alarm_instance_free(), when no longer nee
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="53">instance time, i.e. "5 minutes before the appointment"</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="occur_start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="54">actual event occurrence start to which this instance corresponds</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="occur_end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="55">actual event occurrence end to which this instance corresponds</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </constructor>
@@ -9250,7 +9250,7 @@ is %NULL.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                line="333">actual event occurrence end to which this @instance corresponds</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
@@ -9271,7 +9271,7 @@ is %NULL.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                line="297">actual event occurrence start to which this @instance corresponds</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
@@ -9313,7 +9313,7 @@ is %NULL.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                line="261">alarm instance time, i.e. "5 minutes before the appointment"</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
@@ -9400,7 +9400,7 @@ It can be %NULL to unset it.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="348">event occurence end to set</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -9427,7 +9427,7 @@ It can be %NULL to unset it.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="312">event occurence start to set</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -9484,7 +9484,7 @@ It can be %NULL to unset it.</doc>
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-cal-component-alarm-instance.c"
                  line="276">instance time to set</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -17507,7 +17507,7 @@ API for accessing time zone data.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="624">A time value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>
@@ -17840,7 +17840,7 @@ are DATE values or do not have a TZID (i.e. floating times).</doc>
       <source-position filename="src/calendar/libecal/e-cal-recur.h"
                        line="103"/>
       <return-value transfer-ownership="none">
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="ir" transfer-ownership="none">
@@ -17894,14 +17894,14 @@ this hour, which may not be what you want.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="68">a time_t value containing @time plus the days added.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="57">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="days" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -17926,14 +17926,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="160">a time_t value containing @time plus the days added.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="150">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="days" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -17969,14 +17969,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="223">a time_t value containing @time plus the months added.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="208">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="months" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18002,14 +18002,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="90">a time_t value containing @time plus the weeks added.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="85">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="weeks" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18034,14 +18034,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="196">a time_t value containing @time plus the weeks added.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="186">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="weeks" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18067,14 +18067,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="105">the time corresponding to the beginning of the day.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="t" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="101">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>
@@ -18093,14 +18093,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="399">the beginning of the day.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="390">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="zone" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18120,14 +18120,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="125">the time corresponding to the end of the day.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="t" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="121">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>
@@ -18146,14 +18146,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="437">the end of the day.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="428">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="zone" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18271,7 +18271,7 @@ Month is 0 (Jan) to 11 (Dec).</doc>
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="657">Time_t corresponding to the specified ISO string.
 Note that we only allow UTC times at present.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
@@ -18342,14 +18342,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="312">the beginning of the month.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="303">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="zone" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18381,7 +18381,7 @@ This is analogous to g_date_set_time() but takes the timezone into account.</doc
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="469">A time value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="zone"
                    transfer-ownership="none"
@@ -18411,14 +18411,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="351">the beginning of the week.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="340">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="week_start_day" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18449,14 +18449,14 @@ i_cal_time_adjust() to add or subtract days, hours, minutes &amp; seconds.</doc>
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-time-util.c"
              line="274">the beginning of the year.</doc>
-        <type name="glong" c:type="time_t"/>
+        <type name="time_t" c:type="time_t"/>
       </return-value>
       <parameters>
         <parameter name="time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-time-util.c"
                line="265">A time_t value.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="zone" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -18497,7 +18497,7 @@ in the given @icalcomp.</doc>
               version="3.40">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3354">Modifies the @vtimezone to include only subcomponents influencing
+           line="3358">Modifies the @vtimezone to include only subcomponents influencing
 the passed-in time interval between @from and @to.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="419"/>
@@ -18511,13 +18511,13 @@ the passed-in time interval between @from and @to.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3356">a VTIMEZONE component to modify</doc>
+               line="3360">a VTIMEZONE component to modify</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="from" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3357">an #ICalTime for the minimum time</doc>
+               line="3361">an #ICalTime for the minimum time</doc>
           <type name="ICalGLib.Time" c:type="const ICalTime*"/>
         </parameter>
         <parameter name="to"
@@ -18526,7 +18526,7 @@ the passed-in time interval between @from and @to.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3358">until which time to clamp, or %NULL for infinity</doc>
+               line="3362">until which time to clamp, or %NULL for infinity</doc>
           <type name="ICalGLib.Time" c:type="const ICalTime*"/>
         </parameter>
       </parameters>
@@ -18536,7 +18536,7 @@ the passed-in time interval between @from and @to.</doc>
               version="3.40">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3387">Similar to e_cal_util_clamp_vtimezone(), only reads the clamp
+           line="3391">Similar to e_cal_util_clamp_vtimezone(), only reads the clamp
 times from the @component.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="422"/>
@@ -18550,13 +18550,13 @@ times from the @component.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3389">a VTIMEZONE component to modify</doc>
+               line="3393">a VTIMEZONE component to modify</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="component" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3390">an #ICalComponent to read the times from</doc>
+               line="3394">an #ICalComponent to read the times from</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
       </parameters>
@@ -18566,7 +18566,7 @@ times from the @component.</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2526">Searches for an X property named @x_name within X properties
+           line="2530">Searches for an X property named @x_name within X properties
 of @icalcomp and returns its value as a newly allocated string.
 Free it with g_free(), when no longer needed.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -18574,7 +18574,7 @@ Free it with g_free(), when no longer needed.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2535">Newly allocated value of the first @x_name
+             line="2539">Newly allocated value of the first @x_name
    X property in @icalcomp, or %NULL, if not found.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -18582,13 +18582,13 @@ Free it with g_free(), when no longer needed.</doc>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2528">an #ICalComponent</doc>
+               line="2532">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="x_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2529">name of the X property</doc>
+               line="2533">name of the X property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -18598,7 +18598,7 @@ Free it with g_free(), when no longer needed.</doc>
               version="3.46">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3598">Searches properties of kind @prop_kind in the @icalcomp and returns
+           line="3602">Searches properties of kind @prop_kind in the @icalcomp and returns
 one, which is usable for the @locale. When @locale is %NULL,
 the current locale is assumed. If no such property for the locale
 exists either the one with no language parameter or the first
@@ -18611,7 +18611,7 @@ when no longer needed.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3613">a property of kind @prop_kind for the @locale,
+             line="3617">a property of kind @prop_kind for the @locale,
    %NULL if no such property is set on the @comp.</doc>
         <type name="ICalGLib.Property" c:type="ICalProperty*"/>
       </return-value>
@@ -18619,13 +18619,13 @@ when no longer needed.</doc>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3600">an #ICalComponent</doc>
+               line="3604">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="prop_kind" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3601">an #ICalPropertyKind to traverse</doc>
+               line="3605">an #ICalPropertyKind to traverse</doc>
           <type name="ICalGLib.PropertyKind" c:type="ICalPropertyKind"/>
         </parameter>
         <parameter name="locale"
@@ -18634,7 +18634,7 @@ when no longer needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3602">a locale identifier, or %NULL</doc>
+               line="3606">a locale identifier, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -18644,7 +18644,7 @@ when no longer needed.</doc>
               version="3.52">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3482">Searches properties of kind @prop_kind in the @icalcomp, which can
+           line="3486">Searches properties of kind @prop_kind in the @icalcomp, which can
 be filtered by the @func, and returns one, which is usable for the @locale.
 When @locale is %NULL, the current locale is assumed. If no such property
 for the locale exists either the one with no language parameter or the first
@@ -18660,7 +18660,7 @@ when no longer needed.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3502">a property of kind @prop_kind for the @locale,
+             line="3506">a property of kind @prop_kind for the @locale,
    %NULL if no such property is set on the @comp.</doc>
         <type name="ICalGLib.Property" c:type="ICalProperty*"/>
       </return-value>
@@ -18668,13 +18668,13 @@ when no longer needed.</doc>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3484">an #ICalComponent</doc>
+               line="3488">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="prop_kind" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3485">an #ICalPropertyKind to traverse</doc>
+               line="3489">an #ICalPropertyKind to traverse</doc>
           <type name="ICalGLib.PropertyKind" c:type="ICalPropertyKind"/>
         </parameter>
         <parameter name="locale"
@@ -18683,7 +18683,7 @@ when no longer needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3486">a locale identifier, or %NULL</doc>
+               line="3490">a locale identifier, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="func"
@@ -18694,7 +18694,7 @@ when no longer needed.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3487">an #ECalUtilFilterPropertyFunc, to determine whether a property can be considered</doc>
+               line="3491">an #ECalUtilFilterPropertyFunc, to determine whether a property can be considered</doc>
           <type name="UtilFilterPropertyFunc"
                 c:type="ECalUtilFilterPropertyFunc"/>
         </parameter>
@@ -18704,7 +18704,7 @@ when no longer needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3488">user data for the @func</doc>
+               line="3492">user data for the @func</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -18714,7 +18714,7 @@ when no longer needed.</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2491">Searches for an X property named @x_name within X properties
+           line="2495">Searches for an X property named @x_name within X properties
 of @icalcomp and returns it. Free the non-NULL object
 with g_object_unref(), when no longer needed.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -18722,7 +18722,7 @@ with g_object_unref(), when no longer needed.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2500">the first X ICalProperty named
+             line="2504">the first X ICalProperty named
    @x_name, or %NULL, when none found.</doc>
         <type name="ICalGLib.Property" c:type="ICalProperty*"/>
       </return-value>
@@ -18730,13 +18730,13 @@ with g_object_unref(), when no longer needed.</doc>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2493">an #ICalComponent</doc>
+               line="2497">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="x_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2494">name of the X property</doc>
+               line="2498">name of the X property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -18930,27 +18930,27 @@ for a specific X property use e_cal_util_component_has_x_property().</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2459">Returns, whether the @icalcomp contains X property named @x_name. To check
+           line="2463">Returns, whether the @icalcomp contains X property named @x_name. To check
 for standard property use e_cal_util_component_has_property().</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="375"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2467">whether the @icalcomp contains X property named @x_name</doc>
+             line="2471">whether the @icalcomp contains X property named @x_name</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2461">an #ICalComponent</doc>
+               line="2465">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="x_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2462">name of the X property</doc>
+               line="2466">name of the X property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -18982,32 +18982,32 @@ for standard property use e_cal_util_component_has_property().</doc>
               version="3.30">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2631">Removes all or only the first property of kind @kind in @icalcomp.</doc>
+           line="2635">Removes all or only the first property of kind @kind in @icalcomp.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="391"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2639">How many properties had been removed.</doc>
+             line="2643">How many properties had been removed.</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2633">an #ICalComponent</doc>
+               line="2637">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="kind" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2634">the kind of the property to remove</doc>
+               line="2638">the kind of the property to remove</doc>
           <type name="ICalGLib.PropertyKind" c:type="ICalPropertyKind"/>
         </parameter>
         <parameter name="all" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2635">%TRUE to remove all, or %FALSE to remove only the first property of the @kind</doc>
+               line="2639">%TRUE to remove all, or %FALSE to remove only the first property of the @kind</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -19017,26 +19017,26 @@ for standard property use e_cal_util_component_has_property().</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2601">Removes the first X property named @x_name in @icalcomp.</doc>
+           line="2605">Removes the first X property named @x_name in @icalcomp.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="388"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2608">%TRUE, when any such had been found and removed, %FALSE otherwise.</doc>
+             line="2612">%TRUE, when any such had been found and removed, %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2603">an #ICalComponent</doc>
+               line="2607">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="x_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2604">name of the X property</doc>
+               line="2608">name of the X property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -19046,7 +19046,7 @@ for standard property use e_cal_util_component_has_property().</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2562">Sets a value of the first X property named @x_name in @icalcomp,
+           line="2566">Sets a value of the first X property named @x_name in @icalcomp,
 if any such already exists, or adds a new property with this name
 and value. As a special case, if @value is %NULL, then removes
 the first X property named @x_name from @icalcomp instead.</doc>
@@ -19059,13 +19059,13 @@ the first X property named @x_name from @icalcomp instead.</doc>
         <parameter name="icalcomp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2564">an #ICalComponent</doc>
+               line="2568">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="x_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2565">name of the X property</doc>
+               line="2569">name of the X property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="value"
@@ -19074,7 +19074,7 @@ the first X property named @x_name from @icalcomp instead.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2566">a value to set, or %NULL</doc>
+               line="2570">a value to set, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -19084,21 +19084,21 @@ the first X property named @x_name from @icalcomp instead.</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3099">Encodes the #EConflictResolution into the bit-or of #ECalOperationFlags.
+           line="3103">Encodes the #EConflictResolution into the bit-or of #ECalOperationFlags.
 The returned value can be bit-or-ed with other #ECalOperationFlags values.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="409"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3106">a bit-or of #ECalOperationFlags, corresponding to the @conflict_resolution</doc>
+             line="3110">a bit-or of #ECalOperationFlags, corresponding to the @conflict_resolution</doc>
         <type name="guint32" c:type="guint32"/>
       </return-value>
       <parameters>
         <parameter name="conflict_resolution" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3101">an #EConflictResolution</doc>
+               line="3105">an #EConflictResolution</doc>
           <type name="EDataServer.ConflictResolution"
                 c:type="EConflictResolution"/>
         </parameter>
@@ -19166,7 +19166,7 @@ g_object_unref(), when no longer needed.</doc>
               version="3.48">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3734">Compares list of categories on the @old_comp with the list of categories
+           line="3738">Compares list of categories on the @old_comp with the list of categories
 on the @new_comp and fills @out_added categories and @out_removed categories
 accordingly, as if the @old_comp is replaced with the @new_comp. When either
 of the components is %NULL, it's considered as having no categories set.
@@ -19190,7 +19190,7 @@ when no longer needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3736">an old #ICalComponent, or %NULL</doc>
+               line="3740">an old #ICalComponent, or %NULL</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="new_comp"
@@ -19199,7 +19199,7 @@ when no longer needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3737">a new #ICalComponent, or %NULL</doc>
+               line="3741">a new #ICalComponent, or %NULL</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="out_added"
@@ -19208,7 +19208,7 @@ when no longer needed.</doc>
                    transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3738">a #GHashTable with added categories</doc>
+               line="3742">a #GHashTable with added categories</doc>
           <type name="GLib.HashTable" c:type="GHashTable**">
             <type name="utf8"/>
             <type name="gint"/>
@@ -19220,7 +19220,7 @@ when no longer needed.</doc>
                    transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3739">a #GHashTable with removed categories</doc>
+               line="3743">a #GHashTable with removed categories</doc>
           <type name="GLib.HashTable" c:type="GHashTable**">
             <type name="utf8"/>
             <type name="gint"/>
@@ -19233,7 +19233,7 @@ when no longer needed.</doc>
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3810">Compares two email addresses and returns whether they are equal.
+           line="3814">Compares two email addresses and returns whether they are equal.
 Each address can contain a "mailto:" prefix. The two addresses
 match only if they are non-NULL and non-empty. The address itself
 is compared case insensitively.</doc>
@@ -19242,7 +19242,7 @@ is compared case insensitively.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3820">%TRUE, when the @email1 equals to @email2</doc>
+             line="3824">%TRUE, when the @email1 equals to @email2</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -19252,7 +19252,7 @@ is compared case insensitively.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3812">the first email</doc>
+               line="3816">the first email</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="email2"
@@ -19261,7 +19261,7 @@ is compared case insensitively.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3813">the second email</doc>
+               line="3817">the second email</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -19271,7 +19271,7 @@ is compared case insensitively.</doc>
               version="3.48">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3628">Calls @func for each category stored in the @comp.</doc>
+           line="3632">Calls @func for each category stored in the @comp.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="468"/>
       <return-value transfer-ownership="none">
@@ -19281,7 +19281,7 @@ is compared case insensitively.</doc>
         <parameter name="comp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3630">an #ICalComponent</doc>
+               line="3634">an #ICalComponent</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="func"
@@ -19290,7 +19290,7 @@ is compared case insensitively.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3631">an #ECalUtilForeachCategoryFunc callback to call for each category</doc>
+               line="3635">an #ECalUtilForeachCategoryFunc callback to call for each category</doc>
           <type name="UtilForeachCategoryFunc"
                 c:type="ECalUtilForeachCategoryFunc"/>
         </parameter>
@@ -19300,7 +19300,7 @@ is compared case insensitively.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3632">user data passed to the @func</doc>
+               line="3636">user data passed to the @func</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -19335,13 +19335,13 @@ See e_cal_util_generate_alarms_for_uid_sync()</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="839">Start time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="end" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="840">End time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="omit" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -19410,13 +19410,13 @@ See e_cal_util_generate_alarms_for_uid_sync()</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="909">Start time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="end" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="910">End time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="omit" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -19511,13 +19511,13 @@ when no longer needed.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="966">start time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="end" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="967">end time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="omit" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -19574,7 +19574,7 @@ when no longer needed.</doc>
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3962">Returns an attendee email, without the "mailto:" prefix, if
+           line="3966">Returns an attendee email, without the "mailto:" prefix, if
 the @attendee has it set. The email can be read from an "EMAIL"
 parameter, if present.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -19582,7 +19582,7 @@ parameter, if present.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3970">email of the @attendee, or %NULL</doc>
+             line="3974">email of the @attendee, or %NULL</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
@@ -19592,7 +19592,7 @@ parameter, if present.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3964">an ECalComponentAttendee</doc>
+               line="3968">an ECalComponentAttendee</doc>
           <type name="ComponentAttendee"
                 c:type="const ECalComponentAttendee*"/>
         </parameter>
@@ -19603,7 +19603,7 @@ parameter, if present.</doc>
               version="2.32">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2278">Find out when the component starts and stops, being careful about
+           line="2282">Find out when the component starts and stops, being careful about
 recurrences.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="366"/>
@@ -19614,7 +19614,7 @@ recurrences.</doc>
         <parameter name="comp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2280">an #ECalComponent</doc>
+               line="2284">an #ECalComponent</doc>
           <type name="Component" c:type="ECalComponent*"/>
         </parameter>
         <parameter name="out_start"
@@ -19623,8 +19623,8 @@ recurrences.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2281">Location to store the start time</doc>
-          <type name="glong" c:type="time_t*"/>
+               line="2285">Location to store the start time</doc>
+          <type name="time_t" c:type="time_t*"/>
         </parameter>
         <parameter name="out_end"
                    direction="out"
@@ -19632,8 +19632,8 @@ recurrences.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2282">Location to store the end time</doc>
-          <type name="glong" c:type="time_t*"/>
+               line="2286">Location to store the end time</doc>
+          <type name="time_t" c:type="time_t*"/>
         </parameter>
         <parameter name="tz_cb"
                    transfer-ownership="none"
@@ -19641,7 +19641,7 @@ recurrences.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2283">The #ECalRecurResolveTimezoneCb to call</doc>
+               line="2287">The #ECalRecurResolveTimezoneCb to call</doc>
           <type name="RecurResolveTimezoneCb"
                 c:type="ECalRecurResolveTimezoneCb"/>
         </parameter>
@@ -19651,19 +19651,19 @@ recurrences.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2284">User data to be passed to the @tz_cb callback</doc>
+               line="2288">User data to be passed to the @tz_cb callback</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="default_timezone" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2285">The default timezone</doc>
+               line="2289">The default timezone</doc>
           <type name="ICalGLib.Timezone" c:type="const ICalTimezone*"/>
         </parameter>
         <parameter name="kind" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2286">the type of component, indicated with an #ICalComponentKind</doc>
+               line="2290">the type of component, indicated with an #ICalComponentKind</doc>
           <type name="ICalGLib.ComponentKind" c:type="ICalComponentKind"/>
         </parameter>
       </parameters>
@@ -19673,7 +19673,7 @@ recurrences.</doc>
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3840">Returns the real name and email address of the default mail identity,
+           line="3844">Returns the real name and email address of the default mail identity,
 if available.  If no default mail identity is available, @out_name and
 @out_address are set to %NULL and the function returns %FALSE.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -19681,14 +19681,14 @@ if available.  If no default mail identity is available, @out_name and
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3850">%TRUE if @out_name and/or @out_address were set</doc>
+             line="3854">%TRUE if @out_name and/or @out_address were set</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="registry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3842">an #ESourceRegistry</doc>
+               line="3846">an #ESourceRegistry</doc>
           <type name="EDataServer.SourceRegistry" c:type="ESourceRegistry*"/>
         </parameter>
         <parameter name="out_name"
@@ -19699,7 +19699,7 @@ if available.  If no default mail identity is available, @out_name and
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3843">return location for the user's real name, or %NULL</doc>
+               line="3847">return location for the user's real name, or %NULL</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
         <parameter name="out_address"
@@ -19710,7 +19710,7 @@ if available.  If no default mail identity is available, @out_name and
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3844">return location for the user's email address, or %NULL</doc>
+               line="3848">return location for the user's email address, or %NULL</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
       </parameters>
@@ -19720,7 +19720,7 @@ if available.  If no default mail identity is available, @out_name and
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3939">Returns an organizer email, without the "mailto:" prefix, if
+           line="3943">Returns an organizer email, without the "mailto:" prefix, if
 the @organizer has it set. The email can be read from an "EMAIL"
 parameter, if present.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -19728,7 +19728,7 @@ parameter, if present.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3947">email of the @organizer, or %NULL</doc>
+             line="3951">email of the @organizer, or %NULL</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
@@ -19738,7 +19738,7 @@ parameter, if present.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3941">an #ECalComponentOrganizer</doc>
+               line="3945">an #ECalComponentOrganizer</doc>
           <type name="ComponentOrganizer"
                 c:type="const ECalComponentOrganizer*"/>
         </parameter>
@@ -19749,7 +19749,7 @@ parameter, if present.</doc>
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3985">Returns an @prop email, without the "mailto:" prefix, if
+           line="3989">Returns an @prop email, without the "mailto:" prefix, if
 the @prop has it set. The email can be read from an "EMAIL"
 parameter, if present. Otherwise the @prop can be only of
 type %I_CAL_ORGANIZER_PROPERTY or %I_CAL_ATTENDEE_PROPERTY.
@@ -19760,14 +19760,14 @@ See also: e_cal_util_get_organizer_email(), e_cal_util_get_attendee_email()</doc
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3996">email of the @prop, or %NULL</doc>
+             line="4000">email of the @prop, or %NULL</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="prop" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3987">an #ICalProperty</doc>
+               line="3991">an #ICalProperty</doc>
           <type name="ICalGLib.Property" c:type="ICalProperty*"/>
         </parameter>
       </parameters>
@@ -19777,7 +19777,7 @@ See also: e_cal_util_get_organizer_email(), e_cal_util_get_attendee_email()</doc
               version="2.28">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2223">Fetches system timezone ICalTimezone object.
+           line="2227">Fetches system timezone ICalTimezone object.
 
 The returned pointer is part of the built-in timezones and should not be freed.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -19785,7 +19785,7 @@ The returned pointer is part of the built-in timezones and should not be freed.<
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2230">The ICalTimezone object of the system timezone, or %NULL on an error.</doc>
+             line="2234">The ICalTimezone object of the system timezone, or %NULL on an error.</doc>
         <type name="ICalGLib.Timezone" c:type="ICalTimezone*"/>
       </return-value>
     </function>
@@ -19794,13 +19794,13 @@ The returned pointer is part of the built-in timezones and should not be freed.<
               version="2.28">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2207">Fetches system timezone localtion string.</doc>
+           line="2211">Fetches system timezone localtion string.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="364"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2212">system timezone location string, %NULL
+             line="2216">system timezone location string, %NULL
 on an error.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -19830,13 +19830,13 @@ on an error.</doc>
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="877">start time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="end" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
                line="878">end time</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="omit" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -19939,7 +19939,7 @@ representation of the time.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2804">Initializes properties of a recurring @vtodo, like normalizing
+           line="2808">Initializes properties of a recurring @vtodo, like normalizing
 the Due date and eventually the Start date. The function does
 nothing when the @vtodo is not recurring.
 
@@ -19954,20 +19954,20 @@ to the @cal_client, it only updates the @vtodo component.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2822">Whether succeeded.</doc>
+             line="2826">Whether succeeded.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="vtodo" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2806">a VTODO component</doc>
+               line="2810">a VTODO component</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="cal_client" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2807">an #ECalClient to which the @vtodo belongs</doc>
+               line="2811">an #ECalClient to which the @vtodo belongs</doc>
           <type name="Client" c:type="_ECalClient*"/>
         </parameter>
         <parameter name="cancellable"
@@ -19976,7 +19976,7 @@ to the @cal_client, it only updates the @vtodo component.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2808">optional #GCancellable object, or %NULL</doc>
+               line="2812">optional #GCancellable object, or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -19987,7 +19987,7 @@ to the @cal_client, it only updates the @vtodo component.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3149">Changes all URL attachments which point to a local file in @component
+           line="3153">Changes all URL attachments which point to a local file in @component
 to inline attachments, aka adds the file content into the @component.
 It also populates FILENAME parameter on the attachment.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
@@ -19995,14 +19995,14 @@ It also populates FILENAME parameter on the attachment.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3159">Whether succeeded.</doc>
+             line="3163">Whether succeeded.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="component" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3151">an #ICalComponent to work with</doc>
+               line="3155">an #ICalComponent to work with</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="cancellable"
@@ -20011,7 +20011,7 @@ It also populates FILENAME parameter on the attachment.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3152">optional #GCancellable object, or %NULL</doc>
+               line="3156">optional #GCancellable object, or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -20021,27 +20021,27 @@ It also populates FILENAME parameter on the attachment.</doc>
               version="3.16">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2157">Returns whether the given @rid is the first instance of
+           line="2161">Returns whether the given @rid is the first instance of
 the recurrence defined in the @comp.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="359"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2167">Whether the @rid identifies the first instance of @comp.</doc>
+             line="2171">Whether the @rid identifies the first instance of @comp.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="comp" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2159">an #ECalComponent instance</doc>
+               line="2163">an #ECalComponent instance</doc>
           <type name="Component" c:type="ECalComponent*"/>
         </parameter>
         <parameter name="rid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2160">a recurrence ID</doc>
+               line="2164">a recurrence ID</doc>
           <type name="ICalGLib.Time" c:type="const ICalTime*"/>
         </parameter>
         <parameter name="tz_cb"
@@ -20050,7 +20050,7 @@ the recurrence defined in the @comp.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2161">The #ECalRecurResolveTimezoneCb to call</doc>
+               line="2165">The #ECalRecurResolveTimezoneCb to call</doc>
           <type name="RecurResolveTimezoneCb"
                 c:type="ECalRecurResolveTimezoneCb"/>
         </parameter>
@@ -20060,7 +20060,7 @@ the recurrence defined in the @comp.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2162">User data to be passed to the @tz_cb callback</doc>
+               line="2166">User data to be passed to the @tz_cb callback</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -20071,7 +20071,7 @@ the recurrence defined in the @comp.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="2868">Marks the @vtodo as complete with eventual update of other
+           line="2872">Marks the @vtodo as complete with eventual update of other
 properties. This is useful also for recurring tasks, for which
 it moves the @vtodo into the next occurrence according to
 the recurrence rule.
@@ -20091,26 +20091,26 @@ to the @cal_client, it only updates the @vtodo component.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="2892">Whether succeeded.</doc>
+             line="2896">Whether succeeded.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="vtodo" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2870">a VTODO component</doc>
+               line="2874">a VTODO component</doc>
           <type name="ICalGLib.Component" c:type="ICalComponent*"/>
         </parameter>
         <parameter name="completed_time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2871">completed time to set, or (time_t) -1 to use current time</doc>
-          <type name="glong" c:type="time_t"/>
+               line="2875">completed time to set, or (time_t) -1 to use current time</doc>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="cal_client" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2872">an #ECalClient to which the @vtodo belongs</doc>
+               line="2876">an #ECalClient to which the @vtodo belongs</doc>
           <type name="Client" c:type="_ECalClient*"/>
         </parameter>
         <parameter name="cancellable"
@@ -20119,7 +20119,7 @@ to the @cal_client, it only updates the @vtodo component.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="2873">optional #GCancellable object, or %NULL</doc>
+               line="2877">optional #GCancellable object, or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
       </parameters>
@@ -20214,13 +20214,13 @@ Uses @tz_cb with @tz_cb_data to resolve time zones when needed.</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3073">Decodes the #EConflictResolution from the bit-or of #ECalOperationFlags.</doc>
+           line="3077">Decodes the #EConflictResolution from the bit-or of #ECalOperationFlags.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="407"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3079">an #EConflictResolution as stored in the @flags</doc>
+             line="3083">an #EConflictResolution as stored in the @flags</doc>
         <type name="EDataServer.ConflictResolution"
               c:type="EConflictResolution"/>
       </return-value>
@@ -20228,7 +20228,7 @@ Uses @tz_cb with @tz_cb_data to resolve time zones when needed.</doc>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3075">bit-or of #ECalOperationFlags</doc>
+               line="3079">bit-or of #ECalOperationFlags</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -20482,33 +20482,33 @@ Free the returned string with g_free(), when no longer needed.</doc>
               version="3.40">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3249">Sets the ACKNOWLEDGED property on the @component's alarm with UID @auid
+           line="3253">Sets the ACKNOWLEDGED property on the @component's alarm with UID @auid
 to the time @when (in UTC), or to the current time, when the @when is 0.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="415"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3258">Whether succeeded.</doc>
+             line="3262">Whether succeeded.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="component" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3251">an #ECalComponent</doc>
+               line="3255">an #ECalComponent</doc>
           <type name="Component" c:type="ECalComponent*"/>
         </parameter>
         <parameter name="auid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3252">an alarm UID to modify</doc>
+               line="3256">an alarm UID to modify</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="when" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3253">a time, in UTC, when to set the acknowledged property, or 0 for the current time</doc>
+               line="3257">a time, in UTC, when to set the acknowledged property, or 0 for the current time</doc>
           <type name="gint64" c:type="gint64"/>
         </parameter>
       </parameters>
@@ -20637,14 +20637,14 @@ done with it.</doc>
               version="3.50">
       <doc xml:space="preserve"
            filename="src/calendar/libecal/e-cal-util.c"
-           line="3787">Strips "mailto:" prefix from the @address, if present. The returned
+           line="3791">Strips "mailto:" prefix from the @address, if present. The returned
 pointer is either the @address or a shifted position within the @address.</doc>
       <source-position filename="src/calendar/libecal/e-cal-util.h"
                        line="476"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-cal-util.c"
-             line="3794">the @address without the "mailto:" prefix</doc>
+             line="3798">the @address without the "mailto:" prefix</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
@@ -20654,7 +20654,7 @@ pointer is either the @address or a shifted position within the @address.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-cal-util.c"
-               line="3789">an address with or without "mailto:" prefix</doc>
+               line="3793">an address with or without "mailto:" prefix</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

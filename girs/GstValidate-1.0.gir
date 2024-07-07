@@ -147,7 +147,7 @@ Only access it from the default main context.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="537">A newly created #GstValidateAction</doc>
+               line="542">A newly created #GstValidateAction</doc>
           <type name="Action" c:type="GstValidateAction*"/>
         </return-value>
         <parameters>
@@ -157,25 +157,25 @@ Only access it from the default main context.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="532">The scenario executing the action</doc>
+                 line="537">The scenario executing the action</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </parameter>
           <parameter name="action_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="533">The action type</doc>
+                 line="538">The action type</doc>
             <type name="ActionType" c:type="GstValidateActionType*"/>
           </parameter>
           <parameter name="structure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="534">The structure containing the action arguments</doc>
+                 line="539">The structure containing the action arguments</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
           <parameter name="add_to_lists" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="535">Weather the action should be added to the scenario action list</doc>
+                 line="540">Weather the action should be added to the scenario action list</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -184,20 +184,20 @@ Only access it from the default main context.</doc>
               c:identifier="gst_validate_action_get_scenario">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6396">Retrieve the scenario from which @action is executed.</doc>
+             line="7277">Retrieve the scenario from which @action is executed.</doc>
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
                          line="165"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6402">The scenario from which the action is being executed.</doc>
+               line="7283">The scenario from which the action is being executed.</doc>
           <type name="Scenario" c:type="GstValidateScenario*"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="6398">The action for which to retrieve the scenario</doc>
+                 line="7279">The action for which to retrieve the scenario</doc>
             <type name="Action" c:type="GstValidateAction*"/>
           </instance-parameter>
         </parameters>
@@ -242,39 +242,39 @@ Only access it from the default main context.</doc>
                 c:identifier="gst_validate_action_get_clocktime">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="861">Get a time value for the @name parameter of an action. This
+             line="906">Get a time value for the @name parameter of an action. This
 method should be called to retrieve and compute a timed value of a given
 action. It will first try to retrieve the value as a double,
 then get it as a string and execute any formula taking into account
 the 'position' and 'duration' variables. And it will always convert that
 value to a GstClockTime.</doc>
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="397"/>
+                         line="406"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="877">%TRUE if the time value could be retrieved/computed or %FALSE otherwise</doc>
+               line="922">%TRUE if the time value could be retrieved/computed or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="scenario" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="863">The #GstValidateScenario from which to get a time
+                 line="908">The #GstValidateScenario from which to get a time
            for a parameter of an action</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="865">The action from which to retrieve the time for @name
+                 line="910">The action from which to retrieve the time for @name
          parameter.</doc>
             <type name="Action" c:type="GstValidateAction*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="867">The name of the parameter for which to retrieve a time</doc>
+                 line="912">The name of the parameter for which to retrieve a time</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="retval"
@@ -283,7 +283,7 @@ value to a GstClockTime.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="868">The return value for the wanted time</doc>
+                 line="913">The return value for the wanted time</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -291,7 +291,7 @@ value to a GstClockTime.</doc>
     </record>
     <record name="ActionParameter" c:type="GstValidateActionParameter">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="323"/>
+                       line="332"/>
       <field name="name" writable="1">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.h"
@@ -340,8 +340,14 @@ value to a GstClockTime.</doc>
       for mandatory streams.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
+      <field name="free" version="1.24" writable="1">
+        <doc xml:space="preserve"
+             filename="validate/gst/validate/gst-validate-scenario.h"
+             line="321">Function that frees the various members of the structure when done using</doc>
+        <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+      </field>
       <field name="_gst_reserved" readable="0" private="1">
-        <array zero-terminated="0" fixed-size="4">
+        <array zero-terminated="0" fixed-size="3">
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
@@ -1087,32 +1093,32 @@ Class that wraps a #GstElement for Validate checks</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="273">The newly created #GstValidateIssue</doc>
+               line="274">The newly created #GstValidateIssue</doc>
           <type name="Issue" c:type="GstValidateIssue*"/>
         </return-value>
         <parameters>
           <parameter name="issue_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="268">The ID of the issue, should be a GQuark</doc>
+                 line="269">The ID of the issue, should be a GQuark</doc>
             <type name="IssueId" c:type="GstValidateIssueId"/>
           </parameter>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="269">A summary of the issue</doc>
+                 line="270">A summary of the issue</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="270">A more complete description of the issue</doc>
+                 line="271">A more complete description of the issue</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="default_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="271">The level at which the issue will be reported by default</doc>
+                 line="272">The level at which the issue will be reported by default</doc>
             <type name="ReportLevel" c:type="GstValidateReportLevel"/>
           </parameter>
         </parameters>
@@ -1123,38 +1129,38 @@ Class that wraps a #GstElement for Validate checks</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="235">The newly created #GstValidateIssue</doc>
+               line="236">The newly created #GstValidateIssue</doc>
           <type name="Issue" c:type="GstValidateIssue*"/>
         </return-value>
         <parameters>
           <parameter name="issue_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="229">The ID of the issue, should be a GQuark</doc>
+                 line="230">The ID of the issue, should be a GQuark</doc>
             <type name="IssueId" c:type="GstValidateIssueId"/>
           </parameter>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="230">A summary of the issue</doc>
+                 line="231">A summary of the issue</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="231">A more complete description of the issue</doc>
+                 line="232">A more complete description of the issue</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="default_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="232">The level at which the issue will be reported by default</doc>
+                 line="233">The level at which the issue will be reported by default</doc>
             <type name="ReportLevel" c:type="GstValidateReportLevel"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="233">The flags to determine behaviour of the issue</doc>
+                 line="234">The flags to determine behaviour of the issue</doc>
             <type name="IssueFlags" c:type="GstValidateIssueFlags"/>
           </parameter>
         </parameters>
@@ -1174,7 +1180,7 @@ Class that wraps a #GstElement for Validate checks</doc>
       <method name="register" c:identifier="gst_validate_issue_register">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-report.c"
-             line="314">Registers @issue in the issue type system</doc>
+             line="315">Registers @issue in the issue type system</doc>
         <source-position filename="validate/gst/validate/gst-validate-report.h"
                          line="295"/>
         <return-value transfer-ownership="none">
@@ -1184,7 +1190,7 @@ Class that wraps a #GstElement for Validate checks</doc>
           <instance-parameter name="issue" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="316">The #GstValidateIssue to register</doc>
+                 line="317">The #GstValidateIssue to register</doc>
             <type name="Issue" c:type="GstValidateIssue*"/>
           </instance-parameter>
         </parameters>
@@ -1211,14 +1217,14 @@ Class that wraps a #GstElement for Validate checks</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="753">The issue if found or NULL otherwise</doc>
+               line="754">The issue if found or NULL otherwise</doc>
           <type name="Issue" c:type="GstValidateIssue*"/>
         </return-value>
         <parameters>
           <parameter name="issue_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-report.c"
-                 line="751">The issue id</doc>
+                 line="752">The issue id</doc>
             <type name="IssueId" c:type="GstValidateIssueId"/>
           </parameter>
         </parameters>
@@ -2472,6 +2478,32 @@ target is in.</doc>
         </array>
       </field>
     </record>
+    <bitfield name="ObjectSetPropertyFlags"
+              version="1.24"
+              glib:type-name="GstValidateObjectSetPropertyFlags"
+              glib:get-type="gst_validate_object_set_property_flags_get_type"
+              c:type="GstValidateObjectSetPropertyFlags">
+      <member name="optional"
+              value="1"
+              c:identifier="GST_VALIDATE_OBJECT_SET_PROPERTY_FLAGS_OPTIONAL"
+              glib:nick="optional"
+              glib:name="GST_VALIDATE_OBJECT_SET_PROPERTY_FLAGS_OPTIONAL">
+        <doc xml:space="preserve"
+             filename="validate/gst/validate/gst-validate-enums.h"
+             line="119">The property is optional, if it
+is not found on the object, nothing happens.</doc>
+      </member>
+      <member name="no_value_check"
+              value="2"
+              c:identifier="GST_VALIDATE_OBJECT_SET_PROPERTY_FLAGS_NO_VALUE_CHECK"
+              glib:nick="no-value-check"
+              glib:name="GST_VALIDATE_OBJECT_SET_PROPERTY_FLAGS_NO_VALUE_CHECK">
+        <doc xml:space="preserve"
+             filename="validate/gst/validate/gst-validate-enums.h"
+             line="121">Do not check that after
+setting the property, the value is the one we set.</doc>
+      </member>
+    </bitfield>
     <class name="Override"
            c:symbol-prefix="override"
            c:type="GstValidateOverride"
@@ -3494,20 +3526,20 @@ Class that wraps a #GstPipeline for Validate checks</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-pipeline-monitor.c"
-               line="829">A #GstValidatePipelineMonitor</doc>
+               line="887">A #GstValidatePipelineMonitor</doc>
           <type name="PipelineMonitor" c:type="GstValidatePipelineMonitor*"/>
         </return-value>
         <parameters>
           <parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-pipeline-monitor.c"
-                 line="825">a #GstPipeline to run Validate on</doc>
+                 line="883">a #GstPipeline to run Validate on</doc>
             <type name="Gst.Pipeline" c:type="GstPipeline*"/>
           </parameter>
           <parameter name="runner" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-pipeline-monitor.c"
-                 line="826">a #GstValidateRunner</doc>
+                 line="884">a #GstValidateRunner</doc>
             <type name="Runner" c:type="GstValidateRunner*"/>
           </parameter>
           <parameter name="parent"
@@ -3516,7 +3548,7 @@ Class that wraps a #GstPipeline for Validate checks</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-pipeline-monitor.c"
-                 line="827">The parent of the new monitor</doc>
+                 line="885">The parent of the new monitor</doc>
             <type name="Monitor" c:type="GstValidateMonitor*"/>
           </parameter>
         </parameters>
@@ -3786,7 +3818,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="219">report dot file name</doc>
+               line="220">report dot file name</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -3803,7 +3835,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="184">report issue</doc>
+               line="185">report issue</doc>
           <type name="Issue" c:type="GstValidateIssue*"/>
         </return-value>
         <parameters>
@@ -3833,7 +3865,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="163">report level</doc>
+               line="164">report level</doc>
           <type name="ReportLevel" c:type="GstValidateReportLevel"/>
         </return-value>
         <parameters>
@@ -3850,7 +3882,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="198">report message</doc>
+               line="199">report message</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -3867,7 +3899,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="191">report reporter</doc>
+               line="192">report reporter</doc>
           <type name="Reporter" c:type="GstValidateReporter*"/>
         </return-value>
         <parameters>
@@ -3884,7 +3916,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="205">report issue</doc>
+               line="206">report issue</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -3901,7 +3933,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="177">reporting level</doc>
+               line="178">reporting level</doc>
           <type name="ReportingDetails" c:type="GstValidateReportingDetails"/>
         </return-value>
         <parameters>
@@ -3918,7 +3950,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="170">report timestamp</doc>
+               line="171">report timestamp</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
@@ -3935,7 +3967,7 @@ as the source of that issue.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="212">report backtrace</doc>
+               line="213">report backtrace</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -4745,13 +4777,13 @@ Class that manages a Validate test run for some pipeline</doc>
       <constructor name="new" c:identifier="gst_validate_runner_new">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-runner.c"
-             line="463">Create a new #GstValidateRunner</doc>
+             line="464">Create a new #GstValidateRunner</doc>
         <source-position filename="validate/gst/validate/gst-validate-runner.h"
                          line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-runner.c"
-               line="468">A newly created #GstValidateRunner</doc>
+               line="469">A newly created #GstValidateRunner</doc>
           <type name="Runner" c:type="GstValidateRunner*"/>
         </return-value>
       </constructor>
@@ -4821,7 +4853,7 @@ Class that manages a Validate test run for some pipeline</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-runner.c"
-               line="784">The list of reports</doc>
+               line="785">The list of reports</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Report"/>
           </type>
@@ -4830,7 +4862,7 @@ Class that manages a Validate test run for some pipeline</doc>
           <instance-parameter name="runner" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-runner.c"
-                 line="782">The #GstValidateRunner</doc>
+                 line="783">The #GstValidateRunner</doc>
             <type name="Runner" c:type="GstValidateRunner*"/>
           </instance-parameter>
         </parameters>
@@ -4839,20 +4871,20 @@ Class that manages a Validate test run for some pipeline</doc>
               c:identifier="gst_validate_runner_get_reports_count">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-runner.c"
-             line="752">Get the number of reports present in the runner:</doc>
+             line="753">Get the number of reports present in the runner:</doc>
         <source-position filename="validate/gst/validate/gst-validate-runner.h"
                          line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-runner.c"
-               line="758">The number of reports present in the runner.</doc>
+               line="759">The number of reports present in the runner.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="runner" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-runner.c"
-                 line="754">The #GstValidateRunner to get the number of reports from</doc>
+                 line="755">The #GstValidateRunner to get the number of reports from</doc>
             <type name="Runner" c:type="GstValidateRunner*"/>
           </instance-parameter>
         </parameters>
@@ -4860,14 +4892,14 @@ Class that manages a Validate test run for some pipeline</doc>
       <method name="printf" c:identifier="gst_validate_runner_printf">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-runner.c"
-             line="850">Prints all the reports on the terminal or on wherever is set
+             line="851">Prints all the reports on the terminal or on wherever is set
 in the `GST_VALIDATE_FILE` env variable.</doc>
         <source-position filename="validate/gst/validate/gst-validate-runner.h"
                          line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-runner.c"
-               line="857">0 if no critical error has been found and 18 if a critical
+               line="858">0 if no critical error has been found and 18 if a critical
 error has been detected. That return value is usually to be used as
 exit code of the application.</doc>
           <type name="gint" c:type="int"/>
@@ -4876,7 +4908,7 @@ exit code of the application.</doc>
           <instance-parameter name="runner" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-runner.c"
-                 line="852">The #GstValidateRunner to print all the reports for</doc>
+                 line="853">The #GstValidateRunner to print all the reports for</doc>
             <type name="Runner" c:type="GstValidateRunner*"/>
           </instance-parameter>
         </parameters>
@@ -4946,7 +4978,7 @@ exit code of the application.</doc>
                     c:identifier="GST_VALIDATE_SCENARIO_EOS_HANDLING_LOCK"
                     introspectable="0">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="360"/>
+                       line="369"/>
       <parameters>
         <parameter name="scenario">
         </parameter>
@@ -4956,7 +4988,7 @@ exit code of the application.</doc>
                     c:identifier="GST_VALIDATE_SCENARIO_EOS_HANDLING_UNLOCK"
                     introspectable="0">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="361"/>
+                       line="370"/>
       <parameters>
         <parameter name="scenario">
         </parameter>
@@ -4970,11 +5002,11 @@ exit code of the application.</doc>
            glib:get-type="gst_validate_scenario_get_type"
            glib:type-struct="ScenarioClass">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="332"/>
+                       line="341"/>
       <implements name="Reporter"/>
       <function name="deinit" c:identifier="gst_validate_scenario_deinit">
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="426"/>
+                         line="435"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4982,30 +5014,30 @@ exit code of the application.</doc>
       <function name="factory_create"
                 c:identifier="gst_validate_scenario_factory_create">
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="367"/>
+                         line="376"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="5402">A #GstValidateScenario or NULL</doc>
+               line="6056">A #GstValidateScenario or NULL</doc>
           <type name="Scenario" c:type="GstValidateScenario*"/>
         </return-value>
         <parameters>
           <parameter name="runner" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="5398">The #GstValidateRunner to use to report issues</doc>
+                 line="6052">The #GstValidateRunner to use to report issues</doc>
             <type name="Runner" c:type="GstValidateRunner*"/>
           </parameter>
           <parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="5399">The pipeline to run the scenario on</doc>
+                 line="6053">The pipeline to run the scenario on</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
           <parameter name="scenario_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="5400">The name (or path) of the scenario to run</doc>
+                 line="6054">The name (or path) of the scenario to run</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5014,72 +5046,72 @@ exit code of the application.</doc>
               c:identifier="gst_validate_scenario_execute_seek">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="1057">Executes a seek event on the scenario's pipeline. You should always use
+             line="1102">Executes a seek event on the scenario's pipeline. You should always use
 this method when you want to execute a seek inside a new action type
 so that the scenario state is updated taking into account that seek.
 
 For more information you should have a look at #gst_event_new_seek</doc>
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="403"/>
+                         line="412"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="1075">%TRUE if the seek could be executed, %FALSE otherwise</doc>
+               line="1120">%TRUE if the seek could be executed, %FALSE otherwise</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="scenario" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1059">The #GstValidateScenario for which to execute a seek action</doc>
+                 line="1104">The #GstValidateScenario for which to execute a seek action</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1060">The seek action to execute</doc>
+                 line="1105">The seek action to execute</doc>
             <type name="Action" c:type="GstValidateAction*"/>
           </parameter>
           <parameter name="rate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1061">The playback rate of the seek</doc>
+                 line="1106">The playback rate of the seek</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1062">The #GstFormat of the seek</doc>
+                 line="1107">The #GstFormat of the seek</doc>
             <type name="Gst.Format" c:type="GstFormat"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1063">The #GstSeekFlags of the seek</doc>
+                 line="1108">The #GstSeekFlags of the seek</doc>
             <type name="Gst.SeekFlags" c:type="GstSeekFlags"/>
           </parameter>
           <parameter name="start_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1064">The #GstSeekType of the start value of the seek</doc>
+                 line="1109">The #GstSeekType of the start value of the seek</doc>
             <type name="Gst.SeekType" c:type="GstSeekType"/>
           </parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1065">The start time of the seek</doc>
+                 line="1110">The start time of the seek</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
           <parameter name="stop_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1066">The #GstSeekType of the stop value of the seek</doc>
+                 line="1111">The #GstSeekType of the stop value of the seek</doc>
             <type name="Gst.SeekType" c:type="GstSeekType"/>
           </parameter>
           <parameter name="stop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="1067">The stop time of the seek</doc>
+                 line="1112">The stop time of the seek</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -5088,13 +5120,13 @@ For more information you should have a look at #gst_event_new_seek</doc>
               c:identifier="gst_validate_scenario_get_actions">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6615">Get remaining actions from @scenario.</doc>
+             line="7496">Get remaining actions from @scenario.</doc>
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="414"/>
+                         line="423"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6621">A list of #GstValidateAction.</doc>
+               line="7502">A list of #GstValidateAction.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Action"/>
           </type>
@@ -5103,7 +5135,7 @@ For more information you should have a look at #gst_event_new_seek</doc>
           <instance-parameter name="scenario" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="6617">The scenario to retrieve remaining actions for</doc>
+                 line="7498">The scenario to retrieve remaining actions for</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </instance-parameter>
         </parameters>
@@ -5111,11 +5143,11 @@ For more information you should have a look at #gst_event_new_seek</doc>
       <method name="get_pipeline"
               c:identifier="gst_validate_scenario_get_pipeline">
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="423"/>
+                         line="432"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="327">The #GstPipeline the scenario is running
+               line="330">The #GstPipeline the scenario is running
 against</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
@@ -5123,7 +5155,7 @@ against</doc>
           <instance-parameter name="scenario" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="325">The scenario to retrieve a pipeline from</doc>
+                 line="328">The scenario to retrieve a pipeline from</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </instance-parameter>
         </parameters>
@@ -5132,20 +5164,20 @@ against</doc>
               c:identifier="gst_validate_scenario_get_target_state">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6640">Get current target state from @scenario.</doc>
+             line="7521">Get current target state from @scenario.</doc>
         <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                         line="420"/>
+                         line="429"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6646">Current target state.</doc>
+               line="7527">Current target state.</doc>
           <type name="Gst.State" c:type="GstState"/>
         </return-value>
         <parameters>
           <instance-parameter name="scenario" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="6642">The scenario to retrieve the current target state for</doc>
+                 line="7523">The scenario to retrieve the current target state for</doc>
             <type name="Scenario" c:type="GstValidateScenario*"/>
           </instance-parameter>
         </parameters>
@@ -5187,7 +5219,7 @@ against</doc>
       <glib:signal name="action-done" when="last" version="1.20">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="5048">Emitted when an action is done.</doc>
+             line="5653">Emitted when an action is done.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5195,7 +5227,7 @@ against</doc>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="validate/gst/validate/gst-validate-scenario.c"
-                 line="5051">The #GstValidateAction that is done running</doc>
+                 line="5656">The #GstValidateAction that is done running</doc>
             <type name="Action"/>
           </parameter>
         </parameters>
@@ -5203,7 +5235,7 @@ against</doc>
       <glib:signal name="done" when="last">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="5038">Emitted once all actions have been executed</doc>
+             line="5643">Emitted once all actions have been executed</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5213,7 +5245,7 @@ against</doc>
             c:type="GstValidateScenarioClass"
             glib:is-gtype-struct-for="Scenario">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="332"/>
+                       line="341"/>
       <field name="parent_class">
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
@@ -5347,39 +5379,39 @@ against</doc>
               moved-to="Action.get_clocktime">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-scenario.c"
-           line="861">Get a time value for the @name parameter of an action. This
+           line="906">Get a time value for the @name parameter of an action. This
 method should be called to retrieve and compute a timed value of a given
 action. It will first try to retrieve the value as a double,
 then get it as a string and execute any formula taking into account
 the 'position' and 'duration' variables. And it will always convert that
 value to a GstClockTime.</doc>
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="397"/>
+                       line="406"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="877">%TRUE if the time value could be retrieved/computed or %FALSE otherwise</doc>
+             line="922">%TRUE if the time value could be retrieved/computed or %FALSE otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="scenario" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="863">The #GstValidateScenario from which to get a time
+               line="908">The #GstValidateScenario from which to get a time
            for a parameter of an action</doc>
           <type name="Scenario" c:type="GstValidateScenario*"/>
         </parameter>
         <parameter name="action" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="865">The action from which to retrieve the time for @name
+               line="910">The action from which to retrieve the time for @name
          parameter.</doc>
           <type name="Action" c:type="GstValidateAction*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="867">The name of the parameter for which to retrieve a time</doc>
+               line="912">The name of the parameter for which to retrieve a time</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="retval"
@@ -5388,7 +5420,7 @@ value to a GstClockTime.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="868">The return value for the wanted time</doc>
+               line="913">The return value for the wanted time</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime*"/>
         </parameter>
       </parameters>
@@ -5433,14 +5465,14 @@ value to a GstClockTime.</doc>
               c:identifier="gst_validate_element_matches_target">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-utils.c"
-           line="1171">Check if @element matches one of the 'target-element-name',
+           line="1184">Check if @element matches one of the 'target-element-name',
 'target-element-klass' or 'target-element-factory-name' defined in @s.</doc>
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="81"/>
+                       line="89"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-utils.c"
-             line="1179">%TRUE if it matches, %FALSE otherwise or if @s doesn't contain any
+             line="1192">%TRUE if it matches, %FALSE otherwise or if @s doesn't contain any
 target-element field.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -5448,13 +5480,13 @@ target-element field.</doc>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-utils.c"
-               line="1173">a #GstElement to check</doc>
+               line="1186">a #GstElement to check</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="s" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-utils.c"
-               line="1174">a #GstStructure to use for matching</doc>
+               line="1187">a #GstStructure to use for matching</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </parameter>
       </parameters>
@@ -5485,9 +5517,9 @@ target-element field.</doc>
     <function name="execute_action" c:identifier="gst_validate_execute_action">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-scenario.c"
-           line="2482">Executes @action</doc>
+           line="2845">Executes @action</doc>
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="416"/>
+                       line="425"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -5495,13 +5527,13 @@ target-element field.</doc>
         <parameter name="action_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="2484">The #GstValidateActionType to execute</doc>
+               line="2847">The #GstValidateActionType to execute</doc>
           <type name="ActionType" c:type="GstValidateActionType*"/>
         </parameter>
         <parameter name="action" transfer-ownership="full">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="2485">The #GstValidateAction to execute</doc>
+               line="2848">The #GstValidateAction to execute</doc>
           <type name="Action" c:type="GstValidateAction*"/>
         </parameter>
       </parameters>
@@ -5509,7 +5541,7 @@ target-element field.</doc>
     <function name="fail_on_missing_plugin"
               c:identifier="gst_validate_fail_on_missing_plugin">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="90"/>
+                       line="98"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -5517,7 +5549,7 @@ target-element field.</doc>
     <function name="get_action_type"
               c:identifier="gst_validate_get_action_type">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="376"/>
+                       line="385"/>
       <return-value transfer-ownership="full">
         <type name="ActionType" c:type="GstValidateActionType*"/>
       </return-value>
@@ -5603,7 +5635,7 @@ Possible configurations (see [GST_VALIDATE_CONFIG](gst-validate-environment-vari
     <function name="has_colored_output"
               c:identifier="gst_validate_has_colored_output">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="91"/>
+                       line="99"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -5639,21 +5671,21 @@ function.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-report.c"
-             line="753">The issue if found or NULL otherwise</doc>
+             line="754">The issue if found or NULL otherwise</doc>
         <type name="Issue" c:type="GstValidateIssue*"/>
       </return-value>
       <parameters>
         <parameter name="issue_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="751">The issue id</doc>
+               line="752">The issue id</doc>
           <type name="IssueId" c:type="GstValidateIssueId"/>
         </parameter>
       </parameters>
     </function>
     <function name="list_scenarios" c:identifier="gst_validate_list_scenarios">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="371"/>
+                       line="380"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -5726,6 +5758,48 @@ function.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="object_set_property_full"
+              c:identifier="gst_validate_object_set_property_full"
+              version="1.24">
+      <source-position filename="validate/gst/validate/gst-validate-utils.h"
+                       line="78"/>
+      <return-value transfer-ownership="none">
+        <type name="ActionReturn" c:type="GstValidateActionReturn"/>
+      </return-value>
+      <parameters>
+        <parameter name="reporter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="validate/gst/validate/gst-validate-utils.c"
+               line="1037">The #GstValidateReporter to use to report errors</doc>
+          <type name="Reporter" c:type="GstValidateReporter*"/>
+        </parameter>
+        <parameter name="object" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="validate/gst/validate/gst-validate-utils.c"
+               line="1038">The #GObject to set the property on</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="validate/gst/validate/gst-validate-utils.c"
+               line="1039">The name of the property to set</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="validate/gst/validate/gst-validate-utils.c"
+               line="1040">The value to set the property to</doc>
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="validate/gst/validate/gst-validate-utils.c"
+               line="1041">The #GstValidateObjectSetPropertyFlags to use</doc>
+          <type name="ObjectSetPropertyFlags"
+                c:type="GstValidateObjectSetPropertyFlags"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="override_registry_attach_overrides"
               c:identifier="gst_validate_override_registry_attach_overrides"
               moved-to="OverrideRegistry.attach_overrides">
@@ -5786,7 +5860,7 @@ is #NULL</doc>
     <function name="print_action" c:identifier="gst_validate_print_action">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-report.c"
-           line="992">Print @message to the GstValidate logging system</doc>
+           line="993">Print @message to the GstValidate logging system</doc>
       <source-position filename="validate/gst/validate/gst-validate-report.h"
                        line="341"/>
       <return-value transfer-ownership="none">
@@ -5799,13 +5873,13 @@ is #NULL</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="994">The source object to log</doc>
+               line="995">The source object to log</doc>
           <type name="Action" c:type="GstValidateAction*"/>
         </parameter>
         <parameter name="message" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-report.c"
-               line="995">The message to print out in the GstValidate logging system</doc>
+               line="996">The message to print out in the GstValidate logging system</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -5814,20 +5888,20 @@ is #NULL</doc>
               c:identifier="gst_validate_print_action_types">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-scenario.c"
-           line="6553">Prints the action types details wanted in @wanted_types</doc>
+           line="7434">Prints the action types details wanted in @wanted_types</doc>
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
                        line="289"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6560">True if all types could be printed</doc>
+             line="7441">True if all types could be printed</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="wanted_types" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6555">(optional):  List of types to be printed</doc>
+               line="7436">(optional):  List of types to be printed</doc>
           <array length="1" zero-terminated="0" c:type="const gchar**">
             <type name="utf8" c:type="gchar*"/>
           </array>
@@ -5835,7 +5909,7 @@ is #NULL</doc>
         <parameter name="num_wanted_types" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6556">Length of @wanted_types</doc>
+               line="7437">Length of @wanted_types</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -5918,14 +5992,14 @@ is #NULL</doc>
               c:identifier="gst_validate_register_action_type">
       <doc xml:space="preserve"
            filename="validate/gst/validate/gst-validate-scenario.c"
-           line="6410">Register a new action type to the action type system. If the action type already
+           line="7291">Register a new action type to the action type system. If the action type already
 exists, it will be overridden by the new definition</doc>
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="379"/>
+                       line="388"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6425">The newly created action type or the already registered action type
+             line="7306">The newly created action type or the already registered action type
 if it had a higher rank</doc>
         <type name="ActionType" c:type="GstValidateActionType*"/>
       </return-value>
@@ -5933,13 +6007,13 @@ if it had a higher rank</doc>
         <parameter name="type_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6412">The name of the new action type to add</doc>
+               line="7293">The name of the new action type to add</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="implementer_namespace" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6413">The namespace of the implementer of the action type.
+               line="7294">The namespace of the implementer of the action type.
                         That should always be the name of the GstPlugin as
                         retrieved with #gst_plugin_get_name when the action type
                         is registered inside a plugin.</doc>
@@ -5948,7 +6022,7 @@ if it had a higher rank</doc>
         <parameter name="function" transfer-ownership="none" scope="notified">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6417">The function to be called to execute the action</doc>
+               line="7298">The function to be called to execute the action</doc>
           <type name="ExecuteAction" c:type="GstValidateExecuteAction"/>
         </parameter>
         <parameter name="parameters"
@@ -5957,7 +6031,7 @@ if it had a higher rank</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6418">The #GstValidateActionParameter usable as parameter of the type</doc>
+               line="7299">The #GstValidateActionParameter usable as parameter of the type</doc>
           <array c:type="GstValidateActionParameter*">
             <type name="ActionParameter"/>
           </array>
@@ -5965,13 +6039,13 @@ if it had a higher rank</doc>
         <parameter name="description" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6419">A description of the new type</doc>
+               line="7300">A description of the new type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6420">The #GstValidateActionTypeFlags to set on the new action type</doc>
+               line="7301">The #GstValidateActionTypeFlags to set on the new action type</doc>
           <type name="ActionTypeFlags" c:type="GstValidateActionTypeFlags"/>
         </parameter>
       </parameters>
@@ -5979,11 +6053,11 @@ if it had a higher rank</doc>
     <function name="register_action_type_dynamic"
               c:identifier="gst_validate_register_action_type_dynamic">
       <source-position filename="validate/gst/validate/gst-validate-scenario.h"
-                       line="387"/>
+                       line="396"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-scenario.c"
-             line="6467">The newly created action type or the already registered action type
+             line="7348">The newly created action type or the already registered action type
 if it had a higher rank</doc>
         <type name="ActionType" c:type="GstValidateActionType*"/>
       </return-value>
@@ -5994,20 +6068,20 @@ if it had a higher rank</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6453">The #GstPlugin that register the action type,
+               line="7334">The #GstPlugin that register the action type,
                        or NULL for a static element.</doc>
           <type name="Gst.Plugin" c:type="GstPlugin*"/>
         </parameter>
         <parameter name="type_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6461">The name of the new action type to add</doc>
+               line="7342">The name of the new action type to add</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="rank" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6455">The ranking of that implementation of the action type called
+               line="7336">The ranking of that implementation of the action type called
        @type_name. If an action type has been registered with the same
        name with a higher rank, the new implementation will not be used,
        and the already registered action type is returned.
@@ -6018,7 +6092,7 @@ if it had a higher rank</doc>
         <parameter name="function" transfer-ownership="none" scope="notified">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6462">The function to be called to execute the action</doc>
+               line="7343">The function to be called to execute the action</doc>
           <type name="ExecuteAction" c:type="GstValidateExecuteAction"/>
         </parameter>
         <parameter name="parameters"
@@ -6027,7 +6101,7 @@ if it had a higher rank</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6463">The #GstValidateActionParameter usable as parameter of the type</doc>
+               line="7344">The #GstValidateActionParameter usable as parameter of the type</doc>
           <array c:type="GstValidateActionParameter*">
             <type name="ActionParameter"/>
           </array>
@@ -6035,13 +6109,13 @@ if it had a higher rank</doc>
         <parameter name="description" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6464">A description of the new type</doc>
+               line="7345">A description of the new type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-scenario.c"
-               line="6465">The #GstValidateActionTypeFlags to be set on the new action type</doc>
+               line="7346">The #GstValidateActionTypeFlags to be set on the new action type</doc>
           <type name="ActionTypeFlags" c:type="GstValidateActionTypeFlags"/>
         </parameter>
       </parameters>
@@ -6049,7 +6123,7 @@ if it had a higher rank</doc>
     <function name="replace_variables_in_string"
               c:identifier="gst_validate_replace_variables_in_string">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="82"/>
+                       line="90"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -6152,7 +6226,7 @@ You can also use #GST_VALIDATE_REPORT instead.</doc>
     </function>
     <function name="set_globals" c:identifier="gst_validate_set_globals">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="88"/>
+                       line="96"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6197,7 +6271,7 @@ You can also use #GST_VALIDATE_REPORT instead.</doc>
     <function name="spin_on_fault_signals"
               c:identifier="gst_validate_spin_on_fault_signals">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="78"/>
+                       line="86"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6225,7 +6299,7 @@ You can also use #GST_VALIDATE_REPORT instead.</doc>
     <function name="structure_resolve_variables"
               c:identifier="gst_validate_structure_resolve_variables">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="85"/>
+                       line="93"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6251,7 +6325,7 @@ You can also use #GST_VALIDATE_REPORT instead.</doc>
     <function name="structure_set_variables_from_struct_file"
               c:identifier="gst_validate_structure_set_variables_from_struct_file">
       <source-position filename="validate/gst/validate/gst-validate-utils.h"
-                       line="87"/>
+                       line="95"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6368,7 +6442,7 @@ it can be a gint, gint64 a guint, a gint64.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="validate/gst/validate/gst-validate-utils.c"
-             line="1443">An array of strings from the GstValueList defined in @fieldname</doc>
+             line="1474">An array of strings from the GstValueList defined in @fieldname</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>
@@ -6377,13 +6451,13 @@ it can be a gint, gint64 a guint, a gint64.</doc>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-utils.c"
-               line="1440">A GstStructure</doc>
+               line="1471">A GstStructure</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </parameter>
         <parameter name="fieldname" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="validate/gst/validate/gst-validate-utils.c"
-               line="1441">A fieldname containing a GstValueList or is not defined</doc>
+               line="1472">A fieldname containing a GstValueList or is not defined</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

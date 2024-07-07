@@ -357,7 +357,9 @@ using the provided functions.</doc>
         </parameters>
       </method>
       <method name="connect_to_daemon"
-              c:identifier="lightdm_greeter_connect_to_daemon">
+              c:identifier="lightdm_greeter_connect_to_daemon"
+              glib:finish-func="connect_to_daemon_finish"
+              glib:sync-func="connect_to_daemon_sync">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="963">Asynchronously connects the greeter to the display manager.
@@ -437,7 +439,8 @@ See lightdm_greeter_connect_to_daemon_sync() for the synchronous version.</doc>
       </method>
       <method name="connect_to_daemon_sync"
               c:identifier="lightdm_greeter_connect_to_daemon_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="connect_to_daemon">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="1016">Connects the greeter to the display manager.  Will block until connected.</doc>
@@ -458,7 +461,9 @@ See lightdm_greeter_connect_to_daemon_sync() for the synchronous version.</doc>
         </parameters>
       </method>
       <method name="ensure_shared_data_dir"
-              c:identifier="lightdm_greeter_ensure_shared_data_dir">
+              c:identifier="lightdm_greeter_ensure_shared_data_dir"
+              glib:finish-func="ensure_shared_data_dir_finish"
+              glib:sync-func="ensure_shared_data_dir_sync">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="1691">Ensure that a shared data dir for the given user is available.  Both the
@@ -549,7 +554,8 @@ the directory themselves.</doc>
       </method>
       <method name="ensure_shared_data_dir_sync"
               c:identifier="lightdm_greeter_ensure_shared_data_dir_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="ensure_shared_data_dir">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="1748">Ensure that a shared data dir for the given user is available.  Both the
@@ -1030,7 +1036,9 @@ This must be called before lightdm_greeter_connect is called.</doc>
         </parameters>
       </method>
       <method name="start_session"
-              c:identifier="lightdm_greeter_start_session">
+              c:identifier="lightdm_greeter_start_session"
+              glib:finish-func="start_session_finish"
+              glib:sync-func="start_session_sync">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="1602">Asynchronously start a session for the authenticated user.
@@ -1119,7 +1127,8 @@ See lightdm_greeter_start_session_sync() for the synchronous version.</doc>
       </method>
       <method name="start_session_sync"
               c:identifier="lightdm_greeter_start_session_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="start_session">
         <doc xml:space="preserve"
              filename="greeter.c"
              line="1654">Start a session for the authenticated user.</doc>

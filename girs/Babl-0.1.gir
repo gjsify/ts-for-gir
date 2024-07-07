@@ -14,15 +14,15 @@ and/or use gtk-doc annotations.  -->
              c:identifier-prefixes="Babl"
              c:symbol-prefixes="babl">
     <constant name="ALPHA_FLOOR" value="0" c:type="BABL_ALPHA_FLOOR">
-      <source-position filename="babl/babl.h" line="748"/>
+      <source-position filename="babl/babl.h" line="769"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="ALPHA_FLOOR_F" value="0" c:type="BABL_ALPHA_FLOOR_F">
-      <source-position filename="babl/babl.h" line="749"/>
+      <source-position filename="babl/babl.h" line="770"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <callback name="FishProcess" c:type="BablFishProcess">
-      <source-position filename="babl/babl.h" line="721"/>
+      <source-position filename="babl/babl.h" line="742"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -140,7 +140,7 @@ and/or use gtk-doc annotations.  -->
       <source-position filename="babl/babl-version.h" line="35"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="107" c:type="BABL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="108" c:type="BABL_MICRO_VERSION">
       <source-position filename="babl/babl-version.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -398,10 +398,10 @@ otherwise be a leak.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="babl/babl.h"
-           line="722">get the dispatch function of a fish, this allows faster use of a fish
+           line="743">get the dispatch function of a fish, this allows faster use of a fish
 in a loop than the more indirect method of babl_process, this also avoids
 base-level instrumentation.</doc>
-      <source-position filename="babl/babl.h" line="729"/>
+      <source-position filename="babl/babl.h" line="750"/>
       <return-value>
         <type name="FishProcess" c:type="BablFishProcess"/>
       </return-value>
@@ -649,11 +649,11 @@ the space of the format is used.</doc>
     <function name="gc" c:identifier="babl_gc" introspectable="0">
       <doc xml:space="preserve"
            filename="babl/babl.h"
-           line="732">Do a babl fish garbage collection cycle, should only be called
+           line="753">Do a babl fish garbage collection cycle, should only be called
 from the main thread with no concurrent babl processing in other
 threads in paralell.</doc>
       <doc-version xml:space="preserve">babl-0.1.98</doc-version>
-      <source-position filename="babl/babl.h" line="741"/>
+      <source-position filename="babl/babl.h" line="762"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1637,8 +1637,11 @@ coefficients. See #83.</doc>
       </parameters>
     </function>
     <function name="space_is_cmyk" c:identifier="babl_space_is_cmyk">
-      <source-position filename="babl/babl.h" line="718"/>
+      <source-position filename="babl/babl.h" line="732"/>
       <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="730">1 if @space is CMYK, 0 otherwise.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
       <parameters>
@@ -1648,8 +1651,25 @@ coefficients. See #83.</doc>
       </parameters>
     </function>
     <function name="space_is_gray" c:identifier="babl_space_is_gray">
-      <source-position filename="babl/babl.h" line="719"/>
+      <source-position filename="babl/babl.h" line="740"/>
       <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="738">1 if @space is grayscale, 0 otherwise.</doc>
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="space" transfer-ownership="none">
+          <type name="Object" c:type="const Babl*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="space_is_rgb" c:identifier="babl_space_is_rgb">
+      <source-position filename="babl/babl.h" line="724"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="babl/babl.h"
+             line="722">1 if @space is RGB, 0 otherwise.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
       <parameters>

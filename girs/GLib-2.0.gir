@@ -2381,7 +2381,7 @@ In the event the URI cannot be found, -1 is returned and
           <doc xml:space="preserve"
                filename="glib/gbookmarkfile.c"
                line="2657">a timestamp</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="bookmark" transfer-ownership="none">
@@ -2510,7 +2510,7 @@ set and %FALSE is returned.</doc>
             <doc xml:space="preserve"
                  filename="glib/gbookmarkfile.c"
                  line="3690">return location for the last registration time, or %NULL</doc>
-            <type name="glong" c:type="time_t*"/>
+            <type name="time_t" c:type="time_t*"/>
           </parameter>
         </parameters>
       </method>
@@ -2866,7 +2866,7 @@ In the event the URI cannot be found, -1 is returned and
           <doc xml:space="preserve"
                filename="glib/gbookmarkfile.c"
                line="2790">a timestamp</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="bookmark" transfer-ownership="none">
@@ -3032,7 +3032,7 @@ In the event the URI cannot be found, -1 is returned and
           <doc xml:space="preserve"
                filename="glib/gbookmarkfile.c"
                line="2925">a timestamp.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="bookmark" transfer-ownership="none">
@@ -3492,7 +3492,7 @@ If no bookmark for @uri is found then it is created.</doc>
             <doc xml:space="preserve"
                  filename="glib/gbookmarkfile.c"
                  line="2590">a timestamp or -1 to use the current time</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3610,7 +3610,7 @@ for @uri is found, one is created.</doc>
             <doc xml:space="preserve"
                  filename="glib/gbookmarkfile.c"
                  line="3440">the time of the last registration for this application</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -3930,7 +3930,7 @@ g_bookmark_file_set_visited_date_time().</doc>
             <doc xml:space="preserve"
                  filename="glib/gbookmarkfile.c"
                  line="2715">a timestamp or -1 to use the current time</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -4050,7 +4050,7 @@ does not affect the "modified" time.</doc>
             <doc xml:space="preserve"
                  filename="glib/gbookmarkfile.c"
                  line="2848">a timestamp or -1 to use the current time</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -9155,7 +9155,7 @@ To set the value of a date to the current day, you could write:
             <doc xml:space="preserve"
                  filename="glib/gdate.c"
                  line="1419">time_t value to set</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -17727,6 +17727,12 @@ on a #GIOChannel is satisfied.</doc>
 in a generic way.</doc>
       <source-position filename="glib/giochannel.h" line="159"/>
       <field name="io_read">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="89">reads raw bytes from the channel.  This is called from
+          various functions such as g_io_channel_read_chars() to
+          read raw bytes from the channel.  Encoding and buffering
+          issues are dealt with at a higher level.</doc>
         <callback name="io_read" throws="1">
           <source-position filename="glib/giochannel.h" line="136"/>
           <return-value transfer-ownership="none">
@@ -17749,6 +17755,12 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_write">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="93">writes raw bytes to the channel.  This is called from
+           various functions such as g_io_channel_write_chars() to
+           write raw bytes to the channel.  Encoding and buffering
+           issues are dealt with at a higher level.</doc>
         <callback name="io_write" throws="1">
           <source-position filename="glib/giochannel.h" line="141"/>
           <return-value transfer-ownership="none">
@@ -17771,6 +17783,10 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_seek">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="97">seeks the channel.  This is called from
+          g_io_channel_seek() on channels that support it.</doc>
         <callback name="io_seek" throws="1">
           <source-position filename="glib/giochannel.h" line="146"/>
           <return-value transfer-ownership="none">
@@ -17790,6 +17806,10 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_close">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="99">closes the channel.  This is called from
+           g_io_channel_close() after flushing the buffers.</doc>
         <callback name="io_close" throws="1">
           <source-position filename="glib/giochannel.h" line="150"/>
           <return-value transfer-ownership="none">
@@ -17803,6 +17823,10 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_create_watch">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="101">creates a watch on the channel.  This call
+                  corresponds directly to g_io_create_watch().</doc>
         <callback name="io_create_watch">
           <source-position filename="glib/giochannel.h" line="152"/>
           <return-value transfer-ownership="full">
@@ -17819,6 +17843,14 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_free">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="103">called from g_io_channel_unref() when the channel needs to
+          be freed.  This function must free the memory associated
+          with the channel, including freeing the #GIOChannel
+          structure itself.  The channel buffers have been flushed
+          and possibly @io_close has been called by the time this
+          function is called.</doc>
         <callback name="io_free">
           <source-position filename="glib/giochannel.h" line="154"/>
           <return-value transfer-ownership="none">
@@ -17832,6 +17864,12 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_set_flags">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="109">sets the #GIOFlags on the channel.  This is called
+               from g_io_channel_set_flags() with all flags except
+               for %G_IO_FLAG_APPEND and %G_IO_FLAG_NONBLOCK masked
+               out.</doc>
         <callback name="io_set_flags" throws="1">
           <source-position filename="glib/giochannel.h" line="155"/>
           <return-value transfer-ownership="none">
@@ -17848,6 +17886,12 @@ in a generic way.</doc>
         </callback>
       </field>
       <field name="io_get_flags">
+        <doc xml:space="preserve"
+             filename="glib/giochannel.c"
+             line="113">gets the #GIOFlags for the channel.  This function
+               need only return the %G_IO_FLAG_APPEND and
+               %G_IO_FLAG_NONBLOCK flags; g_io_channel_get_flags()
+               automatically adds the others as appropriate.</doc>
         <callback name="io_get_flags">
           <source-position filename="glib/giochannel.h" line="158"/>
           <return-value transfer-ownership="none">
@@ -22185,7 +22229,7 @@ linked against at application run time.</doc>
       <source-position filename="glib/gtypes.h" line="76"/>
       <type name="guint8" c:type="guint8"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GLIB_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="GLIB_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="glib/gversion.c"
            line="78">The micro version number of the GLib library.
@@ -24441,6 +24485,11 @@ from a callback, g_markup_parse_context_parse() will report that error
 back to its caller.</doc>
       <source-position filename="glib/gmarkup.h" line="188"/>
       <field name="start_element">
+        <doc xml:space="preserve"
+             filename="glib/gmarkup.h"
+             line="121">Callback to invoke when the opening tag of an element
+    is seen. The callback's @attribute_names and @attribute_values parameters
+    are %NULL-terminated.</doc>
         <callback name="start_element" throws="1">
           <source-position filename="glib/gmarkup.h" line="150"/>
           <return-value transfer-ownership="none">
@@ -24470,6 +24519,11 @@ back to its caller.</doc>
         </callback>
       </field>
       <field name="end_element">
+        <doc xml:space="preserve"
+             filename="glib/gmarkup.h"
+             line="124">Callback to invoke when the closing tag of an element
+    is seen. Note that this is also called for empty tags like
+    `&lt;empty/&gt;`.</doc>
         <callback name="end_element" throws="1">
           <source-position filename="glib/gmarkup.h" line="158"/>
           <return-value transfer-ownership="none">
@@ -24493,6 +24547,13 @@ back to its caller.</doc>
         </callback>
       </field>
       <field name="text">
+        <doc xml:space="preserve"
+             filename="glib/gmarkup.h"
+             line="127">Callback to invoke when some text is seen (text is always
+    inside an element). Note that the text of an element may be spread
+    over multiple calls of this function. If the
+    %G_MARKUP_TREAT_CDATA_AS_TEXT flag is set, this function is also
+    called for the content of CDATA marked sections.</doc>
         <callback name="text" throws="1">
           <source-position filename="glib/gmarkup.h" line="165"/>
           <return-value transfer-ownership="none">
@@ -24519,6 +24580,13 @@ back to its caller.</doc>
         </callback>
       </field>
       <field name="passthrough">
+        <doc xml:space="preserve"
+             filename="glib/gmarkup.h"
+             line="132">Callback to invoke for comments, processing instructions
+    and doctype declarations; if you're re-writing the parsed document,
+    write the passthrough text back out in the same position. If the
+    %G_MARKUP_TREAT_CDATA_AS_TEXT flag is not set, this function is also
+    called for CDATA marked sections.</doc>
         <callback name="passthrough" throws="1">
           <source-position filename="glib/gmarkup.h" line="176"/>
           <return-value transfer-ownership="none">
@@ -24545,6 +24613,9 @@ back to its caller.</doc>
         </callback>
       </field>
       <field name="error">
+        <doc xml:space="preserve"
+             filename="glib/gmarkup.h"
+             line="137">Callback to invoke when an error occurs.</doc>
         <callback name="error">
           <source-position filename="glib/gmarkup.h" line="185"/>
           <return-value transfer-ownership="none">
@@ -25234,6 +25305,9 @@ if it exists, should be prior to any use of GLib.
 This functions related to this has been deprecated in 2.46, and no longer work.</doc>
       <source-position filename="glib/gmem.h" line="409"/>
       <field name="malloc">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="41">function to use for allocating memory.</doc>
         <callback name="malloc">
           <source-position filename="glib/gmem.h" line="399"/>
           <return-value transfer-ownership="none">
@@ -25247,6 +25321,9 @@ This functions related to this has been deprecated in 2.46, and no longer work.<
         </callback>
       </field>
       <field name="realloc">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="42">function to use for reallocating memory.</doc>
         <callback name="realloc">
           <source-position filename="glib/gmem.h" line="400"/>
           <return-value transfer-ownership="none">
@@ -25263,6 +25340,9 @@ This functions related to this has been deprecated in 2.46, and no longer work.<
         </callback>
       </field>
       <field name="free">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="43">function to use to free memory.</doc>
         <callback name="free">
           <source-position filename="glib/gmem.h" line="402"/>
           <return-value transfer-ownership="none">
@@ -25276,6 +25356,9 @@ This functions related to this has been deprecated in 2.46, and no longer work.<
         </callback>
       </field>
       <field name="calloc">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="44">function to use for allocating zero-filled memory.</doc>
         <callback name="calloc">
           <source-position filename="glib/gmem.h" line="404"/>
           <return-value transfer-ownership="none">
@@ -25292,6 +25375,9 @@ This functions related to this has been deprecated in 2.46, and no longer work.<
         </callback>
       </field>
       <field name="try_malloc">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="45">function to use for allocating memory without a default error handler.</doc>
         <callback name="try_malloc">
           <source-position filename="glib/gmem.h" line="406"/>
           <return-value transfer-ownership="none">
@@ -25305,6 +25391,9 @@ This functions related to this has been deprecated in 2.46, and no longer work.<
         </callback>
       </field>
       <field name="try_realloc">
+        <doc xml:space="preserve"
+             filename="glib/gmem.h"
+             line="46">function to use for reallocating memory without a default error handler.</doc>
         <callback name="try_realloc">
           <source-position filename="glib/gmem.h" line="407"/>
           <return-value transfer-ownership="none">
@@ -40550,6 +40639,9 @@ wrong source.</doc>
 functions for managing callback objects.</doc>
       <source-position filename="glib/gmain.h" line="294"/>
       <field name="ref">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="91">Called when a reference is added to the callback object</doc>
         <callback name="ref">
           <source-position filename="glib/gmain.h" line="288"/>
           <return-value transfer-ownership="none">
@@ -40563,6 +40655,9 @@ functions for managing callback objects.</doc>
         </callback>
       </field>
       <field name="unref">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="92">Called when a reference to the callback object is dropped</doc>
         <callback name="unref">
           <source-position filename="glib/gmain.h" line="289"/>
           <return-value transfer-ownership="none">
@@ -40576,6 +40671,10 @@ functions for managing callback objects.</doc>
         </callback>
       </field>
       <field name="get" introspectable="0">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="93">Called to extract the callback function and data from the
+    callback object.</doc>
         <callback name="get" introspectable="0">
           <source-position filename="glib/gmain.h" line="290"/>
           <return-value transfer-ownership="none">
@@ -40687,6 +40786,19 @@ check function, it tests the results of the poll() call to see if the
 required condition has been met, and returns %TRUE if so.</doc>
       <source-position filename="glib/gmain.h" line="318"/>
       <field name="prepare">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="103">Called before all the file descriptors are polled. If the
+    source can determine that it is ready here (without waiting for the
+    results of the poll() call) it should return %TRUE. It can also return
+    a @timeout_ value which should be the maximum timeout (in milliseconds)
+    which should be passed to the poll() call. The actual timeout used will
+    be -1 if all sources returned -1, or it will be the minimum of all
+    the @timeout_ values returned which were &gt;= 0.  Since 2.36 this may
+    be %NULL, in which case the effect is as if the function always returns
+    %FALSE with a timeout of -1.  If @prepare returns a
+    timeout and the source also has a ready time set, then the
+    lower of the two will be used.</doc>
         <callback name="prepare">
           <source-position filename="glib/gmain.h" line="306"/>
           <return-value transfer-ownership="none">
@@ -40703,6 +40815,14 @@ required condition has been met, and returns %TRUE if so.</doc>
         </callback>
       </field>
       <field name="check">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="114">Called after all the file descriptors are polled. The source
+    should return %TRUE if it is ready to be dispatched. Note that some
+    time may have passed since the previous prepare function was called,
+    so the source should be checked again here.  Since 2.36 this may
+    be %NULL, in which case the effect is as if the function always returns
+    %FALSE.</doc>
         <callback name="check">
           <source-position filename="glib/gmain.h" line="308"/>
           <return-value transfer-ownership="none">
@@ -40716,6 +40836,17 @@ required condition has been met, and returns %TRUE if so.</doc>
         </callback>
       </field>
       <field name="dispatch" introspectable="0">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="120">Called to dispatch the event source, after it has returned
+    %TRUE in either its @prepare or its @check function, or if a ready time
+    has been reached. The @dispatch function receives a callback function and
+    user data. The callback function may be %NULL if the source was never
+    connected to a callback using g_source_set_callback(). The @dispatch
+    function should call the callback function with @user_data and whatever
+    additional parameters are needed for this type of event source. The
+    return value of the @dispatch function should be %G_SOURCE_REMOVE if the
+    source should be removed or %G_SOURCE_CONTINUE to keep it.</doc>
         <callback name="dispatch" introspectable="0">
           <source-position filename="glib/gmain.h" line="309"/>
           <return-value transfer-ownership="none">
@@ -40739,6 +40870,12 @@ required condition has been met, and returns %TRUE if so.</doc>
         </callback>
       </field>
       <field name="finalize">
+        <doc xml:space="preserve"
+             filename="glib/gmain.h"
+             line="129">Called when the source is finalized. At this point, the source
+    will have been destroyed, had its callback cleared, and have been removed
+    from its #GMainContext, but it will still have its final reference count,
+    so methods can be called on it from within this function.</doc>
         <callback name="finalize">
           <source-position filename="glib/gmain.h" line="312"/>
           <return-value transfer-ownership="none">
@@ -44687,6 +44824,9 @@ or g_thread_try_new().</doc>
 to initialize the thread system.</doc>
       <source-position filename="glib/deprecated/gthread.h" line="94"/>
       <field name="mutex_new">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="57">virtual function pointer for g_mutex_new()</doc>
         <callback name="mutex_new">
           <source-position filename="glib/deprecated/gthread.h" line="60"/>
           <return-value>
@@ -44695,6 +44835,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="mutex_lock">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="58">virtual function pointer for g_mutex_lock()</doc>
         <callback name="mutex_lock">
           <source-position filename="glib/deprecated/gthread.h" line="61"/>
           <return-value transfer-ownership="none">
@@ -44708,6 +44851,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="mutex_trylock">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="59">virtual function pointer for g_mutex_trylock()</doc>
         <callback name="mutex_trylock">
           <source-position filename="glib/deprecated/gthread.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -44721,6 +44867,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="mutex_unlock">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="60">virtual function pointer for g_mutex_unlock()</doc>
         <callback name="mutex_unlock">
           <source-position filename="glib/deprecated/gthread.h" line="63"/>
           <return-value transfer-ownership="none">
@@ -44734,6 +44883,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="mutex_free">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="61">virtual function pointer for g_mutex_free()</doc>
         <callback name="mutex_free">
           <source-position filename="glib/deprecated/gthread.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -44747,6 +44899,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_new">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="62">virtual function pointer for g_cond_new()</doc>
         <callback name="cond_new">
           <source-position filename="glib/deprecated/gthread.h" line="65"/>
           <return-value>
@@ -44755,6 +44910,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_signal">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="63">virtual function pointer for g_cond_signal()</doc>
         <callback name="cond_signal">
           <source-position filename="glib/deprecated/gthread.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -44768,6 +44926,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_broadcast">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="64">virtual function pointer for g_cond_broadcast()</doc>
         <callback name="cond_broadcast">
           <source-position filename="glib/deprecated/gthread.h" line="67"/>
           <return-value transfer-ownership="none">
@@ -44781,6 +44942,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_wait">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="65">virtual function pointer for g_cond_wait()</doc>
         <callback name="cond_wait">
           <source-position filename="glib/deprecated/gthread.h" line="68"/>
           <return-value transfer-ownership="none">
@@ -44797,6 +44961,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_timed_wait">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="66">virtual function pointer for g_cond_timed_wait()</doc>
         <callback name="cond_timed_wait">
           <source-position filename="glib/deprecated/gthread.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -44816,6 +44983,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="cond_free">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="67">virtual function pointer for g_cond_free()</doc>
         <callback name="cond_free">
           <source-position filename="glib/deprecated/gthread.h" line="73"/>
           <return-value transfer-ownership="none">
@@ -44829,6 +44999,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="private_new">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="68">virtual function pointer for g_private_new()</doc>
         <callback name="private_new">
           <source-position filename="glib/deprecated/gthread.h" line="74"/>
           <return-value>
@@ -44844,6 +45017,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="private_get">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="69">virtual function pointer for g_private_get()</doc>
         <callback name="private_get">
           <source-position filename="glib/deprecated/gthread.h" line="75"/>
           <return-value transfer-ownership="none">
@@ -44857,6 +45033,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="private_set">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="70">virtual function pointer for g_private_set()</doc>
         <callback name="private_set">
           <source-position filename="glib/deprecated/gthread.h" line="76"/>
           <return-value transfer-ownership="none">
@@ -44873,6 +45052,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_create">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="71">virtual function pointer for g_thread_create()</doc>
         <callback name="thread_create" introspectable="0" throws="1">
           <source-position filename="glib/deprecated/gthread.h" line="78"/>
           <return-value transfer-ownership="none">
@@ -44907,6 +45089,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_yield">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="72">virtual function pointer for g_thread_yield()</doc>
         <callback name="thread_yield">
           <source-position filename="glib/deprecated/gthread.h" line="86"/>
           <return-value transfer-ownership="none">
@@ -44915,6 +45100,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_join">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="73">virtual function pointer for g_thread_join()</doc>
         <callback name="thread_join">
           <source-position filename="glib/deprecated/gthread.h" line="87"/>
           <return-value transfer-ownership="none">
@@ -44928,6 +45116,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_exit">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="74">virtual function pointer for g_thread_exit()</doc>
         <callback name="thread_exit">
           <source-position filename="glib/deprecated/gthread.h" line="88"/>
           <return-value transfer-ownership="none">
@@ -44936,6 +45127,10 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_set_priority">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="75">virtual function pointer for
+                      g_thread_set_priority()</doc>
         <callback name="thread_set_priority" introspectable="0">
           <source-position filename="glib/deprecated/gthread.h" line="89"/>
           <return-value transfer-ownership="none">
@@ -44952,6 +45147,9 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_self">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="77">virtual function pointer for g_thread_self()</doc>
         <callback name="thread_self">
           <source-position filename="glib/deprecated/gthread.h" line="91"/>
           <return-value transfer-ownership="none">
@@ -44965,6 +45163,10 @@ to initialize the thread system.</doc>
         </callback>
       </field>
       <field name="thread_equal">
+        <doc xml:space="preserve"
+             filename="glib/deprecated/gthread-deprecated.c"
+             line="78">used internally by recursive mutex locks and by some
+               assertion checks</doc>
         <callback name="thread_equal">
           <source-position filename="glib/deprecated/gthread.h" line="92"/>
           <return-value transfer-ownership="none">
@@ -53340,7 +53542,7 @@ be shared.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5364">Creates a new #GVariant instance.
+             line="5368">Creates a new #GVariant instance.
 
 Think of this function as an analogue to g_strdup_printf().
 
@@ -53372,20 +53574,20 @@ new_variant = g_variant_new ("(t^as)",
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="5398">a new floating #GVariant instance</doc>
+               line="5402">a new floating #GVariant instance</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5366">a #GVariant format string</doc>
+                 line="5370">a #GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5367">arguments, as per @format_string</doc>
+                 line="5371">arguments, as per @format_string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -53710,7 +53912,7 @@ GLib 2.60) or (in older versions) fail and exit the process.</doc>
                    version="2.24">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="6164">Creates a new #GVariant instance from serialized data.
+             line="6168">Creates a new #GVariant instance from serialized data.
 
 @type is the type of #GVariant instance that will be constructed.
 The interpretation of @data depends on knowing the type.
@@ -53743,20 +53945,20 @@ process.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="6203">a new floating #GVariant of type @type</doc>
+               line="6207">a new floating #GVariant of type @type</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6166">a definite #GVariantType</doc>
+                 line="6170">a definite #GVariantType</doc>
             <type name="VariantType" c:type="const GVariantType*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6167">the serialized data</doc>
+                 line="6171">the serialized data</doc>
             <array length="2" zero-terminated="0" c:type="gconstpointer">
               <type name="guint8"/>
             </array>
@@ -53764,19 +53966,19 @@ process.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6168">the size of @data</doc>
+                 line="6172">the size of @data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="trusted" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6169">%TRUE if @data is definitely in normal form</doc>
+                 line="6173">%TRUE if @data is definitely in normal form</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6170">function to call when @data is no longer needed</doc>
+                 line="6174">function to call when @data is no longer needed</doc>
             <type name="DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="user_data"
@@ -53785,7 +53987,7 @@ process.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6171">data for @notify</doc>
+                 line="6175">data for @notify</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -54353,7 +54555,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5421">This function is intended to be used by libraries based on
+             line="5425">This function is intended to be used by libraries based on
 #GVariant that want to provide g_variant_new()-like functionality
 to their users.
 
@@ -54393,14 +54595,14 @@ or by passing it to another g_variant_new() call.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="5465">a new, usually floating, #GVariant</doc>
+               line="5469">a new, usually floating, #GVariant</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5423">a string that is prefixed with a format string</doc>
+                 line="5427">a string that is prefixed with a format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="endptr"
@@ -54409,14 +54611,14 @@ or by passing it to another g_variant_new() call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5424">location to store the end pointer,
+                 line="5428">location to store the end pointer,
          or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5426">a pointer to a #va_list</doc>
+                 line="5430">a pointer to a #va_list</doc>
             <type name="va_list" c:type="va_list*"/>
           </parameter>
         </parameters>
@@ -54450,7 +54652,7 @@ instance takes ownership of @child.</doc>
       <method name="byteswap" c:identifier="g_variant_byteswap" version="2.24">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="6093">Performs a byteswapping operation on the contents of @value.  The
+             line="6097">Performs a byteswapping operation on the contents of @value.  The
 result is that all multi-byte numeric data contained in @value is
 byteswapped.  That includes 16, 32, and 64bit signed and unsigned
 integers as well as file handles and double precision floating point
@@ -54471,14 +54673,14 @@ A full, not floating, reference is returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="6115">the byteswapped form of @value</doc>
+               line="6119">the byteswapped form of @value</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6095">a #GVariant</doc>
+                 line="6099">a #GVariant</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
         </parameters>
@@ -54488,7 +54690,7 @@ A full, not floating, reference is returned.</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4487">Checks if calling g_variant_get() with @format_string on @value would
+             line="4491">Checks if calling g_variant_get() with @format_string on @value would
 be valid from a type-compatibility standpoint.  @format_string is
 assumed to be a valid format string (from a syntactic standpoint).
 
@@ -54506,26 +54708,26 @@ g_variant_lookup() or g_menu_model_get_item_attribute()).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4508">%TRUE if @format_string is safe to use</doc>
+               line="4512">%TRUE if @format_string is safe to use</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4489">a #GVariant</doc>
+                 line="4493">a #GVariant</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4490">a valid #GVariant format string</doc>
+                 line="4494">a valid #GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="copy_only" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4491">%TRUE to ensure the format string makes deep copies</doc>
+                 line="4495">%TRUE to ensure the format string makes deep copies</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -54835,7 +55037,7 @@ this function with #GHashTable.  They must each be a #GVariant.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5488">Deconstructs a #GVariant instance.
+             line="5492">Deconstructs a #GVariant instance.
 
 Think of this function as an analogue to scanf().
 
@@ -54859,19 +55061,19 @@ see the section on
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5490">a #GVariant instance</doc>
+                 line="5494">a #GVariant instance</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5491">a #GVariant format string</doc>
+                 line="5495">a #GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5492">arguments, as per @format_string</doc>
+                 line="5496">arguments, as per @format_string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -55016,7 +55218,7 @@ For an empty array, @length will be set to 0 and a pointer to a
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5643">Reads a child item out of a container #GVariant instance and
+             line="5647">Reads a child item out of a container #GVariant instance and
 deconstructs it according to @format_string.  This call is
 essentially a combination of g_variant_get_child_value() and
 g_variant_get().
@@ -55033,25 +55235,25 @@ see the section on
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5645">a container #GVariant</doc>
+                 line="5649">a container #GVariant</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
           <parameter name="index_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5646">the index of the child to deconstruct</doc>
+                 line="5650">the index of the child to deconstruct</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5647">a #GVariant format string</doc>
+                 line="5651">a #GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5648">arguments, as per @format_string</doc>
+                 line="5652">arguments, as per @format_string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -55398,7 +55600,7 @@ value is Nothing, then this function returns %NULL.</doc>
               version="2.24">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="6045">Gets a #GVariant instance that has the same value as @value and is
+             line="6049">Gets a #GVariant instance that has the same value as @value and is
 trusted to be in normal form.
 
 If @value is already trusted to be in normal form then a new
@@ -55427,14 +55629,14 @@ reference to it.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="6075">a trusted #GVariant</doc>
+               line="6079">a trusted #GVariant</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="6047">a #GVariant</doc>
+                 line="6051">a #GVariant</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
         </parameters>
@@ -55732,7 +55934,7 @@ other than %G_VARIANT_TYPE_UINT64.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5532">This function is intended to be used by libraries based on #GVariant
+             line="5536">This function is intended to be used by libraries based on #GVariant
 that want to provide g_variant_get()-like functionality to their
 users.
 
@@ -55764,13 +55966,13 @@ see the section on
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5534">a #GVariant</doc>
+                 line="5538">a #GVariant</doc>
             <type name="Variant" c:type="GVariant*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5535">a string that is prefixed with a format string</doc>
+                 line="5539">a string that is prefixed with a format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="endptr"
@@ -55779,14 +55981,14 @@ see the section on
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5536">location to store the end pointer,
+                 line="5540">location to store the end pointer,
          or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5538">a pointer to a #va_list</doc>
+                 line="5542">a pointer to a #va_list</doc>
             <type name="va_list" c:type="va_list*"/>
           </parameter>
         </parameters>
@@ -56652,7 +56854,7 @@ g_variant_builder_init().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5589">Adds to a #GVariantBuilder.
+             line="5593">Adds to a #GVariantBuilder.
 
 This call is a convenience wrapper that is exactly equivalent to
 calling g_variant_new() followed by g_variant_builder_add_value().
@@ -56690,19 +56892,19 @@ make_pointless_dictionary (void)
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5591">a #GVariantBuilder</doc>
+                 line="5595">a #GVariantBuilder</doc>
             <type name="VariantBuilder" c:type="GVariantBuilder*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5592">a #GVariant varargs format string</doc>
+                 line="5596">a #GVariant varargs format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5593">arguments, as per @format_string</doc>
+                 line="5597">arguments, as per @format_string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -57314,7 +57516,7 @@ using #GVariantDict to construct a #GVariant.</doc>
       <method name="clear" c:identifier="g_variant_dict_clear" version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4217">Releases all memory associated with a #GVariantDict without freeing
+             line="4221">Releases all memory associated with a #GVariantDict without freeing
 the #GVariantDict structure itself.
 
 It typically only makes sense to do this on a stack-allocated
@@ -57336,7 +57538,7 @@ on uninitialised memory.</doc>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4219">a #GVariantDict</doc>
+                 line="4223">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
         </parameters>
@@ -57346,25 +57548,25 @@ on uninitialised memory.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4120">Checks if @key exists in @dict.</doc>
+             line="4124">Checks if @key exists in @dict.</doc>
         <source-position filename="glib/gvariant.h" line="516"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4127">%TRUE if @key is in @dict</doc>
+               line="4131">%TRUE if @key is in @dict</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4122">a #GVariantDict</doc>
+                 line="4126">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4123">the key to look up in the dictionary</doc>
+                 line="4127">the key to look up in the dictionary</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -57372,7 +57574,7 @@ on uninitialised memory.</doc>
       <method name="end" c:identifier="g_variant_dict_end" version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4253">Returns the current value of @dict as a #GVariant of type
+             line="4257">Returns the current value of @dict as a #GVariant of type
 %G_VARIANT_TYPE_VARDICT, clearing it in the process.
 
 It is not permissible to use @dict in any way after this call except
@@ -57383,14 +57585,14 @@ the case of stack-allocated).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4265">a new, floating, #GVariant</doc>
+               line="4269">a new, floating, #GVariant</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4255">a #GVariantDict</doc>
+                 line="4259">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
         </parameters>
@@ -57401,7 +57603,7 @@ the case of stack-allocated).</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="3989">Initialises a #GVariantDict structure.
+             line="3993">Initialises a #GVariantDict structure.
 
 If @from_asv is given, it is used to initialise the dictionary.
 
@@ -57425,7 +57627,7 @@ g_variant_dict_new() instead of this function.</doc>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="3991">a #GVariantDict</doc>
+                 line="3995">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="from_asv"
@@ -57434,7 +57636,7 @@ g_variant_dict_new() instead of this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="3992">the initial value for @dict</doc>
+                 line="3996">the initial value for @dict</doc>
             <type name="Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -57445,7 +57647,7 @@ g_variant_dict_new() instead of this function.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4141">Inserts a value into a #GVariantDict.
+             line="4145">Inserts a value into a #GVariantDict.
 
 This call is a convenience wrapper that is exactly equivalent to
 calling g_variant_new() followed by g_variant_dict_insert_value().</doc>
@@ -57457,25 +57659,25 @@ calling g_variant_new() followed by g_variant_dict_insert_value().</doc>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4143">a #GVariantDict</doc>
+                 line="4147">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4144">the key to insert a value for</doc>
+                 line="4148">the key to insert a value for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4145">a #GVariant varargs format string</doc>
+                 line="4149">a #GVariant varargs format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4146">arguments, as per @format_string</doc>
+                 line="4150">arguments, as per @format_string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -57485,7 +57687,7 @@ calling g_variant_new() followed by g_variant_dict_insert_value().</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4172">Inserts (or replaces) a key in a #GVariantDict.
+             line="4176">Inserts (or replaces) a key in a #GVariantDict.
 
 @value is consumed if it is floating.</doc>
         <source-position filename="glib/gvariant.h" line="524"/>
@@ -57496,19 +57698,19 @@ calling g_variant_new() followed by g_variant_dict_insert_value().</doc>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4174">a #GVariantDict</doc>
+                 line="4178">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4175">the key to insert a value for</doc>
+                 line="4179">the key to insert a value for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4176">the value to insert</doc>
+                 line="4180">the value to insert</doc>
             <type name="Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -57519,7 +57721,7 @@ calling g_variant_new() followed by g_variant_dict_insert_value().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4032">Looks up a value in a #GVariantDict.
+             line="4036">Looks up a value in a #GVariantDict.
 
 This function is a wrapper around g_variant_dict_lookup_value() and
 g_variant_get().  In the case that %NULL would have been returned,
@@ -57534,32 +57736,32 @@ section on [`GVariant` format strings](gvariant-format-strings.html#pointers).</
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4051">%TRUE if a value was unpacked</doc>
+               line="4055">%TRUE if a value was unpacked</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4034">a #GVariantDict</doc>
+                 line="4038">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4035">the key to look up in the dictionary</doc>
+                 line="4039">the key to look up in the dictionary</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4036">a GVariant format string</doc>
+                 line="4040">a GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4037">the arguments to unpack the value into</doc>
+                 line="4041">the arguments to unpack the value into</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -57569,7 +57771,7 @@ section on [`GVariant` format strings](gvariant-format-strings.html#pointers).</
               version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4080">Looks up a value in a #GVariantDict.
+             line="4084">Looks up a value in a #GVariantDict.
 
 If @key is not found in @dictionary, %NULL is returned.
 
@@ -57584,20 +57786,20 @@ value will have this type.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4098">the value of the dictionary key, or %NULL</doc>
+               line="4102">the value of the dictionary key, or %NULL</doc>
           <type name="Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4082">a #GVariantDict</doc>
+                 line="4086">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4083">the key to look up in the dictionary</doc>
+                 line="4087">the key to look up in the dictionary</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="expected_type"
@@ -57606,7 +57808,7 @@ value will have this type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4084">a #GVariantType, or %NULL</doc>
+                 line="4088">a #GVariantType, or %NULL</doc>
             <type name="VariantType" c:type="const GVariantType*"/>
           </parameter>
         </parameters>
@@ -57614,7 +57816,7 @@ value will have this type.</doc>
       <method name="ref" c:identifier="g_variant_dict_ref" version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4289">Increases the reference count on @dict.
+             line="4293">Increases the reference count on @dict.
 
 Don't call this on stack-allocated #GVariantDict instances or bad
 things will happen.</doc>
@@ -57622,14 +57824,14 @@ things will happen.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4298">a new reference to @dict</doc>
+               line="4302">a new reference to @dict</doc>
           <type name="VariantDict" c:type="GVariantDict*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4291">a heap-allocated #GVariantDict</doc>
+                 line="4295">a heap-allocated #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
         </parameters>
@@ -57639,25 +57841,25 @@ things will happen.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4196">Removes a key and its associated value from a #GVariantDict.</doc>
+             line="4200">Removes a key and its associated value from a #GVariantDict.</doc>
         <source-position filename="glib/gvariant.h" line="528"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="4203">%TRUE if the key was found and removed</doc>
+               line="4207">%TRUE if the key was found and removed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4198">a #GVariantDict</doc>
+                 line="4202">a #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4199">the key to remove</doc>
+                 line="4203">the key to remove</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -57665,7 +57867,7 @@ things will happen.</doc>
       <method name="unref" c:identifier="g_variant_dict_unref" version="2.40">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="4312">Decreases the reference count on @dict.
+             line="4316">Decreases the reference count on @dict.
 
 In the event that there are no more references, releases all memory
 associated with the #GVariantDict.
@@ -57680,7 +57882,7 @@ things will happen.</doc>
           <instance-parameter name="dict" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="4314">a heap-allocated #GVariantDict</doc>
+                 line="4318">a heap-allocated #GVariantDict</doc>
             <type name="VariantDict" c:type="GVariantDict*"/>
           </instance-parameter>
         </parameters>
@@ -57788,7 +57990,7 @@ be freed in any way.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5763">Gets the next item in the container and unpacks it into the variable
+             line="5767">Gets the next item in the container and unpacks it into the variable
 argument list according to @format_string, returning %TRUE.
 
 If no more items remain then %FALSE is returned.
@@ -57854,7 +58056,7 @@ See the section on
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="5832">%TRUE if a value was unpacked, or %FALSE if there was no
+               line="5836">%TRUE if a value was unpacked, or %FALSE if there was no
          value</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -57862,19 +58064,19 @@ See the section on
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5765">a #GVariantIter</doc>
+                 line="5769">a #GVariantIter</doc>
             <type name="VariantIter" c:type="GVariantIter*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5766">a GVariant format string</doc>
+                 line="5770">a GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5767">the arguments to unpack the value into</doc>
+                 line="5771">the arguments to unpack the value into</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -57911,7 +58113,7 @@ This function might be useful for preallocation of arrays.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gvariant.c"
-             line="5685">Gets the next item in the container and unpacks it into the variable
+             line="5689">Gets the next item in the container and unpacks it into the variable
 argument list according to @format_string, returning %TRUE.
 
 If no more items remain then %FALSE is returned.
@@ -57956,26 +58158,26 @@ See the section on
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gvariant.c"
-               line="5733">%TRUE if a value was unpacked, or %FALSE if there as no value</doc>
+               line="5737">%TRUE if a value was unpacked, or %FALSE if there as no value</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5687">a #GVariantIter</doc>
+                 line="5691">a #GVariantIter</doc>
             <type name="VariantIter" c:type="GVariantIter*"/>
           </instance-parameter>
           <parameter name="format_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5688">a GVariant format string</doc>
+                 line="5692">a GVariant format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gvariant.c"
-                 line="5689">the arguments to unpack the value into</doc>
+                 line="5693">the arguments to unpack the value into</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -75016,7 +75218,7 @@ g_pattern_match() instead while supplying the reversed string.</doc>
               version="2.30">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="491">This is equivalent to g_bit_lock, but working on pointers (or other
+           line="495">This is equivalent to g_bit_lock, but working on pointers (or other
 pointer-sized values).
 
 For portability reasons, you may only lock on the bottom 32 bits of
@@ -75032,13 +75234,13 @@ artifact and the argument passed to it should not be `volatile`.</doc>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="493">a pointer to a #gpointer-sized value</doc>
+               line="497">a pointer to a #gpointer-sized value</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="494">a bit value between 0 and 31</doc>
+               line="498">a bit value between 0 and 31</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -75048,7 +75250,7 @@ artifact and the argument passed to it should not be `volatile`.</doc>
               version="2.80">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="421">This is equivalent to g_bit_lock, but working on pointers (or other
+           line="425">This is equivalent to g_bit_lock, but working on pointers (or other
 pointer-sized values).
 
 For portability reasons, you may only lock on the bottom 32 bits of
@@ -75061,13 +75263,13 @@ the pointer.</doc>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="423">a pointer to a #gpointer-sized value</doc>
+               line="427">a pointer to a #gpointer-sized value</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="424">a bit value between 0 and 31</doc>
+               line="428">a bit value between 0 and 31</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="out_ptr"
@@ -75078,7 +75280,7 @@ the pointer.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="425">returns the set pointer atomically.
+               line="429">returns the set pointer atomically.
   This is the value after setting the lock, it thus always has the
   lock bit set, while previously @address had the lockbit unset.
   You may also use g_pointer_bit_lock_mask_ptr() to clear the lock bit.</doc>
@@ -75091,13 +75293,13 @@ the pointer.</doc>
               version="2.80">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="611">This mangles @ptr as g_pointer_bit_lock() and g_pointer_bit_unlock()
+           line="619">This mangles @ptr as g_pointer_bit_lock() and g_pointer_bit_unlock()
 do.</doc>
       <source-position filename="glib/gbitlock.h" line="61"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="glib/gbitlock.c"
-             line="629">the mangled pointer.</doc>
+             line="637">the mangled pointer.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </return-value>
       <parameters>
@@ -75107,27 +75309,27 @@ do.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="613">the pointer to mask</doc>
+               line="621">the pointer to mask</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="614">the bit to set/clear. If set to `G_MAXUINT`, the
+               line="622">the bit to set/clear. If set to `G_MAXUINT`, the
   lockbit is taken from @preserve_ptr or @ptr (depending on @preserve_mask).</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="set" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="616">whether to set (lock) the bit or unset (unlock). This
+               line="624">whether to set (lock) the bit or unset (unlock). This
   has no effect, if @lock_bit is set to `G_MAXUINT`.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="preserve_mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="618">if non-zero, a bit-mask for @preserve_ptr. The
+               line="626">if non-zero, a bit-mask for @preserve_ptr. The
   @preserve_mask bits from @preserve_ptr are set in the result.
   Note that the @lock_bit bit will be always set according to @set,
   regardless of @preserve_mask and @preserve_ptr (unless @lock_bit is
@@ -75140,7 +75342,7 @@ do.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="623">if @preserve_mask is non-zero, the bits
+               line="631">if @preserve_mask is non-zero, the bits
   from this pointer are set in the result.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
@@ -75151,7 +75353,7 @@ do.</doc>
               version="2.30">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="514">This is equivalent to g_bit_trylock(), but working on pointers (or
+           line="518">This is equivalent to g_bit_trylock(), but working on pointers (or
 other pointer-sized values).
 
 For portability reasons, you may only lock on the bottom 32 bits of
@@ -75163,20 +75365,20 @@ artifact and the argument passed to it should not be `volatile`.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="glib/gbitlock.c"
-             line="528">%TRUE if the lock was acquired</doc>
+             line="532">%TRUE if the lock was acquired</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="516">a pointer to a #gpointer-sized value</doc>
+               line="520">a pointer to a #gpointer-sized value</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="517">a bit value between 0 and 31</doc>
+               line="521">a bit value between 0 and 31</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -75186,7 +75388,7 @@ artifact and the argument passed to it should not be `volatile`.</doc>
               version="2.30">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="565">This is equivalent to g_bit_unlock, but working on pointers (or other
+           line="569">This is equivalent to g_bit_unlock, but working on pointers (or other
 pointer-sized values).
 
 For portability reasons, you may only lock on the bottom 32 bits of
@@ -75202,13 +75404,13 @@ artifact and the argument passed to it should not be `volatile`.</doc>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="567">a pointer to a #gpointer-sized value</doc>
+               line="571">a pointer to a #gpointer-sized value</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="568">a bit value between 0 and 31</doc>
+               line="572">a bit value between 0 and 31</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -75218,7 +75420,7 @@ artifact and the argument passed to it should not be `volatile`.</doc>
               version="2.80">
       <doc xml:space="preserve"
            filename="glib/gbitlock.c"
-           line="641">This is equivalent to g_pointer_bit_unlock() and atomically setting
+           line="649">This is equivalent to g_pointer_bit_unlock() and atomically setting
 the pointer value.
 
 Note that the lock bit will be cleared from the pointer. If the unlocked
@@ -75233,13 +75435,13 @@ only use this on the lowest bits.</doc>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="643">a pointer to a #gpointer-sized value</doc>
+               line="651">a pointer to a #gpointer-sized value</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
         <parameter name="lock_bit" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="644">a bit value between 0 and 31</doc>
+               line="652">a bit value between 0 and 31</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="ptr"
@@ -75248,13 +75450,13 @@ only use this on the lowest bits.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="645">the new pointer value to set</doc>
+               line="653">the new pointer value to set</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="preserve_mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gbitlock.c"
-               line="646">if non-zero, those bits of the current pointer in @address
+               line="654">if non-zero, those bits of the current pointer in @address
   are preserved.
   Note that the @lock_bit bit will be always set according to @set,
   regardless of @preserve_mask and the currently set value in @address.</doc>
@@ -79763,7 +79965,7 @@ functionality, although under a misleading name.</doc>
     <function name="spawn_close_pid" c:identifier="g_spawn_close_pid">
       <doc xml:space="preserve"
            filename="glib/gspawn.c"
-           line="2628">On some platforms, notably Windows, the #GPid type represents a resource
+           line="2630">On some platforms, notably Windows, the #GPid type represents a resource
 which must be closed to prevent resource leaking. g_spawn_close_pid()
 is provided for this purpose. It should be used on all platforms, even
 though it doesn't do anything under UNIX.</doc>
@@ -79775,7 +79977,7 @@ though it doesn't do anything under UNIX.</doc>
         <parameter name="pid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gspawn.c"
-               line="2630">The process reference to close</doc>
+               line="2632">The process reference to close</doc>
           <type name="Pid" c:type="GPid"/>
         </parameter>
       </parameters>

@@ -1,7 +1,7 @@
 {
     "name": "@ts-for-gir-test/types-packages",
     "scripts": {
-        "validate:types:packages": "tsc --project tsconfig.json --noEmit"
+        "validate:types": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
         "@girs/accounts-1.0": "workspace:^",
@@ -478,6 +478,6 @@
         "@girs/zpj-0.0": "workspace:^"
     },
     "devDependencies": {
-        "typescript": "^5.4.5"
+        "typescript": "^5.5.3"
     }
 }

@@ -139,7 +139,7 @@ export class TypeIdentifier extends TypeExpression {
             return null
         }
 
-        this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
+        this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace} ${namespace.version}`)
         return null
     }
 

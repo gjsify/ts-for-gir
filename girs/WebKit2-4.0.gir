@@ -3610,7 +3610,8 @@ or to set the acceptance policy, with webkit_cookie_manager_get_accept_policy().
                        line="50"/>
       <method name="add_cookie"
               c:identifier="webkit_cookie_manager_add_cookie"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="add_cookie_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="269">Asynchronously add a #SoupCookie to the underlying storage.
@@ -3720,7 +3721,8 @@ webkit_cookie_manager_add_cookie_finish() to get the result of the operation.</d
       </method>
       <method name="delete_cookie"
               c:identifier="webkit_cookie_manager_delete_cookie"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="delete_cookie_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="373">Asynchronously delete a #SoupCookie from the current session.
@@ -3835,7 +3837,8 @@ webkit_cookie_manager_delete_cookie_finish() to get the result of the operation.
         </parameters>
       </method>
       <method name="get_accept_policy"
-              c:identifier="webkit_cookie_manager_get_accept_policy">
+              c:identifier="webkit_cookie_manager_get_accept_policy"
+              glib:finish-func="get_accept_policy_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="223">Asynchronously get the cookie acceptance policy of @cookie_manager.
@@ -3920,7 +3923,8 @@ webkit_cookie_manager_get_accept_policy_finish() to get the result of the operat
       </method>
       <method name="get_all_cookies"
               c:identifier="webkit_cookie_manager_get_all_cookies"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="get_all_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="571">Asynchronously get a list of #SoupCookie from @cookie_manager.
@@ -4007,7 +4011,8 @@ with g_list_free_full() and soup_cookie_free().</doc>
       </method>
       <method name="get_cookies"
               c:identifier="webkit_cookie_manager_get_cookies"
-              version="2.20">
+              version="2.20"
+              glib:finish-func="get_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="315">Asynchronously get a list of #SoupCookie from @cookie_manager.
@@ -4104,7 +4109,8 @@ with g_list_free_full() and soup_cookie_free().</doc>
       <method name="get_domains_with_cookies"
               c:identifier="webkit_cookie_manager_get_domains_with_cookies"
               deprecated="1"
-              deprecated-version="2.16">
+              deprecated-version="2.16"
+              glib:finish-func="get_domains_with_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="420">Asynchronously get the list of domains for which @cookie_manager contains cookies.
@@ -4195,7 +4201,8 @@ be released with g_strfreev().</doc>
       </method>
       <method name="replace_cookies"
               c:identifier="webkit_cookie_manager_replace_cookies"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="replace_cookies_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitCookieManager.cpp"
              line="521">Asynchronously replace all cookies in @cookie_manager with the given list of @cookies.
@@ -6142,7 +6149,8 @@ the in-memory cache during the current execution.</doc>
         </parameters>
       </method>
       <method name="get_favicon"
-              c:identifier="webkit_favicon_database_get_favicon">
+              c:identifier="webkit_favicon_database_get_favicon"
+              glib:finish-func="get_favicon_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
              line="201">Asynchronously obtains a favicon image.
@@ -11433,6 +11441,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="set_enable_preedit">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="151">Called via webkit_input_method_context_set_enable_preedit() to
+  control the use of the preedit string.</doc>
         <callback name="set_enable_preedit">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="110"/>
@@ -11457,6 +11469,13 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="get_preedit">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="153">Called via webkit_input_method_context_get_preedit() to
+  retrieve the text currently being preedited for display at the cursor
+  position. Any input method which composes complex characters or any
+  other compositions from multiple sequential key presses should override
+  this method to provide feedback.</doc>
         <callback name="get_preedit">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="112"/>
@@ -11507,6 +11526,16 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="filter_key_event">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="158">Called via webkit_input_method_context_filter_key_event() on every
+  key press or release event. Every non-trivial input method needs to
+  override this in order to implement the mapping from key events to text.
+  A return value of %TRUE indicates to the caller that the event was
+  consumed by the input method. In that case, the #WebKitInputMethodContext::committed
+  signal should be emitted upon completion of a key sequence to pass the
+  resulting text back to the editable element. Alternatively, %FALSE may be
+  returned to indicate that the event wasn’t handled by the input method.</doc>
         <callback name="filter_key_event">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="116"/>
@@ -11534,6 +11563,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_focus_in">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="166">Called via webkit_input_method_context_notify_focus_in() when
+  an editable element of the #WebKitWebView has gained focus.</doc>
         <callback name="notify_focus_in">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="118"/>
@@ -11552,6 +11585,10 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_focus_out">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="168">Called via webkit_input_method_context_notify_focus_out() when
+  an editable element of the #WebKitWebView has lost focus.</doc>
         <callback name="notify_focus_out">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="119"/>
@@ -11570,6 +11607,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_cursor_area">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="170">Called via webkit_input_method_context_notify_cursor_area()
+  to inform the input method of the current cursor location relative to
+  the client window.</doc>
         <callback name="notify_cursor_area">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="120"/>
@@ -11612,6 +11654,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="notify_surrounding">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="173">Called via webkit_input_method_context_notify_surrounding() to
+  update the context surrounding the cursor. The provided text should not include
+  the preedit string.</doc>
         <callback name="notify_surrounding">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="125"/>
@@ -11654,6 +11701,11 @@ webkit_input_method_context_get_preedit() returns the empty string.</doc>
         </callback>
       </field>
       <field name="reset">
+        <doc xml:space="preserve"
+             filename="Source/WebKit/UIProcess/API/glib/WebKitInputMethodContext.cpp"
+             line="176">Called via webkit_input_method_context_reset() to signal a change that
+  requires a reset. An input method that implements preediting
+  should override this method to clear the preedit state on reset.</doc>
         <callback name="reset">
           <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitInputMethodContext.h"
                            line="130"/>
@@ -12360,7 +12412,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="0" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -24076,7 +24128,8 @@ The path must point to a local filesystem, and will be created if needed.</doc>
       </constructor>
       <method name="fetch_identifiers"
               c:identifier="webkit_user_content_filter_store_fetch_identifiers"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="fetch_identifiers_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="483">Asynchronously retrieve a list of the identifiers for all the stored filters.
@@ -24190,7 +24243,8 @@ started with webkit_user_content_filter_store_fetch_identifiers().</doc>
       </method>
       <method name="load"
               c:identifier="webkit_user_content_filter_store_load"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="load_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="421">Asynchronously load a content filter given its @identifier.
@@ -24284,7 +24338,8 @@ webkit_user_content_filter_store_load().</doc>
       </method>
       <method name="remove"
               c:identifier="webkit_user_content_filter_store_remove"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="362">Asynchronously remove a content filter given its @identifier.
@@ -24376,7 +24431,8 @@ webkit_user_content_filter_store_remove().</doc>
       </method>
       <method name="save"
               c:identifier="webkit_user_content_filter_store_save"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="212">Asynchronously save a content filter from a set source rule.
@@ -24481,7 +24537,8 @@ webkit_user_content_filter_store_save().</doc>
       </method>
       <method name="save_from_file"
               c:identifier="webkit_user_content_filter_store_save_from_file"
-              version="2.24">
+              version="2.24"
+              glib:finish-func="save_from_file_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp"
              line="278">Asynchronously save a content filter from the contents of a file.
@@ -26915,7 +26972,8 @@ database associated with @context, or %NULL.</doc>
       <method name="get_plugins"
               c:identifier="webkit_web_context_get_plugins"
               deprecated="1"
-              deprecated-version="2.32">
+              deprecated-version="2.32"
+              glib:finish-func="get_plugins_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
              line="1265">Asynchronously get the list of installed plugins.
@@ -28852,7 +28910,9 @@ webkit_web_resource_get_response(), as well as the raw data, using
 webkit_web_resource_get_data().</doc>
       <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebResource.h"
                        line="49"/>
-      <method name="get_data" c:identifier="webkit_web_resource_get_data">
+      <method name="get_data"
+              c:identifier="webkit_web_resource_get_data"
+              glib:finish-func="get_data_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebResource.cpp"
              line="369">Asynchronously get the raw data for @resource.
@@ -29796,7 +29856,8 @@ in the view by the user content manager.</doc>
       </virtual-method>
       <method name="call_async_javascript_function"
               c:identifier="webkit_web_view_call_async_javascript_function"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="call_async_javascript_function_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4281">Asynchronously call @body with @arguments in the script world with name @world_name of the main frame current context in @web_view.
@@ -29971,7 +30032,8 @@ web_view_evaluate_promise (WebKitWebView *web_view)
         </parameters>
       </method>
       <method name="can_execute_editing_command"
-              c:identifier="webkit_web_view_can_execute_editing_command">
+              c:identifier="webkit_web_view_can_execute_editing_command"
+              glib:finish-func="can_execute_editing_command_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="3943">Asynchronously check if it is possible to execute the given editing command.
@@ -30157,7 +30219,8 @@ webkit_web_view_can_execute_editing_command_finish() to get the result of the op
       </method>
       <method name="evaluate_javascript"
               c:identifier="webkit_web_view_evaluate_javascript"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="evaluate_javascript_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4145">Asynchronously evaluate @script in the script world with name @world_name of the main frame current context in @web_view.
@@ -30941,7 +31004,9 @@ the settings of a #WebKitWebView would affect other
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_snapshot" c:identifier="webkit_web_view_get_snapshot">
+      <method name="get_snapshot"
+              c:identifier="webkit_web_view_get_snapshot"
+              glib:finish-func="get_snapshot_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4904">Asynchronously retrieves a snapshot of @web_view for @region.
@@ -31859,7 +31924,8 @@ using any cached data.</doc>
               c:identifier="webkit_web_view_run_async_javascript_function_in_world"
               version="2.38"
               deprecated="1"
-              deprecated-version="2.40">
+              deprecated-version="2.40"
+              glib:finish-func="webkit_web_view_run_javascript_in_world_finish">
         <doc xml:space="preserve"
              filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
              line="714">Asynchronously run @body in the script world with name @world_name of the current page context in
@@ -31984,7 +32050,8 @@ web_view_evaluate_promise (WebKitWebView *web_view)
       <method name="run_javascript"
               c:identifier="webkit_web_view_run_javascript"
               deprecated="1"
-              deprecated-version="2.40">
+              deprecated-version="2.40"
+              glib:finish-func="run_javascript_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4381">Asynchronously run @script in the context of the current page in @web_view.
@@ -32124,7 +32191,8 @@ web_view_get_link_url (WebKitWebView *web_view,
       <method name="run_javascript_from_gresource"
               c:identifier="webkit_web_view_run_javascript_from_gresource"
               deprecated="1"
-              deprecated-version="2.40">
+              deprecated-version="2.40"
+              glib:finish-func="run_javascript_from_gresource_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4542">Asynchronously run the script from @resource.
@@ -32224,7 +32292,8 @@ Check webkit_web_view_run_javascript_finish() for a usage example.</doc>
               c:identifier="webkit_web_view_run_javascript_in_world"
               version="2.22"
               deprecated="1"
-              deprecated-version="2.40">
+              deprecated-version="2.40"
+              glib:finish-func="run_javascript_in_world_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4469">Asynchronously run @script in the script world.
@@ -32324,7 +32393,9 @@ webkit_web_view_run_javascript_in_world_finish() to get the result of the operat
           </parameter>
         </parameters>
       </method>
-      <method name="save" c:identifier="webkit_web_view_save">
+      <method name="save"
+              c:identifier="webkit_web_view_save"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4701">Asynchronously save the current web page.
@@ -32415,7 +32486,9 @@ operation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_to_file" c:identifier="webkit_web_view_save_to_file">
+      <method name="save_to_file"
+              c:identifier="webkit_web_view_save_to_file"
+              glib:finish-func="save_to_file_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="4765">Asynchronously save the current web page.
@@ -32513,7 +32586,8 @@ operation.</doc>
       </method>
       <method name="send_message_to_page"
               c:identifier="webkit_web_view_send_message_to_page"
-              version="2.28">
+              version="2.28"
+              glib:finish-func="send_message_to_page_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
              line="5159">Send @message to the #WebKitWebPage corresponding to @web_view.
@@ -35368,7 +35442,8 @@ passing %NULL as the value of @settings.</doc>
       </function>
       <method name="clear"
               c:identifier="webkit_website_data_manager_clear"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="clear_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1318">Asynchronously clear the website data of the given @types modified in the past @timespan.
@@ -35470,7 +35545,8 @@ future.</doc>
       </method>
       <method name="fetch"
               c:identifier="webkit_website_data_manager_fetch"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="fetch_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1197">Asynchronously get the list of #WebKitWebsiteData for the given @types.
@@ -35803,7 +35879,8 @@ webkit_website_data_manager_fetch_finish() to get the result of the operation.</
       </method>
       <method name="get_itp_summary"
               c:identifier="webkit_website_data_manager_get_itp_summary"
-              version="2.30">
+              version="2.30"
+              glib:finish-func="get_itp_summary_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1640">Asynchronously get the list of #WebKitITPThirdParty seen for @manager.
@@ -36082,7 +36159,8 @@ See #WebKitWebsiteDataManager:is-ephemeral for more details.</doc>
       </method>
       <method name="remove"
               c:identifier="webkit_website_data_manager_remove"
-              version="2.16">
+              version="2.16"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp"
              line="1251">Asynchronously removes the website data in the given @website_data list.

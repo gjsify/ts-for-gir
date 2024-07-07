@@ -37,12 +37,12 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="fcitx_g_client_new">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1085">New a #FcitxGClient</doc>
+             line="1094">New a #FcitxGClient</doc>
         <source-position filename="fcitxgclient.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="1090">A newly allocated #FcitxGClient</doc>
+               line="1099">A newly allocated #FcitxGClient</doc>
           <type name="Client" c:type="FcitxGClient*"/>
         </return-value>
       </constructor>
@@ -50,19 +50,19 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="fcitx_g_client_new_with_watcher">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1097">New a #FcitxGClient</doc>
+             line="1106">New a #FcitxGClient</doc>
         <source-position filename="fcitxgclient.h" line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="1103">A newly allocated #FcitxGClient</doc>
+               line="1112">A newly allocated #FcitxGClient</doc>
           <type name="Client" c:type="FcitxGClient*"/>
         </return-value>
         <parameters>
           <parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1099">the FcitxGWatcher to be used with this client</doc>
+                 line="1108">the FcitxGWatcher to be used with this client</doc>
             <type name="Watcher" c:type="FcitxGWatcher*"/>
           </parameter>
         </parameters>
@@ -70,7 +70,7 @@ and/or use gtk-doc annotations.  -->
       <method name="focus_in" c:identifier="fcitx_g_client_focus_in">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="444">tell fcitx current client has focus</doc>
+             line="445">tell fcitx current client has focus</doc>
         <source-position filename="fcitxgclient.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -79,7 +79,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="446">A #FcitxGClient</doc>
+                 line="447">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
         </parameters>
@@ -87,7 +87,7 @@ and/or use gtk-doc annotations.  -->
       <method name="focus_out" c:identifier="fcitx_g_client_focus_out">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="456">tell fcitx current client has lost focus</doc>
+             line="457">tell fcitx current client has lost focus</doc>
         <source-position filename="fcitxgclient.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -96,7 +96,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="458">A #FcitxGClient</doc>
+                 line="459">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
         </parameters>
@@ -106,14 +106,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="438">the current uuid of input context.</doc>
+               line="439">the current uuid of input context.</doc>
           <type name="guint8" c:type="const guint8*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="436">a #FcitxGWatcher</doc>
+                 line="437">a #FcitxGWatcher</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
         </parameters>
@@ -121,19 +121,19 @@ and/or use gtk-doc annotations.  -->
       <method name="is_valid" c:identifier="fcitx_g_client_is_valid">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1146">Check #FcitxGClient is valid to communicate with Fcitx</doc>
+             line="1155">Check #FcitxGClient is valid to communicate with Fcitx</doc>
         <source-position filename="fcitxgclient.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="1152">#FcitxGClient is valid or not</doc>
+               line="1161">#FcitxGClient is valid or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1148">A #FcitxGClient</doc>
+                 line="1157">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
         </parameters>
@@ -160,10 +160,13 @@ and/or use gtk-doc annotations.  -->
           </instance-parameter>
         </parameters>
       </method>
-      <method name="process_key" c:identifier="fcitx_g_client_process_key">
+      <method name="process_key"
+              c:identifier="fcitx_g_client_process_key"
+              glib:finish-func="process_key_finish"
+              glib:sync-func="process_key_sync">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="664">use this function with #fcitx_g_client_process_key_finish</doc>
+             line="665">use this function with #fcitx_g_client_process_key_finish</doc>
         <source-position filename="fcitxgclient.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -172,43 +175,43 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="666">A #FcitxGClient</doc>
+                 line="667">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="667">key value</doc>
+                 line="668">key value</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="668">hardware key code</doc>
+                 line="669">hardware key code</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="669">key state</doc>
+                 line="670">key state</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="isRelease" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="670">event type is key release</doc>
+                 line="671">event type is key release</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="671">timestamp</doc>
+                 line="672">timestamp</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="timeout_msec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="672">timeout in millisecond</doc>
+                 line="673">timeout in millisecond</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="cancellable"
@@ -217,7 +220,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="673">cancellable</doc>
+                 line="674">cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -228,7 +231,7 @@ and/or use gtk-doc annotations.  -->
                      closure="8">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="674">callback</doc>
+                 line="675">callback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -237,7 +240,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="675">user data</doc>
+                 line="676">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -246,76 +249,77 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_process_key_finish">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="629">use this function with #fcitx_g_client_process_key_async</doc>
+             line="630">use this function with #fcitx_g_client_process_key_async</doc>
         <source-position filename="fcitxgclient.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="636">process key result</doc>
+               line="637">process key result</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="631">A #FcitxGClient</doc>
+                 line="632">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="632">result</doc>
+                 line="633">result</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
       <method name="process_key_sync"
-              c:identifier="fcitx_g_client_process_key_sync">
+              c:identifier="fcitx_g_client_process_key_sync"
+              glib:async-func="process_key">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="700">send a key event to fcitx synchronizely</doc>
+             line="701">send a key event to fcitx synchronizely</doc>
         <source-position filename="fcitxgclient.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="fcitxgclient.c"
-               line="711">the key is processed or not</doc>
+               line="712">the key is processed or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="702">A #FcitxGClient</doc>
+                 line="703">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="703">key value</doc>
+                 line="704">key value</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="704">hardware key code</doc>
+                 line="705">hardware key code</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="705">key state</doc>
+                 line="706">key state</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="isRelease" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="706">is key release</doc>
+                 line="707">is key release</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="707">timestamp</doc>
+                 line="708">timestamp</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -323,7 +327,7 @@ and/or use gtk-doc annotations.  -->
       <method name="reset" c:identifier="fcitx_g_client_reset">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="468">tell fcitx current client is reset from client side</doc>
+             line="469">tell fcitx current client is reset from client side</doc>
         <source-position filename="fcitxgclient.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -332,7 +336,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="470">A #FcitxGClient</doc>
+                 line="471">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
         </parameters>
@@ -341,7 +345,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_select_candidate">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="558">tell fcitx current client to select candidate.</doc>
+             line="559">tell fcitx current client to select candidate.</doc>
         <source-position filename="fcitxgclient.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -350,13 +354,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="560">A #FcitxGClient</doc>
+                 line="561">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="561">Candidate index</doc>
+                 line="562">Candidate index</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -365,7 +369,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_set_capability">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="480">set client capability of input context.</doc>
+             line="481">set client capability of input context.</doc>
         <source-position filename="fcitxgclient.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -374,13 +378,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="482">A #FcitxGClient</doc>
+                 line="483">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="483">capability</doc>
+                 line="484">capability</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -389,7 +393,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_set_cursor_rect">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="494">tell fcitx current client's cursor geometry info</doc>
+             line="495">tell fcitx current client's cursor geometry info</doc>
         <source-position filename="fcitxgclient.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -398,31 +402,31 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="496">A #FcitxGClient</doc>
+                 line="497">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="497">x of cursor</doc>
+                 line="498">x of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="498">y of cursor</doc>
+                 line="499">y of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="w" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="499">width of cursor</doc>
+                 line="500">width of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="500">height of cursor</doc>
+                 line="501">height of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -431,7 +435,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_set_cursor_rect_with_scale_factor">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="513">tell fcitx current client's cursor geometry info</doc>
+             line="514">tell fcitx current client's cursor geometry info</doc>
         <source-position filename="fcitxgclient.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -440,37 +444,37 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="515">A #FcitxGClient</doc>
+                 line="516">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="516">x of cursor</doc>
+                 line="517">x of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="517">y of cursor</doc>
+                 line="518">y of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="w" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="518">width of cursor</doc>
+                 line="519">width of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="519">height of cursor</doc>
+                 line="520">height of cursor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="520">scale factor of surface</doc>
+                 line="521">scale factor of surface</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -478,7 +482,7 @@ and/or use gtk-doc annotations.  -->
       <method name="set_display" c:identifier="fcitx_g_client_set_display">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1110">Set the display name</doc>
+             line="1119">Set the display name</doc>
         <source-position filename="fcitxgclient.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -487,13 +491,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1112">A #FcitxGClient</doc>
+                 line="1121">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1113">display name</doc>
+                 line="1122">display name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -501,7 +505,7 @@ and/or use gtk-doc annotations.  -->
       <method name="set_program" c:identifier="fcitx_g_client_set_program">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1122">Set the program name</doc>
+             line="1131">Set the program name</doc>
         <source-position filename="fcitxgclient.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -510,13 +514,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1124">A #FcitxGClient</doc>
+                 line="1133">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="program" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1125">program name</doc>
+                 line="1134">program name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -531,7 +535,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="574">A #FcitxGClient</doc>
+                 line="575">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="text"
@@ -540,19 +544,19 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="575">surroundng text</doc>
+                 line="576">surroundng text</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="576">cursor position coresponding to text</doc>
+                 line="577">cursor position coresponding to text</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="anchor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="577">anchor position coresponding to text</doc>
+                 line="578">anchor position coresponding to text</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -561,7 +565,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="fcitx_g_client_set_use_batch_process_key_event">
         <doc xml:space="preserve"
              filename="fcitxgclient.c"
-             line="1134">Set whether use ProcessKeyEventBatch if supports, default is true.</doc>
+             line="1143">Set whether use ProcessKeyEventBatch if supports, default is true.</doc>
         <source-position filename="fcitxgclient.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -570,13 +574,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1136">A #FcitxGClient</doc>
+                 line="1145">A #FcitxGClient</doc>
             <type name="Client" c:type="FcitxGClient*"/>
           </instance-parameter>
           <parameter name="batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="fcitxgclient.c"
-                 line="1137">whether use ProcessKeyEventBatch</doc>
+                 line="1146">whether use ProcessKeyEventBatch</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

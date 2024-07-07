@@ -1412,9 +1412,10 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 return ` extends ${Type}`
             }
 
-            throw new Error(
-                `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}`,
+            this.log.error(
+                `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}, falling back to GObject.Object`,
             )
+            return ` extends GObject.Object`
         }
 
         return ''

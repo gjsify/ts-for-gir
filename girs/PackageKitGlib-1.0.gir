@@ -2449,7 +2449,8 @@ applications.</doc>
       <method name="get_progress"
               c:identifier="pk_client_get_progress"
               version="0.5.3"
-              throws="1">
+              throws="1"
+              glib:async-func="get_progress_async">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client-sync.c"
              line="1935">Get the progress of a transaction.
@@ -2490,7 +2491,9 @@ applications.</doc>
       </method>
       <method name="get_progress_async"
               c:identifier="pk_client_get_progress_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_progress_finish"
+              glib:sync-func="get_progress">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
              line="4394">Find the current state of a transaction.</doc>
@@ -6482,7 +6485,8 @@ the socket.</doc>
       </virtual-method>
       <method name="can_authorize_async"
               c:identifier="pk_control_can_authorize_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="can_authorize_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="1785">We may want to know before we run a method if we are going to be denied,
@@ -6568,7 +6572,8 @@ accepted or challenged for authentication.</doc>
       </method>
       <method name="get_daemon_state_async"
               c:identifier="pk_control_get_daemon_state_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_daemon_state_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="907">Gets the debugging state from the daemon.</doc>
@@ -6648,7 +6653,8 @@ accepted or challenged for authentication.</doc>
       <method name="get_properties"
               c:identifier="pk_control_get_properties"
               version="0.5.3"
-              throws="1">
+              throws="1"
+              glib:async-func="get_properties_async">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control-sync.c"
              line="54">Gets the properties the daemon supports.
@@ -6682,7 +6688,9 @@ applications.</doc>
       </method>
       <method name="get_properties_async"
               c:identifier="pk_control_get_properties_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_properties_finish"
+              glib:sync-func="get_properties">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="1949">Gets global properties from the daemon.</doc>
@@ -6761,7 +6769,8 @@ applications.</doc>
       </method>
       <method name="get_tid_async"
               c:identifier="pk_control_get_tid_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_tid_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="511">Gets a transacton ID from the daemon.</doc>
@@ -6840,7 +6849,8 @@ applications.</doc>
       </method>
       <method name="get_time_since_action_async"
               c:identifier="pk_control_get_time_since_action_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_time_since_action_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="1576">We may want to know how long it has been since we refreshed the cache or
@@ -6927,7 +6937,8 @@ retrieved the update list.</doc>
       <method name="get_transaction_list"
               c:identifier="pk_control_get_transaction_list"
               version="0.5.3"
-              throws="1">
+              throws="1"
+              glib:async-func="get_transaction_list_async">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control-sync.c"
              line="111">Gets the transaction list in progress.
@@ -6963,7 +6974,9 @@ applications.</doc>
       </method>
       <method name="get_transaction_list_async"
               c:identifier="pk_control_get_transaction_list_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="get_transaction_list_finish"
+              glib:sync-func="get_transaction_list">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="1371">Gets the transactions currently running in the daemon.</doc>
@@ -7045,7 +7058,8 @@ applications.</doc>
       <method name="set_proxy"
               c:identifier="pk_control_set_proxy"
               version="0.6.3"
-              throws="1">
+              throws="1"
+              glib:async-func="set_proxy_async">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control-sync.c"
              line="295">Sets the network proxy to use in the daemon.
@@ -7250,7 +7264,9 @@ applications.</doc>
       </method>
       <method name="set_proxy_async"
               c:identifier="pk_control_set_proxy_async"
-              version="0.5.2">
+              version="0.5.2"
+              glib:finish-func="set_proxy_finish"
+              glib:sync-func="set_proxy">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="1190">Set a proxy on the PK daemon
@@ -7345,7 +7361,8 @@ Clients should really be using pk_control_set_proxy2_async().</doc>
       <method name="suggest_daemon_quit"
               c:identifier="pk_control_suggest_daemon_quit"
               version="0.6.2"
-              throws="1">
+              throws="1"
+              glib:async-func="suggest_daemon_quit_async">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control-sync.c"
              line="168">Suggests to the daemon that it should quit as soon as possible.
@@ -7379,7 +7396,9 @@ applications.</doc>
       </method>
       <method name="suggest_daemon_quit_async"
               c:identifier="pk_control_suggest_daemon_quit_async"
-              version="0.6.2">
+              version="0.6.2"
+              glib:finish-func="suggest_daemon_quit_finish"
+              glib:sync-func="suggest_daemon_quit">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-control.c"
              line="709">Suggests to the daemon that it should quit as soon as possible.</doc>

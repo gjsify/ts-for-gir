@@ -644,25 +644,25 @@ object with [ctor@Portal.new] and use it throughout its lifetime.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="334">Creates a new [class@Portal] object.</doc>
+             line="345">Creates a new [class@Portal] object.</doc>
         <source-position filename="libportal/portal-helpers.h" line="39"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="340">a newly created [class@Portal] object or NULL on error</doc>
+               line="351">a newly created [class@Portal] object or NULL on error</doc>
           <type name="Portal" c:type="XdpPortal*"/>
         </return-value>
       </constructor>
       <constructor name="new" c:identifier="xdp_portal_new">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="348">Creates a new [class@Portal] object. If D-Bus is unavailable this API will abort.
+             line="359">Creates a new [class@Portal] object. If D-Bus is unavailable this API will abort.
 We recommend using xdp_portal_initable_new() to safely handle this failure.</doc>
         <source-position filename="libportal/portal-helpers.h" line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="354">a newly created [class@Portal] object</doc>
+               line="365">a newly created [class@Portal] object</doc>
           <type name="Portal" c:type="XdpPortal*"/>
         </return-value>
       </constructor>
@@ -670,14 +670,14 @@ We recommend using xdp_portal_initable_new() to safely handle this failure.</doc
                 c:identifier="xdp_portal_running_under_flatpak">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="458">Detects if running inside of a Flatpak or WebKit sandbox.
+             line="469">Detects if running inside of a Flatpak or WebKit sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
         <source-position filename="libportal/portal-helpers.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="465">%TRUE if the current process is running under a Flatpak sandbox</doc>
+               line="476">%TRUE if the current process is running under a Flatpak sandbox</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
@@ -685,7 +685,7 @@ See also: [func@Portal.running_under_sandbox].</doc>
                 c:identifier="xdp_portal_running_under_sandbox">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="515">This function tries to determine if the current process is running under a
+             line="526">This function tries to determine if the current process is running under a
 sandbox that requires the use of portals.
 
 If you need to check error conditions see [func@Portal.running_under_snap].
@@ -695,7 +695,7 @@ Note that these functions are all cached and will always return the same result.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="525">%TRUE if the current process should use portals to access resources
+               line="536">%TRUE if the current process should use portals to access resources
   on the host system, or %FALSE if either an error was encountered or the
   process is running unsandboxed</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -706,14 +706,14 @@ Note that these functions are all cached and will always return the same result.
                 throws="1">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="488">Detects if you are running inside of a Snap sandbox.
+             line="499">Detects if you are running inside of a Snap sandbox.
 
 See also: [func@Portal.running_under_sandbox].</doc>
         <source-position filename="libportal/portal-helpers.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libportal/portal.c"
-               line="496">%TRUE if the current process is running under a Snap sandbox, or
+               line="507">%TRUE if the current process is running under a Snap sandbox, or
   %FALSE if either unsandboxed or an error was encountered in which case
   @error will be set</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -4131,7 +4131,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="location-updated" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="221">Emitted when location monitoring is enabled and the location changes.</doc>
+             line="223">Emitted when location monitoring is enabled and the location changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4139,55 +4139,55 @@ Returns the result in the form of boolean.</doc>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="224">the latitude, in degrees</doc>
+                 line="226">the latitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="225">the longitude, in degrees</doc>
+                 line="227">the longitude, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="altitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="226">the altitude, in meters</doc>
+                 line="228">the altitude, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="accuracy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="227">the accuracy, in meters</doc>
+                 line="229">the accuracy, in meters</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="speed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="228">the speed, in meters per second</doc>
+                 line="230">the speed, in meters per second</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="heading" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="229">the heading, in degrees</doc>
+                 line="231">the heading, in degrees</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="230">the description</doc>
+                 line="232">the description</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="timestamp_s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="231">the timestamp seconds since the Unix epoch</doc>
+                 line="233">the timestamp seconds since the Unix epoch</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="timestamp_ms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="232">the microseconds fraction of the timestamp</doc>
+                 line="234">the microseconds fraction of the timestamp</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -4195,7 +4195,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="notification-action-invoked" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="254">Emitted when a non-exported action is activated on a notification.</doc>
+             line="256">Emitted when a non-exported action is activated on a notification.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4203,13 +4203,13 @@ Returns the result in the form of boolean.</doc>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="257">the notification ID</doc>
+                 line="259">the notification ID</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="258">the action name</doc>
+                 line="260">the action name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="parameter"
@@ -4218,7 +4218,7 @@ Returns the result in the form of boolean.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="259">the target parameter for the action</doc>
+                 line="261">the target parameter for the action</doc>
             <type name="GLib.Variant"/>
           </parameter>
         </parameters>
@@ -4226,7 +4226,7 @@ Returns the result in the form of boolean.</doc>
       <glib:signal name="session-state-changed" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="143">Emitted when session state monitoring is
+             line="145">Emitted when session state monitoring is
 enabled and the state of the login session changes or
 the screensaver is activated or deactivated.</doc>
         <return-value transfer-ownership="none">
@@ -4236,13 +4236,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="screensaver_active" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="146">whether the screensaver is active</doc>
+                 line="148">whether the screensaver is active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="session_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="147">the current state of the login session</doc>
+                 line="149">the current state of the login session</doc>
             <type name="LoginSessionState"/>
           </parameter>
         </parameters>
@@ -4250,7 +4250,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="spawn-exited" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="125">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
+             line="127">Emitted when a process that was spawned with [method@Portal.spawn] exits.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4258,13 +4258,13 @@ the screensaver is activated or deactivated.</doc>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="128">the pid of the process</doc>
+                 line="130">the pid of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="exit_status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="129">the exit status of the process</doc>
+                 line="131">the exit status of the process</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4272,7 +4272,7 @@ the screensaver is activated or deactivated.</doc>
       <glib:signal name="update-available" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="163">Emitted when updates monitoring is enabled
+             line="165">Emitted when updates monitoring is enabled
 and a new update is available.
 
 It is only sent once with the same information, but it can be sent many
@@ -4284,20 +4284,20 @@ times if new updates appear.</doc>
           <parameter name="running_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="166">the commit that the sandbox is running with</doc>
+                 line="168">the commit that the sandbox is running with</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="local_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="167">the commit that is currently deployed. Restarting
+                 line="169">the commit that is currently deployed. Restarting
     the app will use this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="remote_commit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="169">the commit that is available as an update.
+                 line="171">the commit that is available as an update.
     Updating the app will deloy this commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
@@ -4306,7 +4306,7 @@ times if new updates appear.</doc>
       <glib:signal name="update-progress" when="first">
         <doc xml:space="preserve"
              filename="libportal/portal.c"
-             line="189">Emitted to indicate progress of an update installation.
+             line="191">Emitted to indicate progress of an update installation.
 
 It is undefined exactly how often it is sent, but it will be emitted at
 least once at the end with a non-zero @status. For each successful
@@ -4319,38 +4319,38 @@ with @progress 100.</doc>
           <parameter name="n_ops" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="192">the number of operations that the update consists of</doc>
+                 line="194">the number of operations that the update consists of</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="op" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="193">the position of the currently active operation</doc>
+                 line="195">the position of the currently active operation</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="194">the progress of the currently active operation, as
+                 line="196">the progress of the currently active operation, as
   a number between 0 and 100</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="196">the overall status of the update</doc>
+                 line="198">the overall status of the update</doc>
             <type name="UpdateStatus"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="197">the error name if the status is 'failed'</doc>
+                 line="199">the error name if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="error_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libportal/portal.c"
-                 line="198">the error message if the status is 'failed'</doc>
+                 line="200">the error message if the status is 'failed'</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>

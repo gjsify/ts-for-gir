@@ -14184,7 +14184,7 @@ representing a media resource.</doc>
     <function name="deinit" c:identifier="grl_deinit" version="0.2.8">
       <doc xml:space="preserve"
            filename="src/grilo.c"
-           line="172">Deinitializes the Grilo library.
+           line="173">Deinitializes the Grilo library.
 
 Call this function after finalizing using Grilo, in order to free and clean
 up all the resources created.</doc>
@@ -14420,7 +14420,7 @@ databases and store them in the #GrlMedia.</doc>
               version="0.1.6">
       <doc xml:space="preserve"
            filename="src/grilo.c"
-           line="197">Returns a #GOptionGroup with Grilo's argument specifications.
+           line="198">Returns a #GOptionGroup with Grilo's argument specifications.
 
 This function is useful if you want to integrate Grilo with other
 libraries that use the GOption commandline parser
@@ -14429,7 +14429,7 @@ libraries that use the GOption commandline parser
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/grilo.c"
-             line="206">a pointer to Grilo's option group. Should be dereferenced
+             line="207">a pointer to Grilo's option group. Should be dereferenced
 after use.</doc>
         <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
       </return-value>

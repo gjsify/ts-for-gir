@@ -14366,8 +14366,7 @@ taken place.</doc>
       <method name="load"
               c:identifier="as_store_load"
               version="0.1.2"
-              throws="1"
-              glib:async-func="load_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3534">Loads the store from the default locations.</doc>
@@ -14404,9 +14403,7 @@ taken place.</doc>
       </method>
       <method name="load_async"
               c:identifier="as_store_load_async"
-              version="0.7.11"
-              glib:finish-func="load_finish"
-              glib:sync-func="load">
+              version="0.7.11">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3601">Asynchronously loads the store from the default locations.</doc>
@@ -14490,8 +14487,7 @@ taken place.</doc>
       <method name="load_path"
               c:identifier="as_store_load_path"
               version="0.2.2"
-              throws="1"
-              glib:async-func="load_path_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3216">Loads the store from a specific path.</doc>
@@ -14528,9 +14524,7 @@ taken place.</doc>
       </method>
       <method name="load_path_async"
               c:identifier="as_store_load_path_async"
-              version="0.7.11"
-              glib:finish-func="load_path_finish"
-              glib:sync-func="load_path">
+              version="0.7.11">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3257">Asynchronously loads the store from a specific path.</doc>

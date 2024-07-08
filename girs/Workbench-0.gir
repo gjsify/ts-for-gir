@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <include name="GtkSource" version="5"/>
+  <c:include name="workbench.h"/>
+  <namespace name="Workbench"
+             version="0"
+             shared-library="libworkbench-0.so.46.1"
+             c:identifier-prefixes="Workbench"
+             c:symbol-prefixes="workbench">
+    <class name="CompletionProvider"
+           c:symbol-prefix="completion_provider"
+           c:type="WorkbenchCompletionProvider"
+           parent="GObject.Object"
+           glib:type-name="WorkbenchCompletionProvider"
+           glib:get-type="workbench_completion_provider_get_type"
+           glib:type-struct="CompletionProviderClass">
+      <doc xml:space="preserve"
+           filename="src/libworkbench/workbench-completion-provider.c"
+           line="13">A base class for completion providers in Workbench.</doc>
+      <source-position filename="src/libworkbench/workbench-completion-provider.h"
+                       line="32"/>
+      <implements name="GtkSource.CompletionProvider"/>
+      <virtual-method name="completion_request">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-provider.c"
+             line="33">the class closure for #WorkbenchCompletionProvider::completion-request</doc>
+        <source-position filename="src/libworkbench/workbench-completion-provider.h"
+                         line="27"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="CompletionProvider"
+                  c:type="WorkbenchCompletionProvider*"/>
+          </instance-parameter>
+          <parameter name="request" transfer-ownership="none">
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="completion-request" when="last">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-provider.c"
+             line="158">Emitted when a request is made for completion proposals.
+
+This is emitted in place of [vfunc@GtkSource.CompletionProvider.populate]
+(both synchronous and asynchronous), with a request object that allows
+handlers to negotiate the completion of asynchronous requests manually.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="request" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-provider.c"
+                 line="161">a `WorkbenchCompletionRequest`</doc>
+            <type name="CompletionRequest"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="CompletionProviderClass"
+            c:type="WorkbenchCompletionProviderClass"
+            glib:is-gtype-struct-for="CompletionProvider">
+      <doc xml:space="preserve"
+           filename="src/libworkbench/workbench-completion-provider.c"
+           line="31">The virtual function table for `WorkbenchCompletionProvider`.</doc>
+      <source-position filename="src/libworkbench/workbench-completion-provider.h"
+                       line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="completion_request">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-provider.c"
+             line="33">the class closure for #WorkbenchCompletionProvider::completion-request</doc>
+        <callback name="completion_request">
+          <source-position filename="src/libworkbench/workbench-completion-provider.h"
+                           line="27"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="CompletionProvider"
+                    c:type="WorkbenchCompletionProvider*"/>
+            </parameter>
+            <parameter name="request" transfer-ownership="none">
+              <type name="CompletionRequest"
+                    c:type="WorkbenchCompletionRequest*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="CompletionRequest"
+           c:symbol-prefix="completion_request"
+           c:type="WorkbenchCompletionRequest"
+           parent="GObject.Object"
+           glib:type-name="WorkbenchCompletionRequest"
+           glib:get-type="workbench_completion_request_get_type"
+           glib:type-struct="CompletionRequestClass">
+      <doc xml:space="preserve"
+           filename="src/libworkbench/workbench-completion-request.c"
+           line="12">A helper object for [iface@GtkSource.CompletionProvider].
+
+A `WorkbenchCompletionRequest` instance represents an asynchronous request
+for completion suggestions. Specifically, it is an object that can be used
+to implement [vfunc@GtkSource.CompletionProvider.populate_async] with more
+flexibility for introspected languages.
+
+Requests are created to populate completion proposals for emissions of
+[signal@Workbench.CompletionProvider::completion-request]. Handlers should
+call [method@Workbench.CompletionRequest.add] and
+[method@Workbench.CompletionRequest.splice] to compose the response, then
+set [property@Workbench.CompletionRequest:complete] to %TRUE.</doc>
+      <source-position filename="src/libworkbench/workbench-completion-request.h"
+                       line="34"/>
+      <implements name="Gio.ListModel"/>
+      <method name="add" c:identifier="workbench_completion_request_add">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="359">Add a [class@GObject.Object] to @request.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="361">a `WorkbenchCompletionRequest`</doc>
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+          <parameter name="proposal" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="362">a `GtkSourceCompletionProposal`</doc>
+            <type name="GtkSource.CompletionProposal"
+                  c:type="GtkSourceCompletionProposal*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_cancellable"
+              c:identifier="workbench_completion_request_get_cancellable"
+              glib:get-property="cancellable">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="298">Get the cancellable for the request.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="36"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libworkbench/workbench-completion-request.c"
+               line="303">a `GCancellable`</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_context"
+              c:identifier="workbench_completion_request_get_context"
+              glib:get-property="context">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="313">Get the completion context for the request.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="37"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libworkbench/workbench-completion-request.c"
+               line="318">a `GtkSourceCompletionContext`</doc>
+          <type name="GtkSource.CompletionContext"
+                c:type="GtkSourceCompletionContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider"
+              c:identifier="workbench_completion_request_get_provider"
+              glib:get-property="provider">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="328">Get the completion provider for the request.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="38"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libworkbench/workbench-completion-request.c"
+               line="333">a `GtkSourceCompletionProvider`</doc>
+          <type name="GtkSource.CompletionProvider"
+                c:type="GtkSourceCompletionProvider*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="workbench_completion_request_get_state"
+              glib:get-property="state">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="343">Get the state of the request.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libworkbench/workbench-completion-request.c"
+               line="348">a `WorkbenchRequestState`</doc>
+          <type name="RequestState" c:type="WorkbenchRequestState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="splice" c:identifier="workbench_completion_request_splice">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="380">Changes @request by removing @n_removals items and adding @n_additions.
+
+The combined value of @position and @n_removals must be less than or equal
+to the length of the list at the time this function is called.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="382">a `WorkbenchCompletionRequest`</doc>
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="383">the position at which to make the change</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="n_removals" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="384">the number of items to remove</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="additions" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="385">the items to add</doc>
+            <array length="3" zero-terminated="0" c:type="gpointer*">
+              <type name="GtkSource.CompletionProposal"/>
+            </array>
+          </parameter>
+          <parameter name="n_additions" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="386">the number of items to add</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="state_changed"
+              c:identifier="workbench_completion_request_state_changed">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="418">Update the state of the request.
+
+If @state is `WORKBENCH_REQUEST_STATE_CANCELLED`, this will also call
+[method@Gio.Cancellable.cancel] on the request's cancellable object.</doc>
+        <source-position filename="src/libworkbench/workbench-completion-request.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="request" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="420">a `WorkbenchCompletionRequest`</doc>
+            <type name="CompletionRequest"
+                  c:type="WorkbenchCompletionRequest*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libworkbench/workbench-completion-request.c"
+                 line="421">a `WorkbenchRequestState`</doc>
+            <type name="RequestState" c:type="WorkbenchRequestState"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="cancellable"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_cancellable">
+        <type name="Gio.Cancellable"/>
+      </property>
+      <property name="context"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_context">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="219">The [class@GtkSource.CompletionContext] of the request.</doc>
+        <type name="GtkSource.CompletionContext"/>
+      </property>
+      <property name="item-type" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="232">The [class@GtkSource.CompletionProposal] type.</doc>
+        <type name="GType" c:type="GType"/>
+      </property>
+      <property name="n-items" transfer-ownership="none" default-value="0">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="244">The current number of proposals.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="provider"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_provider">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="257">The [iface@GtkSource.CompletionProvider] of the request.</doc>
+        <type name="GtkSource.CompletionProvider"/>
+      </property>
+      <property name="state"
+                transfer-ownership="none"
+                getter="get_state"
+                default-value="WORKBENCH_REQUEST_STATE_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.c"
+             line="270">The state of the request.
+
+Handlers of the request should update the state of the request by calling
+[method@Workbench.CompletionRequest.state_changed].
+
+If a handler does not change the state, the value is guaranteed to change
+to `WORKBENCH_REQUEST_STATE_CANCELLED` before finalization.</doc>
+        <type name="RequestState"/>
+      </property>
+    </class>
+    <record name="CompletionRequestClass"
+            c:type="WorkbenchCompletionRequestClass"
+            glib:is-gtype-struct-for="CompletionRequest">
+      <source-position filename="src/libworkbench/workbench-completion-request.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="PreviewWindow"
+           c:symbol-prefix="preview_window"
+           c:type="WorkbenchPreviewWindow"
+           parent="Gtk.Window"
+           final="1"
+           glib:type-name="WorkbenchPreviewWindow"
+           glib:get-type="workbench_preview_window_get_type"
+           glib:type-struct="PreviewWindowClass">
+      <source-position filename="src/libworkbench/workbench-preview-window.h"
+                       line="11"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Native"/>
+      <implements name="Gtk.Root"/>
+      <implements name="Gtk.ShortcutManager"/>
+      <constructor name="new" c:identifier="workbench_preview_window_new">
+        <source-position filename="src/libworkbench/workbench-preview-window.h"
+                         line="13"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libworkbench/workbench-preview-window.c"
+               line="44">Returns a PreviewWindow</doc>
+          <type name="PreviewWindow" c:type="WorkbenchPreviewWindow*"/>
+        </return-value>
+      </constructor>
+      <method name="get_content"
+              c:identifier="workbench_preview_window_get_content">
+        <source-position filename="src/libworkbench/workbench-preview-window.h"
+                         line="15"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PreviewWindow" c:type="WorkbenchPreviewWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_content"
+              c:identifier="workbench_preview_window_set_content">
+        <source-position filename="src/libworkbench/workbench-preview-window.h"
+                         line="16"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="PreviewWindow" c:type="WorkbenchPreviewWindow*"/>
+          </instance-parameter>
+          <parameter name="content" transfer-ownership="full">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="PreviewWindowClass"
+            c:type="WorkbenchPreviewWindowClass"
+            glib:is-gtype-struct-for="PreviewWindow">
+      <source-position filename="src/libworkbench/workbench-preview-window.h"
+                       line="11"/>
+      <field name="parent_class" introspectable="0">
+        <type c:type="AdwWindowClass"/>
+      </field>
+    </record>
+    <enumeration name="RequestState"
+                 glib:type-name="WorkbenchRequestState"
+                 glib:get-type="workbench_request_state_get_type"
+                 c:type="WorkbenchRequestState">
+      <doc xml:space="preserve"
+           filename="src/libworkbench/workbench-completion-request.h"
+           line="16">Enumeration of request states.</doc>
+      <member name="unknown"
+              value="0"
+              c:identifier="WORKBENCH_REQUEST_STATE_UNKNOWN"
+              glib:nick="unknown"
+              glib:name="WORKBENCH_REQUEST_STATE_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.h"
+             line="18">the request state is unknown</doc>
+      </member>
+      <member name="cancelled"
+              value="1"
+              c:identifier="WORKBENCH_REQUEST_STATE_CANCELLED"
+              glib:nick="cancelled"
+              glib:name="WORKBENCH_REQUEST_STATE_CANCELLED">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.h"
+             line="19">the request was cancelled</doc>
+      </member>
+      <member name="complete"
+              value="2"
+              c:identifier="WORKBENCH_REQUEST_STATE_COMPLETE"
+              glib:nick="complete"
+              glib:name="WORKBENCH_REQUEST_STATE_COMPLETE">
+        <doc xml:space="preserve"
+             filename="src/libworkbench/workbench-completion-request.h"
+             line="20">the request is complete</doc>
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

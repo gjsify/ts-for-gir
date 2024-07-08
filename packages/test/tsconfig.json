@@ -9,6 +9,6 @@
       "noImplicitThis": true,
       "alwaysStrict": true
     },
-    "include": ["types.ts"],
+    "include": ["main.ts"],
     "exclude": []
   }

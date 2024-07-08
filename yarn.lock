@@ -4598,6 +4598,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/govf-0.1@workspace:types/govf-0.1":
+  version: 0.0.0-use.local
+  resolution: "@girs/govf-0.1@workspace:types/govf-0.1"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/govirt-1.0@workspace:^, @girs/govirt-1.0@workspace:types/govirt-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/govirt-1.0@workspace:types/govirt-1.0"
@@ -4607,8 +4620,8 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/rest-1.0": "workspace:^"
-    "@girs/soup-3.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -7262,6 +7275,7 @@ __metadata:
     "@girs/clutter-1.0": "workspace:^"
     "@girs/cogl-1.0": "workspace:^"
     "@girs/coglpango-1.0": "workspace:^"
+    "@girs/fontconfig-2.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -7273,6 +7287,8 @@ __metadata:
     "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/pangofc-1.0": "workspace:^"
+    "@girs/pangoft2-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -9613,7 +9629,7 @@ __metadata:
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
-    "@girs/gtksource-300": "workspace:^"
+    "@girs/gtksource-4": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
@@ -10433,6 +10449,30 @@ __metadata:
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/workbench-0@workspace:types/workbench-0":
+  version: 0.0.0-use.local
+  resolution: "@girs/workbench-0@workspace:types/workbench-0"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gsk-4.0": "workspace:^"
+    "@girs/gtk-4.0": "workspace:^"
+    "@girs/gtksource-5": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft

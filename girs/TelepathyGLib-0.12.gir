@@ -16286,19 +16286,19 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="809">&lt;!-- --&gt;</doc>
+             line="806">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="217"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="815">the value of #TpChannel:initiator-contact</doc>
+               line="812">the value of #TpChannel:initiator-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="811">a channel</doc>
+                 line="808">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16384,19 +16384,19 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="792">&lt;!-- --&gt;</doc>
+             line="789">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="215"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="798">the value of #TpChannel:target-contact</doc>
+               line="795">the value of #TpChannel:target-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="794">a channel</doc>
+                 line="791">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16406,7 +16406,7 @@ value. It is now non-%NULL in all cases.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="868">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="865">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its local-pending members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16417,7 +16417,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="880">
+               line="877">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16427,7 +16427,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="870">a channel</doc>
+                 line="867">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16437,7 +16437,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="843">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="840">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16448,7 +16448,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="855">
+               line="852">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16458,7 +16458,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="845">a channel</doc>
+                 line="842">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16468,7 +16468,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="893">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
+             line="890">If @self is a group and the %TP_CHANNEL_FEATURE_CONTACTS feature has been
 prepared, return a #GPtrArray containing its remote-pending members.
 
 If @self is a group but %TP_CHANNEL_FEATURE_CONTACTS has not been prepared,
@@ -16479,7 +16479,7 @@ If @self is not a group, return %NULL.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="905">
+               line="902">
  a new #GPtrArray of #TpContact, free it with g_ptr_array_unref(), or %NULL.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Contact"/>
@@ -16489,7 +16489,7 @@ If @self is not a group, return %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="895">a channel</doc>
+                 line="892">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>
@@ -16499,7 +16499,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="999">Synopsis (see below for further explanation):
+             line="996">Synopsis (see below for further explanation):
 
 - if @self is not a group or @contact is not a member of this channel,
   result is undefined;
@@ -16536,7 +16536,7 @@ Group's remote-pending set).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="1038">the global contact that owns the given contact,
+               line="1035">the global contact that owns the given contact,
  or %NULL.</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
@@ -16544,13 +16544,13 @@ Group's remote-pending set).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="1001">a channel</doc>
+                 line="998">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
           <parameter name="contact" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="1002">a contact which is a member of this channel</doc>
+                 line="999">a contact which is a member of this channel</doc>
             <type name="Contact" c:type="TpContact*"/>
           </parameter>
         </parameters>
@@ -16680,7 +16680,7 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="918">If @local_pending is actually a local-pending contact,
+             line="915">If @local_pending is actually a local-pending contact,
 write additional information into @actor, @reason and @message and return
 %TRUE. The contact and message are not referenced or copied, and can only be
 assumed to remain valid until the main loop is re-entered.
@@ -16692,20 +16692,20 @@ and "" into @message, and return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="940">%TRUE if the contact is in fact local-pending</doc>
+               line="937">%TRUE if the contact is in fact local-pending</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="920">a channel</doc>
+                 line="917">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
           <parameter name="local_pending" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="921">the #TpContact of a local-pending contact about whom more
+                 line="918">the #TpContact of a local-pending contact about whom more
  information is needed</doc>
             <type name="Contact" c:type="TpContact*"/>
           </parameter>
@@ -16717,7 +16717,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="923">either %NULL or a location to
+                 line="920">either %NULL or a location to
  return the contact who requested the change</doc>
             <type name="Contact" c:type="TpContact**"/>
           </parameter>
@@ -16729,7 +16729,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="925">either %NULL or a location to return the reason
+                 line="922">either %NULL or a location to return the reason
  for the change</doc>
             <type name="ChannelGroupChangeReason"
                   c:type="TpChannelGroupChangeReason*"/>
@@ -16742,7 +16742,7 @@ and "" into @message, and return %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="927">either %NULL or a location to
+                 line="924">either %NULL or a location to
  return the
  user-supplied message</doc>
             <type name="utf8" c:type="const gchar**"/>
@@ -16892,19 +16892,19 @@ If @self is not a group, return %NULL.</doc>
               version="0.15.6">
         <doc xml:space="preserve"
              filename="channel-contacts.c"
-             line="826">&lt;!-- --&gt;</doc>
+             line="823">&lt;!-- --&gt;</doc>
         <source-position filename="channel.h" line="219"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="channel-contacts.c"
-               line="832">the value of #TpChannel:group-self-contact</doc>
+               line="829">the value of #TpChannel:group-self-contact</doc>
           <type name="Contact" c:type="TpContact*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="channel-contacts.c"
-                 line="828">a channel</doc>
+                 line="825">a channel</doc>
             <type name="Channel" c:type="TpChannel*"/>
           </instance-parameter>
         </parameters>

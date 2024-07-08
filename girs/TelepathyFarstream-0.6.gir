@@ -15,60 +15,6 @@ and/or use gtk-doc annotations.  -->
              shared-library="libtelepathy-farstream.so.3"
              c:identifier-prefixes="tf_,Tf"
              c:symbol-prefixes="tf_,tf">
-    <function-macro name="CHANNEL"
-                    c:identifier="TF_CHANNEL"
-                    introspectable="0">
-      <source-position filename="channel.h" line="12"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CHANNEL_CLASS"
-                    c:identifier="TF_CHANNEL_CLASS"
-                    introspectable="0">
-      <source-position filename="channel.h" line="16"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CHANNEL_GET_CLASS"
-                    c:identifier="TF_CHANNEL_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="channel.h" line="26"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CONTENT"
-                    c:identifier="TF_CONTENT"
-                    introspectable="0">
-      <source-position filename="content.h" line="11"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CONTENT_CLASS"
-                    c:identifier="TF_CONTENT_CLASS"
-                    introspectable="0">
-      <source-position filename="content.h" line="15"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="CONTENT_GET_CLASS"
-                    c:identifier="TF_CONTENT_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="content.h" line="25"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <class name="Channel"
            c:symbol-prefix="channel"
            c:type="TfChannel"
@@ -76,57 +22,40 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="TfChannel"
            glib:get-type="tf_channel_get_type"
            glib:type-struct="ChannelClass">
-      <doc xml:space="preserve"
-           filename="channel.h"
-           line="32">All members of the object are private</doc>
-      <source-position filename="channel.h" line="47"/>
+      <doc xml:space="preserve">All members of the object are private</doc>
       <implements name="Gio.AsyncInitable"/>
       <constructor name="new_finish"
                    c:identifier="tf_channel_new_finish"
                    version="0.2.2"
                    throws="1">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="691">Completes the construction of a TfChannel.</doc>
-        <source-position filename="channel.h" line="55"/>
+        <doc xml:space="preserve">Completes the construction of a TfChannel.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="channel.c"
-               line="699">a #TfChannel or %NULL if there was an error</doc>
+          <doc xml:space="preserve">a #TfChannel or %NULL if there was an error</doc>
           <type name="Channel" c:type="TfChannel*"/>
         </return-value>
         <parameters>
           <parameter name="object" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="693">The #GObject</doc>
+            <doc xml:space="preserve">The #GObject</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
           <parameter name="result" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="694">a #GAsyncResult</doc>
+            <doc xml:space="preserve">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </constructor>
       <function name="new_async" c:identifier="tf_channel_new_async">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="606">Creates a new #TfChannel from an existing channel proxy, the new
+        <doc xml:space="preserve">Creates a new #TfChannel from an existing channel proxy, the new
 TfChannel object will be return in the async callback.
 
 The user must call tf_channel_new_finish() in the callback
 to get the finished object.</doc>
-        <source-position filename="channel.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="channel_proxy" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="608">a #TpChannel proxy</doc>
+            <doc xml:space="preserve">a #TpChannel proxy</doc>
             <type name="TelepathyGLib.Channel" c:type="TpChannel*"/>
           </parameter>
           <parameter name="callback"
@@ -135,45 +64,29 @@ to get the finished object.</doc>
                      allow-none="1"
                      scope="async"
                      closure="2">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="609">a #GAsyncReadyCallback to call when the channel is ready</doc>
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the channel is ready</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="610">the data to pass to callback function</doc>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </function>
       <method name="bus_message" c:identifier="tf_channel_bus_message">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="633">You must call this function on call messages received on the async bus.
+        <doc xml:space="preserve">You must call this function on call messages received on the async bus.
 #GstMessages are not modified.</doc>
-        <source-position filename="channel.h" line="60"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="channel.c"
-               line="641">%TRUE if the message has been handled, %FALSE otherwise</doc>
+          <doc xml:space="preserve">%TRUE if the message has been handled, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="635">A #TfChannel</doc>
+            <doc xml:space="preserve">A #TfChannel</doc>
             <type name="Channel" c:type="TfChannel*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="636">A #GstMessage received from the bus</doc>
+            <doc xml:space="preserve">A #GstMessage received from the bus</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
         </parameters>
@@ -189,15 +102,11 @@ to get the finished object.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </property>
-      <property name="object-path"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="object-path" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <glib:signal name="closed" when="last">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="490">This function is called after a channel is closed, either because
+        <doc xml:space="preserve">This function is called after a channel is closed, either because
 it has been closed by the connection manager or because we had a locally
 generated error.</doc>
         <return-value transfer-ownership="none">
@@ -205,9 +114,7 @@ generated error.</doc>
         </return-value>
       </glib:signal>
       <glib:signal name="content-added" when="last">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="537">Tells the application that a content has been added. In the callback for
+        <doc xml:space="preserve">Tells the application that a content has been added. In the callback for
 this signal, the application should set its preferred codecs, and hook
 up to any signal from #TfContent it cares about. Special care should be
 made to connect #TfContent::src-pad-added as well
@@ -217,59 +124,45 @@ as the #TfContent::start-sending and #TfContent::stop-sending signals.</doc>
         </return-value>
         <parameters>
           <parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="540">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="content-removed" when="last">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="555">Tells the application that a content is being removed.</doc>
+        <doc xml:space="preserve">Tells the application that a content is being removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="558">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="fs-conference-added" when="last">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="506">When this signal is emitted, the conference should be added to the
+        <doc xml:space="preserve">When this signal is emitted, the conference should be added to the
 application's pipeline.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="509">a #FsConference</doc>
+            <doc xml:space="preserve">a #FsConference</doc>
             <type name="Farstream.Conference"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="fs-conference-removed" when="last">
-        <doc xml:space="preserve"
-             filename="channel.c"
-             line="521">When this signal is emitted, the conference should be remove from the
+        <doc xml:space="preserve">When this signal is emitted, the conference should be remove from the
 application's pipeline.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="conf" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="channel.c"
-                 line="524">a #FsConference</doc>
+            <doc xml:space="preserve">a #FsConference</doc>
             <type name="Farstream.Conference"/>
           </parameter>
         </parameters>
@@ -278,18 +171,10 @@ application's pipeline.</doc>
     <record name="ChannelClass"
             c:type="TfChannelClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="Channel">
-      <doc xml:space="preserve"
-           filename="channel.h"
-           line="40">There are no overridable functions</doc>
-      <source-position filename="channel.h" line="47"/>
+      <doc xml:space="preserve">There are no overridable functions</doc>
     </record>
-    <record name="ChannelPrivate"
-            c:type="TfChannelPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="channel.h" line="30"/>
+    <record name="ChannelPrivate" c:type="TfChannelPrivate" disguised="1">
     </record>
     <class name="Content"
            c:symbol-prefix="content"
@@ -299,39 +184,27 @@ application's pipeline.</doc>
            glib:type-name="TfContent"
            glib:get-type="tf_content_get_type"
            glib:type-struct="ContentClass">
-      <doc xml:space="preserve"
-           filename="content.h"
-           line="31">This structure is private, this class is not subclassable.</doc>
-      <source-position filename="content.h" line="45"/>
+      <doc xml:space="preserve">This structure is private, this class is not subclassable.</doc>
       <method name="error"
               c:identifier="tf_content_error"
               shadowed-by="error_literal"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="327">Send a fatal streaming error to the Content to the CM, the effect is most
+        <doc xml:space="preserve">Send a fatal streaming error to the Content to the CM, the effect is most
 likely that the content will be removed.</doc>
-        <source-position filename="content.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="329">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="message_format" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="330">error Message with printf style formatting</doc>
+            <doc xml:space="preserve">error Message with printf style formatting</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="331">Parameters to insert into the @message_format string</doc>
+            <doc xml:space="preserve">Parameters to insert into the @message_format string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -339,59 +212,41 @@ likely that the content will be removed.</doc>
       <method name="error_literal"
               c:identifier="tf_content_error_literal"
               shadows="error">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="301">Send a fatal streaming error to the Content to the CM, the effect is most
+        <doc xml:space="preserve">Send a fatal streaming error to the Content to the CM, the effect is most
 likely that the content will be removed.</doc>
-        <source-position filename="content.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="303">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="304">error Message</doc>
+            <doc xml:space="preserve">error Message</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="iterate_src_pads"
               c:identifier="tf_content_iterate_src_pads">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="356">Provides a iterator that can be used to iterate through all of the src
+        <doc xml:space="preserve">Provides a iterator that can be used to iterate through all of the src
 pads that are are used to receive from a group of Telepathy handles.</doc>
-        <source-position filename="content.h" line="67"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="content.c"
-               line="365">a #GstIterator</doc>
+          <doc xml:space="preserve">a #GstIterator</doc>
           <type name="Gst.Iterator" c:type="GstIterator*"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="358">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="handles" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="359">a 0 terminated array of #guint representing Telepathy handles</doc>
+            <doc xml:space="preserve">a 0 terminated array of #guint representing Telepathy handles</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="handle_count" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="360">the numner of handles in @handles</doc>
+            <doc xml:space="preserve">the numner of handles in @handles</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -400,46 +255,33 @@ pads that are are used to receive from a group of Telepathy handles.</doc>
               c:identifier="tf_content_receiving_failed"
               shadowed-by="receiving_failed_literal"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="519">Informs the Connection Manager that receiving has failed for this
+        <doc xml:space="preserve">Informs the Connection Manager that receiving has failed for this
 content. This is a transient error and it may or not not end the Content
 and the call.
 
 If handles are not specific, it assumes that it is valid for all handles.</doc>
-        <source-position filename="content.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="521">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="handles" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="522">an array of #guint representing Telepathy handles, may be %NULL</doc>
+            <doc xml:space="preserve">an array of #guint representing Telepathy handles, may be %NULL</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="handle_count" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="523">the numner of handles in @handles</doc>
+            <doc xml:space="preserve">the numner of handles in @handles</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="message_format" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="524">Message with printf style formatting</doc>
+            <doc xml:space="preserve">Message with printf style formatting</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="525">Parameters to insert into the @message_format string</doc>
+            <doc xml:space="preserve">Parameters to insert into the @message_format string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -447,40 +289,29 @@ If handles are not specific, it assumes that it is valid for all handles.</doc>
       <method name="receiving_failed_literal"
               c:identifier="tf_content_receiving_failed_literal"
               shadows="receiving_failed">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="485">Informs the Connection Manager that receiving has failed for this
+        <doc xml:space="preserve">Informs the Connection Manager that receiving has failed for this
 content. This is a transient error and it may or not not end the Content
 and the call.
 
 If handles are not specific, it assumes that it is valid for all handles.</doc>
-        <source-position filename="content.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="487">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="handles" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="488">an array of #guint representing Telepathy handles, may be %NULL</doc>
+            <doc xml:space="preserve">an array of #guint representing Telepathy handles, may be %NULL</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="handle_count" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="489">the numner of handles in @handles</doc>
+            <doc xml:space="preserve">the numner of handles in @handles</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="490">The error message</doc>
+            <doc xml:space="preserve">The error message</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -489,32 +320,23 @@ If handles are not specific, it assumes that it is valid for all handles.</doc>
               c:identifier="tf_content_sending_failed"
               shadowed-by="sending_failed_literal"
               introspectable="0">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="456">Informs the Connection Manager that sending has failed for this
+        <doc xml:space="preserve">Informs the Connection Manager that sending has failed for this
 content. This is a transient error and it may or not not end the Content
 and the call.</doc>
-        <source-position filename="content.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="458">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="message_format" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="459">Message with printf style formatting</doc>
+            <doc xml:space="preserve">Message with printf style formatting</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="460">Parameters to insert into the @message_format string</doc>
+            <doc xml:space="preserve">Parameters to insert into the @message_format string</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -522,26 +344,19 @@ and the call.</doc>
       <method name="sending_failed_literal"
               c:identifier="tf_content_sending_failed_literal"
               shadows="sending_failed">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="428">Informs the Connection Manager that sending has failed for this
+        <doc xml:space="preserve">Informs the Connection Manager that sending has failed for this
 content. This is a transient error and it may or not not end the Content
 and the call.</doc>
-        <source-position filename="content.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="content" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="430">a #TfContent</doc>
+            <doc xml:space="preserve">a #TfContent</doc>
             <type name="Content" c:type="TfContent*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="431">The error message</doc>
+            <doc xml:space="preserve">The error message</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -552,14 +367,10 @@ and the call.</doc>
       <property name="fs-session" transfer-ownership="none">
         <type name="Farstream.Session"/>
       </property>
-      <property name="media-type"
-                transfer-ownership="none"
-                default-value="FS_MEDIA_TYPE_AUDIO">
+      <property name="media-type" transfer-ownership="none">
         <type name="Farstream.MediaType"/>
       </property>
-      <property name="object-path"
-                transfer-ownership="none"
-                default-value="NULL">
+      <property name="object-path" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="sink-pad" transfer-ownership="none">
@@ -569,18 +380,14 @@ and the call.</doc>
         <type name="Channel"/>
       </property>
       <glib:signal name="restart-source" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="222">This signal requests that the source be restarted so that the caps can
+        <doc xml:space="preserve">This signal requests that the source be restarted so that the caps can
 be renegotiated with a new resolutions and framerate.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
       </glib:signal>
       <glib:signal name="src-pad-added" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="156">This signal is emitted when a data is coming on a new pad. This signal
+        <doc xml:space="preserve">This signal is emitted when a data is coming on a new pad. This signal
 is not emitted on the main thread, so special care must be made to lock
 the relevant data. When the callback returns from this signal, data will
 start flowing through the pad, so the application MUST connect a sink.</doc>
@@ -589,36 +396,26 @@ start flowing through the pad, so the application MUST connect a sink.</doc>
         </return-value>
         <parameters>
           <parameter name="handle" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="159">the handle of the remote party producing the content on this pad
+            <doc xml:space="preserve">the handle of the remote party producing the content on this pad
    or 0 if unknown</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="stream" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="161">the #FsStream for this pad</doc>
+            <doc xml:space="preserve">the #FsStream for this pad</doc>
             <type name="Farstream.Stream"/>
           </parameter>
           <parameter name="pad" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="162">a #GstPad</doc>
+            <doc xml:space="preserve">a #GstPad</doc>
             <type name="Gst.Pad"/>
           </parameter>
           <parameter name="codec" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="163">the #FsCodec for this pad</doc>
+            <doc xml:space="preserve">the #FsCodec for this pad</doc>
             <type name="Farstream.Codec"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="start-receiving" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="179">This signal is emitted when the connection managers requests that the
+        <doc xml:space="preserve">This signal is emitted when the connection managers requests that the
 application prepares itself to start receiving data again from certain
 handles.
 
@@ -626,75 +423,51 @@ This signal will only be emitted after the #TfContent::stop-receiving
 signal has succeeded. It will not be emitted right after
  #TfContent::src-pad-added.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="content.c"
-               line="193">%TRUE if the application can start receiving data or %FALSE
+          <doc xml:space="preserve">%TRUE if the application can start receiving data or %FALSE
 otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <parameter name="handles"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="182">a 0-terminated array of #guint containing the handles</doc>
+          <parameter name="handles" transfer-ownership="none">
+            <doc xml:space="preserve">a 0-terminated array of #guint containing the handles</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="handle_count" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="183">The number of handles in the @handles array</doc>
+            <doc xml:space="preserve">The number of handles in the @handles array</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="start-sending" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="120">This signal is emitted when the connection manager ask to send media.
+        <doc xml:space="preserve">This signal is emitted when the connection manager ask to send media.
 For example, this can be used to open a camera, start recording from a
 microphone or play back a file. The application should start
 sending data on the #TfContent:sink-pad</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="content.c"
-               line="129">%TRUE if the application can start providing data or %FALSE
+          <doc xml:space="preserve">%TRUE if the application can start providing data or %FALSE
 otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </glib:signal>
       <glib:signal name="stop-receiving" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="205">This signal is emitted when the connection manager wants to tell the
+        <doc xml:space="preserve">This signal is emitted when the connection manager wants to tell the
 application that it is now allowed to stop receiving.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="handles"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="208">a 0-terminated array of #guint containing the handles</doc>
+          <parameter name="handles" transfer-ownership="none">
+            <doc xml:space="preserve">a 0-terminated array of #guint containing the handles</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="handle_count" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="content.c"
-                 line="209">The number of handles in the @handles array</doc>
+            <doc xml:space="preserve">The number of handles in the @handles array</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="stop-sending" when="last">
-        <doc xml:space="preserve"
-             filename="content.c"
-             line="141">This signal is emitted when the connection manager ask to stop
+        <doc xml:space="preserve">This signal is emitted when the connection manager ask to stop
 sending media</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -704,73 +477,10 @@ sending media</doc>
     <record name="ContentClass"
             c:type="TfContentClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="Content">
-      <doc xml:space="preserve"
-           filename="content.h"
-           line="39">This structure is private, this class is not subclassable.</doc>
-      <source-position filename="content.h" line="45"/>
+      <doc xml:space="preserve">This structure is private, this class is not subclassable.</doc>
     </record>
-    <record name="ContentPrivate"
-            c:type="TfContentPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="content.h" line="29"/>
+    <record name="ContentPrivate" c:type="TfContentPrivate" disguised="1">
     </record>
-    <function-macro name="IS_CHANNEL"
-                    c:identifier="TF_IS_CHANNEL"
-                    introspectable="0">
-      <source-position filename="channel.h" line="20"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_CHANNEL_CLASS"
-                    c:identifier="TF_IS_CHANNEL_CLASS"
-                    introspectable="0">
-      <source-position filename="channel.h" line="23"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_CONTENT"
-                    c:identifier="TF_IS_CONTENT"
-                    introspectable="0">
-      <source-position filename="content.h" line="19"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_CONTENT_CLASS"
-                    c:identifier="TF_IS_CONTENT_CLASS"
-                    introspectable="0">
-      <source-position filename="content.h" line="22"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <docsection name="channel">
-      <doc xml:space="preserve"
-           filename="channel.c"
-           line="21">This class handles the
-org.freedesktop.Telepathy.Channel.Interface.MediaSignalling on a
-channel using Farstream or the media part of the
-org.freedesktop.Telepathy.Channel.Type.Call that has HardwareStreaming=FALSE</doc>
-    </docsection>
-    <docsection name="content">
-      <doc xml:space="preserve"
-           filename="content.c"
-           line="11">Objects of this class allow the user to handle the media side of a Telepathy
-channel handled by #TfChannel.
-
-This object is created by the #TfChannel and the user is notified
-of its creation by the #TfChannel::content-added signal. In the
-callback for this signal, the user should connect to the
-#TfContent::src-pad-added signal.</doc>
-    </docsection>
   </namespace>
 </repository>

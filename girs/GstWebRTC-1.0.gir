@@ -1313,7 +1313,7 @@ for more information.</doc>
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
                line="480">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -1502,7 +1502,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
                  line="460">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+  http://[username:password@]hostname[:port]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1873,7 +1873,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <doc xml:space="preserve"
                filename="gst-libs/gst/webrtc/ice.c"
                line="480">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -2088,7 +2088,7 @@ Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
                  line="460">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+  http://[username:password@]hostname[:port]</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2847,7 +2847,7 @@ stops automatic ICE gathering.</doc>
               <doc xml:space="preserve"
                    filename="gst-libs/gst/webrtc/ice.c"
                    line="460">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]</doc>
+  http://[username:password@]hostname[:port]</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -2860,7 +2860,7 @@ stops automatic ICE gathering.</doc>
             <doc xml:space="preserve"
                  filename="gst-libs/gst/webrtc/ice.c"
                  line="480">URI of the HTTP proxy of the form
-  http://[username:password@]hostname[:port][?alpn=&lt;alpn&gt;]
+  http://[username:password@]hostname[:port]
 
 Get HTTP Proxy to be used when connecting to TURN server.</doc>
             <type name="utf8" c:type="gchar*"/>

@@ -357,22 +357,22 @@ require any of [flags@Rsvg.HandleFlags] to be set, use any of
                    throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1127">Loads the SVG specified by @data.  Note that this function creates an
+             line="1133">Loads the SVG specified by @data.  Note that this function creates an
 [class@Rsvg.Handle] without a base URL, and without any [flags@Rsvg.HandleFlags].  If you
 need these, use [ctor@Rsvg.Handle.new_from_stream_sync] instead by creating
 a [class@Gio.MemoryInputStream] from your data.</doc>
-        <source-position filename="rsvg.h" line="1142"/>
+        <source-position filename="rsvg.h" line="1148"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1138">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
+               line="1144">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
           <type name="Handle" c:type="RsvgHandle*"/>
         </return-value>
         <parameters>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1129">The SVG data</doc>
+                 line="1135">The SVG data</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -380,7 +380,7 @@ a [class@Gio.MemoryInputStream] from your data.</doc>
           <parameter name="data_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1130">The length of @data, in bytes</doc>
+                 line="1136">The length of @data, in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -391,22 +391,22 @@ a [class@Gio.MemoryInputStream] from your data.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1144">Loads the SVG specified by @file_name.  Note that this function, like
+             line="1150">Loads the SVG specified by @file_name.  Note that this function, like
 [ctor@Rsvg.Handle.new], does not specify any loading flags for the resulting
 handle.  If you require the use of [flags@Rsvg.HandleFlags], use
 [ctor@Rsvg.Handle.new_from_gfile_sync].</doc>
-        <source-position filename="rsvg.h" line="1158"/>
+        <source-position filename="rsvg.h" line="1164"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1154">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
+               line="1160">A [class@Rsvg.Handle] or `NULL` if an error occurs.</doc>
           <type name="Handle" c:type="RsvgHandle*"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1146">The file name to load, or a URI.</doc>
+                 line="1152">The file name to load, or a URI.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -417,7 +417,7 @@ handle.  If you require the use of [flags@Rsvg.HandleFlags], use
                    throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1069">Creates a new [class@Rsvg.Handle] for @file.
+             line="1075">Creates a new [class@Rsvg.Handle] for @file.
 
 This function sets the "base file" of the handle to be @file itself, so SVG
 elements like `&lt;image&gt;` which reference external
@@ -427,24 +427,24 @@ If @cancellable is not `NULL`, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the
 operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
 returned in @error.</doc>
-        <source-position filename="rsvg.h" line="1092"/>
+        <source-position filename="rsvg.h" line="1098"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1087">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
+               line="1093">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
           <type name="Handle" c:type="RsvgHandle*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1071">a `GFile`</doc>
+                 line="1077">a `GFile`</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1072">flags from [flags@Rsvg.HandleFlags]</doc>
+                 line="1078">flags from [flags@Rsvg.HandleFlags]</doc>
             <type name="HandleFlags" c:type="RsvgHandleFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -453,7 +453,7 @@ returned in @error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1073">a `GCancellable`, or `NULL`</doc>
+                 line="1079">a `GCancellable`, or `NULL`</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -464,7 +464,7 @@ returned in @error.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1097">Creates a new [class@Rsvg.Handle] for @stream.
+             line="1103">Creates a new [class@Rsvg.Handle] for @stream.
 
 This function sets the "base file" of the handle to be @base_file if
 provided.  SVG elements like `&lt;image&gt;` which reference
@@ -474,18 +474,18 @@ If @cancellable is not `NULL`, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the
 operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
 returned in @error.</doc>
-        <source-position filename="rsvg.h" line="1121"/>
+        <source-position filename="rsvg.h" line="1127"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1116">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
+               line="1122">a new [class@Rsvg.Handle] on success, or `NULL` with @error filled in</doc>
           <type name="Handle" c:type="RsvgHandle*"/>
         </return-value>
         <parameters>
           <parameter name="input_stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1099">a `GInputStream`</doc>
+                 line="1105">a `GInputStream`</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="base_file"
@@ -494,13 +494,13 @@ returned in @error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1100">a `GFile`, or `NULL`</doc>
+                 line="1106">a `GFile`, or `NULL`</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1101">flags from [flags@Rsvg.HandleFlags]</doc>
+                 line="1107">flags from [flags@Rsvg.HandleFlags]</doc>
             <type name="HandleFlags" c:type="RsvgHandleFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -509,7 +509,7 @@ returned in @error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1102">a `GCancellable`, or `NULL`</doc>
+                 line="1108">a `GCancellable`, or `NULL`</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -519,21 +519,21 @@ returned in @error.</doc>
                    version="2.36">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1007">Creates a new [class@Rsvg.Handle] with flags @flags.  After calling this function,
+             line="1013">Creates a new [class@Rsvg.Handle] with flags @flags.  After calling this function,
 you can feed the resulting handle with SVG data by using
 [method@Rsvg.Handle.read_stream_sync].</doc>
-        <source-position filename="rsvg.h" line="1020"/>
+        <source-position filename="rsvg.h" line="1026"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1015">a new [class@Rsvg.Handle]</doc>
+               line="1021">a new [class@Rsvg.Handle]</doc>
           <type name="Handle" c:type="RsvgHandle*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1009">flags from [flags@Rsvg.HandleFlags]</doc>
+                 line="1015">flags from [flags@Rsvg.HandleFlags]</doc>
             <type name="HandleFlags" c:type="RsvgHandleFlags"/>
           </parameter>
         </parameters>
@@ -577,9 +577,9 @@ functions [ctor@Rsvg.Handle.new_from_gfile_sync] or
       <method name="free" c:identifier="rsvg_handle_free" deprecated="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1226">Frees @handle.</doc>
+             line="1232">Frees @handle.</doc>
         <doc-deprecated xml:space="preserve">Use [method@GObject.Object.unref] instead.</doc-deprecated>
-        <source-position filename="rsvg.h" line="1234"/>
+        <source-position filename="rsvg.h" line="1240"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -587,7 +587,7 @@ functions [ctor@Rsvg.Handle.new_from_gfile_sync] or
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1228">An [class@Rsvg.Handle]</doc>
+                 line="1234">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
         </parameters>
@@ -624,18 +624,18 @@ functions [ctor@Rsvg.Handle.new_from_gfile_sync] or
               deprecated-version="2.36.">
         <doc-deprecated xml:space="preserve">Librsvg does not read the metadata/desc/title elements;
 this function always returns `NULL`.</doc-deprecated>
-        <source-position filename="rsvg.h" line="1430"/>
+        <source-position filename="rsvg.h" line="1436"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1422">This function always returns `NULL`.</doc>
+               line="1428">This function always returns `NULL`.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1420">An [class@Rsvg.Handle]</doc>
+                 line="1426">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
         </parameters>
@@ -915,7 +915,7 @@ whole SVG.</doc>
               version="2.46">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="839">In simple terms, queries the `width`, `height`, and `viewBox` attributes in an SVG document.
+             line="845">In simple terms, queries the `width`, `height`, and `viewBox` attributes in an SVG document.
 
 If you are calling this function to compute a scaling factor to render the SVG,
 consider simply using [method@Rsvg.Handle.render_document] instead; it will do the
@@ -960,7 +960,7 @@ API ordering: This function must be called on a fully-loaded @handle.  See
 the section "[API ordering](class.Handle.html#api-ordering)" for details.
 
 Panics: this function will panic if the @handle is not fully-loaded.</doc>
-        <source-position filename="rsvg.h" line="898"/>
+        <source-position filename="rsvg.h" line="904"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -968,7 +968,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="841">An [class@Rsvg.Handle]</doc>
+                 line="847">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="out_has_width"
@@ -979,7 +979,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="842">Will be set to `TRUE`; see below.</doc>
+                 line="848">Will be set to `TRUE`; see below.</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="out_width"
@@ -990,7 +990,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="843">Will be set to the computed value of the `width` property in the toplevel SVG.</doc>
+                 line="849">Will be set to the computed value of the `width` property in the toplevel SVG.</doc>
             <type name="Length" c:type="RsvgLength*"/>
           </parameter>
           <parameter name="out_has_height"
@@ -1001,7 +1001,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="844">Will be set to `TRUE`; see below.</doc>
+                 line="850">Will be set to `TRUE`; see below.</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="out_height"
@@ -1012,7 +1012,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="845">Will be set to the computed value of the `height` property in the toplevel SVG.</doc>
+                 line="851">Will be set to the computed value of the `height` property in the toplevel SVG.</doc>
             <type name="Length" c:type="RsvgLength*"/>
           </parameter>
           <parameter name="out_has_viewbox"
@@ -1023,7 +1023,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="846">Will be set to `TRUE` if the toplevel SVG has a `viewBox` attribute</doc>
+                 line="852">Will be set to `TRUE` if the toplevel SVG has a `viewBox` attribute</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="out_viewbox"
@@ -1034,7 +1034,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="847">Will be set to the value of the `viewBox` attribute in the toplevel SVG</doc>
+                 line="853">Will be set to the value of the `viewBox` attribute in the toplevel SVG</doc>
             <type name="Rectangle" c:type="RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -1044,7 +1044,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
               version="2.52">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="906">Converts an SVG document's intrinsic dimensions to pixels, and returns the result.
+             line="912">Converts an SVG document's intrinsic dimensions to pixels, and returns the result.
 
 This function is able to extract the size in pixels from an SVG document if the
 document has both `width` and `height` attributes
@@ -1089,11 +1089,11 @@ this function would return `FALSE` for them:
 Instead of querying an SVG document's size, applications are encouraged to render SVG
 documents to a size chosen by the application, by passing a suitably-sized viewport to
 [method@Rsvg.Handle.render_document].</doc>
-        <source-position filename="rsvg.h" line="969"/>
+        <source-position filename="rsvg.h" line="975"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="958">`TRUE` if the dimensions could be converted directly to pixels; in this case
+               line="964">`TRUE` if the dimensions could be converted directly to pixels; in this case
 @out_width and @out_height will be set accordingly.  Note that the dimensions are
 floating-point numbers, so your application can know the exact size of an SVG document.
 To get integer dimensions, you should use `ceil()` to round up to the nearest integer
@@ -1106,7 +1106,7 @@ dimensions cannot be converted to pixels, returns `FALSE` and puts 0.0 in both
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="908">An [class@Rsvg.Handle]</doc>
+                 line="914">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="out_width"
@@ -1117,7 +1117,7 @@ dimensions cannot be converted to pixels, returns `FALSE` and puts 0.0 in both
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="909">Will be set to the computed width; you should round this up to get integer pixels.</doc>
+                 line="915">Will be set to the computed width; you should round this up to get integer pixels.</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="out_height"
@@ -1128,7 +1128,7 @@ dimensions cannot be converted to pixels, returns `FALSE` and puts 0.0 in both
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="910">Will be set to the computed height; you should round this up to get integer pixels.</doc>
+                 line="916">Will be set to the computed height; you should round this up to get integer pixels.</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -1141,18 +1141,18 @@ dimensions cannot be converted to pixels, returns `FALSE` and puts 0.0 in both
               deprecated-version="2.36.">
         <doc-deprecated xml:space="preserve">Librsvg does not read the metadata/desc/title elements;
 this function always returns `NULL`.</doc-deprecated>
-        <source-position filename="rsvg.h" line="1444"/>
+        <source-position filename="rsvg.h" line="1450"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1436">This function always returns `NULL`.</doc>
+               line="1442">This function always returns `NULL`.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1434">An [class@Rsvg.Handle]</doc>
+                 line="1440">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
         </parameters>
@@ -1300,18 +1300,18 @@ URL's fragment ID.  Alternatively, pass %NULL to use the whole SVG.</doc>
               deprecated-version="2.36.">
         <doc-deprecated xml:space="preserve">Librsvg does not read the metadata/desc/title elements;
 this function always returns `NULL`.</doc-deprecated>
-        <source-position filename="rsvg.h" line="1416"/>
+        <source-position filename="rsvg.h" line="1422"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1408">This function always returns `NULL`.</doc>
+               line="1414">This function always returns `NULL`.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1406">An [class@Rsvg.Handle]</doc>
+                 line="1412">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
         </parameters>
@@ -1352,9 +1352,9 @@ fragment ID.</doc>
               c:identifier="rsvg_handle_internal_set_testing">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1190">Do not call this function.  This is intended for librsvg's internal
+             line="1196">Do not call this function.  This is intended for librsvg's internal
 test suite only.</doc>
-        <source-position filename="rsvg.h" line="1199"/>
+        <source-position filename="rsvg.h" line="1205"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1362,13 +1362,13 @@ test suite only.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1192">a [class@Rsvg.Handle]</doc>
+                 line="1198">a [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="testing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1193">Whether to enable testing mode</doc>
+                 line="1199">Whether to enable testing mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1379,7 +1379,7 @@ test suite only.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1038">Reads @stream and writes the data from it to @handle.
+             line="1044">Reads @stream and writes the data from it to @handle.
 
 Before calling this function, you may need to call [method@Rsvg.Handle.set_base_uri]
 or [method@Rsvg.Handle.set_base_gfile] to set the "base file" for resolving
@@ -1391,11 +1391,11 @@ If @cancellable is not `NULL`, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the
 operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
 returned.</doc>
-        <source-position filename="rsvg.h" line="1064"/>
+        <source-position filename="rsvg.h" line="1070"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1058">`TRUE` if reading @stream succeeded, or `FALSE` otherwise
+               line="1064">`TRUE` if reading @stream succeeded, or `FALSE` otherwise
   with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1403,13 +1403,13 @@ returned.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1040">a [class@Rsvg.Handle]</doc>
+                 line="1046">a [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1041">a `GInputStream`</doc>
+                 line="1047">a `GInputStream`</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1418,7 +1418,7 @@ returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1042">a `GCancellable`, or `NULL`</doc>
+                 line="1048">a `GCancellable`, or `NULL`</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1775,11 +1775,11 @@ URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document 
               version="2.32">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1022">Set the base URI for @handle from @file.
+             line="1028">Set the base URI for @handle from @file.
 
 Note: This function may only be called before [method@Rsvg.Handle.write] or
 [method@Rsvg.Handle.read_stream_sync] have been called.</doc>
-        <source-position filename="rsvg.h" line="1035"/>
+        <source-position filename="rsvg.h" line="1041"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1787,13 +1787,13 @@ Note: This function may only be called before [method@Rsvg.Handle.write] or
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1024">a [class@Rsvg.Handle]</doc>
+                 line="1030">a [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="base_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1025">a `GFile`</doc>
+                 line="1031">a `GFile`</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1898,7 +1898,7 @@ please do not pass values &lt;= 0 to this function.</doc>
               deprecated-version="2.14.">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1252">Sets the sizing function for the @handle, which can be used to override the
+             line="1258">Sets the sizing function for the @handle, which can be used to override the
 size that librsvg computes for SVG images.  The @size_func is called from the
 following functions:
 
@@ -1917,7 +1917,7 @@ unclear when the librsvg functions which call the @size_func will use the
 size computed originally, or the callback-specified size, or whether it
 refers to the whole SVG or to just a sub-element of it.  It is easier, and
 unambiguous, to use code similar to the example above.</doc-deprecated>
-        <source-position filename="rsvg.h" line="1282"/>
+        <source-position filename="rsvg.h" line="1288"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1925,7 +1925,7 @@ unambiguous, to use code similar to the example above.</doc-deprecated>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1254">An [class@Rsvg.Handle]</doc>
+                 line="1260">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="size_func"
@@ -1937,7 +1937,7 @@ unambiguous, to use code similar to the example above.</doc-deprecated>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1255">A sizing function, or `NULL`</doc>
+                 line="1261">A sizing function, or `NULL`</doc>
             <type name="SizeFunc" c:type="RsvgSizeFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -1946,7 +1946,7 @@ unambiguous, to use code similar to the example above.</doc-deprecated>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1256">User data to pass to @size_func, or `NULL`</doc>
+                 line="1262">User data to pass to @size_func, or `NULL`</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="user_data_destroy"
@@ -1954,7 +1954,7 @@ unambiguous, to use code similar to the example above.</doc-deprecated>
                      scope="async">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1257">Function to be called to destroy the data passed in @user_data,
+                 line="1263">Function to be called to destroy the data passed in @user_data,
   or `NULL`.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
@@ -1966,7 +1966,7 @@ unambiguous, to use code similar to the example above.</doc-deprecated>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1160">Sets a CSS stylesheet to use for an SVG document.
+             line="1166">Sets a CSS stylesheet to use for an SVG document.
 
 The @css_len argument is mandatory; this function will not compute the length
 of the @css string.  This is because a provided stylesheet, which the calling
@@ -1976,11 +1976,11 @@ During the CSS cascade, the specified stylesheet will be used with a "User"
 [origin](https://drafts.csswg.org/css-cascade-3/#cascading-origins).
 
 Note that `@import` rules will not be resolved, except for `data:` URLs.</doc>
-        <source-position filename="rsvg.h" line="1184"/>
+        <source-position filename="rsvg.h" line="1190"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1178">`TRUE` on success, `FALSE` on error.  Errors are returned
+               line="1184">`TRUE` on success, `FALSE` on error.  Errors are returned
 in the @error argument.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1988,13 +1988,13 @@ in the @error argument.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1162">A [class@Rsvg.Handle].</doc>
+                 line="1168">A [class@Rsvg.Handle].</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="css" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1163">String with CSS data; must be valid UTF-8.</doc>
+                 line="1169">String with CSS data; must be valid UTF-8.</doc>
             <array length="1" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -2002,7 +2002,7 @@ in the @error argument.</doc>
           <parameter name="css_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg.h"
-                 line="1164">Length of the @css data in bytes.</doc>
+                 line="1170">Length of the @css data in bytes.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -2242,7 +2242,7 @@ Please use [method@Rsvg.Handle.get_intrinsic_dimensions] instead.</doc-deprecate
               c:type="RsvgHandleFlags">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="975">Configuration flags for an [class@Rsvg.Handle].  Note that not all of [class@Rsvg.Handle]'s
+           line="981">Configuration flags for an [class@Rsvg.Handle].  Note that not all of [class@Rsvg.Handle]'s
 constructors let you specify flags.  For this reason, [ctor@Rsvg.Handle.new_from_gfile_sync]
 and [ctor@Rsvg.Handle.new_from_stream_sync] are the preferred ways to create a handle.</doc>
       <member name="flags_none"
@@ -2252,7 +2252,7 @@ and [ctor@Rsvg.Handle.new_from_stream_sync] are the preferred ways to create a h
               glib:name="RSVG_HANDLE_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="977">No flags are set.</doc>
+             line="983">No flags are set.</doc>
       </member>
       <member name="flag_unlimited"
               value="1"
@@ -2261,7 +2261,7 @@ and [ctor@Rsvg.Handle.new_from_stream_sync] are the preferred ways to create a h
               glib:name="RSVG_HANDLE_FLAG_UNLIMITED">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="978">Disable safety limits in the XML parser.  Libxml2 has
+             line="984">Disable safety limits in the XML parser.  Libxml2 has
 [several limits](https://gitlab.gnome.org/GNOME/libxml2/blob/master/include/libxml/parserInternals.h)
 designed to keep malicious XML content from consuming too much memory while parsing.
 For security reasons, this should only be used for trusted input!  Since: 2.40.3</doc>
@@ -2273,7 +2273,7 @@ For security reasons, this should only be used for trusted input!  Since: 2.40.3
               glib:name="RSVG_HANDLE_FLAG_KEEP_IMAGE_DATA">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="982">Use this if the Cairo surface to which you are
+             line="988">Use this if the Cairo surface to which you are
 rendering is a PDF, PostScript, SVG, or Win32 Printing surface.  This will make librsvg
 and Cairo use the original, compressed data for images in the final output, instead of
 passing uncompressed images.  For example, this will make the a resulting PDF file
@@ -2303,7 +2303,7 @@ for details.</doc>
     <record name="Length" c:type="RsvgLength">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="817">`RsvgLength` values are used in [method@Rsvg.Handle.get_intrinsic_dimensions], for
+           line="823">`RsvgLength` values are used in [method@Rsvg.Handle.get_intrinsic_dimensions], for
 example, to return the CSS length values of the `width` and
 `height` attributes of an `&lt;svg&gt;` element.
 
@@ -2314,17 +2314,17 @@ It is up to the calling application to convert lengths in non-pixel units
 meaningful to the application.  For example, if your application knows the
 dots-per-inch (DPI) it is using, it can convert lengths with @unit in
 `RSVG_UNIT_IN` or other physical units.</doc>
-      <source-position filename="rsvg.h" line="837"/>
+      <source-position filename="rsvg.h" line="843"/>
       <field name="length" writable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="819">numeric part of the length</doc>
+             line="825">numeric part of the length</doc>
         <type name="gdouble" c:type="double"/>
       </field>
       <field name="unit" writable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="820">unit part of the length</doc>
+             line="826">unit part of the length</doc>
         <type name="Unit" c:type="RsvgUnit"/>
       </field>
     </record>
@@ -2368,7 +2368,7 @@ your program), or for programs not written in C, use
       <source-position filename="rsvg-version.h" line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="57" c:type="LIBRSVG_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="58" c:type="LIBRSVG_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="rsvg-features.h"
            line="45">This is a C macro that expands to a number with the minor version
@@ -2447,13 +2447,13 @@ the deprecation documentation for that function.</doc>
               deprecated-version="2.14.">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1236">Function to let a user of the library specify the SVG's dimensions
+           line="1242">Function to let a user of the library specify the SVG's dimensions
 
 See the documentation for [method@Rsvg.Handle.set_size_callback] for an example, and
 for the reasons for deprecation.</doc>
       <doc-deprecated xml:space="preserve">Use [method@Rsvg.Handle.render_document] instead, which lets you specify
 a viewport size in which to render the SVG document.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1250"/>
+      <source-position filename="rsvg.h" line="1256"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2464,7 +2464,7 @@ a viewport size in which to render the SVG document.</doc-deprecated>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1238">the width of the SVG</doc>
+               line="1244">the width of the SVG</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="height"
@@ -2473,7 +2473,7 @@ a viewport size in which to render the SVG document.</doc-deprecated>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1239">the height of the SVG</doc>
+               line="1245">the height of the SVG</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="user_data"
@@ -2483,7 +2483,7 @@ a viewport size in which to render the SVG document.</doc-deprecated>
                    closure="2">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1240">user data</doc>
+               line="1246">user data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -2492,8 +2492,12 @@ a viewport size in which to render the SVG document.</doc-deprecated>
       <doc xml:space="preserve"
            filename="rsvg.h"
            line="790">Units for the `RsvgLength` struct.  These have the same meaning as [CSS length
-units](https://www.w3.org/TR/CSS21/syndata.html#length-units).</doc>
-      <source-position filename="rsvg.h" line="815"/>
+units](https://www.w3.org/TR/CSS21/syndata.html#length-units).
+
+If you test for the values of this enum, please note that librsvg may add other units in the future
+as its support for CSS improves.  Please make your code handle unknown units gracefully (e.g. with
+a `default` case in a `switch()` statement).</doc>
+      <source-position filename="rsvg.h" line="821"/>
       <member name="percent" value="0" c:identifier="RSVG_UNIT_PERCENT">
         <doc xml:space="preserve"
              filename="rsvg.h"
@@ -2535,8 +2539,13 @@ units](https://www.w3.org/TR/CSS21/syndata.html#length-units).</doc>
              filename="rsvg.h"
              line="800">picas, or 1/6 inch (12 points)</doc>
       </member>
+      <member name="ch" value="9" c:identifier="RSVG_UNIT_CH">
+        <doc xml:space="preserve"
+             filename="rsvg.h"
+             line="801">advance measure of a '0' character (depends on the text orientation)</doc>
+      </member>
     </enumeration>
-    <constant name="VERSION" value="2.57.1" c:type="LIBRSVG_VERSION">
+    <constant name="VERSION" value="2.58.1" c:type="LIBRSVG_VERSION">
       <doc xml:space="preserve"
            filename="rsvg-features.h"
            line="83">This is a C macro that expands to a string with the version of
@@ -2591,9 +2600,9 @@ your program), or for programs not written in C, use
               deprecated-version="2.36">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1204">This function does nothing.</doc>
+           line="1210">This function does nothing.</doc>
       <doc-deprecated xml:space="preserve">There is no need to initialize librsvg.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1213"/>
+      <source-position filename="rsvg.h" line="1219"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2604,22 +2613,22 @@ your program), or for programs not written in C, use
               throws="1">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1299">Loads a new `GdkPixbuf` from @filename and returns it.  The caller must
+           line="1305">Loads a new `GdkPixbuf` from @filename and returns it.  The caller must
 assume the reference to the reurned pixbuf. If an error occurred, @error is
 set and `NULL` is returned.</doc>
       <doc-deprecated xml:space="preserve">Use [ctor@Rsvg.Handle.new_from_file] and [method@Rsvg.Handle.render_document] instead.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1312"/>
+      <source-position filename="rsvg.h" line="1318"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1308">A pixbuf, or %NULL on error.</doc>
+             line="1314">A pixbuf, or %NULL on error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1301">A file name</doc>
+               line="1307">A file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2630,35 +2639,35 @@ set and `NULL` is returned.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1358">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is uniformly
+           line="1364">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is uniformly
 scaled so that the it fits into a rectangle of size `max_width * max_height`. The
 caller must assume the reference to the returned pixbuf. If an error occurred,
 @error is set and `NULL` is returned.</doc>
       <doc-deprecated xml:space="preserve">Use [ctor@Rsvg.Handle.new_from_file] and [method@Rsvg.Handle.render_document] instead.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1374"/>
+      <source-position filename="rsvg.h" line="1380"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1370">A pixbuf, or %NULL on error.</doc>
+             line="1376">A pixbuf, or %NULL on error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1360">A file name</doc>
+               line="1366">A file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="max_width" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1361">The requested max width</doc>
+               line="1367">The requested max width</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="max_height" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1362">The requested max height</doc>
+               line="1368">The requested max height</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -2669,36 +2678,36 @@ caller must assume the reference to the returned pixbuf. If an error occurred,
               throws="1">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1336">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
+           line="1342">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
 from the size indicated to the new size indicated by @width and @height.  If
 both of these are -1, then the default size of the image being loaded is
 used.  The caller must assume the reference to the returned pixbuf. If an
 error occurred, @error is set and `NULL` is returned.</doc>
       <doc-deprecated xml:space="preserve">Use [ctor@Rsvg.Handle.new_from_file] and [method@Rsvg.Handle.render_document] instead.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1353"/>
+      <source-position filename="rsvg.h" line="1359"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1349">A pixbuf, or %NULL on error.</doc>
+             line="1355">A pixbuf, or %NULL on error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1338">A file name</doc>
+               line="1344">A file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="width" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1339">The new width, or -1</doc>
+               line="1345">The new width, or -1</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="height" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1340">The new height, or -1</doc>
+               line="1346">The new height, or -1</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -2709,35 +2718,35 @@ error occurred, @error is set and `NULL` is returned.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1315">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
+           line="1321">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
 from the size indicated by the file by a factor of @x_zoom and @y_zoom.  The
 caller must assume the reference to the returned pixbuf. If an error
 occurred, @error is set and `NULL` is returned.</doc>
       <doc-deprecated xml:space="preserve">Use [ctor@Rsvg.Handle.new_from_file] and [method@Rsvg.Handle.render_document] instead.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1331"/>
+      <source-position filename="rsvg.h" line="1337"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1327">A pixbuf, or %NULL on error.</doc>
+             line="1333">A pixbuf, or %NULL on error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1317">A file name</doc>
+               line="1323">A file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="x_zoom" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1318">The horizontal zoom factor</doc>
+               line="1324">The horizontal zoom factor</doc>
           <type name="gdouble" c:type="double"/>
         </parameter>
         <parameter name="y_zoom" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1319">The vertical zoom factor</doc>
+               line="1325">The vertical zoom factor</doc>
           <type name="gdouble" c:type="double"/>
         </parameter>
       </parameters>
@@ -2748,48 +2757,48 @@ occurred, @error is set and `NULL` is returned.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1378">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
+           line="1384">Loads a new `GdkPixbuf` from @filename and returns it.  This pixbuf is scaled
 from the size indicated by the file by a factor of @x_zoom and @y_zoom. If the
 resulting pixbuf would be larger than max_width/max_heigh it is uniformly scaled
 down to fit in that rectangle. The caller must assume the reference to the
 returned pixbuf. If an error occurred, @error is set and `NULL` is returned.</doc>
       <doc-deprecated xml:space="preserve">Use [ctor@Rsvg.Handle.new_from_file] and [method@Rsvg.Handle.render_document] instead.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1397"/>
+      <source-position filename="rsvg.h" line="1403"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="rsvg.h"
-             line="1393">A pixbuf, or %NULL on error.</doc>
+             line="1399">A pixbuf, or %NULL on error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1380">A file name</doc>
+               line="1386">A file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="x_zoom" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1381">The horizontal zoom factor</doc>
+               line="1387">The horizontal zoom factor</doc>
           <type name="gdouble" c:type="double"/>
         </parameter>
         <parameter name="y_zoom" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1382">The vertical zoom factor</doc>
+               line="1388">The vertical zoom factor</doc>
           <type name="gdouble" c:type="double"/>
         </parameter>
         <parameter name="max_width" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1383">The requested max width</doc>
+               line="1389">The requested max width</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="max_height" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg.h"
-               line="1384">The requested max height</doc>
+               line="1390">The requested max height</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -2859,9 +2868,9 @@ use [method@Rsvg.Handle.set_dpi] instead.</doc-deprecated>
               deprecated-version="2.36">
       <doc xml:space="preserve"
            filename="rsvg.h"
-           line="1215">This function does nothing.</doc>
+           line="1221">This function does nothing.</doc>
       <doc-deprecated xml:space="preserve">There is no need to de-initialize librsvg.</doc-deprecated>
-      <source-position filename="rsvg.h" line="1224"/>
+      <source-position filename="rsvg.h" line="1230"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

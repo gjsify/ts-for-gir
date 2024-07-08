@@ -6034,12 +6034,12 @@ disables the effect.</doc>
       <constructor name="new" c:identifier="st_scroll_view_fade_new">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view-fade.c"
-             line="440">Create a new #StScrollViewFade.</doc>
+             line="427">Create a new #StScrollViewFade.</doc>
         <source-position filename="src/st/st-scroll-view-fade.h" line="32"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view-fade.c"
-               line="445">a new #StScrollViewFade</doc>
+               line="432">a new #StScrollViewFade</doc>
           <type name="Clutter.Effect" c:type="ClutterEffect*"/>
         </return-value>
       </constructor>
@@ -6049,7 +6049,7 @@ disables the effect.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view-fade.c"
-             line="414">Whether faded edges should extend beyond the faded area of the #StScrollViewFade.</doc>
+             line="401">Whether faded edges should extend beyond the faded area of the #StScrollViewFade.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="fade-edges"
@@ -6058,13 +6058,13 @@ disables the effect.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view-fade.c"
-             line="402">Whether the faded area should extend to the edges of the #StScrollViewFade.</doc>
+             line="389">Whether the faded area should extend to the edges of the #StScrollViewFade.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="fade-margins" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view-fade.c"
-             line="390">The margins widths that are faded.</doc>
+             line="377">The margins widths that are faded.</doc>
         <type name="Clutter.Margin"/>
       </property>
     </class>

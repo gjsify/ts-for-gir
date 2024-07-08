@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <c:include name="govf.h"/>
+  <namespace name="Govf"
+             version="0.1"
+             shared-library="libgovf-0.1.so"
+             c:identifier-prefixes="Govf"
+             c:symbol-prefixes="govf">
+    <class name="Disk"
+           c:symbol-prefix="disk"
+           c:type="GovfDisk"
+           parent="GObject.Object"
+           glib:type-name="GovfDisk"
+           glib:get-type="govf_disk_get_type"
+           glib:type-struct="DiskClass">
+      <source-position filename="govf/govf-disk.h" line="29"/>
+      <constructor name="new" c:identifier="govf_disk_new">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="151">Creates a new #GovfDisk.</doc>
+        <source-position filename="govf/govf-disk.h" line="31"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="govf/govf-disk.c"
+               line="156">a #GovfDisk</doc>
+          <type name="Disk" c:type="GovfDisk*"/>
+        </return-value>
+      </constructor>
+      <method name="get_capacity" c:identifier="govf_disk_get_capacity">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="35">Returns the disk's capacity.</doc>
+        <source-position filename="govf/govf-disk.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-disk.c"
+               line="41">the capacity</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="37">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_disk_id" c:identifier="govf_disk_get_disk_id">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="64">Returns the disk id.</doc>
+        <source-position filename="govf/govf-disk.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-disk.c"
+               line="70">the disk id</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="66">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_ref" c:identifier="govf_disk_get_file_ref">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="93">Returns the disk's file reference.</doc>
+        <source-position filename="govf/govf-disk.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-disk.c"
+               line="99">the file ref</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="95">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_format" c:identifier="govf_disk_get_format">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="122">Returns the disk's format.</doc>
+        <source-position filename="govf/govf-disk.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-disk.c"
+               line="128">the format</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="124">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_capacity" c:identifier="govf_disk_set_capacity">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="49">Sets a new capacity for the disk.</doc>
+        <source-position filename="govf/govf-disk.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="51">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+          <parameter name="capacity" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="52">capacity for the disk</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_disk_id" c:identifier="govf_disk_set_disk_id">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="78">Sets a new disk id for the disk.</doc>
+        <source-position filename="govf/govf-disk.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="80">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+          <parameter name="disk_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="81">disk id for the disk</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_file_ref" c:identifier="govf_disk_set_file_ref">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="107">Sets a new file reference for the disk.</doc>
+        <source-position filename="govf/govf-disk.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="109">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+          <parameter name="file_ref" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="110">file ref for the disk</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_format" c:identifier="govf_disk_set_format">
+        <doc xml:space="preserve"
+             filename="govf/govf-disk.c"
+             line="136">Sets a new format for the disk.</doc>
+        <source-position filename="govf/govf-disk.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="138">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-disk.c"
+                 line="139">format for the disk</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DiskClass"
+            c:type="GovfDiskClass"
+            glib:is-gtype-struct-for="Disk">
+      <source-position filename="govf/govf-disk.h" line="29"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Package"
+           c:symbol-prefix="package"
+           c:type="GovfPackage"
+           parent="GObject.Object"
+           glib:type-name="GovfPackage"
+           glib:get-type="govf_package_get_type"
+           glib:type-struct="PackageClass">
+      <source-position filename="govf/govf-package.h" line="33"/>
+      <constructor name="new" c:identifier="govf_package_new">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="682">Creates a new #GovfPackage.</doc>
+        <source-position filename="govf/govf-package.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="govf/govf-package.c"
+               line="687">a #GovfPackage</doc>
+          <type name="Package" c:type="GovfPackage*"/>
+        </return-value>
+      </constructor>
+      <function name="error_quark" c:identifier="govf_package_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="extract_disk"
+              c:identifier="govf_package_extract_disk"
+              glib:finish-func="extract_disk_finish">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="631">Extracts a disk...</doc>
+        <source-position filename="govf/govf-package.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="633">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="disk" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="634">a #GovfDisk</doc>
+            <type name="Disk" c:type="GovfDisk*"/>
+          </parameter>
+          <parameter name="save_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="635">a file path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="636">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="637">a #GAsyncReadyCallback to call
+     when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="639">the data to pass to callback function</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="extract_disk_finish"
+              c:identifier="govf_package_extract_disk_finish"
+              throws="1">
+        <source-position filename="govf/govf-package.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_disks" c:identifier="govf_package_get_disks">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="548">Returns an array with all the disks associated with the OVF package.</doc>
+        <source-position filename="govf/govf-package.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="govf/govf-package.c"
+               line="554">an array</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="Disk"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="550">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_from_data"
+              c:identifier="govf_package_load_from_data"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="461">Loads an OVF package from a memory buffer that holds an .ovf file.</doc>
+        <source-position filename="govf/govf-package.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-package.c"
+               line="470">%TRUE if the operation succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="463">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="464">OVF data</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="465">size of the OVF data</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_file"
+              c:identifier="govf_package_load_from_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="281">Loads an OVF package from an uncompressed .ovf file.</doc>
+        <source-position filename="govf/govf-package.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-package.c"
+               line="289">%TRUE if the operation succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="283">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="284">an .ovf file name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_ova_file"
+              c:identifier="govf_package_load_from_ova_file"
+              glib:finish-func="load_from_ova_file_finish">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="231">Loads an OVF package from a compressed .ova file.
+
+@callback should call govf_package_load_from_ova_file_finish()
+to get the result of this asynchronous operation.</doc>
+        <source-position filename="govf/govf-package.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="233">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="234">an .ova file name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="235">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="236">a #GAsyncReadyCallback to call when
+     the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="238">the data to pass to callback function</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_ova_file_finish"
+              c:identifier="govf_package_load_from_ova_file_finish"
+              throws="1">
+        <source-position filename="govf/govf-package.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_file"
+              c:identifier="govf_package_save_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="govf/govf-package.c"
+             line="308">Saves the OVF package to an uncompressed .ovf file.</doc>
+        <source-position filename="govf/govf-package.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="govf/govf-package.c"
+               line="316">%TRUE if the operation succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="310">a #GovfPackage</doc>
+            <type name="Package" c:type="GovfPackage*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="govf/govf-package.c"
+                 line="311">an .ovf file name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="PackageClass"
+            c:type="GovfPackageClass"
+            glib:is-gtype-struct-for="Package">
+      <source-position filename="govf/govf-package.h" line="33"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="PackageError" c:type="GovfPackageError">
+      <source-position filename="govf/govf-package.h" line="43"/>
+      <member name="failed" value="0" c:identifier="GOVF_PACKAGE_ERROR_FAILED">
+      </member>
+      <member name="not_found"
+              value="1"
+              c:identifier="GOVF_PACKAGE_ERROR_NOT_FOUND">
+      </member>
+      <member name="xml" value="2" c:identifier="GOVF_PACKAGE_ERROR_XML">
+      </member>
+      <member name="last" value="3" c:identifier="GOVF_PACKAGE_ERROR_LAST">
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

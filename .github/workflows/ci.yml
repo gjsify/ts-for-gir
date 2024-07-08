@@ -42,7 +42,7 @@ jobs:
     - run: yarn build
     - run: yarn build:examples
     - run: yarn validate:examples
-    - run: yarn start:cli-examples
+    - run: yarn test:examples:cli-apps
 
   gjs-types-all:
 

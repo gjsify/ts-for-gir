@@ -11,7 +11,7 @@ export default {
 	},
     external: (id) => {
         console.log(id);
-        if(externalImports.some(importName => id === importName)) {
+        if(externalImports.includes(id)) {
             return true;
         }
         if(externalProtocols.some(protocol => id.startsWith(protocol))) {

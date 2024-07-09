@@ -1,7 +1,7 @@
 # Examples
 
 Go to the examples directory and run `yarn start`, this will build the example and then run it.
-You can also use the examples as a template for your own project. The examples intentionally use different bundlers like Webpack, Rollup, Esbuild, Vite or the pure TypeScript compiler to transpile the TypeScript files to JavaScript. Simply choose the example that best suits your needs. If there is no suitable one, feel free to create an issue for it or contribute a new example via a PR.
+You can also use the examples as a template for your own project. The examples intentionally use different bundlers like [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/), [Esbuild](https://esbuild.github.io/), [Vite](https://vitejs.dev/), [Parcel](https://parceljs.org/) or the pure TypeScript compiler to transpile the TypeScript files to JavaScript. Simply choose the example that best suits your needs. If there is no suitable one, feel free to create an issue for it or contribute a new example via a PR.
 
 Now open some code with an editor that understands TypeScript and see what happens, for example
 [Visual Studio Code](https://code.visualstudio.com/).
@@ -87,7 +87,7 @@ yarn start
 ![gtk-3-editor](gtk-3-editor/preview.png)
 
 Source: [gtk-3-editor](gtk-3-editor)  
-Bundler: Webpack  
+Bundler: Parcel  
 
 Build and run:
 ```bash

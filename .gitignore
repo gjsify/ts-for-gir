@@ -14,8 +14,6 @@ examples/**/@types/
 # !@types/Gtk-2.0.d.ts
 # !@types/*
 
-.vscode
-
 index.ts.bak
 
 examples/**/node_modules/

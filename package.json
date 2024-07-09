@@ -18,13 +18,13 @@
     "publish:app:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag latest --access public",
     "publish:types:next": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag next --access public",
     "publish:types:latest": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag latest --access public",
-    "test": "yarn build:all && yarn test:girs:packages && yarn validate:examples && yarn test:examples:cli-apps",
+    "test": "yarn build:all && yarn test:girs:packages && yarn validate:examples && yarn test:examples:cli-apps && yarn test:tests",
     "test:girs:local": "yarn clear:types:local && yarn build:types:local && yarn validate:types:local",
     "test:girs:local:gtk4": "yarn clear:types && yarn build:types:local:gtk4 && yarn validate:types:local",
     "test:girs:packages": "yarn build:types:packages && yarn validate:types:packages",
     "test:girs:packages:gtk4": "yarn build:types:packages:gtk4 && yarn validate:types:packages",
     "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start",
-    "test:tests": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir-test/*' test",
+    "test:tests": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir-test/*' run test",
     "build": "yarn build:parser && yarn build:lib && yarn build:generators && yarn build:cli",
     "build:parser": "yarn workspace @gi.ts/parser run build",
     "build:cli": "yarn workspace @ts-for-gir/cli run build",
@@ -98,8 +98,8 @@
     "typescript": "^5.5.3"
   },
   "workspaces": [
-    "test",
     "examples/*/*",
+    "tests/*",
     "packages/*",
     "types/*"
   ],

@@ -11512,9 +11512,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-test/types-packages@workspace:packages/test":
+"@ts-for-gir-test/types-packages@workspace:tests/types-package":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-test/types-packages@workspace:packages/test"
+  resolution: "@ts-for-gir-test/types-packages@workspace:tests/types-package"
   dependencies:
     "@girs/accounts-1.0": "workspace:^"
     "@girs/accountsservice-1.0": "workspace:^"

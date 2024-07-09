@@ -18,7 +18,11 @@
     "parserOptions": {
         "requireConfigFile": false,
         "files": ["*.ts", "*.tsx"],
-        "project": "./tsconfig.json"
+        "project": [
+            "./examples/gjs/*/tsconfig.json",
+            "./packages/*/tsconfig.json",
+            "./tests/*/tsconfig.json",
+        ]
     },
     "globals": {
         "imports": true

@@ -72,3 +72,4 @@ jobs:
     - name: Show diff
       run: (cd ./types && git diff | cat)
     - run: yarn validate:types:packages
+    - run: yarn test:tests

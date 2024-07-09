@@ -24,7 +24,7 @@
     "test:girs:packages": "yarn build:types:packages && yarn validate:types:packages",
     "test:girs:packages:gtk4": "yarn build:types:packages:gtk4 && yarn validate:types:packages",
     "test:examples:cli-apps": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start",
-    "test:tests": "yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir-test/*' run test",
+    "test:tests": "yarn workspaces foreach -v --all --parallel --include '@ts-for-gir-test/*' run test",
     "build": "yarn build:parser && yarn build:lib && yarn build:generators && yarn build:cli",
     "build:parser": "yarn workspace @gi.ts/parser run build",
     "build:cli": "yarn workspace @ts-for-gir/cli run build",
@@ -45,7 +45,7 @@
     "copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
     "validate": "yarn workspaces foreach -v --all --parallel run validate",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
-    "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",
+    "validate:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run validate",
     "validate:types:packages": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
     "validate:types:local": "tsc --project tsconfig.local.json",
     "clear": "yarn clear:build && yarn clear:types:local",
@@ -98,7 +98,7 @@
     "typescript": "^5.5.3"
   },
   "workspaces": [
-    "examples/*/*",
+    "examples/*",
     "tests/*",
     "packages/*",
     "types/*"

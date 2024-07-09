@@ -19,9 +19,9 @@
         "requireConfigFile": false,
         "files": ["*.ts", "*.tsx"],
         "project": [
-            "./examples/gjs/*/tsconfig.json",
+            "./examples/*/tsconfig.json",
             "./packages/*/tsconfig.json",
-            "./tests/*/tsconfig.json",
+            "./tests/*/tsconfig.json"
         ]
     },
     "globals": {

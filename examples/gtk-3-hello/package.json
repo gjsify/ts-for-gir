@@ -1,0 +1,35 @@
+{
+  "name": "@ts-for-gir-example/gtk-3-hello-example",
+  "version": "4.0.0-beta.5",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "yarn build:app",
+    "_build:app": "yarn clear:app && webpack --env production",
+    "build:app": "yarn clear:app && rollup --config",
+    "clear:types": "rm -rf ./@types",
+    "clear:app": "rm -rf ./dist",
+    "clear": "yarn clear:app && yarn clear:types",
+    "start": "yarn build && yarn start:app",
+    "start:app": "gjs -m dist/main.js",
+    "watch": "yarn build --watch",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "rollup": "^4.18.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^"
+  }
+}

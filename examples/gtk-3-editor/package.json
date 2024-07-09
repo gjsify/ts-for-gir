@@ -1,0 +1,32 @@
+{
+  "name": "@ts-for-gir-example/gtk-3-editor-example",
+  "version": "4.0.0-beta.5",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "yarn build:app",
+    "build:app": "yarn clear:app && webpack --env production",
+    "clear:app": "rm -rf ./dist",
+    "clear": "yarn clear:app && yarn clear:types",
+    "start": "yarn build && yarn start:app",
+    "start:app": "gjs -m dist/main.js",
+    "watch": "yarn build --watch",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
+    "@girs/gtksource-3.0": "workspace:^"
+  }
+}

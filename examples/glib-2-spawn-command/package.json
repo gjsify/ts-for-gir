@@ -1,0 +1,33 @@
+{
+  "name": "@ts-for-gir-example/glib-2-spawn-command-example",
+  "version": "4.0.0-beta.5",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "yarn build && yarn start:gjs",
+    "start:gjs": "gjs -m dist/main.js",
+    "watch": "yarn build:app --watch",
+    "build": "yarn build:app",
+    "build:app": "yarn clear:ts && webpack --env production",
+    "clear:types": "rm -rf ./@types",
+    "clear:ts": "rm -rf ./dist",
+    "clear": "yarn clear:ts && yarn clear:types",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^"
+  }
+}

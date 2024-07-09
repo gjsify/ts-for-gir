@@ -10973,6 +10973,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-node-resolve@npm:^15.2.3":
+  version: 15.2.3
+  resolution: "@rollup/plugin-node-resolve@npm:15.2.3"
+  dependencies:
+    "@rollup/pluginutils": "npm:^5.0.1"
+    "@types/resolve": "npm:1.20.2"
+    deepmerge: "npm:^4.2.2"
+    is-builtin-module: "npm:^3.2.1"
+    is-module: "npm:^1.0.0"
+    resolve: "npm:^1.22.1"
+  peerDependencies:
+    rollup: ^2.78.0||^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 10/d36a6792fbe9d8673d3a7c7dc88920be669ac54fba02ac0093d3c00fc9463fce2e87da1906a2651016742709c3d202b367fb49a62acd0d98f18409343f27b8b4
+  languageName: node
+  linkType: hard
+
 "@rollup/pluginutils@npm:^5.0.1":
   version: 5.1.0
   resolution: "@rollup/pluginutils@npm:5.1.0"
@@ -11003,6 +11022,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-android-arm-eabi@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-android-arm-eabi@npm:4.18.1"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-android-arm64@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-android-arm64@npm:4.17.2"
@@ -11013,6 +11039,13 @@ __metadata:
 "@rollup/rollup-android-arm64@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-android-arm64@npm:4.18.0"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-android-arm64@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-android-arm64@npm:4.18.1"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -11031,6 +11064,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-darwin-arm64@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.18.1"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-darwin-x64@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-darwin-x64@npm:4.17.2"
@@ -11041,6 +11081,13 @@ __metadata:
 "@rollup/rollup-darwin-x64@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-darwin-x64@npm:4.18.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-darwin-x64@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-darwin-x64@npm:4.18.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -11059,6 +11106,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.18.1"
+  conditions: os=linux & cpu=arm & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-arm-musleabihf@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.17.2"
@@ -11069,6 +11123,13 @@ __metadata:
 "@rollup/rollup-linux-arm-musleabihf@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.18.0"
+  conditions: os=linux & cpu=arm & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm-musleabihf@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.18.1"
   conditions: os=linux & cpu=arm & libc=musl
   languageName: node
   linkType: hard
@@ -11087,6 +11148,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-arm64-gnu@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.18.1"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-arm64-musl@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-linux-arm64-musl@npm:4.17.2"
@@ -11097,6 +11165,13 @@ __metadata:
 "@rollup/rollup-linux-arm64-musl@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-linux-arm64-musl@npm:4.18.0"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm64-musl@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.18.1"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
@@ -11115,6 +11190,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-powerpc64le-gnu@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.18.1"
+  conditions: os=linux & cpu=ppc64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-riscv64-gnu@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.17.2"
@@ -11125,6 +11207,13 @@ __metadata:
 "@rollup/rollup-linux-riscv64-gnu@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.18.0"
+  conditions: os=linux & cpu=riscv64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-riscv64-gnu@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.18.1"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
@@ -11143,6 +11232,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-s390x-gnu@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.18.1"
+  conditions: os=linux & cpu=s390x & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-x64-gnu@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.17.2"
@@ -11153,6 +11249,13 @@ __metadata:
 "@rollup/rollup-linux-x64-gnu@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.18.0"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-x64-gnu@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.18.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -11171,6 +11274,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-x64-musl@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.18.1"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-win32-arm64-msvc@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.17.2"
@@ -11181,6 +11291,13 @@ __metadata:
 "@rollup/rollup-win32-arm64-msvc@npm:4.18.0":
   version: 4.18.0
   resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.18.0"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-win32-arm64-msvc@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.18.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -11199,6 +11316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-win32-ia32-msvc@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.18.1"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-win32-x64-msvc@npm:4.17.2":
   version: 4.17.2
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.17.2"
@@ -11213,9 +11337,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-for-gir-example/adw-1-hello-example@workspace:examples/gjs/adw-1-hello":
+"@rollup/rollup-win32-x64-msvc@npm:4.18.1":
+  version: 4.18.1
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.18.1"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@ts-for-gir-example/adw-1-hello-example@workspace:examples/adw-1-hello":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/adw-1-hello-example@workspace:examples/gjs/adw-1-hello"
+  resolution: "@ts-for-gir-example/adw-1-hello-example@workspace:examples/adw-1-hello"
   dependencies:
     "@babel/core": "npm:^7.24.7"
     "@girs/adw-1": "workspace:^"
@@ -11230,9 +11361,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gio-2-cat-example@workspace:examples/gjs/gio-2-cat":
+"@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gjs/gio-2-cat"
+  resolution: "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11242,9 +11373,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gio-2-dbus-example@workspace:examples/gjs/gio-2-dbus":
+"@ts-for-gir-example/gio-2-dbus-example@workspace:examples/gio-2-dbus":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gio-2-dbus-example@workspace:examples/gjs/gio-2-dbus"
+  resolution: "@ts-for-gir-example/gio-2-dbus-example@workspace:examples/gio-2-dbus"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11253,9 +11384,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gjs/gio-2-list-model":
+"@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gio-2-list-model":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gjs/gio-2-list-model"
+  resolution: "@ts-for-gir-example/gio-2-list-model-example@workspace:examples/gio-2-list-model"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11264,9 +11395,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gjs-gtk-4-custom-widget-example@workspace:examples/gjs/gtk-4-custom-widget":
+"@ts-for-gir-example/gjs-gtk-4-custom-widget-example@workspace:examples/gtk-4-custom-widget":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gjs-gtk-4-custom-widget-example@workspace:examples/gjs/gtk-4-custom-widget"
+  resolution: "@ts-for-gir-example/gjs-gtk-4-custom-widget-example@workspace:examples/gtk-4-custom-widget"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11280,9 +11411,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/glib-2-spawn-command-example@workspace:examples/gjs/glib-2-spawn-command":
+"@ts-for-gir-example/glib-2-spawn-command-example@workspace:examples/glib-2-spawn-command":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/glib-2-spawn-command-example@workspace:examples/gjs/glib-2-spawn-command"
+  resolution: "@ts-for-gir-example/glib-2-spawn-command-example@workspace:examples/glib-2-spawn-command"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
@@ -11294,9 +11425,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/glib-2-variant-example@workspace:examples/gjs/glib-2-variant":
+"@ts-for-gir-example/glib-2-variant-example@workspace:examples/glib-2-variant":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/glib-2-variant-example@workspace:examples/gjs/glib-2-variant"
+  resolution: "@ts-for-gir-example/glib-2-variant-example@workspace:examples/glib-2-variant"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11306,9 +11437,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gjs/gtk-3-browser":
+"@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gjs/gtk-3-browser"
+  resolution: "@ts-for-gir-example/gtk-3-browser-example@workspace:examples/gtk-3-browser"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11322,9 +11453,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-builder-example@workspace:examples/gjs/gtk-3-builder":
+"@ts-for-gir-example/gtk-3-builder-example@workspace:examples/gtk-3-builder":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-builder-example@workspace:examples/gjs/gtk-3-builder"
+  resolution: "@ts-for-gir-example/gtk-3-builder-example@workspace:examples/gtk-3-builder"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11337,9 +11468,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-calc-example@workspace:examples/gjs/gtk-3-calc":
+"@ts-for-gir-example/gtk-3-calc-example@workspace:examples/gtk-3-calc":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-calc-example@workspace:examples/gjs/gtk-3-calc"
+  resolution: "@ts-for-gir-example/gtk-3-calc-example@workspace:examples/gtk-3-calc"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11348,9 +11479,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-editor-example@workspace:examples/gjs/gtk-3-editor":
+"@ts-for-gir-example/gtk-3-editor-example@workspace:examples/gtk-3-editor":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-editor-example@workspace:examples/gjs/gtk-3-editor"
+  resolution: "@ts-for-gir-example/gtk-3-editor-example@workspace:examples/gtk-3-editor"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11363,9 +11494,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-gettext-example@workspace:examples/gjs/gtk-3-gettext":
+"@ts-for-gir-example/gtk-3-gettext-example@workspace:examples/gtk-3-gettext":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-gettext-example@workspace:examples/gjs/gtk-3-gettext"
+  resolution: "@ts-for-gir-example/gtk-3-gettext-example@workspace:examples/gtk-3-gettext"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11374,9 +11505,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-hello-2-example@workspace:examples/gjs/gtk-3-hello-2":
+"@ts-for-gir-example/gtk-3-hello-2-example@workspace:examples/gtk-3-hello-2":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-hello-2-example@workspace:examples/gjs/gtk-3-hello-2"
+  resolution: "@ts-for-gir-example/gtk-3-hello-2-example@workspace:examples/gtk-3-hello-2"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11385,13 +11516,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-hello-example@workspace:examples/gjs/gtk-3-hello":
+"@ts-for-gir-example/gtk-3-hello-example@workspace:examples/gtk-3-hello":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-hello-example@workspace:examples/gjs/gtk-3-hello"
+  resolution: "@ts-for-gir-example/gtk-3-hello-example@workspace:examples/gtk-3-hello"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
+    "@rollup/plugin-node-resolve": "npm:^15.2.3"
     fork-ts-checker-webpack-plugin: "npm:^9.0.2"
+    rollup: "npm:^4.18.1"
     ts-loader: "npm:^9.5.1"
     typescript: "npm:^5.5.3"
     webpack: "npm:^5.92.1"
@@ -11399,9 +11532,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-template-example@workspace:examples/gjs/gtk-3-template":
+"@ts-for-gir-example/gtk-3-template-example@workspace:examples/gtk-3-template":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-template-example@workspace:examples/gjs/gtk-3-template"
+  resolution: "@ts-for-gir-example/gtk-3-template-example@workspace:examples/gtk-3-template"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11410,9 +11543,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-webkit-example@workspace:examples/gjs/gtk-3-webkit":
+"@ts-for-gir-example/gtk-3-webkit-example@workspace:examples/gtk-3-webkit":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-webkit-example@workspace:examples/gjs/gtk-3-webkit"
+  resolution: "@ts-for-gir-example/gtk-3-webkit-example@workspace:examples/gtk-3-webkit"
   dependencies:
     "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
@@ -11422,9 +11555,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-4-application-example@workspace:examples/gjs/gtk-4-application":
+"@ts-for-gir-example/gtk-4-application-example@workspace:examples/gtk-4-application":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-4-application-example@workspace:examples/gjs/gtk-4-application"
+  resolution: "@ts-for-gir-example/gtk-4-application-example@workspace:examples/gtk-4-application"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11435,9 +11568,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-4-list-store-example@workspace:examples/gjs/gtk-4-list-store":
+"@ts-for-gir-example/gtk-4-list-store-example@workspace:examples/gtk-4-list-store":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-4-list-store-example@workspace:examples/gjs/gtk-4-list-store"
+  resolution: "@ts-for-gir-example/gtk-4-list-store-example@workspace:examples/gtk-4-list-store"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11448,9 +11581,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-4-template-example@workspace:examples/gjs/gtk-4-template":
+"@ts-for-gir-example/gtk-4-template-example@workspace:examples/gtk-4-template":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-4-template-example@workspace:examples/gjs/gtk-4-template"
+  resolution: "@ts-for-gir-example/gtk-4-template-example@workspace:examples/gtk-4-template"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11462,9 +11595,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/run-async-example@workspace:examples/gjs/run-async":
+"@ts-for-gir-example/run-async-example@workspace:examples/run-async":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/run-async-example@workspace:examples/gjs/run-async"
+  resolution: "@ts-for-gir-example/run-async-example@workspace:examples/run-async"
   dependencies:
     "@girs/adw-1": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
@@ -11476,9 +11609,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/soup-3-http-example@workspace:examples/gjs/soup-3-http":
+"@ts-for-gir-example/soup-3-http-example@workspace:examples/soup-3-http":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/soup-3-http-example@workspace:examples/gjs/soup-3-http"
+  resolution: "@ts-for-gir-example/soup-3-http-example@workspace:examples/soup-3-http"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11489,9 +11622,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/soup-3-websocket-example@workspace:examples/gjs/soup-3-websocket":
+"@ts-for-gir-example/soup-3-websocket-example@workspace:examples/soup-3-websocket":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/soup-3-websocket-example@workspace:examples/gjs/soup-3-websocket"
+  resolution: "@ts-for-gir-example/soup-3-websocket-example@workspace:examples/soup-3-websocket"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -11502,9 +11635,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/timers-example@workspace:examples/gjs/timers":
+"@ts-for-gir-example/timers-example@workspace:examples/timers":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/timers-example@workspace:examples/gjs/timers"
+  resolution: "@ts-for-gir-example/timers-example@workspace:examples/timers"
   dependencies:
     "@girs/gjs": "workspace:^"
     esbuild: "npm:^0.23.0"
@@ -12208,6 +12341,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/resolve@npm:1.20.2":
+  version: 1.20.2
+  resolution: "@types/resolve@npm:1.20.2"
+  checksum: 10/1bff0d3875e7e1557b6c030c465beca9bf3b1173ebc6937cac547654b0af3bb3ff0f16470e9c4d7c5dc308ad9ac8627c38dbff24ef698b66673ff5bd4ead7f7e
+  languageName: node
+  linkType: hard
+
 "@types/semver@npm:^7.5.8":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
@@ -12885,6 +13025,13 @@ __metadata:
     base64-js: "npm:^1.3.1"
     ieee754: "npm:^1.1.13"
   checksum: 10/997434d3c6e3b39e0be479a80288875f71cd1c07d75a3855e6f08ef848a3c966023f79534e22e415ff3a5112708ce06127277ab20e527146d55c84566405c7c6
+  languageName: node
+  linkType: hard
+
+"builtin-modules@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: 10/62e063ab40c0c1efccbfa9ffa31873e4f9d57408cb396a2649981a0ecbce56aabc93c28feaccbc5658c95aab2703ad1d11980e62ec2e5e72637404e1eb60f39e
   languageName: node
   linkType: hard
 
@@ -14296,6 +14443,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: "npm:^3.3.0"
+  checksum: 10/e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
+  languageName: node
+  linkType: hard
+
 "is-core-module@npm:^2.13.0":
   version: 2.13.1
   resolution: "is-core-module@npm:2.13.1"
@@ -14339,6 +14495,13 @@ __metadata:
   version: 1.0.1
   resolution: "is-lambda@npm:1.0.1"
   checksum: 10/93a32f01940220532e5948538699ad610d5924ac86093fcee83022252b363eb0cc99ba53ab084a04e4fb62bf7b5731f55496257a4c38adf87af9c4d352c71c35
+  languageName: node
+  linkType: hard
+
+"is-module@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-module@npm:1.0.0"
+  checksum: 10/8cd5390730c7976fb4e8546dd0b38865ee6f7bacfa08dfbb2cc07219606755f0b01709d9361e01f13009bbbd8099fa2927a8ed665118a6105d66e40f1b838c3f
   languageName: node
   linkType: hard
 
@@ -15334,7 +15497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.20.0":
+"resolve@npm:^1.20.0, resolve@npm:^1.22.1":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -15347,7 +15510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
@@ -15529,6 +15692,69 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 10/2320fe653cfd5e3d72ecab2f1d52d47e7b624a6ab02919f53c1ad1c5efa3b66e277c3ecfef03bb97651e79cef04bfefd34ad1f6e648f496572bf76c834f19599
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^4.18.1":
+  version: 4.18.1
+  resolution: "rollup@npm:4.18.1"
+  dependencies:
+    "@rollup/rollup-android-arm-eabi": "npm:4.18.1"
+    "@rollup/rollup-android-arm64": "npm:4.18.1"
+    "@rollup/rollup-darwin-arm64": "npm:4.18.1"
+    "@rollup/rollup-darwin-x64": "npm:4.18.1"
+    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.18.1"
+    "@rollup/rollup-linux-arm-musleabihf": "npm:4.18.1"
+    "@rollup/rollup-linux-arm64-gnu": "npm:4.18.1"
+    "@rollup/rollup-linux-arm64-musl": "npm:4.18.1"
+    "@rollup/rollup-linux-powerpc64le-gnu": "npm:4.18.1"
+    "@rollup/rollup-linux-riscv64-gnu": "npm:4.18.1"
+    "@rollup/rollup-linux-s390x-gnu": "npm:4.18.1"
+    "@rollup/rollup-linux-x64-gnu": "npm:4.18.1"
+    "@rollup/rollup-linux-x64-musl": "npm:4.18.1"
+    "@rollup/rollup-win32-arm64-msvc": "npm:4.18.1"
+    "@rollup/rollup-win32-ia32-msvc": "npm:4.18.1"
+    "@rollup/rollup-win32-x64-msvc": "npm:4.18.1"
+    "@types/estree": "npm:1.0.5"
+    fsevents: "npm:~2.3.2"
+  dependenciesMeta:
+    "@rollup/rollup-android-arm-eabi":
+      optional: true
+    "@rollup/rollup-android-arm64":
+      optional: true
+    "@rollup/rollup-darwin-arm64":
+      optional: true
+    "@rollup/rollup-darwin-x64":
+      optional: true
+    "@rollup/rollup-linux-arm-gnueabihf":
+      optional: true
+    "@rollup/rollup-linux-arm-musleabihf":
+      optional: true
+    "@rollup/rollup-linux-arm64-gnu":
+      optional: true
+    "@rollup/rollup-linux-arm64-musl":
+      optional: true
+    "@rollup/rollup-linux-powerpc64le-gnu":
+      optional: true
+    "@rollup/rollup-linux-riscv64-gnu":
+      optional: true
+    "@rollup/rollup-linux-s390x-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-musl":
+      optional: true
+    "@rollup/rollup-win32-arm64-msvc":
+      optional: true
+    "@rollup/rollup-win32-ia32-msvc":
+      optional: true
+    "@rollup/rollup-win32-x64-msvc":
+      optional: true
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 10/7a5f110d216e8599dc3cb11cf570316d989abae00785d99c2bcb6027287fe60d2eaed70e457d88a036622e7fc67e8db6e730d3c784aa90a258bd4c020676ad44
   languageName: node
   linkType: hard
 

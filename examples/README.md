@@ -1,81 +1,124 @@
 # Examples
 
-Go to the examples directory and run `yarn run start`, this will build the types and the example and then run it.
-You can also use the configurations of the examples as a template.
+Go to the examples directory and run `yarn start`, this will build the example and then run it.
+You can also use the examples as a template for your own project. The examples intentionally use different bundlers like Webpack, Rollup, Esbuild, Vite or the pure TypeScript compiler to transpile the TypeScript files to JavaScript. Simply choose the example that best suits your needs. If there is no suitable one, feel free to create an issue for it or contribute a new example via a PR.
 
 Now open some code with an editor that understands TypeScript and see what happens, for example
 [Visual Studio Code](https://code.visualstudio.com/).
 
-```bash
-code examples/gjs/browser
-```
-## Gtk-3.0 Browser
-![gtk-3-browser](gtk-3-browser.png)
 
-This example uses ESM when building the types and executing GJS.
+## Adwaita Hello World
+![adw-1-hello](adw-1-hello/preview.png)
 
-Source: [GJS](gjs/gtk-3-browser)
-Bundler: Webpack  
-Module: ESM  
+A simple Libadwaita example
+
+Source: [adw-1-hello](adw-1-hello)  
+Bundler: Vite  
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-3-browser
-yarn run start
+cd /examples/adw-1-hello
+yarn start
+```
+
+## Gio-2.0 Cat
+
+A simple GJS example that shows how to use Gio-2.0 to read a file from the local file system
+
+Source: [gio-2-cat](gio-2-cat)  
+Bundler: Esbuild  
+
+Build and run:
+```bash
+cd /examples/gio-2-cat
+yarn start
+```
+
+## Gio-2.0 DBus
+
+A simple GJS example that shows how to build a DBus server/client
+
+Source: [gio-2-dbus](gio-2-dbus)  
+Bundler: Esbuild  
+
+Build the server and client:
+```bash
+cd /examples/gio-2-dbus
+yarn build
+```
+
+Run the server:
+```bash
+yarn start:server
+```
+
+Run the client:
+```bash
+yarn start:client
+```
+
+## Gtk-3.0 Browser
+![gtk-3-browser](gtk-3-browser/preview.png)
+
+A simple browser using Gtk-3.0 and WebKit-2.0
+
+Source: [gtk-3-browser](gtk-3-browser)  
+Bundler: Webpack  
+
+Build and run:
+```bash
+cd /examples/gtk-3-browser
+yarn start
 ```
 
 ## Gtk-3.0 Builder
-![gtk-3-builder](gtk-3-builder.png)
+![gtk-3-builder](gtk-3-builder/preview.png)
 
-Source: [GJS](gjs/gtk-3-builder)
+Source: [gtk-3-builder](gtk-3-builder)  
 Bundler: Webpack  
-Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-3-builder
-yarn run start
+cd /examples/gtk-3-builder
+yarn start
 ```
 
 ## Gtk-3.0 Editor
-![gtk-3-editor](gtk-3-editor.png)
+![gtk-3-editor](gtk-3-editor/preview.png)
 
-Source: [GJS](gjs/gtk-3-editor)
+Source: [gtk-3-editor](gtk-3-editor)  
 Bundler: Webpack  
-Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-3-editor
-yarn run start
+cd /examples/gtk-3-editor
+yarn start
 ```
 
 ## Gtk-3.0 Hello Gtk
-![gtk-3-hello](gtk-3-hello.png)
+![gtk-3-hello](gtk-3-hello/preview.png)
 
-Source: [GJS](gjs/gtk-3-hello)
-Bundler: Webpack  
-Module: CommonJS    
+Source: [gtk-3-hello](gtk-3-hello)  
+Bundler: Rollup    
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-3-hello
-yarn run start
+cd /examples/gtk-3-hello
+yarn start
 ```
 
 ## Gtk-4.0 ListStore
-![gtk-4-list-store](gtk-4-list-store.png)
+![gtk-4-list-store](gtk-4-list-store/preview.png)
 
 GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`
 
-Source: [GJS](gjs/gtk-4-list-store)  
+Source: [gtk-4-list-store](gtk-4-list-store)  
 Bundler: ESBuild  
-Module: ESM  
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-4-list-store
-yarn run start
+cd /examples/gtk-4-list-store
+yarn start
 ```
 
 ## HTTP Server + Client
@@ -105,29 +148,27 @@ Gjs-Message: 21:13:22.008: JS LOG: body:
 GJS example showing how to build a http server/client using Soap 3.  
 This example contains a client and a server example, for the client example the server must be running.
 
-Source: [GJS](gjs/soup-3-http)
+Source: [soup-3-http](soup-3-http)  
 Bundler: ESBuild  
-Module: ESM  
 
 Build and run:
 ```bash
-cd /examples/gjs/soup-3-http
-yarn run build
-yarn run start:server
-yarn run start:client
+cd /examples/soup-3-http
+yarn build
+yarn start:server
+yarn start:client
 ```
 
 ## Gtk4 Custom Widget
-![gtk-4-custom-widget](gtk-4-custom-widget.png)
+![gtk-4-custom-widget](gtk-4-custom-widget/preview.png)
 
 This example shows the usage of custom widgets and virtual functions in GJS.
 
-Source: [GJS](gjs/gtk-4-custom-widget)
-Bundler: ESBuild  
-Module: ESM    
+Source: [gtk-4-custom-widget](gtk-4-custom-widget)  
+Bundler: ESBuild    
 
 Build and run:
 ```bash
-cd /examples/gjs/gtk-4-custom-widget
-yarn run start
+cd /examples/gtk-4-custom-widget
+yarn start
 ```

@@ -1,5 +1,7 @@
 {
     "name": "@ts-for-gir-test/types-packages",
+    "type": "module",
+    "private": true,
     "scripts": {
         "test": "yarn validate:types",
         "validate:types": "tsc --project tsconfig.json --noEmit"

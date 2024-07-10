@@ -1,7 +1,7 @@
 {
-  "name": "@ts-for-gir-example/gtk-4-template-example",
+  "name": "@ts-for-gir-example/gtk-4-template",
   "version": "4.0.0-beta.5",
-  "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
+  "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files over GJS itself",
   "type": "module",
   "private": true,
   "scripts": {
@@ -18,7 +18,6 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.23.0",
     "typescript": "^5.5.3"
   },

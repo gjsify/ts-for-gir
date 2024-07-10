@@ -6,6 +6,8 @@ tmp/
 test/
 # don't lint templates
 templates/
+# ignore examples
+examples/
 # ignore generated types
 @types/
 *.js

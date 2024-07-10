@@ -172,3 +172,31 @@ Build and run:
 cd /examples/gtk-4-custom-widget
 yarn start
 ```
+
+## Gtk4 Template
+![gtk-4-template](gtk-4-template/preview.png)
+
+This example shows how to use the Gtk4 template engine to create a custom widget.
+
+Source: [gtk-4-template](gtk-4-template)  
+Bundler: ESBuild    
+
+Build and run:
+```bash
+cd /examples/gtk-4-template
+yarn start
+```
+
+## Gtk4 Template (Vite)
+![gtk-4-template-vite](gtk-4-template-vite/preview.png)
+
+This example is largely identical to the example above, but uses Vite to inject the template `.ui` file into the source code.
+
+Source: [gtk-4-template-vite](gtk-4-template-vite)  
+Bundler: Vite    
+
+Build and run:
+```bash
+cd /examples/gtk-4-template-vite
+yarn start
+```

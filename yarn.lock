@@ -12824,6 +12824,7 @@ __metadata:
     "@girs/zbar-1.0": "workspace:^"
     "@girs/zeitgeist-2.0": "workspace:^"
     "@girs/zpj-0.0": "workspace:^"
+    esbuild: "npm:^0.23.0"
     typescript: "npm:^5.5.3"
   languageName: unknown
   linkType: soft

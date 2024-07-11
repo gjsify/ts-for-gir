@@ -3,8 +3,9 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "test": "yarn validate:types",
-        "validate:types": "tsc --project tsconfig.json --noEmit"
+        "test": "yarn validate:types && yarn build",
+        "validate:types": "tsc --project tsconfig.json --noEmit",
+        "build": "yarn node esbuild.js"
     },
     "dependencies": {
         "@girs/accounts-1.0": "workspace:^",
@@ -481,6 +482,7 @@
         "@girs/zpj-0.0": "workspace:^"
     },
     "devDependencies": {
+        "esbuild": "^0.23.0",
         "typescript": "^5.5.3"
     }
 }

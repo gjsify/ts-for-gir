@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/generator-html-doc",
-  "version": "4.0.0-beta.5",
+  "version": "4.0.0-beta.6",
   "description": "HTML Documentation generator for ts-for-gir",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.3.2",
-    "rimraf": "^5.0.9",
+    "rimraf": "^6.0.1",
     "typescript": "^5.5.3"
   },
   "dependencies": {

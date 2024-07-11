@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-4-template",
-  "version": "4.0.0-beta.5",
+  "version": "4.0.0-beta.6",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files over GJS itself",
   "type": "module",
   "private": true,

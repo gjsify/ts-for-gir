@@ -32,3 +32,5 @@ debug.txt
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+.parcel-cache/

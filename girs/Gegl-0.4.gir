@@ -3478,7 +3478,7 @@ equivalent to storing as sRGB.</doc>
       <property name="tile-cache-size"
                 writable="1"
                 transfer-ownership="none"
-                default-value="1206140928">
+                default-value="3903913984">
         <type name="guint64" c:type="guint64"/>
       </property>
       <property name="tile-height"

@@ -4628,10 +4628,10 @@ and end point. To add a closed path, use [method@Gsk.PathBuilder.add_path].</doc
               version="4.14">
         <doc xml:space="preserve"
              filename="gsk/gskpathbuilder.c"
-             line="1138">Adds an elliptical arc from the current point to @x3, @y3
+             line="1138">Adds an elliptical arc from the current point to @x2, @y2
 with @x1, @y1 determining the tangent directions.
 
-After this, @x3, @y3 will be the new current point.
+After this, @x2, @y2 will be the new current point.
 
 Note: Two points and their tangents do not determine
 a unique ellipse, so GSK just picks one. If you need more
@@ -5095,7 +5095,7 @@ This function is intended primarily for language bindings.
               version="4.14">
         <doc xml:space="preserve"
              filename="gsk/gskpathbuilder.c"
-             line="1175">Adds an elliptical arc from the current point to @x3, @y3
+             line="1175">Adds an elliptical arc from the current point to @x2, @y2
 with @x1, @y1 determining the tangent directions.
 
 All coordinates are given relative to the current point.

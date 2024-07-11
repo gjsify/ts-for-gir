@@ -6,7 +6,7 @@ tmp/
 test/
 # don't lint templates
 templates/
-# temporary ignore examples
+# ignore examples
 examples/
 # ignore generated types
 @types/

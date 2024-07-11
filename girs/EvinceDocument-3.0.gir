@@ -644,7 +644,7 @@ For the time-format used, see ev_document_misc_format_datetime().</doc>
             <doc xml:space="preserve"
                  filename="libdocument/ev-annotation.c"
                  line="568">a #time_t</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -11389,7 +11389,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MINOR_VERSION" value="0" c:type="EV_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="3" c:type="EV_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="37">The minor version number of the EV library

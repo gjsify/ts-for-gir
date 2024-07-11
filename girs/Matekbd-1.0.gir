@@ -12,7 +12,7 @@ and/or use gtk-doc annotations.  -->
   <include name="xlib" version="2.0"/>
   <namespace name="Matekbd"
              version="1.0"
-             shared-library="libmatekbd.so.4,libmatekbdui.so.4"
+             shared-library="libmatekbd.so.6,libmatekbdui.so.6"
              c:identifier-prefixes="Matekbd"
              c:symbol-prefixes="matekbd">
     <record name="DesktopConfig" c:type="MatekbdDesktopConfig">
@@ -36,7 +36,7 @@ and/or use gtk-doc annotations.  -->
         <type name="Gio.Settings" c:type="GSettings*"/>
       </field>
       <field name="config_listener_id" writable="1">
-        <type name="gint" c:type="int"/>
+        <type name="gulong" c:type="gulong"/>
       </field>
       <field name="engine" writable="1">
         <type name="Xkl.Engine" c:type="XklEngine*"/>
@@ -298,7 +298,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matekbd-indicator.c"
-               line="877">List of group names</doc>
+               line="874">List of group names</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -329,7 +329,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matekbd-indicator.c"
-               line="866">The engine shared by all MatekbdIndicator objects</doc>
+               line="863">The engine shared by all MatekbdIndicator objects</doc>
           <type name="Xkl.Engine" c:type="XklEngine*"/>
         </return-value>
       </function>
@@ -458,7 +458,7 @@ and/or use gtk-doc annotations.  -->
         <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
       </field>
       <field name="config_listener_id" writable="1">
-        <type name="gint" c:type="int"/>
+        <type name="gulong" c:type="gulong"/>
       </field>
       <field name="engine" writable="1">
         <type name="Xkl.Engine" c:type="XklEngine*"/>
@@ -585,7 +585,7 @@ and/or use gtk-doc annotations.  -->
                      closure="1">
             <doc xml:space="preserve"
                  filename="matekbd-indicator-config.c"
-                 line="320">a function to call when settings are changed</doc>
+                 line="319">a function to call when settings are changed</doc>
             <type name="GObject.Callback" c:type="GCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -665,7 +665,7 @@ and/or use gtk-doc annotations.  -->
         <type name="Gio.Settings" c:type="GSettings*"/>
       </field>
       <field name="config_listener_id" writable="1">
-        <type name="gint" c:type="int"/>
+        <type name="gulong" c:type="gulong"/>
       </field>
       <field name="engine" writable="1">
         <type name="Xkl.Engine" c:type="XklEngine*"/>
@@ -834,7 +834,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matekbd-keyboard-config.c"
-               line="756">List of options</doc>
+               line="763">List of options</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -945,7 +945,7 @@ and/or use gtk-doc annotations.  -->
       </constructor>
       <constructor name="new_dialog"
                    c:identifier="matekbd_keyboard_drawing_new_dialog">
-        <source-position filename="matekbd-keyboard-drawing.h" line="207"/>
+        <source-position filename="matekbd-keyboard-drawing.h" line="205"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -1033,7 +1033,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="print" c:identifier="matekbd_keyboard_drawing_print">
-        <source-position filename="matekbd-keyboard-drawing.h" line="202"/>
+        <source-position filename="matekbd-keyboard-drawing.h" line="201"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1052,57 +1052,57 @@ and/or use gtk-doc annotations.  -->
       <method name="render" c:identifier="matekbd_keyboard_drawing_render">
         <doc xml:space="preserve"
              filename="matekbd-keyboard-drawing.c"
-             line="2424">Renders a keyboard layout to a cairo_t context.  @cr and @layout can be got
+             line="2417">Renders a keyboard layout to a cairo_t context.  @cr and @layout can be got
 from e.g. a GtkWidget or a GtkPrintContext.  @cr and @layout may be modified
 by the function but will not be unreffed.</doc>
         <source-position filename="matekbd-keyboard-drawing.h" line="174"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matekbd-keyboard-drawing.c"
-               line="2438">%TRUE on success, %FALSE on failure</doc>
+               line="2431">%TRUE on success, %FALSE on failure</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="kbdrawing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2426">keyboard layout to render</doc>
+                 line="2419">keyboard layout to render</doc>
             <type name="KeyboardDrawing" c:type="MatekbdKeyboardDrawing*"/>
           </instance-parameter>
           <parameter name="cr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2427">Cairo context to render to</doc>
+                 line="2420">Cairo context to render to</doc>
             <type name="cairo.Context" c:type="cairo_t*"/>
           </parameter>
           <parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2428">Pango layout to use to render text</doc>
+                 line="2421">Pango layout to use to render text</doc>
             <type name="Pango.Layout" c:type="PangoLayout*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2429">left coordinate (pixels) of region to render in</doc>
+                 line="2422">left coordinate (pixels) of region to render in</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2430">top coordinate (pixels) of region to render in</doc>
+                 line="2423">top coordinate (pixels) of region to render in</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2431">width (pixels) of region to render in</doc>
+                 line="2424">width (pixels) of region to render in</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matekbd-keyboard-drawing.c"
-                 line="2432">height (pixels) of region to render in</doc>
+                 line="2425">height (pixels) of region to render in</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="dpi_x" transfer-ownership="none">
@@ -1481,7 +1481,7 @@ by the function but will not be unreffed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matekbd-status.c"
-               line="844">List of group names</doc>
+               line="855">List of group names</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -1505,7 +1505,7 @@ by the function but will not be unreffed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matekbd-status.c"
-               line="833">The engine shared by all MatekbdStatus objects</doc>
+               line="844">The engine shared by all MatekbdStatus objects</doc>
           <type name="Xkl.Engine" c:type="XklEngine*"/>
         </return-value>
       </function>
@@ -1581,7 +1581,7 @@ by the function but will not be unreffed.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="matekbd-keyboard-config.c"
-             line="756">List of options</doc>
+             line="763">List of options</doc>
         <array c:type="gchar**">
           <type name="utf8"/>
         </array>

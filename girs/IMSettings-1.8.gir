@@ -51,19 +51,19 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="imsettings_client_new">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="261">Creates an instance of #IMSettingsClient.</doc>
+             line="275">Creates an instance of #IMSettingsClient.</doc>
         <source-position filename="imsettings-client.h" line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="268">a #IMSettingsClient.</doc>
+               line="282">a #IMSettingsClient.</doc>
           <type name="Client" c:type="IMSettingsClient*"/>
         </return-value>
         <parameters>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="263">a locale to obtain information for or to give it for Input Method.
+                 line="277">a locale to obtain information for or to give it for Input Method.
          or %NULL if you want to pass current locale.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -74,7 +74,7 @@ and/or use gtk-doc annotations.  -->
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1574">Check if X Display can be open or not.
+             line="1588">Check if X Display can be open or not.
 
 You could access through DBus API instead:
 
@@ -89,14 +89,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1592">if supported, returns %TRUE otherwise %FALSE.</doc>
+               line="1606">if supported, returns %TRUE otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1576">a #IMSettingsClient.</doc>
+                 line="1590">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -105,7 +105,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1577">a #GCancellable or %NULL.</doc>
+                 line="1591">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -115,13 +115,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1651">Obtains the result of the request from
+             line="1665">Obtains the result of the request from
 imsettings_client_can_x_display_open_start().</doc>
         <source-position filename="imsettings-client.h" line="187"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1660">if the operation is successfully done, returns %TRUE
+               line="1674">if the operation is successfully done, returns %TRUE
          otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -129,13 +129,13 @@ imsettings_client_can_x_display_open_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1653">a #IMSettingsClient.</doc>
+                 line="1667">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1654">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="1668">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -144,7 +144,7 @@ imsettings_client_can_x_display_open_start().</doc>
               c:identifier="imsettings_client_can_x_display_open_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1621">Request asking if current desktop is supported or not asynchronously</doc>
+             line="1635">Request asking if current desktop is supported or not asynchronously</doc>
         <source-position filename="imsettings-client.h" line="183"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -153,7 +153,7 @@ imsettings_client_can_x_display_open_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1623">a #IMSettingsClient.</doc>
+                 line="1637">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -162,7 +162,7 @@ imsettings_client_can_x_display_open_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1624">a #GCancellable or %NULL.</doc>
+                 line="1638">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -173,7 +173,7 @@ imsettings_client_can_x_display_open_start().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1625">a #GAsyncReadyCallback.</doc>
+                 line="1639">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -182,7 +182,7 @@ imsettings_client_can_x_display_open_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1626">a pointer of the user data to give it to @callback.</doc>
+                 line="1640">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -192,7 +192,7 @@ imsettings_client_can_x_display_open_start().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1074">Obtains the Input Method information that is currently running on.
+             line="1088">Obtains the Input Method information that is currently running on.
 
 You could access through DBus API instead:
 
@@ -207,14 +207,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1092">a #IMSettingsInfo for active Input Method. if not, %NULL then.</doc>
+               line="1106">a #IMSettingsInfo for active Input Method. if not, %NULL then.</doc>
           <type name="Info" c:type="IMSettingsInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1076">a #IMSettingsClient.</doc>
+                 line="1090">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -223,7 +223,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1077">a #GCancellable or %NULL.</doc>
+                 line="1091">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -233,12 +233,12 @@ You could access through DBus API instead:
               glib:get-property="desktop">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="368">Obtains current desktop information in @client.</doc>
+             line="382">Obtains current desktop information in @client.</doc>
         <source-position filename="imsettings-client.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="374">a reference to the desktop name in @client. it shouldn't be freed
+               line="388">a reference to the desktop name in @client. it shouldn't be freed
          in applications.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -246,7 +246,7 @@ You could access through DBus API instead:
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="370">a #IMSettingsClient.</doc>
+                 line="384">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
         </parameters>
@@ -256,26 +256,26 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="552">A convenient function to get #IMSettingsInfo from the result of
+             line="566">A convenient function to get #IMSettingsInfo from the result of
 imsettings_client_get_info_variant().</doc>
         <source-position filename="imsettings-client.h" line="97"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="562">a #IMSettingsInfo or %NULL.</doc>
+               line="576">a #IMSettingsInfo or %NULL.</doc>
           <type name="Info" c:type="IMSettingsInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="554">a #IMSettingsClient.</doc>
+                 line="568">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="555">an Input Method name to obtain the information.</doc>
+                 line="569">an Input Method name to obtain the information.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -284,7 +284,7 @@ imsettings_client_get_info_variant().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="556">a #GCancellable or %NULL.</doc>
+                 line="570">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -294,7 +294,7 @@ imsettings_client_get_info_variant().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="582">Obtains the information for the specific Input Method in @module.
+             line="596">Obtains the information for the specific Input Method in @module.
 
 You could access through DBus API instead:
 
@@ -311,7 +311,7 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="603">a #GVariant that can converts to #IMSettingsInfo through
+               line="617">a #GVariant that can converts to #IMSettingsInfo through
          imsettings_info_new(). otherwise %NULL.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -319,13 +319,13 @@ You could access through DBus API instead:
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="584">a #IMSettingsClient.</doc>
+                 line="598">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="585">an Input Method name to obtain the information.</doc>
+                 line="599">an Input Method name to obtain the information.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -334,7 +334,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="586">a #GCancellable or %NULL.</doc>
+                 line="600">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -344,13 +344,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="678">Obtains the result of the request from
+             line="692">Obtains the result of the request from
 imsettings_client_get_info_variant_start().</doc>
         <source-position filename="imsettings-client.h" line="159"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="687">a #GVariant that can converts to #IMSettingsInfo through
+               line="701">a #GVariant that can converts to #IMSettingsInfo through
          imsettings_info_new(). otherwise %NULL.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -358,13 +358,13 @@ imsettings_client_get_info_variant_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="680">a #IMSettingsClient.</doc>
+                 line="694">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="681">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="695">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -373,7 +373,7 @@ imsettings_client_get_info_variant_start().</doc>
               c:identifier="imsettings_client_get_info_variant_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="644">Request obtaining asynchronously the Input Method information for @module.</doc>
+             line="658">Request obtaining asynchronously the Input Method information for @module.</doc>
         <source-position filename="imsettings-client.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -382,13 +382,13 @@ imsettings_client_get_info_variant_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="646">a #IMSettingsClient.</doc>
+                 line="660">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="647">an Input Method name to obtain the information.</doc>
+                 line="661">an Input Method name to obtain the information.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -397,7 +397,7 @@ imsettings_client_get_info_variant_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="648">a #GCancellable or %NULL.</doc>
+                 line="662">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -408,7 +408,7 @@ imsettings_client_get_info_variant_start().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="649">a #GAsyncReadyCallback.</doc>
+                 line="663">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -417,7 +417,7 @@ imsettings_client_get_info_variant_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="650">a pointer of the user data to give it to @callback.</doc>
+                 line="664">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -427,7 +427,7 @@ imsettings_client_get_info_variant_start().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="440">Obtains all of the Input Method information available on the system.
+             line="454">Obtains all of the Input Method information available on the system.
 
 You could access through DBus API instead:
 
@@ -443,7 +443,7 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="459">a #GVariant contains some pairs of an Input Method name and
+               line="473">a #GVariant contains some pairs of an Input Method name and
          a #GVariant that can converts to #IMSettingsInfo through
          imsettings_info_new(). otherwise %NULL.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
@@ -452,7 +452,7 @@ You could access through DBus API instead:
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="442">a #IMSettingsClient.</doc>
+                 line="456">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -461,7 +461,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="443">a #GCancellable or %NULL.</doc>
+                 line="457">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -471,13 +471,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="531">Obtains the result of the request from
+             line="545">Obtains the result of the request from
 imsettings_client_get_info_variants_start().</doc>
         <source-position filename="imsettings-client.h" line="151"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="540">a #GVariant contains some pairs of an Input Method name and
+               line="554">a #GVariant contains some pairs of an Input Method name and
          a #GVariant that can converts to #IMSettingsInfo through
          imsettings_info_new(). otherwise %NULL.</doc>
           <type name="gpointer" c:type="gpointer"/>
@@ -486,13 +486,13 @@ imsettings_client_get_info_variants_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="533">a #IMSettingsClient.</doc>
+                 line="547">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="534">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="548">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -501,7 +501,7 @@ imsettings_client_get_info_variants_start().</doc>
               c:identifier="imsettings_client_get_info_variants_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="499">Request obtaining asynchronously all of the Input Method information
+             line="513">Request obtaining asynchronously all of the Input Method information
 available on the system.</doc>
         <source-position filename="imsettings-client.h" line="147"/>
         <return-value transfer-ownership="none">
@@ -511,7 +511,7 @@ available on the system.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="501">a #IMSettingsClient.</doc>
+                 line="515">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -520,7 +520,7 @@ available on the system.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="502">a #GCancellable or %NULL.</doc>
+                 line="516">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -531,7 +531,7 @@ available on the system.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="503">a #GAsyncReadyCallback.</doc>
+                 line="517">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -540,7 +540,7 @@ available on the system.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="504">a pointer of the user data to give it to @callback.</doc>
+                 line="518">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -550,12 +550,12 @@ available on the system.</doc>
               glib:get-property="locale">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="318">Obtains current locale information in @client.</doc>
+             line="332">Obtains current locale information in @client.</doc>
         <source-position filename="imsettings-client.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="324">a reference to the locale string in @client. it shouldn't be freed
+               line="338">a reference to the locale string in @client. it shouldn't be freed
          in applications.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -563,7 +563,7 @@ available on the system.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="320">a #IMSettingsClient.</doc>
+                 line="334">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
         </parameters>
@@ -573,7 +573,7 @@ available on the system.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1374">Obtains current Input Method settings in the backend modules.
+             line="1388">Obtains current Input Method settings in the backend modules.
 
 You could access through DBus API instead:
 
@@ -588,7 +588,7 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1392">a #GVariant that contains some pairs of the module name and
+               line="1406">a #GVariant that contains some pairs of the module name and
          the Input Method name.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -596,7 +596,7 @@ You could access through DBus API instead:
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1376">a #IMSettingsClient.</doc>
+                 line="1390">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -605,7 +605,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1377">a #GCancellable or %NULL.</doc>
+                 line="1391">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -615,7 +615,7 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="811">Obtains an Input Method name that currently is active for the system-wide.
+             line="825">Obtains an Input Method name that currently is active for the system-wide.
 
 You could access through DBus API instead:
 
@@ -633,14 +633,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="832">an Input Method name or %NULL.</doc>
+               line="846">an Input Method name or %NULL.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="813">a #IMSettingsClient.</doc>
+                 line="827">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -649,7 +649,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="814">a #GCancellable or %NULL.</doc>
+                 line="828">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -659,26 +659,26 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="894">Obtains the result of the request from
+             line="908">Obtains the result of the request from
 imsettings_client_get_system_im_start().</doc>
         <source-position filename="imsettings-client.h" line="173"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="903">an Input Method name or %NULL.</doc>
+               line="917">an Input Method name or %NULL.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="896">a #IMSettingsClient.</doc>
+                 line="910">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="897">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="911">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -687,7 +687,7 @@ imsettings_client_get_system_im_start().</doc>
               c:identifier="imsettings_client_get_system_im_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="862">Request obtaining asynchronously an input method name that currently is
+             line="876">Request obtaining asynchronously an input method name that currently is
 active for the system-wide.</doc>
         <source-position filename="imsettings-client.h" line="169"/>
         <return-value transfer-ownership="none">
@@ -697,7 +697,7 @@ active for the system-wide.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="864">a #IMSettingsClient.</doc>
+                 line="878">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -706,7 +706,7 @@ active for the system-wide.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="865">a #GCancellable or %NULL.</doc>
+                 line="879">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -717,7 +717,7 @@ active for the system-wide.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="866">a #GAsyncReadyCallback.</doc>
+                 line="880">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -726,7 +726,7 @@ active for the system-wide.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="867">a pointer of the user data to give it to @callback.</doc>
+                 line="881">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -736,7 +736,7 @@ active for the system-wide.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="698">Obtains an Input Method name that currently is active for the user.
+             line="712">Obtains an Input Method name that currently is active for the user.
 If one doesn't have the user xinputrc on their home, this simply returns the same
 value to what imsettings_client_get_system_im() returns.
 
@@ -756,14 +756,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="721">an Input Method name or %NULL.</doc>
+               line="735">an Input Method name or %NULL.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="700">a #IMSettingsClient.</doc>
+                 line="714">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -772,7 +772,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="701">a #GCancellable or %NULL.</doc>
+                 line="715">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -782,26 +782,26 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="792">Obtains the result of the request from
+             line="806">Obtains the result of the request from
 imsettings_client_get_user_im_start().</doc>
         <source-position filename="imsettings-client.h" line="166"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="801">an Input Method name or %NULL.</doc>
+               line="815">an Input Method name or %NULL.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="794">a #IMSettingsClient.</doc>
+                 line="808">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="795">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="809">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -810,7 +810,7 @@ imsettings_client_get_user_im_start().</doc>
               c:identifier="imsettings_client_get_user_im_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="760">Request obtaining asynchronously an input method name that currently is
+             line="774">Request obtaining asynchronously an input method name that currently is
 active for the user.</doc>
         <source-position filename="imsettings-client.h" line="162"/>
         <return-value transfer-ownership="none">
@@ -820,7 +820,7 @@ active for the user.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="762">a #IMSettingsClient.</doc>
+                 line="776">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -829,7 +829,7 @@ active for the user.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="763">a #GCancellable or %NULL.</doc>
+                 line="777">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -840,7 +840,7 @@ active for the user.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="764">a #GAsyncReadyCallback.</doc>
+                 line="778">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -849,7 +849,7 @@ active for the user.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="765">a pointer of the user data to give it to @callback.</doc>
+                 line="779">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -859,7 +859,7 @@ active for the user.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="389">Obtains the version information of imsettings-daemon running.
+             line="403">Obtains the version information of imsettings-daemon running.
 This is expected to invoke at first if the return value is same to
 %IMSETTINGS_SETTINGS_API_VERSION. otherwise it may not works as expected
 due to the changes of the implementation between imsettings-daemon and
@@ -878,14 +878,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="411">a version number.</doc>
+               line="425">a version number.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="391">a #IMSettingsClient.</doc>
+                 line="405">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -894,7 +894,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="392">a #GCancellable or %NULL.</doc>
+                 line="406">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -904,7 +904,7 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1122">Checks whether @module is the system default or not.
+             line="1136">Checks whether @module is the system default or not.
 
 You could access through DBus API instead:
 
@@ -921,20 +921,20 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1143">%TRUE if it is, otherwise %FALSE.</doc>
+               line="1157">%TRUE if it is, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1124">a #IMSettingsClient.</doc>
+                 line="1138">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1125">an Input Method name to ask.</doc>
+                 line="1139">an Input Method name to ask.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -943,7 +943,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1126">a #GCancellable or %NULL.</doc>
+                 line="1140">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -953,7 +953,7 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1176">Checks whether @module is the user default or not.
+             line="1190">Checks whether @module is the user default or not.
 
 You could access through DBus API instead:
 
@@ -970,20 +970,20 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1197">%TRUE if it is, otherwise %FALSE.</doc>
+               line="1211">%TRUE if it is, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1178">a #IMSettingsClient.</doc>
+                 line="1192">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1179">an Input Method name to ask.</doc>
+                 line="1193">an Input Method name to ask.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -992,7 +992,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1180">a #GCancellable or %NULL.</doc>
+                 line="1194">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1002,7 +1002,7 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1230">Checks whether @module is the Input Method for XIM only or not.
+             line="1244">Checks whether @module is the Input Method for XIM only or not.
 
 You could access through DBus API instead:
 
@@ -1019,20 +1019,20 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1251">%TRUE if it is, otherwise %FALSE.</doc>
+               line="1265">%TRUE if it is, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1232">a #IMSettingsClient.</doc>
+                 line="1246">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1233">an Input Method name to ask.</doc>
+                 line="1247">an Input Method name to ask.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1041,7 +1041,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1234">a #GCancellable or %NULL.</doc>
+                 line="1248">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1051,7 +1051,7 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1671">Check if IMSettings is supposed to be taken any acttions.
+             line="1685">Check if IMSettings is supposed to be taken any acttions.
 
 You could access through DBus API instead:
 
@@ -1069,14 +1069,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1692">if any actions needed, returns %TRUE otherwise %FALSE.</doc>
+               line="1706">if any actions needed, returns %TRUE otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1673">a #IMSettingsClient.</doc>
+                 line="1687">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
@@ -1088,7 +1088,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1674">a #GCancellable or %NULL.</doc>
+                 line="1688">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1098,13 +1098,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1763">Obtains the result of the request from
+             line="1777">Obtains the result of the request from
 imsettings_client_is_action_needed_start().</doc>
         <source-position filename="imsettings-client.h" line="195"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1772">if the operation is successfully done, returns %TRUE
+               line="1786">if the operation is successfully done, returns %TRUE
          otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1112,13 +1112,13 @@ imsettings_client_is_action_needed_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1765">a #IMSettingsClient.</doc>
+                 line="1779">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1766">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="1780">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1127,7 +1127,7 @@ imsettings_client_is_action_needed_start().</doc>
               c:identifier="imsettings_client_is_action_needed_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1728">Request asking if IMSettings is supposed to be taken any actions</doc>
+             line="1742">Request asking if IMSettings is supposed to be taken any actions</doc>
         <source-position filename="imsettings-client.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1136,7 +1136,7 @@ imsettings_client_is_action_needed_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1730">a #IMSettingsClient.</doc>
+                 line="1744">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
@@ -1148,7 +1148,7 @@ imsettings_client_is_action_needed_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1731">a #GCancellable or %NULL.</doc>
+                 line="1745">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1159,7 +1159,7 @@ imsettings_client_is_action_needed_start().</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1732">a #GAsyncReadyCallback.</doc>
+                 line="1746">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1168,7 +1168,7 @@ imsettings_client_is_action_needed_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1733">a pointer of the user data to give it to @callback.</doc>
+                 line="1747">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1178,7 +1178,7 @@ imsettings_client_is_action_needed_start().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1471">Check if current desktop is supported by IMSettings or not.
+             line="1485">Check if current desktop is supported by IMSettings or not.
 
 You could access through DBus API instead:
 
@@ -1194,14 +1194,14 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1490">if supported, returns %TRUE otherwise %FALSE.</doc>
+               line="1504">if supported, returns %TRUE otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1473">a #IMSettingsClient.</doc>
+                 line="1487">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1210,7 +1210,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1474">a #GCancellable or %NULL.</doc>
+                 line="1488">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1220,13 +1220,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1554">Obtains the result of the request from
+             line="1568">Obtains the result of the request from
 imsettings_client_is_supported_desktop_start().</doc>
         <source-position filename="imsettings-client.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1563">if the operation is successfully done, returns %TRUE
+               line="1577">if the operation is successfully done, returns %TRUE
          otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1234,13 +1234,13 @@ imsettings_client_is_supported_desktop_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1556">a #IMSettingsClient.</doc>
+                 line="1570">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1557">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="1571">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1249,7 +1249,7 @@ imsettings_client_is_supported_desktop_start().</doc>
               c:identifier="imsettings_client_is_supported_desktop_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1522">Request asking if current desktop is supported or not asynchronously</doc>
+             line="1536">Request asking if current desktop is supported or not asynchronously</doc>
         <source-position filename="imsettings-client.h" line="176"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1258,7 +1258,7 @@ imsettings_client_is_supported_desktop_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1524">a #IMSettingsClient.</doc>
+                 line="1538">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1267,7 +1267,7 @@ imsettings_client_is_supported_desktop_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1525">a #GCancellable or %NULL.</doc>
+                 line="1539">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1278,7 +1278,7 @@ imsettings_client_is_supported_desktop_start().</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1526">a #GAsyncReadyCallback.</doc>
+                 line="1540">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1287,7 +1287,7 @@ imsettings_client_is_supported_desktop_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1527">a pointer of the user data to give it to @callback.</doc>
+                 line="1541">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1295,19 +1295,19 @@ imsettings_client_is_supported_desktop_start().</doc>
       <method name="ping" c:identifier="imsettings_client_ping">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1430">Check whether the process is running.</doc>
+             line="1444">Check whether the process is running.</doc>
         <source-position filename="imsettings-client.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1436">%TRUE if imsettings-daemon is running. otherwise %FALSE.</doc>
+               line="1450">%TRUE if imsettings-daemon is running. otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1432">a #IMSettingsClient.</doc>
+                 line="1446">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
         </parameters>
@@ -1315,7 +1315,7 @@ imsettings_client_is_supported_desktop_start().</doc>
       <method name="reload" c:identifier="imsettings_client_reload" throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1284">Reloads imsettings-daemon.
+             line="1298">Reloads imsettings-daemon.
 
 Note that @send_signal option is for the backward compatibility.
 imsettings-daemon doesn't do anything since %IMSETTINGS_SETTINGS_API_VERSION
@@ -1345,20 +1345,20 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1318">%TRUE if the operation is successfully done, otherwise %FALSE.</doc>
+               line="1332">%TRUE if the operation is successfully done, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1286">a #IMSettingsClient.</doc>
+                 line="1300">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="send_signal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1287">%TRUE to send a signal instead of invoking a method.</doc>
+                 line="1301">%TRUE to send a signal instead of invoking a method.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -1367,7 +1367,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1288">a #GCancellable or %NULL.</doc>
+                 line="1302">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1377,26 +1377,26 @@ You could access through DBus API instead:
               glib:set-property="desktop">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="341">Update the desktop name in @client to @desktop. if @desktop is %NULL,
+             line="355">Update the desktop name in @client to @desktop. if @desktop is %NULL,
 the desktop detection will be done in the server side.</doc>
         <source-position filename="imsettings-client.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="349">%TRUE if successfully updated, otherwise %FALSE.</doc>
+               line="363">%TRUE if successfully updated, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="343">a #IMSettingsClient.</doc>
+                 line="357">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="desktop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="344">a current desktop name going to operate.</doc>
+                 line="358">a current desktop name going to operate.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1406,25 +1406,25 @@ the desktop detection will be done in the server side.</doc>
               glib:set-property="locale">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="280">Update the locale information in @client with @locale.</doc>
+             line="294">Update the locale information in @client with @locale.</doc>
         <source-position filename="imsettings-client.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="288">%TRUE if successfully updated, otherwise %FALSE.</doc>
+               line="302">%TRUE if successfully updated, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="282">a #IMSettingsClient.</doc>
+                 line="296">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="283">a locale to obtain information for or to give it for Input Method.
+                 line="297">a locale to obtain information for or to give it for Input Method.
          or %NULL if you want to pass current locale.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1435,7 +1435,7 @@ the desktop detection will be done in the server side.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="913">Changes the Input Method to @module.
+             line="927">Changes the Input Method to @module.
 
 You could access through DBus API instead:
 
@@ -1453,7 +1453,7 @@ You could access through DBus API instead:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="937">if the operation is successfully done, returns %TRUE
+               line="951">if the operation is successfully done, returns %TRUE
          otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1461,20 +1461,20 @@ You could access through DBus API instead:
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="915">a #IMSettingsClient.</doc>
+                 line="929">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="916">an Input Method name changing to, or %NULL to disable
+                 line="930">an Input Method name changing to, or %NULL to disable
          the Input Method.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="update_xinputrc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="918">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
+                 line="932">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -1483,7 +1483,7 @@ You could access through DBus API instead:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="919">a #GCancellable or %NULL.</doc>
+                 line="933">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1493,13 +1493,13 @@ You could access through DBus API instead:
               throws="1">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="1054">Obtains the result of the request from
+             line="1068">Obtains the result of the request from
 imsettings_client_switch_im_start().</doc>
         <source-position filename="imsettings-client.h" line="204"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="imsettings-client.c"
-               line="1063">if the operation is successfully done, returns %TRUE
+               line="1077">if the operation is successfully done, returns %TRUE
          otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1507,13 +1507,13 @@ imsettings_client_switch_im_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1056">a #IMSettingsClient.</doc>
+                 line="1070">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1057">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
+                 line="1071">a #GAsyncResult pushed through #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1522,7 +1522,7 @@ imsettings_client_switch_im_start().</doc>
               c:identifier="imsettings_client_switch_im_start">
         <doc xml:space="preserve"
              filename="imsettings-client.c"
-             line="994">Request changing asynchronously the Input Method to @module.</doc>
+             line="1008">Request changing asynchronously the Input Method to @module.</doc>
         <source-position filename="imsettings-client.h" line="198"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1531,20 +1531,20 @@ imsettings_client_switch_im_start().</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="996">a #IMSettingsClient.</doc>
+                 line="1010">a #IMSettingsClient.</doc>
             <type name="Client" c:type="IMSettingsClient*"/>
           </instance-parameter>
           <parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="997">an Input Method name changing to, or %NULL to disable
+                 line="1011">an Input Method name changing to, or %NULL to disable
          the Input Method.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="update_xinputrc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="999">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
+                 line="1013">%TRUE to update the user xinputrc, otherwise %FALSE.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -1553,7 +1553,7 @@ imsettings_client_switch_im_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1000">a #GCancellable or %NULL.</doc>
+                 line="1014">a #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1564,7 +1564,7 @@ imsettings_client_switch_im_start().</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1001">a #GAsyncReadyCallback.</doc>
+                 line="1015">a #GAsyncReadyCallback.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1573,7 +1573,7 @@ imsettings_client_switch_im_start().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="imsettings-client.c"
-                 line="1002">a pointer of the user data to give it to @callback.</doc>
+                 line="1016">a pointer of the user data to give it to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>

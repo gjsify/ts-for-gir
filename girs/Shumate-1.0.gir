@@ -2300,11 +2300,11 @@ but is good enough for most purposes.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-location.c"
-               line="130">the distance in meters between @this and @other</doc>
+               line="130">the distance in meters between @self and @other</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
-          <instance-parameter name="this" transfer-ownership="none">
+          <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-location.c"
                  line="121">a [iface@Location]</doc>
@@ -2613,7 +2613,7 @@ but is good enough for most purposes.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="SHUMATE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="SHUMATE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>
@@ -3321,7 +3321,7 @@ and draws them as a grid.</doc>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="792">Emitted when a symbol in the map layer is clicked.</doc>
+             line="799">Emitted when a symbol in the map layer is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3329,7 +3329,7 @@ and draws them as a grid.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="795">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="802">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
           </parameter>
         </parameters>

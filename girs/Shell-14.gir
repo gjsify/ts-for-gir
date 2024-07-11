@@ -134,7 +134,7 @@ should be handled.</doc>
       <method name="activate" c:identifier="shell_app_activate">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="458">Like shell_app_activate_full(), but using the default workspace and
+             line="457">Like shell_app_activate_full(), but using the default workspace and
 event timestamp.</doc>
         <source-position filename="src/shell-app.h" line="39"/>
         <return-value transfer-ownership="none">
@@ -144,7 +144,7 @@ event timestamp.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="460">a #ShellApp</doc>
+                 line="459">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -154,7 +154,7 @@ event timestamp.</doc>
               glib:finish-func="activate_action_finish">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1560">This activates an action using 'org.freedesktop.Application' DBus interface.
+             line="1518">This activates an action using 'org.freedesktop.Application' DBus interface.
 
 This function will fail if this #ShellApp doesn't have a valid #GDesktopAppInfo
 with a valid id.</doc>
@@ -166,13 +166,13 @@ with a valid id.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1562">the #ShellApp</doc>
+                 line="1520">the #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1563">the name of an action to activate</doc>
+                 line="1521">the name of an action to activate</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="parameter"
@@ -181,19 +181,19 @@ with a valid id.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1564">the parameter to the activation</doc>
+                 line="1522">the parameter to the activation</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1565">Event timestamp, or 0 for current event timestamp</doc>
+                 line="1523">Event timestamp, or 0 for current event timestamp</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1566">Start on this workspace, or -1 for default</doc>
+                 line="1524">Start on this workspace, or -1 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable"
@@ -202,7 +202,7 @@ with a valid id.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1567">a #GCancellable or %NULL</doc>
+                 line="1525">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -213,7 +213,7 @@ with a valid id.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1568">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+                 line="1526">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -222,7 +222,7 @@ with a valid id.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1569">User data to pass to @callback</doc>
+                 line="1527">User data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -232,20 +232,20 @@ with a valid id.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1612">Finish the asynchronous operation started by shell_app_activate_action()
+             line="1570">Finish the asynchronous operation started by shell_app_activate_action()
 and obtain its result.</doc>
         <source-position filename="src/shell-app.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="1620">whether the operation was successful</doc>
+               line="1578">whether the operation was successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1614">the #ShellApp</doc>
+                 line="1572">the #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
@@ -256,7 +256,7 @@ and obtain its result.</doc>
       <method name="activate_full" c:identifier="shell_app_activate_full">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="471">Perform an appropriate default action for operating on this application,
+             line="470">Perform an appropriate default action for operating on this application,
 dependent on its current state.  For example, if the application is not
 currently running, launch it.  If it is running, activate the most
 recently used NORMAL window (or if that window has a transient, the most
@@ -269,20 +269,20 @@ recently used transient for that window).</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="473">a #ShellApp</doc>
+                 line="472">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="474">launch on this workspace, or -1 for default. Ignored if
+                 line="473">launch on this workspace, or -1 for default. Ignored if
   activating an existing window</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="476">Event timestamp</doc>
+                 line="475">Event timestamp</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -290,7 +290,7 @@ recently used transient for that window).</doc>
       <method name="activate_window" c:identifier="shell_app_activate_window">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="355">Bring all windows for the given app to the foreground,
+             line="354">Bring all windows for the given app to the foreground,
 but ensure that @window is on top.  If @window is %NULL,
 the window with the most recent user time for the app
 will be used.
@@ -304,7 +304,7 @@ This function has no effect if @app is not currently running.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="357">a #ShellApp</doc>
+                 line="356">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="window"
@@ -313,13 +313,13 @@ This function has no effect if @app is not currently running.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="358">Window to be focused</doc>
+                 line="357">Window to be focused</doc>
             <type name="Meta.Window" c:type="MetaWindow*"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="359">Event timestamp</doc>
+                 line="358">Event timestamp</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -328,7 +328,7 @@ This function has no effect if @app is not currently running.</doc>
               c:identifier="shell_app_can_open_new_window">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="579">Returns %TRUE if the app supports opening a new window through
+             line="578">Returns %TRUE if the app supports opening a new window through
 shell_app_open_new_window() (ie, if calling that function will
 result in actually opening a new window and not something else,
 like presenting the most recently active one)</doc>
@@ -340,7 +340,7 @@ like presenting the most recently active one)</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="581">a #ShellApp</doc>
+                 line="580">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -348,7 +348,7 @@ like presenting the most recently active one)</doc>
       <method name="compare" c:identifier="shell_app_compare">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="816">Compare one #ShellApp instance to another, in the following way:
+             line="815">Compare one #ShellApp instance to another, in the following way:
   - Running applications sort before not-running applications.
   - If one of them has non-minimized windows and the other does not,
     the one with visible windows is first.
@@ -365,7 +365,7 @@ like presenting the most recently active one)</doc>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="819">A #ShellApp</doc>
+                 line="818">A #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </parameter>
         </parameters>
@@ -373,12 +373,12 @@ like presenting the most recently active one)</doc>
       <method name="compare_by_name" c:identifier="shell_app_compare_by_name">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1738">Order two applications by name.</doc>
+             line="1696">Order two applications by name.</doc>
         <source-position filename="src/shell-app.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="1745">-1, 0, or 1; suitable for use as a comparison function
+               line="1703">-1, 0, or 1; suitable for use as a comparison function
 for e.g. g_slist_sort()</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -386,13 +386,13 @@ for e.g. g_slist_sort()</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1740">One app</doc>
+                 line="1698">One app</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1741">The other app</doc>
+                 line="1699">The other app</doc>
             <type name="App" c:type="ShellApp*"/>
           </parameter>
         </parameters>
@@ -401,13 +401,13 @@ for e.g. g_slist_sort()</doc>
               c:identifier="shell_app_create_icon_texture">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="214">Look up the icon for this application, and create a #ClutterActor
+             line="213">Look up the icon for this application, and create a #ClutterActor
 for it at the given size.</doc>
         <source-position filename="src/shell-app.h" line="31"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="220">A floating #ClutterActor</doc>
+               line="219">A floating #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
@@ -426,14 +426,14 @@ for it at the given size.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="1644">The #GDesktopAppInfo for this app, or %NULL if backed by a window</doc>
+               line="1602">The #GDesktopAppInfo for this app, or %NULL if backed by a window</doc>
           <type name="Gio.DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1642">a #ShellApp</doc>
+                 line="1600">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -467,12 +467,12 @@ for it at the given size.</doc>
               glib:get-property="icon">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="193">Look up the icon for this application</doc>
+             line="192">Look up the icon for this application</doc>
         <source-position filename="src/shell-app.h" line="32"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="198">A #GIcon</doc>
+               line="197">A #GIcon</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
@@ -521,7 +521,7 @@ for it at the given size.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="1131">An unordered list of process identifiers associated with this application.</doc>
+               line="1130">An unordered list of process identifiers associated with this application.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="gint"/>
           </type>
@@ -530,7 +530,7 @@ for it at the given size.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1129">a #ShellApp</doc>
+                 line="1128">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -542,14 +542,14 @@ for it at the given size.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="668">State of the application</doc>
+               line="667">State of the application</doc>
           <type name="AppState" c:type="ShellAppState"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="666">a #ShellApp</doc>
+                 line="665">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -557,7 +557,7 @@ for it at the given size.</doc>
       <method name="get_windows" c:identifier="shell_app_get_windows">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="711">Get the windows which are associated with this application. The
+             line="710">Get the windows which are associated with this application. The
 returned list will be sorted first by whether they're on the
 active workspace, then by whether they're visible, and finally
 by the time the user last interacted with them.</doc>
@@ -565,7 +565,7 @@ by the time the user last interacted with them.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="720">List of windows</doc>
+               line="719">List of windows</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Meta.Window"/>
           </type>
@@ -594,7 +594,7 @@ by the time the user last interacted with them.</doc>
               c:identifier="shell_app_is_window_backed">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="267">A window backed application is one which represents just an open
+             line="266">A window backed application is one which represents just an open
 window, i.e. there's no .desktop file association, so we don't know
 how to launch it again.</doc>
         <source-position filename="src/shell-app.h" line="35"/>
@@ -619,19 +619,19 @@ how to launch it again.</doc>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1336">Event timestamp, or 0 for current event timestamp</doc>
+                 line="1307">Event timestamp, or 0 for current event timestamp</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1337">Start on this workspace, or -1 for default</doc>
+                 line="1308">Start on this workspace, or -1 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="gpu_pref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1338">the GPU to prefer launching on</doc>
+                 line="1309">the GPU to prefer launching on</doc>
             <type name="AppLaunchGpu" c:type="ShellAppLaunchGpu"/>
           </parameter>
         </parameters>
@@ -645,26 +645,26 @@ how to launch it again.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1426">the #ShellApp</doc>
+                 line="1384">the #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1427">the name of the action to launch (as obtained by
+                 line="1385">the name of the action to launch (as obtained by
               g_desktop_app_info_list_actions())</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1429">Event timestamp, or 0 for current event timestamp</doc>
+                 line="1387">Event timestamp, or 0 for current event timestamp</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1430">Start on this workspace, or -1 for default</doc>
+                 line="1388">Start on this workspace, or -1 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -672,7 +672,7 @@ how to launch it again.</doc>
       <method name="open_new_window" c:identifier="shell_app_open_new_window">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="524">Request that the application create a new window.</doc>
+             line="523">Request that the application create a new window.</doc>
         <source-position filename="src/shell-app.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -681,13 +681,13 @@ how to launch it again.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="526">a #ShellApp</doc>
+                 line="525">a #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="527">open on this workspace, or -1 for default</doc>
+                 line="526">open on this workspace, or -1 for default</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -695,7 +695,7 @@ how to launch it again.</doc>
       <method name="request_quit" c:identifier="shell_app_request_quit">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1188">Initiate an asynchronous request to quit this application.
+             line="1187">Initiate an asynchronous request to quit this application.
 The application may interact with the user, and the user
 might cancel the quit request from the application UI.
 
@@ -704,14 +704,14 @@ This operation may not be supported for all applications.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-app.c"
-               line="1198">%TRUE if a quit request is supported for this application</doc>
+               line="1197">%TRUE if a quit request is supported for this application</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-app.c"
-                 line="1190">A #ShellApp</doc>
+                 line="1189">A #ShellApp</doc>
             <type name="App" c:type="ShellApp*"/>
           </instance-parameter>
         </parameters>
@@ -749,7 +749,7 @@ This operation may not be supported for all applications.</doc>
       <property name="action-group" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1859">The #GDBusActionGroup associated with this ShellApp, if any. See the
+             line="1817">The #GDBusActionGroup associated with this ShellApp, if any. See the
 documentation of #GApplication and #GActionGroup for details.</doc>
         <type name="Gio.ActionGroup"/>
       </property>
@@ -760,7 +760,7 @@ documentation of #GApplication and #GActionGroup for details.</doc>
                 getter="get_app_info">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1872">The #GDesktopAppInfo associated with this ShellApp, if any.</doc>
+             line="1830">The #GDesktopAppInfo associated with this ShellApp, if any.</doc>
         <type name="Gio.DesktopAppInfo"/>
       </property>
       <property name="busy"
@@ -769,13 +769,13 @@ documentation of #GApplication and #GActionGroup for details.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1822">Whether the application has marked itself as busy.</doc>
+             line="1780">Whether the application has marked itself as busy.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="icon" transfer-ownership="none" getter="get_icon">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1847">The #GIcon representing this ShellApp</doc>
+             line="1805">The #GIcon representing this ShellApp</doc>
         <type name="Gio.Icon"/>
       </property>
       <property name="id"
@@ -784,7 +784,7 @@ documentation of #GApplication and #GActionGroup for details.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1834">The id of this application (a desktop filename, or a special string
+             line="1792">The id of this application (a desktop filename, or a special string
 like window:0xabcd1234)</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -794,7 +794,7 @@ like window:0xabcd1234)</doc>
                 default-value="SHELL_APP_STATE_STOPPED">
         <doc xml:space="preserve"
              filename="src/shell-app.c"
-             line="1808">The high-level state of the application, effectively whether it's
+             line="1766">The high-level state of the application, effectively whether it's
 running or not, or transitioning between those states.</doc>
         <type name="AppState"/>
       </property>
@@ -5155,21 +5155,21 @@ If @window is not part of preview, this function will do nothing.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="207">Synchronously load the contents of a file as a NUL terminated
+           line="209">Synchronously load the contents of a file as a NUL terminated
 string, validating it as UTF-8.  Embedded NUL characters count as
 invalid content.</doc>
       <source-position filename="src/shell-util.h" line="27"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="216">File contents</doc>
+             line="218">File contents</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="209">UTF-8 encoded filename path</doc>
+               line="211">UTF-8 encoded filename path</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5177,7 +5177,7 @@ invalid content.</doc>
     <docsection name="shell-app">
       <doc xml:space="preserve"
            filename="src/shell-app.c"
-           line="60">This object wraps a #GDesktopAppInfo, providing methods and signals
+           line="59">This object wraps a #GDesktopAppInfo, providing methods and signals
 primarily useful for running applications.</doc>
     </docsection>
     <docsection name="shell-app-usage">
@@ -5269,7 +5269,7 @@ have it also track through startup-notification.</doc>
               c:identifier="shell_util_check_cloexec_fds">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="444">Walk over all open file descriptors. Check them for the FD_CLOEXEC flag.
+           line="446">Walk over all open file descriptors. Check them for the FD_CLOEXEC flag.
 If this flag is not set, log the offending file descriptor number.
 
 It is important that gnome-shell's file descriptors are all marked CLOEXEC,
@@ -5284,7 +5284,7 @@ that we launch.</doc>
               c:identifier="shell_util_create_pixbuf_from_data">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="324">Workaround for non-introspectability of gdk_pixbuf_from_data().</doc>
+           line="326">Workaround for non-introspectability of gdk_pixbuf_from_data().</doc>
       <source-position filename="src/shell-util.h" line="40"/>
       <return-value transfer-ownership="full">
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
@@ -5322,20 +5322,20 @@ that we launch.</doc>
               c:identifier="shell_util_get_translated_folder_name">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="798">Attempts to translate the folder @name using translations provided
+           line="801">Attempts to translate the folder @name using translations provided
 by .directory files.</doc>
       <source-position filename="src/shell-util.h" line="79"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="805">a translated string or %NULL</doc>
+             line="808">a translated string or %NULL</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="800">the untranslated folder name</doc>
+               line="803">the untranslated folder name</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5343,13 +5343,13 @@ by .directory files.</doc>
     <function name="util_get_uid" c:identifier="shell_util_get_uid">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="461">A wrapper around getuid() so that it can be used from JavaScript. This
+           line="463">A wrapper around getuid() so that it can be used from JavaScript. This
 function will always succeed.</doc>
       <source-position filename="src/shell-util.h" line="81"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="467">the real user ID of the calling process</doc>
+             line="469">the real user ID of the calling process</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
     </function>
@@ -5357,14 +5357,14 @@ function will always succeed.</doc>
               c:identifier="shell_util_get_week_start">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="79">Gets the first week day for the current locale, expressed as a
+           line="81">Gets the first week day for the current locale, expressed as a
 number in the range 0..6, representing week days from Sunday to
 Saturday.</doc>
       <source-position filename="src/shell-util.h" line="17"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="86">A number representing the first week day for the current
+             line="88">A number representing the first week day for the current
          locale</doc>
         <type name="gint" c:type="int"/>
       </return-value>
@@ -5373,7 +5373,7 @@ Saturday.</doc>
               c:identifier="shell_util_has_x11_display_extension">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="774">If the corresponding X11 display provides the passed extension, return %TRUE,
+           line="777">If the corresponding X11 display provides the passed extension, return %TRUE,
 otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
       <source-position filename="src/shell-util.h" line="76"/>
       <return-value transfer-ownership="none">
@@ -5383,13 +5383,13 @@ otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="776">A #MetaDisplay</doc>
+               line="779">A #MetaDisplay</doc>
           <type name="Meta.Display" c:type="MetaDisplay*"/>
         </parameter>
         <parameter name="extension" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="777">An X11 extension</doc>
+               line="780">An X11 extension</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5397,20 +5397,20 @@ otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
     <function name="util_regex_escape" c:identifier="shell_util_regex_escape">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="172">A wrapper around g_regex_escape_string() that takes its argument as
+           line="174">A wrapper around g_regex_escape_string() that takes its argument as
 \0-terminated string rather than a byte-array that confuses gjs.</doc>
       <source-position filename="src/shell-util.h" line="21"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="179">@str with all regex-special characters escaped</doc>
+             line="181">@str with all regex-special characters escaped</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="174">a UTF-8 string to escape</doc>
+               line="176">a UTF-8 string to escape</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5425,7 +5425,7 @@ otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
               c:identifier="shell_util_set_hidden_from_pick">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="46">If @hidden is %TRUE, hide @actor from pick even with a mode of
+           line="48">If @hidden is %TRUE, hide @actor from pick even with a mode of
 %CLUTTER_PICK_ALL; if @hidden is %FALSE, unhide @actor.</doc>
       <source-position filename="src/shell-util.h" line="14"/>
       <return-value transfer-ownership="none">
@@ -5435,14 +5435,367 @@ otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
         <parameter name="actor" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="48">A #ClutterActor</doc>
+               line="50">A #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </parameter>
         <parameter name="hidden" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="49">Whether @actor should be hidden from pick</doc>
+               line="51">Whether @actor should be hidden from pick</doc>
           <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async"
+              c:identifier="shell_util_spawn_async"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/shell-util.c"
+           line="961">A wrapper around g_spawn_async() with async-signal-safe implementation of
+#GSpawnChildSetupFunc to launch a child program asynchronously resetting the
+rlimit nofile on child setup.</doc>
+      <source-position filename="src/shell-util.h" line="116"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/shell-util.c"
+             line="976">the PID of the child on success, 0 if error is set</doc>
+        <type name="GLib.Pid" c:type="GPid"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="963">child's current working
+    directory, or %NULL to inherit parent's</doc>
+          <type name="filename" c:type="const char*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="965">
+    child's argument vector</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="967">
+    child's environment, or %NULL to inherit parent's</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="969">flags from #GSpawnFlags</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_fds"
+              c:identifier="shell_util_spawn_async_with_fds"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/shell-util.c"
+           line="924">A wrapper around g_spawn_async_with_fds() with async-signal-safe
+implementation of #GSpawnChildSetupFunc to launch a child program
+asynchronously resetting the rlimit nofile on child setup.</doc>
+      <source-position filename="src/shell-util.h" line="107"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/shell-util.c"
+             line="942">the PID of the child on success, 0 if error is set</doc>
+        <type name="GLib.Pid" c:type="GPid"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="926">child's current working
+    directory, or %NULL to inherit parent's</doc>
+          <type name="filename" c:type="const char*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="928">
+    child's argument vector</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="930">
+    child's environment, or %NULL to inherit parent's</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="932">flags from #GSpawnFlags</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="stdin_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="933">file descriptor to use for child's stdin, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="stdout_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="934">file descriptor to use for child's stdout, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="stderr_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="935">file descriptor to use for child's stderr, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_pipes"
+              c:identifier="shell_util_spawn_async_with_pipes"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/shell-util.c"
+           line="888">A wrapper around g_spawn_async_with_pipes() with async-signal-safe
+implementation of #GSpawnChildSetupFunc to launch a child program
+asynchronously resetting the rlimit nofile on child setup.</doc>
+      <source-position filename="src/shell-util.h" line="98"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/shell-util.c"
+             line="906">the PID of the child on success, 0 if error is set</doc>
+        <type name="GLib.Pid" c:type="GPid"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="890">child's current working
+    directory, or %NULL to inherit parent's</doc>
+          <type name="filename" c:type="const char*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="892">
+    child's argument vector</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="894">
+    child's environment, or %NULL to inherit parent's</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="896">flags from #GSpawnFlags</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="standard_input"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="897">return location for file descriptor to write to child's stdin, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="standard_output"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="898">return location for file descriptor to read child's stdout, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="standard_error"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="899">return location for file descriptor to read child's stderr, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_pipes_and_fds"
+              c:identifier="shell_util_spawn_async_with_pipes_and_fds"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/shell-util.c"
+           line="827">A wrapper around g_spawn_async_with_pipes_and_fds() with async-signal-safe
+implementation of #GSpawnChildSetupFunc to launch a child program
+asynchronously resetting the rlimit nofile on child setup.</doc>
+      <source-position filename="src/shell-util.h" line="83"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/shell-util.c"
+             line="854">the PID of the child on success, 0 if error is set</doc>
+        <type name="GLib.Pid" c:type="GPid"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="829">child's current working
+    directory, or %NULL to inherit parent's, in the GLib file name encoding</doc>
+          <type name="filename" c:type="const char*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="831">child's argument
+    vector, in the GLib file name encoding; it must be non-empty and %NULL-terminated</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="833">
+    child's environment, or %NULL to inherit parent's, in the GLib file
+    name encoding</doc>
+          <array c:type="const char* const*">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="836">flags from #GSpawnFlags</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="stdin_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="837">file descriptor to use for child's stdin, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="stdout_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="838">file descriptor to use for child's stdout, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="stderr_fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="839">file descriptor to use for child's stderr, or `-1`</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="source_fds"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="840">array of FDs from the parent
+   process to make available in the child process</doc>
+          <array length="9" zero-terminated="0" c:type="const int*">
+            <type name="gint" c:type="int"/>
+          </array>
+        </parameter>
+        <parameter name="target_fds"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="842">array of FDs to remap
+   @source_fds to in the child process</doc>
+          <array length="9" zero-terminated="0" c:type="const int*">
+            <type name="gint" c:type="int"/>
+          </array>
+        </parameter>
+        <parameter name="n_fds" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="844">number of FDs in @source_fds and @target_fds</doc>
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="stdin_pipe_out"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="845">return location for file descriptor to write to child's stdin, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="stdout_pipe_out"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="846">return location for file descriptor to read child's stdout, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="stderr_pipe_out"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/shell-util.c"
+               line="847">return location for file descriptor to read child's stderr, or %NULL</doc>
+          <type name="gint" c:type="int*"/>
         </parameter>
       </parameters>
     </function>
@@ -5633,21 +5986,21 @@ otherwise %FALSE. If there is no X11 display, %FALSE is passed.</doc>
               c:identifier="shell_util_translate_time_string">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="137">Translate @str according to the locale defined by LC_TIME; unlike
+           line="139">Translate @str according to the locale defined by LC_TIME; unlike
 dcgettext(), the translations is still taken from the LC_MESSAGES
 catalogue and not the LC_TIME one.</doc>
       <source-position filename="src/shell-util.h" line="19"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="145">the translated string</doc>
+             line="147">the translated string</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="139">String to translate</doc>
+               line="141">String to translate</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5655,20 +6008,20 @@ catalogue and not the LC_TIME one.</doc>
     <function name="util_wifexited" c:identifier="shell_util_wifexited">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="301">Implements libc standard WIFEXITED, that cannot be used JS
+           line="303">Implements libc standard WIFEXITED, that cannot be used JS
 code.</doc>
       <source-position filename="src/shell-util.h" line="37"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="308">TRUE if the process exited normally, FALSE otherwise</doc>
+             line="310">TRUE if the process exited normally, FALSE otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="status" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="303">the status returned by wait() or waitpid()</doc>
+               line="305">the status returned by wait() or waitpid()</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="exit"
@@ -5677,7 +6030,7 @@ code.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="304">the actual exit status of the process</doc>
+               line="306">the actual exit status of the process</doc>
           <type name="gint" c:type="int*"/>
         </parameter>
       </parameters>
@@ -5687,26 +6040,26 @@ code.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="src/shell-util.c"
-           line="187">Write a string to a GOutputStream as UTF-8. This is a workaround
+           line="189">Write a string to a GOutputStream as UTF-8. This is a workaround
 for not having binary buffers in GJS.</doc>
       <source-position filename="src/shell-util.h" line="23"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell-util.c"
-             line="196">%TRUE if write succeeded</doc>
+             line="198">%TRUE if write succeeded</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="stream" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="189">a #GOutputStream</doc>
+               line="191">a #GOutputStream</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </parameter>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-util.c"
-               line="190">a UTF-8 string to write to @stream</doc>
+               line="192">a UTF-8 string to write to @stream</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

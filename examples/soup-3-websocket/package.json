@@ -1,0 +1,30 @@
+{
+  "name": "@ts-for-gir-example/soup-3-websocket-example",
+  "version": "4.0.0-beta.6",
+  "description": "Simple GJS Soup 3 example app to demonstrate how you can use WebSockets",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client": "yarn node esbuild.js",
+    "build": "yarn build:client",
+    "start:client": "gjs -m dist/main.js",
+    "debug:client": "GTK_DEBUG=interactive yarn start:client",
+    "start": "yarn build && yarn start:client",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/soup-3.0": "workspace:^"
+  }
+}

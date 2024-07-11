@@ -180,7 +180,7 @@ individual getters for more precise control.</doc>
       </method>
     </class>
     <constant name="RELEASE_VERSION"
-              value="4"
+              value="6"
               c:type="RPM_OSTREE_RELEASE_VERSION"
               version="2017.8">
       <doc xml:space="preserve"
@@ -190,14 +190,14 @@ individual getters for more precise control.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION"
-              value="2024.400000"
+              value="2024.600000"
               c:type="RPM_OSTREE_VERSION"
               version="2017.8">
       <source-position filename="rpmostree-version.h" line="54"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="VERSION_S"
-              value="2024.4"
+              value="2024.6"
               c:type="RPM_OSTREE_VERSION_S"
               version="2017.8">
       <doc xml:space="preserve"

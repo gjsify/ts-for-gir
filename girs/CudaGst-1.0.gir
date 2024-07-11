@@ -20,12 +20,16 @@ and/or use gtk-doc annotations.  -->
       <type name="gpointer" c:type="gpointer"/>
     </alias>
     <alias name="device" c:type="CUdevice">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="36"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </alias>
     <alias name="deviceptr" c:type="CUdeviceptr">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="35"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="36"/>
       <type name="guintptr" c:type="guintptr"/>
+    </alias>
+    <alias name="event" c:type="CUevent">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="33"/>
+      <type name="gpointer" c:type="gpointer"/>
     </alias>
     <alias name="function" c:type="CUfunction">
       <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="31"/>
@@ -34,6 +38,12 @@ and/or use gtk-doc annotations.  -->
     <alias name="graphicsResource" c:type="CUgraphicsResource">
       <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="27"/>
       <type name="gpointer" c:type="gpointer"/>
+    </alias>
+    <alias name="memGenericAllocationHandle"
+           c:type="CUmemGenericAllocationHandle"
+           introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="228"/>
+      <type name="unsigned long long" c:type="unsigned long long"/>
     </alias>
     <alias name="mipmappedArray" c:type="CUmipmappedArray">
       <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="32"/>
@@ -48,11 +58,11 @@ and/or use gtk-doc annotations.  -->
       <type name="gpointer" c:type="gpointer"/>
     </alias>
     <alias name="texObject" c:type="CUtexObject">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="34"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="35"/>
       <type name="guint64" c:type="guint64"/>
     </alias>
     <record name="DA_MEMCPY2D" c:type="CUDA_MEMCPY2D">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="133"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="150"/>
       <field name="srcXInBytes" writable="1">
         <type name="gsize" c:type="gsize"/>
       </field>
@@ -103,29 +113,29 @@ and/or use gtk-doc annotations.  -->
       </field>
     </record>
     <record name="DA_RESOURCE_DESC" c:type="CUDA_RESOURCE_DESC">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="180"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="197"/>
       <field name="resType" writable="1">
         <type name="resourcetype" c:type="CUresourcetype"/>
       </field>
       <union name="res" c:type="res">
-        <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="177"/>
+        <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="194"/>
         <record name="array" c:type="array">
           <source-position filename="gst-libs/gst/cuda/stub/cuda.h"
-                           line="156"/>
+                           line="173"/>
           <field name="hArray" writable="1">
             <type name="array" c:type="CUarray"/>
           </field>
         </record>
         <record name="mipmap" c:type="mipmap">
           <source-position filename="gst-libs/gst/cuda/stub/cuda.h"
-                           line="159"/>
+                           line="176"/>
           <field name="hMipmappedArray" writable="1">
             <type name="mipmappedArray" c:type="CUmipmappedArray"/>
           </field>
         </record>
         <record name="linear" c:type="linear">
           <source-position filename="gst-libs/gst/cuda/stub/cuda.h"
-                           line="165"/>
+                           line="182"/>
           <field name="devPtr" writable="1">
             <type name="deviceptr" c:type="CUdeviceptr"/>
           </field>
@@ -141,7 +151,7 @@ and/or use gtk-doc annotations.  -->
         </record>
         <record name="pitch2D" c:type="pitch2D">
           <source-position filename="gst-libs/gst/cuda/stub/cuda.h"
-                           line="173"/>
+                           line="190"/>
           <field name="devPtr" writable="1">
             <type name="deviceptr" c:type="CUdeviceptr"/>
           </field>
@@ -163,7 +173,7 @@ and/or use gtk-doc annotations.  -->
         </record>
         <record name="reserved" c:type="reserved">
           <source-position filename="gst-libs/gst/cuda/stub/cuda.h"
-                           line="176"/>
+                           line="193"/>
           <field name="reserved" writable="1">
             <array zero-terminated="0" fixed-size="32">
               <type name="gint" c:type="gint"/>
@@ -176,7 +186,7 @@ and/or use gtk-doc annotations.  -->
       </field>
     </record>
     <record name="DA_RESOURCE_VIEW_DESC" c:type="CUDA_RESOURCE_VIEW_DESC">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="193"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="210"/>
       <field name="format" writable="1">
         <type name="resourceViewFormat" c:type="CUresourceViewFormat"/>
       </field>
@@ -208,7 +218,7 @@ and/or use gtk-doc annotations.  -->
       </field>
     </record>
     <record name="DA_TEXTURE_DESC" c:type="CUDA_TEXTURE_DESC">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="147"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="164"/>
       <field name="addressMode" writable="1">
         <array zero-terminated="0" fixed-size="3">
           <type name="address_mode" c:type="CUaddress_mode"/>
@@ -253,18 +263,22 @@ and/or use gtk-doc annotations.  -->
               c:identifier="CU_GL_DEVICE_LIST_ALL">
       </member>
     </enumeration>
-    <constant name="TRSF_READ_AS_INTEGER"
-              value="1"
-              c:type="CU_TRSF_READ_AS_INTEGER">
+    <constant name="IPC_HANDLE_SIZE" value="64" c:type="CU_IPC_HANDLE_SIZE">
       <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="217"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <constant name="TRSF_READ_AS_INTEGER"
+              value="1"
+              c:type="CU_TRSF_READ_AS_INTEGER">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="321"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <constant name="VERSION" value="10000" c:type="CUDA_VERSION">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="195"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="295"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <enumeration name="address_mode" c:type="CUaddress_mode">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="92"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="101"/>
       <member name="wrap" value="0" c:identifier="CU_TR_ADDRESS_MODE_WRAP">
       </member>
       <member name="clamp" value="1" c:identifier="CU_TR_ADDRESS_MODE_CLAMP">
@@ -275,7 +289,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="array_format" c:type="CUarray_format">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="106"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="115"/>
       <member name="int8" value="1" c:identifier="CU_AD_FORMAT_UNSIGNED_INT8">
       </member>
       <member name="int16"
@@ -284,10 +298,14 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="device_attribute" c:type="CUdevice_attribute">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="56"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="65"/>
       <member name="texture_alignment"
               value="14"
               c:identifier="CU_DEVICE_ATTRIBUTE_TEXTURE_ALIGNMENT">
+      </member>
+      <member name="unified_addressing"
+              value="41"
+              c:identifier="CU_DEVICE_ATTRIBUTE_UNIFIED_ADDRESSING">
       </member>
       <member name="compute_capability_major"
               value="75"
@@ -297,9 +315,42 @@ and/or use gtk-doc annotations.  -->
               value="76"
               c:identifier="CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MINOR">
       </member>
+      <member name="virtual_memory_management_supported"
+              value="102"
+              c:identifier="CU_DEVICE_ATTRIBUTE_VIRTUAL_MEMORY_MANAGEMENT_SUPPORTED">
+      </member>
+      <member name="handle_type_posix_file_descriptor_supported"
+              value="103"
+              c:identifier="CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR_SUPPORTED">
+      </member>
+      <member name="handle_type_win32_handle_supported"
+              value="104"
+              c:identifier="CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_HANDLE_SUPPORTED">
+      </member>
+      <member name="handle_type_win32_kmt_handle_supported"
+              value="105"
+              c:identifier="CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_KMT_HANDLE_SUPPORTED">
+      </member>
+    </enumeration>
+    <enumeration name="event_flags" c:type="CUevent_flags">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="128"/>
+      <member name="default" value="0" c:identifier="CU_EVENT_DEFAULT">
+      </member>
+      <member name="blocking_sync"
+              value="1"
+              c:identifier="CU_EVENT_BLOCKING_SYNC">
+      </member>
+      <member name="disable_timing"
+              value="2"
+              c:identifier="CU_EVENT_DISABLE_TIMING">
+      </member>
+      <member name="interprocess"
+              value="4"
+              c:identifier="CU_EVENT_INTERPROCESS">
+      </member>
     </enumeration>
     <enumeration name="filter_mode" c:type="CUfilter_mode">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="84"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="93"/>
       <member name="point" value="0" c:identifier="CU_TR_FILTER_MODE_POINT">
       </member>
       <member name="linear" value="1" c:identifier="CU_TR_FILTER_MODE_LINEAR">
@@ -307,7 +358,7 @@ and/or use gtk-doc annotations.  -->
     </enumeration>
     <enumeration name="graphicsMapResourceFlags"
                  c:type="CUgraphicsMapResourceFlags">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="72"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="81"/>
       <member name="none"
               value="0"
               c:identifier="CU_GRAPHICS_MAP_RESOURCE_FLAGS_NONE">
@@ -322,7 +373,7 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="graphicsRegisterFlags" c:type="CUgraphicsRegisterFlags">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="65"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="74"/>
       <member name="none"
               value="0"
               c:identifier="CU_GRAPHICS_REGISTER_FLAGS_NONE">
@@ -344,8 +395,168 @@ and/or use gtk-doc annotations.  -->
               c:identifier="CU_GRAPHICS_REGISTER_FLAGS_TEXTURE_GATHER">
       </member>
     </enumeration>
+    <record name="ipcEventHandle" c:type="CUipcEventHandle">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="226"/>
+      <field name="reserved" writable="1">
+        <array zero-terminated="0" fixed-size="64">
+          <type name="gchar" c:type="char"/>
+        </array>
+      </field>
+    </record>
+    <record name="ipcMemHandle" c:type="CUipcMemHandle">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="221"/>
+      <field name="reserved" writable="1">
+        <array zero-terminated="0" fixed-size="64">
+          <type name="gchar" c:type="char"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="ipcMem_flags" c:type="CUipcMem_flags">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="215"/>
+      <member name="ipc_mem_lazy_enable_peer_access"
+              value="1"
+              c:identifier="CU_IPC_MEM_LAZY_ENABLE_PEER_ACCESS">
+      </member>
+    </enumeration>
+    <record name="memAccessDesc" c:type="CUmemAccessDesc">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="293"/>
+      <field name="location" writable="1">
+        <type name="memLocation" c:type="CUmemLocation"/>
+      </field>
+      <field name="flags" writable="1">
+        <type name="memAccess_flags" c:type="CUmemAccess_flags"/>
+      </field>
+    </record>
+    <enumeration name="memAccess_flags" c:type="CUmemAccess_flags">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="245"/>
+      <member name="none"
+              value="0"
+              c:identifier="CU_MEM_ACCESS_FLAGS_PROT_NONE">
+      </member>
+      <member name="read"
+              value="1"
+              c:identifier="CU_MEM_ACCESS_FLAGS_PROT_READ">
+      </member>
+      <member name="readwrite"
+              value="3"
+              c:identifier="CU_MEM_ACCESS_FLAGS_PROT_READWRITE">
+      </member>
+      <member name="max"
+              value="2147483647"
+              c:identifier="CU_MEM_ACCESS_FLAGS_PROT_MAX">
+      </member>
+    </enumeration>
+    <enumeration name="memAllocationGranularity_flags"
+                 c:type="CUmemAllocationGranularity_flags">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="264"/>
+      <member name="minimum"
+              value="0"
+              c:identifier="CU_MEM_ALLOC_GRANULARITY_MINIMUM">
+      </member>
+      <member name="recommended"
+              value="1"
+              c:identifier="CU_MEM_ALLOC_GRANULARITY_RECOMMENDED">
+      </member>
+    </enumeration>
+    <enumeration name="memAllocationHandleType"
+                 c:type="CUmemAllocationHandleType">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="237"/>
+      <member name="none" value="0" c:identifier="CU_MEM_HANDLE_TYPE_NONE">
+      </member>
+      <member name="posix_file_descriptor"
+              value="1"
+              c:identifier="CU_MEM_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR">
+      </member>
+      <member name="win32" value="2" c:identifier="CU_MEM_HANDLE_TYPE_WIN32">
+      </member>
+      <member name="win32_kmt"
+              value="4"
+              c:identifier="CU_MEM_HANDLE_TYPE_WIN32_KMT">
+      </member>
+      <member name="max"
+              value="2147483647"
+              c:identifier="CU_MEM_HANDLE_TYPE_MAX">
+      </member>
+    </enumeration>
+    <record name="memAllocationProp" c:type="CUmemAllocationProp">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="287"/>
+      <field name="type" writable="1">
+        <type name="memAllocationType" c:type="CUmemAllocationType"/>
+      </field>
+      <field name="requestedHandleTypes" writable="1">
+        <type name="memAllocationHandleType"
+              c:type="CUmemAllocationHandleType"/>
+      </field>
+      <field name="location" writable="1">
+        <type name="memLocation" c:type="CUmemLocation"/>
+      </field>
+      <field name="win32HandleMetaData" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <field name="allocFlags" writable="1">
+        <type name="memAllocationPropAllocFlags"
+              c:type="CUmemAllocationPropAllocFlags"/>
+      </field>
+    </record>
+    <record name="memAllocationPropAllocFlags"
+            c:type="CUmemAllocationPropAllocFlags">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="278"/>
+      <field name="compressionType" writable="1">
+        <type name="guint8" c:type="unsigned char"/>
+      </field>
+      <field name="gpuDirectRDMACapable" writable="1">
+        <type name="guint8" c:type="unsigned char"/>
+      </field>
+      <field name="usage" writable="1">
+        <type name="gushort" c:type="unsigned short"/>
+      </field>
+      <field name="reserved" writable="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="guint8" c:type="unsigned char"/>
+        </array>
+      </field>
+    </record>
+    <enumeration name="memAllocationType" c:type="CUmemAllocationType">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="258"/>
+      <member name="invalid"
+              value="0"
+              c:identifier="CU_MEM_ALLOCATION_TYPE_INVALID">
+      </member>
+      <member name="pinned"
+              value="1"
+              c:identifier="CU_MEM_ALLOCATION_TYPE_PINNED">
+      </member>
+      <member name="max"
+              value="2147483647"
+              c:identifier="CU_MEM_ALLOCATION_TYPE_MAX">
+      </member>
+    </enumeration>
+    <record name="memLocation" c:type="CUmemLocation">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="270"/>
+      <field name="type" writable="1">
+        <type name="memLocationType" c:type="CUmemLocationType"/>
+      </field>
+      <field name="id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+    </record>
+    <enumeration name="memLocationType" c:type="CUmemLocationType">
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="252"/>
+      <member name="invalid"
+              value="0"
+              c:identifier="CU_MEM_LOCATION_TYPE_INVALID">
+      </member>
+      <member name="device"
+              value="1"
+              c:identifier="CU_MEM_LOCATION_TYPE_DEVICE">
+      </member>
+      <member name="max"
+              value="2147483647"
+              c:identifier="CU_MEM_LOCATION_TYPE_MAX">
+      </member>
+    </enumeration>
     <enumeration name="memorytype" c:type="CUmemorytype">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="49"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="53"/>
       <member name="host" value="1" c:identifier="CU_MEMORYTYPE_HOST">
       </member>
       <member name="device" value="2" c:identifier="CU_MEMORYTYPE_DEVICE">
@@ -356,14 +567,14 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="resourceViewFormat" c:type="CUresourceViewFormat">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="111"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="120"/>
       <member name="res_view_format_none"
               value="0"
               c:identifier="CU_RES_VIEW_FORMAT_NONE">
       </member>
     </enumeration>
     <enumeration name="resourcetype" c:type="CUresourcetype">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="100"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="109"/>
       <member name="array" value="0" c:identifier="CU_RESOURCE_TYPE_ARRAY">
       </member>
       <member name="mipmapped_array"
@@ -376,12 +587,24 @@ and/or use gtk-doc annotations.  -->
       </member>
     </enumeration>
     <enumeration name="result" c:type="CUresult">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="41"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="45"/>
       <member name="success" value="0" c:identifier="CUDA_SUCCESS">
+      </member>
+      <member name="error_no_device"
+              value="100"
+              c:identifier="CUDA_ERROR_NO_DEVICE">
+      </member>
+      <member name="error_already_mapped"
+              value="208"
+              c:identifier="CUDA_ERROR_ALREADY_MAPPED">
+      </member>
+      <member name="error_not_supported"
+              value="801"
+              c:identifier="CUDA_ERROR_NOT_SUPPORTED">
       </member>
     </enumeration>
     <enumeration name="stream_flags" c:type="CUstream_flags">
-      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="78"/>
+      <source-position filename="gst-libs/gst/cuda/stub/cuda.h" line="87"/>
       <member name="default" value="0" c:identifier="CU_STREAM_DEFAULT">
       </member>
       <member name="non_blocking"

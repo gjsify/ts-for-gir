@@ -243,16 +243,16 @@ keys.</doc>
             version="0.76">
       <doc xml:space="preserve"
            filename="src/vtegtk.cc"
-           line="7521">Provides context information for a context menu event.</doc>
+           line="7487">Provides context information for a context menu event.</doc>
       <source-position filename="src/vte/vteterminal.h" line="39"/>
       <method name="get_event"
               c:identifier="vte_event_context_get_event"
               version="0.76">
-        <source-position filename="src/vte/vteterminal.h" line="667"/>
+        <source-position filename="src/vte/vteterminal.h" line="659"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7544">the #GdkEvent that triggered the event, or %NULL if it was not
+               line="7510">the #GdkEvent that triggered the event, or %NULL if it was not
   triggered by an event</doc>
           <type name="Gdk.Event" c:type="GdkEvent*"/>
         </return-value>
@@ -260,7 +260,7 @@ keys.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7542">the #VteEventContext</doc>
+                 line="7508">the #VteEventContext</doc>
             <type name="EventContext" c:type="const VteEventContext*"/>
           </instance-parameter>
         </parameters>
@@ -373,7 +373,7 @@ should be copied to the clipboard in.</doc>
       <source-position filename="src/vte/vteversion.h" line="43"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="VTE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="VTE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/vte/vteversion.h"
            line="53">The micro version number of the VTE library
@@ -1921,23 +1921,6 @@ selection.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="notification_received">
-        <source-position filename="src/vte/vteterminal.h" line="117"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="terminal" transfer-ownership="none">
-            <type name="Terminal" c:type="VteTerminal*"/>
-          </instance-parameter>
-          <parameter name="summary" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="body" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
       <virtual-method name="paste_clipboard" invoker="paste_clipboard">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
@@ -2030,28 +2013,6 @@ user presses Shift+Insert.</doc>
           <parameter name="context" transfer-ownership="none">
             <type name="EventContext" c:type="const VteEventContext*"/>
           </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="shell_precmd">
-        <source-position filename="src/vte/vteterminal.h" line="118"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="terminal" transfer-ownership="none">
-            <type name="Terminal" c:type="VteTerminal*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="shell_preexec">
-        <source-position filename="src/vte/vteterminal.h" line="119"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="terminal" transfer-ownership="none">
-            <type name="Terminal" c:type="VteTerminal*"/>
-          </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="text_deleted">
@@ -2263,7 +2224,7 @@ regexes in @regexes.
 
 You must free each string and the array; but note that this is *not* a %NULL-terminated
 string array, and so you must *not* use g_strfreev() on it.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="491"/>
+        <source-position filename="src/vte/vteterminal.h" line="485"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2334,7 +2295,7 @@ g_free().
 
 Note that the regexes in @regexes should have been created using the
 &lt;literal&gt;PCRE2_MULTILINE&lt;/literal&gt; flag.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="498"/>
+        <source-position filename="src/vte/vteterminal.h" line="492"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2531,7 +2492,7 @@ by using a bold font variant.</doc>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
              line="5027">Checks whether or not hyperlinks (OSC 8 escape sequence) are allowed.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="374"/>
+        <source-position filename="src/vte/vteterminal.h" line="368"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2579,7 +2540,7 @@ by using a bold font variant.</doc>
              line="5144">Checks whether the SGR 1 attribute also switches to the bright counterpart
 of the first 8 palette colors, in addition to making them bold (legacy behavior)
 or if SGR 1 only enables bold and leaves the color intact.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="368"/>
+        <source-position filename="src/vte/vteterminal.h" line="362"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2603,14 +2564,14 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6150">the terminal's cell height scale</doc>
+               line="6148">the terminal's cell height scale</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6148">a #VteTerminal</doc>
+                 line="6146">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2623,21 +2584,21 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6200">the terminal's cell width scale</doc>
+               line="6198">the terminal's cell width scale</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6198">a #VteTerminal</doc>
+                 line="6196">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_char_height"
               c:identifier="vte_terminal_get_char_height">
-        <source-position filename="src/vte/vteterminal.h" line="567"/>
+        <source-position filename="src/vte/vteterminal.h" line="561"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2657,7 +2618,7 @@ because the return value takes cell-height-scale into account.</doc>
         </parameters>
       </method>
       <method name="get_char_width" c:identifier="vte_terminal_get_char_width">
-        <source-position filename="src/vte/vteterminal.h" line="565"/>
+        <source-position filename="src/vte/vteterminal.h" line="559"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2685,7 +2646,7 @@ because the return value takes cell-width-scale into account.</doc>
 (Note that when using a non-UTF-8 encoding set via vte_terminal_set_encoding(),
 the width of ambiguous-width characters is fixed and determined by the encoding
 itself.)</doc>
-        <source-position filename="src/vte/vteterminal.h" line="555"/>
+        <source-position filename="src/vte/vteterminal.h" line="549"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2706,7 +2667,7 @@ itself.)</doc>
               version="0.54">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7131">Returns the background colour, as used by @terminal when
+             line="7097">Returns the background colour, as used by @terminal when
 drawing the background, which may be different from
 the color set by vte_terminal_set_color_background().
 
@@ -2716,7 +2677,7 @@ GtkWidget::draw signal.
 This function is rarely useful. One use for it is if you disable
 drawing the background (see vte_terminal_set_clear_background())
 and then need to draw the background yourself.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="598"/>
+        <source-position filename="src/vte/vteterminal.h" line="590"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2724,7 +2685,7 @@ and then need to draw the background yourself.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7133">a #VteTerminal</doc>
+                 line="7099">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="color"
@@ -2733,14 +2694,14 @@ and then need to draw the background yourself.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7134">a location to store a #GdkRGBA color</doc>
+                 line="7100">a location to store a #GdkRGBA color</doc>
             <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_column_count"
               c:identifier="vte_terminal_get_column_count">
-        <source-position filename="src/vte/vteterminal.h" line="571"/>
+        <source-position filename="src/vte/vteterminal.h" line="565"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -2761,18 +2722,18 @@ and then need to draw the background yourself.</doc>
               glib:get-property="context-menu"
               version="0.76">
         <attribute name="org.gtk.Method.get_property" value="context-menu"/>
-        <source-position filename="src/vte/vteterminal.h" line="659"/>
+        <source-position filename="src/vte/vteterminal.h" line="651"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7503">the context menu, or %NULL</doc>
+               line="7469">the context menu, or %NULL</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7501">a #VteTerminal</doc>
+                 line="7467">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2783,18 +2744,18 @@ and then need to draw the background yourself.</doc>
               version="0.76">
         <attribute name="org.gtk.Method.get_property"
                    value="context-menu-model"/>
-        <source-position filename="src/vte/vteterminal.h" line="652"/>
+        <source-position filename="src/vte/vteterminal.h" line="644"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7448">the context menu model, or %NULL</doc>
+               line="7414">the context menu model, or %NULL</doc>
           <type name="Gio.MenuModel" c:type="GMenuModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7446">a #VteTerminal</doc>
+                 line="7412">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2802,11 +2763,11 @@ and then need to draw the background yourself.</doc>
       <method name="get_current_container_name"
               c:identifier="vte_terminal_get_current_container_name"
               glib:get-property="current-container-name">
-        <source-position filename="src/vte/vteterminal.h" line="576"/>
+        <source-position filename="src/vte/vteterminal.h" line="569"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5586">the name of the current
+               line="5585">the name of the current
   container, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2814,7 +2775,7 @@ and then need to draw the background yourself.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5584">a #VteTerminal</doc>
+                 line="5583">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2822,11 +2783,11 @@ and then need to draw the background yourself.</doc>
       <method name="get_current_container_runtime"
               c:identifier="vte_terminal_get_current_container_runtime"
               glib:get-property="current-container-runtime">
-        <source-position filename="src/vte/vteterminal.h" line="578"/>
+        <source-position filename="src/vte/vteterminal.h" line="571"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5611">the name of the runtime
+               line="5610">the name of the runtime
   toolset used to set up the current container, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2834,7 +2795,7 @@ and then need to draw the background yourself.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5609">a #VteTerminal</doc>
+                 line="5608">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2842,11 +2803,11 @@ and then need to draw the background yourself.</doc>
       <method name="get_current_directory_uri"
               c:identifier="vte_terminal_get_current_directory_uri"
               glib:get-property="current-directory-uri">
-        <source-position filename="src/vte/vteterminal.h" line="581"/>
+        <source-position filename="src/vte/vteterminal.h" line="573"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5637">the URI of the current directory of the
+               line="5635">the URI of the current directory of the
   process running in the terminal, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2854,7 +2815,7 @@ and then need to draw the background yourself.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5635">a #VteTerminal</doc>
+                 line="5633">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2862,11 +2823,11 @@ and then need to draw the background yourself.</doc>
       <method name="get_current_file_uri"
               c:identifier="vte_terminal_get_current_file_uri"
               glib:get-property="current-file-uri">
-        <source-position filename="src/vte/vteterminal.h" line="583"/>
+        <source-position filename="src/vte/vteterminal.h" line="575"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5658">the URI of the current file the
+               line="5656">the URI of the current file the
   process running in the terminal is operating on, or %NULL if
   not set</doc>
           <type name="utf8" c:type="const char*"/>
@@ -2875,7 +2836,7 @@ and then need to draw the background yourself.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5656">a #VteTerminal</doc>
+                 line="5654">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2885,19 +2846,19 @@ and then need to draw the background yourself.</doc>
               glib:get-property="cursor-blink-mode">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5676">Returns the currently set cursor blink mode.</doc>
+             line="5674">Returns the currently set cursor blink mode.</doc>
         <source-position filename="src/vte/vteterminal.h" line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5682">cursor blink mode.</doc>
+               line="5680">cursor blink mode.</doc>
           <type name="CursorBlinkMode" c:type="VteCursorBlinkMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5678">a #VteTerminal</doc>
+                 line="5676">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2910,7 +2871,7 @@ and then need to draw the background yourself.</doc>
 coordinate is absolute.
 
 This method is unaware of BiDi. The returned column is logical column.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="444"/>
+        <source-position filename="src/vte/vteterminal.h" line="438"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2950,19 +2911,19 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               glib:get-property="cursor-shape">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5722">Returns the currently set cursor shape.</doc>
+             line="5720">Returns the currently set cursor shape.</doc>
         <source-position filename="src/vte/vteterminal.h" line="342"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5728">cursor shape.</doc>
+               line="5726">cursor shape.</doc>
           <type name="CursorShape" c:type="VteCursorShape"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5724">a #VteTerminal</doc>
+                 line="5722">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2973,19 +2934,19 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               version="0.78">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5792">Checks whether the terminal communicates with a11y backends</doc>
-        <source-position filename="src/vte/vteterminal.h" line="402"/>
+             line="5790">Checks whether the terminal communicates with a11y backends</doc>
+        <source-position filename="src/vte/vteterminal.h" line="396"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5798">%TRUE if a11y is enabled, %FALSE if not</doc>
+               line="5796">%TRUE if a11y is enabled, %FALSE if not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5794">a #VteTerminal</doc>
+                 line="5792">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -2996,19 +2957,19 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5839">Checks whether the terminal performs bidirectional text rendering.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="409"/>
+             line="5837">Checks whether the terminal performs bidirectional text rendering.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="403"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5845">%TRUE if BiDi is enabled, %FALSE if not</doc>
+               line="5843">%TRUE if BiDi is enabled, %FALSE if not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5841">a #VteTerminal</doc>
+                 line="5839">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3021,14 +2982,14 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6919">%TRUE if fallback scrolling is enabled</doc>
+               line="6885">%TRUE if fallback scrolling is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6917">a #VteTerminal</doc>
+                 line="6883">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3039,19 +3000,19 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5886">Checks whether the terminal shapes Arabic text.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="415"/>
+             line="5884">Checks whether the terminal shapes Arabic text.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="409"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5892">%TRUE if Arabic shaping is enabled, %FALSE if not</doc>
+               line="5890">%TRUE if Arabic shaping is enabled, %FALSE if not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5888">a #VteTerminal</doc>
+                 line="5886">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3060,18 +3021,18 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               c:identifier="vte_terminal_get_enable_sixel"
               glib:get-property="enable-sixel"
               version="0.62">
-        <source-position filename="src/vte/vteterminal.h" line="617"/>
+        <source-position filename="src/vte/vteterminal.h" line="609"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7195">%FALSE</doc>
+               line="7161">%FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7193">a #VteTerminal</doc>
+                 line="7159">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3083,21 +3044,21 @@ This method is unaware of BiDi. The returned column is logical column.</doc>
               deprecated-version="0.54">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5933">Determines the name of the encoding in which the terminal expects data to be
+             line="5931">Determines the name of the encoding in which the terminal expects data to be
 encoded, or %NULL if UTF-8 is in use.</doc>
         <doc-deprecated xml:space="preserve">Support for non-UTF-8 is deprecated.</doc-deprecated>
         <source-position filename="src/vte/vtedeprecated.h" line="139"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5940">the current encoding for the terminal</doc>
+               line="5938">the current encoding for the terminal</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5935">a #VteTerminal</doc>
+                 line="5933">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3105,15 +3066,15 @@ encoded, or %NULL if UTF-8 is in use.</doc>
       <method name="get_font" c:identifier="vte_terminal_get_font">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6000">Queries the terminal for information about the fonts which will be
+             line="5998">Queries the terminal for information about the fonts which will be
 used to draw text in the terminal.  The actual font takes the font scale
 into account, this is not reflected in the return value, the unscaled
 font is returned.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="362"/>
+        <source-position filename="src/vte/vteterminal.h" line="356"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6009">a #PangoFontDescription describing the font the
+               line="6007">a #PangoFontDescription describing the font the
 terminal uses to render text at the default font scale of 1.0.</doc>
           <type name="Pango.FontDescription"
                 c:type="const PangoFontDescription*"/>
@@ -3122,7 +3083,7 @@ terminal uses to render text at the default font scale of 1.0.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6002">a #VteTerminal</doc>
+                 line="6000">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3135,14 +3096,14 @@ terminal uses to render text at the default font scale of 1.0.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6056">the terminal's font options, or %NULL</doc>
+               line="6054">the terminal's font options, or %NULL</doc>
           <type name="cairo.FontOptions" c:type="const cairo_font_options_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6054">a #VteTerminal</doc>
+                 line="6052">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3154,14 +3115,14 @@ terminal uses to render text at the default font scale of 1.0.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6107">the terminal's font scale</doc>
+               line="6105">the terminal's font scale</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6105">a #VteTerminal</doc>
+                 line="6103">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3172,7 +3133,7 @@ terminal uses to render text at the default font scale of 1.0.</doc>
               deprecated-version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6252">Fills in some @hints from @terminal's geometry. The hints
+             line="6250">Fills in some @hints from @terminal's geometry. The hints
 filled are those covered by the %GDK_HINT_RESIZE_INC,
 %GDK_HINT_MIN_SIZE and %GDK_HINT_BASE_SIZE flags.
 
@@ -3187,7 +3148,7 @@ See gtk_window_set_geometry_hints() for more information.
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6254">a #VteTerminal</doc>
+                 line="6252">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="hints"
@@ -3196,19 +3157,19 @@ See gtk_window_set_geometry_hints() for more information.
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6255">a #GdkGeometry to fill in</doc>
+                 line="6253">a #GdkGeometry to fill in</doc>
             <type name="Gdk.Geometry" c:type="GdkGeometry*"/>
           </parameter>
           <parameter name="min_rows" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6256">the minimum number of rows to request</doc>
+                 line="6254">the minimum number of rows to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="min_columns" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6257">the minimum number of columns to request</doc>
+                 line="6255">the minimum number of columns to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3217,21 +3178,21 @@ See gtk_window_set_geometry_hints() for more information.
               c:identifier="vte_terminal_get_has_selection">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6340">Checks if the terminal currently contains selected text.  Note that this
+             line="6338">Checks if the terminal currently contains selected text.  Note that this
 is different from determining if the terminal is the owner of any
 #GtkClipboard items.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="378"/>
+        <source-position filename="src/vte/vteterminal.h" line="372"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6348">%TRUE if part of the text in the terminal is selected.</doc>
+               line="6346">%TRUE if part of the text in the terminal is selected.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6342">a #VteTerminal</doc>
+                 line="6340">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3245,14 +3206,14 @@ is different from determining if the terminal is the owner of any
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6434">%NULL</doc>
+               line="6432">%NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6432">a #VteTerminal</doc>
+                 line="6430">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3262,8 +3223,8 @@ is different from determining if the terminal is the owner of any
               glib:get-property="input-enabled">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6444">Returns whether the terminal allow user input.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="590"/>
+             line="6442">Returns whether the terminal allow user input.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="582"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3271,7 +3232,7 @@ is different from determining if the terminal is the owner of any
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6446">a #VteTerminal</doc>
+                 line="6444">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3280,22 +3241,22 @@ is different from determining if the terminal is the owner of any
               c:identifier="vte_terminal_get_mouse_autohide">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6488">Determines the value of the terminal's mouse autohide setting.  When
+             line="6486">Determines the value of the terminal's mouse autohide setting.  When
 autohiding is enabled, the mouse cursor will be hidden when the user presses
 a key and shown when the user moves the mouse.  This setting can be changed
 using vte_terminal_set_mouse_autohide().</doc>
-        <source-position filename="src/vte/vteterminal.h" line="422"/>
+        <source-position filename="src/vte/vteterminal.h" line="416"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6497">%TRUE if autohiding is enabled, %FALSE if not</doc>
+               line="6495">%TRUE if autohiding is enabled, %FALSE if not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6490">a #VteTerminal</doc>
+                 line="6488">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3305,19 +3266,19 @@ using vte_terminal_set_mouse_autohide().</doc>
               glib:get-property="pty">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6563">Returns the #VtePty of @terminal.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="561"/>
+             line="6561">Returns the #VtePty of @terminal.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="555"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6569">a #VtePty, or %NULL</doc>
+               line="6567">a #VtePty, or %NULL</doc>
           <type name="Pty" c:type="VtePty*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6565">a #VteTerminal</doc>
+                 line="6563">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3329,36 +3290,36 @@ using vte_terminal_set_mouse_autohide().</doc>
               deprecated-version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6584">Checks whether or not the terminal will rewrap its contents upon resize.</doc>
+             line="6582">Checks whether or not the terminal will rewrap its contents upon resize.</doc>
         <source-position filename="src/vte/vtedeprecated.h" line="181"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6590">%TRUE if rewrapping is enabled, %FALSE if not</doc>
+               line="6588">%TRUE if rewrapping is enabled, %FALSE if not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6586">a #VteTerminal</doc>
+                 line="6584">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_row_count" c:identifier="vte_terminal_get_row_count">
-        <source-position filename="src/vte/vteterminal.h" line="569"/>
+        <source-position filename="src/vte/vteterminal.h" line="563"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6637">the number of rows</doc>
+               line="6635">the number of rows</doc>
           <type name="glong" c:type="glong"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6634">a #VteTerminal</doc>
+                 line="6632">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3371,7 +3332,7 @@ using vte_terminal_set_mouse_autohide().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6771">whether or not the terminal will forcibly scroll to the bottom of
+               line="6737">whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the new data is received from the child.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3379,7 +3340,7 @@ the viewable history when the new data is received from the child.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6769">a #VteTerminal</doc>
+                 line="6735">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3392,7 +3353,7 @@ the viewable history when the new data is received from the child.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6820">whether or not the terminal will forcibly scroll to the bottom of
+               line="6786">whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the user presses a key.  Modifier keys do not
 trigger this behavior.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3401,7 +3362,7 @@ trigger this behavior.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6818">a #VteTerminal</doc>
+                 line="6784">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3414,7 +3375,7 @@ trigger this behavior.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6868">whether or not the terminal will forcibly scroll to the bottom of
+               line="6834">whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the new data is received from the child.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3422,7 +3383,7 @@ the viewable history when the new data is received from the child.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6866">a #VteTerminal</doc>
+                 line="6832">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3435,14 +3396,14 @@ the viewable history when the new data is received from the child.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6967">%TRUE if the scroll unit is pixels; or %FALSE if the unit is lines</doc>
+               line="6933">%TRUE if the scroll unit is pixels; or %FALSE if the unit is lines</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6965">a #VteTerminal</doc>
+                 line="6931">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3451,11 +3412,11 @@ the viewable history when the new data is received from the child.</doc>
               c:identifier="vte_terminal_get_scrollback_lines"
               glib:get-property="scrollback-lines"
               version="0.52">
-        <source-position filename="src/vte/vteterminal.h" line="355"/>
+        <source-position filename="src/vte/vteterminal.h" line="349"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6724">length of the scrollback buffer used by the terminal.
+               line="6690">length of the scrollback buffer used by the terminal.
 A negative value means "infinite scrollback".</doc>
           <type name="glong" c:type="glong"/>
         </return-value>
@@ -3463,7 +3424,7 @@ A negative value means "infinite scrollback".</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6722">a #VteTerminal</doc>
+                 line="6688">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3565,7 +3526,7 @@ Since 0.72, passing a non-%NULL @is_selected parameter will make this function i
 
 This method is unaware of BiDi. The columns returned in @attributes are
 logical columns.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="431"/>
+        <source-position filename="src/vte/vteterminal.h" line="425"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -3751,7 +3712,7 @@ Since 0.72, passing a non-%NULL @is_selected function will make this function
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
              line="4845">Returns the specified range of text in the specified format.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="435"/>
+        <source-position filename="src/vte/vteterminal.h" line="429"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -3813,26 +3774,26 @@ Since 0.72, passing a non-%NULL @is_selected function will make this function
               version="0.70">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6363">Gets the currently selected text in the format specified by @format.
+             line="6361">Gets the currently selected text in the format specified by @format.
 Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="381"/>
+        <source-position filename="src/vte/vteterminal.h" line="375"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6371">a newly allocated string containing the selected text, or %NULL if there is no selection or the format is not supported</doc>
+               line="6369">a newly allocated string containing the selected text, or %NULL if there is no selection or the format is not supported</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6365">a #VteTerminal</doc>
+                 line="6363">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6366">the #VteFormat to use</doc>
+                 line="6364">the #VteFormat to use</doc>
             <type name="Format" c:type="VteFormat"/>
           </parameter>
         </parameters>
@@ -3842,25 +3803,25 @@ Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
               version="0.72">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6390">Gets the currently selected text in the format specified by @format.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="385"/>
+             line="6388">Gets the currently selected text in the format specified by @format.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="379"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6398">a newly allocated string containing the selected text, or %NULL if there is no selection or the format is not supported</doc>
+               line="6396">a newly allocated string containing the selected text, or %NULL if there is no selection or the format is not supported</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6392">a #VteTerminal</doc>
+                 line="6390">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6393">the #VteFormat to use</doc>
+                 line="6391">the #VteFormat to use</doc>
             <type name="Format" c:type="VteFormat"/>
           </parameter>
           <parameter name="length"
@@ -3871,7 +3832,7 @@ Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6394">a pointer to a #gsize to store the string length</doc>
+                 line="6392">a pointer to a #gsize to store the string length</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -3879,18 +3840,18 @@ Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
       <method name="get_window_title"
               c:identifier="vte_terminal_get_window_title"
               glib:get-property="window-title">
-        <source-position filename="src/vte/vteterminal.h" line="573"/>
+        <source-position filename="src/vte/vteterminal.h" line="567"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="6988">the window title, or %NULL</doc>
+               line="6954">the window title, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6986">a #VteTerminal</doc>
+                 line="6952">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3901,7 +3862,7 @@ Since 0.72, this function also supports %VTE_FORMAT_HTML format.</doc>
               version="0.40">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7003">Returns the set of characters which will be considered parts of a word
+             line="6969">Returns the set of characters which will be considered parts of a word
 when doing word-wise selection, in addition to the default which only
 considers alphanumeric characters part of a word.
 
@@ -3910,14 +3871,14 @@ If %NULL, a built-in set is used.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7013">a string, or %NULL</doc>
+               line="6979">a string, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7005">a #VteTerminal</doc>
+                 line="6971">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3926,18 +3887,18 @@ If %NULL, a built-in set is used.</doc>
               c:identifier="vte_terminal_get_xalign"
               glib:get-property="xalign"
               version="0.76">
-        <source-position filename="src/vte/vteterminal.h" line="624"/>
+        <source-position filename="src/vte/vteterminal.h" line="616"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7256">the horizontal alignment of @terminal within its allocation</doc>
+               line="7222">the horizontal alignment of @terminal within its allocation</doc>
           <type name="Align" c:type="VteAlign"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7254">a #VteTerminal</doc>
+                 line="7220">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3946,18 +3907,18 @@ If %NULL, a built-in set is used.</doc>
               c:identifier="vte_terminal_get_xfill"
               glib:get-property="xfill"
               version="0.76">
-        <source-position filename="src/vte/vteterminal.h" line="638"/>
+        <source-position filename="src/vte/vteterminal.h" line="630"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7352">the horizontal fillment of @terminal within its allocation</doc>
+               line="7318">the horizontal fillment of @terminal within its allocation</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7350">a #VteTerminal</doc>
+                 line="7316">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3966,18 +3927,18 @@ If %NULL, a built-in set is used.</doc>
               c:identifier="vte_terminal_get_yalign"
               glib:get-property="yalign"
               version="0.76">
-        <source-position filename="src/vte/vteterminal.h" line="631"/>
+        <source-position filename="src/vte/vteterminal.h" line="623"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7303">the vertical alignment of @terminal within its allocation</doc>
+               line="7269">the vertical alignment of @terminal within its allocation</doc>
           <type name="Align" c:type="VteAlign"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7301">a #VteTerminal</doc>
+                 line="7267">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -3986,18 +3947,18 @@ If %NULL, a built-in set is used.</doc>
               c:identifier="vte_terminal_get_yfill"
               glib:get-property="yfill"
               version="0.76">
-        <source-position filename="src/vte/vteterminal.h" line="645"/>
+        <source-position filename="src/vte/vteterminal.h" line="637"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7400">the vertical fillment of @terminal within its allocation</doc>
+               line="7366">the vertical fillment of @terminal within its allocation</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7398">a #VteTerminal</doc>
+                 line="7364">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
         </parameters>
@@ -4013,7 +3974,7 @@ escape sequence) at the position of the event, or %NULL.
 Proper use of the escape sequence should result in URI-encoded URIs with a proper scheme
 like "http://", "https://", "file://", "mailto:" etc. This is, however, not enforced by VTE.
 The caller must tolerate the returned string potentially not being a valid URI.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="451"/>
+        <source-position filename="src/vte/vteterminal.h" line="445"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4083,7 +4044,7 @@ this expression, the text will be highlighted.
 
 Note that @regex should have been created using the &lt;literal&gt;PCRE2_MULTILINE&lt;/literal&gt;
 flag.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="466"/>
+        <source-position filename="src/vte/vteterminal.h" line="460"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4178,7 +4139,7 @@ associated with the matched regular expression will be stored in @tag.
 If more than one regular expression has been set with
 vte_terminal_match_add(), then expressions are checked in the order in
 which they were added.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="486"/>
+        <source-position filename="src/vte/vteterminal.h" line="480"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4218,7 +4179,7 @@ which they were added.</doc>
              line="3760">Removes the regular expression which is associated with the given @tag from
 the list of expressions which the terminal will highlight when the user
 moves the mouse cursor over matching text.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="475"/>
+        <source-position filename="src/vte/vteterminal.h" line="469"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4243,7 +4204,7 @@ moves the mouse cursor over matching text.</doc>
              filename="src/vtegtk.cc"
              line="3782">Clears the list of regular expressions the terminal uses to highlight text
 when the user moves the mouse cursor.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="478"/>
+        <source-position filename="src/vte/vteterminal.h" line="472"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4300,7 +4261,7 @@ specified by @tag.  The terminal keeps a reference to @cursor.</doc>
              filename="src/vtegtk.cc"
              line="3735">Sets which cursor the terminal will use if the pointer is over the pattern
 specified by @tag.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="471"/>
+        <source-position filename="src/vte/vteterminal.h" line="465"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4474,7 +4435,7 @@ See vte_pty_new() for more information.</doc>
 unprocessed input data, resetting character attributes, cursor state,
 national character set state, status line, terminal modes (insert/delete),
 selection state, and encoding.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="426"/>
+        <source-position filename="src/vte/vteterminal.h" line="420"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4505,7 +4466,7 @@ selection state, and encoding.</doc>
              filename="src/vtegtk.cc"
              line="3823">Searches the next string matching the search regex set with
 vte_terminal_search_set_regex().</doc>
-        <source-position filename="src/vte/vteterminal.h" line="547"/>
+        <source-position filename="src/vte/vteterminal.h" line="541"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4527,7 +4488,7 @@ vte_terminal_search_set_regex().</doc>
              filename="src/vtegtk.cc"
              line="3801">Searches the previous string matching the search regex set with
 vte_terminal_search_set_regex().</doc>
-        <source-position filename="src/vte/vteterminal.h" line="545"/>
+        <source-position filename="src/vte/vteterminal.h" line="539"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4567,7 +4528,7 @@ vte_terminal_search_set_regex().</doc>
       <method name="search_get_regex"
               c:identifier="vte_terminal_search_get_regex"
               version="0.46">
-        <source-position filename="src/vte/vteterminal.h" line="538"/>
+        <source-position filename="src/vte/vteterminal.h" line="532"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4585,7 +4546,7 @@ vte_terminal_search_set_regex().</doc>
       </method>
       <method name="search_get_wrap_around"
               c:identifier="vte_terminal_search_get_wrap_around">
-        <source-position filename="src/vte/vteterminal.h" line="543"/>
+        <source-position filename="src/vte/vteterminal.h" line="537"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
@@ -4646,7 +4607,7 @@ vte_terminal_search_set_regex().</doc>
 
 Note that @regex should have been created using the
 &lt;literal&gt;PCRE2_MULTILINE&lt;/literal&gt; flag.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="534"/>
+        <source-position filename="src/vte/vteterminal.h" line="528"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4680,7 +4641,7 @@ Note that @regex should have been created using the
              filename="src/vtegtk.cc"
              line="3934">Sets whether search should wrap around to the beginning of the
 terminal content when reaching its end.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="540"/>
+        <source-position filename="src/vte/vteterminal.h" line="534"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4752,7 +4713,7 @@ by using a bold font variant.</doc>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
              line="5050">Controls whether or not hyperlinks (OSC 8 escape sequence) are allowed.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="371"/>
+        <source-position filename="src/vte/vteterminal.h" line="365"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4805,7 +4766,7 @@ by using a bold font variant.</doc>
              line="5119">Modifies the terminal's backspace key binding, which controls what
 string or control sequence the terminal sends to its child when the user
 presses the backspace key.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="391"/>
+        <source-position filename="src/vte/vteterminal.h" line="385"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4833,7 +4794,7 @@ presses the backspace key.</doc>
              line="5169">Sets whether the SGR 1 attribute also switches to the bright counterpart
 of the first 8 palette colors, in addition to making them bold (legacy behavior)
 or if SGR 1 only enables bold and leaves the color intact.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="365"/>
+        <source-position filename="src/vte/vteterminal.h" line="359"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4858,7 +4819,7 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
               version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6168">Sets the terminal's cell height scale to @scale.
+             line="6166">Sets the terminal's cell height scale to @scale.
 
 This can be used to increase the line spacing. (The font's height is not affected.)
 Valid values go from 1.0 (default) to 2.0 ("double spacing").</doc>
@@ -4870,13 +4831,13 @@ Valid values go from 1.0 (default) to 2.0 ("double spacing").</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6170">a #VteTerminal</doc>
+                 line="6168">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6171">the cell height scale</doc>
+                 line="6169">the cell height scale</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4887,7 +4848,7 @@ Valid values go from 1.0 (default) to 2.0 ("double spacing").</doc>
               version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6218">Sets the terminal's cell width scale to @scale.
+             line="6216">Sets the terminal's cell width scale to @scale.
 
 This can be used to increase the letter spacing. (The font's width is not affected.)
 Valid values go from 1.0 (default) to 2.0.</doc>
@@ -4899,13 +4860,13 @@ Valid values go from 1.0 (default) to 2.0.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6220">a #VteTerminal</doc>
+                 line="6218">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6221">the cell width scale</doc>
+                 line="6219">the cell width scale</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4919,7 +4880,7 @@ Valid values go from 1.0 (default) to 2.0.</doc>
 (Note that when using a non-UTF-8 encoding set via vte_terminal_set_encoding(),
 the width of ambiguous-width characters is fixed and determined by the encoding
 itself.)</doc>
-        <source-position filename="src/vte/vteterminal.h" line="552"/>
+        <source-position filename="src/vte/vteterminal.h" line="546"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4943,12 +4904,12 @@ itself.)</doc>
               version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7104">Sets whether to paint the background with the background colour.
+             line="7070">Sets whether to paint the background with the background colour.
 The default is %TRUE.
 
 This function is rarely useful. One use for it is to add a background
 image to the terminal.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="595"/>
+        <source-position filename="src/vte/vteterminal.h" line="587"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4956,13 +4917,13 @@ image to the terminal.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7106">a #VteTerminal</doc>
+                 line="7072">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7107">whether to clear the background</doc>
+                 line="7073">whether to clear the background</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5230,12 +5191,12 @@ greater than 0, the new background color is taken from @palette[0].</doc>
         <attribute name="org.gtk.Method.set_property" value="context-menu"/>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7466">Sets @menu as the context menu in @terminal.
+             line="7432">Sets @menu as the context menu in @terminal.
 Use %NULL to unset the current menu.
 
 Note that a menu model set with vte_terminal_set_context_menu_model()
 takes precedence over a menu set using this function.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="655"/>
+        <source-position filename="src/vte/vteterminal.h" line="647"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5243,7 +5204,7 @@ takes precedence over a menu set using this function.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7468">a #VteTerminal</doc>
+                 line="7434">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="menu"
@@ -5252,7 +5213,7 @@ takes precedence over a menu set using this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7469">a menu</doc>
+                 line="7435">a menu</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -5265,9 +5226,9 @@ takes precedence over a menu set using this function.</doc>
                    value="context-menu-model"/>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7418">Sets @model as the context menu model in @terminal.
+             line="7384">Sets @model as the context menu model in @terminal.
 Use %NULL to unset the current menu model.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="648"/>
+        <source-position filename="src/vte/vteterminal.h" line="640"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5275,7 +5236,7 @@ Use %NULL to unset the current menu model.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7420">a #VteTerminal</doc>
+                 line="7386">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="model"
@@ -5284,7 +5245,7 @@ Use %NULL to unset the current menu model.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7421">a #GMenuModel</doc>
+                 line="7387">a #GMenuModel</doc>
             <type name="Gio.MenuModel" c:type="GMenuModel*"/>
           </parameter>
         </parameters>
@@ -5294,7 +5255,7 @@ Use %NULL to unset the current menu model.</doc>
               glib:set-property="cursor-blink-mode">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5698">Sets whether or not the cursor will blink. Using %VTE_CURSOR_BLINK_SYSTEM
+             line="5696">Sets whether or not the cursor will blink. Using %VTE_CURSOR_BLINK_SYSTEM
 will use the #GtkSettings::gtk-cursor-blink setting.</doc>
         <source-position filename="src/vte/vteterminal.h" line="332"/>
         <return-value transfer-ownership="none">
@@ -5304,13 +5265,13 @@ will use the #GtkSettings::gtk-cursor-blink setting.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5700">a #VteTerminal</doc>
+                 line="5698">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5701">the #VteCursorBlinkMode to use</doc>
+                 line="5699">the #VteCursorBlinkMode to use</doc>
             <type name="CursorBlinkMode" c:type="VteCursorBlinkMode"/>
           </parameter>
         </parameters>
@@ -5320,7 +5281,7 @@ will use the #GtkSettings::gtk-cursor-blink setting.</doc>
               glib:set-property="cursor-shape">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5744">Sets the shape of the cursor drawn.</doc>
+             line="5742">Sets the shape of the cursor drawn.</doc>
         <source-position filename="src/vte/vteterminal.h" line="339"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5329,13 +5290,13 @@ will use the #GtkSettings::gtk-cursor-blink setting.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5746">a #VteTerminal</doc>
+                 line="5744">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="shape" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5747">the #VteCursorShape to use</doc>
+                 line="5745">the #VteCursorShape to use</doc>
             <type name="CursorShape" c:type="VteCursorShape"/>
           </parameter>
         </parameters>
@@ -5363,10 +5324,10 @@ will use the #GtkSettings::gtk-cursor-blink setting.</doc>
               glib:set-property="delete-binding">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5767">Modifies the terminal's delete key binding, which controls what
+             line="5765">Modifies the terminal's delete key binding, which controls what
 string or control sequence the terminal sends to its child when the user
 presses the delete key.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="394"/>
+        <source-position filename="src/vte/vteterminal.h" line="388"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5374,13 +5335,13 @@ presses the delete key.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5769">a #VteTerminal</doc>
+                 line="5767">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="binding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5770">a #VteEraseBinding for the delete key</doc>
+                 line="5768">a #VteEraseBinding for the delete key</doc>
             <type name="EraseBinding" c:type="VteEraseBinding"/>
           </parameter>
         </parameters>
@@ -5391,8 +5352,8 @@ presses the delete key.</doc>
               version="0.78">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5815">Controls whether or not the terminal will communicate with a11y backends.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="399"/>
+             line="5813">Controls whether or not the terminal will communicate with a11y backends.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="393"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5400,13 +5361,13 @@ presses the delete key.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5817">a #VteTerminal</doc>
+                 line="5815">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enable_a11y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5818">%TRUE to enable a11y support</doc>
+                 line="5816">%TRUE to enable a11y support</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5417,8 +5378,8 @@ presses the delete key.</doc>
               version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5862">Controls whether or not the terminal will perform bidirectional text rendering.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="406"/>
+             line="5860">Controls whether or not the terminal will perform bidirectional text rendering.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="400"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5426,13 +5387,13 @@ presses the delete key.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5864">a #VteTerminal</doc>
+                 line="5862">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enable_bidi" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5865">%TRUE to enable BiDi support</doc>
+                 line="5863">%TRUE to enable BiDi support</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5443,7 +5404,7 @@ presses the delete key.</doc>
               version="0.64">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6886">Controls whether the terminal uses scroll events to scroll the history
+             line="6852">Controls whether the terminal uses scroll events to scroll the history
 if the event was not otherwise consumed by it.
 
 This function is rarely useful, except when the terminal is added to a
@@ -5457,13 +5418,13 @@ not, yet, implement kinetic scrolling by itself).</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6888">a #VteTerminal</doc>
+                 line="6854">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6889">whether to enable fallback scrolling</doc>
+                 line="6855">whether to enable fallback scrolling</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5474,8 +5435,8 @@ not, yet, implement kinetic scrolling by itself).</doc>
               version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5909">Controls whether or not the terminal will shape Arabic text.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="412"/>
+             line="5907">Controls whether or not the terminal will shape Arabic text.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="406"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5483,13 +5444,13 @@ not, yet, implement kinetic scrolling by itself).</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5911">a #VteTerminal</doc>
+                 line="5909">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enable_shaping" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5912">%TRUE to enable Arabic shaping</doc>
+                 line="5910">%TRUE to enable Arabic shaping</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5500,8 +5461,8 @@ not, yet, implement kinetic scrolling by itself).</doc>
               version="0.62">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7170">Set whether to enable SIXEL images.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="613"/>
+             line="7136">Set whether to enable SIXEL images.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="605"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5509,13 +5470,13 @@ not, yet, implement kinetic scrolling by itself).</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7172">a #VteTerminal</doc>
+                 line="7138">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7173">whether to enable SIXEL images</doc>
+                 line="7139">whether to enable SIXEL images</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5528,7 +5489,7 @@ not, yet, implement kinetic scrolling by itself).</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="5957">Changes the encoding the terminal will expect data from the child to
+             line="5955">Changes the encoding the terminal will expect data from the child to
 be encoded with.  For certain terminal types, applications executing in the
 terminal can change the encoding. If @codeset is %NULL, it uses "UTF-8".
 
@@ -5540,7 +5501,7 @@ spawning the child process.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="5971">%TRUE if the encoding could be changed to the specified one,
+               line="5969">%TRUE if the encoding could be changed to the specified one,
  or %FALSE with @error set to %G_CONVERT_ERROR_NO_CONVERSION.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5548,7 +5509,7 @@ spawning the child process.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5959">a #VteTerminal</doc>
+                 line="5957">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="codeset"
@@ -5557,7 +5518,7 @@ spawning the child process.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="5960">target charset, or %NULL to use UTF-8</doc>
+                 line="5958">target charset, or %NULL to use UTF-8</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5565,12 +5526,12 @@ spawning the child process.</doc>
       <method name="set_font" c:identifier="vte_terminal_set_font">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6026">Sets the font used for rendering all text displayed by the terminal,
+             line="6024">Sets the font used for rendering all text displayed by the terminal,
 overriding any fonts set using gtk_widget_modify_font().  The terminal
 will immediately attempt to load the desired font, retrieve its
 metrics, and attempt to resize itself to keep the same number of rows
 and columns.  The font scale is applied to the specified font.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="359"/>
+        <source-position filename="src/vte/vteterminal.h" line="353"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5578,7 +5539,7 @@ and columns.  The font scale is applied to the specified font.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6028">a #VteTerminal</doc>
+                 line="6026">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="font_desc"
@@ -5587,7 +5548,7 @@ and columns.  The font scale is applied to the specified font.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6029">a #PangoFontDescription for the desired font, or %NULL</doc>
+                 line="6027">a #PangoFontDescription for the desired font, or %NULL</doc>
             <type name="Pango.FontDescription"
                   c:type="const PangoFontDescription*"/>
           </parameter>
@@ -5599,7 +5560,7 @@ and columns.  The font scale is applied to the specified font.</doc>
               version="0.74">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6074">Sets the terminal's font options to @options.
+             line="6072">Sets the terminal's font options to @options.
 
 Note that on GTK4, the terminal by default uses font options
 with %CAIRO_HINT_METRICS_ON set; to override that, use this
@@ -5613,7 +5574,7 @@ function to set a #cairo_font_options_t that has
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6076">a #VteTerminal</doc>
+                 line="6074">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="font_options"
@@ -5622,7 +5583,7 @@ function to set a #cairo_font_options_t that has
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6077">the font options, or %NULL</doc>
+                 line="6075">the font options, or %NULL</doc>
             <type name="cairo.FontOptions"
                   c:type="const cairo_font_options_t*"/>
           </parameter>
@@ -5633,7 +5594,7 @@ function to set a #cairo_font_options_t that has
               glib:set-property="font-scale">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6123">Sets the terminal's font scale to @scale.</doc>
+             line="6121">Sets the terminal's font scale to @scale.</doc>
         <source-position filename="src/vte/vteterminal.h" line="237"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5642,13 +5603,13 @@ function to set a #cairo_font_options_t that has
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6125">a #VteTerminal</doc>
+                 line="6123">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6126">the font scale</doc>
+                 line="6124">the font scale</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -5659,7 +5620,7 @@ function to set a #cairo_font_options_t that has
               deprecated-version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6308">Sets @terminal as @window's geometry widget. See
+             line="6306">Sets @terminal as @window's geometry widget. See
 gtk_window_set_geometry_hints() for more information.
 
 @terminal must be realized (see gtk_widget_get_realized()).</doc>
@@ -5671,13 +5632,13 @@ gtk_window_set_geometry_hints() for more information.
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6310">a #VteTerminal</doc>
+                 line="6308">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6311">a #GtkWindow</doc>
+                 line="6309">a #GtkWindow</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
         </parameters>
@@ -5687,10 +5648,10 @@ gtk_window_set_geometry_hints() for more information.
               glib:set-property="input-enabled">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6464">Enables or disables user input. When user input is disabled,
+             line="6462">Enables or disables user input. When user input is disabled,
 the terminal's child will not receive any key press, or mouse button
 press or motion events sent to it.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="587"/>
+        <source-position filename="src/vte/vteterminal.h" line="579"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5698,13 +5659,13 @@ press or motion events sent to it.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6466">a #VteTerminal</doc>
+                 line="6464">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6467">whether to enable user input</doc>
+                 line="6465">whether to enable user input</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5713,11 +5674,11 @@ press or motion events sent to it.</doc>
               c:identifier="vte_terminal_set_mouse_autohide">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6512">Changes the value of the terminal's mouse autohide setting.  When autohiding
+             line="6510">Changes the value of the terminal's mouse autohide setting.  When autohiding
 is enabled, the mouse cursor will be hidden when the user presses a key and
 shown when the user moves the mouse.  This setting can be read using
 vte_terminal_get_mouse_autohide().</doc>
-        <source-position filename="src/vte/vteterminal.h" line="419"/>
+        <source-position filename="src/vte/vteterminal.h" line="413"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5725,13 +5686,13 @@ vte_terminal_get_mouse_autohide().</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6514">a #VteTerminal</doc>
+                 line="6512">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6515">whether the mouse pointer should autohide</doc>
+                 line="6513">whether the mouse pointer should autohide</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5741,9 +5702,9 @@ vte_terminal_get_mouse_autohide().</doc>
               glib:set-property="pty">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6537">Sets @pty as the PTY to use in @terminal.
+             line="6535">Sets @pty as the PTY to use in @terminal.
 Use %NULL to unset the PTY.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="558"/>
+        <source-position filename="src/vte/vteterminal.h" line="552"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5751,7 +5712,7 @@ Use %NULL to unset the PTY.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6539">a #VteTerminal</doc>
+                 line="6537">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="pty"
@@ -5760,7 +5721,7 @@ Use %NULL to unset the PTY.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6540">a #VtePty, or %NULL</doc>
+                 line="6538">a #VtePty, or %NULL</doc>
             <type name="Pty" c:type="VtePty*"/>
           </parameter>
         </parameters>
@@ -5772,7 +5733,7 @@ Use %NULL to unset the PTY.</doc>
               deprecated-version="0.58">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6607">Controls whether or not the terminal will rewrap its contents, including
+             line="6605">Controls whether or not the terminal will rewrap its contents, including
 the scrollback history, whenever the terminal's width changes.</doc>
         <source-position filename="src/vte/vtedeprecated.h" line="177"/>
         <return-value transfer-ownership="none">
@@ -5782,13 +5743,13 @@ the scrollback history, whenever the terminal's width changes.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6609">a #VteTerminal</doc>
+                 line="6607">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="rewrap" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6610">%TRUE if the terminal should rewrap on resize</doc>
+                 line="6608">%TRUE if the terminal should rewrap on resize</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5799,7 +5760,7 @@ the scrollback history, whenever the terminal's width changes.</doc>
               version="0.76">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6742">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="6708">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when text is inserted, e.g. by a paste.</doc>
         <source-position filename="src/vte/vteterminal.h" line="275"/>
         <return-value transfer-ownership="none">
@@ -5809,13 +5770,13 @@ the viewable history when text is inserted, e.g. by a paste.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6744">a #VteTerminal</doc>
+                 line="6710">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6745">whether the terminal should scroll on insert</doc>
+                 line="6711">whether the terminal should scroll on insert</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5826,7 +5787,7 @@ the viewable history when text is inserted, e.g. by a paste.</doc>
               version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6790">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="6756">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the user presses a key.  Modifier keys do not
 trigger this behavior.</doc>
         <source-position filename="src/vte/vteterminal.h" line="282"/>
@@ -5837,13 +5798,13 @@ trigger this behavior.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6792">a #VteTerminal</doc>
+                 line="6758">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6793">whether the terminal should scroll on keystrokes</doc>
+                 line="6759">whether the terminal should scroll on keystrokes</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5854,7 +5815,7 @@ trigger this behavior.</doc>
               version="0.52">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6839">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="6805">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the new data is received from the child.</doc>
         <source-position filename="src/vte/vteterminal.h" line="272"/>
         <return-value transfer-ownership="none">
@@ -5864,42 +5825,14 @@ the viewable history when the new data is received from the child.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6841">a #VteTerminal</doc>
+                 line="6807">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6842">whether the terminal should scroll on output</doc>
+                 line="6808">whether the terminal should scroll on output</doc>
             <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_scroll_speed"
-              c:identifier="vte_terminal_set_scroll_speed"
-              glib:set-property="scroll-speed">
-        <doc xml:space="preserve"
-             filename="src/vtegtk.cc"
-             line="6653">Sets the number of lines by which the buffer is moved when
-scrolling with a mouse wheel. Setting it to zero will cause the
-buffer to be moved by an amount depending on the number of visible
-rows the widget can display.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="346"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="terminal" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vtegtk.cc"
-                 line="6655">a #VteTerminal</doc>
-            <type name="Terminal" c:type="VteTerminal*"/>
-          </instance-parameter>
-          <parameter name="scroll_speed" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/vtegtk.cc"
-                 line="6656">move the buffer by this number of lines while scrolling</doc>
-            <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </method>
@@ -5909,7 +5842,7 @@ rows the widget can display.</doc>
               version="0.66">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6936">Controls whether the terminal's scroll unit is lines or pixels.
+             line="6902">Controls whether the terminal's scroll unit is lines or pixels.
 
 This function is rarely useful, except when the terminal is added to a
 #GtkScrolledWindow.</doc>
@@ -5921,13 +5854,13 @@ This function is rarely useful, except when the terminal is added to a
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6938">a #VteTerminal</doc>
+                 line="6904">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6939">whether to use pixels as scroll unit</doc>
+                 line="6905">whether to use pixels as scroll unit</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5937,7 +5870,7 @@ This function is rarely useful, except when the terminal is added to a
               glib:set-property="scrollback-lines">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="6684">Sets the length of the scrollback buffer used by the terminal.  The size of
+             line="6650">Sets the length of the scrollback buffer used by the terminal.  The size of
 the scrollback buffer will be set to the larger of this value and the number
 of visible rows the widget can display, so 0 can safely be used to disable
 scrollback.
@@ -5949,7 +5882,7 @@ degradation or exhaustion of system resources, and is therefore not recommended.
 
 Note that this setting only affects the normal screen buffer.
 No scrollback is allowed on the alternate screen buffer.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="352"/>
+        <source-position filename="src/vte/vteterminal.h" line="346"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5957,13 +5890,13 @@ No scrollback is allowed on the alternate screen buffer.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6686">a #VteTerminal</doc>
+                 line="6652">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="lines" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="6687">the length of the history buffer</doc>
+                 line="6653">the length of the history buffer</doc>
             <type name="glong" c:type="glong"/>
           </parameter>
         </parameters>
@@ -6029,7 +5962,7 @@ the attempt succeeds, the widget will resize itself to the proper size.</doc>
               version="0.40">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7031">With this function you can provide a set of characters which will
+             line="6997">With this function you can provide a set of characters which will
 be considered parts of a word when doing word-wise selection, in
 addition to the default which only considers alphanumeric characters
 part of a word.
@@ -6047,13 +5980,13 @@ Use %NULL to reset the set of exception characters to the default.</doc>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7033">a #VteTerminal</doc>
+                 line="6999">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="exceptions" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7034">a string of ASCII punctuation characters, or %NULL</doc>
+                 line="7000">a string of ASCII punctuation characters, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6064,11 +5997,11 @@ Use %NULL to reset the set of exception characters to the default.</doc>
               version="0.76">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7224">Sets the horizontal alignment of @terminal within its allocation.
+             line="7190">Sets the horizontal alignment of @terminal within its allocation.
 
 Note: %VTE_ALIGN_START_FILL is not supported, and will be treated
   like %VTE_ALIGN_START.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="620"/>
+        <source-position filename="src/vte/vteterminal.h" line="612"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6076,13 +6009,13 @@ Note: %VTE_ALIGN_START_FILL is not supported, and will be treated
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7226">a #VteTerminal</doc>
+                 line="7192">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="align" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7227">alignment value from #VteAlign</doc>
+                 line="7193">alignment value from #VteAlign</doc>
             <type name="Align" c:type="VteAlign"/>
           </parameter>
         </parameters>
@@ -6093,11 +6026,11 @@ Note: %VTE_ALIGN_START_FILL is not supported, and will be treated
               version="0.76">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7321">Sets the horizontal fillment of @terminal within its allocation.
+             line="7287">Sets the horizontal fillment of @terminal within its allocation.
 
 Note: %VTE_FILL_START_FILL is not supported, and will be treated
   like %VTE_FILL_START.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="634"/>
+        <source-position filename="src/vte/vteterminal.h" line="626"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6105,13 +6038,13 @@ Note: %VTE_FILL_START_FILL is not supported, and will be treated
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7323">a #VteTerminal</doc>
+                 line="7289">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="fill" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7324">fillment value from #VteFill</doc>
+                 line="7290">fillment value from #VteFill</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6122,8 +6055,8 @@ Note: %VTE_FILL_START_FILL is not supported, and will be treated
               version="0.76">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7274">Sets the vertical alignment of @terminal within its allocation.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="627"/>
+             line="7240">Sets the vertical alignment of @terminal within its allocation.</doc>
+        <source-position filename="src/vte/vteterminal.h" line="619"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6131,13 +6064,13 @@ Note: %VTE_FILL_START_FILL is not supported, and will be treated
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7276">a #VteTerminal</doc>
+                 line="7242">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="align" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7277">alignment value from #VteAlign</doc>
+                 line="7243">alignment value from #VteAlign</doc>
             <type name="Align" c:type="VteAlign"/>
           </parameter>
         </parameters>
@@ -6148,10 +6081,10 @@ Note: %VTE_FILL_START_FILL is not supported, and will be treated
               version="0.76">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7370">Sets the vertical fillment of @terminal within its allocation.
+             line="7336">Sets the vertical fillment of @terminal within its allocation.
 Note that yfill is only supported with yalign set to
 %VTE_ALIGN_START, and is ignored for all other yalign values.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="641"/>
+        <source-position filename="src/vte/vteterminal.h" line="633"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6159,13 +6092,13 @@ Note that yfill is only supported with yalign set to
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7372">a #VteTerminal</doc>
+                 line="7338">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="fill" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7373">fillment value from #VteFill</doc>
+                 line="7339">fillment value from #VteFill</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6706,7 +6639,7 @@ the %G_SPAWN_DO_NOT_REAP_CHILD flag MUST have been passed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="7065">Write contents of the current contents of @terminal (including any
+             line="7031">Write contents of the current contents of @terminal (including any
 scrollback history) to @stream according to @flags.
 
 If @cancellable is not %NULL, then the operation can be cancelled by triggering
@@ -6716,30 +6649,30 @@ the error %G_IO_ERROR_CANCELLED will be returned in @error.
 This is a synchronous operation and will make the widget (and input
 processing) during the write operation, which may take a long time
 depending on scrollback history and @stream availability for writing.</doc>
-        <source-position filename="src/vte/vteterminal.h" line="603"/>
+        <source-position filename="src/vte/vteterminal.h" line="595"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/vtegtk.cc"
-               line="7084">%TRUE on success, %FALSE if there was an error</doc>
+               line="7050">%TRUE on success, %FALSE if there was an error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="terminal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7067">a #VteTerminal</doc>
+                 line="7033">a #VteTerminal</doc>
             <type name="Terminal" c:type="VteTerminal*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7068">a #GOutputStream to write to</doc>
+                 line="7034">a #GOutputStream to write to</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7069">a set of #VteWriteFlags</doc>
+                 line="7035">a set of #VteWriteFlags</doc>
             <type name="WriteFlags" c:type="VteWriteFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -6748,7 +6681,7 @@ depending on scrollback history and @stream availability for writing.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="7070">a #GCancellable object, or %NULL</doc>
+                 line="7036">a #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6763,7 +6696,7 @@ depending on scrollback history and @stream availability for writing.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2157">Controls whether or not the terminal will attempt to draw bold text,
+             line="2176">Controls whether or not the terminal will attempt to draw bold text,
 by using a bold font variant.</doc>
         <doc-deprecated xml:space="preserve">There's probably no reason for this feature to exist.</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
@@ -6777,7 +6710,7 @@ by using a bold font variant.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2170">Controls whether or not hyperlinks (OSC 8 escape sequence) are recognized and displayed.</doc>
+             line="2189">Controls whether or not hyperlinks (OSC 8 escape sequence) are recognized and displayed.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="audible-bell"
@@ -6788,7 +6721,7 @@ by using a bold font variant.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2182">Controls whether or not the terminal will beep when the child outputs the
+             line="2201">Controls whether or not the terminal will beep when the child outputs the
 "bl" sequence.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -6799,7 +6732,7 @@ by using a bold font variant.</doc>
                 default-value="VTE_ERASE_AUTO">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2193">Controls what string or control sequence the terminal sends to its child
+             line="2212">Controls what string or control sequence the terminal sends to its child
 when the user presses the backspace key.</doc>
         <type name="EraseBinding"/>
       </property>
@@ -6812,7 +6745,7 @@ when the user presses the backspace key.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2205">Whether the SGR 1 attribute also switches to the bright counterpart
+             line="2224">Whether the SGR 1 attribute also switches to the bright counterpart
 of the first 8 palette colors, in addition to making them bold (legacy behavior)
 or if SGR 1 only enables bold and leaves the color intact.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -6826,7 +6759,7 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
                 default-value="1.000000">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2219">Scale factor for the cell height, to increase line spacing. (The font's height is not affected.)</doc>
+             line="2238">Scale factor for the cell height, to increase line spacing. (The font's height is not affected.)</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="cell-width-scale"
@@ -6838,7 +6771,7 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
                 default-value="1.000000">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2233">Scale factor for the cell width, to increase letter spacing. (The font's width is not affected.)</doc>
+             line="2252">Scale factor for the cell width, to increase letter spacing. (The font's width is not affected.)</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="cjk-ambiguous-width"
@@ -6849,7 +6782,7 @@ or if SGR 1 only enables bold and leaves the color intact.</doc>
                 default-value="1">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2247">This setting controls whether ambiguous-width characters are narrow or wide.
+             line="2266">This setting controls whether ambiguous-width characters are narrow or wide.
 (Note that when using a non-UTF-8 encoding set via vte_terminal_set_encoding(),
 the width of ambiguous-width characters is fixed and determined by the encoding
 itself.)
@@ -6870,7 +6803,7 @@ via escape sequence or with vte_terminal_reset().</doc>
                    value="vte_terminal_set_context_menu"/>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2277">The menu used for context menus. Note that context menu model set with the
+             line="2296">The menu used for context menus. Note that context menu model set with the
 #VteTerminal::context-menu-model property or vte_terminal_set_context_menu_model()
 takes precedence over this.</doc>
         <type name="Gtk.Menu"/>
@@ -6887,7 +6820,7 @@ takes precedence over this.</doc>
                    value="vte_terminal_set_context_menu_model"/>
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2263">The menu model used for context menus. If non-%NULL, the context menu is
+             line="2282">The menu model used for context menus. If non-%NULL, the context menu is
 generated from this model, and overrides a context menu set with the
 #VteTerminal::context-menu property or vte_terminal_set_context_menu().</doc>
         <type name="Gio.MenuModel"/>
@@ -6898,7 +6831,7 @@ generated from this model, and overrides a context menu set with the
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2625">The name of the current container, or %NULL if unset.</doc>
+             line="2626">The name of the current container, or %NULL if unset.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="current-container-runtime"
@@ -6907,7 +6840,7 @@ generated from this model, and overrides a context menu set with the
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2635">The name of the runtime toolset used to set up the current
+             line="2636">The name of the runtime toolset used to set up the current
 container, or %NULL if unset.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -6937,7 +6870,7 @@ container, or %NULL if unset.</doc>
                 default-value="VTE_CURSOR_BLINK_SYSTEM">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2295">Sets whether or not the cursor will blink. Using %VTE_CURSOR_BLINK_SYSTEM
+             line="2314">Sets whether or not the cursor will blink. Using %VTE_CURSOR_BLINK_SYSTEM
 will use the #GtkSettings:gtk-cursor-blink setting.</doc>
         <type name="CursorBlinkMode"/>
       </property>
@@ -6949,7 +6882,7 @@ will use the #GtkSettings:gtk-cursor-blink setting.</doc>
                 default-value="VTE_CURSOR_SHAPE_BLOCK">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2307">Controls the shape of the cursor.</doc>
+             line="2326">Controls the shape of the cursor.</doc>
         <type name="CursorShape"/>
       </property>
       <property name="delete-binding"
@@ -6959,7 +6892,7 @@ will use the #GtkSettings:gtk-cursor-blink setting.</doc>
                 default-value="VTE_ERASE_AUTO">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2318">Controls what string or control sequence the terminal sends to its child
+             line="2337">Controls what string or control sequence the terminal sends to its child
 when the user presses the delete key.</doc>
         <type name="EraseBinding"/>
       </property>
@@ -6972,7 +6905,7 @@ when the user presses the delete key.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2330">Controls whether or not a11y is enabled for the widget.</doc>
+             line="2349">Controls whether or not a11y is enabled for the widget.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="enable-bidi"
@@ -6984,7 +6917,7 @@ when the user presses the delete key.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2346">Controls whether or not the terminal will perform bidirectional text rendering.</doc>
+             line="2365">Controls whether or not the terminal will perform bidirectional text rendering.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="enable-fallback-scrolling"
@@ -7004,7 +6937,7 @@ when the user presses the delete key.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2358">Controls whether or not the terminal will shape Arabic text.</doc>
+             line="2377">Controls whether or not the terminal will shape Arabic text.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="enable-sixel"
@@ -7016,7 +6949,7 @@ when the user presses the delete key.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2370">Controls whether SIXEL image support is enabled.</doc>
+             line="2389">Controls whether SIXEL image support is enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="encoding"
@@ -7029,7 +6962,7 @@ when the user presses the delete key.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2414">Controls the encoding the terminal will expect data from the child to
+             line="2433">Controls the encoding the terminal will expect data from the child to
 be encoded with.  For certain terminal types, applications executing in the
 terminal can change the encoding.  The default is defined by the
 application's locale settings.</doc>
@@ -7040,7 +6973,7 @@ application's locale settings.</doc>
       <property name="font-desc" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2430">Specifies the font used for rendering all text displayed by the terminal,
+             line="2449">Specifies the font used for rendering all text displayed by the terminal,
 overriding any fonts set using gtk_widget_modify_font().  The terminal
 will immediately attempt to load the desired font, retrieve its
 metrics, and attempt to resize itself to keep the same number of rows
@@ -7055,7 +6988,7 @@ and columns.</doc>
                 getter="get_font_options">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2383">The terminal's font options, or %NULL to use the default font options.
+             line="2402">The terminal's font options, or %NULL to use the default font options.
 
 Note that on GTK4, the terminal by default uses font options
 with %CAIRO_HINT_METRICS_ON set; to override that, use this
@@ -7071,7 +7004,7 @@ function to set a #cairo_font_options_t that has
                 default-value="1.000000">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2402">The terminal's font scale.</doc>
+             line="2421">The terminal's font scale.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="hyperlink-hover-uri"
@@ -7100,7 +7033,7 @@ function to set a #cairo_font_options_t that has
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2454">Controls whether the terminal allows user input. When user input is disabled,
+             line="2473">Controls whether the terminal allows user input. When user input is disabled,
 key press and mouse button press and motion events are not sent to the
 terminal's child.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -7111,7 +7044,7 @@ terminal's child.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2466">Controls the value of the terminal's mouse autohide setting.  When autohiding
+             line="2485">Controls the value of the terminal's mouse autohide setting.  When autohiding
 is enabled, the mouse cursor will be hidden when the user presses a key and
 shown when the user moves the mouse.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -7123,7 +7056,7 @@ shown when the user moves the mouse.</doc>
                 getter="get_pty">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2478">The PTY object for the terminal.</doc>
+             line="2497">The PTY object for the terminal.</doc>
         <type name="Pty"/>
       </property>
       <property name="rewrap-on-resize"
@@ -7136,7 +7069,7 @@ shown when the user moves the mouse.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2488">Controls whether or not the terminal will rewrap its contents, including
+             line="2507">Controls whether or not the terminal will rewrap its contents, including
 the scrollback buffer, whenever the terminal's width changes.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -7149,7 +7082,7 @@ the scrollback buffer, whenever the terminal's width changes.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2535">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="2537">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the text is inserted (e.g. by a paste).</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -7161,7 +7094,7 @@ the viewable history when the text is inserted (e.g. by a paste).</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2550">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="2552">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the user presses a key.  Modifier keys do not
 trigger this behavior.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -7174,23 +7107,9 @@ trigger this behavior.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2562">Controls whether or not the terminal will forcibly scroll to the bottom of
+             line="2564">Controls whether or not the terminal will forcibly scroll to the bottom of
 the viewable history when the new data is received from the child.</doc>
         <type name="gboolean" c:type="gboolean"/>
-      </property>
-      <property name="scroll-speed"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_scroll_speed"
-                default-value="0">
-        <doc xml:space="preserve"
-             filename="src/vtegtk.cc"
-             line="2502">The number of lines by which the buffer is moved when
-scrolling with a mouse wheel on top of the terminal
-Setting it to zero will cause the buffer to be moved by an
-amount depending on the number of visible rows the widget
-can display.</doc>
-        <type name="guint" c:type="guint"/>
       </property>
       <property name="scroll-unit-is-pixels"
                 version="0.66"
@@ -7201,7 +7120,7 @@ can display.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2587">Controls whether the terminal's GtkAdjustment values unit is lines
+             line="2589">Controls whether the terminal's GtkAdjustment values unit is lines
 or pixels. This can be enabled when the terminal is the child of a
 GtkScrolledWindow to fix some bugs with its kinetic scrolling.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -7214,7 +7133,7 @@ GtkScrolledWindow to fix some bugs with its kinetic scrolling.</doc>
                 default-value="512">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2518">The length of the scrollback buffer used by the terminal.  The size of
+             line="2520">The length of the scrollback buffer used by the terminal.  The size of
 the scrollback buffer will be set to the larger of this value and the number
 of visible rows the widget can display, so 0 can safely be used to disable
 scrollback.  Note that this setting only affects the normal screen buffer.
@@ -7231,7 +7150,7 @@ allowed on the alternate screen buffer.</doc>
                 default-value="VTE_TEXT_BLINK_ALWAYS">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2601">Controls whether or not the terminal will allow blinking text.</doc>
+             line="2603">Controls whether or not the terminal will allow blinking text.</doc>
         <type name="TextBlinkMode"/>
       </property>
       <property name="window-title"
@@ -7240,7 +7159,7 @@ allowed on the alternate screen buffer.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2614">The terminal's title.</doc>
+             line="2616">The terminal's title.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="word-char-exceptions"
@@ -7319,7 +7238,7 @@ all other yalign values.</doc>
       <glib:signal name="bell" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2105">This signal is emitted when the a child sends a bell request to the
+             line="2124">This signal is emitted when the a child sends a bell request to the
 terminal.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7328,7 +7247,7 @@ terminal.</doc>
       <glib:signal name="char-size-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1687">Emitted whenever the cell size changes, e.g. due to a change in
+             line="1706">Emitted whenever the cell size changes, e.g. due to a change in
 font, font-scale or cell-width/height-scale.
 
 Note that this signal should rather be called "cell-size-changed".</doc>
@@ -7339,13 +7258,13 @@ Note that this signal should rather be called "cell-size-changed".</doc>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1690">the new character cell width</doc>
+                 line="1709">the new character cell width</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1691">the new character cell height</doc>
+                 line="1710">the new character cell height</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -7353,7 +7272,7 @@ Note that this signal should rather be called "cell-size-changed".</doc>
       <glib:signal name="child-exited" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1460">This signal is emitted when the terminal detects that a child
+             line="1481">This signal is emitted when the terminal detects that a child
 watched using vte_terminal_watch_child() has exited.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7362,7 +7281,7 @@ watched using vte_terminal_watch_child() has exited.</doc>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1463">the child's exit status</doc>
+                 line="1484">the child's exit status</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -7370,7 +7289,7 @@ watched using vte_terminal_watch_child() has exited.</doc>
       <glib:signal name="commit" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1665">Emitted whenever the terminal receives input from the user and
+             line="1684">Emitted whenever the terminal receives input from the user and
 prepares to send it to the child process.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7379,13 +7298,13 @@ prepares to send it to the child process.</doc>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1668">a string of text</doc>
+                 line="1687">a string of text</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1669">the length of that string of text</doc>
+                 line="1688">the length of that string of text</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -7393,7 +7312,7 @@ prepares to send it to the child process.</doc>
       <glib:signal name="contents-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1730">Emitted whenever the visible appearance of the terminal has changed.
+             line="1749">Emitted whenever the visible appearance of the terminal has changed.
 Used primarily by #VteTerminalAccessible.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7402,7 +7321,7 @@ Used primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="copy-clipboard" when="last" action="1">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2067">Emitted whenever vte_terminal_copy_clipboard() is called.</doc>
+             line="2086">Emitted whenever vte_terminal_copy_clipboard() is called.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7410,7 +7329,7 @@ Used primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="current-directory-uri-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1576">Emitted when the current directory URI is modified.</doc>
+             line="1595">Emitted when the current directory URI is modified.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7418,7 +7337,7 @@ Used primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="current-file-uri-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1595">Emitted when the current file URI is modified.</doc>
+             line="1614">Emitted when the current file URI is modified.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7426,7 +7345,7 @@ Used primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="cursor-moved" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1750">Emitted whenever the cursor moves to a new character cell.  Used
+             line="1769">Emitted whenever the cursor moves to a new character cell.  Used
 primarily by #VteTerminalAccessible.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7435,7 +7354,7 @@ primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="decrease-font-size" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1980">Emitted when the user hits the '-' key while holding the Control key.</doc>
+             line="1999">Emitted when the user hits the '-' key while holding the Control key.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7446,7 +7365,7 @@ primarily by #VteTerminalAccessible.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1770">Never emitted.</doc>
+             line="1789">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7454,7 +7373,7 @@ primarily by #VteTerminalAccessible.</doc>
       <glib:signal name="encoding-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1644">Emitted whenever the terminal's current encoding has changed.
+             line="1663">Emitted whenever the terminal's current encoding has changed.
 
 Note: support for non-UTF-8 is deprecated.</doc>
         <return-value transfer-ownership="none">
@@ -7464,7 +7383,7 @@ Note: support for non-UTF-8 is deprecated.</doc>
       <glib:signal name="eof" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1439">Emitted when the terminal receives an end-of-file from a child which
+             line="1460">Emitted when the terminal receives an end-of-file from a child which
 is running in the terminal.  This signal is frequently (but not
 always) emitted with a #VteTerminal::child-exited signal.</doc>
         <return-value transfer-ownership="none">
@@ -7476,7 +7395,7 @@ always) emitted with a #VteTerminal::child-exited signal.</doc>
                    version="0.50">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1614">Emitted when the hovered hyperlink changes.
+             line="1633">Emitted when the hovered hyperlink changes.
 
 @uri and @bbox are owned by VTE, must not be modified, and might
 change after the signal handlers returns.
@@ -7490,13 +7409,13 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1617">the nonempty target URI under the mouse, or NULL</doc>
+                 line="1636">the nonempty target URI under the mouse, or NULL</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="bbox" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1618">the bounding box of the hyperlink anchor text, or NULL</doc>
+                 line="1637">the bounding box of the hyperlink anchor text, or NULL</doc>
             <type name="Gdk.Rectangle"/>
           </parameter>
         </parameters>
@@ -7516,7 +7435,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1791">Never emitted.</doc>
+             line="1810">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7524,7 +7443,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
       <glib:signal name="increase-font-size" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1961">Emitted when the user hits the '+' key while holding the Control key.</doc>
+             line="1980">Emitted when the user hits the '+' key while holding the Control key.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7535,7 +7454,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1833">Never emitted.</doc>
+             line="1852">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7546,7 +7465,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1896">Never emitted.</doc>
+             line="1915">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7557,7 +7476,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1938">Never emitted.</doc>
+             line="1957">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7565,13 +7484,13 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1941">the terminal's desired location, X coordinate</doc>
+                 line="1960">the terminal's desired location, X coordinate</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1942">the terminal's desired location, Y coordinate</doc>
+                 line="1961">the terminal's desired location, Y coordinate</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -7579,7 +7498,7 @@ same hyperlink. This might change in a future VTE version without notice.</doc>
       <glib:signal name="notification-received" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1483">Emitted when a process running in the terminal wants to
+             line="1503">Emitted when a process running in the terminal wants to
 send a notification to the desktop environment.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7588,7 +7507,7 @@ send a notification to the desktop environment.</doc>
           <parameter name="summary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1486">The summary</doc>
+                 line="1506">The summary</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="body"
@@ -7597,7 +7516,7 @@ send a notification to the desktop environment.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1487">Extra optional text</doc>
+                 line="1507">Extra optional text</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7605,7 +7524,7 @@ send a notification to the desktop environment.</doc>
       <glib:signal name="paste-clipboard" when="last" action="1">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2086">Emitted whenever vte_terminal_paste_clipboard() is called.</doc>
+             line="2105">Emitted whenever vte_terminal_paste_clipboard() is called.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7616,7 +7535,7 @@ send a notification to the desktop environment.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1812">Never emitted.</doc>
+             line="1831">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7627,7 +7546,7 @@ send a notification to the desktop environment.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1854">Never emitted.</doc>
+             line="1873">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7635,7 +7554,7 @@ send a notification to the desktop environment.</doc>
       <glib:signal name="resize-window" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1917">Emitted at the child application's request.</doc>
+             line="1936">Emitted at the child application's request.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7643,13 +7562,13 @@ send a notification to the desktop environment.</doc>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1920">the desired number of columns</doc>
+                 line="1939">the desired number of columns</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="1921">the desired number of rows</doc>
+                 line="1940">the desired number of rows</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -7660,7 +7579,7 @@ send a notification to the desktop environment.</doc>
                    deprecated-version="0.60">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1875">Never emitted.</doc>
+             line="1894">Never emitted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7668,7 +7587,7 @@ send a notification to the desktop environment.</doc>
       <glib:signal name="selection-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1711">Emitted whenever the contents of terminal's selection changes.</doc>
+             line="1730">Emitted whenever the contents of terminal's selection changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7676,7 +7595,7 @@ send a notification to the desktop environment.</doc>
       <glib:signal name="setup-context-menu" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="2125">Emitted with non-%NULL context before @terminal shows a context menu.
+             line="2144">Emitted with non-%NULL context before @terminal shows a context menu.
 The handler may set either a menu model using
 vte_terminal_set_context_menu_model(), or a menu using
 vte_terminal_set_context_menu(), which will then be used as context
@@ -7698,7 +7617,7 @@ Also emitted with %NULL context after the context menu has been dismissed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/vtegtk.cc"
-                 line="2128">the context</doc>
+                 line="2147">the context</doc>
             <type name="EventContext"/>
           </parameter>
         </parameters>
@@ -7706,7 +7625,7 @@ Also emitted with %NULL context after the context menu has been dismissed.</doc>
       <glib:signal name="shell-precmd" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1503">Emitted right before an interactive shell shows a
+             line="1523">Emitted right before an interactive shell shows a
 first-level prompt.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7715,7 +7634,7 @@ first-level prompt.</doc>
       <glib:signal name="shell-preexec" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1520">Emitted when the interactive shell has read in a complete
+             line="1540">Emitted when the interactive shell has read in a complete
 command and is about to execute it.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7765,7 +7684,7 @@ command and is about to execute it.</doc>
       <glib:signal name="window-title-changed" when="last">
         <doc xml:space="preserve"
              filename="src/vtegtk.cc"
-             line="1538">Emitted when the #VteTerminal:window-title property is modified.</doc>
+             line="1557">Emitted when the #VteTerminal:window-title property is modified.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8181,50 +8100,10 @@ command and is about to execute it.</doc>
           </parameters>
         </callback>
       </field>
-      <field name="notification_received">
-        <callback name="notification_received">
-          <source-position filename="src/vte/vteterminal.h" line="117"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="terminal" transfer-ownership="none">
-              <type name="Terminal" c:type="VteTerminal*"/>
-            </parameter>
-            <parameter name="summary" transfer-ownership="none">
-              <type name="utf8" c:type="const gchar*"/>
-            </parameter>
-            <parameter name="body" transfer-ownership="none">
-              <type name="utf8" c:type="const gchar*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="shell_precmd">
-        <callback name="shell_precmd">
-          <source-position filename="src/vte/vteterminal.h" line="118"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="terminal" transfer-ownership="none">
-              <type name="Terminal" c:type="VteTerminal*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="shell_preexec">
-        <callback name="shell_preexec">
-          <source-position filename="src/vte/vteterminal.h" line="119"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="terminal" transfer-ownership="none">
-              <type name="Terminal" c:type="VteTerminal*"/>
-            </parameter>
-          </parameters>
-        </callback>
+      <field name="_extra_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
       </field>
       <field name="setup_context_menu">
         <callback name="setup_context_menu">
@@ -8371,7 +8250,7 @@ to an output stream.</doc>
     </enumeration>
     <function name="event_context_get_type"
               c:identifier="vte_event_context_get_type">
-      <source-position filename="src/vte/vteterminal.h" line="662"/>
+      <source-position filename="src/vte/vteterminal.h" line="654"/>
       <return-value transfer-ownership="none">
         <type name="GType" c:type="GType"/>
       </return-value>

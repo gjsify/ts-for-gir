@@ -1,0 +1,47 @@
+{
+  "name": "@ts-for-gir-example/gtk-3-editor-example",
+  "version": "4.0.0-beta.6",
+  "type": "module",
+  "targets": {
+    ".": {
+      "context": "node",
+      "outputFormat": "esmodule",
+      "includeNodeModules": [
+        "@girs/gjs",
+        "@girs/gtk-3.0",
+        "@girs/gtksource-3.0"
+      ],
+      "sourceMap": false
+    }
+  },
+  "private": true,
+  "scripts": {
+    "build": "parcel build main.ts",
+    "clear": "rm -rf ./dist",
+    "start": "yarn clear && yarn build && yarn start:app",
+    "start:app": "gjs -m dist/main.js",
+    "watch": "yarn build --watch",
+    "validate": "yarn validate:types",
+    "validate:types": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@parcel/config-default": "^2.12.0",
+    "@parcel/plugin": "^2.12.0",
+    "@parcel/resolver-default": "^2.12.0",
+    "parcel": "^2.12.0",
+    "parcel-plugin-externals": "^0.5.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
+    "@girs/gtksource-3.0": "workspace:^"
+  },
+  "externals": [
+    "gi://Gtk?version=3.0",
+    "gi://GtkSource?version=3.0"
+  ]
+}

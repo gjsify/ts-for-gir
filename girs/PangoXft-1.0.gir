@@ -364,6 +364,11 @@ using the renderer.</doc>
         </parameters>
       </constructor>
       <virtual-method name="composite_glyphs">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="83">draw the specified glyphs using
+  the current foreground color and other foreground
+  attributes</doc>
         <source-position filename="pango/pangoxft-render.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -384,6 +389,10 @@ using the renderer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="composite_trapezoids">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="81">draw the specified trapezoids using
+  the current color and other attributes for @part</doc>
         <source-position filename="pango/pangoxft-render.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -497,6 +506,10 @@ The renderer must not be currently active.</doc>
         <type name="Pango.RendererClass" c:type="PangoRendererClass"/>
       </field>
       <field name="composite_trapezoids">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="81">draw the specified trapezoids using
+  the current color and other attributes for @part</doc>
         <callback name="composite_trapezoids">
           <source-position filename="pango/pangoxft-render.h" line="97"/>
           <return-value transfer-ownership="none">
@@ -519,6 +532,11 @@ The renderer must not be currently active.</doc>
         </callback>
       </field>
       <field name="composite_glyphs">
+        <doc xml:space="preserve"
+             filename="pango/pangoxft-render.h"
+             line="83">draw the specified glyphs using
+  the current foreground color and other foreground
+  attributes</doc>
         <callback name="composite_glyphs">
           <source-position filename="pango/pangoxft-render.h" line="101"/>
           <return-value transfer-ownership="none">

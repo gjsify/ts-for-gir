@@ -715,31 +715,31 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="ido_scale_menu_item_new">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="663">Creates a new #IdoScaleMenuItem with an empty label.</doc>
+             line="664">Creates a new #IdoScaleMenuItem with an empty label.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="671">a new #IdoScaleMenuItem.</doc>
+               line="672">a new #IdoScaleMenuItem.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="665">the text of the new menu item.</doc>
+                 line="666">the text of the new menu item.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="666">The size style of the range.</doc>
+                 line="667">The size style of the range.</doc>
             <type name="RangeStyle" c:type="IdoRangeStyle"/>
           </parameter>
           <parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="667">A #GtkAdjustment describing the slider value.</doc>
+                 line="668">A #GtkAdjustment describing the slider value.</doc>
             <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
           </parameter>
         </parameters>
@@ -748,13 +748,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="ido_scale_menu_item_new_from_model">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="1051">Creates a new #IdoScaleMenuItem. If @menuitem contains an action, it
+             line="1059">Creates a new #IdoScaleMenuItem. If @menuitem contains an action, it
 will be bound to that action in @actions.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="92"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="1057">a new #IdoScaleMenuItem</doc>
+               line="1065">a new #IdoScaleMenuItem</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </return-value>
         <parameters>
@@ -796,7 +796,7 @@ will be bound to that action in @actions.</doc>
       <virtual-method name="primary_clicked" invoker="primary_clicked">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="946">Emits the "primary-clicked" signal.
+             line="947">Emits the "primary-clicked" signal.
 
 The default handler for this signal lowers the scale's
 adjustment to its lower bound.</doc>
@@ -808,7 +808,7 @@ adjustment to its lower bound.</doc>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="948">the #IdoScaleMenuItem</doc>
+                 line="949">the #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -816,7 +816,7 @@ adjustment to its lower bound.</doc>
       <virtual-method name="secondary_clicked" invoker="secondary_clicked">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="970">Emits the "secondary-clicked" signal.
+             line="971">Emits the "secondary-clicked" signal.
 
 The default handler for this signal raises the scale's
 adjustment to its upper bound.</doc>
@@ -828,7 +828,7 @@ adjustment to its upper bound.</doc>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="972">the #IdoScaleMenuItem</doc>
+                 line="973">the #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -837,21 +837,21 @@ adjustment to its upper bound.</doc>
               c:identifier="ido_scale_menu_item_get_primary_image">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="777">Retrieves a pointer to the image widget used in the primary slot.
+             line="778">Retrieves a pointer to the image widget used in the primary slot.
 Whether this is visible depends upon the return value from
 ido_scale_menu_item_get_style().</doc>
         <source-position filename="src/idoscalemenuitem.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="785">A #GtkWidget pointer for the primary image.</doc>
+               line="786">A #GtkWidget pointer for the primary image.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="779">The #IdoScaleMenuItem</doc>
+                 line="780">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -860,21 +860,21 @@ ido_scale_menu_item_get_style().</doc>
               c:identifier="ido_scale_menu_item_get_primary_label">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="852">Retrieves a string of the text for the primary label widget.
+             line="853">Retrieves a string of the text for the primary label widget.
 Whether this is visible depends upon the return value from
 ido_scale_menu_item_get_style().</doc>
         <source-position filename="src/idoscalemenuitem.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="860">The label text.</doc>
+               line="861">The label text.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="854">The #IdoScaleMenuItem</doc>
+                 line="855">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -882,19 +882,19 @@ ido_scale_menu_item_get_style().</doc>
       <method name="get_scale" c:identifier="ido_scale_menu_item_get_scale">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="713">Retrieves the scale widget.</doc>
+             line="714">Retrieves the scale widget.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="719">The #IdoRange in this item</doc>
+               line="720">The #IdoRange in this item</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="715">The #IdoScaleMenuItem</doc>
+                 line="716">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -903,21 +903,21 @@ ido_scale_menu_item_get_style().</doc>
               c:identifier="ido_scale_menu_item_get_secondary_image">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="799">Retrieves a pointer to the image widget used in the secondary slot.
+             line="800">Retrieves a pointer to the image widget used in the secondary slot.
 Whether this is visible depends upon the return value from
 ido_scale_menu_item_get_style().</doc>
         <source-position filename="src/idoscalemenuitem.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="807">A #GtkWidget pointer for the secondary image.</doc>
+               line="808">A #GtkWidget pointer for the secondary image.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="801">The #IdoScaleMenuItem</doc>
+                 line="802">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -926,21 +926,21 @@ ido_scale_menu_item_get_style().</doc>
               c:identifier="ido_scale_menu_item_get_secondary_label">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="874">Retrieves a string of the text for the secondary label widget.
+             line="875">Retrieves a string of the text for the secondary label widget.
 Whether this is visible depends upon the return value from
 ido_scale_menu_item_get_style().</doc>
         <source-position filename="src/idoscalemenuitem.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="882">The label text.</doc>
+               line="883">The label text.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="876">The #IdoScaleMenuItem</doc>
+                 line="877">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -948,20 +948,20 @@ ido_scale_menu_item_get_style().</doc>
       <method name="get_style" c:identifier="ido_scale_menu_item_get_style">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="733">Retrieves the type of widgets being used for the primary and
+             line="734">Retrieves the type of widgets being used for the primary and
 secondary widget slots.  This could be images, labels, or nothing.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/idoscalemenuitem.c"
-               line="740">A #IdoScaleMenuItemStyle enum describing the style.</doc>
+               line="741">A #IdoScaleMenuItemStyle enum describing the style.</doc>
           <type name="ScaleMenuItemStyle" c:type="IdoScaleMenuItemStyle"/>
         </return-value>
         <parameters>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="735">The #IdoScaleMenuItem</doc>
+                 line="736">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -970,7 +970,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
               c:identifier="ido_scale_menu_item_primary_clicked">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="946">Emits the "primary-clicked" signal.
+             line="947">Emits the "primary-clicked" signal.
 
 The default handler for this signal lowers the scale's
 adjustment to its lower bound.</doc>
@@ -982,7 +982,7 @@ adjustment to its lower bound.</doc>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="948">the #IdoScaleMenuItem</doc>
+                 line="949">the #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -991,7 +991,7 @@ adjustment to its lower bound.</doc>
               c:identifier="ido_scale_menu_item_secondary_clicked">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="970">Emits the "secondary-clicked" signal.
+             line="971">Emits the "secondary-clicked" signal.
 
 The default handler for this signal raises the scale's
 adjustment to its upper bound.</doc>
@@ -1003,7 +1003,7 @@ adjustment to its upper bound.</doc>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="972">the #IdoScaleMenuItem</doc>
+                 line="973">the #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1012,7 +1012,7 @@ adjustment to its upper bound.</doc>
               c:identifier="ido_scale_menu_item_set_primary_label">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="896">Sets the text for the label widget in the primary slot.  This
+             line="897">Sets the text for the label widget in the primary slot.  This
 widget will only be visibile if the return value of
 ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="84"/>
@@ -1023,13 +1023,13 @@ ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="898">The #IdoScaleMenuItem</doc>
+                 line="899">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="899">The label text</doc>
+                 line="900">The label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1038,7 +1038,7 @@ ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc
               c:identifier="ido_scale_menu_item_set_secondary_label">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="921">Sets the text for the label widget in the secondary slot.  This
+             line="922">Sets the text for the label widget in the secondary slot.  This
 widget will only be visibile if the return value of
 ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="87"/>
@@ -1049,13 +1049,13 @@ ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="923">The #IdoScaleMenuItem</doc>
+                 line="924">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="924">The label text</doc>
+                 line="925">The label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1063,7 +1063,7 @@ ido_scale_menu_item_get_style() is set to %IDO_SCALE_MENU_ITEM_STYLE_LABEL.</doc
       <method name="set_style" c:identifier="ido_scale_menu_item_set_style">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="754">Sets the type of widgets being used for the primary and
+             line="755">Sets the type of widgets being used for the primary and
 secondary widget slots.  This could be images, labels, or nothing.</doc>
         <source-position filename="src/idoscalemenuitem.h" line="79"/>
         <return-value transfer-ownership="none">
@@ -1073,13 +1073,13 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
           <instance-parameter name="menuitem" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="756">The #IdoScaleMenuItem</doc>
+                 line="757">The #IdoScaleMenuItem</doc>
             <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
           </instance-parameter>
           <parameter name="style" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="757">Set the style use for the primary and secondary widget slots.</doc>
+                 line="758">Set the style use for the primary and secondary widget slots.</doc>
             <type name="ScaleMenuItemStyle" c:type="IdoScaleMenuItemStyle"/>
           </parameter>
         </parameters>
@@ -1117,7 +1117,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="279">The ::primary-clicked signal is emitted when the pointer clicks the primary label.</doc>
+             line="280">The ::primary-clicked signal is emitted when the pointer clicks the primary label.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1128,7 +1128,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="294">The ::secondary-clicked signal is emitted when the pointer clicks the secondary label.</doc>
+             line="295">The ::secondary-clicked signal is emitted when the pointer clicks the secondary label.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1136,7 +1136,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
       <glib:signal name="slider-grabbed" when="first">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="251">The ::slider-grabbed signal is emitted when the pointer selects the slider.</doc>
+             line="252">The ::slider-grabbed signal is emitted when the pointer selects the slider.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1144,7 +1144,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
       <glib:signal name="slider-released" when="first">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="265">The ::slider-released signal is emitted when the pointer releases the slider.</doc>
+             line="266">The ::slider-released signal is emitted when the pointer releases the slider.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1152,7 +1152,7 @@ secondary widget slots.  This could be images, labels, or nothing.</doc>
       <glib:signal name="value-changed" when="last">
         <doc xml:space="preserve"
              filename="src/idoscalemenuitem.c"
-             line="309">Emitted whenever the value of the contained scale changes because
+             line="310">Emitted whenever the value of the contained scale changes because
 of user input.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1161,7 +1161,7 @@ of user input.</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/idoscalemenuitem.c"
-                 line="312">the new value</doc>
+                 line="313">the new value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -1184,7 +1184,7 @@ of user input.</doc>
             <parameter name="menuitem" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/idoscalemenuitem.c"
-                   line="948">the #IdoScaleMenuItem</doc>
+                   line="949">the #IdoScaleMenuItem</doc>
               <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
             </parameter>
           </parameters>
@@ -1200,7 +1200,7 @@ of user input.</doc>
             <parameter name="menuitem" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/idoscalemenuitem.c"
-                   line="972">the #IdoScaleMenuItem</doc>
+                   line="973">the #IdoScaleMenuItem</doc>
               <type name="ScaleMenuItem" c:type="IdoScaleMenuItem*"/>
             </parameter>
           </parameters>

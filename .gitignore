@@ -14,13 +14,14 @@ examples/**/@types/
 # !@types/Gtk-2.0.d.ts
 # !@types/*
 
-.vscode
-
 index.ts.bak
 
 examples/**/node_modules/
 examples/**/dist/
 examples/**/tsconfig.alias.json
+
+tests/**/dist/
+
 debug.txt
 
 # Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
@@ -31,3 +32,5 @@ debug.txt
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+.parcel-cache/

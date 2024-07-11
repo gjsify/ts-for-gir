@@ -5,4 +5,4 @@
 [submodule "types"]
 	path = types
 	url = https://github.com/gjsify/types
-	branch = next
+	branch = main

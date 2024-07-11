@@ -11648,7 +11648,10 @@ If @category is %NULL, looks for marks of any category</doc>
                  line="241">a #GtkSourceMark.</doc>
             <type name="Mark" c:type="GtkSourceMark*"/>
           </instance-parameter>
-          <parameter name="category" transfer-ownership="none">
+          <parameter name="category"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcemark.c"
                  line="242">a string specifying the mark category, or %NULL.</doc>

@@ -2571,7 +2571,7 @@ and/or use gtk-doc annotations.  -->
       <source-position filename="gucharmap/gucharmap-version.h" line="27"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="4" c:type="GUCHARMAP_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="5" c:type="GUCHARMAP_VERSION_MICRO">
       <source-position filename="gucharmap/gucharmap-version.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>

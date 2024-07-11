@@ -201,6 +201,9 @@ Likewise, a Vala implementation might look like the following:
         </parameters>
       </virtual-method>
       <virtual-method name="panel_size_changed">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="75">Virtual panel_size_changed function</doc>
         <source-position filename="src/plugin/panel/applet.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -638,6 +641,9 @@ the geometry.</doc>
         <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
       </field>
       <field name="invoke_action">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="72">Virtual invoke_action function</doc>
         <callback name="invoke_action">
           <source-position filename="src/plugin/panel/applet.h" line="81"/>
           <return-value transfer-ownership="none">
@@ -657,6 +663,9 @@ the geometry.</doc>
         </callback>
       </field>
       <field name="supports_settings">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="73">Virtual supports_settings function</doc>
         <callback name="supports_settings">
           <source-position filename="src/plugin/panel/applet.h" line="82"/>
           <return-value transfer-ownership="none">
@@ -673,6 +682,9 @@ the geometry.</doc>
         </callback>
       </field>
       <field name="get_settings_ui">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="74">Virtual get_settings_ui function</doc>
         <callback name="get_settings_ui">
           <source-position filename="src/plugin/panel/applet.h" line="83"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -689,6 +701,9 @@ the geometry.</doc>
         </callback>
       </field>
       <field name="panel_size_changed">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="75">Virtual panel_size_changed function</doc>
         <callback name="panel_size_changed">
           <source-position filename="src/plugin/panel/applet.h" line="84"/>
           <return-value transfer-ownership="none">
@@ -727,6 +742,9 @@ the geometry.</doc>
         </callback>
       </field>
       <field name="update_popovers">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/applet.h"
+             line="76">Virtual update_popovers method</doc>
         <callback name="update_popovers">
           <source-position filename="src/plugin/panel/applet.h" line="86"/>
           <return-value transfer-ownership="none">
@@ -1256,6 +1274,9 @@ to enable efficient screen management.</doc>
         </parameters>
       </constructor>
       <virtual-method name="closed">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.h"
+             line="25">Virtual closed signal</doc>
         <source-position filename="src/plugin/panel/popover.h" line="31"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1349,6 +1370,9 @@ through a toggling action, such as being rolled past in a
         <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
       </field>
       <field name="closed">
+        <doc xml:space="preserve"
+             filename="src/plugin/panel/popover.h"
+             line="25">Virtual closed signal</doc>
         <callback name="closed">
           <source-position filename="src/plugin/panel/popover.h" line="31"/>
           <return-value transfer-ownership="none">

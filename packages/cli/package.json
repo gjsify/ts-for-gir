@@ -75,7 +75,7 @@
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.0",
     "inquirer": "^9.3.5",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "yargs": "^17.7.2"
   }
 }

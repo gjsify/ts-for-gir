@@ -6,293 +6,145 @@ and/or use gtk-doc annotations.  -->
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="Champlain" version="0.12"/>
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
-  <include name="GeocodeGlib" version="1.0"/>
-  <include name="Rest" version="0.7"/>
-  <package name="gnome-maps-1.0"/>
+  <include name="Shumate" version="1.0"/>
   <namespace name="GnomeMaps"
              version="1.0"
              shared-library="libgnome-maps.so.0"
              c:identifier-prefixes="Maps"
              c:symbol-prefixes="maps">
-    <class name="Contact"
-           c:symbol-prefix="contact"
-           c:type="MapsContact"
-           parent="GObject.Object"
-           glib:type-name="MapsContact"
-           glib:get-type="maps_contact_get_type"
-           glib:type-struct="ContactClass">
-      <constructor name="new" c:identifier="maps_contact_new">
-        <return-value transfer-ownership="full">
-          <type name="Contact" c:type="MapsContact*"/>
-        </return-value>
-      </constructor>
-      <method name="add_place" c:identifier="maps_contact_add_place">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="contact" transfer-ownership="none">
-            <type name="Contact" c:type="MapsContact*"/>
-          </instance-parameter>
-          <parameter name="place" transfer-ownership="none">
-            <type name="GeocodeGlib.Place" c:type="GeocodePlace*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="geocode" c:identifier="maps_contact_geocode">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="contact" transfer-ownership="none">
-            <doc xml:space="preserve">A #MapsContact object</doc>
-            <type name="Contact" c:type="MapsContact*"/>
-          </instance-parameter>
-          <parameter name="callback" transfer-ownership="none" scope="async">
-            <doc xml:space="preserve">A #MapsContactGeocodeCallback function</doc>
-            <type name="ContactGeocodeCallback"
-                  c:type="MapsContactGeocodeCallback"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_places" c:identifier="maps_contact_get_places">
-        <return-value transfer-ownership="container">
-          <doc xml:space="preserve">a list of #GeocodePlace</doc>
-          <type name="GLib.List" c:type="GList*">
-            <type name="GeocodeGlib.Place"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="contact" transfer-ownership="none">
-            <doc xml:space="preserve">A #MapsContact object</doc>
-            <type name="Contact" c:type="MapsContact*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <property name="bounding-box" transfer-ownership="none">
-        <doc xml:space="preserve">The bounding box for the contact.</doc>
-        <type name="Champlain.BoundingBox"/>
-      </property>
-      <property name="icon" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The icon of the contact.</doc>
-        <type name="Gio.Icon"/>
-      </property>
-      <property name="id" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The unique id of the contact.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="name" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The name of the contact.</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="ContactPrivate" c:type="MapsContactPrivate*"/>
-      </field>
-    </class>
-    <record name="ContactClass"
-            c:type="MapsContactClass"
-            glib:is-gtype-struct-for="Contact">
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <callback name="ContactGeocodeCallback"
-              c:type="MapsContactGeocodeCallback">
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
+    <function-macro name="FILE_DATA_SOURCE"
+                    c:identifier="MAPS_FILE_DATA_SOURCE"
+                    introspectable="0">
+      <source-position filename="lib/maps-file-data-source.h" line="29"/>
       <parameters>
-        <parameter name="contact" transfer-ownership="none">
-          <doc xml:space="preserve">A #MapsContact object</doc>
-          <type name="Contact" c:type="MapsContact*"/>
+        <parameter name="obj">
         </parameter>
       </parameters>
-    </callback>
-    <record name="ContactPrivate" c:type="MapsContactPrivate" disguised="1">
-    </record>
-    <class name="ContactStore"
-           c:symbol-prefix="contact_store"
-           c:type="MapsContactStore"
-           parent="GObject.Object"
-           glib:type-name="MapsContactStore"
-           glib:get-type="maps_contact_store_get_type"
-           glib:type-struct="ContactStoreClass">
-      <constructor name="new" c:identifier="maps_contact_store_new">
-        <return-value transfer-ownership="full">
-          <type name="ContactStore" c:type="MapsContactStore*"/>
-        </return-value>
-      </constructor>
-      <method name="get_contacts"
-              c:identifier="maps_contact_store_get_contacts">
-        <return-value transfer-ownership="container">
-          <doc xml:space="preserve">a list of #MapsContact,</doc>
-          <type name="GLib.List" c:type="GList*">
-            <type name="Contact"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="store" transfer-ownership="none">
-            <doc xml:space="preserve">A #MapsContactStore object</doc>
-            <type name="ContactStore" c:type="MapsContactStore*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="load" c:identifier="maps_contact_store_load">
-        <doc xml:space="preserve">Load contacts from available backends.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="store" transfer-ownership="none">
-            <doc xml:space="preserve">A #MapsContactStore object</doc>
-            <type name="ContactStore" c:type="MapsContactStore*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="lookup" c:identifier="maps_contact_store_lookup">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="store" transfer-ownership="none">
-            <doc xml:space="preserve">A #MapsContactStore object</doc>
-            <type name="ContactStore" c:type="MapsContactStore*"/>
-          </instance-parameter>
-          <parameter name="id" transfer-ownership="none">
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="callback" transfer-ownership="none" scope="async">
-            <doc xml:space="preserve">A #MapsContactStoreLookupCallback function</doc>
-            <type name="ContactStoreLookupCallback"
-                  c:type="MapsContactStoreLookupCallback"/>
-          </parameter>
-        </parameters>
-      </method>
-      <property name="state" transfer-ownership="none">
-        <doc xml:space="preserve">The type of the contact.</doc>
-        <type name="ContactStoreState"/>
-      </property>
-      <field name="parent_instance">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="ContactStorePrivate" c:type="MapsContactStorePrivate*"/>
-      </field>
-    </class>
-    <record name="ContactStoreClass"
-            c:type="MapsContactStoreClass"
-            glib:is-gtype-struct-for="ContactStore">
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <callback name="ContactStoreLookupCallback"
-              c:type="MapsContactStoreLookupCallback">
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
+    </function-macro>
+    <function-macro name="FILE_DATA_SOURCE_CLASS"
+                    c:identifier="MAPS_FILE_DATA_SOURCE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-file-data-source.h" line="32"/>
       <parameters>
-        <parameter name="contact" transfer-ownership="none">
-          <doc xml:space="preserve">A #MapsContact object</doc>
-          <type name="Contact" c:type="MapsContact*"/>
+        <parameter name="klass">
         </parameter>
       </parameters>
-    </callback>
-    <record name="ContactStorePrivate"
-            c:type="MapsContactStorePrivate"
-            disguised="1">
-    </record>
-    <enumeration name="ContactStoreState"
-                 glib:type-name="MapsContactStoreState"
-                 glib:get-type="maps_contact_store_state_get_type"
-                 c:type="MapsContactStoreState">
-      <member name="initial"
-              value="0"
-              c:identifier="MAPS_CONTACT_STORE_STATE_INITIAL"
-              glib:nick="initial">
-        <doc xml:space="preserve">Initial state</doc>
-      </member>
-      <member name="loading"
-              value="1"
-              c:identifier="MAPS_CONTACT_STORE_STATE_LOADING"
-              glib:nick="loading">
-        <doc xml:space="preserve">Loading</doc>
-      </member>
-      <member name="loaded"
-              value="2"
-              c:identifier="MAPS_CONTACT_STORE_STATE_LOADED"
-              glib:nick="loaded">
-        <doc xml:space="preserve">Loaded</doc>
-      </member>
-    </enumeration>
-    <class name="FileTileSource"
-           c:symbol-prefix="file_tile_source"
-           c:type="MapsFileTileSource"
-           parent="Champlain.TileSource"
-           glib:type-name="MapsFileTileSource"
-           glib:get-type="maps_file_tile_source_get_type"
-           glib:type-struct="FileTileSourceClass">
-      <doc xml:space="preserve">The #MapsFileTileSource structure contains only private data
+    </function-macro>
+    <function-macro name="FILE_DATA_SOURCE_GET_CLASS"
+                    c:identifier="MAPS_FILE_DATA_SOURCE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-file-data-source.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="FileDataSource"
+           c:symbol-prefix="file_data_source"
+           c:type="MapsFileDataSource"
+           parent="Shumate.DataSource"
+           glib:type-name="MapsFileDataSource"
+           glib:get-type="maps_file_data_source_get_type"
+           glib:type-struct="FileDataSourceClass">
+      <doc xml:space="preserve"
+           filename="lib/maps-file-data-source.h"
+           line="49">The #MapsFileDataSource structure contains only private data
 and should be accessed using the provided API</doc>
+      <source-position filename="lib/maps-file-data-source.h" line="66"/>
       <method name="prepare"
-              c:identifier="maps_file_tile_source_prepare"
+              c:identifier="maps_file_data_source_prepare"
               throws="1">
+        <source-position filename="lib/maps-file-data-source.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="tile_source" transfer-ownership="none">
-            <type name="FileTileSource" c:type="MapsFileTileSource*"/>
+          <instance-parameter name="data_source" transfer-ownership="none">
+            <type name="FileDataSource" c:type="MapsFileDataSource*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="max-zoom" transfer-ownership="none">
-        <doc xml:space="preserve">The maximum zoom level of the tile source.</doc>
+      <property name="max-zoom" transfer-ownership="none" default-value="2">
+        <doc xml:space="preserve"
+             filename="lib/maps-file-data-source.c"
+             line="177">The maximum zoom level of the tile source.</doc>
         <type name="guint" c:type="guint"/>
       </property>
-      <property name="min-zoom" transfer-ownership="none">
-        <doc xml:space="preserve">The minimum zoom level of the tile source.</doc>
+      <property name="min-zoom" transfer-ownership="none" default-value="2">
+        <doc xml:space="preserve"
+             filename="lib/maps-file-data-source.c"
+             line="162">The minimum zoom level of the tile source.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="path"
                 writable="1"
                 construct="1"
                 transfer-ownership="none">
-        <doc xml:space="preserve">The path to the tile source.</doc>
+        <doc xml:space="preserve"
+             filename="lib/maps-file-data-source.c"
+             line="149">The path to the tile source.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="world" transfer-ownership="none">
-        <doc xml:space="preserve">Set a bounding box to limit the world to. No tiles will be loaded
-outside of this bounding box. It will not be possible to scroll outside
-of this bounding box.</doc>
-        <type name="Champlain.BoundingBox"/>
-      </property>
       <field name="parent_instance">
-        <type name="Champlain.TileSource" c:type="ChamplainTileSource"/>
+        <type name="Shumate.DataSource" c:type="ShumateDataSource"/>
       </field>
       <field name="priv">
-        <type name="FileTileSourcePrivate"
-              c:type="MapsFileTileSourcePrivate*"/>
+        <type name="FileDataSourcePrivate"
+              c:type="MapsFileDataSourcePrivate*"/>
       </field>
     </class>
-    <record name="FileTileSourceClass"
-            c:type="MapsFileTileSourceClass"
-            glib:is-gtype-struct-for="FileTileSource">
+    <record name="FileDataSourceClass"
+            c:type="MapsFileDataSourceClass"
+            glib:is-gtype-struct-for="FileDataSource">
+      <source-position filename="lib/maps-file-data-source.h" line="66"/>
       <field name="parent_class">
-        <type name="Champlain.TileSourceClass"
-              c:type="ChamplainTileSourceClass"/>
+        <type name="Shumate.DataSourceClass" c:type="ShumateDataSourceClass"/>
       </field>
     </record>
-    <record name="FileTileSourcePrivate"
-            c:type="MapsFileTileSourcePrivate"
-            disguised="1">
+    <record name="FileDataSourcePrivate"
+            c:type="MapsFileDataSourcePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-file-data-source.h" line="44"/>
     </record>
+    <function-macro name="IS_FILE_DATA_SOURCE"
+                    c:identifier="MAPS_IS_FILE_DATA_SOURCE"
+                    introspectable="0">
+      <source-position filename="lib/maps-file-data-source.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FILE_DATA_SOURCE_CLASS"
+                    c:identifier="MAPS_IS_FILE_DATA_SOURCE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-file-data-source.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SYNC_MAP_SOURCE"
+                    c:identifier="MAPS_IS_SYNC_MAP_SOURCE"
+                    introspectable="0">
+      <source-position filename="lib/maps-sync-map-source.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SYNC_MAP_SOURCE_CLASS"
+                    c:identifier="MAPS_IS_SYNC_MAP_SOURCE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-sync-map-source.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="OSMChangeset"
            c:symbol-prefix="osm_changeset"
            c:type="MapsOSMChangeset"
@@ -300,7 +152,9 @@ of this bounding box.</doc>
            glib:type-name="MapsOSMChangeset"
            glib:get-type="maps_osm_changeset_get_type"
            glib:type-struct="OSMChangesetClass">
+      <source-position filename="lib/maps-osm-changeset.h" line="26"/>
       <constructor name="new" c:identifier="maps_osm_changeset_new">
+        <source-position filename="lib/maps-osm-changeset.h" line="47"/>
         <return-value transfer-ownership="full">
           <type name="OSMChangeset" c:type="MapsOSMChangeset*"/>
         </return-value>
@@ -309,19 +163,24 @@ of this bounding box.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve">A comment about the OSM change, optional</doc>
+            <doc xml:space="preserve"
+                 filename="lib/maps-osm-changeset.h"
+                 line="44">A comment about the OSM change, optional</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="created_by"
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve">The client identifier of the OSM change, optional</doc>
+            <doc xml:space="preserve"
+                 filename="lib/maps-osm-changeset.h"
+                 line="45">The client identifier of the OSM change, optional</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="serialize" c:identifier="maps_osm_changeset_serialize">
+        <source-position filename="lib/maps-osm-changeset.h" line="50"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -331,11 +190,19 @@ of this bounding box.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="comment" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The comment of the changes.</doc>
+      <property name="comment"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-changeset.c"
+             line="108">The comment of the changes.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="created-by" writable="1" transfer-ownership="none">
+      <property name="created-by"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -348,13 +215,16 @@ of this bounding box.</doc>
     <record name="OSMChangesetClass"
             c:type="MapsOSMChangesetClass"
             glib:is-gtype-struct-for="OSMChangeset">
+      <source-position filename="lib/maps-osm-changeset.h" line="26"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <record name="OSMChangesetPrivate"
             c:type="MapsOSMChangesetPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-osm-changeset.h" line="29"/>
     </record>
     <class name="OSMNode"
            c:symbol-prefix="osm_node"
@@ -363,7 +233,9 @@ of this bounding box.</doc>
            glib:type-name="MapsOSMNode"
            glib:get-type="maps_osm_node_get_type"
            glib:type-struct="OSMNodeClass">
+      <source-position filename="lib/maps-osm-node.h" line="28"/>
       <constructor name="new" c:identifier="maps_osm_node_new">
+        <source-position filename="lib/maps-osm-node.h" line="43"/>
         <return-value transfer-ownership="full">
           <type name="OSMNode" c:type="MapsOSMNode*"/>
         </return-value>
@@ -385,12 +257,22 @@ of this bounding box.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <property name="latitude" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The latitude of the node.</doc>
+      <property name="latitude"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-node.c"
+             line="135">The latitude of the node.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="longitude" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The longitude of the node.</doc>
+      <property name="longitude"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-node.c"
+             line="121">The longitude of the node.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_instance">
@@ -403,50 +285,16 @@ of this bounding box.</doc>
     <record name="OSMNodeClass"
             c:type="MapsOSMNodeClass"
             glib:is-gtype-struct-for="OSMNode">
+      <source-position filename="lib/maps-osm-node.h" line="28"/>
       <field name="parent_class">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
-    <record name="OSMNodePrivate" c:type="MapsOSMNodePrivate" disguised="1">
-    </record>
-    <class name="OSMOAuthProxyCall"
-           c:symbol-prefix="osm_oauth_proxy_call"
-           c:type="MapsOSMOAuthProxyCall"
-           parent="Rest.OAuthProxyCall"
-           glib:type-name="MapsOSMOAuthProxyCall"
-           glib:get-type="maps_osm_oauth_proxy_call_get_type"
-           glib:type-struct="OSMOAuthProxyCallClass">
-      <constructor name="new" c:identifier="maps_osm_oauth_proxy_call_new">
-        <return-value transfer-ownership="full">
-          <type name="OSMOAuthProxyCall" c:type="MapsOSMOAuthProxyCall*"/>
-        </return-value>
-        <parameters>
-          <parameter name="proxy" transfer-ownership="none">
-            <type name="Rest.OAuthProxy" c:type="OAuthProxy*"/>
-          </parameter>
-          <parameter name="content" transfer-ownership="none">
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <field name="parent">
-        <type name="Rest.OAuthProxyCall" c:type="OAuthProxyCall"/>
-      </field>
-      <field name="priv">
-        <type name="OSMOAuthProxyCallPrivate"
-              c:type="MapsOSMOAuthProxyCallPrivate*"/>
-      </field>
-    </class>
-    <record name="OSMOAuthProxyCallClass"
-            c:type="MapsOSMOAuthProxyCallClass"
-            glib:is-gtype-struct-for="OSMOAuthProxyCall">
-      <field name="parent_class">
-        <type name="Rest.OAuthProxyCallClass" c:type="OAuthProxyCallClass"/>
-      </field>
-    </record>
-    <record name="OSMOAuthProxyCallPrivate"
-            c:type="MapsOSMOAuthProxyCallPrivate"
-            disguised="1">
+    <record name="OSMNodePrivate"
+            c:type="MapsOSMNodePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-osm-node.h" line="30"/>
     </record>
     <class name="OSMObject"
            c:symbol-prefix="osm_object"
@@ -456,7 +304,9 @@ of this bounding box.</doc>
            glib:type-name="MapsOSMObject"
            glib:get-type="maps_osm_object_get_type"
            glib:type-struct="OSMObjectClass">
+      <source-position filename="lib/maps-osm-object.h" line="46"/>
       <virtual-method name="get_xml_attributes" introspectable="0">
+        <source-position filename="lib/maps-osm-object.h" line="41"/>
         <return-value>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
@@ -470,6 +320,7 @@ of this bounding box.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_xml_child_nodes" introspectable="0">
+        <source-position filename="lib/maps-osm-object.h" line="45"/>
         <return-value>
           <type c:type="xmlNodePtr"/>
         </return-value>
@@ -480,6 +331,7 @@ of this bounding box.</doc>
         </parameters>
       </virtual-method>
       <method name="delete_tag" c:identifier="maps_osm_object_delete_tag">
+        <source-position filename="lib/maps-osm-object.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -493,6 +345,7 @@ of this bounding box.</doc>
         </parameters>
       </method>
       <method name="get_tag" c:identifier="maps_osm_object_get_tag">
+        <source-position filename="lib/maps-osm-object.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -505,7 +358,25 @@ of this bounding box.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_tags" c:identifier="maps_osm_object_get_tags">
+        <source-position filename="lib/maps-osm-object.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/maps-osm-object.c"
+               line="336">a hash table with key/values</doc>
+          <type name="GLib.HashTable" c:type="const GHashTable*">
+            <type name="utf8"/>
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <type name="OSMObject" c:type="const MapsOSMObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="serialize" c:identifier="maps_osm_object_serialize">
+        <source-position filename="lib/maps-osm-object.h" line="54"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -516,6 +387,7 @@ of this bounding box.</doc>
         </parameters>
       </method>
       <method name="set_tag" c:identifier="maps_osm_object_set_tag">
+        <source-position filename="lib/maps-osm-object.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -531,16 +403,31 @@ of this bounding box.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="changeset" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The OSM changeset for the current upload of the object.</doc>
+      <property name="changeset"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-object.c"
+             line="170">The OSM changeset for the current upload of the object.</doc>
         <type name="guint64" c:type="guint64"/>
       </property>
-      <property name="id" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The OSM id of the object.</doc>
+      <property name="id"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-object.c"
+             line="142">The OSM id of the object.</doc>
         <type name="guint64" c:type="guint64"/>
       </property>
-      <property name="version" writable="1" transfer-ownership="none">
-        <doc xml:space="preserve">The latest OSM version of the object.</doc>
+      <property name="version"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm-object.c"
+             line="156">The latest OSM version of the object.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <field name="parent_instance">
@@ -550,11 +437,13 @@ of this bounding box.</doc>
     <record name="OSMObjectClass"
             c:type="MapsOSMObjectClass"
             glib:is-gtype-struct-for="OSMObject">
+      <source-position filename="lib/maps-osm-object.h" line="46"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_xml_tag_name">
         <callback name="get_xml_tag_name">
+          <source-position filename="lib/maps-osm-object.h" line="37"/>
           <return-value transfer-ownership="none">
             <type name="utf8" c:type="const char*"/>
           </return-value>
@@ -562,6 +451,7 @@ of this bounding box.</doc>
       </field>
       <field name="get_xml_attributes" introspectable="0">
         <callback name="get_xml_attributes" introspectable="0">
+          <source-position filename="lib/maps-osm-object.h" line="41"/>
           <return-value>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
@@ -577,6 +467,7 @@ of this bounding box.</doc>
       </field>
       <field name="get_xml_child_nodes" introspectable="0">
         <callback name="get_xml_child_nodes" introspectable="0">
+          <source-position filename="lib/maps-osm-object.h" line="45"/>
           <return-value>
             <type c:type="xmlNodePtr"/>
           </return-value>
@@ -590,7 +481,9 @@ of this bounding box.</doc>
     </record>
     <record name="OSMObjectPrivate"
             c:type="MapsOSMObjectPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-osm-object.h" line="30"/>
     </record>
     <class name="OSMRelation"
            c:symbol-prefix="osm_relation"
@@ -599,7 +492,9 @@ of this bounding box.</doc>
            glib:type-name="MapsOSMRelation"
            glib:get-type="maps_osm_relation_get_type"
            glib:type-struct="OSMRelationClass">
+      <source-position filename="lib/maps-osm-relation.h" line="28"/>
       <constructor name="new" c:identifier="maps_osm_relation_new">
+        <source-position filename="lib/maps-osm-relation.h" line="50"/>
         <return-value transfer-ownership="full">
           <type name="OSMRelation" c:type="MapsOSMRelation*"/>
         </return-value>
@@ -616,6 +511,7 @@ of this bounding box.</doc>
         </parameters>
       </constructor>
       <method name="add_member" c:identifier="maps_osm_relation_add_member">
+        <source-position filename="lib/maps-osm-relation.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -644,13 +540,16 @@ of this bounding box.</doc>
     <record name="OSMRelationClass"
             c:type="MapsOSMRelationClass"
             glib:is-gtype-struct-for="OSMRelation">
+      <source-position filename="lib/maps-osm-relation.h" line="28"/>
       <field name="parent_class">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
     <record name="OSMRelationPrivate"
             c:type="MapsOSMRelationPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-osm-relation.h" line="31"/>
     </record>
     <class name="OSMWay"
            c:symbol-prefix="osm_way"
@@ -659,7 +558,9 @@ of this bounding box.</doc>
            glib:type-name="MapsOSMWay"
            glib:get-type="maps_osm_way_get_type"
            glib:type-struct="OSMWayClass">
+      <source-position filename="lib/maps-osm-way.h" line="28"/>
       <constructor name="new" c:identifier="maps_osm_way_new">
+        <source-position filename="lib/maps-osm-way.h" line="43"/>
         <return-value transfer-ownership="full">
           <type name="OSMWay" c:type="MapsOSMWay*"/>
         </return-value>
@@ -676,6 +577,7 @@ of this bounding box.</doc>
         </parameters>
       </constructor>
       <method name="add_node_id" c:identifier="maps_osm_way_add_node_id">
+        <source-position filename="lib/maps-osm-way.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -698,65 +600,329 @@ of this bounding box.</doc>
     <record name="OSMWayClass"
             c:type="MapsOSMWayClass"
             glib:is-gtype-struct-for="OSMWay">
+      <source-position filename="lib/maps-osm-way.h" line="28"/>
       <field name="parent_class">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
-    <record name="OSMWayPrivate" c:type="MapsOSMWayPrivate" disguised="1">
+    <record name="OSMWayPrivate"
+            c:type="MapsOSMWayPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-osm-way.h" line="30"/>
     </record>
-    <record name="_ContactClass" c:type="_MapsContactClass">
-      <field name="parent_class" writable="1">
+    <function-macro name="SYNC_MAP_SOURCE"
+                    c:identifier="MAPS_SYNC_MAP_SOURCE"
+                    introspectable="0">
+      <source-position filename="lib/maps-sync-map-source.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SYNC_MAP_SOURCE_CLASS"
+                    c:identifier="MAPS_SYNC_MAP_SOURCE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-sync-map-source.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SYNC_MAP_SOURCE_GET_CLASS"
+                    c:identifier="MAPS_SYNC_MAP_SOURCE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/maps-sync-map-source.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Shield"
+           c:symbol-prefix="shield"
+           c:type="MapsShield"
+           parent="GObject.Object"
+           glib:type-name="MapsShield"
+           glib:get-type="maps_shield_get_type"
+           glib:type-struct="ShieldClass">
+      <source-position filename="lib/maps-shield.h" line="25"/>
+      <method name="draw" c:identifier="maps_shield_draw">
+        <source-position filename="lib/maps-shield.h" line="29"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/maps-shield.c"
+               line="1635">a [class@Shumate.VectorSprite]</doc>
+          <type name="Shumate.VectorSprite" c:type="ShumateVectorSprite*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-shield.c"
+                 line="1629">a [class@Shield]</doc>
+            <type name="Shield" c:type="MapsShield*"/>
+          </instance-parameter>
+          <parameter name="ref" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-shield.c"
+                 line="1630">the highway reference</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-shield.c"
+                 line="1631">the highway name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-shield.c"
+                 line="1632">the route color</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-shield.c"
+                 line="1633">the scale factor</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ShieldClass"
+            c:type="MapsShieldClass"
+            glib:is-gtype-struct-for="Shield">
+      <source-position filename="lib/maps-shield.h" line="25"/>
+      <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="_ContactStoreClass" c:type="_MapsContactStoreClass">
-      <field name="parent_class" writable="1">
+    <class name="SpriteSource"
+           c:symbol-prefix="sprite_source"
+           c:type="MapsSpriteSource"
+           parent="GObject.Object"
+           glib:type-name="MapsSpriteSource"
+           glib:get-type="maps_sprite_source_get_type"
+           glib:type-struct="SpriteSourceClass">
+      <source-position filename="lib/maps-sprite-source.h" line="27"/>
+      <constructor name="new" c:identifier="maps_sprite_source_new">
+        <source-position filename="lib/maps-sprite-source.h" line="29"/>
+        <return-value transfer-ownership="full">
+          <type name="SpriteSource" c:type="MapsSpriteSource*"/>
+        </return-value>
+        <parameters>
+          <parameter name="color_scheme" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="load_shield_defs"
+              c:identifier="maps_sprite_source_load_shield_defs">
+        <doc xml:space="preserve"
+             filename="lib/maps-sprite-source.c"
+             line="219">Loads shield definitions from a JSON string.</doc>
+        <source-position filename="lib/maps-sprite-source.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-sprite-source.c"
+                 line="221">a [class@SpriteSource]</doc>
+            <type name="SpriteSource" c:type="MapsSpriteSource*"/>
+          </instance-parameter>
+          <parameter name="json" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-sprite-source.c"
+                 line="222">a JSON string</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fallback"
+              c:identifier="maps_sprite_source_set_fallback">
+        <doc xml:space="preserve"
+             filename="lib/maps-sprite-source.c"
+             line="202">Sets the sprite sheet's fallback function.</doc>
+        <source-position filename="lib/maps-sprite-source.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-sprite-source.c"
+                 line="204">a [class@SpriteSource]</doc>
+            <type name="SpriteSource" c:type="MapsSpriteSource*"/>
+          </instance-parameter>
+          <parameter name="sprite_sheet" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/maps-sprite-source.c"
+                 line="205">a [class@Shumate.VectorSpriteSheet]</doc>
+            <type name="Shumate.VectorSpriteSheet"
+                  c:type="ShumateVectorSpriteSheet*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="color-scheme"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="SpriteSourceClass"
+            c:type="MapsSpriteSourceClass"
+            glib:is-gtype-struct-for="SpriteSource">
+      <source-position filename="lib/maps-sprite-source.h" line="27"/>
+      <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
+    </record>
+    <class name="SyncMapSource"
+           c:symbol-prefix="sync_map_source"
+           c:type="MapsSyncMapSource"
+           parent="Shumate.MapSource"
+           abstract="1"
+           glib:type-name="MapsSyncMapSource"
+           glib:get-type="maps_sync_map_source_get_type"
+           glib:type-struct="SyncMapSourceClass">
+      <doc xml:space="preserve"
+           filename="lib/maps-sync-map-source.h"
+           line="49">Wrapper of ShumateMapSource encapsulating fill_tile_async and
+fill_tile_finish into a synchronous file_tile vfunc as work-around for
+https://gitlab.gnome.org/GNOME/gjs/-/issues/72
+
+The #MapsSyncMapSource structure contains only private data
+and should be accessed using the provided API</doc>
+      <source-position filename="lib/maps-sync-map-source.h" line="73"/>
+      <virtual-method name="fill_tile">
+        <source-position filename="lib/maps-sync-map-source.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="SyncMapSource" c:type="MapsSyncMapSource*"/>
+          </instance-parameter>
+          <parameter name="tile" transfer-ownership="none">
+            <type name="Shumate.Tile" c:type="ShumateTile*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <field name="parent_instance">
+        <type name="Shumate.MapSource" c:type="ShumateMapSource"/>
+      </field>
+      <field name="priv">
+        <type name="SyncMapSourcePrivate" c:type="MapsSyncMapSourcePrivate*"/>
+      </field>
+    </class>
+    <record name="SyncMapSourceClass"
+            c:type="MapsSyncMapSourceClass"
+            glib:is-gtype-struct-for="SyncMapSource">
+      <source-position filename="lib/maps-sync-map-source.h" line="73"/>
+      <field name="parent_class">
+        <type name="Shumate.MapSourceClass" c:type="ShumateMapSourceClass"/>
+      </field>
+      <field name="fill_tile">
+        <callback name="fill_tile">
+          <source-position filename="lib/maps-sync-map-source.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="SyncMapSource" c:type="MapsSyncMapSource*"/>
+            </parameter>
+            <parameter name="tile" transfer-ownership="none">
+              <type name="Shumate.Tile" c:type="ShumateTile*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="SyncMapSourcePrivate"
+            c:type="MapsSyncMapSourcePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lib/maps-sync-map-source.h" line="44"/>
     </record>
     <record name="_OSMChangesetClass" c:type="_MapsOSMChangesetClass">
+      <source-position filename="lib/maps-osm-changeset.h" line="40"/>
       <field name="parent_class" writable="1">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <record name="_OSMNodeClass" c:type="_MapsOSMNodeClass">
+      <source-position filename="lib/maps-osm-node.h" line="41"/>
       <field name="parent_class" writable="1">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
     <record name="_OSMRelationClass" c:type="_MapsOSMRelationClass">
+      <source-position filename="lib/maps-osm-relation.h" line="42"/>
       <field name="parent_class" writable="1">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
     <record name="_OSMWayClass" c:type="_MapsOSMWayClass">
+      <source-position filename="lib/maps-osm-way.h" line="41"/>
       <field name="parent_class" writable="1">
         <type name="OSMObjectClass" c:type="MapsOSMObjectClass"/>
       </field>
     </record>
     <function name="osm_finalize" c:identifier="maps_osm_finalize">
+      <source-position filename="lib/maps-osm.h" line="30"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="osm_init" c:identifier="maps_osm_init">
+      <source-position filename="lib/maps-osm.h" line="29"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="osm_parse" c:identifier="maps_osm_parse" throws="1">
+      <source-position filename="lib/maps-osm.h" line="32"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve">A MapsOSMObject</doc>
+        <doc xml:space="preserve"
+             filename="lib/maps-osm.c"
+             line="432">A MapsOSMObject</doc>
         <type name="OSMObject" c:type="MapsOSMObject*"/>
       </return-value>
       <parameters>
         <parameter name="content" transfer-ownership="none">
-          <doc xml:space="preserve">XML data</doc>
+          <doc xml:space="preserve"
+               filename="lib/maps-osm.c"
+               line="429">XML data</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
-          <doc xml:space="preserve">Length of data</doc>
+          <doc xml:space="preserve"
+               filename="lib/maps-osm.c"
+               line="430">Length of data</doc>
           <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="osm_parse_user_details"
+              c:identifier="maps_osm_parse_user_details"
+              throws="1">
+      <source-position filename="lib/maps-osm.h" line="36"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="lib/maps-osm.c"
+             line="478">Logged in user name</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="content" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/maps-osm.c"
+               line="476">XML data</doc>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
     </function>

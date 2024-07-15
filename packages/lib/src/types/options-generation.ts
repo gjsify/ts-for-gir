@@ -31,4 +31,15 @@ export interface OptionsGeneration extends OptionsBase {
     noPrettyPrint: boolean
     /** Disable GLib.Variant class with string parsing */
     noAdvancedVariants: boolean
+    /**
+     * Only use the version prefix for the ambient module exports.
+     * This is useful if, for whatever reason, you want to use different library versions of the same library in your project.
+     *
+     * @example
+     * ```ts
+     * declare module 'gi://Gtk?version=4.0' {...}
+     * declare module 'gi://Gtk?version=3.0' {...}
+     * ```
+     */
+    onlyVersionPrefix: boolean
 }

@@ -57,7 +57,7 @@ export class TemplateProcessor {
             dirname,
         }
         this.environmentTemplateDir = this.getEnvironmentDir(TEMPLATE_DIR)
-        this.log = new Logger(config.verbose, this.packageName)
+        this.log = new Logger(config.verbose, `TemplateProcessor (${this.packageName})`)
     }
 
     /**
@@ -238,7 +238,7 @@ export class TemplateProcessor {
             return renderedTpl
         } catch (error) {
             this.log.error('Error on render', error)
-            return ''
+            throw error
         }
     }
 

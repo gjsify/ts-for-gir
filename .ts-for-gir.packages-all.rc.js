@@ -15,4 +15,5 @@ export default {
     ignoreVersionConflicts: true,
     promisify: true,
     workspace: true,
+    onlyVersionPrefix: false,
 }

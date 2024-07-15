@@ -36,6 +36,7 @@ export class Config {
         promisify: true,
         npmScope: '@girs',
         workspace: false,
+        onlyVersionPrefix: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -150,6 +151,13 @@ export class Config {
             default: Config.defaults.workspace,
             normalize: true,
         },
+        onlyVersionPrefix: {
+            type: 'boolean',
+            description:
+                'Only use the version prefix for the ambient module exports. This is useful if, for whatever reason, you want to use different library versions of the same library in your project.',
+            default: Config.defaults.onlyVersionPrefix,
+            normalize: true,
+        },
     }
 
     /**
@@ -172,6 +180,7 @@ export class Config {
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
         workspace: this.options.workspace,
+        onlyVersionPrefix: this.options.onlyVersionPrefix,
     }
 
     static listOptions = {
@@ -270,17 +279,7 @@ export class Config {
 
     public static getOptionsGeneration(config: UserConfig): OptionsGeneration {
         const generateConfig: OptionsGeneration = {
-            girDirectories: config.girDirectories,
-            root: config.root,
-            outdir: config.outdir,
-            verbose: config.verbose,
-            noNamespace: config.noNamespace,
-            noComments: config.noComments,
-            noDebugComments: config.noDebugComments,
-            fixConflicts: config.fixConflicts,
-            promisify: config.promisify,
-            npmScope: config.npmScope,
-            workspace: config.workspace,
+            ...config,
             noPrettyPrint: false,
             noAdvancedVariants: true,
         }
@@ -301,21 +300,7 @@ export class Config {
         const configFileData = configFile?.config || {}
 
         const config: UserConfig = {
-            verbose: options.verbose,
-            ignoreVersionConflicts: options.ignoreVersionConflicts,
-            print: options.print,
-            root: options.root,
-            outdir: options.outdir,
-            girDirectories: options.girDirectories,
-            ignore: options.ignore,
-            modules: options.modules,
-            noNamespace: options.noNamespace,
-            noComments: options.noComments,
-            noDebugComments: options.noDebugComments,
-            fixConflicts: options.fixConflicts,
-            promisify: options.promisify,
-            npmScope: options.npmScope,
-            workspace: options.workspace,
+            ...options,
         }
 
         if (configFileData) {
@@ -408,6 +393,13 @@ export class Config {
                 typeof configFileData.workspace === 'boolean'
             ) {
                 config.workspace = configFileData.workspace
+            }
+            // onlyVersionPrefix
+            if (
+                config.onlyVersionPrefix === Config.options.onlyVersionPrefix.default &&
+                typeof configFileData.onlyVersionPrefix === 'boolean'
+            ) {
+                config.onlyVersionPrefix = configFileData.onlyVersionPrefix
             }
         }
 

@@ -42,4 +42,8 @@ export interface OptionsGeneration extends OptionsBase {
      * ```
      */
     onlyVersionPrefix: boolean
+    /**
+     * Generate the typescript types with package.json support
+     */
+    package: boolean
 }

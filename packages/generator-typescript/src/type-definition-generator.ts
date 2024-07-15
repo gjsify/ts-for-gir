@@ -1839,7 +1839,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
 
-        await pkg.exportNPMPackage()
+        if (this.config.package) {
+            await pkg.exportNPMPackage()
+        }
     }
 }
 

@@ -43,4 +43,8 @@ export interface UserConfig {
      * ```
      */
     onlyVersionPrefix: boolean
+    /**
+     * Generate the typescript types with package.json support
+     */
+    package: boolean
 }

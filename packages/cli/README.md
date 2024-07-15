@@ -129,9 +129,7 @@ Examples:
                                              modules you need for your project
   ts-for-gir generate Gtk*                  You can also use wild cards
   ts-for-gir generate '*'                   If you want to parse all of your loc
-                                            ally installed gir modules run
-  ts-for-gir generate '*' -e gjs            Generate .d.ts. files only for gjs
-  ts-for-gir generate '*' -e node           Generate .d.ts. files only for node
+                                            ally installed gir modules
   ts-for-gir generate --configName='.ts-fo  Use a special config file
   r-gir.gtk4.rc.js
   ts-for-gir generate --ignore=Gtk-4.0 xra  Generate .d.ts. files but not for Gt

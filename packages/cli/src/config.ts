@@ -37,6 +37,7 @@ export class Config {
         npmScope: '@girs',
         workspace: false,
         onlyVersionPrefix: false,
+        package: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -89,7 +90,7 @@ export class Config {
         },
         ignoreVersionConflicts: {
             type: 'boolean',
-            description: 'Do not ask for package versions if multiple versions are found',
+            description: 'Skip prompts for library version selection when multiple versions are detected',
             default: Config.defaults.ignoreVersionConflicts,
             normalize: true,
         },
@@ -102,7 +103,7 @@ export class Config {
         },
         configName: {
             type: 'string',
-            description: 'Name of the config if you want to use a different name',
+            description: 'Specify a custom name for the configuration file',
             default: Config.defaults.configName,
             normalize: true,
         },
@@ -156,6 +157,12 @@ export class Config {
             description:
                 'Only use the version prefix for the ambient module exports. This is useful if, for whatever reason, you want to use different library versions of the same library in your project.',
             default: Config.defaults.onlyVersionPrefix,
+            normalize: true,
+        },
+        package: {
+            type: 'boolean',
+            description: 'Generate the typescript types with package.json support',
+            default: Config.defaults.package,
             normalize: true,
         },
     }
@@ -400,6 +407,10 @@ export class Config {
                 typeof configFileData.onlyVersionPrefix === 'boolean'
             ) {
                 config.onlyVersionPrefix = configFileData.onlyVersionPrefix
+            }
+            // package
+            if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
+                config.package = configFileData.package
             }
         }
 

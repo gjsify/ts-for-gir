@@ -59,8 +59,6 @@ const examples: ReadonlyArray<[string, string?]> = [
     ],
     [`${Config.appName} generate Gtk*`, 'You can also use wild cards'],
     [`${Config.appName} generate '*'`, 'If you want to parse all of your locally installed gir modules run'],
-    [`${Config.appName} generate '*' -e gjs`, 'Generate .d.ts. files only for gjs'],
-    [`${Config.appName} generate '*' -e node`, 'Generate .d.ts. files only for node'],
     [`${Config.appName} generate --configName='.ts-for-gir.gtk4.rc.js`, 'Use a special config file'],
     [
         `${Config.appName} generate --ignore=Gtk-4.0 xrandr-1.3`,

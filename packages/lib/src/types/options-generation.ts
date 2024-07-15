@@ -25,8 +25,8 @@ export interface OptionsGeneration extends OptionsBase {
      * @see https://docs.npmjs.com/cli/v7/using-npm/scope
      */
     npmScope: string
-    /** Adds Yarn workspace support to the NPM packages */
-    packageYarn: boolean
+    /** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
+    workspace: boolean
     /** Disable pretty printing the output */
     noPrettyPrint: boolean
     /** Disable GLib.Variant class with string parsing */

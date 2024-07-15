@@ -4,7 +4,7 @@ let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
 }
-let depVersion = packageYarn ? 'workspace:^' : APP_VERSION
+let depVersion = workspace ? 'workspace:^' : APP_VERSION
 _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
@@ -70,7 +70,7 @@ _%>
       "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
-      <%_ if (!packageYarn) { _%>
+      <%_ if (!workspace) { _%>
         <%_ // girModule = dep.getModule(girModules, deps[i]) _%>
         <%_ // depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
         <%_ depVersion = '*' _%>

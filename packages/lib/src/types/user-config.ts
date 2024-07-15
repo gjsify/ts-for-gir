@@ -30,6 +30,6 @@ export interface UserConfig {
     promisify: boolean
     /** Scope of the generated NPM packages */
     npmScope: string
-    /** Adds Yarn workspace support to the NPM packages */
-    packageYarn: boolean
+    /** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
+    workspace: boolean
 }

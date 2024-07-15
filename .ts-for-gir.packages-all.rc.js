@@ -14,5 +14,5 @@ export default {
     ],
     ignoreVersionConflicts: true,
     promisify: true,
-    packageYarn: true,
+    workspace: true,
 }

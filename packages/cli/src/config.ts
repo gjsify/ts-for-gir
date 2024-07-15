@@ -35,7 +35,7 @@ export class Config {
         fixConflicts: true,
         promisify: true,
         npmScope: '@girs',
-        packageYarn: false,
+        workspace: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -143,10 +143,11 @@ export class Config {
             default: Config.defaults.npmScope,
             normalize: true,
         },
-        packageYarn: {
+        workspace: {
             type: 'boolean',
-            description: 'Adds Yarn workspace support to the NPM packages',
-            default: Config.defaults.packageYarn,
+            description:
+                'Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM',
+            default: Config.defaults.workspace,
             normalize: true,
         },
     }
@@ -170,7 +171,7 @@ export class Config {
         fixConflicts: this.options.fixConflicts,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
-        packageYarn: this.options.packageYarn,
+        workspace: this.options.workspace,
     }
 
     static listOptions = {
@@ -279,7 +280,7 @@ export class Config {
             fixConflicts: config.fixConflicts,
             promisify: config.promisify,
             npmScope: config.npmScope,
-            packageYarn: config.packageYarn,
+            workspace: config.workspace,
             noPrettyPrint: false,
             noAdvancedVariants: true,
         }
@@ -314,7 +315,7 @@ export class Config {
             fixConflicts: options.fixConflicts,
             promisify: options.promisify,
             npmScope: options.npmScope,
-            packageYarn: options.packageYarn,
+            workspace: options.workspace,
         }
 
         if (configFileData) {
@@ -401,12 +402,12 @@ export class Config {
             if (config.npmScope === Config.options.npmScope.default && configFileData.npmScope) {
                 config.npmScope = configFileData.npmScope
             }
-            // packageYarn
+            // workspace
             if (
-                config.packageYarn === Config.options.packageYarn.default &&
-                typeof configFileData.packageYarn === 'boolean'
+                config.workspace === Config.options.workspace.default &&
+                typeof configFileData.workspace === 'boolean'
             ) {
-                config.packageYarn = configFileData.packageYarn
+                config.workspace = configFileData.workspace
             }
         }
 

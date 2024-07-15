@@ -15,7 +15,7 @@ import { Formatter } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for GJS'
+const description = 'Generates Typescript type definition .d.ts files from GIR for GJS'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {

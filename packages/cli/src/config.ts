@@ -188,6 +188,7 @@ export class Config {
         npmScope: this.options.npmScope,
         workspace: this.options.workspace,
         onlyVersionPrefix: this.options.onlyVersionPrefix,
+        package: this.options.package,
     }
 
     static listOptions = {

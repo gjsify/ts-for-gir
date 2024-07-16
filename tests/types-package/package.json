@@ -3,7 +3,8 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "test": "yarn generate:types && yarn validate:types && yarn build",
+        "clear": "rm -rf @types",
+        "test": "yarn clear && yarn generate:types && yarn validate:types && yarn build",
         "generate:types": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
         "validate:types": "tsc --project tsconfig.json --noEmit",
         "build": "yarn node esbuild.js"

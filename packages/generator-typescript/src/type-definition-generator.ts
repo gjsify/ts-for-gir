@@ -1552,21 +1552,38 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return (await this.generateNamespace(node))?.join('\n') ?? null
     }
 
+    async exportModuleIndexJS(): Promise<void> {
+        const template = 'index.js'
+        const target = `index.js`
+
+        if (this.config.outdir) {
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
+        } else {
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
+            this.log.log(append + prepend)
+        }
+    }
+
+    async exportModuleIndexTS(): Promise<void> {
+        const template = 'index.d.ts'
+        const target = `index.d.ts`
+
+        if (this.config.outdir) {
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
+        } else {
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
+            this.log.log(append + prepend)
+        }
+    }
+
     async exportModuleJS(girModule: GirModule): Promise<void> {
         const template = 'module.js'
         const target = `${girModule.importName}.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1576,16 +1593,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-ambient.d.ts`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1595,16 +1605,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-ambient.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1614,16 +1617,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-import.d.ts`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1633,16 +1629,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-import.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1757,7 +1746,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
             if (moduleTemplateProcessor.exists(explicitTemplate)) {
-                const { append, prepend } = await this.moduleTemplateProcessor.load(explicitTemplate, {}, this.config)
+                const { append, prepend } = await this.moduleTemplateProcessor.load(explicitTemplate)
                 // TODO push prepend and append to the right position
                 out.push(append + prepend)
             }
@@ -1822,12 +1811,15 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             out.push(`export default ${girModule.namespace};`)
         }
 
-        const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+        const { append, prepend } = await this.moduleTemplateProcessor.load(template)
 
         return [prepend, ...out, append]
     }
 
     async exportModule(_registry: NSRegistry, girModule: GirModule) {
+        await this.exportModuleIndexTS()
+        await this.exportModuleIndexJS()
+
         await this.exportModuleTS()
         await this.exportModuleJS(girModule)
 
@@ -1877,6 +1869,9 @@ export class TypeDefinitionGenerator implements Generator {
             config,
         )
 
+        await templateProcessor.create('index.d.ts', config.outdir, 'index.d.ts', undefined, undefined, { name: 'gjs' })
+        await templateProcessor.create('index.js', config.outdir, 'index.js', undefined, undefined, { name: 'gjs' })
+
         await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
         await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')
 
@@ -1890,8 +1885,8 @@ export class TypeDefinitionGenerator implements Generator {
         await templateProcessor.create('cairo.js', config.outdir, 'cairo.js')
 
         // Import ambient types
-        await templateProcessor.create('ambient.d.ts', config.outdir, 'ambient.d.ts')
-        await templateProcessor.create('ambient.js', config.outdir, 'ambient.js')
+        await templateProcessor.create('gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
+        await templateProcessor.create('gjs-ambient.js', config.outdir, 'gjs-ambient.js')
 
         // DOM types
         await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
@@ -1970,12 +1965,9 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
-                {},
-                this.config,
             )
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -1991,16 +1983,9 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
         }
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                outputFilename,
-                undefined,
-                {},
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, outputFilename)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -2012,12 +1997,9 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
-                {},
-                this.config,
             )
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }
@@ -2029,12 +2011,9 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
-                {},
-                this.config,
             )
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template)
             this.log.log(append + prepend)
         }
     }

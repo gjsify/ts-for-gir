@@ -4,9 +4,9 @@
 _%>
 <%_ let moduleImportStr = ""; _%>
 <%_ if(noNamespace){ _%>
-    <%_ moduleImportStr = `import * as ${girModule.namespace} from '${girModule.importPath}'`; _%>
+    <%_ moduleImportStr = `import * as ${girModule.namespace} from './${importName}.d.ts'`; _%>
 <%_ } else { _%>
-    <%_ moduleImportStr = `import ${girModule.namespace} from '${girModule.importPath}'`; _%>
+    <%_ moduleImportStr = `import ${girModule.namespace} from './${importName}.d.ts'`; _%>
 <%_ } _%>
 
 declare module 'gi://<%= name %>?version=<%= version %>' {

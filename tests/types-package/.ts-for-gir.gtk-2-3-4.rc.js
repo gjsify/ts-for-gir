@@ -5,4 +5,5 @@ export default {
     ],
     ignoreVersionConflicts: true,
     onlyVersionPrefix: true,
+    package: false
 }

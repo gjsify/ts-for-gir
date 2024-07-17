@@ -1697,7 +1697,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     async generateNamespace(girModule: GirModule): Promise<string[] | null> {
         const moduleTemplateProcessor = this.moduleTemplateProcessor
-        const template = this.config.noNamespace ? 'module-noNamespace.d.ts' : 'module.d.ts'
+        const template = 'module.d.ts'
         const explicitTemplate = `${girModule.importName}.d.ts`
 
         const out: string[] = []

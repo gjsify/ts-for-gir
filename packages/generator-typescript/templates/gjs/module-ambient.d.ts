@@ -4,14 +4,14 @@
 _%>
 
 declare module 'gi://<%= name %>?version=<%= version %>' {
-    const <%= girModule.importNamespace %>: typeof import('./<%= importName %>.js').default
+    import <%= girModule.importNamespace %> from '<%= girModule.importPath -%>';
     export default <%- girModule.importNamespace -%>;
 }
 
 <%# // Generate ambient module declarations without version number only if onlyVersionPrefix is false _%>
 <%_ if (!onlyVersionPrefix) { _%>
 declare module 'gi://<%= name %>' {
-    const <%= girModule.importNamespace %>: typeof import('./<%= importName %>.js').default
+    import <%= girModule.importNamespace %> from 'gi://<%= name %>?version=<%= version %>';
     export default <%- girModule.importNamespace -%>;
 }
 <%_ } _%>

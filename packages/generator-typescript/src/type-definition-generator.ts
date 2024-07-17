@@ -1829,9 +1829,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         await this.exportModuleImportTS(girModule)
         await this.exportModuleImportJS(girModule)
 
-        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
-
         if (this.config.package) {
+            const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
             await pkg.exportNPMPackage()
         }
     }
@@ -1892,10 +1891,11 @@ export class TypeDefinitionGenerator implements Generator {
         await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
         await templateProcessor.create('dom.js', config.outdir, 'dom.js')
 
-        const pkg = new NpmPackage(config, dependencyManager, gjs, await dependencyManager.core())
-
         // Package
-        await pkg.exportNPMPackage()
+        if (this.config.package) {
+            const pkg = new NpmPackage(config, dependencyManager, gjs, await dependencyManager.core())
+            await pkg.exportNPMPackage()
+        }
     }
 
     public async generate(registry: NSRegistry, module: GirModule) {

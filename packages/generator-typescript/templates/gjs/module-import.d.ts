@@ -5,7 +5,7 @@ _%>
 <%_ return `// Module import type definition not generated, otherwise this would cause a type conflict, this is because several GIR modules were generated with the same namespace: "${ girModule.namespace }"` _%>
 <%_ } _%>
 
-import <%= name %> from './<%= importName %>.d.ts';
+import <%= name %> from './<%= importName %>.js';
 
 declare global {
     export interface GjsGiImports {

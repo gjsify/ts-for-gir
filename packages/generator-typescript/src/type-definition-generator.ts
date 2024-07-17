@@ -66,6 +66,7 @@ import {
     NativeType,
     isInvalid,
     filterConflicts,
+    promisifyFunctions,
 } from '@ts-for-gir/lib'
 
 function printGirDocComment(tsDoc: TsDoc, config: OptionsGeneration) {
@@ -1082,15 +1083,18 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateFunctions(
-                filterFunctionConflict(
-                    girClass.parent,
-                    girClass,
-                    [...girClass.members].filter(
-                        (member) =>
-                            !(member instanceof IntrospectedStaticClassFunction) &&
-                            !(member instanceof IntrospectedVirtualClassFunction),
+                promisifyIfEnabled(
+                    this.options,
+                    filterFunctionConflict(
+                        girClass.parent,
+                        girClass,
+                        [...girClass.members].filter(
+                            (member) =>
+                                !(member instanceof IntrospectedStaticClassFunction) &&
+                                !(member instanceof IntrospectedVirtualClassFunction),
+                        ),
+                        [],
                     ),
-                    [],
                 ),
                 indentCount,
                 `Own methods of ${girClass.namespace.namespace}.${girClass.name}`,
@@ -1526,11 +1530,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                     if (generatedImplementedProperties.length > 0)
                         def.push('\n// Inherited properties', ...generatedImplementedProperties)
 
-                    const filteredImplMethods = filterFunctionConflict(
-                        girClass.namespace,
-                        girClass,
-                        implementedMethods,
-                        [],
+                    const filteredImplMethods = promisifyIfEnabled(
+                        this.options,
+                        filterFunctionConflict(girClass.namespace, girClass, implementedMethods, []),
                     )
                     const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this))
 
@@ -1741,7 +1743,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             // Newline
             out.push('')
 
-            promisifyNamespaceFunctions(girModule)
+            if (this.options.promisify) {
+                promisifyNamespaceFunctions(girModule)
+            }
 
             if (girModule.members)
                 for (const m of girModule.members.values()) {
@@ -2036,4 +2040,12 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
             this.log.log(append + prepend)
         }
     }
+}
+
+function promisifyIfEnabled(options: OptionsGeneration, functions: IntrospectedClassFunction[]) {
+    if (options.promisify) {
+        return promisifyFunctions(functions)
+    }
+
+    return functions
 }

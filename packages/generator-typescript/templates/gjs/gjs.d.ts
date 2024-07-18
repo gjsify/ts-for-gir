@@ -9,9 +9,16 @@
 <%_ const GLib = dep.getSync('GLib', '2.0') _%>
 <%- GObject ? GObject.importDef : '' %>
 <%- GLib ? GLib.importDef : '' %>
+
+<%_ if(package){ _%>
 import gettext from './gettext.js';
 import system from './system.js';
 import cairo from './cairo.js';
+<%_ } else { _%>
+import gettext from 'gettext';
+import system from 'system';
+import cairo from 'cairo';
+<%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
 declare namespace package {

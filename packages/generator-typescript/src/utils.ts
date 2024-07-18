@@ -18,8 +18,11 @@ export const wrapIntoAmbientModule = (
     version: string | null,
     content: string[],
     target: string[] = [],
+    options: { protocol?: string } = {},
 ): string[] => {
-    target.push(`declare module 'gi://${namespace}${version ? `?version=${version}` : ''}' {`)
+    target.push(
+        `declare module '${options.protocol ? `${options.protocol}://` : ''}${namespace}${version ? `?version=${version}` : ''}' {`,
+    )
     mergeLargeStringArrays(target, content)
     target.push('}')
     return target

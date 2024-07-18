@@ -8,7 +8,7 @@
  * See also https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts
  */
 
-<%_ const GLib = dep.find('GLib') _%>
+<%_ const GLib = dep.find('GLib') -%>
 <%- GLib ? GLib.importDef : '' %>
 
 declare global {

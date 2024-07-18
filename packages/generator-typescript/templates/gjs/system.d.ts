@@ -156,7 +156,7 @@ export function exit(code: number): void
  * Note that the majority of the functions and properties in this module should not
  * be used in normal operation of a GJS application.
  */
-declare const System: {
+<%- package ? 'declare' : '' %> const System: {
     programInvocationName: typeof programInvocationName,
     version: typeof version,
     programPath: typeof programPath,

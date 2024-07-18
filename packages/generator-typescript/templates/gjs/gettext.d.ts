@@ -23,7 +23,7 @@ export function domain(domainName: string): {
     pgettext: (context: string, msgid: string) => string
 }
 
-declare const Gettext: {
+<%- package ? 'declare' : '' %> const Gettext: {
     LocaleCategory: typeof LocaleCategory,
     setlocale: typeof setlocale,
     textdomain: typeof textdomain,

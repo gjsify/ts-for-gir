@@ -1,8 +1,11 @@
-import './@types/gjs/gjs'
-import './@types/gjs/dom'
-import './@types/gtk-2.0/gtk-2.0'
-import './@types/gtk-3.0/gtk-3.0'
-import './@types/gtk-4.0/gtk-4.0'
+import './@types/gjs/gjs.d.ts'
+import './@types/gjs/dom.d.ts'
+import './@types/gjs/cairo.d.ts'
+import './@types/gjs/gettext.d.ts'
+import './@types/gjs/system.d.ts'
+import './@types/gtk-2.0/gtk-2.0.d.ts'
+import './@types/gtk-3.0/gtk-3.0.d.ts'
+import './@types/gtk-4.0/gtk-4.0.d.ts'
 
 import gtk2 from 'gi://Gtk?version=2.0'
 console.log(gtk2.__name__, gtk2.__version__)

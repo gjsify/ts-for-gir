@@ -1651,7 +1651,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         // Ambient module with version
-        const output = wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent)
+        const output = wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent, undefined, {
+            protocol: 'gi',
+        })
 
         // Ambient module without version
         if (!this.config.onlyVersionPrefix) {
@@ -1659,7 +1661,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
                 `export default ${girModule.importNamespace};`,
             ]
-            wrapIntoAmbientModule(girModule.namespace, null, reexport, output)
+            wrapIntoAmbientModule(girModule.namespace, null, reexport, output, { protocol: 'gi' })
         }
 
         const target = `${girModule.importName}.d.ts`
@@ -1936,6 +1938,10 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
             await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')
 
+            // Additional DOM types supported by GJS
+            await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
+            await templateProcessor.create('dom.js', config.outdir, 'dom.js')
+
             await templateProcessor.create('gettext.d.ts', config.outdir, 'gettext.d.ts')
             await templateProcessor.create('gettext.js', config.outdir, 'gettext.js')
 
@@ -1944,10 +1950,6 @@ export class TypeDefinitionGenerator implements Generator {
 
             await templateProcessor.create('cairo.d.ts', config.outdir, 'cairo.d.ts')
             await templateProcessor.create('cairo.js', config.outdir, 'cairo.js')
-
-            // DOM types
-            await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
-            await templateProcessor.create('dom.js', config.outdir, 'dom.js')
 
             // Import ambient types
             await templateProcessor.create('gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
@@ -1980,7 +1982,7 @@ export class TypeDefinitionGenerator implements Generator {
             ])
             await templateProcessor.write(cairoContentAmbient.join('\n'), config.outdir, 'cairo.d.ts')
 
-            // DOM types
+            // Additional DOM types supported by GJS
             const domContent = await templateProcessor.load('dom.d.ts')
             await templateProcessor.write(domContent.prepend + '\n' + domContent.append, config.outdir, 'dom.d.ts')
         }

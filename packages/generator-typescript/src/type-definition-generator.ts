@@ -67,6 +67,7 @@ import {
     isInvalid,
     filterConflicts,
 } from '@ts-for-gir/lib'
+import { mergeLargeStringArrays } from './utils.js'
 
 function printGirDocComment(tsDoc: TsDoc, config: OptionsGeneration) {
     const desc: string[] = []
@@ -1636,14 +1637,24 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
+    protected wrapIntoAmbientModule(
+        namespace: string,
+        version: string | null,
+        content: string[],
+        target: string[] = [],
+    ): string[] {
+        target.push(`declare module 'gi://${namespace}${version ? `?version=${version}` : ''}' {`)
+        mergeLargeStringArrays(target, content)
+        target.push('}')
+        return target
+    }
+
     /**
      * Used to only generate ambient types for a module.
      * Used if package.json support is disabled
      */
     protected async exportModuleAmbientOnly(): Promise<void> {
         const { namespace: girModule } = this
-        // Ambient module with version
-        const output: string[] = [`declare module 'gi://${girModule.namespace}?version=${girModule.version}' {`]
         const namespaceContent = await this.generateNamespace(girModule)
 
         if (!namespaceContent) {
@@ -1651,23 +1662,13 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             return
         }
 
-        // Process namespace content in chunks
-        // TODO: Create a class for this and also use it for the other module exports, we can also use a stream or buffer for that
-        const chunkSize = 1000 // Adjust the chunk size as needed
-        for (let i = 0; i < namespaceContent.length; i += chunkSize) {
-            output.push(...namespaceContent.slice(i, i + chunkSize))
-        }
-
-        output.push('}')
+        // Ambient module with version
+        const output = this.wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent)
 
         // Ambient module without version
         if (!this.config.onlyVersionPrefix) {
-            output.push(`declare module 'gi://${girModule.namespace}' {`)
-            output.push(
-                `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
-            )
-            output.push(`export default ${girModule.importNamespace};`)
-            output.push('}')
+            const namespaceReimport = `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`
+            this.wrapIntoAmbientModule(girModule.namespace, null, [namespaceReimport], output)
         }
 
         const target = `${girModule.importName}.d.ts`

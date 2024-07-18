@@ -104,8 +104,8 @@ export class DependencyManager extends GirNSRegistry {
         return [await this.get('GObject', '2.0'), await this.get('GLib', '2.0'), await this.get('Gio', '2.0')]
     }
 
-    createImportProperties(namespace: string, packageName: string) {
-        const importPath = this.createImportPath(packageName)
+    createImportProperties(namespace: string, packageName: string, version: string) {
+        const importPath = this.createImportPath(packageName, namespace, version)
         const importDef = this.createImportDef(namespace, importPath)
         return {
             importPath,
@@ -113,7 +113,10 @@ export class DependencyManager extends GirNSRegistry {
         }
     }
 
-    createImportPath(packageName: string): string {
+    createImportPath(packageName: string, namespace: string, version: string): string {
+        if (!this.config.package) {
+            return `gi://${namespace}?version=${version}`
+        }
         const importName = this.transformation.transformImportName(packageName)
         const importPath = `${this.config.npmScope}/${importName}`
         return importPath
@@ -294,7 +297,7 @@ export class DependencyManager extends GirNSRegistry {
             version,
             libraryVersion,
             girXML,
-            ...this.createImportProperties(namespace, packageName),
+            ...this.createImportProperties(namespace, packageName, version),
         }
 
         this._cache[packageName] = dependency
@@ -356,7 +359,7 @@ export class DependencyManager extends GirNSRegistry {
             version,
             libraryVersion,
             girXML,
-            ...this.createImportProperties(namespace, packageName),
+            ...this.createImportProperties(namespace, packageName, version),
         }
 
         this._cache[packageName] = dependency
@@ -488,6 +491,7 @@ export class DependencyManager extends GirNSRegistry {
         }
 
         const namespace = pascalCase(packageName)
+        const version = '2.0'
 
         const dep: Dependency = {
             namespace,
@@ -497,10 +501,10 @@ export class DependencyManager extends GirNSRegistry {
             packageName: packageName,
             importName: this.transformation.transformImportName(packageName),
             importNamespace: this.transformation.transformModuleNamespaceName(packageName),
-            version: '0.0',
+            version,
             libraryVersion: new LibraryVersion(),
             girXML: null,
-            ...this.createImportProperties(packageName, packageName),
+            ...this.createImportProperties(packageName, packageName, version),
         }
 
         return dep

@@ -1636,12 +1636,73 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
+    /**
+     * Used to only generate ambient types for a module.
+     * Used if package.json support is disabled
+     */
+    protected async exportModuleAmbientOnly(): Promise<void> {
+        const { namespace: girModule } = this
+        // Ambient module with version
+        const output: string[] = [`declare module 'gi://${girModule.namespace}?version=${girModule.version}' {`]
+        const namespaceContent = await this.generateNamespace(girModule)
+
+        if (!namespaceContent) {
+            this.log.error('Failed to generate namespace')
+            return
+        }
+
+        // Process namespace content in chunks
+        // TODO: Create a class for this and also use it for the other module exports, we can also use a stream or buffer for that
+        const chunkSize = 1000 // Adjust the chunk size as needed
+        for (let i = 0; i < namespaceContent.length; i += chunkSize) {
+            output.push(...namespaceContent.slice(i, i + chunkSize))
+        }
+
+        output.push('}')
+
+        // Ambient module without version
+        if (!this.config.onlyVersionPrefix) {
+            output.push(`declare module 'gi://${girModule.namespace}' {`)
+            output.push(
+                `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
+            )
+            output.push(`export default ${girModule.importNamespace};`)
+            output.push('}')
+        }
+
+        const target = `${girModule.importName}.d.ts`
+
+        const formatter = this.dependencyManager.getFormatter('dts')
+
+        let contents!: string
+        try {
+            contents = this.config.noPrettyPrint ? output.join('\n') : await formatter.format(output.join('\n'))
+        } catch (error) {
+            this.log.error('Failed to format output...', error)
+            contents = output.join('\n')
+        }
+
+        if (this.config.outdir) {
+            const outputPath = this.moduleTemplateProcessor.getOutputPath(this.config.outdir, target)
+
+            if (this.config.verbose) {
+                this.log.debug(`Outputting ${target} to ${outputPath}`)
+            }
+
+            // write template result file
+            await mkdir(dirname(outputPath), { recursive: true })
+            await writeFile(outputPath, contents, { encoding: 'utf8', flag: 'w' })
+        } else {
+            this.log.log(contents)
+        }
+    }
+
     async exportModuleTS(): Promise<void> {
         const { namespace: girModule } = this
         const output = await this.generateNamespace(girModule)
 
         if (!output) {
-            this.log.error('Failed to generate')
+            this.log.error('Failed to generate namespace')
             return
         }
 
@@ -1695,7 +1756,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
-    async generateNamespace(girModule: GirModule): Promise<string[] | null> {
+    async generateNamespace(girModule: GirModule): Promise<string[]> {
         const moduleTemplateProcessor = this.moduleTemplateProcessor
         const template = 'module.d.ts'
         const explicitTemplate = `${girModule.importName}.d.ts`
@@ -1817,21 +1878,23 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     async exportModule(_registry: NSRegistry, girModule: GirModule) {
-        await this.exportModuleIndexTS()
-        await this.exportModuleIndexJS()
-
-        await this.exportModuleTS()
-        await this.exportModuleJS(girModule)
-
-        await this.exportModuleAmbientTS(girModule)
-        await this.exportModuleAmbientJS(girModule)
-
-        await this.exportModuleImportTS(girModule)
-        await this.exportModuleImportJS(girModule)
-
         if (this.config.package) {
+            await this.exportModuleIndexTS()
+            await this.exportModuleIndexJS()
+
+            await this.exportModuleTS()
+            await this.exportModuleJS(girModule)
+
+            await this.exportModuleAmbientTS(girModule)
+            await this.exportModuleAmbientJS(girModule)
+
+            await this.exportModuleImportTS(girModule)
+            await this.exportModuleImportJS(girModule)
+
             const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
             await pkg.exportNPMPackage()
+        } else {
+            await this.exportModuleAmbientOnly()
         }
     }
 }
@@ -1868,8 +1931,12 @@ export class TypeDefinitionGenerator implements Generator {
             config,
         )
 
-        await templateProcessor.create('index.d.ts', config.outdir, 'index.d.ts', undefined, undefined, { name: 'gjs' })
-        await templateProcessor.create('index.js', config.outdir, 'index.js', undefined, undefined, { name: 'gjs' })
+        await templateProcessor.create('index.d.ts', config.outdir, 'index.d.ts', undefined, undefined, {
+            name: gjs.importName,
+        })
+        await templateProcessor.create('index.js', config.outdir, 'index.js', undefined, undefined, {
+            name: gjs.importName,
+        })
 
         await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
         await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')

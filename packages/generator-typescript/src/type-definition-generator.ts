@@ -1667,8 +1667,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         // Ambient module without version
         if (!this.config.onlyVersionPrefix) {
-            const namespaceReimport = `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`
-            this.wrapIntoAmbientModule(girModule.namespace, null, [namespaceReimport], output)
+            const reexport = [
+                `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
+                `export default ${girModule.importNamespace};`,
+            ]
+            this.wrapIntoAmbientModule(girModule.namespace, null, reexport, output)
         }
 
         const target = `${girModule.importName}.d.ts`

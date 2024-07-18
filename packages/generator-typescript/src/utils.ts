@@ -12,3 +12,15 @@ export const mergeLargeStringArrays = (target: string[], source: string[], chunk
     }
     return target
 }
+
+export const wrapIntoAmbientModule = (
+    namespace: string,
+    version: string | null,
+    content: string[],
+    target: string[] = [],
+): string[] => {
+    target.push(`declare module 'gi://${namespace}${version ? `?version=${version}` : ''}' {`)
+    mergeLargeStringArrays(target, content)
+    target.push('}')
+    return target
+}

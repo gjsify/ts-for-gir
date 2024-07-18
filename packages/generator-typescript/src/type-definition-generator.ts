@@ -67,7 +67,7 @@ import {
     isInvalid,
     filterConflicts,
 } from '@ts-for-gir/lib'
-import { mergeLargeStringArrays } from './utils.js'
+import { wrapIntoAmbientModule } from './utils.js'
 
 function printGirDocComment(tsDoc: TsDoc, config: OptionsGeneration) {
     const desc: string[] = []
@@ -1637,18 +1637,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    protected wrapIntoAmbientModule(
-        namespace: string,
-        version: string | null,
-        content: string[],
-        target: string[] = [],
-    ): string[] {
-        target.push(`declare module 'gi://${namespace}${version ? `?version=${version}` : ''}' {`)
-        mergeLargeStringArrays(target, content)
-        target.push('}')
-        return target
-    }
-
     /**
      * Used to only generate ambient types for a module.
      * Used if package.json support is disabled
@@ -1663,7 +1651,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         // Ambient module with version
-        const output = this.wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent)
+        const output = wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent)
 
         // Ambient module without version
         if (!this.config.onlyVersionPrefix) {
@@ -1671,7 +1659,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
                 `export default ${girModule.importNamespace};`,
             ]
-            this.wrapIntoAmbientModule(girModule.namespace, null, reexport, output)
+            wrapIntoAmbientModule(girModule.namespace, null, reexport, output)
         }
 
         const target = `${girModule.importName}.d.ts`
@@ -1922,6 +1910,7 @@ export class TypeDefinitionGenerator implements Generator {
     async exportGjs() {
         const { config, dependencyManager } = this
 
+        // TODO: Print to stdout
         if (!config.outdir) return
 
         const gjs = dependencyManager.getGjs()
@@ -1935,37 +1924,65 @@ export class TypeDefinitionGenerator implements Generator {
             config,
         )
 
-        await templateProcessor.create('index.d.ts', config.outdir, 'index.d.ts', undefined, undefined, {
-            name: gjs.importName,
-        })
-        await templateProcessor.create('index.js', config.outdir, 'index.js', undefined, undefined, {
-            name: gjs.importName,
-        })
-
-        await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
-        await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')
-
-        await templateProcessor.create('gettext.d.ts', config.outdir, 'gettext.d.ts')
-        await templateProcessor.create('gettext.js', config.outdir, 'gettext.js')
-
-        await templateProcessor.create('system.d.ts', config.outdir, 'system.d.ts')
-        await templateProcessor.create('system.js', config.outdir, 'system.js')
-
-        await templateProcessor.create('cairo.d.ts', config.outdir, 'cairo.d.ts')
-        await templateProcessor.create('cairo.js', config.outdir, 'cairo.js')
-
-        // Import ambient types
-        await templateProcessor.create('gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
-        await templateProcessor.create('gjs-ambient.js', config.outdir, 'gjs-ambient.js')
-
-        // DOM types
-        await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
-        await templateProcessor.create('dom.js', config.outdir, 'dom.js')
-
         // Package
         if (this.config.package) {
+            await templateProcessor.create('index.d.ts', config.outdir, 'index.d.ts', undefined, undefined, {
+                name: gjs.importName,
+            })
+            await templateProcessor.create('index.js', config.outdir, 'index.js', undefined, undefined, {
+                name: gjs.importName,
+            })
+
+            await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
+            await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')
+
+            await templateProcessor.create('gettext.d.ts', config.outdir, 'gettext.d.ts')
+            await templateProcessor.create('gettext.js', config.outdir, 'gettext.js')
+
+            await templateProcessor.create('system.d.ts', config.outdir, 'system.d.ts')
+            await templateProcessor.create('system.js', config.outdir, 'system.js')
+
+            await templateProcessor.create('cairo.d.ts', config.outdir, 'cairo.d.ts')
+            await templateProcessor.create('cairo.js', config.outdir, 'cairo.js')
+
+            // DOM types
+            await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
+            await templateProcessor.create('dom.js', config.outdir, 'dom.js')
+
+            // Import ambient types
+            await templateProcessor.create('gjs-ambient.d.ts', config.outdir, 'gjs-ambient.d.ts')
+            await templateProcessor.create('gjs-ambient.js', config.outdir, 'gjs-ambient.js')
+
             const pkg = new NpmPackage(config, dependencyManager, gjs, await dependencyManager.core())
             await pkg.exportNPMPackage()
+        } else {
+            const gjsContent = await templateProcessor.load('gjs.d.ts')
+            await templateProcessor.write(gjsContent.prepend + '\n' + gjsContent.append, config.outdir, 'gjs.d.ts')
+
+            const gettextContent = await templateProcessor.load('gettext.d.ts')
+            const gettextContentAmbient = wrapIntoAmbientModule('gettext', null, [
+                gettextContent.prepend,
+                gettextContent.append,
+            ])
+            await templateProcessor.write(gettextContentAmbient.join('\n'), config.outdir, 'gettext.d.ts')
+
+            const systemContent = await templateProcessor.load('system.d.ts')
+            const systemContentAmbient = wrapIntoAmbientModule('system', null, [
+                systemContent.prepend,
+                systemContent.append,
+            ])
+            await templateProcessor.write(systemContentAmbient.join('\n'), config.outdir, 'system.d.ts')
+
+            const cairoContent = await templateProcessor.load('cairo.d.ts')
+            const cairoContentAmbient = wrapIntoAmbientModule('cairo', null, [
+                cairoContent.prepend,
+                cairoContent.append,
+            ])
+            await templateProcessor.write(cairoContentAmbient.join('\n'), config.outdir, 'cairo.d.ts')
+
+            // DOM types
+            const domContent = await templateProcessor.load('dom.d.ts')
+            await templateProcessor.write(domContent.prepend + '\n' + domContent.append, config.outdir, 'dom.d.ts')
         }
     }
 

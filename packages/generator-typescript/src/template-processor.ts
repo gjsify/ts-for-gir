@@ -199,8 +199,9 @@ export class TemplateProcessor {
      * @param outputFilename The filename of the output file
      * @returns
      */
-    protected async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
+    public async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
         const outputPath = this.getOutputPath(baseOutputPath, outputFilename)
+        console.debug('Writing to', outputPath)
 
         // write template result file
         await mkdir(dirname(outputPath), { recursive: true })

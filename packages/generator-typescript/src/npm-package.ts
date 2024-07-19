@@ -34,6 +34,7 @@ export class NpmPackage<Wrapped extends Dependency | GirModule> {
             dependencyOrModule.packageName,
             deps,
             this.config,
+            this.dependencyManager,
         )
     }
 

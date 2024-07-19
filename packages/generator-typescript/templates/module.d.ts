@@ -39,3 +39,7 @@
         <%_ } -%>
     <%_ } -%>
 <%_ }) -%>
+
+<%_ if(!noNamespace){ -%>
+    export namespace <%- girModule.namespace %> {
+<% } -%>

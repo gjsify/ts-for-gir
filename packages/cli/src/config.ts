@@ -36,7 +36,10 @@ export class Config {
         workspace: false,
         onlyVersionPrefix: false,
         noPrettyPrint: false,
-        noAdvancedVariants: false,
+        // Disabled by default because advanced variants are complicated,
+        // it does impact performance (especially on older typescript versions)
+        // and we'd need to test it works with the updated bindings
+        noAdvancedVariants: true,
         package: false,
     }
 

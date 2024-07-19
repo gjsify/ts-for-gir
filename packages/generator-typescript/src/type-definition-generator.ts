@@ -37,6 +37,7 @@ export class TypeDefinitionGenerator implements Generator {
             gjs.packageName,
             await dependencyManager.core(),
             config,
+            dependencyManager,
         )
 
         // Package
@@ -119,6 +120,7 @@ export class TypeDefinitionGenerator implements Generator {
             'index',
             dependencyManager.all(),
             config,
+            dependencyManager,
         )
 
         await templateProcessor.create('gi.d.ts', config.outdir, 'gi.d.ts')

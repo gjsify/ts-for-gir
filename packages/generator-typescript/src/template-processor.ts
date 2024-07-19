@@ -18,6 +18,7 @@ import {
     DependencyManager,
     Transformation,
     fileExists,
+    GirNSRegistry,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
@@ -32,6 +33,7 @@ export class TemplateProcessor {
         protected readonly packageName: string,
         protected readonly deps: Dependency[],
         protected readonly config: OptionsGeneration,
+        protected readonly registry: GirNSRegistry,
     ) {
         this.transformation = Transformation.getSingleton(config)
         const dep = DependencyManager.getInstance(config)
@@ -180,7 +182,7 @@ export class TemplateProcessor {
     }
 
     /**
-     * Writes the `content` to the filesystem
+     * Writes (and optionally formats) the `content` to the filesystem
      * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
@@ -188,6 +190,22 @@ export class TemplateProcessor {
      */
     public async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
         const outputPath = this.getOutputPath(baseOutputPath, outputFilename)
+
+        if (!this.config.noPrettyPrint) {
+            try {
+                if (outputFilename.endsWith('.d.ts')) {
+                    this.log.info('Formatting', outputPath)
+                    content = await this.registry.getFormatter('dts').format(content)
+                }
+                if (outputFilename.endsWith('.json')) {
+                    this.log.info('Formatting', outputPath)
+                    content = await this.registry.getFormatter('json').format(content)
+                }
+            } catch (error) {
+                this.log.error('Failed to format output...', error)
+            }
+        }
+
         this.log.info('Writing to', outputPath)
 
         // write template result file

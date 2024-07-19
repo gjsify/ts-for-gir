@@ -56,8 +56,6 @@ import {
     filterConflicts,
     printGirDocComment,
 } from '@ts-for-gir/lib'
-import { writeFile, mkdir } from 'fs/promises'
-import { dirname } from 'path'
 
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
@@ -100,6 +98,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             girModule.packageName,
             girModule.transitiveDependencies,
             this.config,
+            this.dependencyManager,
         )
     }
 
@@ -1586,145 +1585,136 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     async exportModuleTS(): Promise<void> {
         const { namespace: girModule } = this
-        const output = await this.generateNamespace(girModule)
-        const target = `${girModule.importName}.d.ts`
+        const template = 'module.d.ts'
+        const explicitTemplate = `${girModule.importName}.d.ts`
+        const target = explicitTemplate
+        const output = await this.generateModule(girModule)
 
         if (!output) {
-            this.log.error('Failed to generate namespace')
+            this.log.error('Failed to generate gir module')
             return
         }
 
-        const formatter = this.dependencyManager.getFormatter('dts')
-
-        let contents!: string
-        try {
-            contents = this.config.noPrettyPrint ? output.join('\n') : await formatter.format(output.join('\n'))
-        } catch (error) {
-            this.log.error('Failed to format output...', error)
-            contents = output.join('\n')
+        // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
+        // E.g. used for GObject-2.0 to help define GObject classes in js;
+        // these aren't part of gi.
+        if (await this.moduleTemplateProcessor.exists(explicitTemplate)) {
+            const { append: appendExplicit, prepend: prependExplicit } =
+                await this.moduleTemplateProcessor.load(explicitTemplate)
+            output.unshift(prependExplicit)
+            output.push(appendExplicit)
         }
 
+        const { append, prepend } = await this.moduleTemplateProcessor.load(template)
+        output.unshift(prepend)
+        output.push(append)
+
         if (this.config.outdir) {
-            const outputPath = this.moduleTemplateProcessor.getOutputPath(this.config.outdir, target)
-
-            if (this.config.verbose) {
-                this.log.debug(`Outputting ${target} to ${outputPath}`)
-            }
-
-            // write template result file
-            await mkdir(dirname(outputPath), { recursive: true })
-            await writeFile(outputPath, contents, { encoding: 'utf8', flag: 'w' })
+            await this.moduleTemplateProcessor.write(output.join('\n'), this.config.outdir, target)
         } else {
-            this.log.log(contents)
+            this.log.log(output.join('\n'))
         }
     }
 
     // TODO: @ewlsh Port `noAdvancedVariants` option from `DtsModuleGenerator` to `ModuleGenerator`?
-    async generateNamespace(girModule: GirModule): Promise<string[]> {
-        const moduleTemplateProcessor = this.moduleTemplateProcessor
-        const template = 'module.d.ts'
-        const explicitTemplate = `${girModule.importName}.d.ts`
-
+    async generateModule(girModule: GirModule): Promise<string[]> {
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
 
-        // START Namespace
-        {
-            if (!this.config.noNamespace) {
-                out.push('')
-                out.push(`export namespace ${girModule.namespace} {`)
+        promisifyNamespaceFunctions(girModule)
+
+        if (girModule.members) {
+            for (const m of girModule.members.values()) {
+                out.push(
+                    ...(Array.isArray(m) ? m : [m])
+                        .flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
+                        .filter((m) => m.emit)
+                        .flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? ''),
+                )
             }
-
-            // Newline
-            out.push('')
-
-            promisifyNamespaceFunctions(girModule)
-
-            if (girModule.members)
-                for (const m of girModule.members.values()) {
-                    out.push(
-                        ...(Array.isArray(m) ? m : [m])
-                            .flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
-                            .filter((m) => m.emit)
-                            .flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? ''),
-                    )
-                }
-
-            // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
-            // E.g. used for GObject-2.0 to help define GObject classes in js;
-            // these aren't part of gi.
-            if (await moduleTemplateProcessor.exists(explicitTemplate)) {
-                const { append, prepend } = await this.moduleTemplateProcessor.load(explicitTemplate)
-                // TODO push prepend and append to the right position
-                out.push(append + prepend)
-            }
-
-            // Properties added to every GIRepositoryNamespace
-            // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
-            out.push(
-                ...this.generateConst(
-                    new IntrospectedConstant({
-                        // TODO:
-                        doc: printGirDocComment(
-                            {
-                                text: 'Name of the imported GIR library',
-                                tags: [
-                                    {
-                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188',
-                                        tagName: 'see',
-                                        paramName: '',
-                                    },
-                                ],
-                            },
-                            this.config,
-                        ),
-                        namespace: this.namespace,
-                        value: null,
-                        name: '__name__',
-                        type: new NativeType('string'),
-                        // isInjected: false,
-                        // tsTypeName: 'constant',
-                        // girTypeName: 'constant',
-                    }),
-                    0,
-                ),
-                ...this.generateConst(
-                    new IntrospectedConstant({
-                        doc: printGirDocComment(
-                            {
-                                text: 'Version of the imported GIR library',
-                                tags: [
-                                    {
-                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189',
-                                        tagName: 'see',
-                                        paramName: '',
-                                    },
-                                ],
-                            },
-                            this.config,
-                        ),
-                        namespace: this.namespace,
-                        name: '__version__',
-                        type: new NativeType('string'),
-                        value: null,
-                    }),
-                    0,
-                ),
-            )
         }
-        // END Namespace
+
+        // Properties added to every GIRepositoryNamespace
+        // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+        out.push(
+            ...this.generateConst(
+                new IntrospectedConstant({
+                    // TODO:
+                    doc: printGirDocComment(
+                        {
+                            text: 'Name of the imported GIR library',
+                            tags: [
+                                {
+                                    text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188',
+                                    tagName: 'see',
+                                    paramName: '',
+                                },
+                            ],
+                        },
+                        this.config,
+                    ),
+                    namespace: this.namespace,
+                    value: null,
+                    name: '__name__',
+                    type: new NativeType('string'),
+                    // isInjected: false,
+                    // tsTypeName: 'constant',
+                    // girTypeName: 'constant',
+                }),
+                0,
+            ),
+            ...this.generateConst(
+                new IntrospectedConstant({
+                    doc: printGirDocComment(
+                        {
+                            text: 'Version of the imported GIR library',
+                            tags: [
+                                {
+                                    text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189',
+                                    tagName: 'see',
+                                    paramName: '',
+                                },
+                            ],
+                        },
+                        this.config,
+                    ),
+                    namespace: this.namespace,
+                    name: '__version__',
+                    type: new NativeType('string'),
+                    value: null,
+                }),
+                0,
+            ),
+        )
+
+        return Promise.resolve(out)
+    }
+
+    /**
+     * Generates a namespace for the given GirModule.
+     * @deprecated Use `generateModule` instead @ewlsh
+     * @param girModule The GirModule to generate a namespace for.
+     * @returns A promise that resolves to the generated namespace.
+     */
+    async generateNamespace(girModule: GirModule): Promise<string[]> {
+        const out = await this.generateModule(girModule)
+
         if (!this.config.noNamespace) {
-            out.push(`}`)
-            out.push('')
-            out.push(`export default ${girModule.namespace};`)
+            return Promise.resolve(out)
         }
 
-        const { append, prepend } = await this.moduleTemplateProcessor.load(template)
+        out.unshift('')
+        out.unshift(`export namespace ${girModule.namespace} {`)
+        out.unshift('')
 
-        return [prepend, ...out, append]
+        out.push(`}`)
+        out.push('')
+        out.push(`export default ${girModule.namespace};`)
+
+        return Promise.resolve(out)
     }
 
     async exportModule(_registry: NSRegistry, girModule: GirModule) {

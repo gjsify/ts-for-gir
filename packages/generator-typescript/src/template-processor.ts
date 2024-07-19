@@ -25,7 +25,6 @@ import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/li
 const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
-    protected environmentTemplateDir: string
     protected log: Logger
     protected transformation: Transformation
     constructor(
@@ -56,22 +55,7 @@ export class TemplateProcessor {
             join,
             dirname,
         }
-        this.environmentTemplateDir = this.getEnvironmentDir(TEMPLATE_DIR)
         this.log = new Logger(config.verbose, `TemplateProcessor (${this.packageName})`)
-    }
-
-    /**
-     * Get the output or input directory of the environment
-     * @param environment The environment to get the directory for
-     * @param baseDir The base directory
-     * @returns The path to the directory
-     */
-    protected getEnvironmentDir = (baseDir: string): string => {
-        if (!baseDir.endsWith('/gjs')) {
-            return join(baseDir, 'gjs')
-        }
-
-        return baseDir
     }
 
     protected getAppendTemplateName(templateFilename: string) {
@@ -252,7 +236,7 @@ export class TemplateProcessor {
      * @param templateFilename
      */
     public async exists(templateFilename: string): Promise<string | null> {
-        const fullEnvironmentTemplatePath = join(this.environmentTemplateDir, templateFilename)
+        const fullEnvironmentTemplatePath = join(TEMPLATE_DIR, templateFilename)
         const fullGeneralTemplatePath = join(TEMPLATE_DIR, templateFilename)
         if (await fileExists(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath

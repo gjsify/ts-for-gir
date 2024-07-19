@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
+      "target": "ESNext",
+      "module": "NodeNext",
       "lib": ["ESNext"],
+      "moduleResolution": "NodeNext",
       "skipLibCheck": false,
       "types": [],
       "strict": true,
@@ -9,6 +12,6 @@
       "noImplicitThis": true,
       "alwaysStrict": true
     },
-    "include": ["main.ts"],
+    "include": ["main.ts", "@types/**/*.d.ts"],
     "exclude": []
   }

@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/timers-example",
-  "version": "4.0.0-beta.6",
+  "version": "4.0.0-beta.7",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
   "type": "module",
   "private": true,

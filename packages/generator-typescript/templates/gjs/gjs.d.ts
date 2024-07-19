@@ -1,18 +1,36 @@
-/*
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
+<%_ const GLib = await dep.get('GLib', '2.0') _%>
+<%_ if(!package){ -%>
+<%_ if(GObject){ -%>
+/// <reference path="./<%- GObject.importName %>.d.ts" />
+<% } -%>
+<%_ if(GLib){ -%>
+/// <reference path="./<%- GLib.importName %>.d.ts" />
+<% } -%>
+/// <reference path="./gettext.d.ts" />
+/// <reference path="./system.d.ts" />
+/// <reference path="./cairo.d.ts" />
+<% } -%>
+
+/**
  * Type Definitions for Gjs (https://gjs.guide/)
  *
  * These type definitions are automatically generated, do not edit them by hand.
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
-import './ambient.d.ts';
 
-<%_ const GObject = dep.getSync('GObject', '2.0') _%>
-<%_ const GLib = dep.getSync('GLib', '2.0') _%>
 <%- GObject ? GObject.importDef : '' %>
 <%- GLib ? GLib.importDef : '' %>
+
+<%_ if(package){ _%>
 import gettext from './gettext.js';
 import system from './system.js';
 import cairo from './cairo.js';
+<%_ } else { _%>
+import gettext from 'gettext';
+import system from 'system';
+import cairo from 'cairo';
+<%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
 declare namespace package {

@@ -9,7 +9,7 @@ export * from './library-version.js'
 export * from './logger.js'
 export * from './messages.js'
 export * from './transformation.js'
-export * from './utils.js'
+export * from './utils/index.js'
 export * from './gir.js'
 // TODO: Export this from gir.js once we resolve circular dependencies
 export { promisifyNamespaceFunctions } from './gir/namespace.js'

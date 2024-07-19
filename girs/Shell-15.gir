@@ -1576,7 +1576,7 @@ function.</doc>
       <method name="begin_work" c:identifier="shell_global_begin_work">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1536">Marks that we are currently doing work. This is used to to track
+             line="1542">Marks that we are currently doing work. This is used to to track
 whether we are busy for the purposes of shell_global_run_at_leisure().
 A count is kept and shell_global_end_work() must be called exactly
 as many times as shell_global_begin_work().</doc>
@@ -1588,7 +1588,7 @@ as many times as shell_global_begin_work().</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1538">the #ShellGlobal</doc>
+                 line="1544">the #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -1597,32 +1597,32 @@ as many times as shell_global_begin_work().</doc>
               c:identifier="shell_global_create_app_launch_context">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1431">Create a #GAppLaunchContext set up with the correct timestamp, and
+             line="1437">Create a #GAppLaunchContext set up with the correct timestamp, and
 targeted to activate on @workspace.</doc>
         <source-position filename="src/shell-global.h" line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1440">A new #GAppLaunchContext</doc>
+               line="1446">A new #GAppLaunchContext</doc>
           <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1433">A #ShellGlobal</doc>
+                 line="1439">A #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1434">the timestamp for the launch (or 0 for current time)</doc>
+                 line="1440">the timestamp for the launch (or 0 for current time)</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1435">a workspace index, or -1 to indicate no specific one</doc>
+                 line="1441">a workspace index, or -1 to indicate no specific one</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1630,7 +1630,7 @@ targeted to activate on @workspace.</doc>
       <method name="end_work" c:identifier="shell_global_end_work">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1551">Marks the end of work that we started with shell_global_begin_work().
+             line="1557">Marks the end of work that we started with shell_global_begin_work().
 If no other work is ongoing and functions have been added with
 shell_global_run_at_leisure(), they will be run at the next
 opportunity.</doc>
@@ -1642,7 +1642,7 @@ opportunity.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1553">the #ShellGlobal</doc>
+                 line="1559">the #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -1650,12 +1650,12 @@ opportunity.</doc>
       <method name="get_app_system" c:identifier="shell_global_get_app_system">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1883">Gets app system.</doc>
+             line="1889">Gets app system.</doc>
         <source-position filename="src/shell-global.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1888">the app system</doc>
+               line="1894">the app system</doc>
           <type name="AppSystem" c:type="ShellAppSystem*"/>
         </return-value>
         <parameters>
@@ -1667,12 +1667,12 @@ opportunity.</doc>
       <method name="get_app_usage" c:identifier="shell_global_get_app_usage">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1913">Gets app usage.</doc>
+             line="1919">Gets app usage.</doc>
         <source-position filename="src/shell-global.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1918">the app usage</doc>
+               line="1924">the app usage</doc>
           <type name="AppUsage" c:type="ShellAppUsage*"/>
         </return-value>
         <parameters>
@@ -1703,7 +1703,7 @@ opportunity.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1372">the current X server time from the current Clutter, Gdk, or X
+               line="1378">the current X server time from the current Clutter, Gdk, or X
 event. If called from outside an event handler, this may return
 %Clutter.CURRENT_TIME (aka 0), or it may return a slightly
 out-of-date timestamp.</doc>
@@ -1713,7 +1713,7 @@ out-of-date timestamp.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1370">A #ShellGlobal</doc>
+                 line="1376">A #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -1738,32 +1738,32 @@ out-of-date timestamp.</doc>
               c:identifier="shell_global_get_persistent_state">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1837">The shell maintains "persistent" state which will persist after
+             line="1843">The shell maintains "persistent" state which will persist after
 logout or reboot.</doc>
         <source-position filename="src/shell-global.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1846">The value of a serialized property, or %NULL if none stored</doc>
+               line="1852">The value of a serialized property, or %NULL if none stored</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1839">a #ShellGlobal</doc>
+                 line="1845">a #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="property_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1840">Expected data type</doc>
+                 line="1846">Expected data type</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1841">Name of the property</doc>
+                 line="1847">Name of the property</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1771,7 +1771,7 @@ logout or reboot.</doc>
       <method name="get_pointer" c:identifier="shell_global_get_pointer">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1308">Gets the pointer coordinates and current modifier key state.</doc>
+             line="1314">Gets the pointer coordinates and current modifier key state.</doc>
         <source-position filename="src/shell-global.h" line="34"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1780,7 +1780,7 @@ logout or reboot.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1310">the #ShellGlobal</doc>
+                 line="1316">the #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="x"
@@ -1789,7 +1789,7 @@ logout or reboot.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1311">the X coordinate of the pointer, in global coordinates</doc>
+                 line="1317">the X coordinate of the pointer, in global coordinates</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="y"
@@ -1798,7 +1798,7 @@ logout or reboot.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1312">the Y coordinate of the pointer, in global coordinates</doc>
+                 line="1318">the Y coordinate of the pointer, in global coordinates</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="mods"
@@ -1807,7 +1807,7 @@ logout or reboot.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1313">the current set of modifier keys that are pressed down</doc>
+                 line="1319">the current set of modifier keys that are pressed down</doc>
             <type name="Clutter.ModifierType" c:type="ClutterModifierType*"/>
           </parameter>
         </parameters>
@@ -1816,32 +1816,32 @@ logout or reboot.</doc>
               c:identifier="shell_global_get_runtime_state">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1802">The shell maintains "runtime" state which does not persist across
+             line="1808">The shell maintains "runtime" state which does not persist across
 logout or reboot.</doc>
         <source-position filename="src/shell-global.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1811">The value of a serialized property, or %NULL if none stored</doc>
+               line="1817">The value of a serialized property, or %NULL if none stored</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1804">a #ShellGlobal</doc>
+                 line="1810">a #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="property_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1805">Expected data type</doc>
+                 line="1811">Expected data type</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1806">Name of the property</doc>
+                 line="1812">Name of the property</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1864,19 +1864,19 @@ logout or reboot.</doc>
               glib:get-property="settings">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1354">Get the global GSettings instance.</doc>
+             line="1360">Get the global GSettings instance.</doc>
         <source-position filename="src/shell-global.h" line="25"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1360">The GSettings object</doc>
+               line="1366">The GSettings object</doc>
           <type name="Gio.Settings" c:type="GSettings*"/>
         </return-value>
         <parameters>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1356">A #ShellGlobal</doc>
+                 line="1362">A #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -1902,13 +1902,13 @@ logout or reboot.</doc>
               glib:get-property="switcheroo-control">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1338">Get the global #GDBusProxy instance for the switcheroo-control
+             line="1344">Get the global #GDBusProxy instance for the switcheroo-control
 daemon.</doc>
         <source-position filename="src/shell-global.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1345">the #GDBusProxy for the daemon,
+               line="1351">the #GDBusProxy for the daemon,
   or %NULL on error.</doc>
           <type name="Gio.DBusProxy" c:type="GDBusProxy*"/>
         </return-value>
@@ -1916,7 +1916,7 @@ daemon.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1340">A #ShellGlobal</doc>
+                 line="1346">A #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -1945,12 +1945,12 @@ daemon.</doc>
               c:identifier="shell_global_get_window_tracker">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1868">Gets window tracker.</doc>
+             line="1874">Gets window tracker.</doc>
         <source-position filename="src/shell-global.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell-global.c"
-               line="1873">the window tracker</doc>
+               line="1879">the window tracker</doc>
           <type name="WindowTracker" c:type="ShellWindowTracker*"/>
         </return-value>
         <parameters>
@@ -1978,7 +1978,7 @@ daemon.</doc>
       <method name="notify_error" c:identifier="shell_global_notify_error">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1289">Show a system error notification.  Use this function
+             line="1295">Show a system error notification.  Use this function
 when a user-initiated action results in a non-fatal problem
 from causes that may not be under system control.  For
 example, an application crash.</doc>
@@ -1990,19 +1990,19 @@ example, an application crash.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1291">a #ShellGlobal</doc>
+                 line="1297">a #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1292">Error message</doc>
+                 line="1298">Error message</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="details" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1293">Error details</doc>
+                 line="1299">Error details</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2010,7 +2010,7 @@ example, an application crash.</doc>
       <method name="reexec_self" c:identifier="shell_global_reexec_self">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1185">Restart the current process.  Only intended for development purposes.</doc>
+             line="1191">Restart the current process.  Only intended for development purposes.</doc>
         <source-position filename="src/shell-global.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2019,7 +2019,7 @@ example, an application crash.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1187">A #ShellGlobal</doc>
+                 line="1193">A #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
         </parameters>
@@ -2027,7 +2027,7 @@ example, an application crash.</doc>
       <method name="run_at_leisure" c:identifier="shell_global_run_at_leisure">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1571">Schedules a function to be called the next time the shell is idle.
+             line="1577">Schedules a function to be called the next time the shell is idle.
 Idle means here no animations, no redrawing, and no ongoing background
 work. Since there is currently no way to hook into the Clutter master
 clock and know when is running, the implementation here is somewhat
@@ -2047,7 +2047,7 @@ should be avoided.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1573">the #ShellGlobal</doc>
+                 line="1579">the #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="func"
@@ -2057,7 +2057,7 @@ should be avoided.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1574">function to call at leisure</doc>
+                 line="1580">function to call at leisure</doc>
             <type name="LeisureFunction" c:type="ShellLeisureFunction"/>
           </parameter>
           <parameter name="user_data"
@@ -2066,13 +2066,13 @@ should be avoided.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1575">data to pass to @func</doc>
+                 line="1581">data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1576">function to call to free @user_data</doc>
+                 line="1582">function to call to free @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -2081,7 +2081,7 @@ should be avoided.</doc>
               c:identifier="shell_global_set_persistent_state">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1821">Change the value of serialized persistent state.</doc>
+             line="1827">Change the value of serialized persistent state.</doc>
         <source-position filename="src/shell-global.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2090,13 +2090,13 @@ should be avoided.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1823">a #ShellGlobal</doc>
+                 line="1829">a #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1824">Name of the property</doc>
+                 line="1830">Name of the property</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="variant"
@@ -2105,7 +2105,7 @@ should be avoided.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1825">A #GVariant, or %NULL to unset</doc>
+                 line="1831">A #GVariant, or %NULL to unset</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -2114,7 +2114,7 @@ should be avoided.</doc>
               c:identifier="shell_global_set_runtime_state">
         <doc xml:space="preserve"
              filename="src/shell-global.c"
-             line="1786">Change the value of serialized runtime state.</doc>
+             line="1792">Change the value of serialized runtime state.</doc>
         <source-position filename="src/shell-global.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2123,13 +2123,13 @@ should be avoided.</doc>
           <instance-parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1788">a #ShellGlobal</doc>
+                 line="1794">a #ShellGlobal</doc>
             <type name="Global" c:type="ShellGlobal*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1789">Name of the property</doc>
+                 line="1795">Name of the property</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="variant"
@@ -2138,7 +2138,7 @@ should be avoided.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/shell-global.c"
-                 line="1790">A #GVariant, or %NULL to unset</doc>
+                 line="1796">A #GVariant, or %NULL to unset</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>

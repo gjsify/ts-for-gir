@@ -4,7 +4,7 @@ let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
 }
-let depVersion = packageYarn ? 'workspace:^' : APP_VERSION
+let depVersion = workspace ? 'workspace:^' : APP_VERSION
 _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
@@ -18,48 +18,48 @@ _%>
     "module": "<%- entryPointName %>.js",
     "main": "<%- entryPointName %>.js",
     "exports": {
-        <%_ if (packageName === 'Gjs') { _%>
-        "./ambient": {
-          "types": "./ambient.d.ts",
-          "import": "./ambient.js",
-          "default": "./ambient.js"
-        },
-        "./dom": {
-          "types": "./dom.d.ts",
-          "import": "./dom.js",
-          "default": "./dom.js"
-        },
-        "./gettext": {
-          "types": "./gettext.d.ts",
-          "import": "./gettext.js",
-          "default": "./gettext.js"
-        },
-        "./system": {
-          "types": "./system.d.ts",
-          "import": "./system.js",
-          "default": "./system.js"
-        },
-        "./cairo": {
-          "types": "./cairo.d.ts",
-          "import": "./cairo.js",
-          "default": "./cairo.js"
-        },
-      <%_ } else {_%>
       "./ambient": {
         "types": "./<%- entryPointName %>-ambient.d.ts",
         "import": "./<%- entryPointName %>-ambient.js",
         "default": "./<%- entryPointName %>-ambient.js"
       },
+      <%_ if (entryPointName === 'gjs') { _%>
+      "./dom": {
+        "types": "./dom.d.ts",
+        "import": "./dom.js",
+        "default": "./dom.js"
+      },
+      "./gettext": {
+        "types": "./gettext.d.ts",
+        "import": "./gettext.js",
+        "default": "./gettext.js"
+      },
+      "./system": {
+        "types": "./system.d.ts",
+        "import": "./system.js",
+        "default": "./system.js"
+      },
+      "./cairo": {
+        "types": "./cairo.d.ts",
+        "import": "./cairo.js",
+        "default": "./cairo.js"
+      },
+      <%_ } else {_%>
       "./import": {
         "types": "./<%- entryPointName %>-import.d.ts",
         "import": "./<%- entryPointName %>-import.js",
         "default": "./<%- entryPointName %>-import.js"
       },
       <%_ } _%>
-      ".": {
+      "./<%- entryPointName %>": {
         "types": "./<%- entryPointName %>.d.ts",
         "import": "./<%- entryPointName %>.js",
         "default": "./<%- entryPointName %>.js"
+      },
+      ".": {
+        "types": "./index.d.ts",
+        "import": "./index.js",
+        "default": "./index.js"
       }
     },
     "scripts": {
@@ -70,7 +70,7 @@ _%>
       "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
-      <%_ if (!packageYarn) { _%>
+      <%_ if (!workspace) { _%>
         <%_ // girModule = dep.getModule(girModules, deps[i]) _%>
         <%_ // depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
         <%_ depVersion = '*' _%>

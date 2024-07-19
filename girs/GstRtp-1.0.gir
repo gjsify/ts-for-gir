@@ -3817,6 +3817,9 @@ audio codec</doc>
       <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                        line="112"/>
       <virtual-method name="handle_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="76">custom event handling</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="106"/>
         <return-value transfer-ownership="none">
@@ -3832,6 +3835,9 @@ audio codec</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="packet_lost">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="75">signal the depayloader about packet loss</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="102"/>
         <return-value transfer-ownership="none">
@@ -3847,6 +3853,13 @@ audio codec</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="process">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="70">process incoming rtp packets. Subclass must implement either
+  this method or @process_rtp_packet to process incoming rtp packets.
+  If the child returns a buffer without a valid timestamp, the timestamp
+  of the provided buffer will be applied to the result buffer and the
+  buffer will be pushed. If this function returns %NULL, nothing is pushed.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="97"/>
         <return-value transfer-ownership="full">
@@ -3862,6 +3875,16 @@ audio codec</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="process_rtp_packet">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="77">Same as the process virtual function, but slightly more
+efficient, since it is passed the rtp buffer structure that has already
+been mapped (with GST_MAP_READ) by the base class and thus does not have
+to be mapped again by the subclass. Can be used by the subclass to process
+incoming rtp packets. If the subclass returns a buffer without a valid
+timestamp, the timestamp of the input buffer will be applied to the result
+buffer and the output buffer will be pushed out. If this function returns
+%NULL, nothing is pushed out. Since: 1.6.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="108"/>
         <return-value transfer-ownership="full">
@@ -3877,6 +3900,9 @@ audio codec</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="69">configure the depayloader</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                          line="94"/>
         <return-value transfer-ownership="none">
@@ -4156,6 +4182,9 @@ necessary attributes as required by the extension implementation.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="set_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="69">configure the depayloader</doc>
         <callback name="set_caps">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                            line="94"/>
@@ -4173,6 +4202,13 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="process">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="70">process incoming rtp packets. Subclass must implement either
+  this method or @process_rtp_packet to process incoming rtp packets.
+  If the child returns a buffer without a valid timestamp, the timestamp
+  of the provided buffer will be applied to the result buffer and the
+  buffer will be pushed. If this function returns %NULL, nothing is pushed.</doc>
         <callback name="process">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                            line="97"/>
@@ -4190,6 +4226,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="packet_lost">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="75">signal the depayloader about packet loss</doc>
         <callback name="packet_lost">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                            line="102"/>
@@ -4207,6 +4246,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="handle_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="76">custom event handling</doc>
         <callback name="handle_event">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                            line="106"/>
@@ -4224,6 +4266,16 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="process_rtp_packet">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
+             line="77">Same as the process virtual function, but slightly more
+efficient, since it is passed the rtp buffer structure that has already
+been mapped (with GST_MAP_READ) by the base class and thus does not have
+to be mapped again by the subclass. Can be used by the subclass to process
+incoming rtp packets. If the subclass returns a buffer without a valid
+timestamp, the timestamp of the input buffer will be applied to the result
+buffer and the output buffer will be pushed out. If this function returns
+%NULL, nothing is pushed out. Since: 1.6.</doc>
         <callback name="process_rtp_packet">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasedepayload.h"
                            line="108"/>
@@ -4267,6 +4319,9 @@ necessary attributes as required by the extension implementation.</doc>
       <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                        line="147"/>
       <virtual-method name="get_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="118">get desired caps</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="132"/>
         <return-value transfer-ownership="full">
@@ -4285,6 +4340,9 @@ necessary attributes as required by the extension implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="handle_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="120">process data</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="138"/>
         <return-value transfer-ownership="none">
@@ -4300,6 +4358,9 @@ necessary attributes as required by the extension implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="123">custom query handling</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="143"/>
         <return-value transfer-ownership="none">
@@ -4318,6 +4379,9 @@ necessary attributes as required by the extension implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="119">configure the payloader</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="134"/>
         <return-value transfer-ownership="none">
@@ -4333,6 +4397,9 @@ necessary attributes as required by the extension implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="121">custom event handling on the sinkpad</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="141"/>
         <return-value transfer-ownership="none">
@@ -4348,6 +4415,9 @@ necessary attributes as required by the extension implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="122">custom event handling on the srcpad</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                          line="142"/>
         <return-value transfer-ownership="none">
@@ -4997,6 +5067,9 @@ necessary attributes as required by the extension implementation.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="get_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="118">get desired caps</doc>
         <callback name="get_caps">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="132"/>
@@ -5017,6 +5090,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="set_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="119">configure the payloader</doc>
         <callback name="set_caps">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="134"/>
@@ -5034,6 +5110,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="handle_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="120">process data</doc>
         <callback name="handle_buffer">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="138"/>
@@ -5051,6 +5130,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="121">custom event handling on the sinkpad</doc>
         <callback name="sink_event">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="141"/>
@@ -5068,6 +5150,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="122">custom event handling on the srcpad</doc>
         <callback name="src_event">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="142"/>
@@ -5085,6 +5170,9 @@ necessary attributes as required by the extension implementation.</doc>
         </callback>
       </field>
       <field name="query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
+             line="123">custom query handling</doc>
         <callback name="query">
           <source-position filename="gst-libs/gst/rtp/gstrtpbasepayload.h"
                            line="143"/>
@@ -6853,6 +6941,9 @@ information given in the input @buffer.</doc>
       <virtual-method name="get_supported_flags"
                       invoker="get_supported_flags"
                       version="1.20">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="154">retrieve the supported flags</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                          line="185"/>
         <return-value transfer-ownership="none">
@@ -6921,6 +7012,10 @@ information given in the input @buffer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_attributes">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="170">set the necessary attributes that may be signaled e.g. with
+    an SDP.</doc>
         <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -7642,6 +7737,9 @@ from gst_rtp_header_extension_get_max_size().</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="get_supported_flags">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="154">retrieve the supported flags</doc>
         <callback name="get_supported_flags">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="185"/>
@@ -7663,6 +7761,15 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="get_max_size">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="155">retrieve the maximum size for this extension based on the
+    information available from input_meta.  Implementations should attempt
+    to provide as accurate information as possible as the returned value
+    will be used to control the amount of possible data in the payload.
+    Implementations must return the maximum as the allocated size for
+    writing the extension will be at least the size of the returned value.
+    Return the amount of data read or &lt;0 on failure.</doc>
         <callback name="get_max_size">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="187"/>
@@ -7689,6 +7796,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="write">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="162">write into @data the information for this extension.  Various
+    information is provided to help writing extensions in particular cases.</doc>
         <callback name="write">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="190"/>
@@ -7743,6 +7854,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="read">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="164">read from a rtp payloaded buffer and extract the extension
+    information, optionally adding some meta onto the output buffer.</doc>
         <callback name="read">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="197"/>
@@ -7791,6 +7906,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="set_non_rtp_sink_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="166">read any information from sink caps that the header
+    extension needs for its function.</doc>
         <callback name="set_non_rtp_sink_caps">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="202"/>
@@ -7817,6 +7936,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="update_non_rtp_src_caps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="168">update depayloader non-RTP (depayloaded) caps with
+    the information parsed from RTP header.</doc>
         <callback name="update_non_rtp_src_caps">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="204"/>
@@ -7843,6 +7966,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="set_attributes">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="170">set the necessary attributes that may be signaled e.g. with
+    an SDP.</doc>
         <callback name="set_attributes">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="206"/>
@@ -7864,6 +7991,10 @@ from gst_rtp_header_extension_get_max_size().</doc>
         </callback>
       </field>
       <field name="set_caps_from_attributes">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtp/gstrtphdrext.h"
+             line="172">write the necessary caps field/s for the configured
+    attributes e.g. as signalled with SDP.</doc>
         <callback name="set_caps_from_attributes">
           <source-position filename="gst-libs/gst/rtp/gstrtphdrext.h"
                            line="209"/>

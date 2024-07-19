@@ -2935,14 +2935,14 @@ member of the error then contains the raw PKCS#11 `CK_RV` result value.</doc>
       <source-position filename="gck/gck-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GCK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="GCK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gck/gck-misc.c"
            line="68">The micro version number of the Gck library.</doc>
       <source-position filename="gck/gck-version.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="3" c:type="GCK_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="2" c:type="GCK_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gck/gck-misc.c"
            line="62">The minor version number of the Gck library.</doc>

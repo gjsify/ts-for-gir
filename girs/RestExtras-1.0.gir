@@ -10,6 +10,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Rest" version="1.0"/>
   <include name="Soup" version="3.0"/>
+  <c:include name="rest-extras/rest-extras.h"/>
   <namespace name="RestExtras"
              version="1.0"
              shared-library="librest-extras-1.0.so.0"
@@ -60,20 +61,20 @@ and/or use gtk-doc annotations.  -->
                 throws="1">
         <doc xml:space="preserve"
              filename="rest-extras/flickr-proxy.c"
-             line="376">Examines the Flickr response and if it not a successful reply, set @error and
+             line="385">Examines the Flickr response and if it not a successful reply, set @error and
 return FALSE.</doc>
         <source-position filename="rest-extras/flickr-proxy.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest-extras/flickr-proxy.c"
-               line="384">%TRUE if this response is successful, %FALSE otherwise.</doc>
+               line="393">%TRUE if this response is successful, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="root" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest-extras/flickr-proxy.c"
-                 line="378">The root node of a parsed Flickr response</doc>
+                 line="387">The root node of a parsed Flickr response</doc>
             <type name="Rest.XmlNode" c:type="RestXmlNode*"/>
           </parameter>
         </parameters>
@@ -149,11 +150,11 @@ freed.</doc>
              filename="rest-extras/flickr-proxy.c"
              line="248">Get the current token.</doc>
         <source-position filename="rest-extras/flickr-proxy.h" line="52"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="rest-extras/flickr-proxy.c"
-               line="254">the token, or %NULL if there is no token yet.  This string is owned
-by #FlickrProxy and should not be freed.</doc>
+               line="254">the token, or %NULL if there is no token yet.
+This string is owned by #FlickrProxy and should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -168,7 +169,7 @@ by #FlickrProxy and should not be freed.</doc>
       <method name="new_upload" c:identifier="flickr_proxy_new_upload">
         <doc xml:space="preserve"
              filename="rest-extras/flickr-proxy.c"
-             line="412">Create a new #RestProxyCall that can be used for uploading.
+             line="421">Create a new #RestProxyCall that can be used for uploading.
 
 See http://www.flickr.com/services/api/upload.api.html for details on
 uploading to Flickr.</doc>
@@ -176,14 +177,14 @@ uploading to Flickr.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rest-extras/flickr-proxy.c"
-               line="421">a new #FlickrProxyCall</doc>
+               line="430">a new #FlickrProxyCall</doc>
           <type name="FlickrProxyCall" c:type="RestProxyCall*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest-extras/flickr-proxy.c"
-                 line="414">a valid #FlickrProxy</doc>
+                 line="423">a valid #FlickrProxy</doc>
             <type name="FlickrProxy" c:type="FlickrProxy*"/>
           </instance-parameter>
         </parameters>
@@ -193,7 +194,7 @@ uploading to Flickr.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rest-extras/flickr-proxy.c"
-             line="434">Create a new #RestProxyCall that can be used for uploading.  @filename will
+             line="443">Create a new #RestProxyCall that can be used for uploading.  @filename will
 be set as the "photo" parameter for you, avoiding you from having to open the
 file and determine the MIME type.
 
@@ -205,20 +206,20 @@ uploading to Flickr.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rest-extras/flickr-proxy.c"
-               line="449">a new #FlickrProxyCall</doc>
+               line="458">a new #FlickrProxyCall</doc>
           <type name="FlickrProxyCall" c:type="RestProxyCall*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest-extras/flickr-proxy.c"
-                 line="436">a valid #FlickrProxy</doc>
+                 line="445">a valid #FlickrProxy</doc>
             <type name="FlickrProxy" c:type="FlickrProxy*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest-extras/flickr-proxy.c"
-                 line="437">the file to upload</doc>
+                 line="446">the file to upload</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -249,18 +250,30 @@ uploading to Flickr.</doc>
         </parameters>
       </method>
       <method name="sign" c:identifier="flickr_proxy_sign">
+        <doc xml:space="preserve"
+             filename="rest-extras/flickr-proxy.c"
+             line="292">Get the md5 checksum of the request.</doc>
         <source-position filename="rest-extras/flickr-proxy.h" line="55"/>
         <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="rest-extras/flickr-proxy.c"
+               line="299">The md5 checksum of the request</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rest-extras/flickr-proxy.c"
+                 line="294">an #FlickrProxy</doc>
             <type name="FlickrProxy" c:type="FlickrProxy*"/>
           </instance-parameter>
           <parameter name="params" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rest-extras/flickr-proxy.c"
+                 line="295">the request parameters</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
-              <type name="gpointer" c:type="gpointer"/>
-              <type name="gpointer" c:type="gpointer"/>
+              <type name="utf8"/>
+              <type name="utf8"/>
             </type>
           </parameter>
         </parameters>
@@ -388,20 +401,20 @@ general-purpose endpoint.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="rest-extras/lastfm-proxy.c"
-             line="337">Examines the Lastfm response and if it not a successful reply, set @error and
+             line="346">Examines the Lastfm response and if it not a successful reply, set @error and
 return FALSE.</doc>
         <source-position filename="rest-extras/lastfm-proxy.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest-extras/lastfm-proxy.c"
-               line="345">%TRUE if this response is successful, %FALSE otherwise.</doc>
+               line="354">%TRUE if this response is successful, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="root" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest-extras/lastfm-proxy.c"
-                 line="339">The root node of a parsed Lastfm response</doc>
+                 line="348">The root node of a parsed Lastfm response</doc>
             <type name="Rest.XmlNode" c:type="RestXmlNode*"/>
           </parameter>
         </parameters>
@@ -474,11 +487,11 @@ freed.</doc>
              filename="rest-extras/lastfm-proxy.c"
              line="239">Get the current session key.</doc>
         <source-position filename="rest-extras/lastfm-proxy.h" line="51"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="rest-extras/lastfm-proxy.c"
-               line="245">the session key, or %NULL if there is no session key yet.  This string is owned
-by #LastfmProxy and should not be freed.</doc>
+               line="245">the session key, or %NULL if there is no session key yet.
+This string is owned by #LastfmProxy and should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -516,18 +529,30 @@ by #LastfmProxy and should not be freed.</doc>
         </parameters>
       </method>
       <method name="sign" c:identifier="lastfm_proxy_sign">
+        <doc xml:space="preserve"
+             filename="rest-extras/lastfm-proxy.c"
+             line="281">Get the md5 checksum of the request.</doc>
         <source-position filename="rest-extras/lastfm-proxy.h" line="54"/>
         <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="rest-extras/lastfm-proxy.c"
+               line="288">The md5 checksum of the request</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rest-extras/lastfm-proxy.c"
+                 line="283">an #LastfmProxy</doc>
             <type name="LastfmProxy" c:type="LastfmProxy*"/>
           </instance-parameter>
           <parameter name="params" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rest-extras/lastfm-proxy.c"
+                 line="284">the request parameters</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
-              <type name="gpointer" c:type="gpointer"/>
-              <type name="gpointer" c:type="gpointer"/>
+              <type name="utf8"/>
+              <type name="utf8"/>
             </type>
           </parameter>
         </parameters>
@@ -661,7 +686,7 @@ by #LastfmProxy and should not be freed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest-extras/youtube-proxy.c"
-               line="404">%TRUE, or %FALSE if the file could not be opened</doc>
+               line="405">%TRUE, or %FALSE if the file could not be opened</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -682,8 +707,8 @@ by #LastfmProxy and should not be freed.</doc>
                  filename="rest-extras/youtube-proxy.c"
                  line="395">fields</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
-              <type name="gpointer" c:type="gpointer"/>
-              <type name="gpointer" c:type="gpointer"/>
+              <type name="utf8"/>
+              <type name="utf8"/>
             </type>
           </parameter>
           <parameter name="incomplete" transfer-ownership="none">
@@ -694,7 +719,7 @@ by #LastfmProxy and should not be freed.</doc>
           </parameter>
           <parameter name="callback"
                      transfer-ownership="none"
-                     scope="async"
+                     scope="call"
                      closure="5">
             <doc xml:space="preserve"
                  filename="rest-extras/youtube-proxy.c"
@@ -702,10 +727,14 @@ by #LastfmProxy and should not be freed.</doc>
             <type name="YoutubeProxyUploadCallback"
                   c:type="YoutubeProxyUploadCallback"/>
           </parameter>
-          <parameter name="weak_object" transfer-ownership="none">
+          <parameter name="weak_object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="rest-extras/youtube-proxy.c"
-                 line="398">an object instance used to tie the life cycle of the proxy to</doc>
+                 line="398">an object instance used to tie the life cycle of
+the proxy to</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
           <parameter name="user_data"
@@ -714,7 +743,7 @@ by #LastfmProxy and should not be freed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rest-extras/youtube-proxy.c"
-                 line="399">user data to pass to the callback</doc>
+                 line="400">user data to pass to the callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>

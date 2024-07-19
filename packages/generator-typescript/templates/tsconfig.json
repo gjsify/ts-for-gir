@@ -11,11 +11,11 @@ _%>
   "compilerOptions": {
     // General settings for code interpretation
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "lib": ["ESNext"],
     "types": [],
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "noEmit": true,
     "noEmitOnError": false,
     "baseUrl": "./",

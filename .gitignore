@@ -20,6 +20,9 @@ examples/**/node_modules/
 examples/**/dist/
 examples/**/tsconfig.alias.json
 
+# Locally generated types
+@types/
+
 tests/**/dist/
 
 debug.txt

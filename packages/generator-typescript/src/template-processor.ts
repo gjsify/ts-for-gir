@@ -197,10 +197,11 @@ export class TemplateProcessor {
                     this.log.info('Formatting', outputPath)
                     content = await this.registry.getFormatter('dts').format(content)
                 }
-                if (outputFilename.endsWith('.json')) {
-                    this.log.info('Formatting', outputPath)
-                    content = await this.registry.getFormatter('json').format(content)
-                }
+                // TODO: Fix me
+                // if (outputFilename.endsWith('.json')) {
+                //     this.log.info('Formatting', outputPath)
+                //     content = await this.registry.getFormatter('json').format(content)
+                // }
             } catch (error) {
                 this.log.error('Failed to format output...', error)
             }

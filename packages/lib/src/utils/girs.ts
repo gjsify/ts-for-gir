@@ -1,4 +1,4 @@
-import type { GirInfoAttrs } from '../types/index.js'
+import type { GirInfoAttrs, TsDoc } from '../types/index.js'
 
 /**
  * Split a package name into namespace and version
@@ -74,6 +74,35 @@ export const girBool = (boolStr: string | undefined, defaultVal = false): boolea
         return true
     }
     return defaultVal
+}
+
+export const printGirDocComment = (tsDoc: TsDoc, config: { noComments: boolean }) => {
+    const desc: string[] = []
+    if (config.noComments) {
+        return desc.join('\n')
+    }
+
+    const text = tsDoc.text
+
+    if (text) {
+        if (text) {
+            const lines = text.split('\n')
+            if (lines.length) {
+                for (const line of lines) {
+                    desc.push(`${line}`)
+                }
+            }
+        }
+
+        for (const tag of tsDoc.tags) {
+            if (tag.paramName) {
+                desc.push(`@${tag.tagName} ${tag.paramName} ${tag.text}`)
+            } else {
+                desc.push(`@${tag.tagName} ${tag.text}`)
+            }
+        }
+    }
+    return desc.join('\n')
 }
 
 export const isIntrospectable = (e: { $?: GirInfoAttrs }) =>

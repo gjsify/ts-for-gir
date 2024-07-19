@@ -1757,6 +1757,12 @@ additional information in the info #GstStructure of the returned sample:
       <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                        line="212"/>
       <virtual-method name="aggregate_one_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="193">Aggregates one input buffer to the output
+ buffer.  The in_offset and out_offset are in "frames", which is
+ the size of a sample times the number of channels. Returns TRUE if
+ any non-silence was added to the buffer</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -1787,6 +1793,9 @@ additional information in the info #GstStructure of the returned sample:
         </parameters>
       </virtual-method>
       <virtual-method name="create_output_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="192">Create a new output buffer contains num_frames frames.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                          line="204"/>
         <return-value transfer-ownership="full">
@@ -1840,7 +1849,7 @@ additional information in the info #GstStructure of the returned sample:
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="734">Causes the element to aggregate on a timeout even when no live source is
+             line="746">Causes the element to aggregate on a timeout even when no live source is
 connected to its sinks. See #GstAggregator:min-upstream-latency for a
 companion property: in the vast majority of cases where you plan to plug in
 live sources with a non-zero latency, you should set it to a non-zero value.</doc>
@@ -1853,7 +1862,7 @@ live sources with a non-zero latency, you should set it to a non-zero value.</do
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="714">Don't wait for inactive pads when live. An inactive pad
+             line="726">Don't wait for inactive pads when live. An inactive pad
 is a pad that hasn't yet received a buffer, but that has
 been waited on at least once.
 
@@ -1876,7 +1885,7 @@ but wants to configure it already.</doc>
                 default-value="1/100">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="683">Output block size in nanoseconds, expressed as a fraction.</doc>
+             line="695">Output block size in nanoseconds, expressed as a fraction.</doc>
         <type name="Gst.Fraction"/>
       </property>
       <field name="parent">
@@ -1908,6 +1917,9 @@ but wants to configure it already.</doc>
         <type name="GstBase.AggregatorClass" c:type="GstAggregatorClass"/>
       </field>
       <field name="create_output_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="192">Create a new output buffer contains num_frames frames.</doc>
         <callback name="create_output_buffer">
           <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                            line="204"/>
@@ -1925,6 +1937,12 @@ but wants to configure it already.</doc>
         </callback>
       </field>
       <field name="aggregate_one_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="193">Aggregates one input buffer to the output
+ buffer.  The in_offset and out_offset are in "frames", which is
+ the size of a sample times the number of channels. Returns TRUE if
+ any non-silence was added to the buffer</doc>
         <callback name="aggregate_one_buffer">
           <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                            line="206"/>
@@ -2030,6 +2048,9 @@ See #GstAudioAggregator for more details.</doc>
       <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                        line="103"/>
       <virtual-method name="convert_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="84">Convert a buffer from one format to another.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                          line="94"/>
         <return-value transfer-ownership="full">
@@ -2051,6 +2072,10 @@ See #GstAudioAggregator for more details.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="update_conversion_info">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="85">Called when either the input or output
+ formats have changed.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                          line="99"/>
         <return-value transfer-ownership="none">
@@ -2102,6 +2127,9 @@ See #GstAudioAggregator for more details.</doc>
               c:type="GstAggregatorPadClass"/>
       </field>
       <field name="convert_buffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="84">Convert a buffer from one format to another.</doc>
         <callback name="convert_buffer">
           <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                            line="94"/>
@@ -2125,6 +2153,10 @@ See #GstAudioAggregator for more details.</doc>
         </callback>
       </field>
       <field name="update_conversion_info">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioaggregator.h"
+             line="85">Called when either the input or output
+ formats have changed.</doc>
         <callback name="update_conversion_info">
           <source-position filename="gst-libs/gst/audio/gstaudioaggregator.h"
                            line="99"/>
@@ -2196,6 +2228,12 @@ the returned buffer (see gst_object_set_parent()).</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="payload">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiobasesink.h"
+             line="202">payload data in a format suitable to write to the sink. If no
+          payloading is required, returns a reffed copy of the original
+          buffer, else returns the payloaded buffer with all other metadata
+          copied.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesink.h"
                          line="217"/>
         <return-value transfer-ownership="full">
@@ -2674,6 +2712,9 @@ functionality.</doc>
         <type name="GstBase.BaseSinkClass" c:type="GstBaseSinkClass"/>
       </field>
       <field name="create_ringbuffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiobasesink.h"
+             line="201">create and return a #GstAudioRingBuffer to write to.</doc>
         <callback name="create_ringbuffer">
           <source-position filename="gst-libs/gst/audio/gstaudiobasesink.h"
                            line="214"/>
@@ -2694,6 +2735,12 @@ functionality.</doc>
         </callback>
       </field>
       <field name="payload">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiobasesink.h"
+             line="202">payload data in a format suitable to write to the sink. If no
+          payloading is required, returns a reffed copy of the original
+          buffer, else returns the payloaded buffer with all other metadata
+          copied.</doc>
         <callback name="payload">
           <source-position filename="gst-libs/gst/audio/gstaudiobasesink.h"
                            line="217"/>
@@ -2927,7 +2974,7 @@ reading samples from the ringbuffer, synchronisation and flushing.</doc>
       <virtual-method name="create_ringbuffer" invoker="create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="1081">Create and return the #GstAudioRingBuffer for @src. This function will call
+             line="1085">Create and return the #GstAudioRingBuffer for @src. This function will call
 the ::create_ringbuffer vmethod and will set @src as the parent of the
 returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -2935,14 +2982,14 @@ returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="1089">The new ringbuffer of @src.</doc>
+               line="1093">The new ringbuffer of @src.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1083">a #GstAudioBaseSrc.</doc>
+                 line="1087">a #GstAudioBaseSrc.</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -2951,7 +2998,7 @@ returned buffer (see gst_object_set_parent()).</doc>
               c:identifier="gst_audio_base_src_create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="1081">Create and return the #GstAudioRingBuffer for @src. This function will call
+             line="1085">Create and return the #GstAudioRingBuffer for @src. This function will call
 the ::create_ringbuffer vmethod and will set @src as the parent of the
 returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -2959,14 +3006,14 @@ returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="1089">The new ringbuffer of @src.</doc>
+               line="1093">The new ringbuffer of @src.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1083">a #GstAudioBaseSrc.</doc>
+                 line="1087">a #GstAudioBaseSrc.</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -2976,21 +3023,21 @@ returned buffer (see gst_object_set_parent()).</doc>
               glib:get-property="provide-clock">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="359">Queries whether @src will provide a clock or not. See also
+             line="363">Queries whether @src will provide a clock or not. See also
 gst_audio_base_src_set_provide_clock.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="146"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="366">%TRUE if @src will provide a clock.</doc>
+               line="370">%TRUE if @src will provide a clock.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="361">a #GstAudioBaseSrc</doc>
+                 line="365">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -3000,13 +3047,13 @@ gst_audio_base_src_set_provide_clock.</doc>
               glib:get-property="slave-method">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="400">Get the current slave method used by @src.</doc>
+             line="404">Get the current slave method used by @src.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="153"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="406">The current slave method used by @src.</doc>
+               line="410">The current slave method used by @src.</doc>
           <type name="AudioBaseSrcSlaveMethod"
                 c:type="GstAudioBaseSrcSlaveMethod"/>
         </return-value>
@@ -3014,7 +3061,7 @@ gst_audio_base_src_set_provide_clock.</doc>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="402">a #GstAudioBaseSrc</doc>
+                 line="406">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -3024,7 +3071,7 @@ gst_audio_base_src_set_provide_clock.</doc>
               glib:set-property="provide-clock">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="337">Controls whether @src will provide a clock or not. If @provide is %TRUE,
+             line="341">Controls whether @src will provide a clock or not. If @provide is %TRUE,
 gst_element_provide_clock() will return a clock that reflects the datarate
 of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -3036,13 +3083,13 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="339">a #GstAudioBaseSrc</doc>
+                 line="343">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
           <parameter name="provide" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="340">new state</doc>
+                 line="344">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3052,7 +3099,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
               glib:set-property="slave-method">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="382">Controls how clock slaving will be performed in @src.</doc>
+             line="386">Controls how clock slaving will be performed in @src.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="149"/>
         <return-value transfer-ownership="none">
@@ -3062,13 +3109,13 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="384">a #GstAudioBaseSrc</doc>
+                 line="388">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="385">the new slave method</doc>
+                 line="389">the new slave method</doc>
             <type name="AudioBaseSrcSlaveMethod"
                   c:type="GstAudioBaseSrcSlaveMethod"/>
           </parameter>
@@ -3079,7 +3126,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="159">Actual configured size of audio buffer in microseconds.</doc>
+             line="163">Actual configured size of audio buffer in microseconds.</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="actual-latency-time"
@@ -3087,7 +3134,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="170">Actual configured audio latency in microseconds.</doc>
+             line="174">Actual configured audio latency in microseconds.</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="buffer-time"
@@ -3161,20 +3208,23 @@ functionality.</doc>
         <type name="GstBase.PushSrcClass" c:type="GstPushSrcClass"/>
       </field>
       <field name="create_ringbuffer">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiobasesrc.h"
+             line="120">create and return a #GstAudioRingBuffer to read from.</doc>
         <callback name="create_ringbuffer">
           <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                            line="129"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1089">The new ringbuffer of @src.</doc>
+                 line="1093">The new ringbuffer of @src.</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </return-value>
           <parameters>
             <parameter name="src" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                   line="1083">a #GstAudioBaseSrc.</doc>
+                   line="1087">a #GstAudioBaseSrc.</doc>
               <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
             </parameter>
           </parameters>
@@ -3604,6 +3654,9 @@ The track entries in the TOC will be sorted by track number.</doc>
                        line="132"/>
       <implements name="Gst.URIHandler"/>
       <virtual-method name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="104">closing the device</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                          line="116"/>
         <return-value transfer-ownership="none">
@@ -3616,6 +3669,9 @@ The track entries in the TOC will be sorted by track number.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="103">opening the device</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                          line="115"/>
         <return-value transfer-ownership="none">
@@ -3631,6 +3687,9 @@ The track entries in the TOC will be sorted by track number.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="read_sector">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="105">reading a sector</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                          line="119"/>
         <return-value transfer-ownership="full">
@@ -3728,6 +3787,9 @@ copy of the structure (and take ownership of the taglist if there is one).</doc>
         <type name="GstBase.PushSrcClass" c:type="GstPushSrcClass"/>
       </field>
       <field name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="103">opening the device</doc>
         <callback name="open">
           <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                            line="115"/>
@@ -3745,6 +3807,9 @@ copy of the structure (and take ownership of the taglist if there is one).</doc>
         </callback>
       </field>
       <field name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="104">closing the device</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                            line="116"/>
@@ -3759,6 +3824,9 @@ copy of the structure (and take ownership of the taglist if there is one).</doc>
         </callback>
       </field>
       <field name="read_sector">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiocdsrc.h"
+             line="105">reading a sector</doc>
         <callback name="read_sector">
           <source-position filename="gst-libs/gst/audio/gstaudiocdsrc.h"
                            line="119"/>
@@ -5342,6 +5410,11 @@ Things that subclass need to take care of:
       <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                        line="320"/>
       <virtual-method name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="219">Optional.
+                 Called when the element changes to GST_STATE_NULL.
+                 Allows closing external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="299"/>
         <return-value transfer-ownership="none">
@@ -5354,6 +5427,14 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="226">Optional.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.
+                    Subclasses should chain up to the parent implementation to
+                    invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="303"/>
         <return-value transfer-ownership="none">
@@ -5369,6 +5450,13 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="flush">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="201">Optional.
+                 Instructs subclass to clear any codec caches and discard
+                 any pending samples and not yet returned decoded data.
+                 @hard indicates whether a FLUSH is being processed,
+                 or otherwise a DISCONT (or conceptually similar).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="287"/>
         <return-value transfer-ownership="none">
@@ -5384,6 +5472,13 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="getcaps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="246">Optional.
+                 Allows for a custom sink getcaps implementation.
+                 If not implemented,
+                 default returns gst_audio_decoder_proxy_getcaps
+                 applied to sink template caps.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="312"/>
         <return-value transfer-ownership="full">
@@ -5399,6 +5494,13 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="handle_frame">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="196">Provides input data (or NULL to clear any remaining data)
+                 to subclass.  Input data ref management is performed by
+                 base class, subclass should not care or intervene,
+                 and input data is only valid until next call to base class,
+                 most notably a call to gst_audio_decoder_finish_frame().</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="284"/>
         <return-value transfer-ownership="none">
@@ -5437,6 +5539,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="216">Optional.
+                 Called when the element changes to GST_STATE_READY.
+                 Allows opening external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="297"/>
         <return-value transfer-ownership="none">
@@ -5476,6 +5583,12 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pre_push">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="212">Optional.
+                 Called just prior to pushing (encoded data) buffer downstream.
+                 Subclass has full discretionary access to buffer,
+                 and a not OK flow return will abort downstream pushing.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="289"/>
         <return-value transfer-ownership="none">
@@ -5491,6 +5604,12 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="232">Optional.
+                     Propose buffer allocation parameters for upstream elements.
+                     Subclasses should chain up to the parent implementation to
+                     invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="305"/>
         <return-value transfer-ownership="none">
@@ -5506,6 +5625,9 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_format">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="190">Notifies subclass of incoming data format (caps).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="272"/>
         <return-value transfer-ownership="none">
@@ -5521,6 +5643,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="206">Optional.
+                 Event handler on the sink pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="292"/>
         <return-value transfer-ownership="none">
@@ -5536,6 +5663,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="236">Optional.
+                 Query handler on the sink pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="308"/>
         <return-value transfer-ownership="none">
@@ -5551,6 +5685,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="209">Optional.
+                 Event handler on the src pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="294"/>
         <return-value transfer-ownership="none">
@@ -5566,6 +5705,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="241">Optional.
+                 Query handler on the source pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="310"/>
         <return-value transfer-ownership="none">
@@ -5581,6 +5727,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="184">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="268"/>
         <return-value transfer-ownership="none">
@@ -5593,6 +5744,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="187">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="270"/>
         <return-value transfer-ownership="none">
@@ -5605,6 +5761,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="transform_meta">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="251">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags and meta with only the "audio" tag. subclasses can
+                 implement this method and return %TRUE if the metadata is to be
+                 copied. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                          line="315"/>
         <return-value transfer-ownership="none">
@@ -6657,6 +6820,11 @@ overridden.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="184">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <callback name="start">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="268"/>
@@ -6671,6 +6839,11 @@ overridden.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="187">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <callback name="stop">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="270"/>
@@ -6685,6 +6858,9 @@ overridden.</doc>
         </callback>
       </field>
       <field name="set_format">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="190">Notifies subclass of incoming data format (caps).</doc>
         <callback name="set_format">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="272"/>
@@ -6702,6 +6878,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="parse">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="191">Optional.
+                 Allows chopping incoming data into manageable units (frames)
+                 for subsequent decoding.  This division is at subclass
+                 discretion and may or may not correspond to 1 (or more)
+                 frames as defined by audio format.</doc>
         <callback name="parse">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="280"/>
@@ -6731,6 +6914,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="handle_frame">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="196">Provides input data (or NULL to clear any remaining data)
+                 to subclass.  Input data ref management is performed by
+                 base class, subclass should not care or intervene,
+                 and input data is only valid until next call to base class,
+                 most notably a call to gst_audio_decoder_finish_frame().</doc>
         <callback name="handle_frame">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="284"/>
@@ -6748,6 +6938,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="flush">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="201">Optional.
+                 Instructs subclass to clear any codec caches and discard
+                 any pending samples and not yet returned decoded data.
+                 @hard indicates whether a FLUSH is being processed,
+                 or otherwise a DISCONT (or conceptually similar).</doc>
         <callback name="flush">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="287"/>
@@ -6765,6 +6962,12 @@ overridden.</doc>
         </callback>
       </field>
       <field name="pre_push">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="212">Optional.
+                 Called just prior to pushing (encoded data) buffer downstream.
+                 Subclass has full discretionary access to buffer,
+                 and a not OK flow return will abort downstream pushing.</doc>
         <callback name="pre_push">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="289"/>
@@ -6782,6 +6985,11 @@ overridden.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="206">Optional.
+                 Event handler on the sink pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <callback name="sink_event">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="292"/>
@@ -6799,6 +7007,11 @@ overridden.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="209">Optional.
+                 Event handler on the src pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <callback name="src_event">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="294"/>
@@ -6816,6 +7029,11 @@ overridden.</doc>
         </callback>
       </field>
       <field name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="216">Optional.
+                 Called when the element changes to GST_STATE_READY.
+                 Allows opening external resources.</doc>
         <callback name="open">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="297"/>
@@ -6830,6 +7048,11 @@ overridden.</doc>
         </callback>
       </field>
       <field name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="219">Optional.
+                 Called when the element changes to GST_STATE_NULL.
+                 Allows closing external resources.</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="299"/>
@@ -6844,6 +7067,12 @@ overridden.</doc>
         </callback>
       </field>
       <field name="negotiate">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="222">Optional.
+                 Negotiate with downstream and configure buffer pools, etc.
+                 Subclasses should chain up to the parent implementation to
+                 invoke the default handler.</doc>
         <callback name="negotiate">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="301"/>
@@ -6864,6 +7093,14 @@ overridden.</doc>
         </callback>
       </field>
       <field name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="226">Optional.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.
+                    Subclasses should chain up to the parent implementation to
+                    invoke the default handler.</doc>
         <callback name="decide_allocation">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="303"/>
@@ -6881,6 +7118,12 @@ overridden.</doc>
         </callback>
       </field>
       <field name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="232">Optional.
+                     Propose buffer allocation parameters for upstream elements.
+                     Subclasses should chain up to the parent implementation to
+                     invoke the default handler.</doc>
         <callback name="propose_allocation">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="305"/>
@@ -6898,6 +7141,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="sink_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="236">Optional.
+                 Query handler on the sink pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <callback name="sink_query">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="308"/>
@@ -6915,6 +7165,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="src_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="241">Optional.
+                 Query handler on the source pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <callback name="src_query">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="310"/>
@@ -6932,6 +7189,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="getcaps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="246">Optional.
+                 Allows for a custom sink getcaps implementation.
+                 If not implemented,
+                 default returns gst_audio_decoder_proxy_getcaps
+                 applied to sink template caps.</doc>
         <callback name="getcaps">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="312"/>
@@ -6949,6 +7213,13 @@ overridden.</doc>
         </callback>
       </field>
       <field name="transform_meta">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiodecoder.h"
+             line="251">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags and meta with only the "audio" tag. subclasses can
+                 implement this method and return %TRUE if the metadata is to be
+                 copied. Since: 1.6</doc>
         <callback name="transform_meta">
           <source-position filename="gst-libs/gst/audio/gstaudiodecoder.h"
                            line="315"/>
@@ -7190,6 +7461,11 @@ Things that subclass need to take care of:
                        line="248"/>
       <implements name="Gst.Preset"/>
       <virtual-method name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="160">Optional.
+                 Called when the element changes to GST_STATE_NULL.
+                 Allows closing external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="227"/>
         <return-value transfer-ownership="none">
@@ -7202,6 +7478,14 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="167">Optional.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.
+                    Subclasses should chain up to the parent implementation to
+                    invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="231"/>
         <return-value transfer-ownership="none">
@@ -7217,6 +7501,11 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="flush">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="139">Optional.
+                 Instructs subclass to clear any codec caches and discard
+                 any pending samples and not yet returned encoded data.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="212"/>
         <return-value transfer-ownership="none">
@@ -7229,6 +7518,13 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="getcaps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="152">Optional.
+                 Allows for a custom sink getcaps implementation (e.g.
+                 for multichannel input specification).  If not implemented,
+                 default returns gst_audio_encoder_proxy_getcaps
+                 applied to sink template caps.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="223"/>
         <return-value transfer-ownership="full">
@@ -7244,6 +7540,14 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="handle_frame">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="133">Provides input samples (or NULL to clear any remaining data)
+                 according to directions as configured by the subclass
+                 using the API.  Input data ref management is performed
+                 by base class, subclass should not care or intervene,
+                 and input data is only valid until next call to base class,
+                 most notably a call to gst_audio_encoder_finish_frame().</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="209"/>
         <return-value transfer-ownership="none">
@@ -7261,7 +7565,7 @@ Things that subclass need to take care of:
       <virtual-method name="negotiate" invoker="negotiate">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2881">Negotiate with downstream elements to currently configured #GstCaps.
+             line="2877">Negotiate with downstream elements to currently configured #GstCaps.
 Unmark GST_PAD_FLAG_NEED_RECONFIGURE in any case. But mark it again if
 negotiate fails.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -7269,19 +7573,24 @@ negotiate fails.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2889">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+               line="2885">%TRUE if the negotiation succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2883">a #GstAudioEncoder</doc>
+                 line="2879">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="157">Optional.
+                 Called when the element changes to GST_STATE_READY.
+                 Allows opening external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="225"/>
         <return-value transfer-ownership="none">
@@ -7294,6 +7603,12 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pre_push">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="148">Optional.
+                 Called just prior to pushing (encoded data) buffer downstream.
+                 Subclass has full discretionary access to buffer,
+                 and a not OK flow return will abort downstream pushing.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="214"/>
         <return-value transfer-ownership="none">
@@ -7309,6 +7624,12 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="173">Optional.
+                     Propose buffer allocation parameters for upstream elements.
+                     Subclasses should chain up to the parent implementation to
+                     invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="233"/>
         <return-value transfer-ownership="none">
@@ -7324,6 +7645,10 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_format">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="131">Notifies subclass of incoming data format.
+                 GstAudioInfo contains the format according to provided caps.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -7339,6 +7664,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="142">Optional.
+                 Event handler on the sink pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="217"/>
         <return-value transfer-ownership="none">
@@ -7354,6 +7684,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="182">Optional.
+                 Query handler on the sink pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="239"/>
         <return-value transfer-ownership="none">
@@ -7369,6 +7706,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="145">Optional.
+                 Event handler on the src pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="220"/>
         <return-value transfer-ownership="none">
@@ -7384,6 +7726,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="187">Optional.
+                 Query handler on the source pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="242"/>
         <return-value transfer-ownership="none">
@@ -7399,6 +7748,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="125">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="202"/>
         <return-value transfer-ownership="none">
@@ -7411,6 +7765,11 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="128">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="204"/>
         <return-value transfer-ownership="none">
@@ -7423,6 +7782,13 @@ negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="transform_meta">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="177">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags and meta with only the "audio" tag. subclasses can
+                 implement this method and return %TRUE if the metadata is to be
+                 copied. Since: 1.6</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="236"/>
         <return-value transfer-ownership="none">
@@ -7447,27 +7813,27 @@ negotiate fails.</doc>
               c:identifier="gst_audio_encoder_allocate_output_buffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2959">Helper function that allocates a buffer to hold an encoded audio frame
+             line="2955">Helper function that allocates a buffer to hold an encoded audio frame
 for @enc's current output format.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="271"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2967">allocated buffer</doc>
+               line="2963">allocated buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2961">a #GstAudioEncoder</doc>
+                 line="2957">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2962">size of the buffer</doc>
+                 line="2958">size of the buffer</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -7522,7 +7888,7 @@ may be invalidated by a call to this function.</doc>
               c:identifier="gst_audio_encoder_get_allocator">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="3010">Lets #GstAudioEncoder sub-classes to know the memory @allocator
+             line="3006">Lets #GstAudioEncoder sub-classes to know the memory @allocator
 used by the base class and its @params.
 
 Unref the @allocator after use it.</doc>
@@ -7535,7 +7901,7 @@ Unref the @allocator after use it.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="3012">a #GstAudioEncoder</doc>
+                 line="3008">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="allocator"
@@ -7547,7 +7913,7 @@ Unref the @allocator after use it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="3013">the #GstAllocator
+                 line="3009">the #GstAllocator
 used</doc>
             <type name="Gst.Allocator" c:type="GstAllocator**"/>
           </parameter>
@@ -7559,7 +7925,7 @@ used</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="3015">the
+                 line="3011">the
 #GstAllocationParams of @allocator</doc>
             <type name="Gst.AllocationParams" c:type="GstAllocationParams*"/>
           </parameter>
@@ -7572,14 +7938,14 @@ used</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2196">a #GstAudioInfo describing the input audio format</doc>
+               line="2192">a #GstAudioInfo describing the input audio format</doc>
           <type name="AudioInfo" c:type="GstAudioInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2194">a #GstAudioEncoder</doc>
+                 line="2190">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7588,13 +7954,13 @@ used</doc>
               c:identifier="gst_audio_encoder_get_drainable">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2707">Queries encoder drain handling.</doc>
+             line="2703">Queries encoder drain handling.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="363"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2713">TRUE if drainable handling is enabled.
+               line="2709">TRUE if drainable handling is enabled.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -7603,7 +7969,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2709">a #GstAudioEncoder</doc>
+                 line="2705">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7615,14 +7981,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2304">currently configured maximum handled frames</doc>
+               line="2300">currently configured maximum handled frames</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2302">a #GstAudioEncoder</doc>
+                 line="2298">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7634,14 +8000,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2270">currently maximum requested samples per frame</doc>
+               line="2266">currently maximum requested samples per frame</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2268">a #GstAudioEncoder</doc>
+                 line="2264">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7653,14 +8019,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2233">currently minimum requested samples per frame</doc>
+               line="2229">currently minimum requested samples per frame</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2231">a #GstAudioEncoder</doc>
+                 line="2227">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7669,13 +8035,13 @@ MT safe.</doc>
               c:identifier="gst_audio_encoder_get_hard_min">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2661">Queries encoder hard minimum handling.</doc>
+             line="2657">Queries encoder hard minimum handling.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="356"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2667">TRUE if hard minimum handling is enabled.
+               line="2663">TRUE if hard minimum handling is enabled.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -7684,7 +8050,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2663">a #GstAudioEncoder</doc>
+                 line="2659">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7706,7 +8072,7 @@ MT safe.</doc>
       <method name="get_latency" c:identifier="gst_audio_encoder_get_latency">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2392">Sets the variables pointed to by @min and @max to the currently configured
+             line="2388">Sets the variables pointed to by @min and @max to the currently configured
 latency.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="304"/>
@@ -7717,7 +8083,7 @@ latency.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2394">a #GstAudioEncoder</doc>
+                 line="2390">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="min"
@@ -7728,7 +8094,7 @@ latency.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2395">a pointer to storage to hold minimum latency</doc>
+                 line="2391">a pointer to storage to hold minimum latency</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
           <parameter name="max"
@@ -7739,7 +8105,7 @@ latency.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2396">a pointer to storage to hold maximum latency</doc>
+                 line="2392">a pointer to storage to hold maximum latency</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -7751,14 +8117,14 @@ latency.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2337">currently configured encoder lookahead</doc>
+               line="2333">currently configured encoder lookahead</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2335">a #GstAudioEncoder</doc>
+                 line="2331">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7768,13 +8134,13 @@ latency.</doc>
               glib:get-property="mark-granule">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2478">Queries if the encoder will handle granule marking.</doc>
+             line="2474">Queries if the encoder will handle granule marking.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="328"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2484">TRUE if granule marking is enabled.
+               line="2480">TRUE if granule marking is enabled.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -7783,7 +8149,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2480">a #GstAudioEncoder</doc>
+                 line="2476">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7793,13 +8159,13 @@ MT safe.</doc>
               glib:get-property="perfect-timestamp">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2524">Queries encoder perfect timestamp behaviour.</doc>
+             line="2520">Queries encoder perfect timestamp behaviour.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2530">TRUE if perfect timestamp setting enabled.
+               line="2526">TRUE if perfect timestamp setting enabled.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -7808,7 +8174,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2526">a #GstAudioEncoder</doc>
+                 line="2522">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7818,13 +8184,13 @@ MT safe.</doc>
               glib:get-property="tolerance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2615">Queries current audio jitter tolerance threshold.</doc>
+             line="2611">Queries current audio jitter tolerance threshold.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="349"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2621">encoder audio jitter tolerance threshold.
+               line="2617">encoder audio jitter tolerance threshold.
 
 MT safe.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
@@ -7833,7 +8199,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2617">a #GstAudioEncoder</doc>
+                 line="2613">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7841,7 +8207,7 @@ MT safe.</doc>
       <method name="merge_tags" c:identifier="gst_audio_encoder_merge_tags">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2731">Sets the audio encoder tags and how they should be merged with any
+             line="2727">Sets the audio encoder tags and how they should be merged with any
 upstream stream tags. This will override any tags previously-set
 with gst_audio_encoder_merge_tags().
 
@@ -7858,7 +8224,7 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2733">a #GstAudioEncoder</doc>
+                 line="2729">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="tags"
@@ -7867,14 +8233,14 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2734">a #GstTagList to merge, or NULL to unset
+                 line="2730">a #GstTagList to merge, or NULL to unset
     previously-set tags</doc>
             <type name="Gst.TagList" c:type="const GstTagList*"/>
           </parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2736">the #GstTagMergeMode to use, usually #GST_TAG_MERGE_REPLACE</doc>
+                 line="2732">the #GstTagMergeMode to use, usually #GST_TAG_MERGE_REPLACE</doc>
             <type name="Gst.TagMergeMode" c:type="GstTagMergeMode"/>
           </parameter>
         </parameters>
@@ -7882,7 +8248,7 @@ MT safe.</doc>
       <method name="negotiate" c:identifier="gst_audio_encoder_negotiate">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2881">Negotiate with downstream elements to currently configured #GstCaps.
+             line="2877">Negotiate with downstream elements to currently configured #GstCaps.
 Unmark GST_PAD_FLAG_NEED_RECONFIGURE in any case. But mark it again if
 negotiate fails.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -7890,14 +8256,14 @@ negotiate fails.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2889">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+               line="2885">%TRUE if the negotiation succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2883">a #GstAudioEncoder</doc>
+                 line="2879">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
         </parameters>
@@ -7906,7 +8272,7 @@ negotiate fails.</doc>
               c:identifier="gst_audio_encoder_proxy_getcaps">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="1535">Returns caps that express @caps (or sink template caps if @caps == NULL)
+             line="1531">Returns caps that express @caps (or sink template caps if @caps == NULL)
 restricted to channel/rate combinations supported by downstream elements
 (e.g. muxers).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -7914,14 +8280,14 @@ restricted to channel/rate combinations supported by downstream elements
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="1545">a #GstCaps owned by caller</doc>
+               line="1541">a #GstCaps owned by caller</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="1537">a #GstAudioEncoder</doc>
+                 line="1533">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="caps"
@@ -7930,7 +8296,7 @@ restricted to channel/rate combinations supported by downstream elements
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="1538">initial caps</doc>
+                 line="1534">initial caps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="filter"
@@ -7939,7 +8305,7 @@ restricted to channel/rate combinations supported by downstream elements
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="1539">filter caps</doc>
+                 line="1535">filter caps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -7949,7 +8315,7 @@ restricted to channel/rate combinations supported by downstream elements
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2436">Sets a caps in allocation query which are different from the set
+             line="2432">Sets a caps in allocation query which are different from the set
 pad's caps. Use this function before calling
 gst_audio_encoder_negotiate(). Setting to %NULL the allocation
 query will use the caps from the pad.</doc>
@@ -7962,7 +8328,7 @@ query will use the caps from the pad.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2438">a #GstAudioEncoder</doc>
+                 line="2434">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="allocation_caps"
@@ -7971,7 +8337,7 @@ query will use the caps from the pad.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2439">a #GstCaps or %NULL</doc>
+                 line="2435">a #GstCaps or %NULL</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -7980,7 +8346,7 @@ query will use the caps from the pad.</doc>
               c:identifier="gst_audio_encoder_set_drainable">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2685">Configures encoder drain handling.  If drainable, subclass might
+             line="2681">Configures encoder drain handling.  If drainable, subclass might
 be handed a NULL buffer to have it return any leftover encoded data.
 Otherwise, it is not considered so capable and will only ever be passed
 real data.
@@ -7995,13 +8361,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2687">a #GstAudioEncoder</doc>
+                 line="2683">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2688">new state</doc>
+                 line="2684">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8010,7 +8376,7 @@ MT safe.</doc>
               c:identifier="gst_audio_encoder_set_frame_max">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2280">Sets max number of frames accepted at once (assumed minimally 1).
+             line="2276">Sets max number of frames accepted at once (assumed minimally 1).
 Requires @frame_samples_min and @frame_samples_max to be the equal.
 
 Note: This value will be reset to 0 every time before
@@ -8024,13 +8390,13 @@ Note: This value will be reset to 0 every time before
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2282">a #GstAudioEncoder</doc>
+                 line="2278">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2283">number of frames</doc>
+                 line="2279">number of frames</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8039,7 +8405,7 @@ Note: This value will be reset to 0 every time before
               c:identifier="gst_audio_encoder_set_frame_samples_max">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2243">Sets number of samples (per channel) subclass needs to be handed,
+             line="2239">Sets number of samples (per channel) subclass needs to be handed,
 at most or will be handed all available if 0.
 
 If an exact number of samples is required, gst_audio_encoder_set_frame_samples_min()
@@ -8056,13 +8422,13 @@ Note: This value will be reset to 0 every time before
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2245">a #GstAudioEncoder</doc>
+                 line="2241">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2246">number of samples per frame</doc>
+                 line="2242">number of samples per frame</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8071,7 +8437,7 @@ Note: This value will be reset to 0 every time before
               c:identifier="gst_audio_encoder_set_frame_samples_min">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2206">Sets number of samples (per channel) subclass needs to be handed,
+             line="2202">Sets number of samples (per channel) subclass needs to be handed,
 at least or will be handed all available if 0.
 
 If an exact number of samples is required, gst_audio_encoder_set_frame_samples_max()
@@ -8088,13 +8454,13 @@ Note: This value will be reset to 0 every time before
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2208">a #GstAudioEncoder</doc>
+                 line="2204">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2209">number of samples per frame</doc>
+                 line="2205">number of samples per frame</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8103,7 +8469,7 @@ Note: This value will be reset to 0 every time before
               c:identifier="gst_audio_encoder_set_hard_min">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2639">Configures encoder hard minimum handling.  If enabled, subclass
+             line="2635">Configures encoder hard minimum handling.  If enabled, subclass
 will never be handed less samples than it configured, which otherwise
 might occur near end-of-data handling.  Instead, the leftover samples
 will simply be discarded.
@@ -8118,13 +8484,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2641">a #GstAudioEncoder</doc>
+                 line="2637">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2642">new state</doc>
+                 line="2638">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8149,7 +8515,7 @@ MT safe.</doc>
       <method name="set_headers" c:identifier="gst_audio_encoder_set_headers">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2415">Set the codec headers to be sent downstream whenever requested.</doc>
+             line="2411">Set the codec headers to be sent downstream whenever requested.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="314"/>
         <return-value transfer-ownership="none">
@@ -8159,13 +8525,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2417">a #GstAudioEncoder</doc>
+                 line="2413">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="headers" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2418">a list of
+                 line="2414">a list of
   #GstBuffer containing the codec header</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Gst.Buffer"/>
@@ -8176,7 +8542,7 @@ MT safe.</doc>
       <method name="set_latency" c:identifier="gst_audio_encoder_set_latency">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2347">Sets encoder latency. If the provided values changed from
+             line="2343">Sets encoder latency. If the provided values changed from
 previously provided ones, this will also post a LATENCY message on the bus
 so the pipeline can reconfigure its global latency.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -8188,19 +8554,19 @@ so the pipeline can reconfigure its global latency.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2349">a #GstAudioEncoder</doc>
+                 line="2345">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="min" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2350">minimum latency</doc>
+                 line="2346">minimum latency</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
           <parameter name="max" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2351">maximum latency</doc>
+                 line="2347">maximum latency</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -8209,7 +8575,7 @@ so the pipeline can reconfigure its global latency.</doc>
               c:identifier="gst_audio_encoder_set_lookahead">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2314">Sets encoder lookahead (in units of input rate samples)
+             line="2310">Sets encoder lookahead (in units of input rate samples)
 
 Note: This value will be reset to 0 every time before
 #GstAudioEncoderClass.set_format() is called.</doc>
@@ -8222,13 +8588,13 @@ Note: This value will be reset to 0 every time before
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2316">a #GstAudioEncoder</doc>
+                 line="2312">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2317">lookahead</doc>
+                 line="2313">lookahead</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8237,7 +8603,7 @@ Note: This value will be reset to 0 every time before
               c:identifier="gst_audio_encoder_set_mark_granule">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2457">Enable or disable encoder granule handling.
+             line="2453">Enable or disable encoder granule handling.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -8249,13 +8615,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2459">a #GstAudioEncoder</doc>
+                 line="2455">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2460">new state</doc>
+                 line="2456">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8264,26 +8630,26 @@ MT safe.</doc>
               c:identifier="gst_audio_encoder_set_output_format">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2913">Configure output caps on the srcpad of @enc.</doc>
+             line="2909">Configure output caps on the srcpad of @enc.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                          line="264"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioencoder.c"
-               line="2920">%TRUE on success.</doc>
+               line="2916">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2915">a #GstAudioEncoder</doc>
+                 line="2911">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2916">#GstCaps</doc>
+                 line="2912">#GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -8293,7 +8659,7 @@ MT safe.</doc>
               glib:set-property="perfect-timestamp">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2502">Enable or disable encoder perfect output timestamp preference.
+             line="2498">Enable or disable encoder perfect output timestamp preference.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -8305,13 +8671,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2504">a #GstAudioEncoder</doc>
+                 line="2500">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2505">new state</doc>
+                 line="2501">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8321,7 +8687,7 @@ MT safe.</doc>
               glib:set-property="tolerance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioencoder.c"
-             line="2593">Configures encoder audio jitter tolerance threshold.
+             line="2589">Configures encoder audio jitter tolerance threshold.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
@@ -8333,13 +8699,13 @@ MT safe.</doc>
           <instance-parameter name="enc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2595">a #GstAudioEncoder</doc>
+                 line="2591">a #GstAudioEncoder</doc>
             <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
           </instance-parameter>
           <parameter name="tolerance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2596">new tolerance</doc>
+                 line="2592">new tolerance</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -8417,6 +8783,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="125">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <callback name="start">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="202"/>
@@ -8431,6 +8802,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="128">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <callback name="stop">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="204"/>
@@ -8445,6 +8821,10 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="set_format">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="131">Notifies subclass of incoming data format.
+                 GstAudioInfo contains the format according to provided caps.</doc>
         <callback name="set_format">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="206"/>
@@ -8462,6 +8842,14 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="handle_frame">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="133">Provides input samples (or NULL to clear any remaining data)
+                 according to directions as configured by the subclass
+                 using the API.  Input data ref management is performed
+                 by base class, subclass should not care or intervene,
+                 and input data is only valid until next call to base class,
+                 most notably a call to gst_audio_encoder_finish_frame().</doc>
         <callback name="handle_frame">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="209"/>
@@ -8479,6 +8867,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="flush">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="139">Optional.
+                 Instructs subclass to clear any codec caches and discard
+                 any pending samples and not yet returned encoded data.</doc>
         <callback name="flush">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="212"/>
@@ -8493,6 +8886,12 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="pre_push">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="148">Optional.
+                 Called just prior to pushing (encoded data) buffer downstream.
+                 Subclass has full discretionary access to buffer,
+                 and a not OK flow return will abort downstream pushing.</doc>
         <callback name="pre_push">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="214"/>
@@ -8510,6 +8909,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="142">Optional.
+                 Event handler on the sink pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <callback name="sink_event">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="217"/>
@@ -8527,6 +8931,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="145">Optional.
+                 Event handler on the src pad. Subclasses should chain up to
+                 the parent implementation to invoke the default handler.</doc>
         <callback name="src_event">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="220"/>
@@ -8544,6 +8953,13 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="getcaps">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="152">Optional.
+                 Allows for a custom sink getcaps implementation (e.g.
+                 for multichannel input specification).  If not implemented,
+                 default returns gst_audio_encoder_proxy_getcaps
+                 applied to sink template caps.</doc>
         <callback name="getcaps">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="223"/>
@@ -8561,6 +8977,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="157">Optional.
+                 Called when the element changes to GST_STATE_READY.
+                 Allows opening external resources.</doc>
         <callback name="open">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="225"/>
@@ -8575,6 +8996,11 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="160">Optional.
+                 Called when the element changes to GST_STATE_NULL.
+                 Allows closing external resources.</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="227"/>
@@ -8589,26 +9015,40 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="negotiate">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="163">Optional.
+                 Negotiate with downstream and configure buffer pools, etc.
+                 Subclasses should chain up to the parent implementation to
+                 invoke the default handler.</doc>
         <callback name="negotiate">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="229"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioencoder.c"
-                 line="2889">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+                 line="2885">%TRUE if the negotiation succeeded, else %FALSE.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="enc" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioencoder.c"
-                   line="2883">a #GstAudioEncoder</doc>
+                   line="2879">a #GstAudioEncoder</doc>
               <type name="AudioEncoder" c:type="GstAudioEncoder*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="167">Optional.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.
+                    Subclasses should chain up to the parent implementation to
+                    invoke the default handler.</doc>
         <callback name="decide_allocation">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="231"/>
@@ -8626,6 +9066,12 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="173">Optional.
+                     Propose buffer allocation parameters for upstream elements.
+                     Subclasses should chain up to the parent implementation to
+                     invoke the default handler.</doc>
         <callback name="propose_allocation">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="233"/>
@@ -8643,6 +9089,13 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="transform_meta">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="177">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags and meta with only the "audio" tag. subclasses can
+                 implement this method and return %TRUE if the metadata is to be
+                 copied. Since: 1.6</doc>
         <callback name="transform_meta">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="236"/>
@@ -8666,6 +9119,13 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="sink_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="182">Optional.
+                 Query handler on the sink pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <callback name="sink_query">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="239"/>
@@ -8683,6 +9143,13 @@ needed. At minimum @set_format and @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="src_query">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioencoder.h"
+             line="187">Optional.
+                 Query handler on the source pad. This function should
+                 return TRUE if the query could be performed. Subclasses
+                 should chain up to the parent implementation to invoke the
+                 default handler. Since: 1.6</doc>
         <callback name="src_query">
           <source-position filename="gst-libs/gst/audio/gstaudioencoder.h"
                            line="242"/>
@@ -8738,6 +9205,9 @@ virtual functions in their class_init function.</doc>
       <source-position filename="gst-libs/gst/audio/gstaudiofilter.h"
                        line="93"/>
       <virtual-method name="setup">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiofilter.h"
+             line="78">virtual function called whenever the format changes</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiofilter.h"
                          line="89"/>
         <return-value transfer-ownership="none">
@@ -8782,6 +9252,9 @@ function.</doc>
               c:type="GstBaseTransformClass"/>
       </field>
       <field name="setup">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiofilter.h"
+             line="78">virtual function called whenever the format changes</doc>
         <callback name="setup">
           <source-position filename="gst-libs/gst/audio/gstaudiofilter.h"
                            line="89"/>
@@ -11085,7 +11558,7 @@ FALSE on error.</doc>
       <virtual-method name="clear_all" invoker="clear_all">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1316">Clear all samples from the ringbuffer.
+             line="1358">Clear all samples from the ringbuffer.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -11097,7 +11570,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1318">the #GstAudioRingBuffer to clear</doc>
+                 line="1360">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11129,7 +11602,7 @@ MT safe.</doc>
       <virtual-method name="commit" invoker="commit">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1675">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
+             line="1717">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
 
 @in_samples and @out_samples define the rate conversion to perform on the
 samples in @data. For negative rates, @out_samples must be negative and
@@ -11153,7 +11626,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1704">The number of samples written to the ringbuffer or -1 on error. The
+               line="1746">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
           <type name="guint" c:type="guint"/>
@@ -11162,7 +11635,7 @@ with a flush or stop.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1677">the #GstAudioRingBuffer to commit</doc>
+                 line="1719">the #GstAudioRingBuffer to commit</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample"
@@ -11171,13 +11644,13 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1678">the sample position of the data</doc>
+                 line="1720">the sample position of the data</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1679">the data to commit</doc>
+                 line="1721">the data to commit</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11185,13 +11658,13 @@ with a flush or stop.</doc>
           <parameter name="in_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1680">the number of samples in the data to commit</doc>
+                 line="1722">the number of samples in the data to commit</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="out_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1681">the number of samples to write to the ringbuffer</doc>
+                 line="1723">the number of samples to write to the ringbuffer</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="accum"
@@ -11200,7 +11673,7 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1682">accumulator for rate conversion.</doc>
+                 line="1724">accumulator for rate conversion.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11208,7 +11681,7 @@ with a flush or stop.</doc>
       <virtual-method name="delay" invoker="delay">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1183">Get the number of samples queued in the audio device. This is
+             line="1225">Get the number of samples queued in the audio device. This is
 usually less than the segment size but can be bigger when the
 implementation uses another internal buffer between the audio
 device.
@@ -11223,7 +11696,7 @@ not yet transferred to the ringbuffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1198">The number of samples queued in the audio device.
+               line="1240">The number of samples queued in the audio device.
 
 MT safe.</doc>
           <type name="guint" c:type="guint"/>
@@ -11232,7 +11705,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1185">the #GstAudioRingBuffer to query</doc>
+                 line="1227">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11265,13 +11738,13 @@ MT safe.</doc>
       <virtual-method name="pause" invoker="pause">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1079">Pause processing samples from the ringbuffer.</doc>
+             line="1114">Pause processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="254"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1085">TRUE if the device could be paused, FALSE on error.
+               line="1120">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11280,7 +11753,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1081">the #GstAudioRingBuffer to pause</doc>
+                 line="1116">the #GstAudioRingBuffer to pause</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11309,6 +11782,9 @@ MT safe.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="resume">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="231">resume processing of samples after pause</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="255"/>
         <return-value transfer-ownership="none">
@@ -11346,13 +11822,13 @@ MT safe.</doc>
       <virtual-method name="stop" invoker="stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1123">Stop processing samples from the ringbuffer.</doc>
+             line="1158">Stop processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1129">TRUE if the device could be stopped, FALSE on error.
+               line="1164">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11361,7 +11837,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1125">the #GstAudioRingBuffer to stop</doc>
+                 line="1160">the #GstAudioRingBuffer to stop</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11430,7 +11906,7 @@ FALSE on error.</doc>
       <method name="advance" c:identifier="gst_audio_ring_buffer_advance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1921">Subclasses should call this function to notify the fact that
+             line="1963">Subclasses should call this function to notify the fact that
 @advance segments are now processed by the device.
 
 MT safe.</doc>
@@ -11443,13 +11919,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1923">the #GstAudioRingBuffer to advance</doc>
+                 line="1965">the #GstAudioRingBuffer to advance</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="advance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1924">the number of segments written</doc>
+                 line="1966">the number of segments written</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -11457,7 +11933,7 @@ MT safe.</doc>
       <method name="clear" c:identifier="gst_audio_ring_buffer_clear">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1950">Clear the given segment of the buffer with silence samples.
+             line="1992">Clear the given segment of the buffer with silence samples.
 This function is used by subclasses.
 
 MT safe.</doc>
@@ -11470,13 +11946,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1952">the #GstAudioRingBuffer to clear</doc>
+                 line="1994">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="segment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1953">the segment to clear</doc>
+                 line="1995">the segment to clear</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -11484,7 +11960,7 @@ MT safe.</doc>
       <method name="clear_all" c:identifier="gst_audio_ring_buffer_clear_all">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1316">Clear all samples from the ringbuffer.
+             line="1358">Clear all samples from the ringbuffer.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -11496,7 +11972,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1318">the #GstAudioRingBuffer to clear</doc>
+                 line="1360">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11529,7 +12005,7 @@ MT safe.</doc>
       <method name="commit" c:identifier="gst_audio_ring_buffer_commit">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1675">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
+             line="1717">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
 
 @in_samples and @out_samples define the rate conversion to perform on the
 samples in @data. For negative rates, @out_samples must be negative and
@@ -11553,7 +12029,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1704">The number of samples written to the ringbuffer or -1 on error. The
+               line="1746">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
           <type name="guint" c:type="guint"/>
@@ -11562,7 +12038,7 @@ with a flush or stop.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1677">the #GstAudioRingBuffer to commit</doc>
+                 line="1719">the #GstAudioRingBuffer to commit</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample"
@@ -11571,13 +12047,13 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1678">the sample position of the data</doc>
+                 line="1720">the sample position of the data</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1679">the data to commit</doc>
+                 line="1721">the data to commit</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11585,13 +12061,13 @@ with a flush or stop.</doc>
           <parameter name="in_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1680">the number of samples in the data to commit</doc>
+                 line="1722">the number of samples in the data to commit</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="out_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1681">the number of samples to write to the ringbuffer</doc>
+                 line="1723">the number of samples to write to the ringbuffer</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="accum"
@@ -11600,7 +12076,7 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1682">accumulator for rate conversion.</doc>
+                 line="1724">accumulator for rate conversion.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11657,7 +12133,7 @@ will be put in @dest_val.</doc>
       <method name="delay" c:identifier="gst_audio_ring_buffer_delay">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1183">Get the number of samples queued in the audio device. This is
+             line="1225">Get the number of samples queued in the audio device. This is
 usually less than the segment size but can be bigger when the
 implementation uses another internal buffer between the audio
 device.
@@ -11672,7 +12148,7 @@ not yet transferred to the ringbuffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1198">The number of samples queued in the audio device.
+               line="1240">The number of samples queued in the audio device.
 
 MT safe.</doc>
           <type name="guint" c:type="guint"/>
@@ -11681,7 +12157,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1185">the #GstAudioRingBuffer to query</doc>
+                 line="1227">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11784,7 +12260,7 @@ MT safe.</doc>
       <method name="may_start" c:identifier="gst_audio_ring_buffer_may_start">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1985">Tell the ringbuffer that it is allowed to start playback when
+             line="2027">Tell the ringbuffer that it is allowed to start playback when
 the ringbuffer is filled with samples.
 
 MT safe.</doc>
@@ -11797,13 +12273,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1987">the #GstAudioRingBuffer</doc>
+                 line="2029">the #GstAudioRingBuffer</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="allowed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1988">the new value</doc>
+                 line="2030">the new value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11837,13 +12313,13 @@ MT safe.</doc>
       <method name="pause" c:identifier="gst_audio_ring_buffer_pause">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1079">Pause processing samples from the ringbuffer.</doc>
+             line="1114">Pause processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="352"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1085">TRUE if the device could be paused, FALSE on error.
+               line="1120">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11852,7 +12328,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1081">the #GstAudioRingBuffer to pause</doc>
+                 line="1116">the #GstAudioRingBuffer to pause</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11861,14 +12337,14 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_prepare_read">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1866">Returns a pointer to memory where the data from segment @segment
+             line="1908">Returns a pointer to memory where the data from segment @segment
 can be found. This function is mostly used by subclasses.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="398"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1877">FALSE if the buffer is not started.
+               line="1919">FALSE if the buffer is not started.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11877,7 +12353,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1868">the #GstAudioRingBuffer to read from</doc>
+                 line="1910">the #GstAudioRingBuffer to read from</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="segment"
@@ -11886,7 +12362,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1869">the segment to read</doc>
+                 line="1911">the segment to read</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="readptr"
@@ -11895,7 +12371,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1870">
+                 line="1912">
     the pointer to the memory where samples can be read</doc>
             <array length="2" zero-terminated="0" c:type="guint8**">
               <type name="guint8" c:type="guint8*"/>
@@ -11907,7 +12383,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1872">the number of bytes to read</doc>
+                 line="1914">the number of bytes to read</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11915,7 +12391,7 @@ MT safe.</doc>
       <method name="read" c:identifier="gst_audio_ring_buffer_read">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1728">Read @len samples from the ringbuffer into the memory pointed
+             line="1770">Read @len samples from the ringbuffer into the memory pointed
 to by @data.
 The first sample should be read from position @sample in
 the ringbuffer.
@@ -11929,7 +12405,7 @@ although it is recommended.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1746">The number of samples read from the ringbuffer or -1 on
+               line="1788">The number of samples read from the ringbuffer or -1 on
 error.
 
 MT safe.</doc>
@@ -11939,19 +12415,19 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1730">the #GstAudioRingBuffer to read from</doc>
+                 line="1772">the #GstAudioRingBuffer to read from</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1731">the sample position of the data</doc>
+                 line="1773">the sample position of the data</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1732">where the data should be read</doc>
+                 line="1774">where the data should be read</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11959,7 +12435,7 @@ MT safe.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1733">the number of samples in data to read</doc>
+                 line="1775">the number of samples in data to read</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timestamp"
@@ -11968,7 +12444,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1734">where the timestamp is returned</doc>
+                 line="1776">where the timestamp is returned</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -12000,7 +12476,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_samples_done">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1229">Get the number of samples that were processed by the ringbuffer
+             line="1271">Get the number of samples that were processed by the ringbuffer
 since it was last started. This does not include the number of samples not
 yet processed (see gst_audio_ring_buffer_delay()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -12008,7 +12484,7 @@ yet processed (see gst_audio_ring_buffer_delay()).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1237">The number of samples processed by the ringbuffer.
+               line="1279">The number of samples processed by the ringbuffer.
 
 MT safe.</doc>
           <type name="guint64" c:type="guint64"/>
@@ -12017,7 +12493,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1231">the #GstAudioRingBuffer to query</doc>
+                 line="1273">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -12122,7 +12598,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_set_channel_positions">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="2021">Tell the ringbuffer about the device's channel positions. This must
+             line="2063">Tell the ringbuffer about the device's channel positions. This must
 be called in when the ringbuffer is acquired.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="328"/>
@@ -12133,13 +12609,13 @@ be called in when the ringbuffer is acquired.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2023">the #GstAudioRingBuffer</doc>
+                 line="2065">the #GstAudioRingBuffer</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2024">the device channel positions</doc>
+                 line="2066">the device channel positions</doc>
             <array zero-terminated="0" c:type="const GstAudioChannelPosition*">
               <type name="AudioChannelPosition"
                     c:type="GstAudioChannelPosition"/>
@@ -12178,7 +12654,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_set_sample">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1258">Make sure that the next sample written to the device is
+             line="1300">Make sure that the next sample written to the device is
 accounted for as being the @sample sample written to the
 device. This value will be used in reporting the current
 sample position of the ringbuffer.
@@ -12195,13 +12671,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1260">the #GstAudioRingBuffer to use</doc>
+                 line="1302">the #GstAudioRingBuffer to use</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1261">the sample number to set</doc>
+                 line="1303">the sample number to set</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -12251,13 +12727,13 @@ MT safe.</doc>
       <method name="stop" c:identifier="gst_audio_ring_buffer_stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1123">Stop processing samples from the ringbuffer.</doc>
+             line="1158">Stop processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="355"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1129">TRUE if the device could be stopped, FALSE on error.
+               line="1164">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -12266,7 +12742,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1125">the #GstAudioRingBuffer to stop</doc>
+                 line="1160">the #GstAudioRingBuffer to stop</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -12441,6 +12917,9 @@ called to fill the memory at @data with @len bytes of samples.</doc>
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
       <field name="open_device">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="225">open the device, don't set any params or allocate anything</doc>
         <callback name="open_device">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="248"/>
@@ -12463,6 +12942,9 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="acquire">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="226">allocate the resources for the ringbuffer using the given spec</doc>
         <callback name="acquire">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="249"/>
@@ -12492,6 +12974,9 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="release">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="227">free resources of the ringbuffer</doc>
         <callback name="release">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="250"/>
@@ -12514,6 +12999,9 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="close_device">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="228">close the device</doc>
         <callback name="close_device">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="251"/>
@@ -12536,6 +13024,9 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="229">start processing of samples</doc>
         <callback name="start">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="253"/>
@@ -12558,13 +13049,16 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="pause">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="230">pause processing of samples</doc>
         <callback name="pause">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="254"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1085">TRUE if the device could be paused, FALSE on error.
+                 line="1120">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
             <type name="gboolean" c:type="gboolean"/>
@@ -12573,13 +13067,16 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1081">the #GstAudioRingBuffer to pause</doc>
+                   line="1116">the #GstAudioRingBuffer to pause</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="resume">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="231">resume processing of samples after pause</doc>
         <callback name="resume">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="255"/>
@@ -12594,13 +13091,16 @@ MT safe.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="232">stop processing of samples</doc>
         <callback name="stop">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="256"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1129">TRUE if the device could be stopped, FALSE on error.
+                 line="1164">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
             <type name="gboolean" c:type="gboolean"/>
@@ -12609,20 +13109,23 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1125">the #GstAudioRingBuffer to stop</doc>
+                   line="1160">the #GstAudioRingBuffer to stop</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="delay">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="233">get number of frames queued in device</doc>
         <callback name="delay">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="258"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1198">The number of samples queued in the audio device.
+                 line="1240">The number of samples queued in the audio device.
 
 MT safe.</doc>
             <type name="guint" c:type="guint"/>
@@ -12631,13 +13134,17 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1185">the #GstAudioRingBuffer to query</doc>
+                   line="1227">the #GstAudioRingBuffer to query</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="activate">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="234">activate the thread that starts pulling and monitoring the
+consumed segments in the device.</doc>
         <callback name="activate">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="261"/>
@@ -12665,13 +13172,16 @@ FALSE on error.</doc>
         </callback>
       </field>
       <field name="commit">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="236">write samples into the ringbuffer</doc>
         <callback name="commit">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="263"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1704">The number of samples written to the ringbuffer or -1 on error. The
+                 line="1746">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
             <type name="guint" c:type="guint"/>
@@ -12680,7 +13190,7 @@ with a flush or stop.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1677">the #GstAudioRingBuffer to commit</doc>
+                   line="1719">the #GstAudioRingBuffer to commit</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
             <parameter name="sample"
@@ -12689,13 +13199,13 @@ with a flush or stop.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1678">the sample position of the data</doc>
+                   line="1720">the sample position of the data</doc>
               <type name="guint64" c:type="guint64*"/>
             </parameter>
             <parameter name="data" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1679">the data to commit</doc>
+                   line="1721">the data to commit</doc>
               <array length="3" zero-terminated="0" c:type="guint8*">
                 <type name="guint8" c:type="guint8"/>
               </array>
@@ -12703,13 +13213,13 @@ with a flush or stop.</doc>
             <parameter name="in_samples" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1680">the number of samples in the data to commit</doc>
+                   line="1722">the number of samples in the data to commit</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="out_samples" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1681">the number of samples to write to the ringbuffer</doc>
+                   line="1723">the number of samples to write to the ringbuffer</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="accum"
@@ -12718,13 +13228,19 @@ with a flush or stop.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1682">accumulator for rate conversion.</doc>
+                   line="1724">accumulator for rate conversion.</doc>
               <type name="gint" c:type="gint*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="clear_all">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudioringbuffer.h"
+             line="237">Optional.
+            Clear the entire ringbuffer.
+            Subclasses should chain up to the parent implementation to
+            invoke the default handler.</doc>
         <callback name="clear_all">
           <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                            line="267"/>
@@ -12735,7 +13251,7 @@ with a flush or stop.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1318">the #GstAudioRingBuffer to clear</doc>
+                   line="1360">the #GstAudioRingBuffer to clear</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
@@ -13031,6 +13547,9 @@ together with #GstAudioBaseSink using a default implementation of a
       <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                        line="120"/>
       <virtual-method name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="68">Close the device.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="100"/>
         <return-value transfer-ownership="none">
@@ -13043,6 +13562,10 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="delay">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="73">Return how many frames are still in the device. Participates in
+        computing the time for audio clocks and drives the synchronisation.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="109"/>
         <return-value transfer-ownership="none">
@@ -13055,6 +13578,10 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="64">Open the device. No configuration needs to be done at this point.
+       This function is also used to check if the device is available.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="94"/>
         <return-value transfer-ownership="none">
@@ -13067,6 +13594,11 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="pause">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="78">Pause the device and unblock write as fast as possible.
+        For retro compatibility, the audio sink will fallback
+        to calling reset if this vmethod is not provided. Since: 1.18</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="113"/>
         <return-value transfer-ownership="none">
@@ -13079,6 +13611,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="prepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="66">Prepare the device to operate with the specified parameters.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="96"/>
         <return-value transfer-ownership="none">
@@ -13094,6 +13629,11 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="reset">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="75">Returns as quickly as possible from a write and flush any pending
+        samples from the device.
+        This vmethod is deprecated. Please provide pause and stop instead.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="111"/>
         <return-value transfer-ownership="none">
@@ -13106,6 +13646,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="resume">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="81">Resume the device. Since: 1.18</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="115"/>
         <return-value transfer-ownership="none">
@@ -13118,6 +13661,12 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="82">Stop the device and unblock write as fast as possible.
+       Pending samples are flushed from the device.
+       For retro compatibility, the audio sink will fallback
+       to calling reset if this vmethod is not provided. Since: 1.18</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="117"/>
         <return-value transfer-ownership="none">
@@ -13130,6 +13679,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="unprepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="67">Undo operations done in prepare.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                          line="98"/>
         <return-value transfer-ownership="none">
@@ -13191,6 +13743,10 @@ together with #GstAudioBaseSink using a default implementation of a
         <type name="AudioBaseSinkClass" c:type="GstAudioBaseSinkClass"/>
       </field>
       <field name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="64">Open the device. No configuration needs to be done at this point.
+       This function is also used to check if the device is available.</doc>
         <callback name="open">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="94"/>
@@ -13205,6 +13761,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="prepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="66">Prepare the device to operate with the specified parameters.</doc>
         <callback name="prepare">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="96"/>
@@ -13223,6 +13782,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="unprepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="67">Undo operations done in prepare.</doc>
         <callback name="unprepare">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="98"/>
@@ -13237,6 +13799,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="68">Close the device.</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="100"/>
@@ -13251,6 +13816,12 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="write">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="69">Write data to the device.
+        This vmethod is allowed to block until all the data is written.
+        If such is the case then it is expected that pause, stop and
+        reset will unblock the write when called.</doc>
         <callback name="write">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="107"/>
@@ -13276,6 +13847,10 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="delay">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="73">Return how many frames are still in the device. Participates in
+        computing the time for audio clocks and drives the synchronisation.</doc>
         <callback name="delay">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="109"/>
@@ -13290,6 +13865,11 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="reset">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="75">Returns as quickly as possible from a write and flush any pending
+        samples from the device.
+        This vmethod is deprecated. Please provide pause and stop instead.</doc>
         <callback name="reset">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="111"/>
@@ -13304,6 +13884,11 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="pause">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="78">Pause the device and unblock write as fast as possible.
+        For retro compatibility, the audio sink will fallback
+        to calling reset if this vmethod is not provided. Since: 1.18</doc>
         <callback name="pause">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="113"/>
@@ -13318,6 +13903,9 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="resume">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="81">Resume the device. Since: 1.18</doc>
         <callback name="resume">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="115"/>
@@ -13332,6 +13920,12 @@ together with #GstAudioBaseSink using a default implementation of a
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosink.h"
+             line="82">Stop the device and unblock write as fast as possible.
+       Pending samples are flushed from the device.
+       For retro compatibility, the audio sink will fallback
+       to calling reset if this vmethod is not provided. Since: 1.18</doc>
         <callback name="stop">
           <source-position filename="gst-libs/gst/audio/gstaudiosink.h"
                            line="117"/>
@@ -13396,6 +13990,9 @@ together with #GstAudioBaseSrc using a default implementation of a
 #GstAudioRingBuffer that uses threads.</doc>
       <source-position filename="gst-libs/gst/audio/gstaudiosrc.h" line="103"/>
       <virtual-method name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="66">close the device</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="86"/>
         <return-value transfer-ownership="none">
@@ -13408,6 +14005,9 @@ together with #GstAudioBaseSrc using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="delay">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="68">the number of frames queued in the device</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="97"/>
         <return-value transfer-ownership="none">
@@ -13420,6 +14020,9 @@ together with #GstAudioBaseSrc using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="63">open the device with the specified caps</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="80"/>
         <return-value transfer-ownership="none">
@@ -13432,6 +14035,9 @@ together with #GstAudioBaseSrc using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="prepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="64">configure device with format</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="82"/>
         <return-value transfer-ownership="none">
@@ -13482,6 +14088,9 @@ together with #GstAudioBaseSrc using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="reset">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="69">unblock a read to the device and reset.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="99"/>
         <return-value transfer-ownership="none">
@@ -13494,6 +14103,9 @@ together with #GstAudioBaseSrc using a default implementation of a
         </parameters>
       </virtual-method>
       <virtual-method name="unprepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="65">undo the configuration</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                          line="84"/>
         <return-value transfer-ownership="none">
@@ -13532,6 +14144,9 @@ functionality.</doc>
         <type name="AudioBaseSrcClass" c:type="GstAudioBaseSrcClass"/>
       </field>
       <field name="open">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="63">open the device with the specified caps</doc>
         <callback name="open">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="80"/>
@@ -13546,6 +14161,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="prepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="64">configure device with format</doc>
         <callback name="prepare">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="82"/>
@@ -13564,6 +14182,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="unprepare">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="65">undo the configuration</doc>
         <callback name="unprepare">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="84"/>
@@ -13578,6 +14199,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="close">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="66">close the device</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="86"/>
@@ -13592,6 +14216,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="read">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="67">read samples from the audio device</doc>
         <callback name="read">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="94"/>
@@ -13626,6 +14253,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="delay">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="68">the number of frames queued in the device</doc>
         <callback name="delay">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="97"/>
@@ -13640,6 +14270,9 @@ functionality.</doc>
         </callback>
       </field>
       <field name="reset">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/audio/gstaudiosrc.h"
+             line="69">unblock a read to the device and reset.</doc>
         <callback name="reset">
           <source-position filename="gst-libs/gst/audio/gstaudiosrc.h"
                            line="99"/>

@@ -696,14 +696,14 @@ matching #GstPlayVideoInfo.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4566">A #gboolean indicating wheter the passes message represents a #GstPlay message or not.</doc>
+               line="4577">A #gboolean indicating wheter the passes message represents a #GstPlay message or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4564">A #GstMessage</doc>
+                 line="4575">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
         </parameters>
@@ -2744,7 +2744,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4655">Parse the given buffering-percent @msg and extract the corresponding value</doc>
+             line="4666">Parse the given buffering-percent @msg and extract the corresponding value</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="420"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2753,7 +2753,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4657">A #GstMessage</doc>
+                 line="4668">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="percent"
@@ -2764,7 +2764,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4658">the resulting buffering percent</doc>
+                 line="4669">the resulting buffering percent</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -2774,7 +2774,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4605">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
+             line="4616">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="411"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2783,7 +2783,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4607">A #GstMessage</doc>
+                 line="4618">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="duration"
@@ -2794,7 +2794,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4608">the resulting duration</doc>
+                 line="4619">the resulting duration</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -2804,7 +2804,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4671">Parse the given error @msg and extract the corresponding #GError</doc>
+             line="4682">Parse the given error @msg and extract the corresponding #GError</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="423"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2813,7 +2813,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4673">A #GstMessage</doc>
+                 line="4684">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="error"
@@ -2824,7 +2824,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4674">the resulting error</doc>
+                 line="4685">the resulting error</doc>
             <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="details"
@@ -2836,7 +2836,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4675">A #GstStructure containing additional details about the error</doc>
+                 line="4686">A #GstStructure containing additional details about the error</doc>
             <type name="Gst.Structure" c:type="GstStructure**"/>
           </parameter>
         </parameters>
@@ -2846,7 +2846,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4729">Parse the given @msg and extract the corresponding media information</doc>
+             line="4740">Parse the given @msg and extract the corresponding media information</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="432"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2855,7 +2855,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4731">A #GstMessage</doc>
+                 line="4742">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="info"
@@ -2866,7 +2866,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4732">the resulting media info</doc>
+                 line="4743">the resulting media info</doc>
             <type name="PlayMediaInfo" c:type="GstPlayMediaInfo**"/>
           </parameter>
         </parameters>
@@ -2876,7 +2876,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4762">Parse the given @msg and extract the corresponding audio muted state</doc>
+             line="4773">Parse the given @msg and extract the corresponding audio muted state</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="438"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2885,7 +2885,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4764">A #GstMessage</doc>
+                 line="4775">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="muted"
@@ -2896,7 +2896,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4765">the resulting audio muted state</doc>
+                 line="4776">the resulting audio muted state</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
         </parameters>
@@ -2906,7 +2906,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4622">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
+             line="4633">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="414"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2915,7 +2915,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4624">A #GstMessage</doc>
+                 line="4635">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="position"
@@ -2926,7 +2926,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4625">the resulting position</doc>
+                 line="4636">the resulting position</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -2936,7 +2936,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4639">Parse the given state @msg and extract the corresponding #GstPlayState</doc>
+             line="4650">Parse the given state @msg and extract the corresponding #GstPlayState</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="417"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2945,7 +2945,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4641">A #GstMessage</doc>
+                 line="4652">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="state"
@@ -2956,7 +2956,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4642">the resulting play state</doc>
+                 line="4653">the resulting play state</doc>
             <type name="PlayState" c:type="GstPlayState*"/>
           </parameter>
         </parameters>
@@ -2966,7 +2966,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4589">Parse the given @msg and extract its #GstPlayMessage type.</doc>
+             line="4600">Parse the given @msg and extract its #GstPlayMessage type.</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="408"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2975,7 +2975,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4591">A #GstMessage</doc>
+                 line="4602">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="type"
@@ -2986,7 +2986,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4592">the resulting message type</doc>
+                 line="4603">the resulting message type</doc>
             <type name="PlayMessage" c:type="GstPlayMessage*"/>
           </parameter>
         </parameters>
@@ -2996,7 +2996,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4709">Parse the given @msg and extract the corresponding video dimensions</doc>
+             line="4720">Parse the given @msg and extract the corresponding video dimensions</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="429"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3005,7 +3005,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4711">A #GstMessage</doc>
+                 line="4722">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="width"
@@ -3016,7 +3016,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4712">the resulting video width</doc>
+                 line="4723">the resulting video width</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="height"
@@ -3027,7 +3027,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4713">the resulting video height</doc>
+                 line="4724">the resulting video height</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -3037,7 +3037,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4746">Parse the given @msg and extract the corresponding audio volume</doc>
+             line="4757">Parse the given @msg and extract the corresponding audio volume</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="435"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3046,7 +3046,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4748">A #GstMessage</doc>
+                 line="4759">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="volume"
@@ -3057,7 +3057,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4749">the resulting audio volume</doc>
+                 line="4760">the resulting audio volume</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -3067,7 +3067,7 @@ See also #gst_play_get_message_bus()</doc-version>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay.c"
-             line="4690">Parse the given error @msg and extract the corresponding #GError warning</doc>
+             line="4701">Parse the given error @msg and extract the corresponding #GError warning</doc>
         <source-position filename="gst-libs/gst/play/gstplay.h" line="426"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3076,7 +3076,7 @@ See also #gst_play_get_message_bus()</doc-version>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4692">A #GstMessage</doc>
+                 line="4703">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="error"
@@ -3087,7 +3087,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4693">the resulting warning</doc>
+                 line="4704">the resulting warning</doc>
             <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="details"
@@ -3099,7 +3099,7 @@ See also #gst_play_get_message_bus()</doc-version>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay.c"
-                 line="4694">A #GstStructure containing additional details about the warning</doc>
+                 line="4705">A #GstStructure containing additional details about the warning</doc>
             <type name="Gst.Structure" c:type="GstStructure**"/>
           </parameter>
         </parameters>
@@ -3254,7 +3254,7 @@ it on the created adapter object.</doc>
       <glib:signal name="error" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-             line="423">Emitted on errors.</doc>
+             line="425">Emitted on errors.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3262,7 +3262,7 @@ it on the created adapter object.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="426">The error</doc>
+                 line="428">The error</doc>
             <type name="GLib.Error"/>
           </parameter>
           <parameter name="details"
@@ -3271,7 +3271,7 @@ it on the created adapter object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="427">Additional error details</doc>
+                 line="429">Additional error details</doc>
             <type name="Gst.Structure"/>
           </parameter>
         </parameters>
@@ -3377,7 +3377,7 @@ it on the created adapter object.</doc>
       <glib:signal name="warning" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-             line="456">Emitted on warnings.</doc>
+             line="458">Emitted on warnings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3385,7 +3385,7 @@ it on the created adapter object.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="459">The warning</doc>
+                 line="461">The warning</doc>
             <type name="GLib.Error"/>
           </parameter>
           <parameter name="details"
@@ -3394,7 +3394,7 @@ it on the created adapter object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="460">Additional warning details</doc>
+                 line="462">Additional warning details</doc>
             <type name="Gst.Structure"/>
           </parameter>
         </parameters>
@@ -4337,7 +4337,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4655">Parse the given buffering-percent @msg and extract the corresponding value</doc>
+           line="4666">Parse the given buffering-percent @msg and extract the corresponding value</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="420"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4346,7 +4346,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4657">A #GstMessage</doc>
+               line="4668">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="percent"
@@ -4357,7 +4357,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4658">the resulting buffering percent</doc>
+               line="4669">the resulting buffering percent</doc>
           <type name="guint" c:type="guint*"/>
         </parameter>
       </parameters>
@@ -4368,7 +4368,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4605">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
+           line="4616">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="411"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4377,7 +4377,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4607">A #GstMessage</doc>
+               line="4618">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="duration"
@@ -4388,7 +4388,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4608">the resulting duration</doc>
+               line="4619">the resulting duration</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime*"/>
         </parameter>
       </parameters>
@@ -4399,7 +4399,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4671">Parse the given error @msg and extract the corresponding #GError</doc>
+           line="4682">Parse the given error @msg and extract the corresponding #GError</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="423"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4408,7 +4408,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4673">A #GstMessage</doc>
+               line="4684">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="error"
@@ -4419,7 +4419,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4674">the resulting error</doc>
+               line="4685">the resulting error</doc>
           <type name="GLib.Error" c:type="GError**"/>
         </parameter>
         <parameter name="details"
@@ -4431,7 +4431,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4675">A #GstStructure containing additional details about the error</doc>
+               line="4686">A #GstStructure containing additional details about the error</doc>
           <type name="Gst.Structure" c:type="GstStructure**"/>
         </parameter>
       </parameters>
@@ -4442,7 +4442,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4729">Parse the given @msg and extract the corresponding media information</doc>
+           line="4740">Parse the given @msg and extract the corresponding media information</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="432"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4451,7 +4451,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4731">A #GstMessage</doc>
+               line="4742">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="info"
@@ -4462,7 +4462,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4732">the resulting media info</doc>
+               line="4743">the resulting media info</doc>
           <type name="PlayMediaInfo" c:type="GstPlayMediaInfo**"/>
         </parameter>
       </parameters>
@@ -4473,7 +4473,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4762">Parse the given @msg and extract the corresponding audio muted state</doc>
+           line="4773">Parse the given @msg and extract the corresponding audio muted state</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="438"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4482,7 +4482,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4764">A #GstMessage</doc>
+               line="4775">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="muted"
@@ -4493,7 +4493,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4765">the resulting audio muted state</doc>
+               line="4776">the resulting audio muted state</doc>
           <type name="gboolean" c:type="gboolean*"/>
         </parameter>
       </parameters>
@@ -4504,7 +4504,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4622">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
+           line="4633">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="414"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4513,7 +4513,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4624">A #GstMessage</doc>
+               line="4635">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="position"
@@ -4524,7 +4524,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4625">the resulting position</doc>
+               line="4636">the resulting position</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime*"/>
         </parameter>
       </parameters>
@@ -4535,7 +4535,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4639">Parse the given state @msg and extract the corresponding #GstPlayState</doc>
+           line="4650">Parse the given state @msg and extract the corresponding #GstPlayState</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="417"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4544,7 +4544,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4641">A #GstMessage</doc>
+               line="4652">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="state"
@@ -4555,7 +4555,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4642">the resulting play state</doc>
+               line="4653">the resulting play state</doc>
           <type name="PlayState" c:type="GstPlayState*"/>
         </parameter>
       </parameters>
@@ -4566,7 +4566,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4589">Parse the given @msg and extract its #GstPlayMessage type.</doc>
+           line="4600">Parse the given @msg and extract its #GstPlayMessage type.</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="408"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4575,7 +4575,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4591">A #GstMessage</doc>
+               line="4602">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="type"
@@ -4586,7 +4586,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4592">the resulting message type</doc>
+               line="4603">the resulting message type</doc>
           <type name="PlayMessage" c:type="GstPlayMessage*"/>
         </parameter>
       </parameters>
@@ -4597,7 +4597,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4709">Parse the given @msg and extract the corresponding video dimensions</doc>
+           line="4720">Parse the given @msg and extract the corresponding video dimensions</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="429"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4606,7 +4606,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4711">A #GstMessage</doc>
+               line="4722">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="width"
@@ -4617,7 +4617,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4712">the resulting video width</doc>
+               line="4723">the resulting video width</doc>
           <type name="guint" c:type="guint*"/>
         </parameter>
         <parameter name="height"
@@ -4628,7 +4628,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4713">the resulting video height</doc>
+               line="4724">the resulting video height</doc>
           <type name="guint" c:type="guint*"/>
         </parameter>
       </parameters>
@@ -4639,7 +4639,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4746">Parse the given @msg and extract the corresponding audio volume</doc>
+           line="4757">Parse the given @msg and extract the corresponding audio volume</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="435"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4648,7 +4648,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4748">A #GstMessage</doc>
+               line="4759">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="volume"
@@ -4659,7 +4659,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4749">the resulting audio volume</doc>
+               line="4760">the resulting audio volume</doc>
           <type name="gdouble" c:type="gdouble*"/>
         </parameter>
       </parameters>
@@ -4670,7 +4670,7 @@ freed using gst_play_visualization_free().</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/play/gstplay.c"
-           line="4690">Parse the given error @msg and extract the corresponding #GError warning</doc>
+           line="4701">Parse the given error @msg and extract the corresponding #GError warning</doc>
       <source-position filename="gst-libs/gst/play/gstplay.h" line="426"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4679,7 +4679,7 @@ freed using gst_play_visualization_free().</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4692">A #GstMessage</doc>
+               line="4703">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="error"
@@ -4690,7 +4690,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4693">the resulting warning</doc>
+               line="4704">the resulting warning</doc>
           <type name="GLib.Error" c:type="GError**"/>
         </parameter>
         <parameter name="details"
@@ -4702,7 +4702,7 @@ freed using gst_play_visualization_free().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/play/gstplay.c"
-               line="4694">A #GstStructure containing additional details about the warning</doc>
+               line="4705">A #GstStructure containing additional details about the warning</doc>
           <type name="Gst.Structure" c:type="GstStructure**"/>
         </parameter>
       </parameters>

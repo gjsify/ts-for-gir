@@ -10497,7 +10497,7 @@ See also [enum@Pango.Gravity]</doc>
 
 You typically obtain `PangoItems` by itemizing a piece of text
 with [func@itemize].</doc>
-      <source-position filename="pango/pango-item.h" line="116"/>
+      <source-position filename="pango/pango-item.h" line="117"/>
       <field name="offset" writable="1">
         <doc xml:space="preserve"
              filename="pango/pango-item.h"
@@ -10519,14 +10519,14 @@ with [func@itemize].</doc>
       <field name="analysis" writable="1">
         <doc xml:space="preserve"
              filename="pango/pango-item.h"
-             line="103">analysis results for the item.</doc>
+             line="104">analysis results for the item.</doc>
         <type name="Analysis" c:type="PangoAnalysis"/>
       </field>
       <constructor name="new" c:identifier="pango_item_new">
         <doc xml:space="preserve"
              filename="pango/pango-item.c"
              line="27">Creates a new `PangoItem` structure initialized to default values.</doc>
-        <source-position filename="pango/pango-item.h" line="124"/>
+        <source-position filename="pango/pango-item.h" line="125"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="pango/pango-item.c"
@@ -10551,7 +10551,7 @@ The @iter should be positioned before the range of the item,
 and will be advanced past it. This function is meant to be called
 in a loop over the items resulting from itemization, while passing
 the iter to each call.</doc>
-        <source-position filename="pango/pango-item.h" line="140"/>
+        <source-position filename="pango/pango-item.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -10574,7 +10574,7 @@ the iter to each call.</doc>
         <doc xml:space="preserve"
              filename="pango/pango-item.c"
              line="45">Copy an existing `PangoItem` structure.</doc>
-        <source-position filename="pango/pango-item.h" line="126"/>
+        <source-position filename="pango/pango-item.h" line="127"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-item.c"
@@ -10597,7 +10597,7 @@ the iter to each call.</doc>
         <doc xml:space="preserve"
              filename="pango/pango-item.c"
              line="90">Free a `PangoItem` and all associated memory.</doc>
-        <source-position filename="pango/pango-item.h" line="128"/>
+        <source-position filename="pango/pango-item.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -10609,34 +10609,6 @@ the iter to each call.</doc>
             <doc xml:space="preserve"
                  filename="pango/pango-item.c"
                  line="92">a `PangoItem`, may be %NULL</doc>
-            <type name="Item" c:type="PangoItem*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_char_offset"
-              c:identifier="pango_item_get_char_offset"
-              version="1.54">
-        <doc xml:space="preserve"
-             filename="pango/pango-item.c"
-             line="376">Returns the character offset of the item from the beginning
-of the itemized text.
-
-If the item has not been obtained from Pango's itemization
-machinery, then the character offset is not available. In
-that case, this function returns -1.</doc>
-        <source-position filename="pango/pango-item.h" line="132"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="pango/pango-item.c"
-               line="387">the character offset of the item from the beginning
-  of the itemized text, or -1</doc>
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="pango/pango-item.c"
-                 line="378">a `PangoItem`</doc>
             <type name="Item" c:type="PangoItem*"/>
           </instance-parameter>
         </parameters>
@@ -10656,7 +10628,7 @@ assigned to each item, you can't create a zero-length item).
 provided because the text used to generate the item isn't available,
 so `pango_item_split()` can't count the char length of the split items
 itself.</doc>
-        <source-position filename="pango/pango-item.h" line="135"/>
+        <source-position filename="pango/pango-item.h" line="132"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="pango/pango-item.c"
@@ -19405,14 +19377,14 @@ Two encoded version numbers can be compared as integers.</doc>
       <source-position filename="pango/pango-features.h" line="4"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="0" c:type="PANGO_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="2" c:type="PANGO_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
            line="147">The micro component of the version of Pango available at compile-time.</doc>
       <source-position filename="pango/pango-features.h" line="6"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MINOR" value="54" c:type="PANGO_VERSION_MINOR">
+    <constant name="VERSION_MINOR" value="52" c:type="PANGO_VERSION_MINOR">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
            line="142">The minor component of the version of Pango available at compile-time.</doc>
@@ -19420,7 +19392,7 @@ Two encoded version numbers can be compared as integers.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION_STRING"
-              value="1.54.0"
+              value="1.52.2"
               c:type="PANGO_VERSION_STRING">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
@@ -21472,7 +21444,7 @@ at a range before or containing @start_index; @cached_iter will be
 advanced to the range covering the position just after
 @start_index + @length. (i.e. if itemizing in a loop, just keep passing
 in the same @cached_iter).</doc>
-      <source-position filename="pango/pango-item.h" line="149"/>
+      <source-position filename="pango/pango-item.h" line="146"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="pango/itemize.c"
@@ -21537,7 +21509,7 @@ in the same @cached_iter).</doc>
 The base direction is used when computing bidirectional levels.
 [func@itemize] gets the base direction from the `PangoContext`
 (see [method@Pango.Context.set_base_dir]).</doc>
-      <source-position filename="pango/pango-item.h" line="157"/>
+      <source-position filename="pango/pango-item.h" line="154"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="pango/itemize.c"
@@ -22261,7 +22233,7 @@ levels of the items. The original list is unmodified.
 (Please open a bug if you use this function.
  It is not a particularly convenient interface, and the code
  is duplicated elsewhere in Pango for that reason.)</doc>
-      <source-position filename="pango/pango-item.h" line="144"/>
+      <source-position filename="pango/pango-item.h" line="141"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="pango/reorder-items.c"

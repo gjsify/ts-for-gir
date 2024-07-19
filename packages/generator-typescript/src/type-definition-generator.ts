@@ -7,8 +7,6 @@ import {
     Dependency,
     DependencyManager,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
-    //WARN_IGNORE_MULTIPLE_CALLBACKS,
-    //WARN_IGNORE_MULTIPLE_FUNC_DESC,
     PackageData,
     TypeExpression,
     NSRegistry,
@@ -1800,7 +1798,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
-            if (moduleTemplateProcessor.exists(explicitTemplate)) {
+            if (await moduleTemplateProcessor.exists(explicitTemplate)) {
                 const { append, prepend } = await this.moduleTemplateProcessor.load(explicitTemplate)
                 // TODO push prepend and append to the right position
                 out.push(append + prepend)
@@ -2068,7 +2066,7 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
         let template = girModuleImportName ? `README-${girModuleImportName}.md` : 'README.md'
         const outputFilename = 'README.md'
 
-        if (!this.moduleTemplateProcessor.exists(template)) {
+        if (!(await this.moduleTemplateProcessor.exists(template))) {
             template = 'README.md'
         }
 

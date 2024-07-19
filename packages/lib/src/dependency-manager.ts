@@ -1,8 +1,7 @@
 import { parser, GirXML, GirRepository, GirNamespace } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
-import { readFileSync } from 'fs'
 
-import { findFilesInDirs, findFilesInDirsSync, splitModuleName, pascalCase } from './utils.js'
+import { findFilesInDirs, splitModuleName, pascalCase } from './utils/index.js'
 import { sanitizeNamespace } from './gir/util.js'
 import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
@@ -17,7 +16,7 @@ export class DependencyManager extends GirNSRegistry {
 
     protected _cache: { [packageName: string]: Dependency } = {}
 
-    static instance?: DependencyManager
+    static instances: { [key: string]: DependencyManager } = {}
 
     protected constructor(protected readonly config: OptionsGeneration) {
         super()
@@ -30,14 +29,19 @@ export class DependencyManager extends GirNSRegistry {
      * Get the DependencyManager singleton instance
      */
     static getInstance(config?: OptionsGeneration): DependencyManager {
-        if (this.instance) {
-            return this.instance
+        const configKey = config ? JSON.stringify(config) : Object.keys(this.instances)[0]
+
+        if (this.instances[configKey]) {
+            return this.instances[configKey]
         }
+
         if (!config) {
             throw new Error('config parameter is required to initialize DependencyManager')
         }
-        this.instance = new DependencyManager(config)
-        return this.instance
+
+        const instance = new DependencyManager(config)
+        this.instances[configKey] = instance
+        return instance
     }
 
     protected parsePackageName(namespaceOrPackageName: string, version?: string) {
@@ -136,14 +140,6 @@ export class DependencyManager extends GirNSRegistry {
         return { girXML, repo, ns, version }
     }
 
-    protected parseGirSync(path: string) {
-        const girXML = parser.parseGir(readFileSync(path, 'utf8'))
-        const repo = girXML.repository[0]
-        const ns = repo?.namespace?.[0]
-        const version = ns?.$.version
-        return { girXML, repo, ns, version }
-    }
-
     protected async parseGirAndReturnLatestVersion(filesInfo: FileInfo[]) {
         const libraryVersions: { libraryVersion: LibraryVersion; girXML: GirXML; fileInfo: FileInfo }[] = []
 
@@ -175,55 +171,6 @@ export class DependencyManager extends GirNSRegistry {
         // Compare all library versions and return the latest version
         const latestLibraryVersion = libraryVersions.sort((a, b) => a.libraryVersion.compare(b.libraryVersion))[0]
 
-        if (!latestLibraryVersion) {
-            this.log.warn('No latest library version found', {
-                libraryVersions,
-                filesInfo,
-            })
-            return {
-                libraryVersion: new LibraryVersion(),
-                girXML: null,
-                fileInfo: filesInfo[0],
-            }
-        }
-
-        if (filesInfo.length > 1) {
-            this.log.muted(`Use latest version ${latestLibraryVersion.libraryVersion.toString()}`)
-        }
-
-        return latestLibraryVersion
-    }
-
-    protected parseGirAndReturnLatestVersionSync(filesInfo: FileInfo[]) {
-        const libraryVersions: { libraryVersion: LibraryVersion; girXML: GirXML; fileInfo: FileInfo }[] = []
-
-        if (filesInfo.length > 1) {
-            this.log.warn(`Multiple paths found for ${filesInfo[0].filename}`)
-        }
-
-        for (const fileInfo of filesInfo) {
-            if (!fileInfo.exists || !fileInfo.path) {
-                continue
-            }
-            const { girXML, ns, version } = this.parseGirSync(fileInfo.path)
-            if (!version || !ns) {
-                continue
-            }
-
-            const libraryVersion = new LibraryVersion(ns?.constant, version)
-
-            if (filesInfo.length > 1) {
-                this.log.muted(` - ${fileInfo.path} (${libraryVersion.toString()})`)
-            }
-
-            libraryVersions.push({
-                libraryVersion,
-                girXML,
-                fileInfo,
-            })
-        }
-        // Compare all library versions and return the latest version
-        const latestLibraryVersion = libraryVersions.sort((a, b) => a.libraryVersion.compare(b.libraryVersion))[0]
         if (!latestLibraryVersion) {
             this.log.warn('No latest library version found', {
                 libraryVersions,
@@ -277,68 +224,6 @@ export class DependencyManager extends GirNSRegistry {
         const filesInfo = await findFilesInDirs(this.config.girDirectories, filename)
 
         const { libraryVersion, girXML, fileInfo } = await this.parseGirAndReturnLatestVersion(filesInfo)
-
-        const ns: GirNamespace | null = girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null
-
-        // Use the version from the gir file if it exists
-        if (ns?.$.version) {
-            version = ns?.$.version
-        }
-        if (ns?.$.name) {
-            namespace = ns?.$.name
-        }
-
-        const dependency: Dependency = {
-            ...fileInfo,
-            namespace,
-            packageName,
-            importName: this.transformation.transformImportName(packageName),
-            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
-            version,
-            libraryVersion,
-            girXML,
-            ...this.createImportProperties(namespace, packageName, version),
-        }
-
-        this._cache[packageName] = dependency
-
-        return dependency
-    }
-
-    /**
-     * Get the dependency object by packageName (synchronous version)
-     * @param packageName The package name (with version affix) of the dependency
-     * @returns The dependency object
-     */
-    getSync(packageName: string): Dependency
-    /**
-     * Get the dependency object by namespace and version (synchronous version)
-     * @param namespace The namespace of the dependency
-     * @param version The version of the dependency
-     * @returns The dependency object
-     */
-    getSync(namespace: string, version: string): Dependency
-    /**
-     * Get the dependency object by {@link GirRepository}
-     * @param namespace The namespace of the dependency (synchronous version)
-     * @param version The version of the dependency
-     * @returns The dependency object
-     */
-    getSync(repo: GirRepository): Dependency
-    getSync(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Dependency {
-        const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
-        const { packageName, repo } = parsedArgs
-        let { namespace, version } = parsedArgs
-        namespace = sanitizeNamespace(namespace)
-
-        if (this._cache[packageName]) {
-            const dep = this._cache[packageName]
-            return dep
-        }
-        const filename = `${packageName}.gir`
-        const filesInfo = findFilesInDirsSync(this.config.girDirectories, filename)
-
-        const { libraryVersion, girXML, fileInfo } = this.parseGirAndReturnLatestVersionSync(filesInfo)
 
         const ns: GirNamespace | null = girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null
 

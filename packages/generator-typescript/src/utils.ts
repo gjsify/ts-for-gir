@@ -1,10 +1,10 @@
 import { fileURLToPath } from 'url'
-import { dirname } from 'path'
+import { dirname, resolve } from 'path'
 
 // Get __filename on ESM
-export const __filename = fileURLToPath(import.meta.url)
-// Get __dirname on ESM
-export const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM, resolve to the root directory of this package
+export const __dirname = resolve(dirname(__filename), '..')
 
 export const mergeLargeStringArrays = (target: string[], source: string[], chunkSize: number = 1000): string[] => {
     for (let i = 0; i < source.length; i += chunkSize) {

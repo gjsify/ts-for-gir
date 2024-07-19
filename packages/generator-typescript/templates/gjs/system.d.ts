@@ -1,4 +1,4 @@
-<%_ const GObject = dep.getSync('GObject', '2.0') _%>
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
 <%- GObject ? GObject.importDef : '' %>
 
 /**

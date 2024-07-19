@@ -19,9 +19,6 @@ export const WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE = (packageName: string) =>
     `No gir file found for '${packageName}', this module will be ignored`
 export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
 
-export const WARN_IGNORE_MULTIPLE_CALLBACKS = 'Multiple callbacks are ignored!'
-export const WARN_IGNORE_MULTIPLE_FUNC_DESC = 'Ignore multiline function description!'
-
 export const WARN_DUPLICATE_ENUM_IDENTIFIER = (name: string, renamed: string) =>
     `Enum has a duplicate identifier '${name}', renamed to '${renamed}'!`
 export const WARN_DUPLICATE_SYMBOL = (symbol: string) => `Duplicate symbol: ${symbol}`

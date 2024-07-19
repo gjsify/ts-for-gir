@@ -3,7 +3,6 @@
  * For example, the signal methods are generated here
  */
 
-import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
@@ -18,11 +17,12 @@ import {
     PACKAGE_KEYWORDS,
     DependencyManager,
     Transformation,
+    fileExists,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
 
-const TEMPLATE_DIR = join(__dirname, '../templates')
+const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
     protected environmentTemplateDir: string
@@ -102,7 +102,7 @@ export class TemplateProcessor {
         let append = ''
 
         const appendTemplateFilename = this.getAppendTemplateName(templateFilename)
-        if (this.exists(appendTemplateFilename)) {
+        if (await this.exists(appendTemplateFilename)) {
             const appendFileContent = await this.read(appendTemplateFilename)
             append = await this.render(appendFileContent, ejsOptions, overrideTemplateData)
         }
@@ -248,13 +248,13 @@ export class TemplateProcessor {
      * Tries first to load the file / directory from the environment-specific template folder and otherwise looks for it in the general template folder
      * @param templateFilename
      */
-    public exists(templateFilename: string): string | null {
+    public async exists(templateFilename: string): Promise<string | null> {
         const fullEnvironmentTemplatePath = join(this.environmentTemplateDir, templateFilename)
         const fullGeneralTemplatePath = join(TEMPLATE_DIR, templateFilename)
-        if (existsSync(fullEnvironmentTemplatePath)) {
+        if (await fileExists(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath
         }
-        if (existsSync(fullGeneralTemplatePath)) {
+        if (await fileExists(fullGeneralTemplatePath)) {
             return fullGeneralTemplatePath
         }
         return null
@@ -266,7 +266,7 @@ export class TemplateProcessor {
      * @return The raw template content
      */
     protected async read(templateFilename: string) {
-        const path = this.exists(templateFilename)
+        const path = await this.exists(templateFilename)
         if (path) {
             return await readFile(path, 'utf8')
         }
@@ -282,7 +282,7 @@ export class TemplateProcessor {
      * @throws Error if the template directory is empty
      */
     protected async readAll(templateDirname: string, fileExtension: string) {
-        const path = this.exists(templateDirname)
+        const path = await this.exists(templateDirname)
         if (path) {
             const files = (await readdir(path)).filter((file) => file.endsWith(fileExtension))
             if (files.length === 0) {

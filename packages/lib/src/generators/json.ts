@@ -1,4 +1,4 @@
-import { Logger } from '../logger.js'
+import { Logger } from "../logger.js";
 import { FormatGenerator } from "./generator.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
@@ -326,7 +326,7 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
-    readonly log: Logger
+    readonly log: Logger;
 
     constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
@@ -1306,7 +1306,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     }
 
     async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {
-        const { namespace, options } = this;
+        const { namespace } = this;
 
         this.log.debug(`Resolving the types of ${namespace.namespace}...`);
 

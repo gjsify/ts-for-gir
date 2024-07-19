@@ -101,6 +101,30 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
+    async exportAllModules(girModules: GirModule[]) {
+        const { config, dependencyManager } = this
+
+        if (config.package) {
+            throw new Error('Export all modules is not implemented for package.json mode')
+        }
+
+        // TODO: Print to stdout
+        if (!config.outdir) return
+
+        const templateProcessor = new TemplateProcessor(
+            {
+                registry: dependencyManager,
+                girModules,
+            },
+            'index',
+            dependencyManager.all(),
+            config,
+        )
+
+        await templateProcessor.create('gi.d.ts', config.outdir, 'gi.d.ts')
+        await templateProcessor.create('index-locally.d.ts', config.outdir, 'index.d.ts')
+    }
+
     public async generate(registry: NSRegistry, module: GirModule) {
         const moduleGenerator = new ModuleGenerator(module, this.config)
         await moduleGenerator.exportModule(registry, module)
@@ -112,8 +136,13 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public async finish() {
+    public async finish(_registry: NSRegistry, girModules: GirModule[]) {
         // GJS internal stuff
         await this.exportGjs()
+
+        // index file for all modules
+        if (!this.config.package) {
+            await this.exportAllModules(girModules)
+        }
     }
 }

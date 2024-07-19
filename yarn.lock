@@ -12560,9 +12560,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-test/types-packages@workspace:tests/types-package":
+"@ts-for-gir-test/types-locally@workspace:tests/types-locally":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-test/types-packages@workspace:tests/types-package"
+  resolution: "@ts-for-gir-test/types-locally@workspace:tests/types-locally"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     esbuild: "npm:^0.23.0"

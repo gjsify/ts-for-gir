@@ -1,5 +1,5 @@
 {
-    "name": "@ts-for-gir-test/types-packages",
+    "name": "@ts-for-gir-test/types-locally",
     "type": "module",
     "private": true,
     "scripts": {

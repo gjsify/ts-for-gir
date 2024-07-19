@@ -31,8 +31,6 @@ export const WARN_DUPLICATE_PARAMETER = (paramName: string, namespace?: string) 
 export const WARN_NOT_FOUND_TYPE = (logName: string) => `Could not find type for "${logName}"`
 export const WARN_NOT_FOUND_PACKAGE_NAME = (namespace: string, implementation: string) =>
     `Package name for namespace ${namespace} not found! (${implementation})`
-export const WARN_NOT_FOUND_DEPENDENCY_GIR_FILE = (girFilename: string) =>
-    `Dependency gir file not found: '${girFilename}'`
 
 export const WARN_RENAMED_PROPERTY = (originalName: string, newName: string) =>
     `Property name renamed from '${originalName}' to '${newName}'`

@@ -10,6 +10,9 @@ console.log(Gettext.textdomain)
 import System from 'system'
 console.log(System.programPath, System.programArgs)
 
+import glib2 from 'gi://GLib?version=2.0'
+console.log(glib2.__name__, glib2.__version__)
+
 import gtk2 from 'gi://Gtk?version=2.0'
 console.log(gtk2.__name__, gtk2.__version__)
 

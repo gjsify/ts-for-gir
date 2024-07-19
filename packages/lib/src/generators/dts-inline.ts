@@ -1,3 +1,4 @@
+import { Logger } from '../logger.js'
 import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
@@ -7,16 +8,18 @@ import { IntrospectedNamespaceMember } from "../gir/base.js";
 import type { OptionsGeneration } from "../types/index.js";
 
 export class DtsInlineGenerator extends DtsGenerator {
+
+    readonly log: Logger
+
     constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
+        this.log = new Logger(options.verbose, DtsInlineGenerator.name);
     }
 
     generateNamespace(node: IntrospectedNamespace): Promise<string | null> {
         const { namespace, options } = this;
 
-        if (options.verbose) {
-            console.debug(`Resolving the types of ${namespace.namespace}...`);
-        }
+        this.log.debug(`Resolving the types of ${namespace.namespace}...`);
 
         let suffix = "";
 
@@ -54,14 +57,11 @@ export class DtsInlineGenerator extends DtsGenerator {
 
             const output = [header, base, content, suffix].join("\n\n");
 
-            if (options.verbose) {
-                console.debug(`Printing ${namespace.namespace}...`);
-            }
+            this.log.debug(`Printing ${namespace.namespace}...`);
 
             return Promise.resolve(output);
         } catch (err) {
-            console.error(`Failed to generate namespace: ${node.namespace}`);
-            console.error(err);
+            this.log.error(`Failed to generate namespace: ${node.namespace}`, err);
 
             return Promise.resolve(null);
         }

@@ -1,3 +1,4 @@
+import { Logger } from '../logger.js'
 import { FormatGenerator } from "./generator.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
@@ -325,8 +326,11 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
+    readonly log: Logger
+
     constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
+        this.log = new Logger(options.verbose, JsonGenerator.name);
     }
 
     /**
@@ -1304,23 +1308,18 @@ export class JsonGenerator extends FormatGenerator<Json> {
     async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {
         const { namespace, options } = this;
 
-        if (options.verbose) {
-            console.debug(`Resolving the types of ${namespace.namespace}...`);
-        }
+        this.log.debug(`Resolving the types of ${namespace.namespace}...`);
 
         try {
             const output = await this.generateNamespace(node);
 
-            if (options.verbose) {
-                console.debug(`Printing ${namespace.namespace}...`);
-            }
+            this.log.debug(`Printing ${namespace.namespace}...`);
 
             if (!output) return null;
 
             return JSON.stringify(output, null, 4);
         } catch (err) {
-            console.error(`Failed to generate namespace: ${node.namespace}`);
-            console.error(err);
+            this.log.error(`Failed to generate namespace: "${node.namespace}"`, err);
             return null;
         }
     }

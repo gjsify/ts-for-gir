@@ -122,7 +122,7 @@ export class TypeIdentifier extends TypeExpression {
 
         if (cb) {
             if (options.verbose) {
-                console.debug(`Callback found: ${cb}.${corrected_name}`)
+                this.log.debug(`Callback found: ${cb}.${corrected_name}`)
             }
 
             return new ModuleTypeIdentifier(corrected_name, cb, ns.namespace)

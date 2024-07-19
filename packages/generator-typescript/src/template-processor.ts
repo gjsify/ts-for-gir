@@ -188,7 +188,7 @@ export class TemplateProcessor {
      */
     public async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
         const outputPath = this.getOutputPath(baseOutputPath, outputFilename)
-        console.debug('Writing to', outputPath)
+        this.log.info('Writing to', outputPath)
 
         // write template result file
         await mkdir(dirname(outputPath), { recursive: true })
@@ -225,7 +225,7 @@ export class TemplateProcessor {
             )
             return renderedTpl
         } catch (error) {
-            this.log.error('Error on render', error)
+            this.log.error(`Error on render "${templateString}":`, error)
             throw error
         }
     }

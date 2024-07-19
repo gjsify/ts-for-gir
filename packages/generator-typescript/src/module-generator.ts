@@ -4,7 +4,6 @@ import {
     removeNamespace,
     removeClassModule,
     DependencyManager,
-    WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     PackageData,
     TypeExpression,
     NSRegistry,
@@ -1638,29 +1637,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    /**
-     *
-     * @param namespace E.g. 'Gtk'
-     * @param packageName E.g. 'Gtk-3.0'
-     * @param asExternType Currently only used for node type imports
-     */
-    protected async generateModuleDependenciesImport(packageName: string): Promise<string[]> {
-        const def: string[] = []
-        const dep = await this.dependencyManager.get(packageName)
-
-        if (this.namespace.hasSymbol(dep.namespace)) {
-            if (this.config.noNamespace) {
-                def.push(`import * as ${dep.namespace}__ from '${dep.importPath}';`)
-            } else {
-                def.push(`import ${dep.namespace}__ from '${dep.importPath}';`)
-            }
-        } else {
-            def.push(dep.importDef)
-        }
-
-        return def
-    }
-
     async generateNamespace(girModule: GirModule): Promise<string[]> {
         const moduleTemplateProcessor = this.moduleTemplateProcessor
         const template = 'module.d.ts'
@@ -1671,20 +1647,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
-
-        // Module dependencies as type references or imports
-        // TODO: Move to template
-        for (const dependency of girModule.transitiveDependencies) {
-            // Don't reference yourself as a dependency
-            if (girModule.packageName !== dependency.packageName) {
-                if (dependency.exists) {
-                    out.push(...(await this.generateModuleDependenciesImport(dependency.packageName)))
-                } else {
-                    out.push(`// WARN: Dependency not found: '${dependency.packageName}'`)
-                    this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(dependency.filename))
-                }
-            }
-        }
 
         // START Namespace
         {
@@ -1783,11 +1745,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     async exportModule(_registry: NSRegistry, girModule: GirModule) {
+        // Used for package.json and local ambient mode
+        await this.exportModuleTS()
+
         if (this.config.package) {
+            await this.exportModuleJS(girModule)
+
             await this.exportModuleIndexTS()
             await this.exportModuleIndexJS()
-
-            await this.exportModuleJS(girModule)
 
             await this.exportModuleAmbientTS(girModule)
             await this.exportModuleAmbientJS(girModule)
@@ -1797,8 +1762,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
             const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
             await pkg.exportNPMPackage()
-        } else {
-            await this.exportModuleTS()
         }
     }
 }

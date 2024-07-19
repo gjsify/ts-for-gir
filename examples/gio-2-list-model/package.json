@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gio-2-list-model-example",
-  "version": "4.0.0-beta.6",
+  "version": "4.0.0-beta.7",
   "description": "An example of implementing the GListModel interface in GJS",
   "main": "index.js",
   "type": "module",

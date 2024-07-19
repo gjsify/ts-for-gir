@@ -14,10 +14,6 @@ export interface OptionsGeneration extends OptionsBase {
     noNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
-    /** Do not generate debugging inline comments */
-    noDebugComments: boolean
-    /** Fix Inheritance and implementation type conflicts */
-    fixConflicts: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
     /**
@@ -27,8 +23,6 @@ export interface OptionsGeneration extends OptionsBase {
     npmScope: string
     /** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
     workspace: boolean
-    /** Disable pretty printing the output */
-    noPrettyPrint: boolean
     /** Disable GLib.Variant class with string parsing */
     noAdvancedVariants: boolean
     /**
@@ -42,6 +36,8 @@ export interface OptionsGeneration extends OptionsBase {
      * ```
      */
     onlyVersionPrefix: boolean
+    /** Disable pretty printing the output */
+    noPrettyPrint: boolean
     /**
      * Generate the typescript types with package.json support
      */

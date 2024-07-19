@@ -18,13 +18,12 @@
 
 # CLI
 
-CLI tool to generate Typescript Type Definition files for GJS and node-gtk.
+CLI tool to generate Typescript Type Definition files for GJS.
 
 ## Getting started
 
 ``` bash
-npm install -g @ts-for-gir/cli
-ts-for-gir --help
+npx @ts-for-gir/cli --help
 ```
 
 > Alternatively you can also add @ts-for-gir/cli to your dependencies:
@@ -32,28 +31,28 @@ ts-for-gir --help
 > npm install --save-dev @ts-for-gir/cli
 > ```
 >
-> Or without installing using `npx`:
+> Or globally install it:
 > ```bash
-> npx @ts-for-gir/cli --help
+> npm install -g @ts-for-gir/cli
+> ts-for-gir --help
 > ```
 
-After you have installed `@ts-for-gir/cli` you can run the `ts-for-gir` command:
-
 ```bash
-$ ts-for-gir --help
+$ npx @ts-for-gir/cli --help
 
-Typescript .d.ts generator from GIR for GJS or node-gtk
+TypeScript type definition generator for GObject introspection GIR files
 
 Commands:
-  ts-for-gir generate [modules..]  Generates .d.ts files from GIR for GJS or nod
-                                   e-gtk
+  ts-for-gir generate [modules..]  Generates .d.ts files from GIR for GJS
   ts-for-gir list [modules..]      Lists all available GIR modules
+  ts-for-gir copy [modules..]      Scan for *.gir files and copy them to a new d
+                                   irectory
   ts-for-gir doc [modules..]       The HTML documentation generator is not yet i
                                    mplemented, but feel free to implement it 🤗
 
 Options:
   --version  Show version number                                       [boolean]
-  --help     Show help                                                 [boolean]                                             [boolean]
+  --help     Show help                                                 [boolean]
 ```
 
 ## Example
@@ -64,24 +63,16 @@ To generate the Typescript type definitions of Gtk-4.0 for GJS run:
 ts-for-gir generate Gtk-4.0
 ```
 
-To generate this types for [node-gtk](https://github.com/romgrk/node-gtk) run:
-
-```
-ts-for-gir generate Gtk-4.0 -e node
-```
-
 You can also look at the [examples](https://github.com/gjsify/ts-for-gir/tree/main/examples) to see how the types are generated there.
 
 ## Generate .d.ts files
 
 ```bash
-$ ts-for-gir generate --help
+$ npx @ts-for-gir/cli generate --help
 
 ts-for-gir generate [modules..]
 
-ts-for-gir generate [modules..]
-
-Generates .d.ts files from GIR for GJS or node-gtk
+Generates .d.ts files from GIR for GJS
 
 Options:
       --version                 Show version number                    [boolean]
@@ -90,46 +81,50 @@ Options:
                                 tiple modules           [array] [default: ["*"]]
   -g, --girDirectories          GIR directories
   [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
-  /gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-10","/usr/li
-  b64/mutter-11","/usr/lib64/mutter-12","/usr/lib/x86_64-linux-gnu/mutter-10","/
-  usr/lib/x86_64-linux-gnu/mutter-11","/usr/lib/x86_64-linux-gnu/mutter-12","/ho
-  me/jumplink/.local/share/flatpak/exports/share/gir-1.0","/var/lib/flatpak/expo
-                                                            rts/share/gir-1.0"]]
+  /*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/li
+        b64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
       --root                    Root directory of your project
-                        [string] [default: "/home/jumplink/Projekte/ts-for-gir"]
+                 [string] [default: "/home/jumplink/Projekte/gjsify/ts-for-gir"]
   -o, --outdir                  Directory to output to
                                                   [string] [default: "./@types"]
   -i, --ignore                  Modules that should be ignored
                                                            [array] [default: []]
   -v, --verbose                 Switch on/off the verbose mode
                                                        [string] [default: false]
-      --ignoreVersionConflicts  Do not ask for package versions if multiple vers
-                                ions are found         [string] [default: false]
+      --ignoreVersionConflicts  Skip prompts for library version selection when
+                                multiple versions are detected
+                                                       [string] [default: false]
   -p, --print                   Print the output to console and create no files
                                                        [string] [default: false]
-      --configName              Name of the config if you want to use a differen
-                                t name    [string] [default: ".ts-for-girrc.js"]
+      --configName              Specify a custom name for the configuration file
+                                          [string] [default: ".ts-for-girrc.js"]
   -d, --noNamespace             Do not export all symbols for each module as a n
                                 amespace               [string] [default: false]
   -n, --noComments              Do not generate documentation comments
                                                        [string] [default: false]
-      --noDebugComments         Do not generate debugging inline comments
-                                                       [string] [default: false]
-      --fixConflicts            Fix Inheritance and implementation type conflict
-                                s                       [string] [default: true]
       --promisify               Generate promisified functions for async/finish
                                 calls                   [string] [default: true]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
+      --workspace               Uses the workspace protocol for the generated pa
+                                ckages which can be used with package managers l
+                                ike Yarn and PNPM      [string] [default: false]
+      --onlyVersionPrefix       Only use the version prefix for the ambient modu
+                                le exports. This is useful if, for whatever reas
+                                on, you want to use different library versions o
+                                f the same library in your project.
+                                                       [string] [default: false]
+      --package                 Generate the typescript types with package.json
+                                support                [string] [default: false]
 
 Examples:
   ts-for-gir generate                       Run 'ts-for-gir generate' in your gj
-                                            s or node-gtk project to generate ty
-                                            pings for your project, pass the gir
-                                             modules you need for your project
+                                            s project to generate typings for yo
+                                            ur project, pass the gir modules you
+                                             need for your project
   ts-for-gir generate Gtk*                  You can also use wild cards
   ts-for-gir generate '*'                   If you want to parse all of your loc
-                                            ally installed gir modules
+                                            ally installed gir modules run
   ts-for-gir generate --configName='.ts-fo  Use a special config file
   r-gir.gtk4.rc.js
   ts-for-gir generate --ignore=Gtk-4.0 xra  Generate .d.ts. files but not for Gt
@@ -139,7 +134,7 @@ Examples:
 ## List available GIR modules
 
 ```bash
-$ ts-for-gir list --help
+$ npx @ts-for-gir/cli list --help
  
 ts-for-gir list [modules..]
 
@@ -152,13 +147,12 @@ Options:
                         dules                           [array] [default: ["*"]]
   -g, --girDirectories  GIR directories
   [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
-  /gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-10","/usr/li
-  b64/mutter-11","/usr/lib64/mutter-12","/usr/lib/x86_64-linux-gnu/mutter-10","/
-  usr/lib/x86_64-linux-gnu/mutter-11","/usr/lib/x86_64-linux-gnu/mutter-12","/ho
-  me/jumplink/.local/share/flatpak/exports/share/gir-1.0","/var/lib/flatpak/expo
-                                                            rts/share/gir-1.0"]]
+  /*/gir-1.0","/usr/share/gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/li
+        b64/mutter-*","/usr/lib/mutter-*","/usr/lib/x86_64-linux-gnu/mutter-*"]]
+      --root            Root directory of your project
+                 [string] [default: "/home/jumplink/Projekte/gjsify/ts-for-gir"]
   -i, --ignore          Modules that should be ignored     [array] [default: []]
-      --configName      Name of the config if you want to use a different name
+      --configName      Specify a custom name for the configuration file
                                           [string] [default: ".ts-for-girrc.js"]
   -v, --verbose         Switch on/off the verbose mode [string] [default: false]
 
@@ -173,7 +167,7 @@ Examples:
 ## Generate HTML documentation
 
 ```bash
-$ ts-for-gir doc --help
+$ npx @ts-for-gir/cli doc --help
 
 ts-for-gir doc [modules..]
 
@@ -188,16 +182,11 @@ To do that, create a new config file called `.ts-for-girrc.js` in your project r
 ```js
 // or on CommonJs: exports.default = {
 export default {
-  print: false,
   verbose: true,
-  environments: ['gjs', 'node'],
   outdir: '@types',
   girDirectories: ['/usr/share/gir-1.0'],
   modules: ['*'],
   ignore: [],
-  noNamespace: false,
-  buildType: 'lib',
-  moduleType: 'esm'
 }
 ```
 
@@ -239,96 +228,22 @@ In this example, the generated TypeScript types will be saved in the `./types` d
 
 It is important to note that the outdir option should be a valid directory path, and `ts-for-gir` will create the directory if it does not exist. If the specified directory already contains files, `ts-for-gir` will overwrite the existing files with the newly generated types.
 
-### environments
-The `environments` option allows you to specify the JavaScript environment for which you want to generate the TypeScript type definitions. The available values are `"gjs"` and `"node"`. You can also specify both environments.
-
-The default value for this option is `"gjs"`.
-
-To specify the environments option when running ts-for-gir, you would add the `--environments` or `-e` flag, followed by a comma-separated list of values. For example:
-
-```bash
-ts-for-gir generate * --environments gjs node
-```
-
-This option is useful if you want to generate type definitions for use in different JavaScript environments, such as in a `GJS` application or in a `Node.js` application using [node-gtk](https://github.com/romgrk/node-gtk). By specifying the appropriate environment, ts-for-gir can generate type definitions that are optimized for that environment, ensuring that your code will be type-checked correctly and you will receive meaningful error messages in your development environment.
-
 ### ignore
 The `ignore` CLI option allows you to specify modules that should be ignored when generating TypeScript types. This can be useful if you have multiple versions of a library installed but only want to generate types for one of them.
 
 To use the ignore option, pass one or more module names as arguments. For example, to ignore the `Gtk-3.0` module, you would use the following command:
 
 ```bash
-ts-for-gir generate Gtk-* --ignore Gtk-3.0
+ts-for-gir generate Gtk-* --ignore */Gtk-3.0
 ```
 
 You can also ignore multiple modules:
 
 ```bash
-ts-for-gir generate * --ignore Gtk-2.0 Gtk-3.0 Gtk-4.0
+ts-for-gir generate * --ignore */Gtk-2.0 */Gtk-3.0 */Gtk-4.0
 ```
 
 Note that ignoring a module will prevent ts-for-gir from generating types for that module and any submodules that it might contain.
-
-### buildType
-`ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
-
-* If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
-* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs.d.ts"` and `"@types/ambient.d.ts"` under `"include"` in the `tsconfig` to make the generated types known in your project.
-
-### moduleType
-The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"cjs"` as its value, with `"esm"` being the default.
-
-> This option is only relevant if the `buildType` is set to `"lib"`. The choice of `moduleType` may affect how the generated code is used in other parts of your project, so it's important to choose the right format that works best for your use case.
-
-The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"cjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"cjs"`. If you want to build a regular GJS Application we recommend to use `ESM`.
-
-When `"esm"` is set, the generated JavaScript files will use the ECMAScript module (ESM) format for imports and exports. For example, the generated code might look like this:
-
-```ts
-// Gtk-4.0.d.ts
-import type GLib from './GLib-2.0.js';
-
-namespace Gtk {
-  class Window extends Widget {
-    ...
-  }
-  function builder_error_quark(): GLib.Quark
-}
-
-export default Gtk;
-```
-
-```js
-// Gtk-4.0.js
-import Gtk from 'gi://Gtk?version=4.0';
-export default Gtk;
-```
-
-> The `"esm"` module type is recommended for GJS applications as it makes use of the ESM import syntax, which is more modern and flexible compared to imports.gi / CommonJS imports. This allows for a more streamlined and convenient way of using the generated types in your GJS application. Support for ES modules can be activated in `gjs` with its `gjs -m` flag.
-
-When `"cjs"` and [`noNamespace`](#nonamespace) is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
-
-```ts
-// Gtk-4.0.d.ts
-import type * as GLib from './GLib-2.0.js';
-
-export class Window extends Widget {
-  ...
-}
-export function builder_error_quark(): GLib.Quark
-```
-
-```js
-// Gtk-4.0.js
-imports.gi.versions.Gtk = '4.0'
-const Gtk = imports.gi.Gtk;
-  
-module.exports = { Gtk };
-exports.default = Gtk;
-```
-
-> It is recommended to also set the [noNamespace](#nonamespace) option to true when using the `"cjs"` moduleType option. This will ensure that the generated code is fully compatible with the CommonJS format.
-
 
 ### verbose
 The `--verbose` or `-v` option is a flag that can be used to enable verbose output in the console when running the CLI. When this option is enabled, additional warnings and information about the processing of GIR files and the generation of TypeScript definitions will be printed to the console. This information can be useful for debugging purposes or for understanding what is happening behind the scenes when generating the TypeScript definitions.
@@ -374,16 +289,6 @@ To use the noComments option, pass it as a command line argument to `ts-for-gir`
 ```bash
 ts-for-gir generate * --noComments`
 ```
-
-### noDebugComments
-The `noDebugComments` CLI option is used to control the generation of inline comments in the generated TypeScript files. These comments are used for debugging purposes and can be useful in tracking down issues with the generated types.
-
-By default, the `noDebugComments` option is disabled and these inline comments will be included in the generated TypeScript files. If you do not require these comments for debugging purposes, you can use the -`-noDebugComments` option to disable their generation and keep your TypeScript code more compact.
-
-### fixConflicts
-The `fixConflicts` CLI option is used to resolve type conflicts between the GObject Introspection descriptions in GIR XML format and TypeScript. For example, properties in the GIR XML format can be overwritten by methods, which is not allowed in TypeScript. When this option is active, `ts-for-gir` attempts to resolve these conflicts. However, it's important to note that this may result in generating types that do not exist.
-
-> If you have found an issue with the `fixConflicts` CLI option, we encourage you to report it. Reporting issues helps improve the quality of `ts-for-gir` and makes it a better tool for everyone.
 
 # package
 

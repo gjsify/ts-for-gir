@@ -522,7 +522,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
      */
     addInfoComment(comment?: string, indentCount = 0) {
         const def: string[] = []
-        if (this.config.noDebugComments) {
+        if (this.config.noComments) {
             return def
         }
         const indent = generateIndent(indentCount)
@@ -530,24 +530,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             def.push('')
             def.push(`${indent}// ${comment}`)
             def.push('')
-        }
-        return def
-    }
-
-    /**
-     * Adds an inline info comment, is used for debugging the generated types
-     * @param comment
-     * @param indentCount
-     * @returns
-     */
-    addInlineInfoComment(comment?: string, indentCount = 0) {
-        const def: string[] = []
-        if (this.config.noDebugComments) {
-            return def
-        }
-        const indent = generateIndent(indentCount)
-        if (comment) {
-            def.push(`${indent}/* ${comment} */`)
         }
         return def
     }
@@ -1637,6 +1619,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
+    // TODO: @ewlsh Port `noAdvancedVariants` option from `DtsModuleGenerator` to `ModuleGenerator`?
     async generateNamespace(girModule: GirModule): Promise<string[]> {
         const moduleTemplateProcessor = this.moduleTemplateProcessor
         const template = 'module.d.ts'

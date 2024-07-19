@@ -31,12 +31,12 @@ export class Config {
         ignoreVersionConflicts: false,
         noNamespace: false,
         noComments: false,
-        noDebugComments: false,
-        fixConflicts: true,
         promisify: true,
         npmScope: '@girs',
         workspace: false,
         onlyVersionPrefix: false,
+        noPrettyPrint: false,
+        noAdvancedVariants: false,
         package: false,
     }
 
@@ -121,18 +121,6 @@ export class Config {
             default: Config.defaults.noComments,
             normalize: true,
         },
-        noDebugComments: {
-            type: 'boolean',
-            description: 'Do not generate debugging inline comments',
-            default: Config.defaults.noDebugComments,
-            normalize: true,
-        },
-        fixConflicts: {
-            type: 'boolean',
-            description: 'Fix Inheritance and implementation type conflicts',
-            default: Config.defaults.fixConflicts,
-            normalize: true,
-        },
         promisify: {
             type: 'boolean',
             description: 'Generate promisified functions for async/finish calls',
@@ -159,6 +147,18 @@ export class Config {
             default: Config.defaults.onlyVersionPrefix,
             normalize: true,
         },
+        noPrettyPrint: {
+            type: 'boolean',
+            description: 'Do not prettify the generated types',
+            default: Config.defaults.noPrettyPrint,
+            normalize: true,
+        },
+        noAdvancedVariants: {
+            type: 'boolean',
+            description: 'Disable GLib.Variant class with string parsing',
+            default: Config.defaults.noAdvancedVariants,
+            normalize: true,
+        },
         package: {
             type: 'boolean',
             description: 'Generate the typescript types with package.json support',
@@ -182,12 +182,12 @@ export class Config {
         configName: this.options.configName,
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
-        noDebugComments: this.options.noDebugComments,
-        fixConflicts: this.options.fixConflicts,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
         workspace: this.options.workspace,
         onlyVersionPrefix: this.options.onlyVersionPrefix,
+        noPrettyPrint: this.options.noPrettyPrint,
+        noAdvancedVariants: this.options.noAdvancedVariants,
         package: this.options.package,
     }
 
@@ -288,8 +288,6 @@ export class Config {
     public static getOptionsGeneration(config: UserConfig): OptionsGeneration {
         const generateConfig: OptionsGeneration = {
             ...config,
-            noPrettyPrint: false,
-            noAdvancedVariants: true,
         }
         return generateConfig
     }
@@ -370,20 +368,6 @@ export class Config {
             ) {
                 config.noComments = configFileData.noComments
             }
-            // noDebugComments
-            if (
-                config.noDebugComments === Config.options.noDebugComments.default &&
-                typeof configFileData.noDebugComments === 'boolean'
-            ) {
-                config.noDebugComments = configFileData.noDebugComments
-            }
-            // fixConflicts
-            if (
-                config.fixConflicts === Config.options.fixConflicts.default &&
-                typeof configFileData.fixConflicts === 'boolean'
-            ) {
-                config.fixConflicts = configFileData.fixConflicts
-            }
             // promisify
             if (
                 config.promisify === Config.options.promisify.default &&
@@ -408,6 +392,20 @@ export class Config {
                 typeof configFileData.onlyVersionPrefix === 'boolean'
             ) {
                 config.onlyVersionPrefix = configFileData.onlyVersionPrefix
+            }
+            // noPrettyPrint
+            if (
+                config.noPrettyPrint === Config.options.noPrettyPrint.default &&
+                typeof configFileData.noPrettyPrint === 'boolean'
+            ) {
+                config.noPrettyPrint = configFileData.noPrettyPrint
+            }
+            // noAdvancedVariants
+            if (
+                config.noAdvancedVariants === Config.options.noAdvancedVariants.default &&
+                typeof configFileData.noAdvancedVariants === 'boolean'
+            ) {
+                config.noAdvancedVariants = configFileData.noAdvancedVariants
             }
             // package
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {

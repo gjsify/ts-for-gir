@@ -1,12 +1,24 @@
-/*
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
+<%_ const GLib = await dep.get('GLib', '2.0') _%>
+<%_ if(!package){ -%>
+    <%_ if(GObject){ -%>
+/// <reference path="../gobject-2.0/gobject-2.0.d.ts" />
+<% } -%>
+<%_ if(GLib){ -%>
+/// <reference path="../glib-2.0/glib-2.0.d.ts" />
+<% } -%>
+/// <reference path="./gettext.d.ts" />
+/// <reference path="./system.d.ts" />
+/// <reference path="./cairo.d.ts" />
+<% } -%>
+
+/**
  * Type Definitions for Gjs (https://gjs.guide/)
  *
  * These type definitions are automatically generated, do not edit them by hand.
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
 
-<%_ const GObject = await dep.get('GObject', '2.0') _%>
-<%_ const GLib = await dep.get('GLib', '2.0') _%>
 <%- GObject ? GObject.importDef : '' %>
 <%- GLib ? GLib.importDef : '' %>
 

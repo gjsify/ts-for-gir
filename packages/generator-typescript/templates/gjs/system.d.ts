@@ -3,6 +3,10 @@
 /// <reference path="./gobject-2.0.d.ts" />
 <%_ } -%>
 
+<%_ if(!package){ -%>
+declare module 'system' {
+<% } -%>
+
 <%- GObject ? GObject.importDef : '' %>
 
 /**
@@ -177,3 +181,7 @@ export function exit(code: number): void
 }
 
 export default System
+
+<%_ if(!package){ -%>
+}
+<% } -%>

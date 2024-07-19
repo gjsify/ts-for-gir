@@ -1,7 +1,6 @@
 import { Generator } from '@ts-for-gir/generator-base'
 import { Logger, DependencyManager, NSRegistry, OptionsGeneration, GirModule } from '@ts-for-gir/lib'
 
-import { wrapIntoAmbientModule } from './utils.js'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
 import { NpmPackage } from './npm-package.js'
@@ -76,25 +75,25 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.write(gjsContent.prepend + '\n' + gjsContent.append, config.outdir, 'gjs.d.ts')
 
             const gettextContent = await templateProcessor.load('gjs/gettext.d.ts')
-            const gettextContentAmbient = wrapIntoAmbientModule('gettext', null, [
-                gettextContent.prepend,
-                gettextContent.append,
-            ])
-            await templateProcessor.write(gettextContentAmbient.join('\n'), config.outdir, 'gettext.d.ts')
+            await templateProcessor.write(
+                gettextContent.prepend + '\n' + gettextContent.append,
+                config.outdir,
+                'gettext.d.ts',
+            )
 
             const systemContent = await templateProcessor.load('gjs/system.d.ts')
-            const systemContentAmbient = wrapIntoAmbientModule('system', null, [
-                systemContent.prepend,
-                systemContent.append,
-            ])
-            await templateProcessor.write(systemContentAmbient.join('\n'), config.outdir, 'system.d.ts')
+            await templateProcessor.write(
+                systemContent.prepend + '\n' + systemContent.append,
+                config.outdir,
+                'system.d.ts',
+            )
 
             const cairoContent = await templateProcessor.load('gjs/cairo.d.ts')
-            const cairoContentAmbient = wrapIntoAmbientModule('cairo', null, [
-                cairoContent.prepend,
-                cairoContent.append,
-            ])
-            await templateProcessor.write(cairoContentAmbient.join('\n'), config.outdir, 'cairo.d.ts')
+            await templateProcessor.write(
+                cairoContent.prepend + '\n' + cairoContent.append,
+                config.outdir,
+                'cairo.d.ts',
+            )
 
             // Additional DOM types supported by GJS
             const domContent = await templateProcessor.load('gjs/dom.d.ts')

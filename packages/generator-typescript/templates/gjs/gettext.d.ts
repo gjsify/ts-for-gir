@@ -1,3 +1,6 @@
+<%_ if(!package){ -%>
+declare module 'gettext' {
+<% } -%>
 export enum LocaleCategory {
     ALL,
     COLLATE,
@@ -39,3 +42,7 @@ export function domain(domainName: string): {
 }
 
 export default Gettext
+
+<%_ if(!package){ -%>
+}
+<% } -%>

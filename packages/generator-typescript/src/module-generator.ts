@@ -60,7 +60,6 @@ import {
 import { writeFile, mkdir } from 'fs/promises'
 import { dirname } from 'path'
 
-import { wrapIntoAmbientModule } from './utils.js'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
 import { NpmPackage } from './npm-package.js'
@@ -1604,70 +1603,15 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    /**
-     * Used to only generate ambient types for a module.
-     * Used if package.json support is disabled
-     */
-    protected async exportModuleAmbientOnly(): Promise<void> {
-        const { namespace: girModule } = this
-        const namespaceContent = await this.generateNamespace(girModule)
-
-        if (!namespaceContent) {
-            this.log.error('Failed to generate namespace')
-            return
-        }
-
-        // Ambient module with version
-        const output = wrapIntoAmbientModule(girModule.namespace, girModule.version, namespaceContent, undefined, {
-            protocol: 'gi',
-        })
-
-        // Ambient module without version
-        if (!this.config.onlyVersionPrefix) {
-            const reexport = [
-                `import ${girModule.importNamespace} from 'gi://${girModule.namespace}?version=${girModule.version}';`,
-                `export default ${girModule.importNamespace};`,
-            ]
-            wrapIntoAmbientModule(girModule.namespace, null, reexport, output, { protocol: 'gi' })
-        }
-
-        const target = `${girModule.importName}.d.ts`
-
-        const formatter = this.dependencyManager.getFormatter('dts')
-
-        let contents!: string
-        try {
-            contents = this.config.noPrettyPrint ? output.join('\n') : await formatter.format(output.join('\n'))
-        } catch (error) {
-            this.log.error('Failed to format output...', error)
-            contents = output.join('\n')
-        }
-
-        if (this.config.outdir) {
-            const outputPath = this.moduleTemplateProcessor.getOutputPath(this.config.outdir, target)
-
-            if (this.config.verbose) {
-                this.log.debug(`Outputting ${target} to ${outputPath}`)
-            }
-
-            // write template result file
-            await mkdir(dirname(outputPath), { recursive: true })
-            await writeFile(outputPath, contents, { encoding: 'utf8', flag: 'w' })
-        } else {
-            this.log.log(contents)
-        }
-    }
-
     async exportModuleTS(): Promise<void> {
         const { namespace: girModule } = this
         const output = await this.generateNamespace(girModule)
+        const target = `${girModule.importName}.d.ts`
 
         if (!output) {
             this.log.error('Failed to generate namespace')
             return
         }
-
-        const target = `${girModule.importName}.d.ts`
 
         const formatter = this.dependencyManager.getFormatter('dts')
 
@@ -1843,7 +1787,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             await this.exportModuleIndexTS()
             await this.exportModuleIndexJS()
 
-            await this.exportModuleTS()
             await this.exportModuleJS(girModule)
 
             await this.exportModuleAmbientTS(girModule)
@@ -1855,7 +1798,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
             await pkg.exportNPMPackage()
         } else {
-            await this.exportModuleAmbientOnly()
+            await this.exportModuleTS()
         }
     }
 }

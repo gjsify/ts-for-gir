@@ -118,3 +118,17 @@ export const underscores = (str: string): string => {
 export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
     return ' '.repeat(indents * spaceForIndent)
 }
+
+/**
+ * Merge a large array of strings by using a smaller chunk size
+ * @param target The target array to merge into
+ * @param source The source array to merge from
+ * @param chunkSize The size of the chunks to merge
+ * @returns The merged array
+ */
+export const mergeLargeStringArray = (target: string[], source: string[], chunkSize: number = 1000): string[] => {
+    for (let i = 0; i < source.length; i += chunkSize) {
+        target.push(...source.slice(i, i + chunkSize))
+    }
+    return target
+}

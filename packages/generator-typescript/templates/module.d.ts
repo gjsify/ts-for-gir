@@ -5,3 +5,7 @@
  * These type definitions are automatically generated, do not edit them by hand.
  * If you found a bug fix it in `<%= APP_NAME %>` or create a bug report on <%= APP_SOURCE %>
  */
+
+<%_ if(!package){ -%>
+    declare module 'gi://<%- girModule.namespace %>?version=<%- girModule.version %>' {
+<% } -%>

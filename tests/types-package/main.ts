@@ -1,8 +1,8 @@
-import './@types/gjs/gjs.d.ts'
-import './@types/gjs/dom.d.ts'
-import './@types/gtk-2.0/gtk-2.0.d.ts'
-import './@types/gtk-3.0/gtk-3.0.d.ts'
-import './@types/gtk-4.0/gtk-4.0.d.ts'
+import './@types/gjs.d.ts'
+import './@types/dom.d.ts'
+import './@types/gtk-2.0.d.ts'
+import './@types/gtk-3.0.d.ts'
+import './@types/gtk-4.0.d.ts'
 
 import Gettext from 'gettext'
 console.log(Gettext.textdomain)

@@ -187,7 +187,10 @@ export class TemplateProcessor {
     }
 
     public getOutputPath(baseOutputPath: string, outputFilename: string): string {
-        const filePath = join(this.data?.importName || this.packageName, outputFilename)
+        // Create a directory for each package if package.json mode is enabled otherwise use the output directory directly
+        const filePath = this.config.package
+            ? join(this.data?.importName || this.packageName, outputFilename)
+            : outputFilename
         const outputPath = join(baseOutputPath, filePath)
         return outputPath
     }

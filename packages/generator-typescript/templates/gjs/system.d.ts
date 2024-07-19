@@ -1,6 +1,6 @@
 <%_ const GObject = await dep.get('GObject', '2.0') _%>
 <%_ if(!package && GObject){ _%>
-/// <reference path="../gobject-2.0/gobject-2.0.d.ts" />
+/// <reference path="./gobject-2.0.d.ts" />
 <%_ } -%>
 
 <%- GObject ? GObject.importDef : '' %>

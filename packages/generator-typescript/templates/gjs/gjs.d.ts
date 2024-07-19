@@ -2,10 +2,10 @@
 <%_ const GLib = await dep.get('GLib', '2.0') _%>
 <%_ if(!package){ -%>
     <%_ if(GObject){ -%>
-/// <reference path="../gobject-2.0/gobject-2.0.d.ts" />
+/// <reference path="./gobject-2.0.d.ts" />
     <% } -%>
     <%_ if(GLib){ -%>
-/// <reference path="../glib-2.0/glib-2.0.d.ts" />
+/// <reference path="./glib-2.0.d.ts" />
     <% } -%>
 /// <reference path="./gettext.d.ts" />
 /// <reference path="./system.d.ts" />

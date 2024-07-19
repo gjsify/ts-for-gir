@@ -1,6 +1,6 @@
 <%_ const GLib = dep.find('GLib') -%>
 <%_ if(!package && GLib){ _%>
-/// <reference path="../glib-2.0/glib-2.0.d.ts" />
+/// <reference path="./glib-2.0.d.ts" />
 <%_ } -%>
 
 /**

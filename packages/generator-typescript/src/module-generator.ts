@@ -777,6 +777,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
     generateEnum(girEnum: IntrospectedEnum, indentCount = 0) {
         const desc: string[] = []
+        const { name, namespace } = girEnum
+
+        desc.push(`export namespace ${name} {`)
+        desc.push(`    export const $gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${name}>;`)
+        desc.push(`}`)
+        desc.push(``)
 
         desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
 
@@ -791,7 +797,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
             return desc
         }
 
-        const { name } = girEnum
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.members) {
             for (const girEnumMember of girEnum.members.values()) {

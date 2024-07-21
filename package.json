@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "4.0.0-beta.9",
+  "version": "4.0.0-beta.10",
   "description": "Typescript .d.ts generator from GIR for gjs",
   "type": "module",
   "private": true,
@@ -39,7 +39,7 @@
     "build:types:packages:gtk4:no-install": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js'",
     "build:types:packages:gtk4": "yarn build:types:packages:gtk4:no-install && yarn install",
     "copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
-    "validate": "yarn workspaces foreach -v --all --parallel run validate",
+    "validate": "yarn workspaces foreach -v --all --parallel run validate && yarn validate:types:packages",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
     "validate:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run validate",
     "validate:types:packages": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",

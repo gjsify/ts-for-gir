@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/adw-1-hello-example",
-  "version": "4.0.0-beta.9",
+  "version": "4.0.0-beta.10",
   "description": "Simple GJS Typescript hello-world example using Libadwaita",
   "type": "module",
   "private": true,

@@ -779,11 +779,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         const desc: string[] = []
         const { name, namespace } = girEnum
 
-        desc.push(`export namespace ${name} {`)
-        desc.push(`    export const $gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${name}>;`)
-        desc.push(`}`)
-        desc.push(``)
-
         desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
 
         // Enums can't have numerical keys
@@ -796,6 +791,13 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
             return desc
         }
+
+        desc.push(``)
+        desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
+        desc.push(`export namespace ${name} {`)
+        desc.push(`    export const $gtype: ${namespace.namespace !== 'GObject' ? 'GObject.' : ''}GType<${name}>;`)
+        desc.push(`}`)
+        desc.push(``)
 
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.members) {

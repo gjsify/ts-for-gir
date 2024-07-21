@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/glib-2-spawn-command-example",
-  "version": "4.0.0-beta.9",
+  "version": "4.0.0-beta.10",
   "description": "",
   "type": "module",
   "private": true,

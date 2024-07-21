@@ -842,11 +842,6 @@ context.  It also provided some wrappers around #GstBaseTransform's
 context is available and current in the calling thread.</doc>
       <source-position filename="gst-libs/gst/gl/gstglbasefilter.h" line="91"/>
       <virtual-method name="gl_set_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="72">called in the GL thread when caps are set on @filter.
-              Note: this will also be called when changing OpenGL contexts
-              where #GstBaseTransform::set_caps may not.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                          line="87"/>
         <return-value transfer-ownership="none">
@@ -865,9 +860,6 @@ context is available and current in the calling thread.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gl_start">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="70">called in the GL thread to setup the element GL state.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                          line="85"/>
         <return-value transfer-ownership="none">
@@ -880,9 +872,6 @@ context is available and current in the calling thread.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gl_stop">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="71">called in the GL thread to setup the element GL state.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                          line="86"/>
         <return-value transfer-ownership="none">
@@ -902,14 +891,14 @@ context is available and current in the calling thread.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglbasefilter.c"
-               line="652">Whether an OpenGL context could be retrieved or created successfully</doc>
+               line="639">Whether an OpenGL context could be retrieved or created successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglbasefilter.c"
-                 line="650">a #GstGLBaseFilter</doc>
+                 line="637">a #GstGLBaseFilter</doc>
             <type name="GLBaseFilter" c:type="GstGLBaseFilter*"/>
           </instance-parameter>
         </parameters>
@@ -922,14 +911,14 @@ context is available and current in the calling thread.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglbasefilter.c"
-               line="670">the #GstGLContext found by @filter</doc>
+               line="657">the #GstGLContext found by @filter</doc>
           <type name="GLContext" c:type="GstGLContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglbasefilter.c"
-                 line="668">a #GstGLBaseFilter</doc>
+                 line="655">a #GstGLBaseFilter</doc>
             <type name="GLBaseFilter" c:type="GstGLBaseFilter*"/>
           </instance-parameter>
         </parameters>
@@ -991,9 +980,6 @@ context is available and current in the calling thread.</doc>
         <type name="GLAPI" c:type="GstGLAPI"/>
       </field>
       <field name="gl_start">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="70">called in the GL thread to setup the element GL state.</doc>
         <callback name="gl_start">
           <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                            line="85"/>
@@ -1008,9 +994,6 @@ context is available and current in the calling thread.</doc>
         </callback>
       </field>
       <field name="gl_stop">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="71">called in the GL thread to setup the element GL state.</doc>
         <callback name="gl_stop">
           <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                            line="86"/>
@@ -1025,11 +1008,6 @@ context is available and current in the calling thread.</doc>
         </callback>
       </field>
       <field name="gl_set_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasefilter.h"
-             line="72">called in the GL thread when caps are set on @filter.
-              Note: this will also be called when changing OpenGL contexts
-              where #GstBaseTransform::set_caps may not.</doc>
         <callback name="gl_set_caps">
           <source-position filename="gst-libs/gst/gl/gstglbasefilter.h"
                            line="87"/>
@@ -1312,9 +1290,6 @@ multiple times.  This must be called before any other GstGLBaseMemory operation.
       <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
                        line="381"/>
       <virtual-method name="alloc">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasememory.h"
-             line="358">a #GstGLBaseMemoryAllocatorAllocFunction</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
                          line="268"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -1649,6 +1624,208 @@ function to allocate and OpenGL resources needed for your application</doc>
                                             to the texture</doc>
       </member>
     </bitfield>
+    <class name="GLBaseMixer"
+           c:symbol-prefix="gl_base_mixer"
+           c:type="GstGLBaseMixer"
+           version="1.24"
+           parent="GstVideo.VideoAggregator"
+           abstract="1"
+           glib:type-name="GstGLBaseMixer"
+           glib:get-type="gst_gl_base_mixer_get_type"
+           glib:type-struct="GLBaseMixerClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/gstglbasemixer.c"
+           line="31">#GstGLBaseMixer handles the nitty gritty details of retrieving an OpenGL
+context.  It provides some virtual methods to know when the OpenGL context
+is available and is not available within this element.</doc>
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="191"/>
+      <virtual-method name="gl_start" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="170">called in the GL thread to setup the element GL state.</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasemixer.h"
+                         line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasemixer.h"
+               line="175">whether the start was successful</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <type name="GLBaseMixer" c:type="GstGLBaseMixer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="gl_stop" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="180">called in the GL thread to setup the element GL state.</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasemixer.h"
+                         line="187"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <type name="GLBaseMixer" c:type="GstGLBaseMixer*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_gl_context"
+              c:identifier="gst_gl_base_mixer_get_gl_context"
+              version="1.24">
+        <source-position filename="gst-libs/gst/gl/gstglbasemixer.h"
+                         line="199"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasemixer.c"
+               line="680">the #GstGLContext found by @mix</doc>
+          <type name="GLContext" c:type="GstGLContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasemixer.c"
+                 line="678">a #GstGLBaseMixer</doc>
+            <type name="GLBaseMixer" c:type="GstGLBaseMixer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="context" version="1.24" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.c"
+             line="386">The #GstGLContext in use by this #GstGLBaseMixer</doc>
+        <type name="GLContext"/>
+      </property>
+      <field name="parent" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="114">parent #GstVideoAggregator</doc>
+        <type name="GstVideo.VideoAggregator" c:type="GstVideoAggregator"/>
+      </field>
+      <field name="display" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="123">the currently configured #GstGLDisplay</doc>
+        <type name="GLDisplay" c:type="GstGLDisplay*"/>
+      </field>
+      <field name="context" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="131">the currently configured #GstGLContext</doc>
+        <type name="GLContext" c:type="GstGLContext*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GLBaseMixerPrivate" c:type="GstGLBaseMixerPrivate*"/>
+      </field>
+    </class>
+    <record name="GLBaseMixerClass"
+            c:type="GstGLBaseMixerClass"
+            glib:is-gtype-struct-for="GLBaseMixer"
+            version="1.24">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="191"/>
+      <field name="parent_class" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="153">the parent #GstVideoAggregatorClass</doc>
+        <type name="GstVideo.VideoAggregatorClass"
+              c:type="GstVideoAggregatorClass"/>
+      </field>
+      <field name="supported_gl_api" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="161">the logical-OR of #GstGLAPI's supported by this element</doc>
+        <type name="GLAPI" c:type="GstGLAPI"/>
+      </field>
+      <field name="gl_start">
+        <callback name="gl_start">
+          <source-position filename="gst-libs/gst/gl/gstglbasemixer.h"
+                           line="179"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasemixer.h"
+                 line="175">whether the start was successful</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="mix" transfer-ownership="none">
+              <type name="GLBaseMixer" c:type="GstGLBaseMixer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="gl_stop">
+        <callback name="gl_stop">
+          <source-position filename="gst-libs/gst/gl/gstglbasemixer.h"
+                           line="187"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="mix" transfer-ownership="none">
+              <type name="GLBaseMixer" c:type="GstGLBaseMixer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="GLBaseMixerPad"
+           c:symbol-prefix="gl_base_mixer_pad"
+           c:type="GstGLBaseMixerPad"
+           version="1.24"
+           parent="GstVideo.VideoAggregatorPad"
+           glib:type-name="GstGLBaseMixerPad"
+           glib:get-type="gst_gl_base_mixer_pad_get_type"
+           glib:type-struct="GLBaseMixerPadClass">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="84"/>
+      <field name="parent" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="53">parent #GstVideoAggregatorPad</doc>
+        <type name="GstVideo.VideoAggregatorPad"
+              c:type="GstVideoAggregatorPad"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="GLBaseMixerPadClass"
+            c:type="GstGLBaseMixerPadClass"
+            glib:is-gtype-struct-for="GLBaseMixerPad"
+            version="1.24">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="84"/>
+      <field name="parent_class" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasemixer.h"
+             line="73">parent #GstVideoAggregatorPadClass</doc>
+        <type name="GstVideo.VideoAggregatorPadClass"
+              c:type="GstVideoAggregatorPadClass"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="GLBaseMixerPrivate"
+            c:type="GstGLBaseMixerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="105"/>
+    </record>
     <class name="GLBaseSrc"
            c:symbol-prefix="gl_base_src"
            c:type="GstGLBaseSrc"
@@ -1666,9 +1843,6 @@ context. It also provided some wrappers around #GstBaseSrc's `start()` and
 current in the calling thread.</doc>
       <source-position filename="gst-libs/gst/gl/gstglbasesrc.h" line="96"/>
       <virtual-method name="fill_gl_memory">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="79">called in the GL thread to fill the current video texture.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasesrc.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1683,9 +1857,6 @@ current in the calling thread.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gl_start">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="77">called in the GL thread to setup the element GL state.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasesrc.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1697,9 +1868,6 @@ current in the calling thread.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gl_stop">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="78">called in the GL thread to setup the element GL state.</doc>
         <source-position filename="gst-libs/gst/gl/gstglbasesrc.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1776,9 +1944,6 @@ current in the calling thread.</doc>
         <type name="GLAPI" c:type="GstGLAPI"/>
       </field>
       <field name="gl_start">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="77">called in the GL thread to setup the element GL state.</doc>
         <callback name="gl_start">
           <source-position filename="gst-libs/gst/gl/gstglbasesrc.h"
                            line="90"/>
@@ -1793,9 +1958,6 @@ current in the calling thread.</doc>
         </callback>
       </field>
       <field name="gl_stop">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="78">called in the GL thread to setup the element GL state.</doc>
         <callback name="gl_stop">
           <source-position filename="gst-libs/gst/gl/gstglbasesrc.h"
                            line="91"/>
@@ -1810,9 +1972,6 @@ current in the calling thread.</doc>
         </callback>
       </field>
       <field name="fill_gl_memory">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglbasesrc.h"
-             line="79">called in the GL thread to fill the current video texture.</doc>
         <callback name="fill_gl_memory">
           <source-position filename="gst-libs/gst/gl/gstglbasesrc.h"
                            line="92"/>
@@ -2804,9 +2963,6 @@ case.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="choose_format" throws="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="115">choose a format for the framebuffer</doc>
         <source-position filename="gst-libs/gst/gl/gstglcontext.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2818,9 +2974,6 @@ case.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_context" throws="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="116">create the OpenGL context</doc>
         <source-position filename="gst-libs/gst/gl/gstglcontext.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2838,9 +2991,6 @@ case.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="destroy_context">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="117">destroy the OpenGL context</doc>
         <source-position filename="gst-libs/gst/gl/gstglcontext.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3914,9 +4064,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="get_gl_context">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="111">get the backing platform specific OpenGL context</doc>
         <callback name="get_gl_context">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="152"/>
@@ -3937,9 +4084,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="get_gl_api">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="112">get the available OpenGL api's that this context can work with</doc>
         <callback name="get_gl_api">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="153"/>
@@ -3980,9 +4124,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="get_proc_address">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="113">get an function pointer to an OpenGL function</doc>
         <callback name="get_proc_address">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="155"/>
@@ -4000,9 +4141,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="activate">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="114">call eglMakeCurrent or similar</doc>
         <callback name="activate">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="156"/>
@@ -4029,9 +4167,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="choose_format">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="115">choose a format for the framebuffer</doc>
         <callback name="choose_format" throws="1">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="157"/>
@@ -4046,9 +4181,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="create_context">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="116">create the OpenGL context</doc>
         <callback name="create_context" throws="1">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="158"/>
@@ -4069,9 +4201,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="destroy_context">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="117">destroy the OpenGL context</doc>
         <callback name="destroy_context">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="160"/>
@@ -4086,9 +4215,6 @@ MT-safe</doc>
         </callback>
       </field>
       <field name="swap_buffers">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglcontext.h"
-             line="118">swap the default framebuffer's front/back buffers</doc>
         <callback name="swap_buffers">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="161"/>
@@ -4494,7 +4620,7 @@ Must be called with the object lock held.</doc>
         </parameters>
       </method>
       <method name="create_window" c:identifier="gst_gl_display_create_window">
-        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="180"/>
+        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="184"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstgldisplay.c"
@@ -4508,6 +4634,50 @@ Must be called with the object lock held.</doc>
                  line="669">a #GstGLDisplay</doc>
             <type name="GLDisplay" c:type="GstGLDisplay*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ensure_context"
+              c:identifier="gst_gl_display_ensure_context"
+              version="1.24"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstgldisplay.c"
+             line="1013">Ensures that the display has a valid GL context for the current thread. If
+@context already contains a valid context, this does nothing.</doc>
+        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstgldisplay.c"
+               line="1023">wether @context contains a valid context.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstgldisplay.c"
+                 line="1015">a #GstGLDisplay</doc>
+            <type name="GLDisplay" c:type="GstGLDisplay*"/>
+          </instance-parameter>
+          <parameter name="other_context"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstgldisplay.c"
+                 line="1016">other #GstGLContext to share resources with.</doc>
+            <type name="GLContext" c:type="GstGLContext*"/>
+          </parameter>
+          <parameter name="context"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstgldisplay.c"
+                 line="1017">the resulting #GstGLContext</doc>
+            <type name="GLContext" c:type="GstGLContext**"/>
+          </parameter>
         </parameters>
       </method>
       <method name="filter_gl_api" c:identifier="gst_gl_display_filter_gl_api">
@@ -4547,7 +4717,7 @@ API supported by a #GstGLContext.</doc>
 first argument to @compare_func is the #GstGLWindow being checked and the
 second argument is @data.</doc>
         <doc-deprecated xml:space="preserve">Use gst_gl_display_retrieve_window() instead.</doc-deprecated>
-        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="184"/>
+        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="188"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstgldisplay.c"
@@ -4706,7 +4876,7 @@ Must be called with the object lock held.</doc>
       <method name="remove_window"
               c:identifier="gst_gl_display_remove_window"
               version="1.12">
-        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="182"/>
+        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstgldisplay.c"
@@ -4736,7 +4906,7 @@ Must be called with the object lock held.</doc>
              line="763">Execute @compare_func over the list of windows stored by @display.  The
 first argument to @compare_func is the #GstGLWindow being checked and the
 second argument is @data.</doc>
-        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="186"/>
+        <source-position filename="gst-libs/gst/gl/gstgldisplay.h" line="190"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstgldisplay.c"
@@ -5034,12 +5204,6 @@ single input and producing a single output with a #GstGLFramebuffer</doc>
         </parameters>
       </function>
       <virtual-method name="filter">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="98">perform operations on the input and output buffers.  In general,
-         you should avoid using this method if at all possible. One valid
-         use-case for using this is keeping previous buffers for future calculations.
-         Note: If @filter exists, then @filter_texture is not run</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5061,39 +5225,36 @@ single input and producing a single output with a #GstGLFramebuffer</doc>
                       version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglfilter.c"
-             line="940">Calls filter_texture vfunc with correctly mapped #GstGLMemorys</doc>
+             line="928">Calls filter_texture vfunc with correctly mapped #GstGLMemorys</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglfilter.c"
-               line="948">whether the transformation succeeded</doc>
+               line="936">whether the transformation succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="942">a #GstGLFilter</doc>
+                 line="930">a #GstGLFilter</doc>
             <type name="GLFilter" c:type="GstGLFilter*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="943">an input buffer</doc>
+                 line="931">an input buffer</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="944">an output buffer</doc>
+                 line="932">an output buffer</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="init_fbo">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="104">perform initialization when the Framebuffer object is created</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5105,9 +5266,6 @@ single input and producing a single output with a #GstGLFramebuffer</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="97">mirror from #GstBaseTransform</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5125,10 +5283,6 @@ single input and producing a single output with a #GstGLFramebuffer</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="transform_internal_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="105">Perform sub-class specific modifications of the
-  caps to be processed between upload on input and before download for output.</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="118"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Caps" c:type="GstCaps*"/>
@@ -5153,7 +5307,7 @@ single input and producing a single output with a #GstGLFramebuffer</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglfilter.c"
-             line="1233">Render a fullscreen quad using the current GL state.  The only GL state this
+             line="1220">Render a fullscreen quad using the current GL state.  The only GL state this
 modifies is the necessary vertex/index buffers and, if necessary, a
 Vertex Array Object for drawing a fullscreen quad.  Framebuffer state,
 any shaders, viewport state, etc must be setup by the caller.</doc>
@@ -5165,7 +5319,7 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1235">a #GstGLFilter</doc>
+                 line="1222">a #GstGLFilter</doc>
             <type name="GLFilter" c:type="GstGLFilter*"/>
           </instance-parameter>
         </parameters>
@@ -5175,31 +5329,31 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglfilter.c"
-             line="940">Calls filter_texture vfunc with correctly mapped #GstGLMemorys</doc>
+             line="928">Calls filter_texture vfunc with correctly mapped #GstGLMemorys</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglfilter.c"
-               line="948">whether the transformation succeeded</doc>
+               line="936">whether the transformation succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="942">a #GstGLFilter</doc>
+                 line="930">a #GstGLFilter</doc>
             <type name="GLFilter" c:type="GstGLFilter*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="943">an input buffer</doc>
+                 line="931">an input buffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="944">an output buffer</doc>
+                 line="932">an output buffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -5209,31 +5363,31 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglfilter.c"
-             line="1076">Transforms @input into @output using @func on through FBO.</doc>
+             line="1063">Transforms @input into @output using @func on through FBO.</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglfilter.c"
-               line="1086">the return value of @func</doc>
+               line="1073">the return value of @func</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1078">a #GstGLFilter</doc>
+                 line="1065">a #GstGLFilter</doc>
             <type name="GLFilter" c:type="GstGLFilter*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1079">the input texture</doc>
+                 line="1066">the input texture</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1080">the output texture</doc>
+                 line="1067">the output texture</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
           <parameter name="func"
@@ -5242,7 +5396,7 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1081">the function to transform @input into @output. called with @data</doc>
+                 line="1068">the function to transform @input into @output. called with @data</doc>
             <type name="GLFilterRenderFunc" c:type="GstGLFilterRenderFunc"/>
           </parameter>
           <parameter name="data"
@@ -5251,7 +5405,7 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1082">the data associated with @func</doc>
+                 line="1069">the data associated with @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5261,7 +5415,7 @@ any shaders, viewport state, etc must be setup by the caller.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglfilter.c"
-             line="1159">Transforms @input into @output using @shader with a FBO.
+             line="1146">Transforms @input into @output using @shader with a FBO.
 
 See also: gst_gl_filter_render_to_target()</doc>
         <source-position filename="gst-libs/gst/gl/gstglfilter.h" line="142"/>
@@ -5272,25 +5426,25 @@ See also: gst_gl_filter_render_to_target()</doc>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1161">a #GstGLFilter</doc>
+                 line="1148">a #GstGLFilter</doc>
             <type name="GLFilter" c:type="GstGLFilter*"/>
           </instance-parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1162">the input texture</doc>
+                 line="1149">the input texture</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1163">the output texture</doc>
+                 line="1150">the output texture</doc>
             <type name="GLMemory" c:type="GstGLMemory*"/>
           </parameter>
           <parameter name="shader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="1164">the shader to use.</doc>
+                 line="1151">the shader to use.</doc>
             <type name="GLShader" c:type="GstGLShader*"/>
           </parameter>
         </parameters>
@@ -5378,9 +5532,6 @@ See also: gst_gl_filter_render_to_target()</doc>
         <type name="GLBaseFilterClass" c:type="GstGLBaseFilterClass"/>
       </field>
       <field name="set_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="97">mirror from #GstBaseTransform</doc>
         <callback name="set_caps">
           <source-position filename="gst-libs/gst/gl/gstglfilter.h"
                            line="113"/>
@@ -5401,12 +5552,6 @@ See also: gst_gl_filter_render_to_target()</doc>
         </callback>
       </field>
       <field name="filter">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="98">perform operations on the input and output buffers.  In general,
-         you should avoid using this method if at all possible. One valid
-         use-case for using this is keeping previous buffers for future calculations.
-         Note: If @filter exists, then @filter_texture is not run</doc>
         <callback name="filter">
           <source-position filename="gst-libs/gst/gl/gstglfilter.h"
                            line="114"/>
@@ -5427,45 +5572,38 @@ See also: gst_gl_filter_render_to_target()</doc>
         </callback>
       </field>
       <field name="filter_texture">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="102">given @in_tex, transform it into @out_tex.  Not used
-                 if @filter exists</doc>
         <callback name="filter_texture">
           <source-position filename="gst-libs/gst/gl/gstglfilter.h"
                            line="115"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglfilter.c"
-                 line="948">whether the transformation succeeded</doc>
+                 line="936">whether the transformation succeeded</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="filter" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/gl/gstglfilter.c"
-                   line="942">a #GstGLFilter</doc>
+                   line="930">a #GstGLFilter</doc>
               <type name="GLFilter" c:type="GstGLFilter*"/>
             </parameter>
             <parameter name="input" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/gl/gstglfilter.c"
-                   line="943">an input buffer</doc>
+                   line="931">an input buffer</doc>
               <type name="GLMemory" c:type="GstGLMemory*"/>
             </parameter>
             <parameter name="output" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/gl/gstglfilter.c"
-                   line="944">an output buffer</doc>
+                   line="932">an output buffer</doc>
               <type name="GLMemory" c:type="GstGLMemory*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="init_fbo">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="104">perform initialization when the Framebuffer object is created</doc>
         <callback name="init_fbo">
           <source-position filename="gst-libs/gst/gl/gstglfilter.h"
                            line="116"/>
@@ -5480,10 +5618,6 @@ See also: gst_gl_filter_render_to_target()</doc>
         </callback>
       </field>
       <field name="transform_internal_caps">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglfilter.h"
-             line="105">Perform sub-class specific modifications of the
-  caps to be processed between upload on input and before download for output.</doc>
         <callback name="transform_internal_caps">
           <source-position filename="gst-libs/gst/gl/gstglfilter.h"
                            line="118"/>
@@ -6966,6 +7100,255 @@ mappings between texture formats.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
+    </record>
+    <class name="GLMixer"
+           c:symbol-prefix="gl_mixer"
+           c:type="GstGLMixer"
+           version="1.24"
+           parent="GLBaseMixer"
+           abstract="1"
+           glib:type-name="GstGLMixer"
+           glib:get-type="gst_gl_mixer_get_type"
+           glib:type-struct="GLMixerClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/gstglmixer.c"
+           line="36">#GstGLMixer helps implement an element that operates on RGBA textures.</doc>
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="180"/>
+      <virtual-method name="process_buffers" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.h"
+             line="159">Perform operations on the input buffers to produce an
+output buffer.</doc>
+        <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <type name="GLMixer" c:type="GstGLMixer*"/>
+          </instance-parameter>
+          <parameter name="outbuf" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="process_textures"
+                      invoker="process_textures"
+                      version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.c"
+             line="673">Perform processing required and call #GstGLMixerClass::process_textures().
+Intended for use within implementations of
+#GstGLMixerClass::process_buffers().</doc>
+        <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglmixer.c"
+               line="682">whether processing of textures succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="675">the #GstGLMixer</doc>
+            <type name="GLMixer" c:type="GstGLMixer*"/>
+          </instance-parameter>
+          <parameter name="out_tex" transfer-ownership="none">
+            <type name="GLMemory" c:type="GstGLMemory*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_framebuffer"
+              c:identifier="gst_gl_mixer_get_framebuffer"
+              version="1.24">
+        <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="194"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglmixer.c"
+               line="805">(nullable): The #GstGLFramebuffer in use by this @mix</doc>
+          <type name="GLFramebuffer" c:type="GstGLFramebuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="803">the #GstGLMixer</doc>
+            <type name="GLMixer" c:type="GstGLMixer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="process_textures"
+              c:identifier="gst_gl_mixer_process_textures"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.c"
+             line="673">Perform processing required and call #GstGLMixerClass::process_textures().
+Intended for use within implementations of
+#GstGLMixerClass::process_buffers().</doc>
+        <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="191"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglmixer.c"
+               line="682">whether processing of textures succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="mix" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="675">the #GstGLMixer</doc>
+            <type name="GLMixer" c:type="GstGLMixer*"/>
+          </instance-parameter>
+          <parameter name="outbuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="676">output @GstBuffer</doc>
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" version="1.24">
+        <type name="GLBaseMixer" c:type="GstGLBaseMixer"/>
+      </field>
+      <field name="out_caps" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.h"
+             line="129">the configured output #GstCaps</doc>
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GLMixerPrivate" c:type="GstGLMixerPrivate*"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="GLMixerClass"
+            c:type="GstGLMixerClass"
+            glib:is-gtype-struct-for="GLMixer"
+            version="1.24">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="180"/>
+      <field name="parent_class" version="1.24">
+        <type name="GLBaseMixerClass" c:type="GstGLBaseMixerClass"/>
+      </field>
+      <field name="process_buffers">
+        <callback name="process_buffers">
+          <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="167"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="mix" transfer-ownership="none">
+              <type name="GLMixer" c:type="GstGLMixer*"/>
+            </parameter>
+            <parameter name="outbuf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="process_textures">
+        <callback name="process_textures">
+          <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="176"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="682">whether processing of textures succeeded</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="mix" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gst-libs/gst/gl/gstglmixer.c"
+                   line="675">the #GstGLMixer</doc>
+              <type name="GLMixer" c:type="GstGLMixer*"/>
+            </parameter>
+            <parameter name="out_tex" transfer-ownership="none">
+              <type name="GLMemory" c:type="GstGLMemory*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <method name="add_rgba_pad_templates"
+              c:identifier="gst_gl_mixer_class_add_rgba_pad_templates"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.c"
+             line="416">Adds the default RGBA pad templates to this class.  If you have any special
+template requirements like a different pad subclass or different supported
+caps, you should not call this function and add the pad templates yourself
+manually.</doc>
+        <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="klass" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglmixer.c"
+                 line="418">the #GstGLMixerClass</doc>
+            <type name="GLMixerClass" c:type="GstGLMixerClass*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <class name="GLMixerPad"
+           c:symbol-prefix="gl_mixer_pad"
+           c:type="GstGLMixerPad"
+           version="1.24"
+           parent="GLBaseMixerPad"
+           glib:type-name="GstGLMixerPad"
+           glib:get-type="gst_gl_mixer_pad_get_type"
+           glib:type-struct="GLMixerPadClass">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="96"/>
+      <field name="parent" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.h"
+             line="56">parent #GstGLBaseMixerPad</doc>
+        <type name="GLBaseMixerPad" c:type="GstGLBaseMixerPad"/>
+      </field>
+      <field name="current_texture" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.h"
+             line="65">the current input texture for this pad</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </class>
+    <record name="GLMixerPadClass"
+            c:type="GstGLMixerPadClass"
+            glib:is-gtype-struct-for="GLMixerPad"
+            version="1.24">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="96"/>
+      <field name="parent_class" version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmixer.h"
+             line="85">parent #GstGLBaseMixerPadClass</doc>
+        <type name="GLBaseMixerPadClass" c:type="GstGLBaseMixerPadClass"/>
+      </field>
+      <field name="_padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="GLMixerPrivate"
+            c:type="GstGLMixerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="32"/>
     </record>
     <class name="GLOverlayCompositor"
            c:symbol-prefix="gl_overlay_compositor"
@@ -10253,9 +10636,6 @@ with the CPU or with other OpenGL contexts.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </field>
       <field name="set_sync">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="45">set a sync point in the OpenGL command stream</doc>
         <callback name="set_sync">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="63"/>
@@ -10273,9 +10653,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="set_sync_gl">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="46">the same as @set_sync but called from @context's thread</doc>
         <callback name="set_sync_gl">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="64"/>
@@ -10293,9 +10670,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="wait">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="47">execute a wait on the previously set sync point into the OpenGL command stream</doc>
         <callback name="wait">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="65"/>
@@ -10313,9 +10687,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="wait_gl">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="48">the same as @wait but called from @context's thread</doc>
         <callback name="wait_gl">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="66"/>
@@ -10333,9 +10704,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="wait_cpu">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="49">wait for the previously set sync point to pass from the CPU</doc>
         <callback name="wait_cpu">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="67"/>
@@ -10353,9 +10721,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="wait_cpu_gl">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="50">the same as @wait_cpu but called from @context's thread</doc>
         <callback name="wait_cpu_gl">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="68"/>
@@ -10373,9 +10738,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="copy">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="51">copy @data into a new #GstGLSyncMeta</doc>
         <callback name="copy">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="69"/>
@@ -10399,9 +10761,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="free">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="52">free @data</doc>
         <callback name="free">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="70"/>
@@ -10419,9 +10778,6 @@ with the CPU or with other OpenGL contexts.</doc>
         </callback>
       </field>
       <field name="free_gl">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglsyncmeta.h"
-             line="53">free @data in @context's thread</doc>
         <callback name="free_gl">
           <source-position filename="gst-libs/gst/gl/gstglsyncmeta.h"
                            line="71"/>
@@ -10681,14 +11037,14 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="2292">a new #GstGLUpload object</doc>
+               line="2386">a new #GstGLUpload object</doc>
           <type name="GLUpload" c:type="GstGLUpload*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2290">a #GstGLContext</doc>
+                 line="2384">a #GstGLContext</doc>
             <type name="GLContext" c:type="GstGLContext*"/>
           </parameter>
         </parameters>
@@ -10709,7 +11065,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2493">a #GstGLUpload</doc>
+                 line="2587">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps"
@@ -10720,7 +11076,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2494">the input #GstCaps</doc>
+                 line="2588">the input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
           <parameter name="out_caps"
@@ -10731,7 +11087,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2495">the output #GstCaps</doc>
+                 line="2589">the output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
         </parameters>
@@ -10740,26 +11096,26 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
               c:identifier="gst_gl_upload_perform_with_buffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="2546">Uploads @buffer using the transformation specified by
+             line="2640">Uploads @buffer using the transformation specified by
 gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="2555">whether the upload was successful</doc>
+               line="2649">whether the upload was successful</doc>
           <type name="GLUploadReturn" c:type="GstGLUploadReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2548">a #GstGLUpload</doc>
+                 line="2642">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2549">input #GstBuffer</doc>
+                 line="2643">input #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
           <parameter name="outbuf_ptr"
@@ -10768,7 +11124,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2550">resulting #GstBuffer</doc>
+                 line="2644">resulting #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer**"/>
           </parameter>
         </parameters>
@@ -10777,7 +11133,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
               c:identifier="gst_gl_upload_propose_allocation">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="2424">Adds the required allocation parameters to support uploading.</doc>
+             line="2518">Adds the required allocation parameters to support uploading.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10786,7 +11142,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2426">a #GstGLUpload</doc>
+                 line="2520">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="decide_query"
@@ -10795,13 +11151,13 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2427">a #GstQuery from a decide allocation</doc>
+                 line="2521">a #GstQuery from a decide allocation</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2428">the proposed allocation query</doc>
+                 line="2522">the proposed allocation query</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -10809,31 +11165,31 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
       <method name="set_caps" c:identifier="gst_gl_upload_set_caps">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="2468">Initializes @upload with the information required for upload.</doc>
+             line="2562">Initializes @upload with the information required for upload.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="2476">whether @in_caps and @out_caps could be set on @upload</doc>
+               line="2570">whether @in_caps and @out_caps could be set on @upload</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2470">a #GstGLUpload</doc>
+                 line="2564">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2471">input #GstCaps</doc>
+                 line="2565">input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="out_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="2472">output #GstCaps</doc>
+                 line="2566">output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -11970,9 +12326,6 @@ either be a user visible window (onscreen) or hidden (offscreen).</doc>
         </parameters>
       </constructor>
       <virtual-method name="close">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="142">close the connection to the display</doc>
         <source-position filename="gst-libs/gst/gl/gstglwindow.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12023,9 +12376,6 @@ either be a user visible window (onscreen) or hidden (offscreen).</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_display" invoker="get_display" version="1.4">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="130">Gets the current windowing system display connection</doc>
         <source-position filename="gst-libs/gst/gl/gstglwindow.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -12045,11 +12395,6 @@ either be a user visible window (onscreen) or hidden (offscreen).</doc>
       <virtual-method name="get_window_handle"
                       invoker="get_window_handle"
                       version="1.4">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="132">Gets the current window handle that this #GstGLWindow is
-                    rendering into.  This may return a different value to
-                    what is passed into @set_window_handle</doc>
         <source-position filename="gst-libs/gst/gl/gstglwindow.h" line="160"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -12116,9 +12461,6 @@ from the @window.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="open" throws="1">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="141">open the connection to the display</doc>
         <source-position filename="gst-libs/gst/gl/gstglwindow.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -13252,9 +13594,6 @@ direct handle comparision.</doc>
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
       <field name="get_display">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="130">Gets the current windowing system display connection</doc>
         <callback name="get_display">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="158"/>
@@ -13275,9 +13614,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="set_window_handle">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="131">Set a window handle to render into</doc>
         <callback name="set_window_handle">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="159"/>
@@ -13301,11 +13637,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="get_window_handle">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="132">Gets the current window handle that this #GstGLWindow is
-                    rendering into.  This may return a different value to
-                    what is passed into @set_window_handle</doc>
         <callback name="get_window_handle">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="160"/>
@@ -13326,9 +13657,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="draw">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="135">redraw the window with the specified dimensions</doc>
         <callback name="draw">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="161"/>
@@ -13346,9 +13674,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="run">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="136">run the mainloop</doc>
         <callback name="run">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="162"/>
@@ -13366,9 +13691,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="quit">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="137">send a quit to the mainloop</doc>
         <callback name="quit">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="163"/>
@@ -13386,9 +13708,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="send_message">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="138">invoke a function on the window thread.  Required to be reentrant.</doc>
         <callback name="send_message">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="164"/>
@@ -13424,10 +13743,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="send_message_async">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="139">invoke a function on the window thread. @run may or may
-                     not have been called.  Required to be reentrant.</doc>
         <callback name="send_message_async">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="165"/>
@@ -13470,9 +13785,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="open">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="141">open the connection to the display</doc>
         <callback name="open" throws="1">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="167"/>
@@ -13487,9 +13799,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="close">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="142">close the connection to the display</doc>
         <callback name="close">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="168"/>
@@ -13504,11 +13813,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="handle_events">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="143">whether to handle 'extra' events from the windowing system.
-                Basic events like surface moves and resizes are still valid
-                things to listen for.</doc>
         <callback name="handle_events">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="169"/>
@@ -13532,10 +13836,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="set_preferred_size">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="146">request that the window change surface size.  The
-                     implementation is free to ignore this information.</doc>
         <callback name="set_preferred_size">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="170"/>
@@ -13565,9 +13865,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="show">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="148">request that the window be shown to the user</doc>
         <callback name="show">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="171"/>
@@ -13585,9 +13882,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="set_render_rectangle">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="149">request a rectangle to render into.  See #GstVideoOverlay</doc>
         <callback name="set_render_rectangle">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="172"/>
@@ -13632,9 +13926,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="queue_resize">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="150">request a resize to occur when possible</doc>
         <callback name="queue_resize">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="173"/>
@@ -13652,10 +13943,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="controls_viewport">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="151">Whether the window takes care of glViewport setup.
-                    and the user does not need to deal with viewports</doc>
         <callback name="controls_viewport">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="174"/>
@@ -13676,9 +13963,6 @@ direct handle comparision.</doc>
         </callback>
       </field>
       <field name="has_output_surface">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/gl/gstglwindow.h"
-             line="153">Whether the window has output surface or not. (Since: 1.18)</doc>
         <callback name="has_output_surface">
           <source-position filename="gst-libs/gst/gl/gstglwindow.h"
                            line="175"/>
@@ -14027,6 +14311,60 @@ user-defined purposes.</doc>
       <source-position filename="gst-libs/gst/gl/gstglbasememory.h" line="52"/>
       <parameters>
         <parameter name="mem">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER"
+                    c:identifier="GST_GL_BASE_MIXER"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="92"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER_CLASS"
+                    c:identifier="GST_GL_BASE_MIXER_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="94"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER_GET_CLASS"
+                    c:identifier="GST_GL_BASE_MIXER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="100"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER_PAD"
+                    c:identifier="GST_GL_BASE_MIXER_PAD"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER_PAD_CLASS"
+                    c:identifier="GST_GL_BASE_MIXER_PAD_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_BASE_MIXER_PAD_GET_CLASS"
+                    c:identifier="GST_GL_BASE_MIXER_PAD_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
@@ -14520,6 +14858,60 @@ e.g. for `CONFIG_ID`: `GST_GL_CONFIG_ATTRIB_NAME (CONFIG_ID)`</doc>
       <source-position filename="gst-libs/gst/gl/gstglmemory.h" line="62"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
+    <function-macro name="GL_MIXER"
+                    c:identifier="GST_GL_MIXER"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="104"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_MIXER_CLASS"
+                    c:identifier="GST_GL_MIXER_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="106"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_MIXER_GET_CLASS"
+                    c:identifier="GST_GL_MIXER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="112"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_MIXER_PAD"
+                    c:identifier="GST_GL_MIXER_PAD"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_MIXER_PAD_CLASS"
+                    c:identifier="GST_GL_MIXER_PAD_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GL_MIXER_PAD_GET_CLASS"
+                    c:identifier="GST_GL_MIXER_PAD_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="GL_OVERLAY_COMPOSITOR"
                     c:identifier="GST_GL_OVERLAY_COMPOSITOR"
                     introspectable="0">
@@ -14859,6 +15251,42 @@ e.g. for `CONFIG_ID`: `GST_GL_CONFIG_ATTRIB_NAME (CONFIG_ID)`</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="IS_GL_BASE_MIXER"
+                    c:identifier="GST_IS_GL_BASE_MIXER"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="96"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_BASE_MIXER_CLASS"
+                    c:identifier="GST_IS_GL_BASE_MIXER_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="98"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_BASE_MIXER_PAD"
+                    c:identifier="GST_IS_GL_BASE_MIXER_PAD"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_BASE_MIXER_PAD_CLASS"
+                    c:identifier="GST_IS_GL_BASE_MIXER_PAD_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglbasemixer.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="IS_GL_BASE_SRC"
                     c:identifier="GST_IS_GL_BASE_SRC"
                     introspectable="0">
@@ -15029,6 +15457,42 @@ e.g. for `CONFIG_ID`: `GST_GL_CONFIG_ATTRIB_NAME (CONFIG_ID)`</doc>
                     c:identifier="GST_IS_GL_MEMORY_PBO_ALLOCATOR_CLASS"
                     introspectable="0">
       <source-position filename="gst-libs/gst/gl/gstglmemorypbo.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_MIXER"
+                    c:identifier="GST_IS_GL_MIXER"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="108"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_MIXER_CLASS"
+                    c:identifier="GST_IS_GL_MIXER_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="110"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_MIXER_PAD"
+                    c:identifier="GST_IS_GL_MIXER_PAD"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GL_MIXER_PAD_CLASS"
+                    c:identifier="GST_IS_GL_MIXER_PAD_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/gl/gstglmixer.h" line="41"/>
       <parameters>
         <parameter name="klass">
         </parameter>

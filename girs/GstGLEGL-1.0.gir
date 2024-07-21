@@ -106,6 +106,27 @@ or gst_egl_image_from_dmabuf_direct(), or #GstGLMemoryEGL provides a
           </parameter>
         </parameters>
       </constructor>
+      <method name="export_dmabuf" c:identifier="gst_egl_image_export_dmabuf">
+        <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                         line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <type name="EGLImage" c:type="GstEGLImage*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <type name="gint" c:type="int*"/>
+          </parameter>
+          <parameter name="stride" transfer-ownership="none">
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_image" c:identifier="gst_egl_image_get_image">
         <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
                          line="78"/>
@@ -124,6 +145,219 @@ or gst_egl_image_from_dmabuf_direct(), or #GstGLMemoryEGL provides a
           </instance-parameter>
         </parameters>
       </method>
+      <function name="from_dmabuf" c:identifier="gst_egl_image_from_dmabuf">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="626">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed as RGBA data. Shaders later take this "RGBA" data and
+convert it from its true format (described by in_info) to actual
+RGBA output. For example, with I420, three EGL images are created,
+one for each @plane, each EGL image with a single-channel R format.
+With NV12, two EGL images are created, one with R format, one
+with RG format etc.</doc>
+        <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                         line="86"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="642">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+          <type name="EGLImage" c:type="GstEGLImage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="628">a #GstGLContext (must be an EGL context)</doc>
+            <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+          </parameter>
+          <parameter name="dmabuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="629">the DMA-Buf file descriptor</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="in_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="630">the #GstVideoInfo in @dmabuf</doc>
+            <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+          </parameter>
+          <parameter name="plane" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="631">the plane in @in_info to create and #GstEGLImage for</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="632">the byte-offset in the data</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_dmabuf_direct"
+                c:identifier="gst_egl_image_from_dmabuf_direct">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="1001">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed directly as the format described in in_info. This is
+useful if the hardware is capable of performing color space conversions
+internally. The appropriate DRM format is picked, and the EGL image
+is created with this DRM format.
+
+Another notable difference to gst_egl_image_from_dmabuf()
+is that this function creates one EGL image for all planes, not one for
+a single plane.</doc>
+        <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                         line="93"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="1018">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+          <type name="EGLImage" c:type="GstEGLImage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="1003">a #GstGLContext (must be an EGL context)</doc>
+            <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+          </parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="1004">Array of DMABuf file descriptors</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="1005">Array of offsets, relative to the DMABuf</doc>
+            <type name="gsize" c:type="const gsize*"/>
+          </parameter>
+          <parameter name="in_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="1006">the #GstVideoInfo</doc>
+            <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_dmabuf_direct_target"
+                c:identifier="gst_egl_image_from_dmabuf_direct_target"
+                version="1.18">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="793">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed directly as the format described in @in_info. This is
+useful if the hardware is capable of performing color space conversions
+internally. The appropriate DRM format is picked, and the EGL image
+is created with this DRM format.
+
+Another notable difference to gst_egl_image_from_dmabuf()
+is that this function creates one EGL image for all planes, not one for
+a single plane.</doc>
+        <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                         line="98"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="811">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+          <type name="EGLImage" c:type="GstEGLImage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="795">a #GstGLContext (must be an EGL context)</doc>
+            <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+          </parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="796">Array of DMABuf file descriptors</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="797">Array of offsets, relative to the DMABuf</doc>
+            <type name="gsize" c:type="const gsize*"/>
+          </parameter>
+          <parameter name="in_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="798">the #GstVideoInfo</doc>
+            <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="799">GL texture target this GstEGLImage is intended for</doc>
+            <type name="GstGL.GLTextureTarget" c:type="GstGLTextureTarget"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_dmabuf_direct_target_with_dma_drm"
+                c:identifier="gst_egl_image_from_dmabuf_direct_target_with_dma_drm"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="830">Creates an EGL image that imports the dmabuf FD. The dmabuf data is passed
+directly as the format described in @in_info. This is useful if the hardware
+is capable of performing color space conversions internally.
+
+Another notable difference to gst_egl_image_from_dmabuf() is that this
+function creates one EGL image for all planes, not one for a single plane.</doc>
+        <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                         line="105"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="846">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+          <type name="EGLImage" c:type="GstEGLImage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="832">a #GstGLContext (must be an EGL context)</doc>
+            <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+          </parameter>
+          <parameter name="n_planes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="833">number of planes (obtained from a #GstVideoMeta)</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="834">Array of DMABuf file descriptors</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="835">Array of offsets, relative to the DMABuf</doc>
+            <type name="gsize" c:type="const gsize*"/>
+          </parameter>
+          <parameter name="in_info_dma" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="836">the #GstVideoInfoDmaDrm</doc>
+            <type name="GstVideo.VideoInfoDmaDrm"
+                  c:type="const GstVideoInfoDmaDrm*"/>
+          </parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/egl/gsteglimage.c"
+                 line="837">GL texture target this GstEGLImage is intended for</doc>
+            <type name="GstGL.GLTextureTarget" c:type="GstGLTextureTarget"/>
+          </parameter>
+        </parameters>
+      </function>
       <function name="from_texture" c:identifier="gst_egl_image_from_texture">
         <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
                          line="81"/>
@@ -216,20 +450,36 @@ through the provided API</doc>
       <constructor name="new" c:identifier="gst_gl_display_egl_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
-             line="246">Create a new #GstGLDisplayEGL using the default EGL_DEFAULT_DISPLAY.</doc>
+             line="254">Create a new #GstGLDisplayEGL using the default EGL_DEFAULT_DISPLAY.</doc>
         <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
                          line="67"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
-               line="251">a new #GstGLDisplayEGL or %NULL</doc>
+               line="259">a new #GstGLDisplayEGL or %NULL</doc>
+          <type name="GLDisplayEGL" c:type="GstGLDisplayEGL*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_surfaceless"
+                   c:identifier="gst_gl_display_egl_new_surfaceless"
+                   version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
+             line="283">Create a new surfaceless #GstGLDisplayEGL using the Mesa3D
+EGL_PLATFORM_SURFACELESS_MESA extension.</doc>
+        <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
+                         line="70"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
+               line="289">a new #GstGLDisplayEGL or %NULL</doc>
           <type name="GLDisplayEGL" c:type="GstGLDisplayEGL*"/>
         </return-value>
       </constructor>
       <constructor name="new_with_egl_display"
                    c:identifier="gst_gl_display_egl_new_with_egl_display">
         <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
-                         line="70"/>
+                         line="73"/>
         <return-value transfer-ownership="none">
           <type name="GLDisplayEGL" c:type="GstGLDisplayEGL*"/>
         </return-value>
@@ -247,23 +497,23 @@ through the provided API</doc>
                 version="1.12">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
-             line="311">Creates a EGL display connection from a native Display.
+             line="353">Creates a EGL display connection from a native Display.
 
 This function will return the same value for multiple calls with the same
 @display.</doc>
         <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
-                         line="73"/>
+                         line="76"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
-               line="320">a new #GstGLDisplayEGL</doc>
+               line="362">a new #GstGLDisplayEGL</doc>
           <type name="GLDisplayEGL" c:type="GstGLDisplayEGL*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
-                 line="313">an existing #GstGLDisplay</doc>
+                 line="355">an existing #GstGLDisplay</doc>
             <type name="GstGL.GLDisplay" c:type="GstGLDisplay*"/>
           </parameter>
         </parameters>
@@ -274,10 +524,10 @@ This function will return the same value for multiple calls with the same
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
              line="119">Attempts to create a new `EGLDisplay` from @display.  If @type is
-%GST_GL_DISPLAY_TYPE_ANY, then @display must be 0. @type must not be
-%GST_GL_DISPLAY_TYPE_NONE.</doc>
+%GST_GL_DISPLAY_TYPE_ANY or %GST_GL_DISPLAY_TYPE_EGL_SURFACELESS, then
+@display must be 0. @type must not be %GST_GL_DISPLAY_TYPE_NONE.</doc>
         <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
-                         line="76"/>
+                         line="79"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
@@ -601,7 +851,7 @@ multiple times.  This must be called before any other GstGLMemoryEGL operation.<
               value="gst.gl.display.egl"
               c:type="GST_GL_DISPLAY_EGL_NAME">
       <source-position filename="gst-libs/gst/gl/egl/gstgldisplay_egl.h"
-                       line="78"/>
+                       line="81"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="GL_MEMORY_EGL_ALLOCATOR"
@@ -741,6 +991,221 @@ multiple times.  This must be called before any other GstGLMemoryEGL operation.<
         </parameter>
       </parameters>
     </function>
+    <function name="egl_image_from_dmabuf"
+              c:identifier="gst_egl_image_from_dmabuf"
+              moved-to="EGLImage.from_dmabuf">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/egl/gsteglimage.c"
+           line="626">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed as RGBA data. Shaders later take this "RGBA" data and
+convert it from its true format (described by in_info) to actual
+RGBA output. For example, with I420, three EGL images are created,
+one for each @plane, each EGL image with a single-channel R format.
+With NV12, two EGL images are created, one with R format, one
+with RG format etc.</doc>
+      <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h" line="86"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="642">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+        <type name="EGLImage" c:type="GstEGLImage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="628">a #GstGLContext (must be an EGL context)</doc>
+          <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+        </parameter>
+        <parameter name="dmabuf" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="629">the DMA-Buf file descriptor</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="in_info" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="630">the #GstVideoInfo in @dmabuf</doc>
+          <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+        </parameter>
+        <parameter name="plane" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="631">the plane in @in_info to create and #GstEGLImage for</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="offset" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="632">the byte-offset in the data</doc>
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="egl_image_from_dmabuf_direct"
+              c:identifier="gst_egl_image_from_dmabuf_direct"
+              moved-to="EGLImage.from_dmabuf_direct">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/egl/gsteglimage.c"
+           line="1001">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed directly as the format described in in_info. This is
+useful if the hardware is capable of performing color space conversions
+internally. The appropriate DRM format is picked, and the EGL image
+is created with this DRM format.
+
+Another notable difference to gst_egl_image_from_dmabuf()
+is that this function creates one EGL image for all planes, not one for
+a single plane.</doc>
+      <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h" line="93"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="1018">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+        <type name="EGLImage" c:type="GstEGLImage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="1003">a #GstGLContext (must be an EGL context)</doc>
+          <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+        </parameter>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="1004">Array of DMABuf file descriptors</doc>
+          <type name="gint" c:type="gint*"/>
+        </parameter>
+        <parameter name="offset" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="1005">Array of offsets, relative to the DMABuf</doc>
+          <type name="gsize" c:type="const gsize*"/>
+        </parameter>
+        <parameter name="in_info" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="1006">the #GstVideoInfo</doc>
+          <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="egl_image_from_dmabuf_direct_target"
+              c:identifier="gst_egl_image_from_dmabuf_direct_target"
+              moved-to="EGLImage.from_dmabuf_direct_target"
+              version="1.18">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/egl/gsteglimage.c"
+           line="793">Creates an EGL image that imports the dmabuf FD. The dmabuf data
+is passed directly as the format described in @in_info. This is
+useful if the hardware is capable of performing color space conversions
+internally. The appropriate DRM format is picked, and the EGL image
+is created with this DRM format.
+
+Another notable difference to gst_egl_image_from_dmabuf()
+is that this function creates one EGL image for all planes, not one for
+a single plane.</doc>
+      <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h" line="98"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="811">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+        <type name="EGLImage" c:type="GstEGLImage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="795">a #GstGLContext (must be an EGL context)</doc>
+          <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+        </parameter>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="796">Array of DMABuf file descriptors</doc>
+          <type name="gint" c:type="gint*"/>
+        </parameter>
+        <parameter name="offset" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="797">Array of offsets, relative to the DMABuf</doc>
+          <type name="gsize" c:type="const gsize*"/>
+        </parameter>
+        <parameter name="in_info" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="798">the #GstVideoInfo</doc>
+          <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="799">GL texture target this GstEGLImage is intended for</doc>
+          <type name="GstGL.GLTextureTarget" c:type="GstGLTextureTarget"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="egl_image_from_dmabuf_direct_target_with_dma_drm"
+              c:identifier="gst_egl_image_from_dmabuf_direct_target_with_dma_drm"
+              moved-to="EGLImage.from_dmabuf_direct_target_with_dma_drm"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/gl/egl/gsteglimage.c"
+           line="830">Creates an EGL image that imports the dmabuf FD. The dmabuf data is passed
+directly as the format described in @in_info. This is useful if the hardware
+is capable of performing color space conversions internally.
+
+Another notable difference to gst_egl_image_from_dmabuf() is that this
+function creates one EGL image for all planes, not one for a single plane.</doc>
+      <source-position filename="gst-libs/gst/gl/egl/gsteglimage.h"
+                       line="105"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/egl/gsteglimage.c"
+             line="846">a #GstEGLImage wrapping @dmabuf or %NULL on failure</doc>
+        <type name="EGLImage" c:type="GstEGLImage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="832">a #GstGLContext (must be an EGL context)</doc>
+          <type name="GstGL.GLContext" c:type="GstGLContext*"/>
+        </parameter>
+        <parameter name="n_planes" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="833">number of planes (obtained from a #GstVideoMeta)</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="834">Array of DMABuf file descriptors</doc>
+          <type name="gint" c:type="gint*"/>
+        </parameter>
+        <parameter name="offset" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="835">Array of offsets, relative to the DMABuf</doc>
+          <type name="gsize" c:type="const gsize*"/>
+        </parameter>
+        <parameter name="in_info_dma" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="836">the #GstVideoInfoDmaDrm</doc>
+          <type name="GstVideo.VideoInfoDmaDrm"
+                c:type="const GstVideoInfoDmaDrm*"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/egl/gsteglimage.c"
+               line="837">GL texture target this GstEGLImage is intended for</doc>
+          <type name="GstGL.GLTextureTarget" c:type="GstGLTextureTarget"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="egl_image_from_texture"
               c:identifier="gst_egl_image_from_texture"
               moved-to="EGLImage.from_texture">
@@ -790,8 +1255,8 @@ multiple times.  This must be called before any other GstGLMemoryEGL operation.<
       <doc xml:space="preserve"
            filename="gst-libs/gst/gl/egl/gstgldisplay_egl.c"
            line="21">#GstGLDisplayEGL represents a connection to an EGL `EGLDisplay` handle created
-internally (gst_gl_display_egl_new()) or wrapped by the application
-(gst_gl_display_egl_new_with_egl_display())</doc>
+internally (gst_gl_display_egl_new() or gst_gl_display_egl_new_surfaceless())
+or wrapped by the application (gst_gl_display_egl_new_with_egl_display())</doc>
     </docsection>
     <docsection name="gstgldisplay_egl_device">
       <doc xml:space="preserve"

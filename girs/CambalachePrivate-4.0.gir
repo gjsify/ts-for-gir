@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="4.0"/>
+  <c:include name="cmb_private.h"/>
+  <namespace name="CambalachePrivate"
+             version="4.0"
+             shared-library="libcambalacheprivate-4.so"
+             c:identifier-prefixes="CmbPrivate"
+             c:symbol-prefixes="cmb_private">
+    <class name="BuilderScope"
+           c:symbol-prefix="builder_scope"
+           c:type="CmbPrivateBuilderScope"
+           parent="Gtk.BuilderCScope"
+           glib:type-name="CmbPrivateBuilderScope"
+           glib:get-type="cmb_private_builder_scope_get_type"
+           glib:type-struct="BuilderScopeClass">
+      <source-position filename="cambalache/private/cmb_private.h" line="34"/>
+      <implements name="Gtk.BuilderScope"/>
+    </class>
+    <record name="BuilderScopeClass"
+            c:type="CmbPrivateBuilderScopeClass"
+            glib:is-gtype-struct-for="BuilderScope">
+      <source-position filename="cambalache/private/cmb_private.h" line="34"/>
+      <field name="parent_class">
+        <type name="Gtk.BuilderCScopeClass" c:type="GtkBuilderCScopeClass"/>
+      </field>
+    </record>
+    <function name="object_set_property_from_string"
+              c:identifier="cmb_private_object_set_property_from_string">
+      <source-position filename="cambalache/private/cmb_private.h" line="50"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="property_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

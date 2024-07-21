@@ -1591,7 +1591,7 @@ Consult the relevant specifications for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="860">The #GstMpegtsDVBLinkageEvent or %NULL if an error happened</doc>
+               line="859">The #GstMpegtsDVBLinkageEvent or %NULL if an error happened</doc>
           <type name="DVBLinkageEvent"
                 c:type="const GstMpegtsDVBLinkageEvent*"/>
         </return-value>
@@ -1599,7 +1599,7 @@ Consult the relevant specifications for more details.</doc>
           <instance-parameter name="desc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="858">the #GstMpegtsDVBLinkageDescriptor</doc>
+                 line="857">the #GstMpegtsDVBLinkageDescriptor</doc>
             <type name="DVBLinkageDescriptor"
                   c:type="const GstMpegtsDVBLinkageDescriptor*"/>
           </instance-parameter>
@@ -1612,7 +1612,7 @@ Consult the relevant specifications for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="877">an #GstMpegtsDVBLinkageExtendedEvent array or %NULL if an error happened</doc>
+               line="876">an #GstMpegtsDVBLinkageExtendedEvent array or %NULL if an error happened</doc>
           <array name="GLib.PtrArray" c:type="const GPtrArray*">
             <type name="DVBLinkageExtendedEvent"/>
           </array>
@@ -1621,7 +1621,7 @@ Consult the relevant specifications for more details.</doc>
           <instance-parameter name="desc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="875">the #GstMpegtsDVBLinkageDescriptor</doc>
+                 line="874">the #GstMpegtsDVBLinkageDescriptor</doc>
             <type name="DVBLinkageDescriptor"
                   c:type="const GstMpegtsDVBLinkageDescriptor*"/>
           </instance-parameter>
@@ -1634,7 +1634,7 @@ Consult the relevant specifications for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="843">The #GstMpegtsDVBLinkageMobileHandOver or %NULL if an error happened</doc>
+               line="842">The #GstMpegtsDVBLinkageMobileHandOver or %NULL if an error happened</doc>
           <type name="DVBLinkageMobileHandOver"
                 c:type="const GstMpegtsDVBLinkageMobileHandOver*"/>
         </return-value>
@@ -1642,7 +1642,7 @@ Consult the relevant specifications for more details.</doc>
           <instance-parameter name="desc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="841">the #GstMpegtsDVBLinkageDescriptor</doc>
+                 line="840">the #GstMpegtsDVBLinkageDescriptor</doc>
             <type name="DVBLinkageDescriptor"
                   c:type="const GstMpegtsDVBLinkageDescriptor*"/>
           </instance-parameter>
@@ -2092,29 +2092,29 @@ As specified in Table 100 of ETSI EN 300 468 v1.13.1</doc>
 For more details, refer to the ITU H.222.0 or ISO/IEC 13818-1 specifications
 and other specifications mentioned in the documentation.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="200"/>
+                       line="201"/>
       <field name="tag" writable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="182">the type of descriptor</doc>
+             line="183">the type of descriptor</doc>
         <type name="guint8" c:type="guint8"/>
       </field>
       <field name="tag_extension" writable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="183">the extended type (if @descriptor_tag is 0x7f)</doc>
+             line="184">the extended type (if @descriptor_tag is 0x7f)</doc>
         <type name="guint8" c:type="guint8"/>
       </field>
       <field name="length" writable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="184">the length of the descriptor content (excluding tag/length field)</doc>
+             line="185">the length of the descriptor content (excluding tag/length field)</doc>
         <type name="guint8" c:type="guint8"/>
       </field>
       <field name="data" writable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="185">the full descriptor data (including tag, extension, length). The first
+             line="186">the full descriptor data (including tag, extension, length). The first
 two bytes are the @tag and @length.</doc>
         <type name="guint8" c:type="guint8*"/>
       </field>
@@ -2128,7 +2128,7 @@ two bytes are the @tag and @length.</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="709">Frees @desc</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="203"/>
+                         line="204"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2146,20 +2146,20 @@ two bytes are the @tag and @length.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2464">Parses out a list of audio preselection from the @descriptor.</doc>
+             line="2463">Parses out a list of audio preselection from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="1113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2472">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2471">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2466">a %GST_MTS_DESC_EXT_DVB_AUDIO_PRESELECTION #GstMpegtsDescriptor</doc>
+                 line="2465">a %GST_MTS_DESC_EXT_DVB_AUDIO_PRESELECTION #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="list"
@@ -2168,7 +2168,7 @@ two bytes are the @tag and @length.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2467">
+                 line="2466">
 the list of audio preselection</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="AudioPreselectionDescriptor"/>
@@ -2181,7 +2181,7 @@ the list of audio preselection</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="944">Extracts the Conditional Access information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="295"/>
+                         line="296"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -2243,20 +2243,20 @@ the list of audio preselection</doc>
               c:identifier="gst_mpegts_descriptor_parse_cable_delivery_system">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="342">Extracts the cable delivery system information from @descriptor.</doc>
+             line="341">Extracts the cable delivery system information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="317"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="349">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="348">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="344">a %GST_MTS_DESC_DVB_CABLE_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
+                 line="343">a %GST_MTS_DESC_DVB_CABLE_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -2265,7 +2265,7 @@ the list of audio preselection</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="345">the #GstMpegtsCableDeliverySystemDescriptor to fill</doc>
+                 line="344">the #GstMpegtsCableDeliverySystemDescriptor to fill</doc>
             <type name="CableDeliverySystemDescriptor"
                   c:type="GstMpegtsCableDeliverySystemDescriptor*"/>
           </parameter>
@@ -2275,13 +2275,13 @@ the list of audio preselection</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_bouquet_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="442">Extracts the bouquet name from @descriptor.</doc>
+             line="441">Extracts the bouquet name from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="326"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="448">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="447">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -2296,7 +2296,7 @@ the list of audio preselection</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="444">the bouquet name</doc>
+                 line="443">the bouquet name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -2305,20 +2305,20 @@ the list of audio preselection</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_ca_identifier">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1312">Extracts ca id's from @descriptor.</doc>
+             line="1311">Extracts ca id's from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="636"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1321">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1320">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1314">a %GST_MTS_DESC_DVB_CA_IDENTIFIER #GstMpegtsDescriptor</doc>
+                 line="1313">a %GST_MTS_DESC_DVB_CA_IDENTIFIER #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="list"
@@ -2327,7 +2327,7 @@ the list of audio preselection</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1315">a list of ca identifier.
+                 line="1314">a list of ca identifier.
 Edge entry identifies the CA system. Allocations of the value of this field
 are found in http://www.dvbservices.com</doc>
             <array name="GLib.Array" c:type="GArray**">
@@ -2340,20 +2340,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_component">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1238">Extracts the DVB component information from @descriptor.</doc>
+             line="1237">Extracts the DVB component information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="624"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1245">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="1244">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1240">a %GST_MTS_DESC_DVB_COMPONENT #GstMpegtsDescriptor</doc>
+                 line="1239">a %GST_MTS_DESC_DVB_COMPONENT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -2362,7 +2362,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1241">the #GstMpegtsComponentDescriptor to fill</doc>
+                 line="1240">the #GstMpegtsComponentDescriptor to fill</doc>
             <type name="ComponentDescriptor"
                   c:type="GstMpegtsComponentDescriptor**"/>
           </parameter>
@@ -2372,20 +2372,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_content">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1359">Extracts the DVB content information from @descriptor.</doc>
+             line="1358">Extracts the DVB content information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="668"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1366">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1365">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1361">a %GST_MTS_DESC_DVB_CONTENT #GstMpegtsDescriptor</doc>
+                 line="1360">a %GST_MTS_DESC_DVB_CONTENT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="content"
@@ -2394,7 +2394,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1362">#GstMpegtsContent</doc>
+                 line="1361">#GstMpegtsContent</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="Content"/>
             </array>
@@ -2405,20 +2405,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_data_broadcast">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2116">Parses out the data broadcast from the @descriptor.</doc>
+             line="2115">Parses out the data broadcast from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="961"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2123">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2122">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2118">a %GST_MTS_DESC_DVB_DATA_BROADCAST #GstMpegtsDescriptor</doc>
+                 line="2117">a %GST_MTS_DESC_DVB_DATA_BROADCAST #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -2427,7 +2427,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2119">#GstMpegtsDataBroadcastDescriptor</doc>
+                 line="2118">#GstMpegtsDataBroadcastDescriptor</doc>
             <type name="DataBroadcastDescriptor"
                   c:type="GstMpegtsDataBroadcastDescriptor**"/>
           </parameter>
@@ -2437,20 +2437,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_data_broadcast_id">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2193">Parses out the data broadcast id from the @descriptor.</doc>
+             line="2192">Parses out the data broadcast id from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="987"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2202">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2201">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2195">a %GST_MTS_DESC_DVB_DATA_BROADCAST_ID #GstMpegtsDescriptor</doc>
+                 line="2194">a %GST_MTS_DESC_DVB_DATA_BROADCAST_ID #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="data_broadcast_id"
@@ -2459,7 +2459,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2196">the data broadcast id</doc>
+                 line="2195">the data broadcast id</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
           <parameter name="id_selector_bytes"
@@ -2468,7 +2468,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2197">the selector bytes, if present</doc>
+                 line="2196">the selector bytes, if present</doc>
             <array length="2" zero-terminated="0" c:type="guint8**">
               <type name="guint8" c:type="guint8*"/>
             </array>
@@ -2479,7 +2479,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2198">the length of @id_selector_bytes</doc>
+                 line="2197">the length of @id_selector_bytes</doc>
             <type name="guint8" c:type="guint8*"/>
           </parameter>
         </parameters>
@@ -2488,20 +2488,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_extended_event">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1140">Extracts the DVB extended event information from @descriptor.</doc>
+             line="1139">Extracts the DVB extended event information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="591"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1147">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="1146">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1142">a %GST_MTS_DESC_DVB_EXTENDED_EVENT #GstMpegtsDescriptor</doc>
+                 line="1141">a %GST_MTS_DESC_DVB_EXTENDED_EVENT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -2510,7 +2510,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1143">the #GstMpegtsExtendedEventDescriptor to fill</doc>
+                 line="1142">the #GstMpegtsExtendedEventDescriptor to fill</doc>
             <type name="ExtendedEventDescriptor"
                   c:type="GstMpegtsExtendedEventDescriptor**"/>
           </parameter>
@@ -2520,20 +2520,20 @@ are found in http://www.dvbservices.com</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_frequency_list">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2022">Parses out a list of frequencies from the @descriptor.</doc>
+             line="2021">Parses out a list of frequencies from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="928"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2031">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2030">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2024">a %GST_MTS_DESC_DVB_FREQUENCY_LIST #GstMpegtsDescriptor</doc>
+                 line="2023">a %GST_MTS_DESC_DVB_FREQUENCY_LIST #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="offset"
@@ -2542,7 +2542,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2025">%FALSE in Hz, %TRUE in kHz</doc>
+                 line="2024">%FALSE in Hz, %TRUE in kHz</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
           <parameter name="list"
@@ -2551,7 +2551,7 @@ are found in http://www.dvbservices.com</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2026">a list of all frequencies in Hz/kHz
+                 line="2025">a list of all frequencies in Hz/kHz
 depending on @offset</doc>
             <array name="GLib.Array" c:type="GArray**">
               <type name="guint32"/>
@@ -2563,20 +2563,20 @@ depending on @offset</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_linkage">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="669">Extracts the DVB linkage information from @descriptor.</doc>
+             line="668">Extracts the DVB linkage information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="536"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="676">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="675">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="671">a %GST_MTS_DESC_DVB_LINKAGE #GstMpegtsDescriptor</doc>
+                 line="670">a %GST_MTS_DESC_DVB_LINKAGE #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -2585,7 +2585,7 @@ depending on @offset</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="672">the #GstMpegtsDVBLinkageDescriptor to fill</doc>
+                 line="671">the #GstMpegtsDVBLinkageDescriptor to fill</doc>
             <type name="DVBLinkageDescriptor"
                   c:type="GstMpegtsDVBLinkageDescriptor**"/>
           </parameter>
@@ -2595,20 +2595,20 @@ depending on @offset</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_multilingual_bouquet_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1781">Parses out the multilingual bouquet name from the @descriptor.</doc>
+             line="1780">Parses out the multilingual bouquet name from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="865"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1790">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1789">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1783">a %GST_MTS_DESC_DVB_MULTILINGUAL_BOUQUET_NAME
+                 line="1782">a %GST_MTS_DESC_DVB_MULTILINGUAL_BOUQUET_NAME
 #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
@@ -2618,7 +2618,7 @@ depending on @offset</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1785">
+                 line="1784">
 a #GstMpegtsDvbMultilingualBouquetNameItem</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="DvbMultilingualBouquetNameItem"/>
@@ -2630,20 +2630,20 @@ a #GstMpegtsDvbMultilingualBouquetNameItem</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_multilingual_component">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1933">Parses out the multilingual component from the @descriptor.</doc>
+             line="1932">Parses out the multilingual component from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="915"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1943">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1942">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1935">a %GST_MTS_DESC_DVB_MULTILINGUAL_COMPONENT
+                 line="1934">a %GST_MTS_DESC_DVB_MULTILINGUAL_COMPONENT
 #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
@@ -2653,7 +2653,7 @@ a #GstMpegtsDvbMultilingualBouquetNameItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1937">the component tag</doc>
+                 line="1936">the component tag</doc>
             <type name="guint8" c:type="guint8*"/>
           </parameter>
           <parameter name="component_description_items"
@@ -2662,7 +2662,7 @@ a #GstMpegtsDvbMultilingualBouquetNameItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1938">
+                 line="1937">
 a #GstMpegtsDvbMultilingualComponentItem</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="DvbMultilingualComponentItem"/>
@@ -2674,20 +2674,20 @@ a #GstMpegtsDvbMultilingualComponentItem</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_multilingual_network_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1709">Parses out the multilingual network name from the @descriptor.</doc>
+             line="1708">Parses out the multilingual network name from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="840"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1718">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1717">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1711">a %GST_MTS_DESC_DVB_MULTILINGUAL_NETWORK_NAME
+                 line="1710">a %GST_MTS_DESC_DVB_MULTILINGUAL_NETWORK_NAME
 #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
@@ -2697,7 +2697,7 @@ a #GstMpegtsDvbMultilingualComponentItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1713">
+                 line="1712">
 a #GstMpegtsDvbMultilingualNetworkNameItem</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="DvbMultilingualNetworkNameItem"/>
@@ -2709,20 +2709,20 @@ a #GstMpegtsDvbMultilingualNetworkNameItem</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_multilingual_service_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1855">Parses out the multilingual service name from the @descriptor.</doc>
+             line="1854">Parses out the multilingual service name from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="892"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1864">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1863">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1857">a %GST_MTS_DESC_DVB_MULTILINGUAL_SERVICE_NAME
+                 line="1856">a %GST_MTS_DESC_DVB_MULTILINGUAL_SERVICE_NAME
 #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
@@ -2732,7 +2732,7 @@ a #GstMpegtsDvbMultilingualNetworkNameItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1859">
+                 line="1858">
 a #GstMpegtsDvbMultilingualServiceNameItem</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="DvbMultilingualServiceNameItem"/>
@@ -2775,20 +2775,20 @@ a #GstMpegtsDvbMultilingualServiceNameItem</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_parental_rating">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1424">Extracts the DVB parental rating information from @descriptor.</doc>
+             line="1423">Extracts the DVB parental rating information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="692"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1432">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1431">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1426">a %GST_MTS_DESC_DVB_PARENTAL_RATING #GstMpegtsDescriptor</doc>
+                 line="1425">a %GST_MTS_DESC_DVB_PARENTAL_RATING #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="rating"
@@ -2797,7 +2797,7 @@ a #GstMpegtsDvbMultilingualServiceNameItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1427">
+                 line="1426">
 #GstMpegtsDVBParentalRatingItem</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="DVBParentalRatingItem"/>
@@ -2809,20 +2809,20 @@ a #GstMpegtsDvbMultilingualServiceNameItem</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_private_data_specifier">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1985">Parses out the private data specifier from the @descriptor.</doc>
+             line="1984">Parses out the private data specifier from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="921"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1995">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1994">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1987">a %GST_MTS_DESC_DVB_PRIVATE_DATA_SPECIFIER #GstMpegtsDescriptor</doc>
+                 line="1986">a %GST_MTS_DESC_DVB_PRIVATE_DATA_SPECIFIER #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="private_data_specifier"
@@ -2831,7 +2831,7 @@ a #GstMpegtsDvbMultilingualServiceNameItem</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1988">the private data specifier id
+                 line="1987">the private data specifier id
 registered by http://www.dvbservices.com/</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
@@ -2843,7 +2843,7 @@ registered by http://www.dvbservices.com/</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1990">additional data or NULL</doc>
+                 line="1989">additional data or NULL</doc>
             <array length="2" zero-terminated="0" c:type="guint8**">
               <type name="guint8" c:type="guint8*"/>
             </array>
@@ -2856,7 +2856,7 @@ registered by http://www.dvbservices.com/</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1991">length of @private_data</doc>
+                 line="1990">length of @private_data</doc>
             <type name="guint8" c:type="guint8*"/>
           </parameter>
         </parameters>
@@ -2865,20 +2865,20 @@ registered by http://www.dvbservices.com/</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_scrambling">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2162">Parses out the scrambling mode from the @descriptor.</doc>
+             line="2161">Parses out the scrambling mode from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="981"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2173">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2172">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2164">a %GST_MTS_DESC_DVB_SCRAMBLING #GstMpegtsDescriptor</doc>
+                 line="2163">a %GST_MTS_DESC_DVB_SCRAMBLING #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="scrambling_mode"
@@ -2887,7 +2887,7 @@ registered by http://www.dvbservices.com/</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2165">This 8-bit field identifies the selected
+                 line="2164">This 8-bit field identifies the selected
 mode of the scrambling algorithm (#GstMpegtsDVBScramblingModeType).
 The technical details of the scrambling algorithm are available only
 to bona-fide users upon signature of a Non Disclosure Agreement (NDA)
@@ -2901,20 +2901,20 @@ administered by the DVB Common Scrambling Algorithm Custodian.</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_service">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="468">Extracts the dvb service information from @descriptor.</doc>
+             line="467">Extracts the dvb service information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="373"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="477">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="476">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="470">a %GST_MTS_DESC_DVB_SERVICE #GstMpegtsDescriptor</doc>
+                 line="469">a %GST_MTS_DESC_DVB_SERVICE #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="service_type"
@@ -2925,7 +2925,7 @@ administered by the DVB Common Scrambling Algorithm Custodian.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="471">the service type</doc>
+                 line="470">the service type</doc>
             <type name="DVBServiceType" c:type="GstMpegtsDVBServiceType*"/>
           </parameter>
           <parameter name="service_name"
@@ -2936,7 +2936,7 @@ administered by the DVB Common Scrambling Algorithm Custodian.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="472">the service name</doc>
+                 line="471">the service name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="provider_name"
@@ -2947,7 +2947,7 @@ administered by the DVB Common Scrambling Algorithm Custodian.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="473">the provider name</doc>
+                 line="472">the provider name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -2990,20 +2990,20 @@ the list of services</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_short_event">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="891">Extracts the DVB short event information from @descriptor.</doc>
+             line="890">Extracts the DVB short event information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="542"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="900">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="899">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="893">a %GST_MTS_DESC_DVB_SHORT_EVENT #GstMpegtsDescriptor</doc>
+                 line="892">a %GST_MTS_DESC_DVB_SHORT_EVENT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="language_code"
@@ -3014,7 +3014,7 @@ the list of services</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="894">the language code</doc>
+                 line="893">the language code</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="event_name"
@@ -3025,7 +3025,7 @@ the list of services</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="895">the event name</doc>
+                 line="894">the event name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="text"
@@ -3036,7 +3036,7 @@ the list of services</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="896">the event text</doc>
+                 line="895">the event text</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -3045,20 +3045,20 @@ the list of services</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_stream_identifier">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1285">Extracts the component tag from @descriptor.</doc>
+             line="1284">Extracts the component tag from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="630"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1292">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1291">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1287">a %GST_MTS_DESC_DVB_CONTENT #GstMpegtsDescriptor</doc>
+                 line="1286">a %GST_MTS_DESC_DVB_CONTENT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="component_tag"
@@ -3067,7 +3067,7 @@ the list of services</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1288">the component tag</doc>
+                 line="1287">the component tag</doc>
             <type name="guint8" c:type="guint8*"/>
           </parameter>
         </parameters>
@@ -3076,20 +3076,20 @@ the list of services</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_stuffing">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="187">Parses out the stuffing bytes from the @descriptor.</doc>
+             line="186">Parses out the stuffing bytes from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="187"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="194">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="193">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="189">a %GST_MTS_DESC_DVB_STUFFING #GstMpegtsDescriptor</doc>
+                 line="188">a %GST_MTS_DESC_DVB_STUFFING #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="stuffing_bytes"
@@ -3098,7 +3098,7 @@ the list of services</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="190">the stuffing bytes</doc>
+                 line="189">the stuffing bytes</doc>
             <type name="guint8" c:type="guint8**"/>
           </parameter>
         </parameters>
@@ -3107,7 +3107,7 @@ the list of services</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_subtitling_idx">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="991">Extracts the DVB subtitling informatio from specific table id in @descriptor.
+             line="990">Extracts the DVB subtitling informatio from specific table id in @descriptor.
 
 Note: Use #gst_tag_get_language_code if you want to get the the
 ISO 639-1 language code from the returned ISO 639-2 one.</doc>
@@ -3116,20 +3116,20 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1005">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="1004">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="993">a %GST_MTS_DESC_DVB_SUBTITLING #GstMpegtsDescriptor</doc>
+                 line="992">a %GST_MTS_DESC_DVB_SUBTITLING #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="994">Table id of the entry to parse</doc>
+                 line="993">Table id of the entry to parse</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="lang"
@@ -3138,7 +3138,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="995">the language code</doc>
+                 line="994">the language code</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="type"
@@ -3149,7 +3149,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="996">the type of subtitling</doc>
+                 line="995">the type of subtitling</doc>
             <type name="guint8" c:type="guint8*"/>
           </parameter>
           <parameter name="composition_page_id"
@@ -3160,7 +3160,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="997">the composition page id</doc>
+                 line="996">the composition page id</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
           <parameter name="ancillary_page_id"
@@ -3171,7 +3171,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="998">the ancillary page id</doc>
+                 line="997">the ancillary page id</doc>
             <type name="guint16" c:type="guint16*"/>
           </parameter>
         </parameters>
@@ -3183,14 +3183,14 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1043">The number of entries in @descriptor</doc>
+               line="1042">The number of entries in @descriptor</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1041">a %GST_MTS_DESC_DVB_SUBTITLING #GstMpegtsDescriptor</doc>
+                 line="1040">a %GST_MTS_DESC_DVB_SUBTITLING #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
         </parameters>
@@ -3199,20 +3199,20 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_t2_delivery_system">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="2288">Parses out the DVB-T2 delivery system from the @descriptor.</doc>
+             line="2287">Parses out the DVB-T2 delivery system from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="1070"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="2295">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="2294">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2290">a %GST_MTS_DESC_EXT_DVB_T2_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
+                 line="2289">a %GST_MTS_DESC_EXT_DVB_T2_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -3221,7 +3221,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="2291">#GstMpegtsT2DeliverySystemDescriptor</doc>
+                 line="2290">#GstMpegtsT2DeliverySystemDescriptor</doc>
             <type name="T2DeliverySystemDescriptor"
                   c:type="GstMpegtsT2DeliverySystemDescriptor**"/>
           </parameter>
@@ -3231,26 +3231,26 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_teletext_idx">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="927">Parses teletext number @idx in the @descriptor. The language is in ISO639 format.</doc>
+             line="926">Parses teletext number @idx in the @descriptor. The language is in ISO639 format.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="712"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="938">FALSE on out-of-bounds and errors</doc>
+               line="937">FALSE on out-of-bounds and errors</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="929">a %GST_MTS_DESC_DVB_TELETEXT #GstMpegtsDescriptor</doc>
+                 line="928">a %GST_MTS_DESC_DVB_TELETEXT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="930">The id of the teletext to get</doc>
+                 line="929">The id of the teletext to get</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="language_code"
@@ -3261,7 +3261,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="931">a null-terminated string</doc>
+                 line="930">a null-terminated string</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="teletext_type"
@@ -3272,7 +3272,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="932">#GstMpegtsDVBTeletextType</doc>
+                 line="931">#GstMpegtsDVBTeletextType</doc>
             <type name="DVBTeletextType" c:type="GstMpegtsDVBTeletextType*"/>
           </parameter>
           <parameter name="magazine_number"
@@ -3297,20 +3297,20 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
               c:identifier="gst_mpegts_descriptor_parse_dvb_teletext_nb">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="971">Find the number of teletext entries in @descriptor</doc>
+             line="970">Find the number of teletext entries in @descriptor</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="718"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="977">Number of teletext entries</doc>
+               line="976">Number of teletext entries</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="973">a %GST_MTS_DESC_DVB_TELETEXT #GstMpegtsDescriptor</doc>
+                 line="972">a %GST_MTS_DESC_DVB_TELETEXT #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
         </parameters>
@@ -3324,7 +3324,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
 Note: Use #gst_tag_get_language_code if you want to get the the
 ISO 639-1 language code from the returned ISO 639-2 one.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="332"/>
+                         line="333"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3359,7 +3359,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
 Note: Use #gst_tag_get_language_code if you want to get the the
 ISO 639-1 language code from the returned ISO 639-2 one.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="336"/>
+                         line="337"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3404,7 +3404,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
       <method name="parse_iso_639_language_nb"
               c:identifier="gst_mpegts_descriptor_parse_iso_639_language_nb">
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="341"/>
+                         line="342"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3426,7 +3426,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="1161">Extracts the logical channels from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="379"/>
+                         line="387"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3452,6 +3452,81 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="parse_metadata"
+              c:identifier="gst_mpegts_descriptor_parse_metadata"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+             line="49">Parses out the metadata descriptor from the @descriptor.
+
+See ISO/IEC 13818-1:2018 Section 2.6.60 and 2.6.61 for details.
+metadata_application_format is provided in Table 2-82. metadata_format is
+provided in Table 2-85.</doc>
+        <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
+                         line="348"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+               line="60">%TRUE if the parsing worked correctly, else %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="descriptor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+                 line="51">a %GST_TYPE_MPEGTS_METADATA_DESCRIPTOR #GstMpegtsDescriptor</doc>
+            <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
+          </instance-parameter>
+          <parameter name="res"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+                 line="52">#GstMpegtsMetadataDescriptor</doc>
+            <type name="MetadataDescriptor"
+                  c:type="GstMpegtsMetadataDescriptor**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_metadata_std"
+              c:identifier="gst_mpegts_descriptor_parse_metadata_std"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+             line="104">Extracts the metadata STD descriptor from @descriptor.
+
+See ISO/IEC 13818-1:2018 Section 2.6.62 and 2.6.63 for details.</doc>
+        <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
+                         line="351"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+               line="115">%TRUE if parsing succeeded, else %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="descriptor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/mpegts/gst-metadata-descriptor.c"
+                 line="106">a %GST_MTS_DESC_METADATA_STD #GstMpegtsDescriptor
+@metadata_input_leak_rate (out): the input leak rate in units of 400bits/sec.
+@metadata_buffer_size (out): the buffer size in units of 1024 bytes
+@metadata_output_leak_rate (out): the output leak rate in units of 400bits/sec.</doc>
+            <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
+          </instance-parameter>
+          <parameter name="metadata_input_leak_rate" transfer-ownership="none">
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="metadata_buffer_size" transfer-ownership="none">
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="metadata_output_leak_rate"
+                     transfer-ownership="none">
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="parse_registration"
               c:identifier="gst_mpegts_descriptor_parse_registration"
               version="1.20">
@@ -3459,7 +3534,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="901">Extracts the Registration information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="287"/>
+                         line="288"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3512,20 +3587,20 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
               c:identifier="gst_mpegts_descriptor_parse_satellite_delivery_system">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="225">Extracts the satellite delivery system information from @descriptor.</doc>
+             line="224">Extracts the satellite delivery system information from @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="279"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="232">%TRUE if parsing succeeded, else %FALSE.</doc>
+               line="231">%TRUE if parsing succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="227">a %GST_MTS_DESC_DVB_SATELLITE_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
+                 line="226">a %GST_MTS_DESC_DVB_SATELLITE_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -3534,7 +3609,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="228">the #GstMpegtsSatelliteDeliverySystemDescriptor to fill</doc>
+                 line="227">the #GstMpegtsSatelliteDeliverySystemDescriptor to fill</doc>
             <type name="SatelliteDeliverySystemDescriptor"
                   c:type="GstMpegtsSatelliteDeliverySystemDescriptor*"/>
           </parameter>
@@ -3544,20 +3619,20 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
               c:identifier="gst_mpegts_descriptor_parse_terrestrial_delivery_system">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="1507">Parses out the terrestrial delivery system from the @descriptor.</doc>
+             line="1506">Parses out the terrestrial delivery system from the @descriptor.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
                          line="815"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1514">%TRUE if the parsing happened correctly, else %FALSE.</doc>
+               line="1513">%TRUE if the parsing happened correctly, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="descriptor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1509">a %GST_MTS_DESC_DVB_TERRESTRIAL_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
+                 line="1508">a %GST_MTS_DESC_DVB_TERRESTRIAL_DELIVERY_SYSTEM #GstMpegtsDescriptor</doc>
             <type name="Descriptor" c:type="const GstMpegtsDescriptor*"/>
           </instance-parameter>
           <parameter name="res"
@@ -3566,7 +3641,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1510">#GstMpegtsTerrestrialDeliverySystemDescriptor</doc>
+                 line="1509">#GstMpegtsTerrestrialDeliverySystemDescriptor</doc>
             <type name="TerrestrialDeliverySystemDescriptor"
                   c:type="GstMpegtsTerrestrialDeliverySystemDescriptor*"/>
           </parameter>
@@ -3578,7 +3653,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="1198">Creates a #GstMpegtsDescriptor with custom @tag and @data</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="384"/>
+                         line="392"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3615,7 +3690,7 @@ ISO 639-1 language code from the returned ISO 639-2 one.</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="1224">Creates a #GstMpegtsDescriptor with custom @tag, @tag_extension and @data</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="389"/>
+                         line="397"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3679,7 +3754,7 @@ will be allocated, and transferred to the caller.</doc>
                 c:identifier="gst_mpegts_descriptor_from_dvb_service">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="504">Fills a #GstMpegtsDescriptor to be a %GST_MTS_DESC_DVB_SERVICE.
+             line="503">Fills a #GstMpegtsDescriptor to be a %GST_MTS_DESC_DVB_SERVICE.
 The data field of the #GstMpegtsDescriptor will be allocated,
 and transferred to the caller.</doc>
         <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
@@ -3687,14 +3762,14 @@ and transferred to the caller.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="514">the #GstMpegtsDescriptor or %NULL on fail</doc>
+               line="513">the #GstMpegtsDescriptor or %NULL on fail</doc>
           <type name="Descriptor" c:type="GstMpegtsDescriptor*"/>
         </return-value>
         <parameters>
           <parameter name="service_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="506">Service type defined as a #GstMpegtsDVBServiceType</doc>
+                 line="505">Service type defined as a #GstMpegtsDVBServiceType</doc>
             <type name="DVBServiceType" c:type="GstMpegtsDVBServiceType"/>
           </parameter>
           <parameter name="service_name"
@@ -3703,7 +3778,7 @@ and transferred to the caller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="507">Name of the service</doc>
+                 line="506">Name of the service</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="service_provider"
@@ -3712,7 +3787,7 @@ and transferred to the caller.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="508">Name of the service provider</doc>
+                 line="507">Name of the service provider</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3728,25 +3803,25 @@ and transferred to the caller.</doc>
           <parameter name="lang" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1057">a string containing the ISO639 language</doc>
+                 line="1056">a string containing the ISO639 language</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1058">subtitling type</doc>
+                 line="1057">subtitling type</doc>
             <type name="guint8" c:type="guint8"/>
           </parameter>
           <parameter name="composition" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1059">composition page id</doc>
+                 line="1058">composition page id</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="ancillary" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-                 line="1060">ancillary page id</doc>
+                 line="1059">ancillary page id</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -3758,7 +3833,7 @@ and transferred to the caller.</doc>
              line="1115">Creates a %GST_MTS_DESC_ISO_639_LANGUAGE #GstMpegtsDescriptor with
 a single language</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="344"/>
+                         line="345"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3780,7 +3855,7 @@ a single language</doc>
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
              line="872">Creates a %GST_MTS_DESC_REGISTRATION #GstMpegtsDescriptor</doc>
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="282"/>
+                         line="283"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -3847,14 +3922,14 @@ a single language</doc>
     <enumeration name="DescriptorType" c:type="GstMpegtsDescriptorType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-           line="65">The type of #GstMpegtsDescriptor
+           line="66">The type of #GstMpegtsDescriptor
 
 These values correspond to the registered descriptor type from
 the base MPEG-TS specifications (ITU H.222.0 | ISO/IEC 13818-1).
 
 Consult the relevant specifications for more details.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="139"/>
+                       line="140"/>
       <member name="reserved_00"
               value="0"
               c:identifier="GST_MTS_DESC_RESERVED_00">
@@ -4487,7 +4562,7 @@ Consult the relevant specifications for more details.</doc>
             glib:get-type="gst_mpegts_iso_639_language_get_type"
             c:symbol-prefix="iso_639_language">
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="322"/>
+                       line="323"/>
       <field name="nb_language" writable="1">
         <type name="guint" c:type="guint"/>
       </field>
@@ -4504,7 +4579,7 @@ Consult the relevant specifications for more details.</doc>
       <method name="descriptor_free"
               c:identifier="gst_mpegts_iso_639_language_descriptor_free">
         <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                         line="329"/>
+                         line="330"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4518,7 +4593,7 @@ Consult the relevant specifications for more details.</doc>
     </record>
     <enumeration name="Iso639AudioType" c:type="GstMpegtsIso639AudioType">
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="314"/>
+                       line="315"/>
       <member name="undefined"
               value="0"
               c:identifier="GST_MPEGTS_AUDIO_TYPE_UNDEFINED">
@@ -4542,7 +4617,7 @@ Consult the relevant specifications for more details.</doc>
             glib:get-type="gst_mpegts_logical_channel_get_type"
             c:symbol-prefix="logical_channel">
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="357"/>
+                       line="365"/>
       <field name="service_id" writable="1">
         <type name="guint16" c:type="guint16"/>
       </field>
@@ -4559,7 +4634,7 @@ Consult the relevant specifications for more details.</doc>
             glib:get-type="gst_mpegts_logical_channel_descriptor_get_type"
             c:symbol-prefix="logical_channel_descriptor">
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="363"/>
+                       line="371"/>
       <field name="nb_channels" writable="1">
         <type name="guint" c:type="guint"/>
       </field>
@@ -4569,16 +4644,110 @@ Consult the relevant specifications for more details.</doc>
         </array>
       </field>
     </record>
+    <record name="MetadataDescriptor"
+            c:type="GstMpegtsMetadataDescriptor"
+            version="1.24"
+            glib:type-name="GstMpegtsMetadataDescriptor"
+            glib:get-type="gst_mpegts_metadata_descriptor_get_type"
+            c:symbol-prefix="metadata_descriptor">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+           line="74">The metadata descriptor specifies parameters of a metadata service carried in an MPEG-2 Transport Stream (or Program Stream). The descriptor is included in the PMT in the descriptor loop for the elementary stream that carries the
+metadata service. The descriptor specifies the format of the associated metadata, and contains the value of the
+metadata_service_id to identify the metadata service to which the metadata descriptor applies.
+
+Note that this structure does not include all of the metadata_descriptor items, and will need extension to support DSM-CC and private data.
+See ISO/IEC 13818-1:2018 Section 2.6.60 and Section 2.6.61 for more information.</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+                       line="100"/>
+      <field name="metadata_application_format" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="76">specifies the application responsible for defining usage, syntax and semantics</doc>
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="metadata_format" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="77">indicates the format and coding of the metadata</doc>
+        <type name="MetadataFormat" c:type="GstMpegtsMetadataFormat"/>
+      </field>
+      <field name="metadata_format_identifier" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="78">format identifier (equivalent to registration descriptor), for example 0x4B4C4641 ('KLVA') to indicate SMPTE 336 KLV.</doc>
+        <type name="guint32" c:type="guint32"/>
+      </field>
+      <field name="metadata_service_id" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="79">metadata service to which this metadata descriptor applies, typically 0x00</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="decoder_config_flags" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="80">decoder flags, see ISO/IEC 13818-1:2018 Table 2-88.</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="dsm_cc_flag" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="81">true if stream associated with this descriptor is in an ISO/IEC 13818-6 data or object carousel.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
+    <enumeration name="MetadataFormat"
+                 version="1.24"
+                 c:type="GstMpegtsMetadataFormat">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+           line="28">metadata_descriptor metadata_format valid values. See ISO/IEC 13818-1:2018(E) Table 2-85.</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+                       line="68"/>
+      <member name="tem"
+              value="16"
+              c:identifier="GST_MPEGTS_METADATA_FORMAT_TEM"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="36">ISO/IEC 15938-1 TeM.</doc>
+      </member>
+      <member name="bim"
+              value="17"
+              c:identifier="GST_MPEGTS_METADATA_FORMAT_BIM"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="44">ISO/IEC 15938-1 BiM.</doc>
+      </member>
+      <member name="application_format"
+              value="63"
+              c:identifier="GST_MPEGTS_METADATA_FORMAT_APPLICATION_FORMAT"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="52">Defined by metadata application format.</doc>
+      </member>
+      <member name="identifier_field"
+              value="255"
+              c:identifier="GST_MPEGTS_METADATA_FORMAT_IDENTIFIER_FIELD"
+              version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-metadata-descriptor.h"
+             line="60">Defined by metadata_format_identifier field.</doc>
+      </member>
+    </enumeration>
     <enumeration name="MiscDescriptorType"
                  c:type="GstMpegtsMiscDescriptorType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-           line="141">The type of #GstMpegtsDescriptor
+           line="142">The type of #GstMpegtsDescriptor
 
 These values correspond to miscellaneous descriptor types that are
 not yet identified from known specifications.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="152"/>
+                       line="153"/>
       <member name="mts_desc_dtg_logical_channel"
               value="131"
               c:identifier="GST_MTS_DESC_DTG_LOGICAL_CHANNEL">
@@ -4727,6 +4896,52 @@ not yet identified from known specifications.</doc>
           <type name="NITStream" c:type="GstMpegtsNITStream*"/>
         </return-value>
       </constructor>
+    </record>
+    <record name="PESMetadataMeta"
+            c:type="GstMpegtsPESMetadataMeta"
+            version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+           line="72">Extra buffer metadata describing the PES Metadata context.
+This is based on the Metadata AU cell header in
+ISO/IEC 13818-1:2018 Section 2.12.4.
+
+AU_cell_data_length is not provided, since it matches the length of the buffer</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+                       line="90"/>
+      <field name="meta" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="74">parent #GstMeta</doc>
+        <type name="Gst.Meta" c:type="GstMeta"/>
+      </field>
+      <field name="metadata_service_id" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="75">metadata service identifier</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="flags" writable="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="76">bit flags, see spec for details</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <function name="get_info"
+                c:identifier="gst_mpegts_pes_metadata_meta_get_info"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="60">Gets the global #GstMetaInfo describing the #GstMpegtsPESMetadataMeta meta.</doc>
+        <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+                         line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+               line="65">The #GstMetaInfo</doc>
+          <type name="Gst.MetaInfo" c:type="const GstMetaInfo*"/>
+        </return-value>
+      </function>
     </record>
     <record name="PMT"
             c:type="GstMpegtsPMT"
@@ -4885,94 +5100,94 @@ stream</doc>
               c:type="GstMpegtsRegistrationId">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-           line="215">Well-known registration ids, expressed as native-endian 32bit integers. These
+           line="216">Well-known registration ids, expressed as native-endian 32bit integers. These
 are used in descriptors of type %GST_MTS_DESC_REGISTRATION. Unless specified
 otherwise (by use of the "OTHER" prefix), they are all registered by the
 [SMPTE Registration Authority](https://smpte-ra.org/) or specified in
 "official" documentation for the given format.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="277"/>
+                       line="278"/>
       <member name="0" value="0" c:identifier="GST_MTS_REGISTRATION_0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="217">Undefined registration id</doc>
+             line="218">Undefined registration id</doc>
       </member>
       <member name="ac_3"
               value="1094921523"
               c:identifier="GST_MTS_REGISTRATION_AC_3">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="218">Audio AC-3, ATSC A/52</doc>
+             line="219">Audio AC-3, ATSC A/52</doc>
       </member>
       <member name="cuei"
               value="1129661769"
               c:identifier="GST_MTS_REGISTRATION_CUEI">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="220">SCTE 35, "Digital Program Insertion Cueing Message"</doc>
+             line="221">SCTE 35, "Digital Program Insertion Cueing Message"</doc>
       </member>
       <member name="drac"
               value="1685217635"
               c:identifier="GST_MTS_REGISTRATION_drac">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="221">Dirac Video codec</doc>
+             line="222">Dirac Video codec</doc>
       </member>
       <member name="dts1"
               value="1146377009"
               c:identifier="GST_MTS_REGISTRATION_DTS1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="222">DTS Audio</doc>
+             line="223">DTS Audio</doc>
       </member>
       <member name="dts2"
               value="1146377010"
               c:identifier="GST_MTS_REGISTRATION_DTS2">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="223">DTS Audio</doc>
+             line="224">DTS Audio</doc>
       </member>
       <member name="dts3"
               value="1146377011"
               c:identifier="GST_MTS_REGISTRATION_DTS3">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="224">DTS Audio</doc>
+             line="225">DTS Audio</doc>
       </member>
       <member name="bssd"
               value="1112757060"
               c:identifier="GST_MTS_REGISTRATION_BSSD">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="227">SMPTE 302M, Mapping of AES3 Data in mpeg-ts</doc>
+             line="228">SMPTE 302M, Mapping of AES3 Data in mpeg-ts</doc>
       </member>
       <member name="eac3"
               value="1161904947"
               c:identifier="GST_MTS_REGISTRATION_EAC3">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="225">Enhanced AC-3 (i.e. EAC3)</doc>
+             line="226">Enhanced AC-3 (i.e. EAC3)</doc>
       </member>
       <member name="etv1"
               value="1163154993"
               c:identifier="GST_MTS_REGISTRATION_ETV1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="226">Cablelabs ETV</doc>
+             line="227">Cablelabs ETV</doc>
       </member>
       <member name="ga94"
               value="1195456820"
               c:identifier="GST_MTS_REGISTRATION_GA94">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="228">ATSC A/53 compliant stream (i.e. ATSC)</doc>
+             line="229">ATSC A/53 compliant stream (i.e. ATSC)</doc>
       </member>
       <member name="hdmv"
               value="1212435798"
               c:identifier="GST_MTS_REGISTRATION_HDMV">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="229">Blu-ray, "System Description Blu-ray Disc
+             line="230">Blu-ray, "System Description Blu-ray Disc
             Read-Only Format part 3 Audio Visual Basic Specifications"</doc>
       </member>
       <member name="klva"
@@ -4980,7 +5195,7 @@ otherwise (by use of the "OTHER" prefix), they are all registered by the
               c:identifier="GST_MTS_REGISTRATION_KLVA">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="231">SMPTE RP217 : Non-synchronized Mapping of KLV
+             line="232">SMPTE RP217 : Non-synchronized Mapping of KLV
             Packets in mpeg-ts</doc>
       </member>
       <member name="opus"
@@ -4988,35 +5203,35 @@ otherwise (by use of the "OTHER" prefix), they are all registered by the
               c:identifier="GST_MTS_REGISTRATION_OPUS">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="233">Opus Audio</doc>
+             line="234">Opus Audio</doc>
       </member>
       <member name="tshv"
               value="1414744150"
               c:identifier="GST_MTS_REGISTRATION_TSHV">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="234">HDV (Sony)</doc>
+             line="235">HDV (Sony)</doc>
       </member>
       <member name="vc_1"
               value="1447243057"
               c:identifier="GST_MTS_REGISTRATION_VC_1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="235">Video VC-1, SMPTE RP227 "VC-1 Bitstream Transport Encodings"</doc>
+             line="236">Video VC-1, SMPTE RP227 "VC-1 Bitstream Transport Encodings"</doc>
       </member>
       <member name="ac_4"
               value="1094921524"
               c:identifier="GST_MTS_REGISTRATION_AC_4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="219">Audio AC-4, ETSI 103 190-2</doc>
+             line="220">Audio AC-4, ETSI 103 190-2</doc>
       </member>
       <member name="other_hevc"
               value="1212503619"
               c:identifier="GST_MTS_REGISTRATION_OTHER_HEVC">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-             line="236">HEVC / h265</doc>
+             line="237">HEVC / h265</doc>
       </member>
     </bitfield>
     <enumeration name="RunningStatus" c:type="GstMpegtsRunningStatus">
@@ -5057,9 +5272,9 @@ Corresponds to table 6 of ETSI EN 300 468 (v1.13.0)</doc>
                  c:type="GstMpegtsSCTEDescriptorType">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-           line="154">These values correspond to the ones defined by SCTE (amongst other in ANSI/SCTE 57)</doc>
+           line="155">These values correspond to the ones defined by SCTE (amongst other in ANSI/SCTE 57)</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="170"/>
+                       line="171"/>
       <member name="stuffing"
               value="128"
               c:identifier="GST_MTS_DESC_SCTE_STUFFING">
@@ -7918,6 +8133,29 @@ profiles defined in Annex A for service-compatible stereoscopic 3D services</doc
               c:identifier="GST_MPEGTS_TRANSMISSION_MODE_C3780">
       </member>
     </enumeration>
+    <function name="buffer_add_mpegts_pes_metadata_meta"
+              c:identifier="gst_buffer_add_mpegts_pes_metadata_meta"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+           line="92">Creates and adds a #GstMpegtsPESMetadataMeta to a @buffer.</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+                       line="104"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="98">a newly created #GstMpegtsPESMetadataMeta</doc>
+        <type name="PESMetadataMeta" c:type="GstMpegtsPESMetadataMeta*"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+               line="94">a #GstBuffer</doc>
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="descriptor_from_custom"
               c:identifier="gst_mpegts_descriptor_from_custom"
               moved-to="Descriptor.from_custom">
@@ -7925,7 +8163,7 @@ profiles defined in Annex A for service-compatible stereoscopic 3D services</doc
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
            line="1198">Creates a #GstMpegtsDescriptor with custom @tag and @data</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="384"/>
+                       line="392"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -7963,7 +8201,7 @@ profiles defined in Annex A for service-compatible stereoscopic 3D services</doc
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
            line="1224">Creates a #GstMpegtsDescriptor with custom @tag, @tag_extension and @data</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="389"/>
+                       line="397"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8029,7 +8267,7 @@ will be allocated, and transferred to the caller.</doc>
               moved-to="Descriptor.from_dvb_service">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-           line="504">Fills a #GstMpegtsDescriptor to be a %GST_MTS_DESC_DVB_SERVICE.
+           line="503">Fills a #GstMpegtsDescriptor to be a %GST_MTS_DESC_DVB_SERVICE.
 The data field of the #GstMpegtsDescriptor will be allocated,
 and transferred to the caller.</doc>
       <source-position filename="gst-libs/gst/mpegts/gst-dvb-descriptor.h"
@@ -8037,14 +8275,14 @@ and transferred to the caller.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-             line="514">the #GstMpegtsDescriptor or %NULL on fail</doc>
+             line="513">the #GstMpegtsDescriptor or %NULL on fail</doc>
         <type name="Descriptor" c:type="GstMpegtsDescriptor*"/>
       </return-value>
       <parameters>
         <parameter name="service_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="506">Service type defined as a #GstMpegtsDVBServiceType</doc>
+               line="505">Service type defined as a #GstMpegtsDVBServiceType</doc>
           <type name="DVBServiceType" c:type="GstMpegtsDVBServiceType"/>
         </parameter>
         <parameter name="service_name"
@@ -8053,7 +8291,7 @@ and transferred to the caller.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="507">Name of the service</doc>
+               line="506">Name of the service</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="service_provider"
@@ -8062,7 +8300,7 @@ and transferred to the caller.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="508">Name of the service provider</doc>
+               line="507">Name of the service provider</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8079,25 +8317,25 @@ and transferred to the caller.</doc>
         <parameter name="lang" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1057">a string containing the ISO639 language</doc>
+               line="1056">a string containing the ISO639 language</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1058">subtitling type</doc>
+               line="1057">subtitling type</doc>
           <type name="guint8" c:type="guint8"/>
         </parameter>
         <parameter name="composition" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1059">composition page id</doc>
+               line="1058">composition page id</doc>
           <type name="guint16" c:type="guint16"/>
         </parameter>
         <parameter name="ancillary" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/mpegts/gst-dvb-descriptor.c"
-               line="1060">ancillary page id</doc>
+               line="1059">ancillary page id</doc>
           <type name="guint16" c:type="guint16"/>
         </parameter>
       </parameters>
@@ -8110,7 +8348,7 @@ and transferred to the caller.</doc>
            line="1115">Creates a %GST_MTS_DESC_ISO_639_LANGUAGE #GstMpegtsDescriptor with
 a single language</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="344"/>
+                       line="345"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8133,7 +8371,7 @@ a single language</doc>
            filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
            line="872">Creates a %GST_MTS_DESC_REGISTRATION #GstMpegtsDescriptor</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="282"/>
+                       line="283"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8266,7 +8504,7 @@ event did not contain a valid #GstMpegtsSection.</doc>
 Note: To look for descriptors that can be present more than once in an
 array of descriptors, iterate the #GArray manually.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="209"/>
+                       line="210"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8301,7 +8539,7 @@ of #GstMpegtsDescriptor</doc>
 Note: To look for descriptors that can be present more than once in an
 array of descriptors, iterate the #GArray manually.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="213"/>
+                       line="214"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8454,7 +8692,7 @@ See:
            filename="gst-libs/gst/mpegts/mpegts.c"
            line="49">Initializes the MPEG-TS helper library. Must be called before any
 usage.</doc>
-      <source-position filename="gst-libs/gst/mpegts/mpegts.h" line="47"/>
+      <source-position filename="gst-libs/gst/mpegts/mpegts.h" line="49"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -8519,7 +8757,7 @@ array.
 
 Note: The data provided in @buffer will not be copied.</doc>
       <source-position filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.h"
-                       line="206"/>
+                       line="207"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gstmpegtsdescriptor.c"
@@ -8559,6 +8797,37 @@ and then converted to a PAT section with gst_mpegts_section_from_pat().</doc>
         <array name="GLib.PtrArray" c:type="GPtrArray*">
           <type name="PatProgram"/>
         </array>
+      </return-value>
+    </function>
+    <function name="pes_metadata_meta_api_get_type"
+              c:identifier="gst_mpegts_pes_metadata_meta_api_get_type"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+           line="30">Return the #GType associated with #GstMpegtsPESMetadataMeta</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+                       line="40"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="35">a #GType</doc>
+        <type name="GType" c:type="GType"/>
+      </return-value>
+    </function>
+    <function name="pes_metadata_meta_get_info"
+              c:identifier="gst_mpegts_pes_metadata_meta_get_info"
+              moved-to="PESMetadataMeta.get_info"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+           line="60">Gets the global #GstMetaInfo describing the #GstMpegtsPESMetadataMeta meta.</doc>
+      <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+                       line="70"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
+             line="65">The #GstMetaInfo</doc>
+        <type name="Gst.MetaInfo" c:type="const GstMetaInfo*"/>
       </return-value>
     </function>
     <function name="scte_cancel_new" c:identifier="gst_mpegts_scte_cancel_new">

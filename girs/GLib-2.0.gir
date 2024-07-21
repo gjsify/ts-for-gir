@@ -5806,7 +5806,7 @@ and [func@GLib.compute_checksum_for_string], respectively.</doc>
       <constructor name="new" c:identifier="g_checksum_new" version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1449">Creates a new #GChecksum, using the checksum algorithm @checksum_type.
+             line="1450">Creates a new #GChecksum, using the checksum algorithm @checksum_type.
 If the @checksum_type is not known, %NULL is returned.
 A #GChecksum can be used to compute the checksum, or digest, of an
 arbitrary binary blob, using different hashing algorithms.
@@ -5823,7 +5823,7 @@ on it anymore.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1467">the newly created #GChecksum, or %NULL.
+               line="1468">the newly created #GChecksum, or %NULL.
   Use g_checksum_free() to free the memory allocated by it.</doc>
           <type name="Checksum" c:type="GChecksum*"/>
         </return-value>
@@ -5831,7 +5831,7 @@ on it anymore.</doc>
           <parameter name="checksum_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1451">the desired type of checksum</doc>
+                 line="1452">the desired type of checksum</doc>
             <type name="ChecksumType" c:type="GChecksumType"/>
           </parameter>
         </parameters>
@@ -5839,14 +5839,14 @@ on it anymore.</doc>
       <method name="copy" c:identifier="g_checksum_copy" version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1527">Copies a #GChecksum. If @checksum has been closed, by calling
+             line="1528">Copies a #GChecksum. If @checksum has been closed, by calling
 g_checksum_get_string() or g_checksum_get_digest(), the copied
 checksum will be closed as well.</doc>
         <source-position filename="glib/gchecksum.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1535">the copy of the passed #GChecksum. Use
+               line="1536">the copy of the passed #GChecksum. Use
   g_checksum_free() when finished using it.</doc>
           <type name="Checksum" c:type="GChecksum*"/>
         </return-value>
@@ -5854,7 +5854,7 @@ checksum will be closed as well.</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1529">the #GChecksum to copy</doc>
+                 line="1530">the #GChecksum to copy</doc>
             <type name="Checksum" c:type="const GChecksum*"/>
           </instance-parameter>
         </parameters>
@@ -5862,7 +5862,7 @@ checksum will be closed as well.</doc>
       <method name="free" c:identifier="g_checksum_free" version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1555">Frees the memory allocated for @checksum.</doc>
+             line="1556">Frees the memory allocated for @checksum.</doc>
         <source-position filename="glib/gchecksum.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5871,7 +5871,7 @@ checksum will be closed as well.</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1557">a #GChecksum</doc>
+                 line="1558">a #GChecksum</doc>
             <type name="Checksum" c:type="GChecksum*"/>
           </instance-parameter>
         </parameters>
@@ -5882,7 +5882,7 @@ checksum will be closed as well.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1685">Gets the digest from @checksum as a raw binary vector and places it
+             line="1686">Gets the digest from @checksum as a raw binary vector and places it
 into @buffer. The size of the digest depends on the type of checksum.
 
 Once this function has been called, the #GChecksum is closed and can
@@ -5895,13 +5895,13 @@ no longer be updated with g_checksum_update().</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1687">a #GChecksum</doc>
+                 line="1688">a #GChecksum</doc>
             <type name="Checksum" c:type="GChecksum*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1688">output buffer</doc>
+                 line="1689">output buffer</doc>
             <array length="1" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -5912,7 +5912,7 @@ no longer be updated with g_checksum_update().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1689">an inout parameter. The caller initializes it to the size of @buffer.
+                 line="1690">an inout parameter. The caller initializes it to the size of @buffer.
   After the call it contains the length of the digest.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
@@ -5923,7 +5923,7 @@ no longer be updated with g_checksum_update().</doc>
               version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1626">Gets the digest as a hexadecimal string.
+             line="1627">Gets the digest as a hexadecimal string.
 
 Once this function has been called the #GChecksum can no longer be
 updated with g_checksum_update().
@@ -5933,7 +5933,7 @@ The hexadecimal characters will be lower case.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1637">the hexadecimal representation of the checksum. The
+               line="1638">the hexadecimal representation of the checksum. The
   returned string is owned by the checksum and should not be modified
   or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5942,7 +5942,7 @@ The hexadecimal characters will be lower case.</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1628">a #GChecksum</doc>
+                 line="1629">a #GChecksum</doc>
             <type name="Checksum" c:type="GChecksum*"/>
           </instance-parameter>
         </parameters>
@@ -5950,7 +5950,7 @@ The hexadecimal characters will be lower case.</doc>
       <method name="reset" c:identifier="g_checksum_reset" version="2.18">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1488">Resets the state of the @checksum back to its initial state.</doc>
+             line="1489">Resets the state of the @checksum back to its initial state.</doc>
         <source-position filename="glib/gchecksum.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5959,7 +5959,7 @@ The hexadecimal characters will be lower case.</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1490">the #GChecksum to reset</doc>
+                 line="1491">the #GChecksum to reset</doc>
             <type name="Checksum" c:type="GChecksum*"/>
           </instance-parameter>
         </parameters>
@@ -5967,7 +5967,7 @@ The hexadecimal characters will be lower case.</doc>
       <method name="update" c:identifier="g_checksum_update" version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1574">Feeds @data into an existing #GChecksum. The checksum must still be
+             line="1575">Feeds @data into an existing #GChecksum. The checksum must still be
 open, that is g_checksum_get_string() or g_checksum_get_digest() must
 not have been called on @checksum.</doc>
         <source-position filename="glib/gchecksum.h" line="71"/>
@@ -5978,13 +5978,13 @@ not have been called on @checksum.</doc>
           <instance-parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1576">a #GChecksum</doc>
+                 line="1577">a #GChecksum</doc>
             <type name="Checksum" c:type="GChecksum*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1577">buffer used to compute the checksum</doc>
+                 line="1578">buffer used to compute the checksum</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8"/>
             </array>
@@ -5992,7 +5992,7 @@ not have been called on @checksum.</doc>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1578">size of the buffer, or -1 if it is a null-terminated string.</doc>
+                 line="1579">size of the buffer, or -1 if it is a null-terminated string.</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -6002,12 +6002,12 @@ not have been called on @checksum.</doc>
                 version="2.16">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1408">Gets the length in bytes of digests of type @checksum_type</doc>
+             line="1409">Gets the length in bytes of digests of type @checksum_type</doc>
         <source-position filename="glib/gchecksum.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1414">the checksum length, or -1 if @checksum_type is
+               line="1415">the checksum length, or -1 if @checksum_type is
 not supported.</doc>
           <type name="gssize" c:type="gssize"/>
         </return-value>
@@ -6015,7 +6015,7 @@ not supported.</doc>
           <parameter name="checksum_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/gchecksum.c"
-                 line="1410">a #GChecksumType</doc>
+                 line="1411">a #GChecksumType</doc>
             <type name="ChecksumType" c:type="GChecksumType"/>
           </parameter>
         </parameters>
@@ -14959,245 +14959,101 @@ be called more than once for the same key/value pair.</doc>
     <record name="Hmac"
             c:type="GHmac"
             opaque="1"
-            version="2.30"
             glib:type-name="GHmac"
             glib:get-type="g_hmac_get_type"
             c:symbol-prefix="hmac">
-      <doc xml:space="preserve"
-           filename="glib/ghmac.c"
-           line="39">HMACs should be used when producing a cookie or hash based on data
-and a key. Simple mechanisms for using SHA1 and other algorithms to
-digest a key and data together are vulnerable to various security
-issues.
-[HMAC](http://en.wikipedia.org/wiki/HMAC)
-uses algorithms like SHA1 in a secure way to produce a digest of a
-key and data.
-
-Both the key and data are arbitrary byte arrays of bytes or characters.
-
-Support for HMAC Digests has been added in GLib 2.30, and support for SHA-512
-in GLib 2.42. Support for SHA-384 was added in GLib 2.52.
-
-To create a new `GHmac`, use [ctor@GLib.Hmac.new]. To free a `GHmac`, use
-[method@GLib.Hmac.unref].</doc>
       <source-position filename="glib/ghmac.h" line="33"/>
-      <constructor name="new" c:identifier="g_hmac_new" version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="69">Creates a new #GHmac, using the digest algorithm @digest_type.
-If the @digest_type is not known, %NULL is returned.
-A #GHmac can be used to compute the HMAC of a key and an
-arbitrary binary blob, using different hashing algorithms.
-
-A #GHmac works by feeding a binary blob through g_hmac_update()
-until the data is complete; the digest can then be extracted
-using g_hmac_get_string(), which will return the checksum as a
-hexadecimal string; or g_hmac_get_digest(), which will return a
-array of raw bytes. Once either g_hmac_get_string() or
-g_hmac_get_digest() have been called on a #GHmac, the HMAC
-will be closed and it won't be possible to call g_hmac_update()
-on it anymore.
-
-Support for digests of type %G_CHECKSUM_SHA512 has been added in GLib 2.42.
-Support for %G_CHECKSUM_SHA384 was added in GLib 2.52.</doc>
+      <constructor name="new" c:identifier="g_hmac_new">
         <source-position filename="glib/ghmac.h" line="36"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="92">the newly created #GHmac, or %NULL.
-  Use g_hmac_unref() to free the memory allocated by it.</doc>
+        <return-value transfer-ownership="full">
           <type name="Hmac" c:type="GHmac*"/>
         </return-value>
         <parameters>
           <parameter name="digest_type" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="71">the desired type of digest</doc>
             <type name="ChecksumType" c:type="GChecksumType"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="72">the key for the HMAC</doc>
-            <array length="2" zero-terminated="0" c:type="const guchar*">
-              <type name="guint8" c:type="guchar"/>
-            </array>
+            <type name="guint8" c:type="const guchar*"/>
           </parameter>
           <parameter name="key_len" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="73">the length of the keys</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
       </constructor>
-      <method name="copy" c:identifier="g_hmac_copy" version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="175">Copies a #GHmac. If @hmac has been closed, by calling
-g_hmac_get_string() or g_hmac_get_digest(), the copied
-HMAC will be closed as well.</doc>
+      <method name="copy" c:identifier="g_hmac_copy">
         <source-position filename="glib/ghmac.h" line="40"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="183">the copy of the passed #GHmac. Use g_hmac_unref()
-  when finished using it.</doc>
           <type name="Hmac" c:type="GHmac*"/>
         </return-value>
         <parameters>
           <instance-parameter name="hmac" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="177">the #GHmac to copy</doc>
             <type name="Hmac" c:type="const GHmac*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_digest"
-              c:identifier="g_hmac_get_digest"
-              version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="318">Gets the digest from @checksum as a raw binary array and places it
-into @buffer. The size of the digest depends on the type of checksum.
-
-Once this function has been called, the #GHmac is closed and can
-no longer be updated with g_checksum_update().</doc>
+      <method name="get_digest" c:identifier="g_hmac_get_digest">
         <source-position filename="glib/ghmac.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="hmac" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="320">a #GHmac</doc>
             <type name="Hmac" c:type="GHmac*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="321">output buffer</doc>
-            <array length="1" zero-terminated="0" c:type="guint8*">
-              <type name="guint8" c:type="guint8"/>
-            </array>
+            <type name="guint8" c:type="guint8*"/>
           </parameter>
-          <parameter name="digest_len"
-                     direction="inout"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="322">an inout parameter. The caller initializes it to the
-  size of @buffer. After the call it contains the length of the digest</doc>
+          <parameter name="digest_len" transfer-ownership="none">
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_string"
-              c:identifier="g_hmac_get_string"
-              version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="276">Gets the HMAC as a hexadecimal string.
-
-Once this function has been called the #GHmac can no longer be
-updated with g_hmac_update().
-
-The hexadecimal characters will be lower case.</doc>
+      <method name="get_string" c:identifier="g_hmac_get_string">
         <source-position filename="glib/ghmac.h" line="50"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="287">the hexadecimal representation of the HMAC. The
-  returned string is owned by the HMAC and should not be modified
-  or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="hmac" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="278">a #GHmac</doc>
             <type name="Hmac" c:type="GHmac*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="ref" c:identifier="g_hmac_ref" version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="204">Atomically increments the reference count of @hmac by one.
-
-This function is MT-safe and may be called from any thread.</doc>
+      <method name="ref" c:identifier="g_hmac_ref">
         <source-position filename="glib/ghmac.h" line="42"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="212">the passed in #GHmac.</doc>
           <type name="Hmac" c:type="GHmac*"/>
         </return-value>
         <parameters>
           <instance-parameter name="hmac" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="206">a valid #GHmac</doc>
             <type name="Hmac" c:type="GHmac*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="unref" c:identifier="g_hmac_unref" version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="226">Atomically decrements the reference count of @hmac by one.
-
-If the reference count drops to 0, all keys and values will be
-destroyed, and all memory allocated by the hash table is released.
-This function is MT-safe and may be called from any thread.
-Frees the memory allocated for @hmac.</doc>
+      <method name="unref" c:identifier="g_hmac_unref">
         <source-position filename="glib/ghmac.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <instance-parameter name="hmac" transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="228">a #GHmac</doc>
+          <instance-parameter name="hmac" transfer-ownership="none">
             <type name="Hmac" c:type="GHmac*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="update" c:identifier="g_hmac_update" version="2.30">
-        <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="252">Feeds @data into an existing #GHmac.
-
-The HMAC must still be open, that is g_hmac_get_string() or
-g_hmac_get_digest() must not have been called on @hmac.</doc>
+      <method name="update" c:identifier="g_hmac_update">
         <source-position filename="glib/ghmac.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="hmac" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="254">a #GHmac</doc>
             <type name="Hmac" c:type="GHmac*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="255">buffer used to compute the checksum</doc>
-            <array length="1" zero-terminated="0" c:type="const guchar*">
-              <type name="guint8" c:type="guchar"/>
-            </array>
+            <type name="guint8" c:type="const guchar*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="glib/ghmac.c"
-                 line="256">size of the buffer, or -1 if it is a nul-terminated string</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -22373,7 +22229,7 @@ linked against at application run time.</doc>
       <source-position filename="glib/gtypes.h" line="76"/>
       <type name="guint8" c:type="guint8"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="GLIB_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="GLIB_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="glib/gversion.c"
            line="78">The micro version number of the GLib library.
@@ -64373,12 +64229,12 @@ version `@required_major.@required_minor.@required_micro`
               version="2.16">
       <doc xml:space="preserve"
            filename="glib/gchecksum.c"
-           line="1408">Gets the length in bytes of digests of type @checksum_type</doc>
+           line="1409">Gets the length in bytes of digests of type @checksum_type</doc>
       <source-position filename="glib/gchecksum.h" line="60"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1414">the checksum length, or -1 if @checksum_type is
+             line="1415">the checksum length, or -1 if @checksum_type is
 not supported.</doc>
         <type name="gssize" c:type="gssize"/>
       </return-value>
@@ -64386,7 +64242,7 @@ not supported.</doc>
         <parameter name="checksum_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1410">a #GChecksumType</doc>
+               line="1411">a #GChecksumType</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
       </parameters>
@@ -64860,7 +64716,7 @@ See [`signal(7)`](man:signal(7)) and
     <function name="closefrom" c:identifier="g_closefrom" version="2.80">
       <doc xml:space="preserve"
            filename="glib/glib-unix.c"
-           line="849">Close every file descriptor equal to or greater than @lowfd.
+           line="858">Close every file descriptor equal to or greater than @lowfd.
 
 Typically @lowfd will be 3, to leave standard input, standard output
 and standard error open.
@@ -64879,14 +64735,14 @@ See [`signal(7)`](man:signal(7)) and
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="glib/glib-unix.c"
-             line="869">0 on success, -1 with errno set on error</doc>
+             line="878">0 on success, -1 with errno set on error</doc>
         <type name="gint" c:type="int"/>
       </return-value>
       <parameters>
         <parameter name="lowfd" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/glib-unix.c"
-               line="851">Minimum fd to close, which must be non-negative</doc>
+               line="860">Minimum fd to close, which must be non-negative</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -64896,7 +64752,7 @@ See [`signal(7)`](man:signal(7)) and
               version="2.34">
       <doc xml:space="preserve"
            filename="glib/gchecksum.c"
-           line="1838">Computes the checksum for a binary @data. This is a
+           line="1839">Computes the checksum for a binary @data. This is a
 convenience wrapper for g_checksum_new(), g_checksum_get_string()
 and g_checksum_free().
 
@@ -64905,7 +64761,7 @@ The hexadecimal string returned will be in lower case.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1849">the digest of the binary data as a
+             line="1850">the digest of the binary data as a
   string in hexadecimal, or %NULL if g_checksum_new() fails for
   @checksum_type. The returned string should be freed with g_free() when
   done using it.</doc>
@@ -64915,13 +64771,13 @@ The hexadecimal string returned will be in lower case.</doc>
         <parameter name="checksum_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1840">a #GChecksumType</doc>
+               line="1841">a #GChecksumType</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1841">binary blob to compute the digest of</doc>
+               line="1842">binary blob to compute the digest of</doc>
           <type name="Bytes" c:type="GBytes*"/>
         </parameter>
       </parameters>
@@ -64931,7 +64787,7 @@ The hexadecimal string returned will be in lower case.</doc>
               version="2.16">
       <doc xml:space="preserve"
            filename="glib/gchecksum.c"
-           line="1769">Computes the checksum for a binary @data of @length. This is a
+           line="1770">Computes the checksum for a binary @data of @length. This is a
 convenience wrapper for g_checksum_new(), g_checksum_get_string()
 and g_checksum_free().
 
@@ -64940,7 +64796,7 @@ The hexadecimal string returned will be in lower case.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1781">the digest of the binary data as a
+             line="1782">the digest of the binary data as a
   string in hexadecimal, or %NULL if g_checksum_new() fails for
   @checksum_type. The returned string should be freed with g_free() when
   done using it.</doc>
@@ -64950,13 +64806,13 @@ The hexadecimal string returned will be in lower case.</doc>
         <parameter name="checksum_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1771">a #GChecksumType</doc>
+               line="1772">a #GChecksumType</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1772">binary blob to compute the digest of</doc>
+               line="1773">binary blob to compute the digest of</doc>
           <array length="2" zero-terminated="0" c:type="const guchar*">
             <type name="guint8"/>
           </array>
@@ -64964,7 +64820,7 @@ The hexadecimal string returned will be in lower case.</doc>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1773">length of @data</doc>
+               line="1774">length of @data</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
       </parameters>
@@ -64974,14 +64830,14 @@ The hexadecimal string returned will be in lower case.</doc>
               version="2.16">
       <doc xml:space="preserve"
            filename="glib/gchecksum.c"
-           line="1809">Computes the checksum of a string.
+           line="1810">Computes the checksum of a string.
 
 The hexadecimal string returned will be in lower case.</doc>
       <source-position filename="glib/gchecksum.h" line="86"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="glib/gchecksum.c"
-             line="1819">the checksum as a hexadecimal string,
+             line="1820">the checksum as a hexadecimal string,
   or %NULL if g_checksum_new() fails for @checksum_type. The returned string
   should be freed with g_free() when done using it.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -64990,19 +64846,19 @@ The hexadecimal string returned will be in lower case.</doc>
         <parameter name="checksum_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1811">a #GChecksumType</doc>
+               line="1812">a #GChecksumType</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1812">the string to compute the checksum of</doc>
+               line="1813">the string to compute the checksum of</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/gchecksum.c"
-               line="1813">the length of the string, or -1 if the string is null-terminated.</doc>
+               line="1814">the length of the string, or -1 if the string is null-terminated.</doc>
           <type name="gssize" c:type="gssize"/>
         </parameter>
       </parameters>
@@ -65011,8 +64867,8 @@ The hexadecimal string returned will be in lower case.</doc>
               c:identifier="g_compute_hmac_for_bytes"
               version="2.50">
       <doc xml:space="preserve"
-           filename="glib/ghmac.c"
-           line="402">Computes the HMAC for a binary @data. This is a
+           filename="glib/ghmac-utils.c"
+           line="77">Computes the HMAC for a binary @data. This is a
 convenience wrapper for g_hmac_new(), g_hmac_get_string()
 and g_hmac_unref().
 
@@ -65020,28 +64876,28 @@ The hexadecimal string returned will be in lower case.</doc>
       <source-position filename="glib/ghmac.h" line="69"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="414">the HMAC of the binary data as a string in hexadecimal.
+             filename="glib/ghmac-utils.c"
+             line="89">the HMAC of the binary data as a string in hexadecimal.
   The returned string should be freed with g_free() when done using it.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="digest_type" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="404">a #GChecksumType to use for the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="79">a #GChecksumType to use for the HMAC</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="405">the key to use in the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="80">the key to use in the HMAC</doc>
           <type name="Bytes" c:type="GBytes*"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="406">binary blob to compute the HMAC of</doc>
+               filename="glib/ghmac-utils.c"
+               line="81">binary blob to compute the HMAC of</doc>
           <type name="Bytes" c:type="GBytes*"/>
         </parameter>
       </parameters>
@@ -65050,8 +64906,8 @@ The hexadecimal string returned will be in lower case.</doc>
               c:identifier="g_compute_hmac_for_data"
               version="2.30">
       <doc xml:space="preserve"
-           filename="glib/ghmac.c"
-           line="360">Computes the HMAC for a binary @data of @length. This is a
+           filename="glib/ghmac-utils.c"
+           line="35">Computes the HMAC for a binary @data of @length. This is a
 convenience wrapper for g_hmac_new(), g_hmac_get_string()
 and g_hmac_unref().
 
@@ -65059,44 +64915,44 @@ The hexadecimal string returned will be in lower case.</doc>
       <source-position filename="glib/ghmac.h" line="57"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="374">the HMAC of the binary data as a string in hexadecimal.
+             filename="glib/ghmac-utils.c"
+             line="49">the HMAC of the binary data as a string in hexadecimal.
   The returned string should be freed with g_free() when done using it.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="digest_type" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="362">a #GChecksumType to use for the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="37">a #GChecksumType to use for the HMAC</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="363">the key to use in the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="38">the key to use in the HMAC</doc>
           <array length="2" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
         </parameter>
         <parameter name="key_len" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="364">the length of the key</doc>
+               filename="glib/ghmac-utils.c"
+               line="39">the length of the key</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="365">binary blob to compute the HMAC of</doc>
+               filename="glib/ghmac-utils.c"
+               line="40">binary blob to compute the HMAC of</doc>
           <array length="4" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="366">length of @data</doc>
+               filename="glib/ghmac-utils.c"
+               line="41">length of @data</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
       </parameters>
@@ -65105,15 +64961,15 @@ The hexadecimal string returned will be in lower case.</doc>
               c:identifier="g_compute_hmac_for_string"
               version="2.30">
       <doc xml:space="preserve"
-           filename="glib/ghmac.c"
-           line="438">Computes the HMAC for a string.
+           filename="glib/ghmac-utils.c"
+           line="113">Computes the HMAC for a string.
 
 The hexadecimal string returned will be in lower case.</doc>
       <source-position filename="glib/ghmac.h" line="63"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="glib/ghmac.c"
-             line="450">the HMAC as a hexadecimal string.
+             filename="glib/ghmac-utils.c"
+             line="125">the HMAC as a hexadecimal string.
     The returned string should be freed with g_free()
     when done using it.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -65121,34 +64977,34 @@ The hexadecimal string returned will be in lower case.</doc>
       <parameters>
         <parameter name="digest_type" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="440">a #GChecksumType to use for the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="115">a #GChecksumType to use for the HMAC</doc>
           <type name="ChecksumType" c:type="GChecksumType"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="441">the key to use in the HMAC</doc>
+               filename="glib/ghmac-utils.c"
+               line="116">the key to use in the HMAC</doc>
           <array length="2" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
         </parameter>
         <parameter name="key_len" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="442">the length of the key</doc>
+               filename="glib/ghmac-utils.c"
+               line="117">the length of the key</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="443">the string to compute the HMAC for</doc>
+               filename="glib/ghmac-utils.c"
+               line="118">the string to compute the HMAC for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="glib/ghmac.c"
-               line="444">the length of the string, or -1 if the string is nul-terminated</doc>
+               filename="glib/ghmac-utils.c"
+               line="119">the length of the string, or -1 if the string is nul-terminated</doc>
           <type name="gssize" c:type="gssize"/>
         </parameter>
       </parameters>
@@ -78357,6 +78213,28 @@ could only be called once per process.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="set_prgname_once" c:identifier="g_set_prgname_once">
+      <doc xml:space="preserve"
+           filename="glib/gutils.c"
+           line="1171">If g_get_prgname() is not set, this is the same as setting
+the name via g_set_prgname() and %TRUE is returned. Otherwise,
+does nothing and returns %FALSE. This is thread-safe.</doc>
+      <source-position filename="glib/gutilsprivate.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="glib/gutils.c"
+             line="1179">whether g_prgname was initialized by the call.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="prgname" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="glib/gutils.c"
+               line="1173">the name of the program.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="set_print_handler"
               c:identifier="g_set_print_handler"
               introspectable="0">
@@ -78434,6 +78312,22 @@ Before GLib 2.76, this was `NULL`.</doc>
                line="3492">he new error message handler or `NULL`
   to reset to the default</doc>
           <type name="PrintFunc" c:type="GPrintFunc"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_user_dirs"
+              c:identifier="g_set_user_dirs"
+              introspectable="0">
+      <source-position filename="glib/gutilsprivate.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_dir_type" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
         </parameter>
       </parameters>
     </function>

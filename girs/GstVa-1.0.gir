@@ -19,7 +19,7 @@ and/or use gtk-doc annotations.  -->
               value="VAMemory"
               c:type="GST_ALLOCATOR_VASURFACE"
               version="1.22">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="80"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="84"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="CAPS_FEATURE_MEMORY_VA"
@@ -32,7 +32,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_VA_ALLOCATOR"
                     c:identifier="GST_IS_VA_ALLOCATOR"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="71"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="75"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -41,7 +41,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_VA_ALLOCATOR_CLASS"
                     c:identifier="GST_IS_VA_ALLOCATOR_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="72"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="76"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -144,16 +144,16 @@ and/or use gtk-doc annotations.  -->
     <constant name="MAP_VA" value="131072" c:type="GST_MAP_VA" version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvaallocator.h"
-           line="82">Flag indicating that we should map the VASurfaceID instead of to
+           line="86">Flag indicating that we should map the VASurfaceID instead of to
 system memory, so users can use libva primitives to operate with
 that surface.</doc>
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="91"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="95"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <function-macro name="VA_ALLOCATOR"
                     c:identifier="GST_VA_ALLOCATOR"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="69"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="73"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -162,7 +162,7 @@ that surface.</doc>
     <function-macro name="VA_ALLOCATOR_CLASS"
                     c:identifier="GST_VA_ALLOCATOR_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="70"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="74"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -171,7 +171,7 @@ that surface.</doc>
     <function-macro name="VA_ALLOCATOR_GET_CLASS"
                     c:identifier="GST_VA_ALLOCATOR_GET_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="73"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="77"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -358,26 +358,26 @@ that surface.</doc>
                    version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1635">Instanciate a new pooled #GstAllocator backed by VASurfaceID.</doc>
+             line="1724">Instanciate a new pooled #GstAllocator backed by VASurfaceID.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="96"/>
+                         line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1643">a #GstVaDisplay</doc>
+               line="1732">a #GstVaDisplay</doc>
           <type name="Gst.Allocator" c:type="GstAllocator*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1637">a #GstVaDisplay</doc>
+                 line="1726">a #GstVaDisplay</doc>
             <type name="VaDisplay" c:type="GstVaDisplay*"/>
           </parameter>
           <parameter name="surface_formats" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1638">a #GArray
+                 line="1727">a #GArray
     of valid #GstVideoFormat for surfaces in current VA context.</doc>
             <array name="GLib.Array" c:type="GArray*">
               <type name="guint"/>
@@ -390,20 +390,20 @@ that surface.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1587">Allocate a new VASurfaceID backed #GstMemory.</doc>
+             line="1676">Allocate a new VASurfaceID backed #GstMemory.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="99"/>
+                         line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1593">a #GstMemory backed with a VASurfaceID; %NULL, otherwise.</doc>
+               line="1682">a #GstMemory backed with a VASurfaceID; %NULL, otherwise.</doc>
           <type name="Gst.Memory" c:type="GstMemory*"/>
         </return-value>
         <parameters>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1589">a #GstAllocator</doc>
+                 line="1678">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
         </parameters>
@@ -413,9 +413,9 @@ that surface.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1734">Removes all the memories in @allocator's pool.</doc>
+             line="1823">Removes all the memories in @allocator's pool.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="107"/>
+                         line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -423,7 +423,7 @@ that surface.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1736">a #GstAllocator</doc>
+                 line="1825">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
         </parameters>
@@ -433,13 +433,13 @@ that surface.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1871">Gets current internal configuration of @allocator.</doc>
+             line="1962">Gets current internal configuration of @allocator.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="114"/>
+                         line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1881">%TRUE if @allocator is already configured; %FALSE
+               line="1972">%TRUE if @allocator is already configured; %FALSE
 otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -447,7 +447,7 @@ otherwise.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1873">a #GstAllocator</doc>
+                 line="1964">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="info"
@@ -458,7 +458,7 @@ otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1874">a #GstVideoInfo</doc>
+                 line="1965">a #GstVideoInfo</doc>
             <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
           </parameter>
           <parameter name="usage_hint"
@@ -469,7 +469,7 @@ otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1875">VA usage hint</doc>
+                 line="1966">VA usage hint</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="use_derived"
@@ -480,9 +480,9 @@ otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1876">a #GstVaFeature if derived images
-    are used for buffer mapping.</doc>
-            <type name="VaFeature" c:type="GstVaFeature*"/>
+                 line="1967">whether derived images are used for buffer
+    mapping.</doc>
+            <type name="gboolean" c:type="gboolean*"/>
           </parameter>
         </parameters>
       </function>
@@ -490,11 +490,11 @@ otherwise.</doc>
                 c:identifier="gst_va_allocator_peek_display"
                 version="1.22">
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="122"/>
+                         line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1932">the display which this
+               line="2023">the display which this
     @allocator belongs to. The reference of the display is unchanged.</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
         </return-value>
@@ -502,7 +502,7 @@ otherwise.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1930">a #GstAllocator</doc>
+                 line="2021">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
         </parameters>
@@ -512,14 +512,14 @@ otherwise.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1704">This method will populate @buffer with pooled VASurfaceID
+             line="1793">This method will populate @buffer with pooled VASurfaceID
 memories. It doesn't allocate new VASurfacesID.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="104"/>
+                         line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1712">%TRUE if @buffer was populated correctly; %FALSE
+               line="1801">%TRUE if @buffer was populated correctly; %FALSE
 otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -527,13 +527,13 @@ otherwise.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1706">a #GstAllocator</doc>
+                 line="1795">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1707">an empty #GstBuffer</doc>
+                 line="1796">an empty #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -543,7 +543,7 @@ otherwise.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1814">Sets the configuration defined by @info, @usage_hint and
+             line="1903">Sets the configuration defined by @info, @usage_hint and
 @use_derived for @allocator, and it tries the configuration, if
 @allocator has not allocated memories yet.
 
@@ -551,11 +551,11 @@ If @allocator has memory allocated already, and frame size and
 format in @info are the same as currently configured in @allocator,
 the rest of @info parameters are updated internally.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="109"/>
+                         line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1829">%TRUE if the configuration is valid or updated; %FALSE if
+               line="1918">%TRUE if the configuration is valid or updated; %FALSE if
 configuration is not valid or not updated.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -563,7 +563,7 @@ configuration is not valid or not updated.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1816">a #GstAllocator</doc>
+                 line="1905">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="info"
@@ -572,19 +572,19 @@ configuration is not valid or not updated.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1817">a #GstVideoInfo</doc>
+                 line="1906">a #GstVideoInfo</doc>
             <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
           </parameter>
           <parameter name="usage_hint" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1818">VA usage hint</doc>
+                 line="1907">VA usage hint</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
-          <parameter name="use_derived" transfer-ownership="none">
+          <parameter name="feat_use_derived" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1819">a #GstVaFeature</doc>
+                 line="1908">a #GstVaFeature</doc>
             <type name="VaFeature" c:type="GstVaFeature"/>
           </parameter>
         </parameters>
@@ -595,9 +595,9 @@ configuration is not valid or not updated.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1908">Internal method to set allocator specific logic changes.</doc>
+             line="1999">Internal method to set allocator specific logic changes.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="119"/>
+                         line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -605,13 +605,13 @@ configuration is not valid or not updated.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1910">a #GstAllocator</doc>
+                 line="2001">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="hacks" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1911">hacks id to set</doc>
+                 line="2002">hacks id to set</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -621,26 +621,26 @@ configuration is not valid or not updated.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1662">Populates an empty @buffer with a VASuface backed #GstMemory.</doc>
+             line="1751">Populates an empty @buffer with a VASuface backed #GstMemory.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
-                         line="101"/>
+                         line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1669">%TRUE if @buffer is populated; %FALSE otherwise.</doc>
+               line="1758">%TRUE if @buffer is populated; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1664">a #GstAllocator</doc>
+                 line="1753">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="1665">a #GstBuffer</doc>
+                 line="1754">a #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -687,24 +687,55 @@ VADisplay.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
+      <method name="check_version"
+              c:identifier="gst_va_display_check_version"
+              version="1.24">
+        <source-position filename="gst-libs/gst/va/gstvadisplay.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/va/gstvadisplay.c"
+               line="464">whether driver version is equal or greater than @major.@minor</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/va/gstvadisplay.c"
+                 line="460">a #GstVaDisplay</doc>
+            <type name="VaDisplay" c:type="GstVaDisplay*"/>
+          </instance-parameter>
+          <parameter name="major" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/va/gstvadisplay.c"
+                 line="461">major version to check</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="minor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/va/gstvadisplay.c"
+                 line="462">minor version to check</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_implementation"
               c:identifier="gst_va_display_get_implementation"
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvadisplay.c"
-             line="351">Get the the #GstVaImplementation type of @self.</doc>
+             line="436">Get the the #GstVaImplementation type of @self.</doc>
         <source-position filename="gst-libs/gst/va/gstvadisplay.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvadisplay.c"
-               line="357">#GstVaImplementation.</doc>
+               line="442">#GstVaImplementation.</doc>
           <type name="VaImplementation" c:type="GstVaImplementation"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvadisplay.c"
-                 line="353">a #GstVaDisplay type display.</doc>
+                 line="438">a #GstVaDisplay type display.</doc>
             <type name="VaDisplay" c:type="GstVaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -714,19 +745,19 @@ VADisplay.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvadisplay.c"
-             line="330">Get the VA display handle of the @self.</doc>
+             line="415">Get the VA display handle of the @self.</doc>
         <source-position filename="gst-libs/gst/va/gstvadisplay.h" line="127"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvadisplay.c"
-               line="336">the VA display handle.</doc>
+               line="421">the VA display handle.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvadisplay.c"
-                 line="332">a #GstVaDisplay type display.</doc>
+                 line="417">a #GstVaDisplay type display.</doc>
             <type name="VaDisplay" c:type="GstVaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -736,7 +767,7 @@ VADisplay.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvadisplay.c"
-             line="274">If the display is set by the user (foreign) it is assumed that the
+             line="359">If the display is set by the user (foreign) it is assumed that the
 driver is already initialized, thus this function is noop.
 
 If the display is opened internally, this function will initialize
@@ -748,7 +779,7 @@ GstVaDisplay descendants.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvadisplay.c"
-               line="287">%TRUE if the VA driver can be initialized; %FALSE
+               line="372">%TRUE if the VA driver can be initialized; %FALSE
     otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -756,7 +787,7 @@ GstVaDisplay descendants.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvadisplay.c"
-                 line="276">a #GstVaDisplay</doc>
+                 line="361">a #GstVaDisplay</doc>
             <type name="VaDisplay" c:type="GstVaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -930,7 +961,7 @@ pipeline is not in NULL state.</doc>
            glib:get-type="gst_va_dmabuf_allocator_get_type">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvaallocator.c"
-           line="254">A pooled memory allocator backed by the DMABufs exported from a
+           line="244">A pooled memory allocator backed by the DMABufs exported from a
 VASurfaceID. Also it is possible to import DMAbufs into a
 VASurfaceID.</doc>
       <constructor name="new"
@@ -938,21 +969,21 @@ VASurfaceID.</doc>
                    version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="473">Instanciate a new pooled allocator backed with both DMABuf and
+             line="459">Instanciate a new pooled allocator backed with both DMABuf and
 VASurfaceID.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="480">a new allocated #GstAllocator</doc>
+               line="466">a new allocated #GstAllocator</doc>
           <type name="Gst.Allocator" c:type="GstAllocator*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="475">a #GstVaDisplay</doc>
+                 line="461">a #GstVaDisplay</doc>
             <type name="VaDisplay" c:type="GstVaDisplay*"/>
           </parameter>
         </parameters>
@@ -962,7 +993,7 @@ VASurfaceID.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="835">Removes all the memories in @allocator's pool.</doc>
+             line="897">Removes all the memories in @allocator's pool.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="49"/>
         <return-value transfer-ownership="none">
@@ -972,7 +1003,7 @@ VASurfaceID.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="837">a #GstAllocator</doc>
+                 line="899">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
         </parameters>
@@ -982,13 +1013,13 @@ VASurfaceID.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="944">Gets current internal configuration of @allocator.</doc>
+             line="1010">Gets current internal configuration of @allocator.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="952">%TRUE if @allocator is already configured; %FALSE
+               line="1018">%TRUE if @allocator is already configured; %FALSE
 otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -996,7 +1027,7 @@ otherwise.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="946">a #GstAllocator</doc>
+                 line="1012">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="info"
@@ -1007,8 +1038,9 @@ otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="947">a #GstVideoInfo</doc>
-            <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
+                 line="1013">a #GstVideoInfoDmaDrm</doc>
+            <type name="GstVideo.VideoInfoDmaDrm"
+                  c:type="GstVideoInfoDmaDrm*"/>
           </parameter>
           <parameter name="usage_hint"
                      direction="out"
@@ -1018,7 +1050,7 @@ otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="948">VA usage hint</doc>
+                 line="1014">VA usage hint</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -1028,14 +1060,14 @@ otherwise.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="804">This method will populate @buffer with pooled VASurfaceID/DMABuf
+             line="866">This method will populate @buffer with pooled VASurfaceID/DMABuf
 memories. It doesn't allocate new VASurfacesID.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="812">%TRUE if @buffer was populated correctly; %FALSE
+               line="874">%TRUE if @buffer was populated correctly; %FALSE
 otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1043,13 +1075,13 @@ otherwise.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="806">a #GstAllocator</doc>
+                 line="868">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="807">an empty #GstBuffer</doc>
+                 line="869">an empty #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -1059,19 +1091,19 @@ otherwise.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="889">Sets the configuration defined by @info and @usage_hint for
+             line="951">Sets the configuration defined by @info and @usage_hint for
 @allocator, and it tries the configuration, if @allocator has not
 allocated memories yet.
 
-If @allocator has memory allocated already, and frame size and
-format in @info are the same as currently configured in @allocator,
-the rest of @info parameters are updated internally.</doc>
+If @allocator has memory allocated already, and frame size, format
+and modifier in @info are the same as currently configured in
+@allocator, the rest of @info parameters are updated internally.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="903">%TRUE if the configuration is valid or updated; %FALSE if
+               line="965">%TRUE if the configuration is valid or updated; %FALSE if
 configuration is not valid or not updated.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1079,19 +1111,23 @@ configuration is not valid or not updated.</doc>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="891">a #GstAllocator</doc>
+                 line="953">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
-          <parameter name="info" transfer-ownership="none">
+          <parameter name="info"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="892">a #GstVideoInfo</doc>
-            <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
+                 line="954">a #GstVideoInfoDmaDrm</doc>
+            <type name="GstVideo.VideoInfoDmaDrm"
+                  c:type="GstVideoInfoDmaDrm*"/>
           </parameter>
           <parameter name="usage_hint" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="893">VA usage hint</doc>
+                 line="955">VA usage hint</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1101,27 +1137,27 @@ configuration is not valid or not updated.</doc>
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="703">This funciton creates a new VASurfaceID and exposes its DMABufs,
+             line="765">This function creates a new VASurfaceID and exposes its DMABufs,
 later it populates the @buffer with those DMABufs.</doc>
         <source-position filename="gst-libs/gst/va/gstvaallocator.h"
                          line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="711">%TRUE if @buffer is populated correctly; %FALSE otherwise.</doc>
+               line="773">%TRUE if @buffer is populated correctly; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="705">a #GstAllocator</doc>
+                 line="767">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvaallocator.c"
-                 line="706">an empty #GstBuffer</doc>
+                 line="768">an empty #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -1218,7 +1254,7 @@ the most widely used VA drivers.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="366">A new #GstBufferPool for VA allocators.</doc>
+               line="396">A new #GstBufferPool for VA allocators.</doc>
           <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
         </return-value>
       </constructor>
@@ -1229,7 +1265,7 @@ the most widely used VA drivers.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="456">a new #GstBufferPool that handles VASurfacesID-backed
+               line="484">a new #GstBufferPool that handles VASurfacesID-backed
     buffers. If the pool cannot be configured correctly, %NULL is
     returned.</doc>
           <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
@@ -1238,60 +1274,87 @@ the most widely used VA drivers.</doc>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="446">the #GstCaps of the buffers handled by the new pool.</doc>
+                 line="475">the #GstCaps of the buffers handled by the new pool.</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
-          </parameter>
-          <parameter name="size" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/va/gstvapool.c"
-                 line="447">the size of the frames to hold.</doc>
-            <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="min_buffers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="448">minimum number of frames to create.</doc>
+                 line="476">minimum number of frames to create.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="max_buffers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="449">maximum number of frames to create.</doc>
+                 line="477">maximum number of frames to create.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="usage_hint" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="450">VA usage hint</doc>
+                 line="478">VA usage hint</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="use_derived" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="451">a #GstVaFeature for derived mapping (only used when
+                 line="479">a #GstVaFeature for derived mapping (only used when
     VA allocator).</doc>
             <type name="VaFeature" c:type="GstVaFeature"/>
           </parameter>
           <parameter name="allocator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="453">the VA allocator to use.</doc>
+                 line="481">the VA allocator to use.</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="alloc_params" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="454">#GstAllocationParams to use.</doc>
+                 line="482">#GstAllocationParams to use.</doc>
             <type name="Gst.AllocationParams" c:type="GstAllocationParams*"/>
           </parameter>
         </parameters>
       </constructor>
+      <function name="get_buffer_size"
+                c:identifier="gst_va_pool_get_buffer_size"
+                version="1.24">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/va/gstvapool.c"
+             line="514">Helper function to retrieve the VA surface size provided by @pool.</doc>
+        <source-position filename="gst-libs/gst/va/gstvapool.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/va/gstvapool.c"
+               line="521">whether the surface size was retrieved.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pool" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/va/gstvapool.c"
+                 line="516">a #GstBufferPool</doc>
+            <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
+          </parameter>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/va/gstvapool.c"
+                 line="517">the declared surface size</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </function>
       <function name="requires_video_meta"
                 c:identifier="gst_va_pool_requires_video_meta"
                 version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvapool.c"
-             line="426">Retuns: %TRUE if @pool always add #GstVideoMeta to its
+             line="456">Retuns: %TRUE if @pool always add #GstVideoMeta to its
     buffers. Otherwise, %FALSE.</doc>
         <source-position filename="gst-libs/gst/va/gstvapool.h" line="41"/>
         <return-value transfer-ownership="none">
@@ -1301,7 +1364,7 @@ the most widely used VA drivers.</doc>
           <parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvapool.c"
-                 line="428">the #GstBufferPool</doc>
+                 line="458">the #GstBufferPool</doc>
             <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
           </parameter>
         </parameters>
@@ -1312,7 +1375,7 @@ the most widely used VA drivers.</doc>
               version="1.20.2">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvapool.c"
-           line="402">Video alignment is not handled as expected by VA since it uses
+           line="432">Video alignment is not handled as expected by VA since it uses
 opaque surfaces, not directly mappable memory. Still, decoders
 might need to request bigger surfaces for coded size rather than
 display sizes. This method will set the coded size to bufferpool's
@@ -1325,13 +1388,13 @@ configuration, out of the typical video aligment.</doc>
         <parameter name="config" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="404">the #GstStructure with the pool's configuration.</doc>
+               line="434">the #GstStructure with the pool's configuration.</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </parameter>
         <parameter name="align" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="405">a #GstVideoAlignment</doc>
+               line="435">a #GstVideoAlignment</doc>
           <type name="GstVideo.VideoAlignment"
                 c:type="const GstVideoAlignment*"/>
         </parameter>
@@ -1342,7 +1405,7 @@ configuration, out of the typical video aligment.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvapool.c"
-           line="383">Sets the usage hint for the buffers handled by the buffer pool.</doc>
+           line="413">Sets the usage hint for the buffers handled by the buffer pool.</doc>
       <source-position filename="gst-libs/gst/va/gstvapool.h" line="43"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -1351,19 +1414,19 @@ configuration, out of the typical video aligment.</doc>
         <parameter name="config" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="385">the #GstStructure with the pool's configuration.</doc>
+               line="415">the #GstStructure with the pool's configuration.</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </parameter>
         <parameter name="usage_hint" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="386">the VA usage hint for new VASurfaceID.</doc>
+               line="416">the VA usage hint for new VASurfaceID.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="use_derived" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvapool.c"
-               line="387">a #GstVaFeature for derived mapping (only used when
+               line="417">a #GstVaFeature for derived mapping (only used when
     VA allocator).</doc>
           <type name="VaFeature" c:type="GstVaFeature"/>
         </parameter>
@@ -1376,26 +1439,26 @@ configuration, out of the typical video aligment.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvautils.c"
-             line="355">whether we find a valid @display in the @context</doc>
+             line="363">whether we find a valid @display in the @context</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="context" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="350">a #GstContext may contain the display</doc>
+               line="358">a #GstContext may contain the display</doc>
           <type name="Gst.Context" c:type="GstContext*"/>
         </parameter>
         <parameter name="type_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="351">a #gchar string of the element type</doc>
+               line="359">a #gchar string of the element type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="render_device_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="352">the #gchar string of render device path</doc>
+               line="360">the #gchar string of render device path</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="display_ptr"
@@ -1404,7 +1467,7 @@ configuration, out of the typical video aligment.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="353">the #GstVaDisplay we get</doc>
+               line="361">the #GstVaDisplay we get</doc>
           <type name="VaDisplay" c:type="GstVaDisplay**"/>
         </parameter>
       </parameters>
@@ -1414,7 +1477,7 @@ configuration, out of the typical video aligment.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="416">Set the @display in the @context</doc>
+           line="427">Set the @display in the @context</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="54"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -1423,13 +1486,13 @@ configuration, out of the typical video aligment.</doc>
         <parameter name="context" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="418">a #GstContext</doc>
+               line="429">a #GstContext</doc>
           <type name="Gst.Context" c:type="GstContext*"/>
         </parameter>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="419">the #GstVaDisplay we want to set</doc>
+               line="430">the #GstVaDisplay we want to set</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
         </parameter>
       </parameters>
@@ -1439,15 +1502,15 @@ configuration, out of the typical video aligment.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvaallocator.c"
-           line="2030">Creates a new VASurfaceID with @buffer's allocator and attached it
+           line="2121">Creates a new VASurfaceID with @buffer's allocator and attached it
 to it.
 
 *This method is used only by plugin's internal VA decoder.*</doc>
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="132"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="136"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="2039">%TRUE if the new VASurfaceID is attached to @buffer
+             line="2130">%TRUE if the new VASurfaceID is attached to @buffer
     correctly; %FALSE, otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1455,7 +1518,7 @@ to it.
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="2032">a #GstBuffer</doc>
+               line="2123">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -1464,11 +1527,11 @@ to it.
               c:identifier="gst_va_buffer_get_aux_surface"
               version="1.22"
               introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="134"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="138"/>
       <return-value>
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="2127">the VASurfaceID attached to
+             line="2213">the VASurfaceID attached to
     @buffer.</doc>
         <type name="guint" c:type="VASurfaceID"/>
       </return-value>
@@ -1476,7 +1539,7 @@ to it.
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="2125">a #GstBuffer</doc>
+               line="2211">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -1485,18 +1548,18 @@ to it.
               c:identifier="gst_va_buffer_get_surface"
               version="1.22"
               introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="129"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="133"/>
       <return-value>
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="2014">the VASurfaceID in @buffer.</doc>
+             line="2105">the VASurfaceID in @buffer.</doc>
         <type name="guint" c:type="VASurfaceID"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="2012">a #GstBuffer</doc>
+               line="2103">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -1504,11 +1567,11 @@ to it.
     <function name="va_buffer_peek_display"
               c:identifier="gst_va_buffer_peek_display"
               version="1.22">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="136"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="140"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="2158">the display which this
+             line="2244">the display which this
     @buffer belongs to. The reference of the display is unchanged.</doc>
         <type name="VaDisplay" c:type="GstVaDisplay*"/>
       </return-value>
@@ -1516,7 +1579,7 @@ to it.
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="2156">a #GstBuffer</doc>
+               line="2242">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -1526,7 +1589,7 @@ to it.
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="107">Query the specified context type name.</doc>
+           line="111">Query the specified context type name.</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="34"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -1535,14 +1598,48 @@ to it.
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="109">a #GstElement</doc>
+               line="113">a #GstElement</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="context_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="110">the #gchar string specify the context type name</doc>
+               line="114">the #gchar string specify the context type name</doc>
           <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="va_dmabuf_get_modifier_for_format"
+              c:identifier="gst_va_dmabuf_get_modifier_for_format"
+              version="1.24">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/va/gstvaallocator.c"
+           line="636">Get the underlying modifier for specified @format and @usage_hint.</doc>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="68"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/va/gstvaallocator.c"
+             line="644">the underlying modifier.</doc>
+        <type name="guint64" c:type="guint64"/>
+      </return-value>
+      <parameters>
+        <parameter name="display" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/va/gstvaallocator.c"
+               line="638">a #GstVaDisplay</doc>
+          <type name="VaDisplay" c:type="GstVaDisplay*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/va/gstvaallocator.c"
+               line="639">a #GstVideoFormat</doc>
+          <type name="GstVideo.VideoFormat" c:type="GstVideoFormat"/>
+        </parameter>
+        <parameter name="usage_hint" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/va/gstvaallocator.c"
+               line="640">VA usage hint</doc>
+          <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
     </function>
@@ -1551,13 +1648,13 @@ to it.
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvaallocator.c"
-           line="974">It imports the array of @mem, representing a single frame, into a
+           line="1060">It imports the array of @mem, representing a single frame, into a
 VASurfaceID and it's attached into every @mem.</doc>
       <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="60"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="990">%TRUE if frame is imported correctly into a VASurfaceID;
+             line="1075">%TRUE if frame is imported correctly into a VASurfaceID;
 %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1565,25 +1662,19 @@ VASurfaceID and it's attached into every @mem.</doc>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="976">a #GstVaDisplay</doc>
+               line="1062">a #GstVaDisplay</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
         </parameter>
-        <parameter name="info" transfer-ownership="none">
+        <parameter name="drm_info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="977">a #GstVideoInfo</doc>
-          <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
-        </parameter>
-        <parameter name="n_planes" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/va/gstvaallocator.c"
-               line="978">number of planes</doc>
-          <type name="guint" c:type="guint"/>
+               line="1063">a #GstVideoInfoDmaDrm</doc>
+          <type name="GstVideo.VideoInfoDmaDrm" c:type="GstVideoInfoDmaDrm*"/>
         </parameter>
         <parameter name="mem" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="979">Memories. One
+               line="1064">Memories. One
     per plane.</doc>
           <array zero-terminated="0" c:type="GstMemory**" fixed-size="4">
             <type name="Gst.Memory"/>
@@ -1592,16 +1683,16 @@ VASurfaceID and it's attached into every @mem.</doc>
         <parameter name="fds" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="981">array of
+               line="1066">array of
     DMABuf file descriptors.</doc>
-          <array length="2" zero-terminated="0" c:type="uintptr_t*">
+          <array zero-terminated="0" c:type="uintptr_t*" fixed-size="4">
             <type name="guintptr"/>
           </array>
         </parameter>
         <parameter name="offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="983">array of memory
+               line="1068">array of memory
     offsets.</doc>
           <array zero-terminated="0" c:type="gsize*" fixed-size="4">
             <type name="gsize"/>
@@ -1610,7 +1701,7 @@ VASurfaceID and it's attached into every @mem.</doc>
         <parameter name="usage_hint" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="985">VA usage hint.</doc>
+               line="1070">VA usage hint.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -1620,7 +1711,7 @@ VASurfaceID and it's attached into every @mem.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="164">Propagate @display by posting it as #GstContext in the pipeline's bus.</doc>
+           line="168">Propagate @display by posting it as #GstContext in the pipeline's bus.</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="46"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -1629,13 +1720,13 @@ VASurfaceID and it's attached into every @mem.</doc>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="166">a #GstElement</doc>
+               line="170">a #GstElement</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="167">the #GstVaDisplay to propagate</doc>
+               line="171">the #GstVaDisplay to propagate</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
         </parameter>
       </parameters>
@@ -1645,12 +1736,12 @@ VASurfaceID and it's attached into every @mem.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="199">Called by the va element to ensure a valid #GstVaDisplay.</doc>
+           line="203">Called by the va element to ensure a valid #GstVaDisplay.</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="30"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvautils.c"
-             line="207">whether a #GstVaDisplay exists in @display_ptr</doc>
+             line="211">whether a #GstVaDisplay exists in @display_ptr</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -1660,13 +1751,13 @@ VASurfaceID and it's attached into every @mem.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="201">a #GstElement</doc>
+               line="205">a #GstElement</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="render_device_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="202">the #gchar string of render device path</doc>
+               line="206">the #gchar string of render device path</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="display_ptr"
@@ -1675,7 +1766,7 @@ VASurfaceID and it's attached into every @mem.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="203">The #GstVaDisplay to ensure</doc>
+               line="207">The #GstVaDisplay to ensure</doc>
           <type name="VaDisplay" c:type="GstVaDisplay**"/>
         </parameter>
       </parameters>
@@ -1685,32 +1776,32 @@ VASurfaceID and it's attached into every @mem.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="298">Used by elements when processing their pad's queries, propagating
+           line="306">Used by elements when processing their pad's queries, propagating
 element's #GstVaDisplay if the processed query requests it.</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="42"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvautils.c"
-             line="307">whether we can handle the context query successfully</doc>
+             line="315">whether we can handle the context query successfully</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="300">a #GstElement</doc>
+               line="308">a #GstElement</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="query" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="301">a #GstQuery to query the context</doc>
+               line="309">a #GstQuery to query the context</doc>
           <type name="Gst.Query" c:type="GstQuery*"/>
         </parameter>
         <parameter name="display" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="302">a #GstVaDisplay to answer the query</doc>
+               line="310">a #GstVaDisplay to answer the query</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
         </parameter>
       </parameters>
@@ -1720,13 +1811,13 @@ element's #GstVaDisplay if the processed query requests it.</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/va/gstvautils.c"
-           line="248">Called by elements in their #GstElementClass::set_context vmethod.
+           line="256">Called by elements in their #GstElementClass::set_context vmethod.
 It gets a valid #GstVaDisplay if @context has it.</doc>
       <source-position filename="gst-libs/gst/va/gstvautils.h" line="37"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvautils.c"
-             line="258">whether the @display_ptr could be successfully set to a
+             line="266">whether the @display_ptr could be successfully set to a
 valid #GstVaDisplay in the @context</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -1734,19 +1825,19 @@ valid #GstVaDisplay in the @context</doc>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="250">a #GstElement</doc>
+               line="258">a #GstElement</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="context" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="251">a #GstContext may contain the display</doc>
+               line="259">a #GstContext may contain the display</doc>
           <type name="Gst.Context" c:type="GstContext*"/>
         </parameter>
         <parameter name="render_device_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="252">the #gchar string of render device path</doc>
+               line="260">the #gchar string of render device path</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="display_ptr"
@@ -1755,7 +1846,7 @@ valid #GstVaDisplay in the @context</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvautils.c"
-               line="253">The #GstVaDisplay to set</doc>
+               line="261">The #GstVaDisplay to set</doc>
           <type name="VaDisplay" c:type="GstVaDisplay**"/>
         </parameter>
       </parameters>
@@ -1764,18 +1855,18 @@ valid #GstVaDisplay in the @context</doc>
               c:identifier="gst_va_memory_get_surface"
               version="1.22"
               introspectable="0">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="125"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="129"/>
       <return-value>
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1958">the VASurfaceID in @mem.</doc>
+             line="2049">the VASurfaceID in @mem.</doc>
         <type name="guint" c:type="VASurfaceID"/>
       </return-value>
       <parameters>
         <parameter name="mem" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1956">a #GstMemory</doc>
+               line="2047">a #GstMemory</doc>
           <type name="Gst.Memory" c:type="GstMemory*"/>
         </parameter>
       </parameters>
@@ -1783,11 +1874,11 @@ valid #GstVaDisplay in the @context</doc>
     <function name="va_memory_peek_display"
               c:identifier="gst_va_memory_peek_display"
               version="1.22">
-      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="127"/>
+      <source-position filename="gst-libs/gst/va/gstvaallocator.h" line="131"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvaallocator.c"
-             line="1989">the display which
+             line="2080">the display which
     this @mem belongs to. The reference of the display is unchanged.</doc>
         <type name="VaDisplay" c:type="GstVaDisplay*"/>
       </return-value>
@@ -1795,7 +1886,7 @@ valid #GstVaDisplay in the @context</doc>
         <parameter name="mem" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvaallocator.c"
-               line="1987">a #GstMemory</doc>
+               line="2078">a #GstMemory</doc>
           <type name="Gst.Memory" c:type="GstMemory*"/>
         </parameter>
       </parameters>

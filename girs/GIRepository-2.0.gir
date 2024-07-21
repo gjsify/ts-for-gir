@@ -686,7 +686,7 @@ drops to 0, the info is freed.</doc>
            filename="girepository/giversion.c"
            line="53">Checks the version of the girepository library that is being compiled
 against.</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="32"/>
       <parameters>
         <parameter name="major">
@@ -1187,7 +1187,7 @@ against.</doc>
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="29">The major version number of the girepository library.</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="28"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -1198,7 +1198,7 @@ against.</doc>
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="45">The micro version number of the girepository library.</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="30"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -1209,7 +1209,7 @@ against.</doc>
       <doc xml:space="preserve"
            filename="girepository/giversion.c"
            line="37">The minor version number of the girepository library.</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -3923,7 +3923,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="68">Returns the major version number of the girepository library.
 (e.g. in version 1.58.2 this is 1.)</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="39"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -3939,7 +3939,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="100">Returns the micro version number of the girepository library.
 (e.g. in version 1.58.2 this is 2.)</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="43"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
@@ -3955,7 +3955,7 @@ have been g_module_symbol()&lt;!-- --&gt;ed before calling this function.</doc>
            filename="girepository/giversion.c"
            line="84">Returns the minor version number of the girepository library.
 (e.g. in version 1.58.2 this is 58.)</doc>
-      <source-position filename="_builddir/girepository/giversion.h"
+      <source-position filename="redhat-linux-build/girepository/giversion.h"
                        line="41"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"

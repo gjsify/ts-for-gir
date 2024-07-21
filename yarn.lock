@@ -3962,7 +3962,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/giounix-2.0@workspace:types/giounix-2.0"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown

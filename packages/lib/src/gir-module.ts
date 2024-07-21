@@ -205,6 +205,16 @@ export class GirModule {
             }
         }
 
+        // Gio
+        if (this.packageName === 'GioUnix-2.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Gio-2.0')) {
+                transitiveDependencies.push(await this.dependencyManager.get('Gio', '2.0'))
+            }
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
+                transitiveDependencies.push(await this.dependencyManager.get('GLib', '2.0'))
+            }
+        }
+
         return transitiveDependencies
     }
 

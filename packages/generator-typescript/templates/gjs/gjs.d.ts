@@ -40,33 +40,168 @@ declare namespace package {
      * and all the other have their values derived from them.
      */
     interface PackageInitParams {
+        /** The base name of the entry point (eg. org.foo.Bar.App) */
         name: string
+        /** The version of the package */
         version: string
+        /** The prefix of the package */
         prefix: string
+        /**
+         * The final datadir and libdir when installed;
+         * usually, these would be prefix + '/share' and
+         * and prefix + '/lib' (or '/lib64')
+         */
         libdir: string
+        /**
+         * The final datadir and libdir when installed;
+         * usually, these would be prefix + '/share' and
+         * and prefix + '/lib' (or '/lib64')
+         */
+        datadir?: string
     }
 
+    /** The base name of the entry point (eg. org.foo.Bar.App) */
     export const name: string | undefined
+    /** The version of the package */
     export const version: string | undefined
+    /** The prefix of the package */
     export const prefix: string | undefined
+    /** The final datadir when installed; usually, these would be prefix + '/share' */
     export const datadir: string | undefined
+    /** The final libdir when installed; usually, these would be prefix + '/lib' (or '/lib64') */
     export const libdir: string | undefined
+    /** The final pkgdatadir when installed; usually, this would be prefix + '/share' */
     export const pkgdatadir: string | undefined
+    /** The final pkglibdir when installed; usually, this would be prefix + '/lib' (or '/lib64') */
     export const pkglibdir: string | undefined
+    /** The final moduledir when installed; usually, this would be prefix + '/lib' (or '/lib64') */
     export const moduledir: string | undefined
+    /** The directory containing gettext translation files; this will be datadir + '/locale' when installed and './po' in the source tree */
     export const localedir: string | undefined
 
-    export function init(params: PackageInitParams): void
-    export function run(module: { main: (argv: string[]) => void }): void
-    /** shortcut to init+run */
-    export function start(params: PackageInitParams): void
-    export function require(libs: Record<string, string>): void
-    export function requireSymbol(lib: string, ver: string, symbol: string): void
-    export function checkSymbol(lib: string, ver: string, symbol: string): void
-    export function initGettext(): void
-    /** @deprecated Use JS string interpolation */
-    export function initFormat(): void
-    export function initSubmodule(module: string): void
+    /**
+     * Initialize directories and global variables. Must be called
+     * before any of other API in Package is used.
+     * `params` must be an object with at least the following keys:
+     *  - name: the package name ($(PACKAGE_NAME) in autotools,
+     *          eg. org.foo.Bar)
+     *  - version: the package version
+     *  - prefix: the installation prefix
+     *
+     * init() will take care to check if the program is running from
+     * the source directory or not, by looking for a 'src' directory.
+     *
+     * At the end, the global variable 'pkg' will contain the
+     * Package module (imports.package). Additionally, the following
+     * module variables will be available:
+     *  - name: the base name of the entry point (eg. org.foo.Bar.App)
+     *  - version: same as in @params
+     *  - prefix: the installation prefix (as passed in @params)
+     *  - datadir, libdir: the final datadir and libdir when installed;
+     *                     usually, these would be prefix + '/share' and
+     *                     and prefix + '/lib' (or '/lib64')
+     *  - pkgdatadir: the directory to look for private data files, such as
+     *                images, stylesheets and UI definitions;
+     *                this will be datadir + name when installed and
+     *                './data' when running from the source tree
+     *  - pkglibdir: the directory to look for private typelibs and C
+     *               libraries;
+     *               this will be libdir + name when installed and
+     *               './lib' when running from the source tree
+     *  - moduledir: the directory to look for JS modules;
+     *               this will be pkglibdir when installed and
+     *               './src' when running from the source tree
+     *  - localedir: the directory containing gettext translation files;
+     *               this will be datadir + '/locale' when installed
+     *               and './po' in the source tree
+     *
+     * All paths are absolute and will not end with '/'.
+     *
+     * As a side effect, init() calls GLib.set_prgname().
+     *
+     * @param {object} params package parameters
+     */
+    export function init(params: PackageInitParams): void;
+    /**
+     * This is the function to use if you want to have multiple
+     * entry points in one package.
+     * You must define a main(ARGV) function inside the passed
+     * in module, and then the launcher would be
+     *
+     * imports.package.init(...);
+     * imports.package.run(imports.entrypoint);
+     *
+     * @param module the module to run
+     * @returns the exit code of the module's main() function
+     */
+    export function run(module: { main: (argv: string[]) => void }): number | undefined;
+    /**
+     * This is a convenience function if your package has a
+     * single entry point.
+     * You must define a main(ARGV) function inside a main.js
+     * module in moduledir.
+     *
+     * @param params see init()
+     */
+    export function start(params: PackageInitParams): void;
+    /**
+     * Mark a dependency on a specific version of one or more
+     * external GI typelibs.
+     * `libs` must be an object whose keys are a typelib name,
+     * and values are the respective version. The empty string
+     * indicates any version.
+     * @param deps The external dependencies to import
+     */
+    export function require(deps: Record<string, string>): void;
+    /**
+     * As checkSymbol(), but exit with an error if the
+     * dependency cannot be satisfied.
+     *
+     * @param lib an external dependency to import
+     * @param ver version of the dependency
+     * @param symbol symbol to check for
+     */
+    export function requireSymbol(lib: string, ver?: string, symbol?: string): void;
+    /**
+     * Check whether an external GI typelib can be imported
+     * and provides @symbol.
+     *
+     * Symbols may refer to
+     *  - global functions         ('main_quit')
+     *  - classes                  ('Window')
+     *  - class / instance methods ('IconTheme.get_default' / 'IconTheme.has_icon')
+     *  - GObject properties       ('Window.default_height')
+     *
+     * @param lib an external dependency to import
+     * @param ver version of the dependency
+     * @param symbol symbol to check for
+     * @returns true if `lib` can be imported and provides `symbol`, false
+     * otherwise
+     */
+    export function checkSymbol(lib: string, ver: string, symbol: string): boolean;
+    /**
+     * Initialize `gettext`.
+     * After calling this method `globalThis._`, `globalThis.C_` and `globalThis.N_` will be available.
+     */
+    export function initGettext(): void;
+    /**
+     * @deprecated Use JS string interpolation
+     */
+    export function initFormat(): void;
+    /**
+     * As checkSymbol(), but exit with an error if the
+     * dependency cannot be satisfied.
+     *
+     * @param lib an external dependency to import
+     * @param ver version of the dependency
+     * @param symbol symbol to check for
+     */
+    export function initSubmodule(lib: string, ver?: string, symbol?: string): void;
+    /**
+     * Load and register a GResource named @name. @name is optional and defaults to ${package-name}
+     * @param name The name of the GResource to load
+     */
+    export function loadResource(name?: string): void;
 }
 
 declare namespace byteArray {
@@ -447,9 +582,27 @@ declare global {
         cairo: typeof cairo
     }
 
+    // Overwrites, see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/script/package.js
+    /**
+     * Run `pkg.initGettext()` before using this.
+     * See {@link gettext.gettext}
+     */
+    const _: undefined | typeof gettext.gettext
+    /**
+     * Run `pkg.initGettext()` before using this.
+     * See {@link gettext.pgettext}
+     */
+    const C_: undefined | typeof gettext.pgettext
+    /**
+     * Run `pkg.initGettext()` before using this.
+     * Currently not implemented.
+     */
+    const N_: undefined | ((x: string) => string)
+
     function print(...args: any[]): void
     function printerr(...args: any[]): void
-    function log(message: any): void
+    function log(obj: object, others?: object[]): void;
+    function log(msg: string, substitutions?: any[]): void;
     function logError(exception: object, message?: any): void
     function logError(message?: any): void
 

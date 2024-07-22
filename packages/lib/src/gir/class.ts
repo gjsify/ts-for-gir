@@ -1360,7 +1360,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 
             const child = child_ns.getClass(type.name);
             if (child === this) {
-                return true;
+                return false;
             }
 
             if (child instanceof IntrospectedRecord) {

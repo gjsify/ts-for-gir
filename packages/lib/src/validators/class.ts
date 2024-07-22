@@ -142,7 +142,7 @@ const removeComplexFields = <T extends IntrospectedBaseClass>(node: T): T => {
             }
 
             // Only allow fields pointing to simple structs.
-            if (classNode && classNode instanceof IntrospectedRecord && !classNode.isSimpleType(type)) {
+            if (classNode && classNode instanceof IntrospectedRecord && !classNode.isSimple()) {
                 return false;
             }
 

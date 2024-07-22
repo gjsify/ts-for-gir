@@ -1,12 +1,12 @@
 {
-  "name": "@ts-for-gir-example/gtk-4-template",
+  "name": "@ts-for-gir-example/gtk-4-template-tsc",
   "version": "4.0.0-beta.10",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files over GJS itself",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:app": "yarn node esbuild.js",
+    "build:app": "tsc",
     "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
@@ -18,7 +18,6 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.23.0",
     "typescript": "^5.5.3"
   },
   "dependencies": {

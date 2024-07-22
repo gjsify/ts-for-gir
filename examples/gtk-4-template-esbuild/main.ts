@@ -8,8 +8,8 @@ import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';
 import Gdk from 'gi://Gdk?version=4.0';
 
-import Template from './gtk4-template.ui?raw';
-import Style from './gtk4-template.css?inline';
+import Template from './gtk4-template.ui';
+import Style from './gtk4-template.css';
 
 Gtk.init();
 

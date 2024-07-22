@@ -1,18 +1,11 @@
 import { LibraryVersion } from './library-version.js'
-import { __dirname, readJsonFile } from './utils.js'
+import { __dirname, readJsonFile } from './utils/index.js'
 import { join } from 'path'
-
-/**
- * In gjs all classes have a static name property but the classes listed below already have a static name property
- */
-export const STATIC_NAME_ALREADY_EXISTS = ['GMime.Charset', 'Camel.StoreInfo']
 
 export const COMMENT_REG_EXP = /\/\*.*\*\//g
 export const PARAM_REG_EXP = /[0-9a-zA-Z_]*:/g
 export const OPT_PARAM_REG_EXP = /[0-9a-zA-Z_]*\?:/g
 export const NEW_LINE_REG_EXP = /[\n\r]+/g
-
-export const MAX_CLASS_PARENT_DEPTH = 100
 
 export const PACKAGE = await readJsonFile<{
     name: string
@@ -21,7 +14,7 @@ export const PACKAGE = await readJsonFile<{
     license: string
     homepage: string
     author: string
-}>(join(__dirname, '../package.json'))
+}>(join(__dirname, './package.json'))
 
 export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'
@@ -38,6 +31,79 @@ export const PACKAGE_KEYWORDS = (packageName: string) => {
     return `"Gir", "TypeScript", "types", "GObject-Introspection", "GJS", "${packageName}"`
 }
 
-export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']
+/** The reserved variable names listed here cannot be resolved simply by quotation marks */
+export const RESERVED_QUOTE_VARIABLE_NAMES = ['constructor']
 
-export const SIGNAL_METHOD_NAMES: string[] = ['connect', 'emit', 'disconnect', 'connect_after', 'emit']
+export const RESERVED_VARIABLE_NAMES = [
+    'in',
+    'function',
+    'true',
+    'false',
+    'break',
+    'arguments',
+    'eval',
+    'default',
+    'new',
+    'extends',
+    'with',
+    'var',
+    'class',
+    'delete',
+    'return',
+    'constructor',
+    'this', // TODO check if this is used as we would use this in javascript, if so, this is only allowed as the first parameter
+]
+
+export const RESERVED_CLASS_NAMES = [
+    'break',
+    'boolean',
+    'case',
+    'catch',
+    'class',
+    'const',
+    'continue',
+    'debugger',
+    'default',
+    'delete',
+    'do',
+    'else',
+    'enum',
+    'export',
+    'extends',
+    'false',
+    'finally',
+    'for',
+    'function',
+    'if',
+    'implements',
+    'import',
+    'in',
+    'instanceof',
+    'interface',
+    'let',
+    'new',
+    'number',
+    'package',
+    'private',
+    'protected',
+    'public',
+    'return',
+    'static',
+    'super',
+    'switch',
+    'string',
+    'this',
+    'throw',
+    'true',
+    'try',
+    'typeof',
+    'var',
+    'void',
+    'while',
+    'with',
+    'yield',
+]
+
+export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
+
+export const RESERVED_NAMESPACE_NAMES = {}

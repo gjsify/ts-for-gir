@@ -173,24 +173,24 @@ cd /examples/gtk-4-custom-widget
 yarn start
 ```
 
-## Gtk4 Template
-![gtk-4-template](gtk-4-template/preview.png)
+## Gtk4 Template (esbuild)
+![gtk-4-template-esbuild](gtk-4-template-esbuild/preview.png)
 
-This example shows how to use the Gtk4 template engine to create a custom widget.
+This example shows how to use the Gtk4 template engine to create a custom widget. It's also showing how to load the template `.ui` and style `.css` files from the file system using ESBuild.
 
-Source: [gtk-4-template](gtk-4-template)  
+Source: [gtk-4-template-esbuild](gtk-4-template-esbuild)  
 Bundler: ESBuild    
 
 Build and run:
 ```bash
-cd /examples/gtk-4-template
+cd /examples/gtk-4-template-esbuild
 yarn start
 ```
 
 ## Gtk4 Template (Vite)
 ![gtk-4-template-vite](gtk-4-template-vite/preview.png)
 
-This example is largely identical to the example above, but uses Vite to inject the template `.ui` file into the source code.
+This example is largely identical to the example above, but uses Vite to inject the template `.ui` and style `.css` files into the source code.
 
 Source: [gtk-4-template-vite](gtk-4-template-vite)  
 Bundler: Vite    
@@ -198,5 +198,19 @@ Bundler: Vite
 Build and run:
 ```bash
 cd /examples/gtk-4-template-vite
+yarn start
+```
+
+## Gtk4 Template (TSC)
+![gtk-4-template-tsc](gtk-4-template-tsc/preview.png)
+
+This example is largely identical to the examples above, but uses the TypeScript compiler to compile the source code. No assets can be resolved with the TypeScript compiler, so this example shows how this can be done on runtime.
+
+Source: [gtk-4-template-tsc](gtk-4-template-tsc)  
+Bundler: TSC    
+
+Build and run:
+```bash
+cd /examples/gtk-4-template-tsc
 yarn start
 ```

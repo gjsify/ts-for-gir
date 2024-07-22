@@ -3,7 +3,6 @@
  * For example, the signal methods are generated here
  */
 
-import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
@@ -18,14 +17,15 @@ import {
     PACKAGE_KEYWORDS,
     DependencyManager,
     Transformation,
+    fileExists,
+    GirNSRegistry,
 } from '@ts-for-gir/lib'
 
 import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
 
-const TEMPLATE_DIR = join(__dirname, '../templates')
+const TEMPLATE_DIR = join(__dirname, './templates')
 
 export class TemplateProcessor {
-    protected environmentTemplateDir: string
     protected log: Logger
     protected transformation: Transformation
     constructor(
@@ -33,6 +33,7 @@ export class TemplateProcessor {
         protected readonly packageName: string,
         protected readonly deps: Dependency[],
         protected readonly config: OptionsGeneration,
+        protected readonly registry: GirNSRegistry,
     ) {
         this.transformation = Transformation.getSingleton(config)
         const dep = DependencyManager.getInstance(config)
@@ -56,22 +57,7 @@ export class TemplateProcessor {
             join,
             dirname,
         }
-        this.environmentTemplateDir = this.getEnvironmentDir(TEMPLATE_DIR)
-        this.log = new Logger(config.verbose, this.packageName)
-    }
-
-    /**
-     * Get the output or input directory of the environment
-     * @param environment The environment to get the directory for
-     * @param baseDir The base directory
-     * @returns The path to the directory
-     */
-    protected getEnvironmentDir = (baseDir: string): string => {
-        if (!baseDir.endsWith('/gjs')) {
-            return join(baseDir, 'gjs')
-        }
-
-        return baseDir
+        this.log = new Logger(config.verbose, `TemplateProcessor (${this.packageName})`)
     }
 
     protected getAppendTemplateName(templateFilename: string) {
@@ -102,7 +88,7 @@ export class TemplateProcessor {
         let append = ''
 
         const appendTemplateFilename = this.getAppendTemplateName(templateFilename)
-        if (this.exists(appendTemplateFilename)) {
+        if (await this.exists(appendTemplateFilename)) {
             const appendFileContent = await this.read(appendTemplateFilename)
             append = await this.render(appendFileContent, ejsOptions, overrideTemplateData)
         }
@@ -187,20 +173,41 @@ export class TemplateProcessor {
     }
 
     public getOutputPath(baseOutputPath: string, outputFilename: string): string {
-        const filePath = join(this.data?.importName || this.packageName, outputFilename)
+        // Create a directory for each package if package.json mode is enabled otherwise use the output directory directly
+        const filePath = this.config.package
+            ? join(this.data?.importName || this.packageName, outputFilename)
+            : outputFilename
         const outputPath = join(baseOutputPath, filePath)
         return outputPath
     }
 
     /**
-     * Writes the `content` to the filesystem
+     * Writes (and optionally formats) the `content` to the filesystem
      * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
      * @returns
      */
-    protected async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
+    public async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
         const outputPath = this.getOutputPath(baseOutputPath, outputFilename)
+
+        if (!this.config.noPrettyPrint) {
+            try {
+                if (outputFilename.endsWith('.d.ts')) {
+                    this.log.info('Formatting', outputPath)
+                    content = await this.registry.getFormatter('dts').format(content)
+                }
+                // TODO: Fix me
+                // if (outputFilename.endsWith('.json')) {
+                //     this.log.info('Formatting', outputPath)
+                //     content = await this.registry.getFormatter('json').format(content)
+                // }
+            } catch (error) {
+                this.log.error('Failed to format output...', error)
+            }
+        }
+
+        this.log.info('Writing to', outputPath)
 
         // write template result file
         await mkdir(dirname(outputPath), { recursive: true })
@@ -237,8 +244,8 @@ export class TemplateProcessor {
             )
             return renderedTpl
         } catch (error) {
-            this.log.error('Error on render', error)
-            return ''
+            this.log.error(`Error on render "${templateString}":`, error)
+            throw error
         }
     }
 
@@ -247,13 +254,13 @@ export class TemplateProcessor {
      * Tries first to load the file / directory from the environment-specific template folder and otherwise looks for it in the general template folder
      * @param templateFilename
      */
-    public exists(templateFilename: string): string | null {
-        const fullEnvironmentTemplatePath = join(this.environmentTemplateDir, templateFilename)
+    public async exists(templateFilename: string): Promise<string | null> {
+        const fullEnvironmentTemplatePath = join(TEMPLATE_DIR, templateFilename)
         const fullGeneralTemplatePath = join(TEMPLATE_DIR, templateFilename)
-        if (existsSync(fullEnvironmentTemplatePath)) {
+        if (await fileExists(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath
         }
-        if (existsSync(fullGeneralTemplatePath)) {
+        if (await fileExists(fullGeneralTemplatePath)) {
             return fullGeneralTemplatePath
         }
         return null
@@ -265,7 +272,7 @@ export class TemplateProcessor {
      * @return The raw template content
      */
     protected async read(templateFilename: string) {
-        const path = this.exists(templateFilename)
+        const path = await this.exists(templateFilename)
         if (path) {
             return await readFile(path, 'utf8')
         }
@@ -281,7 +288,7 @@ export class TemplateProcessor {
      * @throws Error if the template directory is empty
      */
     protected async readAll(templateDirname: string, fileExtension: string) {
-        const path = this.exists(templateDirname)
+        const path = await this.exists(templateDirname)
         if (path) {
             const files = (await readdir(path)).filter((file) => file.endsWith(fileExtension))
             if (files.length === 0) {

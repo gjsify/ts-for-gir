@@ -1,8 +1,8 @@
 import gio from "./gio.js";
 import glib from "./glib.js";
-import { clutter10, clutter11, clutter12, clutter13 } from "./clutter.js";
-import { st1, st12, st13 } from "./st.js";
-import { meta10, meta11, meta12, meta13 } from "./meta.js";
+import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15 } from "./clutter.js";
+import { st1, st12, st13, st14, st15 } from "./st.js";
+import { meta10, meta11, meta12, meta13, meta14, meta15 } from "./meta.js";
 
 import { IntrospectedNamespace } from "../gir/namespace.js";
 import { NSRegistry } from "../gir/registry.js";
@@ -38,13 +38,19 @@ export function generify(registry: NSRegistry, inferGenerics: boolean) {
     $_(clutter11);
     $_(clutter12);
     $_(clutter13);
+    $_(clutter14);
+    $_(clutter15);
     $_(st1);
     $_(st12);
     $_(st13);
+    $_(st14);
+    $_(st15);
     $_(meta10);
     $_(meta11);
     $_(meta12);
     $_(meta13);
+    $_(meta14);
+    $_(meta15);
 
     const visitor = new GenericVisitor(registry, inferGenerics);
 

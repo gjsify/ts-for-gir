@@ -31,3 +31,5 @@ export const meta10 = metaTemplate("10");
 export const meta11 = metaTemplate("11");
 export const meta12 = metaTemplate("12");
 export const meta13 = metaTemplate("13");
+export const meta14 = metaTemplate("14");
+export const meta15 = metaTemplate("15");

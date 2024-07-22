@@ -13959,7 +13959,7 @@ and settings.</doc>
               c:identifier="clutter_backend_get_cogl_context">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="487">Retrieves the #CoglContext associated with the given clutter
+             line="488">Retrieves the #CoglContext associated with the given clutter
 @backend. A #CoglContext is required when using some of the
 experimental 2.0 Cogl API.
 
@@ -13974,14 +13974,14 @@ explicitly create a CoglContext.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="502">The #CoglContext associated with @backend.</doc>
+               line="503">The #CoglContext associated with @backend.</doc>
           <type name="Cogl.Context" c:type="CoglContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="489">a #ClutterBackend</doc>
+                 line="490">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -13990,20 +13990,20 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_default_seat">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="550">Returns the default seat</doc>
+             line="551">Returns the default seat</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="556">the default seat</doc>
+               line="557">the default seat</doc>
           <type name="Seat" c:type="ClutterSeat*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="552">the #ClutterBackend</doc>
+                 line="553">the #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14012,13 +14012,13 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_font_options">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="458">Retrieves the font options for @backend.</doc>
+             line="459">Retrieves the font options for @backend.</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="464">the font options of the #ClutterBackend.
+               line="465">the font options of the #ClutterBackend.
   The returned #cairo_font_options_t is owned by the backend and should
   not be modified or freed</doc>
           <type name="cairo.FontOptions" c:type="const cairo_font_options_t*"/>
@@ -14027,7 +14027,7 @@ explicitly create a CoglContext.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="460">a #ClutterBackend</doc>
+                 line="461">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14036,20 +14036,20 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_input_method">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="510">Returns the input method used by Clutter</doc>
+             line="511">Returns the input method used by Clutter</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="516">the input method</doc>
+               line="517">the input method</doc>
           <type name="InputMethod" c:type="ClutterInputMethod*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="512">the #CLutterBackend</doc>
+                 line="513">the #CLutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14058,7 +14058,7 @@ explicitly create a CoglContext.</doc>
               c:identifier="clutter_backend_get_resolution">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="388">Gets the resolution for font handling on the screen.
+             line="389">Gets the resolution for font handling on the screen.
 
 The resolution is a scale factor between points specified in a
 #PangoFontDescription and cairo units. The default value is 96.0,
@@ -14073,7 +14073,7 @@ initializing; the resolution is also stored in the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-backend.c"
-               line="403">the current resolution, or -1 if no resolution
+               line="404">the current resolution, or -1 if no resolution
   has been set.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -14081,7 +14081,7 @@ initializing; the resolution is also stored in the
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="390">a #ClutterBackend</doc>
+                 line="391">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
         </parameters>
@@ -14090,7 +14090,7 @@ initializing; the resolution is also stored in the
               c:identifier="clutter_backend_set_font_options">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="423">Sets the new font options for @backend. The #ClutterBackend will
+             line="424">Sets the new font options for @backend. The #ClutterBackend will
 copy the #cairo_font_options_t.
 
 If @options is %NULL, the first following call to
@@ -14108,13 +14108,13 @@ using the PangoCairo API.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="425">a #ClutterBackend</doc>
+                 line="426">a #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="426">Cairo font options for the backend, or %NULL</doc>
+                 line="427">Cairo font options for the backend, or %NULL</doc>
             <type name="cairo.FontOptions"
                   c:type="const cairo_font_options_t*"/>
           </parameter>
@@ -14124,7 +14124,7 @@ using the PangoCairo API.</doc>
               c:identifier="clutter_backend_set_input_method">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="524">Sets the input method to be used by Clutter</doc>
+             line="525">Sets the input method to be used by Clutter</doc>
         <source-position filename="clutter/clutter/clutter-backend.h"
                          line="69"/>
         <return-value transfer-ownership="none">
@@ -14134,7 +14134,7 @@ using the PangoCairo API.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="526">the #ClutterBackend</doc>
+                 line="527">the #ClutterBackend</doc>
             <type name="Backend" c:type="ClutterBackend*"/>
           </instance-parameter>
           <parameter name="method"
@@ -14143,7 +14143,7 @@ using the PangoCairo API.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-backend.c"
-                 line="527">the input method</doc>
+                 line="528">the input method</doc>
             <type name="InputMethod" c:type="ClutterInputMethod*"/>
           </parameter>
         </parameters>
@@ -14151,7 +14151,7 @@ using the PangoCairo API.</doc>
       <glib:signal name="font-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="285">The signal is emitted each time the font options
+             line="286">The signal is emitted each time the font options
 have been changed through #ClutterSettings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14160,7 +14160,7 @@ have been changed through #ClutterSettings.</doc>
       <glib:signal name="resolution-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="270">The signal is emitted each time the font
+             line="271">The signal is emitted each time the font
 resolutions has been changed through #ClutterSettings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14169,7 +14169,7 @@ resolutions has been changed through #ClutterSettings.</doc>
       <glib:signal name="settings-changed" when="first">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="300">The signal is emitted each time the #ClutterSettings
+             line="301">The signal is emitted each time the #ClutterSettings
 properties have been changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -61300,13 +61300,13 @@ event or if the event has a timestamp.</doc>
               c:identifier="clutter_get_default_backend">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-backend.c"
-           line="368">Retrieves the default #ClutterBackend used by Clutter. The
+           line="369">Retrieves the default #ClutterBackend used by Clutter. The
 #ClutterBackend holds backend-specific configuration options.</doc>
       <source-position filename="clutter/clutter/clutter-backend.h" line="51"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-backend.c"
-             line="374">the default backend. You should
+             line="375">the default backend. You should
   not ref or unref the returned object. Applications should rarely
   need to use this.</doc>
         <type name="Backend" c:type="ClutterBackend*"/>

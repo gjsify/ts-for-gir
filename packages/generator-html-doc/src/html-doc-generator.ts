@@ -21,7 +21,7 @@ export class HtmlDocGenerator implements Generator {
         throw new Error('Method not implemented.')
     }
 
-    finish(_registry: NSRegistry): Promise<void> {
+    finish(_registry: NSRegistry, _girModules: GirModule[]): Promise<void> {
         throw new Error('Method not implemented.')
     }
 }

@@ -19,9 +19,6 @@ export const WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE = (packageName: string) =>
     `No gir file found for '${packageName}', this module will be ignored`
 export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
 
-export const WARN_IGNORE_MULTIPLE_CALLBACKS = 'Multiple callbacks are ignored!'
-export const WARN_IGNORE_MULTIPLE_FUNC_DESC = 'Ignore multiline function description!'
-
 export const WARN_DUPLICATE_ENUM_IDENTIFIER = (name: string, renamed: string) =>
     `Enum has a duplicate identifier '${name}', renamed to '${renamed}'!`
 export const WARN_DUPLICATE_SYMBOL = (symbol: string) => `Duplicate symbol: ${symbol}`
@@ -34,8 +31,6 @@ export const WARN_DUPLICATE_PARAMETER = (paramName: string, namespace?: string) 
 export const WARN_NOT_FOUND_TYPE = (logName: string) => `Could not find type for "${logName}"`
 export const WARN_NOT_FOUND_PACKAGE_NAME = (namespace: string, implementation: string) =>
     `Package name for namespace ${namespace} not found! (${implementation})`
-export const WARN_NOT_FOUND_DEPENDENCY_GIR_FILE = (girFilename: string) =>
-    `Dependency gir file not found: '${girFilename}'`
 
 export const WARN_RENAMED_PROPERTY = (originalName: string, newName: string) =>
     `Property name renamed from '${originalName}' to '${newName}'`

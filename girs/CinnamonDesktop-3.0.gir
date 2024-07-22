@@ -726,7 +726,7 @@ get emitted.</doc>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-bg-crossfade.c"
-                 line="184">the #GdkWindow the crossfade happend on.</doc>
+                 line="184">the #GdkWindow the crossfade happened on.</doc>
             <type name="GObject.Object"/>
           </parameter>
         </parameters>
@@ -930,7 +930,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                  line="1058">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -966,7 +966,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                  line="1536">the modification time of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1045,7 +1045,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                  line="947">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1083,7 +1083,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                  line="885">the mtime of the file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1125,7 +1125,7 @@ Usage of this function is threadsafe.</doc>
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                  line="1424">the modification time of the original file</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -2413,7 +2413,7 @@ The labels will be shown by default, use gnome_rr_labeler_hide to hide them.</do
       <method name="hide" c:identifier="gnome_rr_labeler_hide">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-rr-labeler.c"
-             line="541">Hide ouput labels.</doc>
+             line="541">Hide output labels.</doc>
         <source-position filename="libcinnamon-desktop/gnome-rr-labeler.h"
                          line="63"/>
         <return-value transfer-ownership="none">
@@ -2617,7 +2617,7 @@ The labels will be shown by default, use gnome_rr_labeler_hide to hide them.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-rr.c"
-               line="1767">The mimimum backlight value, or -1 if not supported</doc>
+               line="1767">The minimum backlight value, or -1 if not supported</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
@@ -2802,7 +2802,7 @@ The labels will be shown by default, use gnome_rr_labeler_hide to hide them.</do
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
-          <instance-parameter name="outout" transfer-ownership="none">
+          <instance-parameter name="output" transfer-ownership="none">
             <type name="RROutput" c:type="GnomeRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -4633,7 +4633,7 @@ If a layout can't be found the return value is %FALSE and all the
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
                  line="896">location to store the
-layout's indentifier, or %NULL</doc>
+layout's identifier, or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="display_name"
@@ -4905,7 +4905,7 @@ png options.</doc>
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
                line="1700">the mtime</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>

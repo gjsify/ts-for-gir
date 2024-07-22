@@ -31,11 +31,16 @@ export class Config {
         ignoreVersionConflicts: false,
         noNamespace: false,
         noComments: false,
-        noDebugComments: false,
-        fixConflicts: true,
         promisify: true,
         npmScope: '@girs',
-        packageYarn: false,
+        workspace: false,
+        onlyVersionPrefix: false,
+        noPrettyPrint: false,
+        // Disabled by default because advanced variants are complicated,
+        // it does impact performance (especially on older typescript versions)
+        // and we'd need to test it works with the updated bindings
+        noAdvancedVariants: true,
+        package: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -88,7 +93,7 @@ export class Config {
         },
         ignoreVersionConflicts: {
             type: 'boolean',
-            description: 'Do not ask for package versions if multiple versions are found',
+            description: 'Skip prompts for library version selection when multiple versions are detected',
             default: Config.defaults.ignoreVersionConflicts,
             normalize: true,
         },
@@ -101,7 +106,7 @@ export class Config {
         },
         configName: {
             type: 'string',
-            description: 'Name of the config if you want to use a different name',
+            description: 'Specify a custom name for the configuration file',
             default: Config.defaults.configName,
             normalize: true,
         },
@@ -119,18 +124,6 @@ export class Config {
             default: Config.defaults.noComments,
             normalize: true,
         },
-        noDebugComments: {
-            type: 'boolean',
-            description: 'Do not generate debugging inline comments',
-            default: Config.defaults.noDebugComments,
-            normalize: true,
-        },
-        fixConflicts: {
-            type: 'boolean',
-            description: 'Fix Inheritance and implementation type conflicts',
-            default: Config.defaults.fixConflicts,
-            normalize: true,
-        },
         promisify: {
             type: 'boolean',
             description: 'Generate promisified functions for async/finish calls',
@@ -143,10 +136,36 @@ export class Config {
             default: Config.defaults.npmScope,
             normalize: true,
         },
-        packageYarn: {
+        workspace: {
             type: 'boolean',
-            description: 'Adds Yarn workspace support to the NPM packages',
-            default: Config.defaults.packageYarn,
+            description:
+                'Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM',
+            default: Config.defaults.workspace,
+            normalize: true,
+        },
+        onlyVersionPrefix: {
+            type: 'boolean',
+            description:
+                'Only use the version prefix for the ambient module exports. This is useful if, for whatever reason, you want to use different library versions of the same library in your project.',
+            default: Config.defaults.onlyVersionPrefix,
+            normalize: true,
+        },
+        noPrettyPrint: {
+            type: 'boolean',
+            description: 'Do not prettify the generated types',
+            default: Config.defaults.noPrettyPrint,
+            normalize: true,
+        },
+        noAdvancedVariants: {
+            type: 'boolean',
+            description: 'Disable GLib.Variant class with string parsing',
+            default: Config.defaults.noAdvancedVariants,
+            normalize: true,
+        },
+        package: {
+            type: 'boolean',
+            description: 'Generate the typescript types with package.json support',
+            default: Config.defaults.package,
             normalize: true,
         },
     }
@@ -166,11 +185,13 @@ export class Config {
         configName: this.options.configName,
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
-        noDebugComments: this.options.noDebugComments,
-        fixConflicts: this.options.fixConflicts,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
-        packageYarn: this.options.packageYarn,
+        workspace: this.options.workspace,
+        onlyVersionPrefix: this.options.onlyVersionPrefix,
+        noPrettyPrint: this.options.noPrettyPrint,
+        noAdvancedVariants: this.options.noAdvancedVariants,
+        package: this.options.package,
     }
 
     static listOptions = {
@@ -269,19 +290,7 @@ export class Config {
 
     public static getOptionsGeneration(config: UserConfig): OptionsGeneration {
         const generateConfig: OptionsGeneration = {
-            girDirectories: config.girDirectories,
-            root: config.root,
-            outdir: config.outdir,
-            verbose: config.verbose,
-            noNamespace: config.noNamespace,
-            noComments: config.noComments,
-            noDebugComments: config.noDebugComments,
-            fixConflicts: config.fixConflicts,
-            promisify: config.promisify,
-            npmScope: config.npmScope,
-            packageYarn: config.packageYarn,
-            noPrettyPrint: false,
-            noAdvancedVariants: true,
+            ...config,
         }
         return generateConfig
     }
@@ -300,21 +309,7 @@ export class Config {
         const configFileData = configFile?.config || {}
 
         const config: UserConfig = {
-            verbose: options.verbose,
-            ignoreVersionConflicts: options.ignoreVersionConflicts,
-            print: options.print,
-            root: options.root,
-            outdir: options.outdir,
-            girDirectories: options.girDirectories,
-            ignore: options.ignore,
-            modules: options.modules,
-            noNamespace: options.noNamespace,
-            noComments: options.noComments,
-            noDebugComments: options.noDebugComments,
-            fixConflicts: options.fixConflicts,
-            promisify: options.promisify,
-            npmScope: options.npmScope,
-            packageYarn: options.packageYarn,
+            ...options,
         }
 
         if (configFileData) {
@@ -376,20 +371,6 @@ export class Config {
             ) {
                 config.noComments = configFileData.noComments
             }
-            // noDebugComments
-            if (
-                config.noDebugComments === Config.options.noDebugComments.default &&
-                typeof configFileData.noDebugComments === 'boolean'
-            ) {
-                config.noDebugComments = configFileData.noDebugComments
-            }
-            // fixConflicts
-            if (
-                config.fixConflicts === Config.options.fixConflicts.default &&
-                typeof configFileData.fixConflicts === 'boolean'
-            ) {
-                config.fixConflicts = configFileData.fixConflicts
-            }
             // promisify
             if (
                 config.promisify === Config.options.promisify.default &&
@@ -401,12 +382,37 @@ export class Config {
             if (config.npmScope === Config.options.npmScope.default && configFileData.npmScope) {
                 config.npmScope = configFileData.npmScope
             }
-            // packageYarn
+            // workspace
             if (
-                config.packageYarn === Config.options.packageYarn.default &&
-                typeof configFileData.packageYarn === 'boolean'
+                config.workspace === Config.options.workspace.default &&
+                typeof configFileData.workspace === 'boolean'
             ) {
-                config.packageYarn = configFileData.packageYarn
+                config.workspace = configFileData.workspace
+            }
+            // onlyVersionPrefix
+            if (
+                config.onlyVersionPrefix === Config.options.onlyVersionPrefix.default &&
+                typeof configFileData.onlyVersionPrefix === 'boolean'
+            ) {
+                config.onlyVersionPrefix = configFileData.onlyVersionPrefix
+            }
+            // noPrettyPrint
+            if (
+                config.noPrettyPrint === Config.options.noPrettyPrint.default &&
+                typeof configFileData.noPrettyPrint === 'boolean'
+            ) {
+                config.noPrettyPrint = configFileData.noPrettyPrint
+            }
+            // noAdvancedVariants
+            if (
+                config.noAdvancedVariants === Config.options.noAdvancedVariants.default &&
+                typeof configFileData.noAdvancedVariants === 'boolean'
+            ) {
+                config.noAdvancedVariants = configFileData.noAdvancedVariants
+            }
+            // package
+            if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
+                config.package = configFileData.package
             }
         }
 

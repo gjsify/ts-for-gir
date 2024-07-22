@@ -1,0 +1,17 @@
+{
+    "name": "@ts-for-gir-test/types-locally",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "clear": "rm -rf @types",
+        "test": "yarn clear && yarn generate:types && yarn validate:types && yarn build",
+        "generate:types": "ts-for-gir generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
+        "validate:types": "tsc --project tsconfig.json --noEmit",
+        "build": "yarn node esbuild.js"
+    },
+    "devDependencies": {
+        "@ts-for-gir/cli": "workspace:^",
+        "esbuild": "^0.23.0",
+        "typescript": "^5.5.3"
+    }
+}

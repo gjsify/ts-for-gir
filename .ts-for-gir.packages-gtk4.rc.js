@@ -1,6 +1,6 @@
-import allPackagesConfig from './.ts-for-gir.packages-all.rc.js';
+import gtk4PackagesConfig from './.ts-for-gir.gtk4.rc.js';
 
 export default {
-    ...allPackagesConfig,
-    modules: ['Gtk-4.0', 'Adw-1.0']
+    ...gtk4PackagesConfig,
+    package: true,
 }

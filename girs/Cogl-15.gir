@@ -1968,6 +1968,42 @@ for any state objects that are allocated.</doc>
           </parameter>
         </parameters>
       </constructor>
+      <method name="flush" c:identifier="cogl_context_flush">
+        <doc xml:space="preserve"
+             filename="cogl/cogl/cogl-context.h"
+             line="348">This function should only need to be called in exceptional circumstances.
+
+As an optimization Cogl drawing functions may batch up primitives
+internally, so if you are trying to use raw GL outside of Cogl you stand a
+better chance of being successful if you ask Cogl to flush any batched
+geometry before making your state changes.
+
+It only ensure that the underlying driver is issued all the commands
+necessary to draw the batched primitives. It provides no guarantees about
+when the driver will complete the rendering.
+
+This provides no guarantees about the GL state upon returning and to avoid
+confusing Cogl you should aim to restore any changes you make before
+resuming use of Cogl.
+
+If you are making state changes with the intention of affecting Cogl drawing
+primitives you are 100% on your own since you stand a good chance of
+conflicting with Cogl internals. For example clutter-gst which currently
+uses direct GL calls to bind ARBfp programs will very likely break when Cogl
+starts to use ARBfb programs itself for the material API.</doc>
+        <source-position filename="cogl/cogl/cogl-context.h" line="374"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-context.h"
+                 line="350">A #CoglContext</doc>
+            <type name="Context" c:type="CoglContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="free_timestamp_query"
               c:identifier="cogl_context_free_timestamp_query">
         <source-position filename="cogl/cogl/cogl-context.h" line="312"/>
@@ -2110,6 +2146,21 @@ internally.</doc>
                  line="137">A #CoglContext pointer</doc>
             <type name="Context" c:type="CoglContext*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_winsys_feature"
+              c:identifier="cogl_context_has_winsys_feature">
+        <source-position filename="cogl/cogl/cogl-context.h" line="346"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="Context" c:type="CoglContext*"/>
+          </instance-parameter>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="WinsysFeature" c:type="CoglWinsysFeature"/>
+          </parameter>
         </parameters>
       </method>
       <method name="is_hardware_accelerated"
@@ -11086,36 +11137,6 @@ the number of vertices to read when drawing.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="texture_set_auto_mipmap"
-                c:identifier="cogl_primitive_texture_set_auto_mipmap">
-        <doc xml:space="preserve"
-             filename="cogl/cogl/cogl-primitive-texture.h"
-             line="41">Sets whether the texture will automatically update the smaller
-mipmap levels after any part of level 0 is updated. The update will
-only occur whenever the texture is used for drawing with a texture
-filter that requires the lower mipmap levels. An application should
-disable this if it wants to upload its own data for the other
-levels. By default auto mipmapping is enabled.</doc>
-        <source-position filename="cogl/cogl/cogl-primitive-texture.h"
-                         line="54"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="primitive_texture" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="cogl/cogl/cogl-primitive-texture.h"
-                 line="43">A #CoglPrimitiveTexture</doc>
-            <type name="Texture" c:type="CoglTexture*"/>
-          </parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="cogl/cogl/cogl-primitive-texture.h"
-                 line="44">The new value for whether to auto mipmap</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </function>
       <method name="copy" c:identifier="cogl_primitive_copy">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-primitive.h"
@@ -12009,6 +12030,40 @@ This may only be called on a connected #CoglRenderer.</doc>
                  line="258">A connected #CoglRenderer</doc>
             <type name="Renderer" c:type="CoglRenderer*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_proc_address"
+              c:identifier="cogl_renderer_get_proc_address">
+        <doc xml:space="preserve"
+             filename="cogl/cogl/cogl-renderer.h"
+             line="314">Gets a pointer to a given GL or GL ES extension function. This acts
+as a wrapper around glXGetProcAddress() or whatever is the
+appropriate function for the current backend.
+
+This function should not be used to query core opengl API
+symbols since eglGetProcAddress for example doesn't allow this and
+and may return a junk pointer if you do.</doc>
+        <source-position filename="cogl/cogl/cogl-renderer.h" line="331"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="cogl/cogl/cogl-renderer.h"
+               line="327">a pointer to the requested function or %NULL if the
+  function is not available.</doc>
+          <type name="gpointer" c:type="void*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="renderer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-renderer.h"
+                 line="316">A #CoglRenderer.</doc>
+            <type name="Renderer" c:type="CoglRenderer*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-renderer.h"
+                 line="317">the name of the function.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_winsys_id" c:identifier="cogl_renderer_get_winsys_id">
@@ -13978,6 +14033,35 @@ objects).</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="set_auto_mipmap"
+              c:identifier="cogl_texture_set_auto_mipmap">
+        <doc xml:space="preserve"
+             filename="cogl/cogl/cogl-texture.h"
+             line="458">Sets whether the texture will automatically update the smaller
+mipmap levels after any part of level 0 is updated. The update will
+only occur whenever the texture is used for drawing with a texture
+filter that requires the lower mipmap levels. An application should
+disable this if it wants to upload its own data for the other
+levels. By default auto mipmapping is enabled.</doc>
+        <source-position filename="cogl/cogl/cogl-texture.h" line="471"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-texture.h"
+                 line="460">A #CoglTexture</doc>
+            <type name="Texture" c:type="CoglTexture*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cogl/cogl/cogl-texture.h"
+                 line="461">The new value for whether to auto mipmap</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="set_components" c:identifier="cogl_texture_set_components">
         <doc xml:space="preserve"
              filename="cogl/cogl/cogl-texture.h"
@@ -15482,19 +15566,6 @@ COGL_SYSTEM_ERROR will be created.</doc>
         </parameter>
       </parameters>
     </function>
-    <function name="clutter_winsys_has_feature"
-              c:identifier="cogl_clutter_winsys_has_feature">
-      <source-position filename="cogl/cogl/deprecated/cogl-clutter.h"
-                       line="39"/>
-      <return-value transfer-ownership="none">
-        <type name="gboolean" c:type="gboolean"/>
-      </return-value>
-      <parameters>
-        <parameter name="feature" transfer-ownership="none">
-          <type name="WinsysFeature" c:type="CoglWinsysFeature"/>
-        </parameter>
-      </parameters>
-    </function>
     <function name="color_equal"
               c:identifier="cogl_color_equal"
               moved-to="Color.equal">
@@ -15721,34 +15792,6 @@ source code to be used on it.</doc>
         </parameter>
       </parameters>
     </function>
-    <function name="flush" c:identifier="cogl_flush">
-      <doc xml:space="preserve"
-           filename="cogl/cogl/cogl1-context.h"
-           line="65">This function should only need to be called in exceptional circumstances.
-
-As an optimization Cogl drawing functions may batch up primitives
-internally, so if you are trying to use raw GL outside of Cogl you stand a
-better chance of being successful if you ask Cogl to flush any batched
-geometry before making your state changes.
-
-It only ensure that the underlying driver is issued all the commands
-necessary to draw the batched primitives. It provides no guarantees about
-when the driver will complete the rendering.
-
-This provides no guarantees about the GL state upon returning and to avoid
-confusing Cogl you should aim to restore any changes you make before
-resuming use of Cogl.
-
-If you are making state changes with the intention of affecting Cogl drawing
-primitives you are 100% on your own since you stand a good chance of
-conflicting with Cogl internals. For example clutter-gst which currently
-uses direct GL calls to bind ARBfp programs will very likely break when Cogl
-starts to use ARBfb programs itself for the material API.</doc>
-      <source-position filename="cogl/cogl/cogl1-context.h" line="90"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-    </function>
     <function name="get_graphics_reset_status"
               c:identifier="cogl_get_graphics_reset_status">
       <doc xml:space="preserve"
@@ -15776,35 +15819,6 @@ cogl_xlib_renderer_request_reset_on_video_memory_purge().</doc>
                filename="cogl/cogl/cogl-context.h"
                line="246">a #CoglContext pointer</doc>
           <type name="Context" c:type="CoglContext*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="get_proc_address"
-              c:identifier="cogl_get_proc_address"
-              introspectable="0">
-      <doc xml:space="preserve"
-           filename="cogl/cogl/cogl1-context.h"
-           line="47">Gets a pointer to a given GL or GL ES extension function. This acts
-as a wrapper around glXGetProcAddress() or whatever is the
-appropriate function for the current backend.
-
-This function should not be used to query core opengl API
-symbols since eglGetProcAddress for example doesn't allow this and
-and may return a junk pointer if you do.</doc>
-      <source-position filename="cogl/cogl/cogl1-context.h" line="63"/>
-      <return-value>
-        <doc xml:space="preserve"
-             filename="cogl/cogl/cogl1-context.h"
-             line="59">a pointer to the requested function or %NULL if the
-  function is not available.</doc>
-        <type name="GObject.Callback" c:type="GCallback"/>
-      </return-value>
-      <parameters>
-        <parameter name="name" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="cogl/cogl/cogl1-context.h"
-               line="49">the name of the function.</doc>
-          <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
     </function>

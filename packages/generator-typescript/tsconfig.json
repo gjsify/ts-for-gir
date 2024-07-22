@@ -21,6 +21,6 @@
     "lib",
     "node_modules",
     "**/*.spec.ts",
-    "templates"
+    "templates/"
   ]
 }

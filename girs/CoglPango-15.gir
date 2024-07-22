@@ -182,6 +182,11 @@ glyph-cache textures which can lead to undefined rendering results.</doc>
              line="73">the newly created #PangoFontMap</doc>
         <type name="Pango.FontMap" c:type="PangoFontMap*"/>
       </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <type name="Cogl.Context" c:type="CoglContext*"/>
+        </parameter>
+      </parameters>
     </function>
     <function name="font_map_set_resolution"
               c:identifier="cogl_pango_font_map_set_resolution">

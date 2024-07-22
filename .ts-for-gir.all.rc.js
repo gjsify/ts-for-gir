@@ -17,7 +17,7 @@ export default {
     ],
     ignoreVersionConflicts: true,
     promisify: true,
-    packageYarn: true,
+    workspace: true,
     ignore: [
         '*/Colorhug-1.0', // Duplicate of ColorHug-1.0
         '*/GUPnP-DLNA-1.0', // Same namespace as GUPnP-1.0.gir, is this a bug or should we merge the type definitions?

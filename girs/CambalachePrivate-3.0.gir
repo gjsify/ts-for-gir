@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="3.0"/>
+  <c:include name="cmb_private.h"/>
+  <namespace name="CambalachePrivate"
+             version="3.0"
+             shared-library="libcambalacheprivate-3.so"
+             c:identifier-prefixes="CmbPrivate"
+             c:symbol-prefixes="cmb_private">
+    <function name="builder_init" c:identifier="cmb_private_builder_init">
+      <source-position filename="cambalache/private/cmb_private.h" line="45"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="container_child_set_property_from_string"
+              c:identifier="cmb_private_container_child_set_property_from_string">
+      <source-position filename="cambalache/private/cmb_private.h" line="39"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="container" transfer-ownership="none">
+          <type name="Gtk.Container" c:type="GtkContainer*"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="property_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="object_set_property_from_string"
+              c:identifier="cmb_private_object_set_property_from_string">
+      <source-position filename="cambalache/private/cmb_private.h" line="50"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="property_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

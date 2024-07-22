@@ -101,7 +101,7 @@ is the same as or newer than the passed-in version.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="10"
+              value="11"
               c:type="UHM_MINOR_VERSION"
               version="0.1.0">
       <doc xml:space="preserve"
@@ -500,12 +500,12 @@ is the same as or newer than the passed-in version.</doc>
       <constructor name="new" c:identifier="uhm_server_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="690">Creates a new #UhmServer with default properties.</doc>
+             line="729">Creates a new #UhmServer with default properties.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="695">a new #UhmServer; unref with g_object_unref()</doc>
+               line="734">a new #UhmServer; unref with g_object_unref()</doc>
           <type name="Server" c:type="UhmServer*"/>
         </return-value>
       </constructor>
@@ -519,7 +519,7 @@ is the same as or newer than the passed-in version.</doc>
                 version="0.3.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1907">Convenience version of uhm_server_received_message_chunk() which can be passed directly to soup_logger_set_printer()
+             line="2011">Convenience version of uhm_server_received_message_chunk() which can be passed directly to soup_logger_set_printer()
 to forward all libsoup traffic logging to a #UhmServer. The #UhmServer must be passed to soup_logger_set_printer() as
 its user data.
 
@@ -546,25 +546,25 @@ g_object_unref (logger);
           <parameter name="logger" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1909">a #SoupLogger</doc>
+                 line="2013">a #SoupLogger</doc>
             <type name="Soup.Logger" c:type="SoupLogger*"/>
           </parameter>
           <parameter name="level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1910">the detail level of this log message</doc>
+                 line="2014">the detail level of this log message</doc>
             <type name="Soup.LoggerLogLevel" c:type="SoupLoggerLogLevel"/>
           </parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1911">the transmission direction of the message</doc>
+                 line="2015">the transmission direction of the message</doc>
             <type name="gchar" c:type="char"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1912">message data</doc>
+                 line="2016">message data</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="user_data"
@@ -573,12 +573,17 @@ g_object_unref (logger);
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1913">user data passed to the #SoupLogger, or %NULL</doc>
+                 line="2017">user data passed to the #SoupLogger, or %NULL</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </function>
       <virtual-method name="compare_messages">
+        <doc xml:space="preserve"
+             filename="libuhttpmock/uhm-server.h"
+             line="74">Class handler for the #UhmServer::compare-messages signal. Subclasses may implement this to override
+the default handler for the signal. The handler should return %TRUE if @expected_message and @actual_message compare
+equal, and %FALSE otherwise.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -596,6 +601,11 @@ g_object_unref (logger);
         </parameters>
       </virtual-method>
       <virtual-method name="handle_message">
+        <doc xml:space="preserve"
+             filename="libuhttpmock/uhm-server.h"
+             line="71">Class handler for the #UhmServer::handle-message signal. Subclasses may implement this to override the
+default handler for the signal. The default handler should always return %TRUE to indicate that it has handled
+the @message from @client by setting an appropriate response on the #SoupServerMessage.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -614,7 +624,7 @@ g_object_unref (logger);
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2266">Remove a #UhmServer:compare-messages filter function installed previously by
+             line="2370">Remove a #UhmServer:compare-messages filter function installed previously by
 calling something like uhm_server_filter_ignore_parameter_values().
 
 It is an error to call this function with an invalid @filter_id.</doc>
@@ -626,13 +636,13 @@ It is an error to call this function with an invalid @filter_id.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2268">a #UhmServer</doc>
+                 line="2372">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="filter_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2269">filter ID returned by the filter addition function</doc>
+                 line="2373">filter ID returned by the filter addition function</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
         </parameters>
@@ -642,7 +652,7 @@ It is an error to call this function with an invalid @filter_id.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1607">Convenience function to finish logging to or reading from a trace file previously passed to uhm_server_start_trace() or
+             line="1697">Convenience function to finish logging to or reading from a trace file previously passed to uhm_server_start_trace() or
 uhm_server_start_trace_full().
 
 If #UhmServer:enable-online is %FALSE, this will shut down the mock server (as if uhm_server_stop() had been called).</doc>
@@ -654,7 +664,7 @@ If #UhmServer:enable-online is %FALSE, this will shut down the mock server (as i
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1609">a #UhmServer</doc>
+                 line="1699">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -664,7 +674,7 @@ If #UhmServer:enable-online is %FALSE, this will shut down the mock server (as i
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2228">Install a #UhmServer:compare-messages filter function which will override the
+             line="2332">Install a #UhmServer:compare-messages filter function which will override the
 default comparison function to one which ignores differences in the values of
 the given query @parameter_names. The named parameters must still be present
 in the query, however.
@@ -679,7 +689,7 @@ used. This may change in future.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="2246">opaque filter ID used with
+               line="2350">opaque filter ID used with
    uhm_server_compare_messages_remove_filter() to remove the filter later</doc>
           <type name="gulong" c:type="gulong"/>
         </return-value>
@@ -687,13 +697,13 @@ used. This may change in future.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2230">a #UhmServer</doc>
+                 line="2334">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="parameter_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2231">%NULL-terminated array of
+                 line="2335">%NULL-terminated array of
    parameter names to ignore</doc>
             <array c:type="const gchar* const*">
               <type name="utf8" c:type="gchar*"/>
@@ -707,19 +717,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1945">Gets the value of the #UhmServer:address property.</doc>
+             line="2049">Gets the value of the #UhmServer:address property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="120"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1951">the physical address of the listening socket the server is currently bound to; or %NULL if the server is not running</doc>
+               line="2055">the physical address of the listening socket the server is currently bound to; or %NULL if the server is not running</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1947">a #UhmServer</doc>
+                 line="2051">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -730,19 +740,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1672">Gets the value of the #UhmServer:enable-logging property.</doc>
+             line="1763">Gets the value of the #UhmServer:enable-logging property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1678">%TRUE if client network traffic is being logged to a trace file; %FALSE otherwise</doc>
+               line="1769">%TRUE if client network traffic is being logged to a trace file; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1674">a #UhmServer</doc>
+                 line="1765">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -753,19 +763,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1636">Gets the value of the #UhmServer:enable-online property.</doc>
+             line="1727">Gets the value of the #UhmServer:enable-online property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1642">%TRUE if the server does not intercept and handle network connections from client code; %FALSE otherwise</doc>
+               line="1733">%TRUE if the server does not intercept and handle network connections from client code; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1638">a #UhmServer</doc>
+                 line="1729">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -776,19 +786,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1972">Gets the value of the #UhmServer:port property.</doc>
+             line="2076">Gets the value of the #UhmServer:port property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1978">the port of the listening socket the server is currently bound to; or &lt;code class="literal"&gt;0&lt;/code&gt; if the server is not running</doc>
+               line="2082">the port of the listening socket the server is currently bound to; or &lt;code class="literal"&gt;0&lt;/code&gt; if the server is not running</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1974">a #UhmServer</doc>
+                 line="2078">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -799,19 +809,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1990">Gets the value of the #UhmServer:resolver property.</doc>
+             line="2094">Gets the value of the #UhmServer:resolver property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="123"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1996">the mock resolver in use by the mock server, or %NULL if no resolver is active</doc>
+               line="2100">the mock resolver in use by the mock server, or %NULL if no resolver is active</doc>
           <type name="Resolver" c:type="UhmResolver*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1992">a #UhmServer</doc>
+                 line="2096">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -822,19 +832,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2008">Gets the value of the #UhmServer:tls-certificate property.</doc>
+             line="2112">Gets the value of the #UhmServer:tls-certificate property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="125"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="2014">the server's current TLS certificate; or %NULL if it's serving HTTP only</doc>
+               line="2118">the server's current TLS certificate; or %NULL if it's serving HTTP only</doc>
           <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2010">a #UhmServer</doc>
+                 line="2114">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -845,19 +855,19 @@ used. This may change in future.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1438">Gets the value of the #UhmServer:trace-directory property.</doc>
+             line="1514">Gets the value of the #UhmServer:trace-directory property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="103"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="1444">the directory to load/store trace files from, or %NULL</doc>
+               line="1520">the directory to load/store trace files from, or %NULL</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1440">a #UhmServer</doc>
+                 line="1516">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -865,10 +875,11 @@ used. This may change in future.</doc>
       <method name="load_trace"
               c:identifier="uhm_server_load_trace"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="load_trace_async">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1124">Synchronously loads the given @trace_file of network messages, ready to simulate a network conversation by matching
+             line="1169">Synchronously loads the given @trace_file of network messages, ready to simulate a network conversation by matching
 requests against the file and returning the associated responses. Call uhm_server_run() to start the mock
 server afterwards.
 
@@ -884,13 +895,13 @@ a problem reading the trace file.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1126">a #UhmServer</doc>
+                 line="1171">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="trace_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1127">trace file to load</doc>
+                 line="1172">trace file to load</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -899,17 +910,19 @@ a problem reading the trace file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1128">a #GCancellable, or %NULL</doc>
+                 line="1173">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </method>
       <method name="load_trace_async"
               c:identifier="uhm_server_load_trace_async"
-              version="0.1.0">
+              version="0.1.0"
+              glib:finish-func="load_trace_finish"
+              glib:sync-func="load_trace">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1217">Asynchronous version of uhm_server_load_trace(). In @callback, call uhm_server_load_trace_finish() to complete the operation.</doc>
+             line="1293">Asynchronous version of uhm_server_load_trace(). In @callback, call uhm_server_load_trace_finish() to complete the operation.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -918,13 +931,13 @@ a problem reading the trace file.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1219">a #UhmServer</doc>
+                 line="1295">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="trace_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1220">trace file to load</doc>
+                 line="1296">trace file to load</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -933,7 +946,7 @@ a problem reading the trace file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1221">a #GCancellable, or %NULL</doc>
+                 line="1297">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -944,7 +957,7 @@ a problem reading the trace file.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1222">function to call once the async operation is complete</doc>
+                 line="1298">function to call once the async operation is complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -953,7 +966,7 @@ a problem reading the trace file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1223">user data to pass to @callback, or %NULL</doc>
+                 line="1299">user data to pass to @callback, or %NULL</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -964,7 +977,7 @@ a problem reading the trace file.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1253">Finishes an asynchronous operation started by uhm_server_load_trace_async().
+             line="1329">Finishes an asynchronous operation started by uhm_server_load_trace_async().
 
 On error, @error will be set and the state of the #UhmServer will not change.
 See uhm_server_load_trace() for details on the error domains used.</doc>
@@ -976,13 +989,13 @@ See uhm_server_load_trace() for details on the error domains used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1255">a #UhmServer</doc>
+                 line="1331">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1256">asynchronous operation result passed to the callback</doc>
+                 line="1332">asynchronous operation result passed to the callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -993,7 +1006,7 @@ See uhm_server_load_trace() for details on the error domains used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1708">Indicates to the mock server that a single new line of a message was received from the real server. The message line may be
+             line="1799">Indicates to the mock server that a single new line of a message was received from the real server. The message line may be
 appended to the current trace file if logging is enabled (#UhmServer:enable-logging is %TRUE), adding a newline character
 at the end. If logging is disabled but online mode is enabled (#UhmServer:enable-online is %TRUE), the message line will
 be compared to the next expected line in the existing trace file. Otherwise, this function is a no-op.
@@ -1014,19 +1027,19 @@ it directly to soup_logger_set_printer(). See the documentation for uhm_server_r
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1710">a #UhmServer</doc>
+                 line="1801">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="message_chunk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1711">single line of a message which was received</doc>
+                 line="1802">single line of a message which was received</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="message_chunk_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1712">length of @message_chunk in bytes</doc>
+                 line="1803">length of @message_chunk in bytes</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
         </parameters>
@@ -1037,7 +1050,7 @@ it directly to soup_logger_set_printer(). See the documentation for uhm_server_r
               throws="1">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1852">Convenience version of uhm_server_received_message_chunk() which takes the
+             line="1956">Convenience version of uhm_server_received_message_chunk() which takes the
 message @direction and @data separately, as provided by libsoup in a
 #SoupLoggerPrinter callback.
 
@@ -1072,25 +1085,25 @@ g_object_unref (logger);
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1854">a #UhmServer</doc>
+                 line="1958">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1855">single character indicating the direction of message transmission</doc>
+                 line="1959">single character indicating the direction of message transmission</doc>
             <type name="gchar" c:type="char"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1856">single line of a message which was received</doc>
+                 line="1960">single line of a message which was received</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="data_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1857">length of @data in bytes</doc>
+                 line="1961">length of @data in bytes</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
         </parameters>
@@ -1098,7 +1111,7 @@ g_object_unref (logger);
       <method name="run" c:identifier="uhm_server_run" version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1308">Runs the mock server, binding to a loopback TCP/IP interface and preparing a HTTPS server which is ready to accept requests.
+             line="1384">Runs the mock server, binding to a loopback TCP/IP interface and preparing a HTTPS server which is ready to accept requests.
 The TCP/IP address and port number are chosen randomly out of the loopback addresses, and are exposed as #UhmServer:address and #UhmServer:port
 once this function has returned. A #UhmResolver (exposed as #UhmServer:resolver) is set as the default #GResolver while the server is running.
 
@@ -1114,7 +1127,7 @@ This function always succeeds.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1310">a #UhmServer</doc>
+                 line="1386">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -1124,7 +1137,7 @@ This function always succeeds.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2054">Sets the value of the #UhmServer:tls-certificate property to the default TLS certificate built in to libuhttpmock.
+             line="2158">Sets the value of the #UhmServer:tls-certificate property to the default TLS certificate built in to libuhttpmock.
 This default certificate is not signed by any certificate authority, and contains minimal metadata details. It may
 be used by clients which have no special certificate requirements; clients which have special requirements should
 construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificate().</doc>
@@ -1132,14 +1145,14 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libuhttpmock/uhm-server.c"
-               line="2063">the default certificate set as #UhmServer:tls-certificate</doc>
+               line="2167">the default certificate set as #UhmServer:tls-certificate</doc>
           <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2056">a #UhmServer</doc>
+                 line="2160">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -1150,7 +1163,7 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1690">Sets the value of the #UhmServer:enable-logging property.</doc>
+             line="1781">Sets the value of the #UhmServer:enable-logging property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1159,13 +1172,13 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1692">a #UhmServer</doc>
+                 line="1783">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="enable_logging" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1693">%TRUE to log client network traffic to a trace file; %FALSE otherwise</doc>
+                 line="1784">%TRUE to log client network traffic to a trace file; %FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1176,7 +1189,7 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1654">Sets the value of the #UhmServer:enable-online property.</doc>
+             line="1745">Sets the value of the #UhmServer:enable-online property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1185,13 +1198,13 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1656">a #UhmServer</doc>
+                 line="1747">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="enable_online" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1657">%TRUE to not intercept and handle network connections from client code; %FALSE otherwise</doc>
+                 line="1748">%TRUE to not intercept and handle network connections from client code; %FALSE otherwise</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1201,7 +1214,7 @@ construct a custom #GTlsCertificate and pass it to uhm_server_set_tls_certificat
               version="0.3.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2111">Set the domain names which are expected to have requests made of them by the client code interacting with this #UhmServer.
+             line="2215">Set the domain names which are expected to have requests made of them by the client code interacting with this #UhmServer.
 This is a convenience method which calls uhm_resolver_add_A() on the server’s #UhmResolver for each of the domain names
 listed in @domain_names. It associates them with the server’s current IP address, and automatically updates the mappings
 if the IP address or resolver change.
@@ -1218,7 +1231,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2113">a #UhmServer</doc>
+                 line="2217">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="domain_names"
@@ -1227,7 +1240,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2114">%NULL-terminated array of domain names to expect, or %NULL to not expect any</doc>
+                 line="2218">%NULL-terminated array of domain names to expect, or %NULL to not expect any</doc>
             <array c:type="const gchar* const*">
               <type name="utf8"/>
             </array>
@@ -1240,7 +1253,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="2026">Sets the value of the #UhmServer:tls-certificate property.</doc>
+             line="2130">Sets the value of the #UhmServer:tls-certificate property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1249,7 +1262,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2028">a #UhmServer</doc>
+                 line="2132">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="tls_certificate"
@@ -1258,7 +1271,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="2029">TLS certificate for the server to use; or %NULL to serve HTTP only</doc>
+                 line="2133">TLS certificate for the server to use; or %NULL to serve HTTP only</doc>
             <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
           </parameter>
         </parameters>
@@ -1269,7 +1282,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1456">Sets the value of the #UhmServer:trace-directory property.</doc>
+             line="1532">Sets the value of the #UhmServer:trace-directory property.</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1278,7 +1291,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1458">a #UhmServer</doc>
+                 line="1534">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="trace_directory"
@@ -1287,7 +1300,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1459">a directory to load/store trace files from, or %NULL to unset it</doc>
+                 line="1535">a directory to load/store trace files from, or %NULL to unset it</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1298,7 +1311,7 @@ that signal is emitted after the resolver is cleared and these @domain_names are
               throws="1">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1480">Starts a mock server which follows the trace file of filename @trace_name in the #UhmServer:trace-directory directory.
+             line="1556">Starts a mock server which follows the trace file of filename @trace_name in the #UhmServer:trace-directory directory.
 See uhm_server_start_trace_full() for further documentation.
 
 This function has undefined behaviour if #UhmServer:trace-directory is %NULL.
@@ -1313,13 +1326,13 @@ details of the error domains used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1482">a #UhmServer</doc>
+                 line="1558">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="trace_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1483">name of the trace</doc>
+                 line="1559">name of the trace</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1330,7 +1343,7 @@ details of the error domains used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1512">Convenience function to start logging to or reading from the given @trace_file, depending on the values of #UhmServer:enable-logging and
+             line="1588">Convenience function to start logging to or reading from the given @trace_file, depending on the values of #UhmServer:enable-logging and
 #UhmServer:enable-online.
 
 If #UhmServer:enable-logging is %TRUE, a log handler will be set up to redirect all client network activity into the given @trace_file.
@@ -1350,13 +1363,13 @@ reading from the trace file.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1514">a #UhmServer</doc>
+                 line="1590">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
           <parameter name="trace_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1515">a trace file to load</doc>
+                 line="1591">a trace file to load</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1364,7 +1377,7 @@ reading from the trace file.</doc>
       <method name="stop" c:identifier="uhm_server_stop" version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1385">Stops a mock server started by calling uhm_server_run(). This shuts down the server's worker thread and unbinds it from its TCP/IP socket.
+             line="1461">Stops a mock server started by calling uhm_server_run(). This shuts down the server's worker thread and unbinds it from its TCP/IP socket.
 
 This unloads any trace file loaded by calling uhm_server_load_trace() (or its asynchronous counterpart). It also resets the set of domain
 names loaded into the #UhmServer:resolver.
@@ -1378,7 +1391,7 @@ This function always succeeds.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1387">a #UhmServer</doc>
+                 line="1463">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -1388,7 +1401,7 @@ This function always succeeds.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="1101">Unloads the current trace file of network messages, as loaded by uhm_server_load_trace() or uhm_server_load_trace_async().</doc>
+             line="1146">Unloads the current trace file of network messages, as loaded by uhm_server_load_trace() or uhm_server_load_trace_async().</doc>
         <source-position filename="libuhttpmock/uhm-server.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1397,7 +1410,7 @@ This function always succeeds.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="1103">a #UhmServer</doc>
+                 line="1148">a #UhmServer</doc>
             <type name="Server" c:type="UhmServer*"/>
           </instance-parameter>
         </parameters>
@@ -1409,7 +1422,7 @@ This function always succeeds.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="208">Address of the local mock server if it's running, or %NULL otherwise. This will be non-%NULL between calls to uhm_server_run() and
+             line="217">Address of the local mock server if it's running, or %NULL otherwise. This will be non-%NULL between calls to uhm_server_run() and
 uhm_server_stop(). The address is a physical IP address, e.g. &lt;code class="literal"&gt;127.0.0.1&lt;/code&gt;.
 
 This should not normally need to be passed into client code under test, unless the code references IP addresses specifically. The mock server
@@ -1425,7 +1438,7 @@ runs a DNS resolver which automatically redirects client requests for known doma
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="193">%TRUE if network traffic should be logged to a trace file (specified by calling uhm_server_start_trace()). This operates independently
+             line="202">%TRUE if network traffic should be logged to a trace file (specified by calling uhm_server_start_trace()). This operates independently
 of whether traffic is online or being handled locally by the mock server.
 Use this in conjunction with #UhmServer:enable-online to either log online traffic, or replay logged traffic locally.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -1439,7 +1452,7 @@ Use this in conjunction with #UhmServer:enable-online to either log online traff
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="179">%TRUE if network traffic should reach the Internet as normal; %FALSE to redirect it to the local mock server.
+             line="188">%TRUE if network traffic should reach the Internet as normal; %FALSE to redirect it to the local mock server.
 Use this in conjunction with #UhmServer:enable-logging to either log online traffic, or replay logged traffic locally.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -1450,7 +1463,7 @@ Use this in conjunction with #UhmServer:enable-logging to either log online traf
                 default-value="0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="225">Port of the local mock server if it's running, or &lt;code class="literal"&gt;0&lt;/code&gt; otherwise. This will be non-&lt;code class="literal"&gt;0&lt;/code&gt; between
+             line="234">Port of the local mock server if it's running, or &lt;code class="literal"&gt;0&lt;/code&gt; otherwise. This will be non-&lt;code class="literal"&gt;0&lt;/code&gt; between
 calls to uhm_server_run() and uhm_server_stop().
 
 It is intended that this port be passed into the client code under test, to substitute for the default HTTPS port (443) which it would otherwise
@@ -1463,7 +1476,7 @@ use.</doc>
                 getter="get_resolver">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="242">Mock resolver used to redirect HTTP requests from specified domain names to the local mock server instance. This will always be set while the
+             line="251">Mock resolver used to redirect HTTP requests from specified domain names to the local mock server instance. This will always be set while the
 server is running (between calls to uhm_server_run() and uhm_server_stop()), and is %NULL otherwise.
 
 Use the resolver specified in this property to add domain names which are expected to be requested by the current trace. Domain names not added
@@ -1479,7 +1492,7 @@ called.</doc>
                 getter="get_tls_certificate">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="260">TLS certificate for the mock server to use when serving HTTPS pages. If this is non-%NULL, the server will always use HTTPS. If it is %NULL,
+             line="269">TLS certificate for the mock server to use when serving HTTPS pages. If this is non-%NULL, the server will always use HTTPS. If it is %NULL,
 the server will always use HTTP. The TLS certificate may be changed after constructing the #UhmServer, but changes to the property will not
 take effect until the next call to uhm_server_run().
 
@@ -1500,7 +1513,7 @@ requirements of the certificate used by the mock server it's tested against.</do
                 getter="get_trace_directory">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="165">Directory relative to which all trace files specified in calls to uhm_server_start_trace() will be resolved.
+             line="174">Directory relative to which all trace files specified in calls to uhm_server_start_trace() will be resolved.
 This is not used for any other methods, but must be non-%NULL if uhm_server_start_trace() is called.</doc>
         <type name="Gio.File"/>
       </property>
@@ -1513,7 +1526,7 @@ This is not used for any other methods, but must be non-%NULL if uhm_server_star
       <glib:signal name="compare-messages" when="last" version="1.0.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="303">Emitted whenever the mock server must compare two #UhmMessage&lt;!-- --&gt;s for equality; e.g. when in the testing or comparison modes.
+             line="312">Emitted whenever the mock server must compare two #UhmMessage&lt;!-- --&gt;s for equality; e.g. when in the testing or comparison modes.
 Test code may connect to this signal and implement a handler which checks custom properties of the messages. The default handler compares
 the URI and method of the messages, but no headers and not the message bodies.
 
@@ -1526,13 +1539,13 @@ this signal is emitted wins.</doc>
           <parameter name="expected_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="306">a message containing the expected HTTP(S) message provided by #UhmServer::handle-message</doc>
+                 line="315">a message containing the expected HTTP(S) message provided by #UhmServer::handle-message</doc>
             <type name="Message"/>
           </parameter>
           <parameter name="actual_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="307">a message containing the incoming HTTP(S) request</doc>
+                 line="316">a message containing the incoming HTTP(S) request</doc>
             <type name="Message"/>
           </parameter>
         </parameters>
@@ -1540,7 +1553,7 @@ this signal is emitted wins.</doc>
       <glib:signal name="handle-message" when="last" version="0.1.0">
         <doc xml:space="preserve"
              filename="libuhttpmock/uhm-server.c"
-             line="283">Emitted whenever the mock server is running and receives a request from a client. Test code may connect to this signal and implement a handler
+             line="292">Emitted whenever the mock server is running and receives a request from a client. Test code may connect to this signal and implement a handler
 which builds and returns a suitable response for a given message. The default handler reads a request–response pair from the current trace file,
 matches the requests and then returns the given response. If the requests don't match, an error is raised.
 
@@ -1552,7 +1565,7 @@ Signal handlers should return %TRUE if they have handled the request and set an 
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libuhttpmock/uhm-server.c"
-                 line="286">a message containing the incoming HTTP(S) request, and which the outgoing HTTP(S) response should be set on</doc>
+                 line="295">a message containing the incoming HTTP(S) request, and which the outgoing HTTP(S) response should be set on</doc>
             <type name="Message"/>
           </parameter>
         </parameters>
@@ -1570,6 +1583,11 @@ Signal handlers should return %TRUE if they have handled the request and set an 
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="handle_message">
+        <doc xml:space="preserve"
+             filename="libuhttpmock/uhm-server.h"
+             line="71">Class handler for the #UhmServer::handle-message signal. Subclasses may implement this to override the
+default handler for the signal. The default handler should always return %TRUE to indicate that it has handled
+the @message from @client by setting an appropriate response on the #SoupServerMessage.</doc>
         <callback name="handle_message">
           <source-position filename="libuhttpmock/uhm-server.h" line="87"/>
           <return-value transfer-ownership="none">
@@ -1586,6 +1604,11 @@ Signal handlers should return %TRUE if they have handled the request and set an 
         </callback>
       </field>
       <field name="compare_messages">
+        <doc xml:space="preserve"
+             filename="libuhttpmock/uhm-server.h"
+             line="74">Class handler for the #UhmServer::compare-messages signal. Subclasses may implement this to override
+the default handler for the signal. The handler should return %TRUE if @expected_message and @actual_message compare
+equal, and %FALSE otherwise.</doc>
         <callback name="compare_messages">
           <source-position filename="libuhttpmock/uhm-server.h" line="88"/>
           <return-value transfer-ownership="none">
@@ -1652,7 +1675,12 @@ The server can operate in three modes: logging, testing, and comparing. These ar
  • Testing mode (#UhmServer:enable-logging: %FALSE, #UhmServer:enable-online: %FALSE): Requests are sent to the mock server, which responds
    from the trace file.
  • Comparing mode (#UhmServer:enable-logging: %FALSE, #UhmServer:enable-online: %TRUE): Requests are sent to the real server online, and
-   the request–response pairs are compared against those in an existing log file to see if the log file is up-to-date.</doc>
+   the request–response pairs are compared against those in an existing log file to see if the log file is up-to-date.
+
+Starting with version 0.11.0 hosts are automatically extracted and stored in hosts trace files. These files are
+used during replay so no host configuration using uhm_resolver_add_A() is necessary in code any more.
+Requires libsoup 3.5.1 or higher. If that version of libsoup is not available, uhm_resolver_add_A() must continue
+to be used.</doc>
     </docsection>
     <docsection name="uhm-version">
       <doc xml:space="preserve"

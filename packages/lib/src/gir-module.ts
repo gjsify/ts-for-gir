@@ -423,7 +423,7 @@ export class GirModule {
         const clazz = this.getClass(name)
 
         if (!clazz) {
-            throw new Error(`Class ${name} does not exist in namespace ${this.namespace}.`)
+            throw new Error(`[${this.packageName}] Class ${name} does not exist in namespace ${this.namespace}.`)
         }
 
         return clazz

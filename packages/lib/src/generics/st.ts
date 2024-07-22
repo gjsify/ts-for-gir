@@ -114,3 +114,5 @@ const stTemplate = (version: string) => ({
 export const st1 = stTemplate("1.0");
 export const st12 = stTemplate("12");
 export const st13 = stTemplate("13");
+export const st14 = stTemplate("14");
+export const st15 = stTemplate("15");

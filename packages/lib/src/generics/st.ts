@@ -22,7 +22,8 @@ const stTemplate = (version: string) => ({
 
         const Actor = Clutter.assertClass("Actor");
         const Content = Clutter.assertClass("Content");
-        const Container = Clutter.assertClass("Container");
+        // Container was removed in Clutter-14
+        const Container = Number(version) < 14 ? Clutter.assertClass("Container") : null;
         const LayoutManager = Clutter.assertClass("LayoutManager");
         const ClutterBoxLayout = Clutter.assertClass("BoxLayout");
 
@@ -50,16 +51,18 @@ const stTemplate = (version: string) => ({
             constraint: Content.getType()
         });
 
-        Container.addGeneric({
-            default: Actor.getType(),
-            constraint: Actor.getType()
-        });
+        if (Container) {
+            Container.addGeneric({
+                default: Actor.getType(),
+                constraint: Actor.getType()
+            });
 
-        StBoxLayout.addGeneric({
-            deriveFrom: Container.getType(),
-            default: Actor.getType(),
-            constraint: Actor.getType()
-        });
+            StBoxLayout.addGeneric({
+                deriveFrom: Container.getType(),
+                default: Actor.getType(),
+                constraint: Actor.getType()
+            });
+        }
 
         if (StBoxLayout.superType) {
             StBoxLayout.superType = new GenerifiedTypeIdentifier(

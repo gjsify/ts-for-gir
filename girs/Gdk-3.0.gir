@@ -24725,7 +24725,7 @@ See gdk_keymap_get_caps_lock_state().</doc>
       <source-position filename="gdk/gdkdevice.h" line="110"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="42" c:type="GDK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="43" c:type="GDK_MICRO_VERSION">
       <source-position filename="gdk/gdkversionmacros.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>

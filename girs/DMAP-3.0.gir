@@ -13,6 +13,118 @@ and/or use gtk-doc annotations.  -->
              shared-library="libdmapsharing-3.0.so.2"
              c:identifier-prefixes="DMAP"
              c:symbol-prefixes="dmap">
+    <function-macro name="CONNECTION"
+                    c:identifier="DMAP_CONNECTION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-connection.h"
+           line="45">Casts a #DMAPConnection or derived pointer into a (DMAPConnection *) pointer.
+Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-connection.h" line="53"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-connection.h"
+               line="47">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONNECTION_CLASS"
+                    c:identifier="DMAP_CONNECTION_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-connection.h"
+           line="54">Casts a derived #DMAPConnectionClass structure into a #DMAPConnectionClass
+structure.</doc>
+      <source-position filename="dmap-connection.h" line="61"/>
+      <parameters>
+        <parameter name="k">
+          <doc xml:space="preserve"
+               filename="dmap-connection.h"
+               line="56">a valid #DMAPConnectionClass</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONNECTION_GET_CLASS"
+                    c:identifier="DMAP_CONNECTION_GET_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-connection.h"
+           line="77">Get the class structure associated to a #DMAPConnection instance.</doc>
+      <source-position filename="dmap-connection.h" line="85"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-connection.h"
+               line="79">a #DMAPConnection instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTAINER_DB"
+                    c:identifier="DMAP_CONTAINER_DB"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-container-db.h"
+           line="35">Casts a #DMAPContainerDb or derived pointer into a (DMAPContainerDb*)
+pointer. Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-container-db.h" line="43"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-container-db.h"
+               line="37">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTAINER_DB_GET_INTERFACE"
+                    c:identifier="DMAP_CONTAINER_DB_GET_INTERFACE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-container-db.h"
+           line="54">Get the interface structure associated to a #DMAPContainerDb instance.</doc>
+      <source-position filename="dmap-container-db.h" line="62"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-container-db.h"
+               line="56">a #DMAPContainerDb instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTAINER_RECORD"
+                    c:identifier="DMAP_CONTAINER_RECORD"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-container-record.h"
+           line="34">Casts a #DMAPContainerRecord or derived pointer into a (DMAPContainerRecord*)
+pointer. Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-container-record.h" line="42"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="36">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTAINER_RECORD_GET_INTERFACE"
+                    c:identifier="DMAP_CONTAINER_RECORD_GET_INTERFACE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-container-record.h"
+           line="53">Get the class structure associated to a #DMAPContainerRecord instance.</doc>
+      <source-position filename="dmap-container-record.h" line="61"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="55">a #DMAPContainerRecord instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="Connection"
            c:symbol-prefix="connection"
            c:type="DMAPConnection"
@@ -20,7 +132,9 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="DMAPConnection"
            glib:get-type="dmap_connection_get_type"
            glib:type-struct="ConnectionClass">
+      <source-position filename="dmap-connection.h" line="135"/>
       <virtual-method name="authenticate">
+        <source-position filename="dmap-connection.h" line="129"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -36,6 +150,7 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="build_message"
                       invoker="build_message"
                       introspectable="0">
+        <source-position filename="dmap-connection.h" line="120"/>
         <return-value>
           <type name="Soup.Message" c:type="SoupMessage*"/>
         </return-value>
@@ -61,6 +176,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="connected">
+        <source-position filename="dmap-connection.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -71,6 +187,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="connecting">
+        <source-position filename="dmap-connection.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -87,6 +204,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="disconnected">
+        <source-position filename="dmap-connection.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -97,6 +215,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_protocol_version_cc">
+        <source-position filename="dmap-connection.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="ContentCode" c:type="DMAPContentCode"/>
         </return-value>
@@ -107,6 +226,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_query_metadata">
+        <source-position filename="dmap-connection.h" line="115"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -117,6 +237,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="handle_mlcl" introspectable="0">
+        <source-position filename="dmap-connection.h" line="116"/>
         <return-value>
           <type name="Record" c:type="DMAPRecord*"/>
         </return-value>
@@ -136,6 +257,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="operation_done">
+        <source-position filename="dmap-connection.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -147,33 +269,46 @@ and/or use gtk-doc annotations.  -->
       </virtual-method>
       <method name="authenticate_message"
               c:identifier="dmap_connection_authenticate_message">
-        <doc xml:space="preserve">Attach an authentication credential to a request. This
+        <doc xml:space="preserve"
+             filename="dmap-connection.h"
+             line="169">Attach an authentication credential to a request. This
 method should be called by a function that is connected to the
 #DMAPConnection::authenticate signal. The signal will provide the
 connection, session, message and auth to that function. That function
 should obtain a password and provide it to this method.</doc>
+        <source-position filename="dmap-connection.h" line="183"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
-            <doc xml:space="preserve">A #DMAPConnection</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-connection.h"
+                 line="171">A #DMAPConnection</doc>
             <type name="Connection" c:type="DMAPConnection*"/>
           </instance-parameter>
           <parameter name="session" transfer-ownership="none">
-            <doc xml:space="preserve">A #SoupSession</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-connection.h"
+                 line="172">A #SoupSession</doc>
             <type name="Soup.Session" c:type="SoupSession*"/>
           </parameter>
           <parameter name="message" transfer-ownership="none">
-            <doc xml:space="preserve">A #SoupMessage</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-connection.h"
+                 line="173">A #SoupMessage</doc>
             <type name="Soup.Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="auth" transfer-ownership="none">
-            <doc xml:space="preserve">A #SoupAuth</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-connection.h"
+                 line="174">A #SoupAuth</doc>
             <type name="Soup.Auth" c:type="SoupAuth*"/>
           </parameter>
           <parameter name="password" transfer-ownership="none">
-            <doc xml:space="preserve">A password</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-connection.h"
+                 line="175">A password</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -181,6 +316,7 @@ should obtain a password and provide it to this method.</doc>
       <method name="build_message"
               c:identifier="dmap_connection_build_message"
               introspectable="0">
+        <source-position filename="dmap-connection.h" line="163"/>
         <return-value>
           <type name="Soup.Message" c:type="SoupMessage*"/>
         </return-value>
@@ -208,6 +344,7 @@ should obtain a password and provide it to this method.</doc>
       <method name="connect"
               c:identifier="dmap_connection_connect"
               introspectable="0">
+        <source-position filename="dmap-connection.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -218,7 +355,10 @@ should obtain a password and provide it to this method.</doc>
           <parameter name="callback" transfer-ownership="none" closure="1">
             <type name="ConnectionCallback" c:type="DMAPConnectionCallback"/>
           </parameter>
-          <parameter name="user_data" transfer-ownership="none">
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -226,6 +366,7 @@ should obtain a password and provide it to this method.</doc>
       <method name="disconnect"
               c:identifier="dmap_connection_disconnect"
               introspectable="0">
+        <source-position filename="dmap-connection.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -236,12 +377,16 @@ should obtain a password and provide it to this method.</doc>
           <parameter name="callback" transfer-ownership="none" closure="1">
             <type name="ConnectionCallback" c:type="DMAPConnectionCallback"/>
           </parameter>
-          <parameter name="user_data" transfer-ownership="none">
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="get" c:identifier="dmap_connection_get" introspectable="0">
+        <source-position filename="dmap-connection.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -258,12 +403,16 @@ should obtain a password and provide it to this method.</doc>
           <parameter name="handler" transfer-ownership="none" closure="3">
             <type name="ResponseHandler" c:type="DMAPResponseHandler"/>
           </parameter>
-          <parameter name="user_data" transfer-ownership="none">
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_headers" c:identifier="dmap_connection_get_headers">
+        <source-position filename="dmap-connection.h" line="158"/>
         <return-value transfer-ownership="full">
           <type name="Soup.MessageHeaders" c:type="SoupMessageHeaders*"/>
         </return-value>
@@ -279,6 +428,7 @@ should obtain a password and provide it to this method.</doc>
       <method name="get_playlists"
               c:identifier="dmap_connection_get_playlists"
               introspectable="0">
+        <source-position filename="dmap-connection.h" line="161"/>
         <return-value>
           <type name="GLib.SList" c:type="GSList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -291,6 +441,7 @@ should obtain a password and provide it to this method.</doc>
         </parameters>
       </method>
       <method name="is_connected" c:identifier="dmap_connection_is_connected">
+        <source-position filename="dmap-connection.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -301,6 +452,7 @@ should obtain a password and provide it to this method.</doc>
         </parameters>
       </method>
       <method name="setup" c:identifier="dmap_connection_setup">
+        <source-position filename="dmap-connection.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -313,7 +465,10 @@ should obtain a password and provide it to this method.</doc>
       <property name="base-uri" writable="1" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="database-id" writable="1" transfer-ownership="none">
+      <property name="database-id"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="db"
@@ -322,7 +477,10 @@ should obtain a password and provide it to this method.</doc>
                 transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="dmap-version" writable="1" transfer-ownership="none">
+      <property name="dmap-version"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="factory"
@@ -334,37 +492,48 @@ should obtain a password and provide it to this method.</doc>
       <property name="host"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="name"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="password"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="port"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
-      <property name="revision-number" writable="1" transfer-ownership="none">
+      <property name="revision-number"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="gint" c:type="gint"/>
       </property>
-      <property name="session-id" writable="1" transfer-ownership="none">
+      <property name="session-id"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="username"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="libdmapsharing">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -425,6 +594,7 @@ should obtain a password and provide it to this method.</doc>
       </glib:signal>
     </class>
     <callback name="ConnectionCallback" c:type="DMAPConnectionCallback">
+      <source-position filename="dmap-connection.h" line="138"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -438,7 +608,11 @@ should obtain a password and provide it to this method.</doc>
         <parameter name="reason" transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </parameter>
-        <parameter name="user_data" transfer-ownership="none" closure="3">
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -446,11 +620,13 @@ should obtain a password and provide it to this method.</doc>
     <record name="ConnectionClass"
             c:type="DMAPConnectionClass"
             glib:is-gtype-struct-for="Connection">
+      <source-position filename="dmap-connection.h" line="135"/>
       <field name="parent">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_protocol_version_cc">
         <callback name="get_protocol_version_cc">
+          <source-position filename="dmap-connection.h" line="113"/>
           <return-value transfer-ownership="none">
             <type name="ContentCode" c:type="DMAPContentCode"/>
           </return-value>
@@ -463,6 +639,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="get_query_metadata">
         <callback name="get_query_metadata">
+          <source-position filename="dmap-connection.h" line="115"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
           </return-value>
@@ -475,6 +652,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="handle_mlcl" introspectable="0">
         <callback name="handle_mlcl" introspectable="0">
+          <source-position filename="dmap-connection.h" line="116"/>
           <return-value>
             <type name="Record" c:type="DMAPRecord*"/>
           </return-value>
@@ -496,6 +674,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="build_message" introspectable="0">
         <callback name="build_message" introspectable="0">
+          <source-position filename="dmap-connection.h" line="120"/>
           <return-value>
             <type name="Soup.Message" c:type="SoupMessage*"/>
           </return-value>
@@ -523,6 +702,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="connected">
         <callback name="connected">
+          <source-position filename="dmap-connection.h" line="126"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -535,6 +715,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="disconnected">
         <callback name="disconnected">
+          <source-position filename="dmap-connection.h" line="127"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -547,6 +728,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="authenticate">
         <callback name="authenticate">
+          <source-position filename="dmap-connection.h" line="129"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="char*"/>
           </return-value>
@@ -562,6 +744,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="connecting">
         <callback name="connecting">
+          <source-position filename="dmap-connection.h" line="130"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -580,6 +763,7 @@ should obtain a password and provide it to this method.</doc>
       </field>
       <field name="operation_done">
         <callback name="operation_done">
+          <source-position filename="dmap-connection.h" line="133"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -593,7 +777,9 @@ should obtain a password and provide it to this method.</doc>
     </record>
     <record name="ConnectionPrivate"
             c:type="DMAPConnectionPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="dmap-connection.h" line="87"/>
     </record>
     <enumeration name="ConnectionState"
                  glib:type-name="DMAPConnectionState"
@@ -602,44 +788,56 @@ should obtain a password and provide it to this method.</doc>
       <member name="get_info"
               value="0"
               c:identifier="DMAP_GET_INFO"
-              glib:nick="get-info">
+              glib:nick="get-info"
+              glib:name="DMAP_GET_INFO">
       </member>
       <member name="login"
               value="1"
               c:identifier="DMAP_LOGIN"
-              glib:nick="login">
+              glib:nick="login"
+              glib:name="DMAP_LOGIN">
       </member>
       <member name="get_revision_number"
               value="2"
               c:identifier="DMAP_GET_REVISION_NUMBER"
-              glib:nick="get-revision-number">
+              glib:nick="get-revision-number"
+              glib:name="DMAP_GET_REVISION_NUMBER">
       </member>
       <member name="get_db_info"
               value="3"
               c:identifier="DMAP_GET_DB_INFO"
-              glib:nick="get-db-info">
+              glib:nick="get-db-info"
+              glib:name="DMAP_GET_DB_INFO">
       </member>
       <member name="get_songs"
               value="4"
               c:identifier="DMAP_GET_SONGS"
-              glib:nick="get-songs">
+              glib:nick="get-songs"
+              glib:name="DMAP_GET_SONGS">
       </member>
       <member name="get_playlists"
               value="5"
               c:identifier="DMAP_GET_PLAYLISTS"
-              glib:nick="get-playlists">
+              glib:nick="get-playlists"
+              glib:name="DMAP_GET_PLAYLISTS">
       </member>
       <member name="get_playlist_entries"
               value="6"
               c:identifier="DMAP_GET_PLAYLIST_ENTRIES"
-              glib:nick="get-playlist-entries">
+              glib:nick="get-playlist-entries"
+              glib:name="DMAP_GET_PLAYLIST_ENTRIES">
       </member>
       <member name="logout"
               value="7"
               c:identifier="DMAP_LOGOUT"
-              glib:nick="logout">
+              glib:nick="logout"
+              glib:name="DMAP_LOGOUT">
       </member>
-      <member name="done" value="8" c:identifier="DMAP_DONE" glib:nick="done">
+      <member name="done"
+              value="8"
+              c:identifier="DMAP_DONE"
+              glib:nick="done"
+              glib:name="DMAP_DONE">
       </member>
     </enumeration>
     <interface name="ContainerDb"
@@ -648,23 +846,32 @@ should obtain a password and provide it to this method.</doc>
                glib:type-name="DMAPContainerDb"
                glib:get-type="dmap_container_db_get_type"
                glib:type-struct="ContainerDbIface">
+      <source-position filename="dmap-container-db.h" line="78"/>
       <virtual-method name="add" invoker="add">
-        <doc xml:space="preserve">Add a record to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-container-db.h"
+             line="82">Add a record to the database.</doc>
+        <source-position filename="dmap-container-db.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="84">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="85">A record.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="count">
+        <source-position filename="dmap-container-db.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -675,21 +882,33 @@ should obtain a password and provide it to this method.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="foreach" invoker="foreach" introspectable="0">
-        <doc xml:space="preserve">Apply a function to each record in a container database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-container-db.h"
+             line="103">Apply a function to each record in a container database.</doc>
+        <source-position filename="dmap-container-db.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="105">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="func" transfer-ownership="none" closure="1">
-            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="106">The function to apply to each record in the database.</doc>
             <type name="GLib.HFunc" c:type="GHFunc"/>
           </parameter>
-          <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve">User data to pass to the function.</doc>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="107">User data to pass to the function.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -697,46 +916,65 @@ should obtain a password and provide it to this method.</doc>
       <virtual-method name="lookup_by_id"
                       invoker="lookup_by_id"
                       introspectable="0">
+        <source-position filename="dmap-container-db.h" line="73"/>
         <return-value>
-          <doc xml:space="preserve">the database record corresponding to @id. This record should
+          <doc xml:space="preserve"
+               filename="dmap-container-db.h"
+               line="97">the database record corresponding to @id. This record should
 be unrefed when no longer required.</doc>
           <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="94">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="95">A record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </virtual-method>
       <method name="add" c:identifier="dmap_container_db_add">
-        <doc xml:space="preserve">Add a record to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-container-db.h"
+             line="82">Add a record to the database.</doc>
+        <source-position filename="dmap-container-db.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="84">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="85">A record.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </parameter>
         </parameters>
       </method>
       <method name="count" c:identifier="dmap_container_db_count">
+        <source-position filename="dmap-container-db.h" line="120"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the number of records in the database.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-db.h"
+               line="118">the number of records in the database.</doc>
           <type name="gulong" c:type="gulong"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="116">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
         </parameters>
@@ -744,21 +982,33 @@ be unrefed when no longer required.</doc>
       <method name="foreach"
               c:identifier="dmap_container_db_foreach"
               introspectable="0">
-        <doc xml:space="preserve">Apply a function to each record in a container database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-container-db.h"
+             line="103">Apply a function to each record in a container database.</doc>
+        <source-position filename="dmap-container-db.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="105">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="func" transfer-ownership="none" closure="1">
-            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="106">The function to apply to each record in the database.</doc>
             <type name="GLib.HFunc" c:type="GHFunc"/>
           </parameter>
-          <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve">User data to pass to the function.</doc>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="107">User data to pass to the function.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -766,18 +1016,25 @@ be unrefed when no longer required.</doc>
       <method name="lookup_by_id"
               c:identifier="dmap_container_db_lookup_by_id"
               introspectable="0">
+        <source-position filename="dmap-container-db.h" line="100"/>
         <return-value>
-          <doc xml:space="preserve">the database record corresponding to @id. This record should
+          <doc xml:space="preserve"
+               filename="dmap-container-db.h"
+               line="97">the database record corresponding to @id. This record should
 be unrefed when no longer required.</doc>
           <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A container database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="94">A container database.</doc>
             <type name="ContainerDb" c:type="DMAPContainerDb*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="95">A record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -786,21 +1043,27 @@ be unrefed when no longer required.</doc>
     <record name="ContainerDbIface"
             c:type="DMAPContainerDbIface"
             glib:is-gtype-struct-for="ContainerDb">
+      <source-position filename="dmap-container-db.h" line="78"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="add">
         <callback name="add">
+          <source-position filename="dmap-container-db.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A container database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="84">A container database.</doc>
               <type name="ContainerDb" c:type="DMAPContainerDb*"/>
             </parameter>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A record.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="85">A record.</doc>
               <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
             </parameter>
           </parameters>
@@ -808,18 +1071,25 @@ be unrefed when no longer required.</doc>
       </field>
       <field name="lookup_by_id" introspectable="0">
         <callback name="lookup_by_id" introspectable="0">
+          <source-position filename="dmap-container-db.h" line="73"/>
           <return-value>
-            <doc xml:space="preserve">the database record corresponding to @id. This record should
+            <doc xml:space="preserve"
+                 filename="dmap-container-db.h"
+                 line="97">the database record corresponding to @id. This record should
 be unrefed when no longer required.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A container database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="94">A container database.</doc>
               <type name="ContainerDb" c:type="DMAPContainerDb*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
-              <doc xml:space="preserve">A record ID.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="95">A record ID.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -827,20 +1097,30 @@ be unrefed when no longer required.</doc>
       </field>
       <field name="foreach" introspectable="0">
         <callback name="foreach" introspectable="0">
+          <source-position filename="dmap-container-db.h" line="75"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A container database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="105">A container database.</doc>
               <type name="ContainerDb" c:type="DMAPContainerDb*"/>
             </parameter>
             <parameter name="func" transfer-ownership="none" closure="2">
-              <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="106">The function to apply to each record in the database.</doc>
               <type name="GLib.HFunc" c:type="GHFunc"/>
             </parameter>
-            <parameter name="data" transfer-ownership="none">
-              <doc xml:space="preserve">User data to pass to the function.</doc>
+            <parameter name="data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="dmap-container-db.h"
+                   line="107">User data to pass to the function.</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -848,6 +1128,7 @@ be unrefed when no longer required.</doc>
       </field>
       <field name="count">
         <callback name="count">
+          <source-position filename="dmap-container-db.h" line="77"/>
           <return-value transfer-ownership="none">
             <type name="gint64" c:type="gint64"/>
           </return-value>
@@ -865,24 +1146,34 @@ be unrefed when no longer required.</doc>
                glib:type-name="DMAPContainerRecord"
                glib:get-type="dmap_container_record_get_type"
                glib:type-struct="ContainerRecordIface">
+      <source-position filename="dmap-container-record.h" line="78"/>
       <virtual-method name="add_entry" invoker="add_entry">
-        <doc xml:space="preserve">Add a record to the database. It is assumed that the record is placed
+        <doc xml:space="preserve"
+             filename="dmap-container-record.h"
+             line="90">Add a record to the database. It is assumed that the record is placed
 directly into the database (not copied) and not freed.</doc>
+        <source-position filename="dmap-container-record.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="container_record"
                               transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="92">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="93">A DMAPRecord.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">The record's ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="94">The record's ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -890,59 +1181,83 @@ directly into the database (not copied) and not freed.</doc>
       <virtual-method name="get_entries"
                       invoker="get_entries"
                       introspectable="0">
+        <source-position filename="dmap-container-record.h" line="77"/>
         <return-value>
-          <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="114">A pointer to a DMAPDb containing the entries contained in record.</doc>
           <type name="Db" c:type="DMAPDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="112">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_entry_count" invoker="get_entry_count">
+        <source-position filename="dmap-container-record.h" line="75"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the number of records in the container record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="106">the number of records in the container record.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="104">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_id" invoker="get_id">
+        <source-position filename="dmap-container-record.h" line="70"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the ID for the given record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="86">the ID for the given record.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="84">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <method name="add_entry" c:identifier="dmap_container_record_add_entry">
-        <doc xml:space="preserve">Add a record to the database. It is assumed that the record is placed
+        <doc xml:space="preserve"
+             filename="dmap-container-record.h"
+             line="90">Add a record to the database. It is assumed that the record is placed
 directly into the database (not copied) and not freed.</doc>
+        <source-position filename="dmap-container-record.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="container_record"
                               transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="92">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="93">A DMAPRecord.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">The record's ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="94">The record's ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -950,61 +1265,85 @@ directly into the database (not copied) and not freed.</doc>
       <method name="get_entries"
               c:identifier="dmap_container_record_get_entries"
               introspectable="0">
+        <source-position filename="dmap-container-record.h" line="116"/>
         <return-value>
-          <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="114">A pointer to a DMAPDb containing the entries contained in record.</doc>
           <type name="Db" c:type="DMAPDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="112">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_entry_count"
               c:identifier="dmap_container_record_get_entry_count">
+        <source-position filename="dmap-container-record.h" line="108"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the number of records in the container record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="106">the number of records in the container record.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="104">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_id" c:identifier="dmap_container_record_get_id">
+        <source-position filename="dmap-container-record.h" line="88"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the ID for the given record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-container-record.h"
+               line="86">the ID for the given record.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="84">A DMAPContainerRecord.</doc>
             <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="name" writable="1" transfer-ownership="none">
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
     </interface>
     <record name="ContainerRecordIface"
             c:type="DMAPContainerRecordIface"
             glib:is-gtype-struct-for="ContainerRecord">
+      <source-position filename="dmap-container-record.h" line="78"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_id">
         <callback name="get_id">
+          <source-position filename="dmap-container-record.h" line="70"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">the ID for the given record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="86">the ID for the given record.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="84">A DMAPContainerRecord.</doc>
               <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
             </parameter>
           </parameters>
@@ -1012,20 +1351,27 @@ directly into the database (not copied) and not freed.</doc>
       </field>
       <field name="add_entry">
         <callback name="add_entry">
+          <source-position filename="dmap-container-record.h" line="72"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="container_record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="92">A DMAPContainerRecord.</doc>
               <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
             </parameter>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="93">A DMAPRecord.</doc>
               <type name="Record" c:type="DMAPRecord*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
-              <doc xml:space="preserve">The record's ID.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="94">The record's ID.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -1033,13 +1379,18 @@ directly into the database (not copied) and not freed.</doc>
       </field>
       <field name="get_entry_count">
         <callback name="get_entry_count">
+          <source-position filename="dmap-container-record.h" line="75"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">the number of records in the container record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="106">the number of records in the container record.</doc>
             <type name="guint64" c:type="guint64"/>
           </return-value>
           <parameters>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="104">A DMAPContainerRecord.</doc>
               <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
             </parameter>
           </parameters>
@@ -1047,13 +1398,18 @@ directly into the database (not copied) and not freed.</doc>
       </field>
       <field name="get_entries" introspectable="0">
         <callback name="get_entries" introspectable="0">
+          <source-position filename="dmap-container-record.h" line="77"/>
           <return-value>
-            <doc xml:space="preserve">A pointer to a DMAPDb containing the entries contained in record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-container-record.h"
+                 line="114">A pointer to a DMAPDb containing the entries contained in record.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </return-value>
           <parameters>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPContainerRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-container-record.h"
+                   line="112">A DMAPContainerRecord.</doc>
               <type name="ContainerRecord" c:type="DMAPContainerRecord*"/>
             </parameter>
           </parameters>
@@ -1061,6 +1417,7 @@ directly into the database (not copied) and not freed.</doc>
       </field>
     </record>
     <enumeration name="ContentCode" c:type="DMAPContentCode">
+      <source-position filename="dmap-structure.h" line="197"/>
       <member name="cc_invalid" value="0" c:identifier="DMAP_CC_INVALID">
       </member>
       <member name="raw" value="1" c:identifier="DMAP_RAW">
@@ -1371,6 +1728,7 @@ directly into the database (not copied) and not freed.</doc>
       </member>
     </enumeration>
     <record name="ContentCodeDefinition" c:type="DMAPContentCodeDefinition">
+      <source-position filename="dmap-structure.h" line="243"/>
       <field name="code" writable="1">
         <type name="ContentCode" c:type="DMAPContentCode"/>
       </field>
@@ -1387,16 +1745,52 @@ directly into the database (not copied) and not freed.</doc>
         <type name="Type" c:type="DMAPType"/>
       </field>
     </record>
+    <function-macro name="DB" c:identifier="DMAP_DB" introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-db.h"
+           line="35">Casts a #DMAPDb or derived pointer into a (DMAPDb *) pointer.
+Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-db.h" line="43"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="37">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DB_GET_INTERFACE"
+                    c:identifier="DMAP_DB_GET_INTERFACE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-db.h"
+           line="53">Get the insterface structure associated to a #DMAPDb instance.</doc>
+      <source-position filename="dmap-db.h" line="61"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="55">a #DMAPDb instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <interface name="Db"
                c:symbol-prefix="db"
                c:type="DMAPDb"
                glib:type-name="DMAPDb"
                glib:get-type="dmap_db_get_type"
                glib:type-struct="DbIface">
+      <source-position filename="dmap-db.h" line="78"/>
       <virtual-method name="add" invoker="add">
-        <doc xml:space="preserve">Add a record to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="91">Add a record to the database.</doc>
+        <source-position filename="dmap-db.h" line="70"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="98">The ID for the newly added record. A reference to the record
 will be retained by the database (if required; an adapter-type
 implementation may not want to retain a reference as the record data may
 be placed elsewhere). In all cases, the record should be unrefed by the
@@ -1405,58 +1799,83 @@ calling code.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="93">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A database record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="94">A database record.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="add_path" invoker="add_path">
-        <doc xml:space="preserve">Create a record and add it to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="120">Create a record and add it to the database.</doc>
+        <source-position filename="dmap-db.h" line="72"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record.
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="127">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="122">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
-            <doc xml:space="preserve">A path to an appropriate media file.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="123">A path to an appropriate media file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="add_with_id" invoker="add_with_id">
-        <doc xml:space="preserve">Add a record to the database and assign it the given ID.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="106">Add a record to the database and assign it the given ID.</doc>
+        <source-position filename="dmap-db.h" line="71"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record.
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="114">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="108">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A database record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="109">A database record.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A database record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="110">A database record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="count">
+        <source-position filename="dmap-db.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -1467,21 +1886,33 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="foreach" invoker="foreach" introspectable="0">
-        <doc xml:space="preserve">Apply a function to each record in a media database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="165">Apply a function to each record in a media database.</doc>
+        <source-position filename="dmap-db.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="167">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="func" transfer-ownership="none" closure="1">
-            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="168">The function to apply to each record in the database.</doc>
             <type name="GLib.HFunc" c:type="GHFunc"/>
           </parameter>
-          <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve">User data to pass to the function.</doc>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="169">User data to pass to the function.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1489,8 +1920,11 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
       <virtual-method name="lookup_by_id"
                       invoker="lookup_by_id"
                       introspectable="0">
+        <source-position filename="dmap-db.h" line="73"/>
         <return-value>
-          <doc xml:space="preserve">the database record corresponding to @id. This record should
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="138">the database record corresponding to @id. This record should
 be unrefed by the calling code when no longer required.
 
 If you are implementing a full database using this API, then you
@@ -1507,37 +1941,53 @@ returning a record pointer.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="135">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="136">A record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="lookup_id_by_location"
                       invoker="lookup_id_by_location">
+        <source-position filename="dmap-db.h" line="74"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="159">the database id for the record corresponding to @path or 0 if
 such a record does not exist.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="156">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
-            <doc xml:space="preserve">A record location.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="157">A record location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <method name="add" c:identifier="dmap_db_add">
-        <doc xml:space="preserve">Add a record to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="91">Add a record to the database.</doc>
+        <source-position filename="dmap-db.h" line="104"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="98">The ID for the newly added record. A reference to the record
 will be retained by the database (if required; an adapter-type
 implementation may not want to retain a reference as the record data may
 be placed elsewhere). In all cases, the record should be unrefed by the
@@ -1546,53 +1996,77 @@ calling code.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="93">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A database record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="94">A database record.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
         </parameters>
       </method>
       <method name="add_path" c:identifier="dmap_db_add_path">
-        <doc xml:space="preserve">Create a record and add it to the database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="120">Create a record and add it to the database.</doc>
+        <source-position filename="dmap-db.h" line="131"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record.
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="127">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="122">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
-            <doc xml:space="preserve">A path to an appropriate media file.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="123">A path to an appropriate media file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="add_with_id" c:identifier="dmap_db_add_with_id">
-        <doc xml:space="preserve">Add a record to the database and assign it the given ID.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="106">Add a record to the database and assign it the given ID.</doc>
+        <source-position filename="dmap-db.h" line="118"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The ID for the newly added record.
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="114">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="108">A media database.</doc>
             <type name="Db" c:type="DMAPDb*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A database record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="109">A database record.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A database record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="110">A database record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1600,6 +2074,7 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
       <method name="apply_filter"
               c:identifier="dmap_db_apply_filter"
               introspectable="0">
+        <source-position filename="dmap-db.h" line="185"/>
         <return-value>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
@@ -1618,33 +2093,50 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
         </parameters>
       </method>
       <method name="count" c:identifier="dmap_db_count">
+        <source-position filename="dmap-db.h" line="181"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the number of records in the database.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="179">the number of records in the database.</doc>
           <type name="gulong" c:type="gulong"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="177">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="foreach" c:identifier="dmap_db_foreach" introspectable="0">
-        <doc xml:space="preserve">Apply a function to each record in a media database.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-db.h"
+             line="165">Apply a function to each record in a media database.</doc>
+        <source-position filename="dmap-db.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="167">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="func" transfer-ownership="none" closure="1">
-            <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="168">The function to apply to each record in the database.</doc>
             <type name="GLib.HFunc" c:type="GHFunc"/>
           </parameter>
-          <parameter name="data" transfer-ownership="none">
-            <doc xml:space="preserve">User data to pass to the function.</doc>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="169">User data to pass to the function.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1652,8 +2144,11 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
       <method name="lookup_by_id"
               c:identifier="dmap_db_lookup_by_id"
               introspectable="0">
+        <source-position filename="dmap-db.h" line="152"/>
         <return-value>
-          <doc xml:space="preserve">the database record corresponding to @id. This record should
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="138">the database record corresponding to @id. This record should
 be unrefed by the calling code when no longer required.
 
 If you are implementing a full database using this API, then you
@@ -1670,35 +2165,47 @@ returning a record pointer.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="135">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
-            <doc xml:space="preserve">A record ID.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="136">A record ID.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </method>
       <method name="lookup_id_by_location"
               c:identifier="dmap_db_lookup_id_by_location">
+        <source-position filename="dmap-db.h" line="162"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+          <doc xml:space="preserve"
+               filename="dmap-db.h"
+               line="159">the database id for the record corresponding to @path or 0 if
 such a record does not exist.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="db" transfer-ownership="none">
-            <doc xml:space="preserve">A media database.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="156">A media database.</doc>
             <type name="Db" c:type="const DMAPDb*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
-            <doc xml:space="preserve">A record location.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="157">A record location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
     </interface>
     <record name="DbFilterDefinition" c:type="DMAPDbFilterDefinition">
+      <source-position filename="dmap-db.h" line="87"/>
       <field name="key" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -1710,13 +2217,17 @@ such a record does not exist.</doc>
       </field>
     </record>
     <record name="DbIface" c:type="DMAPDbIface" glib:is-gtype-struct-for="Db">
+      <source-position filename="dmap-db.h" line="78"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="add">
         <callback name="add">
+          <source-position filename="dmap-db.h" line="70"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">The ID for the newly added record. A reference to the record
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="98">The ID for the newly added record. A reference to the record
 will be retained by the database (if required; an adapter-type
 implementation may not want to retain a reference as the record data may
 be placed elsewhere). In all cases, the record should be unrefed by the
@@ -1725,11 +2236,15 @@ calling code.</doc>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="93">A media database.</doc>
               <type name="Db" c:type="DMAPDb*"/>
             </parameter>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A database record.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="94">A database record.</doc>
               <type name="Record" c:type="DMAPRecord*"/>
             </parameter>
           </parameters>
@@ -1737,23 +2252,32 @@ calling code.</doc>
       </field>
       <field name="add_with_id">
         <callback name="add_with_id">
+          <source-position filename="dmap-db.h" line="71"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">The ID for the newly added record.
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="114">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="108">A media database.</doc>
               <type name="Db" c:type="DMAPDb*"/>
             </parameter>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A database record.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="109">A database record.</doc>
               <type name="Record" c:type="DMAPRecord*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
-              <doc xml:space="preserve">A database record ID.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="110">A database record ID.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -1761,19 +2285,26 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
       </field>
       <field name="add_path">
         <callback name="add_path">
+          <source-position filename="dmap-db.h" line="72"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">The ID for the newly added record.
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="127">The ID for the newly added record.
 
 See also the notes for dmap_db_add regarding reference counting.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="122">A media database.</doc>
               <type name="Db" c:type="DMAPDb*"/>
             </parameter>
             <parameter name="path" transfer-ownership="none">
-              <doc xml:space="preserve">A path to an appropriate media file.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="123">A path to an appropriate media file.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -1781,8 +2312,11 @@ See also the notes for dmap_db_add regarding reference counting.</doc>
       </field>
       <field name="lookup_by_id" introspectable="0">
         <callback name="lookup_by_id" introspectable="0">
+          <source-position filename="dmap-db.h" line="73"/>
           <return-value>
-            <doc xml:space="preserve">the database record corresponding to @id. This record should
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="138">the database record corresponding to @id. This record should
 be unrefed by the calling code when no longer required.
 
 If you are implementing a full database using this API, then you
@@ -1799,11 +2333,15 @@ returning a record pointer.</doc>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="135">A media database.</doc>
               <type name="Db" c:type="const DMAPDb*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
-              <doc xml:space="preserve">A record ID.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="136">A record ID.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -1811,18 +2349,25 @@ returning a record pointer.</doc>
       </field>
       <field name="lookup_id_by_location">
         <callback name="lookup_id_by_location">
+          <source-position filename="dmap-db.h" line="74"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">the database id for the record corresponding to @path or 0 if
+            <doc xml:space="preserve"
+                 filename="dmap-db.h"
+                 line="159">the database id for the record corresponding to @path or 0 if
 such a record does not exist.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="156">A media database.</doc>
               <type name="Db" c:type="const DMAPDb*"/>
             </parameter>
             <parameter name="location" transfer-ownership="none">
-              <doc xml:space="preserve">A record location.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="157">A record location.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -1830,20 +2375,30 @@ such a record does not exist.</doc>
       </field>
       <field name="foreach" introspectable="0">
         <callback name="foreach" introspectable="0">
+          <source-position filename="dmap-db.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="db" transfer-ownership="none">
-              <doc xml:space="preserve">A media database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="167">A media database.</doc>
               <type name="Db" c:type="const DMAPDb*"/>
             </parameter>
             <parameter name="func" transfer-ownership="none" closure="2">
-              <doc xml:space="preserve">The function to apply to each record in the database.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="168">The function to apply to each record in the database.</doc>
               <type name="GLib.HFunc" c:type="GHFunc"/>
             </parameter>
-            <parameter name="data" transfer-ownership="none">
-              <doc xml:space="preserve">User data to pass to the function.</doc>
+            <parameter name="data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="dmap-db.h"
+                   line="169">User data to pass to the function.</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -1851,6 +2406,7 @@ such a record does not exist.</doc>
       </field>
       <field name="count">
         <callback name="count">
+          <source-position filename="dmap-db.h" line="77"/>
           <return-value transfer-ownership="none">
             <type name="gint64" c:type="gint64"/>
           </return-value>
@@ -1862,6 +2418,33 @@ such a record does not exist.</doc>
         </callback>
       </field>
     </record>
+    <function-macro name="GST_INPUT_STREAM"
+                    c:identifier="DMAP_GST_INPUT_STREAM"
+                    introspectable="0">
+      <source-position filename="dmap-gst-input-stream.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GST_INPUT_STREAM_CLASS"
+                    c:identifier="DMAP_GST_INPUT_STREAM_CLASS"
+                    introspectable="0">
+      <source-position filename="dmap-gst-input-stream.h" line="34"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GST_INPUT_STREAM_GET_CLASS"
+                    c:identifier="DMAP_GST_INPUT_STREAM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="dmap-gst-input-stream.h" line="41"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="GstInputStream"
            c:symbol-prefix="gst_input_stream"
            c:type="DMAPGstInputStream"
@@ -1869,8 +2452,10 @@ such a record does not exist.</doc>
            glib:type-name="DMAPGstInputStream"
            glib:get-type="dmap_gst_input_stream_get_type"
            glib:type-struct="GstInputStreamClass">
+      <source-position filename="dmap-gst-input-stream.h" line="57"/>
       <implements name="Gio.Seekable"/>
       <constructor name="new" c:identifier="dmap_gst_input_stream_new">
+        <source-position filename="dmap-gst-input-stream.h" line="70"/>
         <return-value transfer-ownership="full">
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -1884,6 +2469,7 @@ such a record does not exist.</doc>
         </parameters>
       </constructor>
       <virtual-method name="kill_pipeline">
+        <source-position filename="dmap-gst-input-stream.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1904,11 +2490,13 @@ such a record does not exist.</doc>
     <record name="GstInputStreamClass"
             c:type="DMAPGstInputStreamClass"
             glib:is-gtype-struct-for="GstInputStream">
+      <source-position filename="dmap-gst-input-stream.h" line="57"/>
       <field name="parent">
         <type name="Gio.InputStreamClass" c:type="GInputStreamClass"/>
       </field>
       <field name="kill_pipeline">
         <callback name="kill_pipeline">
+          <source-position filename="dmap-gst-input-stream.h" line="56"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1922,31 +2510,109 @@ such a record does not exist.</doc>
     </record>
     <record name="GstInputStreamPrivate"
             c:type="DMAPGstInputStreamPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="dmap-gst-input-stream.h" line="44"/>
     </record>
     <constant name="HASH_SIZE" value="16" c:type="DMAP_HASH_SIZE">
+      <source-position filename="dmap-md5.h" line="26"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <record name="HashContext" c:type="DMAPHashContext">
+      <source-position filename="dmap-md5.h" line="36"/>
       <field name="buf" writable="1">
-        <array zero-terminated="0" c:type="guint32" fixed-size="4">
+        <array zero-terminated="0" fixed-size="4">
           <type name="guint32" c:type="guint32"/>
         </array>
       </field>
       <field name="bits" writable="1">
-        <array zero-terminated="0" c:type="guint32" fixed-size="2">
+        <array zero-terminated="0" fixed-size="2">
           <type name="guint32" c:type="guint32"/>
         </array>
       </field>
       <field name="in" writable="1">
-        <array zero-terminated="0" c:type="unsigned" fixed-size="64">
-          <type name="guint" c:type="unsigned"/>
+        <array zero-terminated="0" fixed-size="64">
+          <type name="guint8" c:type="unsigned char"/>
         </array>
       </field>
       <field name="version" writable="1">
         <type name="gint" c:type="gint"/>
       </field>
     </record>
+    <function-macro name="MDNS_BROWSER"
+                    c:identifier="DMAP_MDNS_BROWSER"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-mdns-browser.h"
+           line="35">Casts a #DMAPMdnsBrowser or derived pointer into a (DMAPMdnsBrowser *) pointer.
+Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-mdns-browser.h" line="43"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="37">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MDNS_BROWSER_CLASS"
+                    c:identifier="DMAP_MDNS_BROWSER_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-mdns-browser.h"
+           line="44">Casts a derived #DAAPShareClass structure into a #DAAPShareClass structure.</doc>
+      <source-position filename="dmap-mdns-browser.h" line="50"/>
+      <parameters>
+        <parameter name="k">
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="46">a valid #DMAPMdnsBrowserClass</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MDNS_BROWSER_GET_CLASS"
+                    c:identifier="DMAP_MDNS_BROWSER_GET_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-mdns-browser.h"
+           line="66">Get the class structure associated to a #DMAPMdnsBrowser instance.</doc>
+      <source-position filename="dmap-mdns-browser.h" line="74"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="68">a #DMAPMdnsBrowser instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MDNS_PUBLISHER"
+                    c:identifier="DMAP_MDNS_PUBLISHER"
+                    introspectable="0">
+      <source-position filename="dmap-mdns-publisher.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MDNS_PUBLISHER_CLASS"
+                    c:identifier="DMAP_MDNS_PUBLISHER_CLASS"
+                    introspectable="0">
+      <source-position filename="dmap-mdns-publisher.h" line="33"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MDNS_PUBLISHER_GET_CLASS"
+                    c:identifier="DMAP_MDNS_PUBLISHER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="dmap-mdns-publisher.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="MdnsBrowser"
            c:symbol-prefix="mdns_browser"
            c:type="DMAPMdnsBrowser"
@@ -1954,21 +2620,30 @@ such a record does not exist.</doc>
            glib:type-name="DMAPMdnsBrowser"
            glib:get-type="dmap_mdns_browser_get_type"
            glib:type-struct="MdnsBrowserClass">
+      <source-position filename="dmap-mdns-browser.h" line="132"/>
       <constructor name="new" c:identifier="dmap_mdns_browser_new">
-        <doc xml:space="preserve">Creates a new mDNS browser.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-mdns-browser.h"
+             line="147">Creates a new mDNS browser.</doc>
+        <source-position filename="dmap-mdns-browser.h" line="155"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">a pointer to a DMAPMdnsBrowser.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="153">a pointer to a DMAPMdnsBrowser.</doc>
           <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
-            <doc xml:space="preserve">The type of service to browse.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-mdns-browser.h"
+                 line="149">The type of service to browse.</doc>
             <type name="MdnsBrowserServiceType"
                   c:type="DMAPMdnsBrowserServiceType"/>
           </parameter>
         </parameters>
       </constructor>
       <virtual-method name="service_added">
+        <source-position filename="dmap-mdns-browser.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1982,6 +2657,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="service_removed">
+        <source-position filename="dmap-mdns-browser.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1996,6 +2672,7 @@ such a record does not exist.</doc>
       </virtual-method>
       <method name="get_service_type"
               c:identifier="dmap_mdns_browser_get_service_type">
+        <source-position filename="dmap-mdns-browser.h" line="180"/>
         <return-value transfer-ownership="none">
           <type name="MdnsBrowserServiceType"
                 c:type="DMAPMdnsBrowserServiceType"/>
@@ -2009,6 +2686,7 @@ such a record does not exist.</doc>
       <method name="get_services"
               c:identifier="dmap_mdns_browser_get_services"
               introspectable="0">
+        <source-position filename="dmap-mdns-browser.h" line="179"/>
         <return-value transfer-ownership="none">
           <type name="GLib.SList" c:type="const GSList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -2021,27 +2699,41 @@ such a record does not exist.</doc>
         </parameters>
       </method>
       <method name="start" c:identifier="dmap_mdns_browser_start" throws="1">
-        <doc xml:space="preserve">Starts a DMAPMdnsBrowser.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-mdns-browser.h"
+             line="157">Starts a DMAPMdnsBrowser.</doc>
+        <source-position filename="dmap-mdns-browser.h" line="166"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">TRUE on success, else FALSE.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="164">TRUE on success, else FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="browser" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPMdnsBrowser.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-mdns-browser.h"
+                 line="159">A DMAPMdnsBrowser.</doc>
             <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="stop" c:identifier="dmap_mdns_browser_stop" throws="1">
-        <doc xml:space="preserve">Stops a DMAPMdnsBrowser.</doc>
+        <doc xml:space="preserve"
+             filename="dmap-mdns-browser.h"
+             line="168">Stops a DMAPMdnsBrowser.</doc>
+        <source-position filename="dmap-mdns-browser.h" line="177"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">TRUE on success, else FALSE.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-mdns-browser.h"
+               line="175">TRUE on success, else FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="browser" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPMdnsBrowser.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-mdns-browser.h"
+                 line="170">A DMAPMdnsBrowser.</doc>
             <type name="MdnsBrowser" c:type="DMAPMdnsBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -2053,13 +2745,20 @@ such a record does not exist.</doc>
         <type name="MdnsBrowserPrivate" c:type="DMAPMdnsBrowserPrivate*"/>
       </field>
       <glib:signal name="service-added" when="last">
-        <doc xml:space="preserve">Emitted each time a service becomes available to @browser</doc>
+        <doc xml:space="preserve"
+             filename="dmap-mdns-browser.h"
+             line="183">Emitted each time a service becomes available to @browser</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="service" transfer-ownership="none">
-            <doc xml:space="preserve">#DMAPMdnsBrowserService</doc>
+          <parameter name="service"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-mdns-browser.h"
+                 line="186">#DMAPMdnsBrowserService</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2078,11 +2777,13 @@ such a record does not exist.</doc>
     <record name="MdnsBrowserClass"
             c:type="DMAPMdnsBrowserClass"
             glib:is-gtype-struct-for="MdnsBrowser">
+      <source-position filename="dmap-mdns-browser.h" line="132"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="service_added">
         <callback name="service_added">
+          <source-position filename="dmap-mdns-browser.h" line="128"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2099,6 +2800,7 @@ such a record does not exist.</doc>
       </field>
       <field name="service_removed">
         <callback name="service_removed">
+          <source-position filename="dmap-mdns-browser.h" line="130"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2122,12 +2824,14 @@ such a record does not exist.</doc>
       <member name="not_running"
               value="0"
               c:identifier="DMAP_MDNS_BROWSER_ERROR_NOT_RUNNING"
-              glib:nick="not-running">
+              glib:nick="not-running"
+              glib:name="DMAP_MDNS_BROWSER_ERROR_NOT_RUNNING">
       </member>
       <member name="failed"
               value="1"
               c:identifier="DMAP_MDNS_BROWSER_ERROR_FAILED"
-              glib:nick="failed">
+              glib:nick="failed"
+              glib:name="DMAP_MDNS_BROWSER_ERROR_FAILED">
       </member>
       <function name="quark" c:identifier="dmap_mdns_browser_error_quark">
         <return-value transfer-ownership="none">
@@ -2137,9 +2841,12 @@ such a record does not exist.</doc>
     </enumeration>
     <record name="MdnsBrowserPrivate"
             c:type="DMAPMdnsBrowserPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="dmap-mdns-browser.h" line="77"/>
     </record>
     <record name="MdnsBrowserService" c:type="DMAPMdnsBrowserService">
+      <source-position filename="dmap-mdns-browser.h" line="122"/>
       <field name="service_name" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -2170,32 +2877,38 @@ such a record does not exist.</doc>
       <member name="invalid"
               value="0"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID"
-              glib:nick="invalid">
+              glib:nick="invalid"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID">
       </member>
       <member name="daap"
               value="1"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP"
-              glib:nick="daap">
+              glib:nick="daap"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP">
       </member>
       <member name="dpap"
               value="2"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP"
-              glib:nick="dpap">
+              glib:nick="dpap"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP">
       </member>
       <member name="dacp"
               value="3"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP"
-              glib:nick="dacp">
+              glib:nick="dacp"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP">
       </member>
       <member name="raop"
               value="4"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP"
-              glib:nick="raop">
+              glib:nick="raop"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP">
       </member>
       <member name="last"
               value="4"
               c:identifier="DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST"
-              glib:nick="last">
+              glib:nick="last"
+              glib:name="DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST">
       </member>
     </enumeration>
     <enumeration name="MdnsBrowserTransportProtocol"
@@ -2205,17 +2918,20 @@ such a record does not exist.</doc>
       <member name="tcp"
               value="0"
               c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP"
-              glib:nick="tcp">
+              glib:nick="tcp"
+              glib:name="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP">
       </member>
       <member name="udp"
               value="1"
               c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP"
-              glib:nick="udp">
+              glib:nick="udp"
+              glib:name="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP">
       </member>
       <member name="last"
               value="1"
               c:identifier="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST"
-              glib:nick="last">
+              glib:nick="last"
+              glib:name="DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST">
       </member>
     </enumeration>
     <class name="MdnsPublisher"
@@ -2225,12 +2941,15 @@ such a record does not exist.</doc>
            glib:type-name="DMAPMdnsPublisher"
            glib:get-type="dmap_mdns_publisher_get_type"
            glib:type-struct="MdnsPublisherClass">
+      <source-position filename="dmap-mdns-publisher.h" line="53"/>
       <constructor name="new" c:identifier="dmap_mdns_publisher_new">
+        <source-position filename="dmap-mdns-publisher.h" line="67"/>
         <return-value transfer-ownership="full">
           <type name="MdnsPublisher" c:type="DMAPMdnsPublisher*"/>
         </return-value>
       </constructor>
       <virtual-method name="name_collision">
+        <source-position filename="dmap-mdns-publisher.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2244,6 +2963,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="published">
+        <source-position filename="dmap-mdns-publisher.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2259,6 +2979,7 @@ such a record does not exist.</doc>
       <method name="publish"
               c:identifier="dmap_mdns_publisher_publish"
               throws="1">
+        <source-position filename="dmap-mdns-publisher.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2286,6 +3007,7 @@ such a record does not exist.</doc>
       <method name="rename_at_port"
               c:identifier="dmap_mdns_publisher_rename_at_port"
               throws="1">
+        <source-position filename="dmap-mdns-publisher.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2304,6 +3026,7 @@ such a record does not exist.</doc>
       <method name="withdraw"
               c:identifier="dmap_mdns_publisher_withdraw"
               throws="1">
+        <source-position filename="dmap-mdns-publisher.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2346,11 +3069,13 @@ such a record does not exist.</doc>
     <record name="MdnsPublisherClass"
             c:type="DMAPMdnsPublisherClass"
             glib:is-gtype-struct-for="MdnsPublisher">
+      <source-position filename="dmap-mdns-publisher.h" line="53"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="published">
         <callback name="published">
+          <source-position filename="dmap-mdns-publisher.h" line="50"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2366,6 +3091,7 @@ such a record does not exist.</doc>
       </field>
       <field name="name_collision">
         <callback name="name_collision">
+          <source-position filename="dmap-mdns-publisher.h" line="51"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2388,12 +3114,14 @@ such a record does not exist.</doc>
       <member name="not_running"
               value="0"
               c:identifier="DMAP_MDNS_PUBLISHER_ERROR_NOT_RUNNING"
-              glib:nick="not-running">
+              glib:nick="not-running"
+              glib:name="DMAP_MDNS_PUBLISHER_ERROR_NOT_RUNNING">
       </member>
       <member name="failed"
               value="1"
               c:identifier="DMAP_MDNS_PUBLISHER_ERROR_FAILED"
-              glib:nick="failed">
+              glib:nick="failed"
+              glib:name="DMAP_MDNS_PUBLISHER_ERROR_FAILED">
       </member>
       <function name="quark" c:identifier="dmap_mdns_publisher_error_quark">
         <return-value transfer-ownership="none">
@@ -2403,7 +3131,9 @@ such a record does not exist.</doc>
     </enumeration>
     <record name="MdnsPublisherPrivate"
             c:type="DMAPMdnsPublisherPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="dmap-mdns-publisher.h" line="37"/>
     </record>
     <enumeration name="MediaKind"
                  glib:type-name="DMAPMediaKind"
@@ -2412,25 +3142,30 @@ such a record does not exist.</doc>
       <member name="music"
               value="1"
               c:identifier="DMAP_MEDIA_KIND_MUSIC"
-              glib:nick="music">
+              glib:nick="music"
+              glib:name="DMAP_MEDIA_KIND_MUSIC">
       </member>
       <member name="movie"
               value="2"
               c:identifier="DMAP_MEDIA_KIND_MOVIE"
-              glib:nick="movie">
+              glib:nick="movie"
+              glib:name="DMAP_MEDIA_KIND_MOVIE">
       </member>
       <member name="podcast"
               value="32"
               c:identifier="DMAP_MEDIA_KIND_PODCAST"
-              glib:nick="podcast">
+              glib:nick="podcast"
+              glib:name="DMAP_MEDIA_KIND_PODCAST">
       </member>
       <member name="tv_show"
               value="64"
               c:identifier="DMAP_MEDIA_KIND_TV_SHOW"
-              glib:nick="tv-show">
+              glib:nick="tv-show"
+              glib:name="DMAP_MEDIA_KIND_TV_SHOW">
       </member>
     </enumeration>
     <record name="MetaDataMap" c:type="DMAPMetaDataMap">
+      <source-position filename="dmap-share.h" line="171"/>
       <field name="tag" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -2439,6 +3174,7 @@ such a record does not exist.</doc>
       </field>
     </record>
     <record name="Playlist" c:type="DMAPPlaylist">
+      <source-position filename="dmap-connection.h" line="37"/>
       <field name="name" writable="1">
         <type name="utf8" c:type="char*"/>
       </field>
@@ -2451,13 +3187,79 @@ such a record does not exist.</doc>
         </type>
       </field>
     </record>
+    <function-macro name="RECORD"
+                    c:identifier="DMAP_RECORD"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-record.h"
+           line="33">Casts a #DMAPRecord or derived pointer into a (DMAPRecord *) pointer.
+Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-record.h" line="41"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-record.h"
+               line="35">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_FACTORY"
+                    c:identifier="DMAP_RECORD_FACTORY"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-record-factory.h"
+           line="35">Casts a #DMAPRecordFactory or derived pointer into a (DMAPRecordFactory *)
+pointer. Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-record-factory.h" line="43"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-record-factory.h"
+               line="37">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_FACTORY_GET_INTERFACE"
+                    c:identifier="DMAP_RECORD_FACTORY_GET_INTERFACE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-record-factory.h"
+           line="54">Get the interface structure associated to a #DMAPRecordFactory instance.</doc>
+      <source-position filename="dmap-record-factory.h" line="62"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-record-factory.h"
+               line="56">a #DMAPRecordFactory instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_GET_INTERFACE"
+                    c:identifier="DMAP_RECORD_GET_INTERFACE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-record.h"
+           line="51">Get the class structure associated to a #DAAPRecord instance.</doc>
+      <source-position filename="dmap-record.h" line="59"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-record.h"
+               line="53">a #DAAPRecord instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <interface name="Record"
                c:symbol-prefix="record"
                c:type="DMAPRecord"
                glib:type-name="DMAPRecord"
                glib:get-type="dmap_record_get_type"
                glib:type-struct="RecordIface">
+      <source-position filename="dmap-record.h" line="70"/>
       <virtual-method name="set_from_blob" invoker="set_from_blob">
+        <source-position filename="dmap-record.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2473,20 +3275,26 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="to_blob" invoker="to_blob" introspectable="0">
+        <source-position filename="dmap-record.h" line="68"/>
         <return-value>
-          <doc xml:space="preserve">A byte array representation of the record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-record.h"
+               line="88">A byte array representation of the record.</doc>
           <array name="GLib.ByteArray" c:type="GByteArray*">
             <type name="guint8" c:type="guint8"/>
           </array>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record.h"
+                 line="86">A DMAPRecord.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <method name="set_from_blob" c:identifier="dmap_record_set_from_blob">
+        <source-position filename="dmap-record.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2504,15 +3312,20 @@ such a record does not exist.</doc>
       <method name="to_blob"
               c:identifier="dmap_record_to_blob"
               introspectable="0">
+        <source-position filename="dmap-record.h" line="90"/>
         <return-value>
-          <doc xml:space="preserve">A byte array representation of the record.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-record.h"
+               line="88">A byte array representation of the record.</doc>
           <array name="GLib.ByteArray" c:type="GByteArray*">
             <type name="guint8" c:type="guint8"/>
           </array>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecord.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record.h"
+                 line="86">A DMAPRecord.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </instance-parameter>
         </parameters>
@@ -2524,18 +3337,30 @@ such a record does not exist.</doc>
                glib:type-name="DMAPRecordFactory"
                glib:get-type="dmap_record_factory_get_type"
                glib:type-struct="RecordFactoryIface">
+      <source-position filename="dmap-record-factory.h" line="75"/>
       <virtual-method name="create" invoker="create" introspectable="0">
+        <source-position filename="dmap-record-factory.h" line="73"/>
         <return-value>
-          <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-record-factory.h"
+               line="84">a new DMAPRecord as read from path.</doc>
           <type name="Record" c:type="DMAPRecord*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record-factory.h"
+                 line="81">A DMAPRecordFactory.</doc>
             <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
           </instance-parameter>
-          <parameter name="user_data" transfer-ownership="none" closure="0">
-            <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="0">
+            <doc xml:space="preserve"
+                 filename="dmap-record-factory.h"
+                 line="82">Some piece of data that may be used to initialize return value.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2543,17 +3368,27 @@ such a record does not exist.</doc>
       <method name="create"
               c:identifier="dmap_record_factory_create"
               introspectable="0">
+        <source-position filename="dmap-record-factory.h" line="86"/>
         <return-value>
-          <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+          <doc xml:space="preserve"
+               filename="dmap-record-factory.h"
+               line="84">a new DMAPRecord as read from path.</doc>
           <type name="Record" c:type="DMAPRecord*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
-            <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record-factory.h"
+                 line="81">A DMAPRecordFactory.</doc>
             <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
           </instance-parameter>
-          <parameter name="user_data" transfer-ownership="none">
-            <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="dmap-record-factory.h"
+                 line="82">Some piece of data that may be used to initialize return value.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2562,22 +3397,34 @@ such a record does not exist.</doc>
     <record name="RecordFactoryIface"
             c:type="DMAPRecordFactoryIface"
             glib:is-gtype-struct-for="RecordFactory">
+      <source-position filename="dmap-record-factory.h" line="75"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create" introspectable="0">
         <callback name="create" introspectable="0">
+          <source-position filename="dmap-record-factory.h" line="73"/>
           <return-value>
-            <doc xml:space="preserve">a new DMAPRecord as read from path.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record-factory.h"
+                 line="84">a new DMAPRecord as read from path.</doc>
             <type name="Record" c:type="DMAPRecord*"/>
           </return-value>
           <parameters>
             <parameter name="factory" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPRecordFactory.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-record-factory.h"
+                   line="81">A DMAPRecordFactory.</doc>
               <type name="RecordFactory" c:type="DMAPRecordFactory*"/>
             </parameter>
-            <parameter name="user_data" transfer-ownership="none" closure="1">
-              <doc xml:space="preserve">Some piece of data that may be used to initialize return value.</doc>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="1">
+              <doc xml:space="preserve"
+                   filename="dmap-record-factory.h"
+                   line="82">Some piece of data that may be used to initialize return value.</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -2587,20 +3434,26 @@ such a record does not exist.</doc>
     <record name="RecordIface"
             c:type="DMAPRecordIface"
             glib:is-gtype-struct-for="Record">
+      <source-position filename="dmap-record.h" line="70"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="to_blob" introspectable="0">
         <callback name="to_blob" introspectable="0">
+          <source-position filename="dmap-record.h" line="68"/>
           <return-value>
-            <doc xml:space="preserve">A byte array representation of the record.</doc>
+            <doc xml:space="preserve"
+                 filename="dmap-record.h"
+                 line="88">A byte array representation of the record.</doc>
             <array name="GLib.ByteArray" c:type="GByteArray*">
               <type name="guint8" c:type="guint8"/>
             </array>
           </return-value>
           <parameters>
             <parameter name="record" transfer-ownership="none">
-              <doc xml:space="preserve">A DMAPRecord.</doc>
+              <doc xml:space="preserve"
+                   filename="dmap-record.h"
+                   line="86">A DMAPRecord.</doc>
               <type name="Record" c:type="DMAPRecord*"/>
             </parameter>
           </parameters>
@@ -2608,6 +3461,7 @@ such a record does not exist.</doc>
       </field>
       <field name="set_from_blob">
         <callback name="set_from_blob">
+          <source-position filename="dmap-record.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -2625,6 +3479,7 @@ such a record does not exist.</doc>
       </field>
     </record>
     <callback name="ResponseHandler" c:type="DMAPResponseHandler">
+      <source-position filename="dmap-connection.h" line="143"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2638,12 +3493,62 @@ such a record does not exist.</doc>
         <parameter name="structure" transfer-ownership="none">
           <type name="GLib.Node" c:type="GNode*"/>
         </parameter>
-        <parameter name="user_data" transfer-ownership="none" closure="3">
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
     </callback>
+    <function-macro name="SHARE" c:identifier="DMAP_SHARE" introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-share.h"
+           line="45">Casts a #DMAPShare or derived pointer into a (DMAPShare*) pointer.
+Depending on the current debugging level, this function may invoke
+certain runtime checks to identify invalid casts.</doc>
+      <source-position filename="dmap-share.h" line="53"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-share.h"
+               line="47">Object which is subject to casting.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHARE_CLASS"
+                    c:identifier="DMAP_SHARE_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-share.h"
+           line="55">Casts a derived #DMAPShareClass structure into a #DMAPShareClass structure.</doc>
+      <source-position filename="dmap-share.h" line="61"/>
+      <parameters>
+        <parameter name="k">
+          <doc xml:space="preserve"
+               filename="dmap-share.h"
+               line="57">a valid #DMAPShareClass</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHARE_GET_CLASS"
+                    c:identifier="DMAP_SHARE_GET_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="dmap-share.h"
+           line="80">Get the class structure associated to a #DMAPShare instance.</doc>
+      <source-position filename="dmap-share.h" line="88"/>
+      <parameters>
+        <parameter name="o">
+          <doc xml:space="preserve"
+               filename="dmap-share.h"
+               line="82">a #DMAPShare instance.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="STATUS_OK" value="200" c:type="DMAP_STATUS_OK">
+      <source-position filename="dmap-share.h" line="90"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <class name="Share"
@@ -2654,9 +3559,11 @@ such a record does not exist.</doc>
            glib:type-name="DMAPShare"
            glib:get-type="dmap_share_get_type"
            glib:type-struct="ShareClass">
+      <source-position filename="dmap-share.h" line="165"/>
       <function name="free_filter"
                 c:identifier="dmap_share_free_filter"
                 introspectable="0">
+        <source-position filename="dmap-share.h" line="232"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2669,6 +3576,7 @@ such a record does not exist.</doc>
         </parameters>
       </function>
       <virtual-method name="content_codes">
+        <source-position filename="dmap-share.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2697,6 +3605,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="ctrl_int">
+        <source-position filename="dmap-share.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2725,6 +3634,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="databases">
+        <source-position filename="dmap-share.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2753,6 +3663,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="databases_browse_xxx">
+        <source-position filename="dmap-share.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2781,6 +3692,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="databases_items_xxx">
+        <source-position filename="dmap-share.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2809,6 +3721,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_desired_port">
+        <source-position filename="dmap-share.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -2818,8 +3731,9 @@ such a record does not exist.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="get_meta_data_map" introspectable="0">
-        <return-value>
+      <virtual-method name="get_meta_data_map">
+        <source-position filename="dmap-share.h" line="110"/>
+        <return-value transfer-ownership="none" nullable="1">
           <type name="gpointer" c:type="DMAPMetaDataMap*"/>
         </return-value>
         <parameters>
@@ -2829,6 +3743,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_type_of_service">
+        <source-position filename="dmap-share.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2839,6 +3754,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="login">
+        <source-position filename="dmap-share.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2867,6 +3783,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="logout">
+        <source-position filename="dmap-share.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2895,6 +3812,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="message_add_standard_headers">
+        <source-position filename="dmap-share.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2908,6 +3826,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="name_collision">
+        <source-position filename="dmap-share.h" line="155"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2924,6 +3843,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="published">
+        <source-position filename="dmap-share.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2940,6 +3860,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="server_info">
+        <source-position filename="dmap-share.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2968,6 +3889,7 @@ such a record does not exist.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="update">
+        <source-position filename="dmap-share.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2995,7 +3917,10 @@ such a record does not exist.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <property name="auth-method" writable="1" transfer-ownership="none">
+      <property name="auth-method"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="container-db"
@@ -3010,25 +3935,32 @@ such a record does not exist.</doc>
                 transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <property name="name" writable="1" transfer-ownership="none">
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="password" writable="1" transfer-ownership="none">
+      <property name="password"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="revision-number" writable="1" transfer-ownership="none">
+      <property name="revision-number"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
-      <property name="server-ipv4" transfer-ownership="none">
-        <type name="Soup.Server"/>
-      </property>
-      <property name="server-ipv6" transfer-ownership="none">
+      <property name="server" transfer-ownership="none">
         <type name="Soup.Server"/>
       </property>
       <property name="transcode-mimetype"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="txt-records" writable="1" transfer-ownership="none">
@@ -3046,11 +3978,13 @@ such a record does not exist.</doc>
     <record name="ShareClass"
             c:type="DMAPShareClass"
             glib:is-gtype-struct-for="Share">
+      <source-position filename="dmap-share.h" line="165"/>
       <field name="parent">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_desired_port">
         <callback name="get_desired_port">
+          <source-position filename="dmap-share.h" line="106"/>
           <return-value transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -3063,6 +3997,7 @@ such a record does not exist.</doc>
       </field>
       <field name="get_type_of_service">
         <callback name="get_type_of_service">
+          <source-position filename="dmap-share.h" line="107"/>
           <return-value transfer-ownership="none">
             <type name="utf8" c:type="const char*"/>
           </return-value>
@@ -3075,6 +4010,7 @@ such a record does not exist.</doc>
       </field>
       <field name="message_add_standard_headers">
         <callback name="message_add_standard_headers">
+          <source-position filename="dmap-share.h" line="108"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3088,9 +4024,10 @@ such a record does not exist.</doc>
           </parameters>
         </callback>
       </field>
-      <field name="get_meta_data_map" introspectable="0">
-        <callback name="get_meta_data_map" introspectable="0">
-          <return-value>
+      <field name="get_meta_data_map">
+        <callback name="get_meta_data_map">
+          <source-position filename="dmap-share.h" line="110"/>
+          <return-value transfer-ownership="none" nullable="1">
             <type name="gpointer" c:type="DMAPMetaDataMap*"/>
           </return-value>
           <parameters>
@@ -3102,6 +4039,7 @@ such a record does not exist.</doc>
       </field>
       <field name="add_entry_to_mlcl">
         <callback name="add_entry_to_mlcl">
+          <source-position filename="dmap-share.h" line="111"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3120,6 +4058,7 @@ such a record does not exist.</doc>
       </field>
       <field name="databases_browse_xxx">
         <callback name="databases_browse_xxx">
+          <source-position filename="dmap-share.h" line="113"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3150,6 +4089,7 @@ such a record does not exist.</doc>
       </field>
       <field name="databases_items_xxx">
         <callback name="databases_items_xxx">
+          <source-position filename="dmap-share.h" line="119"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3180,6 +4120,7 @@ such a record does not exist.</doc>
       </field>
       <field name="server_info">
         <callback name="server_info">
+          <source-position filename="dmap-share.h" line="127"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3210,6 +4151,7 @@ such a record does not exist.</doc>
       </field>
       <field name="content_codes">
         <callback name="content_codes">
+          <source-position filename="dmap-share.h" line="131"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3240,6 +4182,7 @@ such a record does not exist.</doc>
       </field>
       <field name="login">
         <callback name="login">
+          <source-position filename="dmap-share.h" line="135"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3270,6 +4213,7 @@ such a record does not exist.</doc>
       </field>
       <field name="logout">
         <callback name="logout">
+          <source-position filename="dmap-share.h" line="139"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3300,6 +4244,7 @@ such a record does not exist.</doc>
       </field>
       <field name="update">
         <callback name="update">
+          <source-position filename="dmap-share.h" line="143"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3330,6 +4275,7 @@ such a record does not exist.</doc>
       </field>
       <field name="ctrl_int">
         <callback name="ctrl_int">
+          <source-position filename="dmap-share.h" line="147"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3360,6 +4306,7 @@ such a record does not exist.</doc>
       </field>
       <field name="published">
         <callback name="published">
+          <source-position filename="dmap-share.h" line="152"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3378,6 +4325,7 @@ such a record does not exist.</doc>
       </field>
       <field name="name_collision">
         <callback name="name_collision">
+          <source-position filename="dmap-share.h" line="155"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3396,6 +4344,7 @@ such a record does not exist.</doc>
       </field>
       <field name="databases">
         <callback name="databases">
+          <source-position filename="dmap-share.h" line="160"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3425,9 +4374,14 @@ such a record does not exist.</doc>
         </callback>
       </field>
     </record>
-    <record name="SharePrivate" c:type="DMAPSharePrivate" disguised="1">
+    <record name="SharePrivate"
+            c:type="DMAPSharePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="dmap-share.h" line="91"/>
     </record>
     <record name="StructureItem" c:type="DMAPStructureItem">
+      <source-position filename="dmap-structure.h" line="206"/>
       <field name="content_code" writable="1">
         <type name="ContentCode" c:type="DMAPContentCode"/>
       </field>
@@ -3445,56 +4399,67 @@ such a record does not exist.</doc>
       <member name="byte"
               value="1"
               c:identifier="DMAP_TYPE_BYTE"
-              glib:nick="byte">
+              glib:nick="byte"
+              glib:name="DMAP_TYPE_BYTE">
       </member>
       <member name="signed_int"
               value="2"
               c:identifier="DMAP_TYPE_SIGNED_INT"
-              glib:nick="signed-int">
+              glib:nick="signed-int"
+              glib:name="DMAP_TYPE_SIGNED_INT">
       </member>
       <member name="short"
               value="3"
               c:identifier="DMAP_TYPE_SHORT"
-              glib:nick="short">
+              glib:nick="short"
+              glib:name="DMAP_TYPE_SHORT">
       </member>
       <member name="int"
               value="5"
               c:identifier="DMAP_TYPE_INT"
-              glib:nick="int">
+              glib:nick="int"
+              glib:name="DMAP_TYPE_INT">
       </member>
       <member name="int64"
               value="7"
               c:identifier="DMAP_TYPE_INT64"
-              glib:nick="int64">
+              glib:nick="int64"
+              glib:name="DMAP_TYPE_INT64">
       </member>
       <member name="string"
               value="9"
               c:identifier="DMAP_TYPE_STRING"
-              glib:nick="string">
+              glib:nick="string"
+              glib:name="DMAP_TYPE_STRING">
       </member>
       <member name="date"
               value="10"
               c:identifier="DMAP_TYPE_DATE"
-              glib:nick="date">
+              glib:nick="date"
+              glib:name="DMAP_TYPE_DATE">
       </member>
       <member name="version"
               value="11"
               c:identifier="DMAP_TYPE_VERSION"
-              glib:nick="version">
+              glib:nick="version"
+              glib:name="DMAP_TYPE_VERSION">
       </member>
       <member name="container"
               value="12"
               c:identifier="DMAP_TYPE_CONTAINER"
-              glib:nick="container">
+              glib:nick="container"
+              glib:name="DMAP_TYPE_CONTAINER">
       </member>
       <member name="pointer"
               value="42"
               c:identifier="DMAP_TYPE_POINTER"
-              glib:nick="pointer">
+              glib:nick="pointer"
+              glib:name="DMAP_TYPE_POINTER">
       </member>
     </enumeration>
     <function name="content_code_dmap_type"
               c:identifier="dmap_content_code_dmap_type">
+      <source-position filename="dmap-structure.h" line="248"/>
       <return-value transfer-ownership="none">
         <type name="Type" c:type="DMAPType"/>
       </return-value>
@@ -3505,6 +4470,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="content_code_name" c:identifier="dmap_content_code_name">
+      <source-position filename="dmap-structure.h" line="247"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -3516,6 +4482,7 @@ such a record does not exist.</doc>
     </function>
     <function name="content_code_read_from_buffer"
               c:identifier="dmap_content_code_read_from_buffer">
+      <source-position filename="dmap-structure.h" line="251"/>
       <return-value transfer-ownership="none">
         <type name="ContentCode" c:type="DMAPContentCode"/>
       </return-value>
@@ -3527,6 +4494,7 @@ such a record does not exist.</doc>
     </function>
     <function name="content_code_string"
               c:identifier="dmap_content_code_string">
+      <source-position filename="dmap-structure.h" line="249"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
@@ -3538,6 +4506,7 @@ such a record does not exist.</doc>
     </function>
     <function name="content_code_string_as_int32"
               c:identifier="dmap_content_code_string_as_int32">
+      <source-position filename="dmap-structure.h" line="246"/>
       <return-value transfer-ownership="none">
         <type name="gint32" c:type="gint32"/>
       </return-value>
@@ -3548,6 +4517,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="content_codes" c:identifier="dmap_content_codes">
+      <source-position filename="dmap-structure.h" line="245"/>
       <return-value transfer-ownership="none">
         <type name="ContentCodeDefinition"
               c:type="const DMAPContentCodeDefinition*"/>
@@ -3559,6 +4529,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="hash_generate" c:identifier="dmap_hash_generate">
+      <source-position filename="dmap-md5.h" line="49"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3582,6 +4553,7 @@ such a record does not exist.</doc>
     </function>
     <function name="hash_progressive_final"
               c:identifier="dmap_hash_progressive_final">
+      <source-position filename="dmap-md5.h" line="44"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3590,12 +4562,13 @@ such a record does not exist.</doc>
           <type name="HashContext" c:type="DMAPHashContext*"/>
         </parameter>
         <parameter name="digest" transfer-ownership="none">
-          <type name="guint8" c:type="unsigned char"/>
+          <type name="guint8" c:type="unsigned char*"/>
         </parameter>
       </parameters>
     </function>
     <function name="hash_progressive_init"
               c:identifier="dmap_hash_progressive_init">
+      <source-position filename="dmap-md5.h" line="38"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3607,6 +4580,7 @@ such a record does not exist.</doc>
     </function>
     <function name="hash_progressive_to_string"
               c:identifier="dmap_hash_progressive_to_string">
+      <source-position filename="dmap-md5.h" line="47"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3621,6 +4595,7 @@ such a record does not exist.</doc>
     </function>
     <function name="hash_progressive_update"
               c:identifier="dmap_hash_progressive_update">
+      <source-position filename="dmap-md5.h" line="40"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3629,7 +4604,7 @@ such a record does not exist.</doc>
           <type name="HashContext" c:type="DMAPHashContext*"/>
         </parameter>
         <parameter name="buffer" transfer-ownership="none">
-          <type name="guint8" c:type="unsigned char*"/>
+          <type name="guint8" c:type="const unsigned char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <type name="guint" c:type="unsigned int"/>
@@ -3650,19 +4625,10 @@ such a record does not exist.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
-    <function name="mime_to_format" c:identifier="dmap_mime_to_format">
-      <return-value transfer-ownership="full">
-        <type name="utf8" c:type="gchar*"/>
-      </return-value>
-      <parameters>
-        <parameter name="transcode_mimetype" transfer-ownership="none">
-          <type name="utf8" c:type="const gchar*"/>
-        </parameter>
-      </parameters>
-    </function>
     <function name="structure_add"
               c:identifier="dmap_structure_add"
               introspectable="0">
+      <source-position filename="dmap-structure.h" line="208"/>
       <return-value>
         <type name="GLib.Node" c:type="GNode*"/>
       </return-value>
@@ -3679,6 +4645,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="structure_destroy" c:identifier="dmap_structure_destroy">
+      <source-position filename="dmap-structure.h" line="215"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3691,6 +4658,7 @@ such a record does not exist.</doc>
     <function name="structure_find_item"
               c:identifier="dmap_structure_find_item"
               introspectable="0">
+      <source-position filename="dmap-structure.h" line="211"/>
       <return-value>
         <type name="StructureItem" c:type="DMAPStructureItem*"/>
       </return-value>
@@ -3706,6 +4674,7 @@ such a record does not exist.</doc>
     <function name="structure_find_node"
               c:identifier="dmap_structure_find_node"
               introspectable="0">
+      <source-position filename="dmap-structure.h" line="213"/>
       <return-value>
         <type name="GLib.Node" c:type="GNode*"/>
       </return-value>
@@ -3719,6 +4688,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="structure_get_size" c:identifier="dmap_structure_get_size">
+      <source-position filename="dmap-structure.h" line="216"/>
       <return-value transfer-ownership="none">
         <type name="guint" c:type="guint"/>
       </return-value>
@@ -3730,6 +4700,7 @@ such a record does not exist.</doc>
     </function>
     <function name="structure_increase_by_predicted_size"
               c:identifier="dmap_structure_increase_by_predicted_size">
+      <source-position filename="dmap-structure.h" line="217"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3745,6 +4716,7 @@ such a record does not exist.</doc>
     <function name="structure_parse"
               c:identifier="dmap_structure_parse"
               introspectable="0">
+      <source-position filename="dmap-structure.h" line="210"/>
       <return-value>
         <type name="GLib.Node" c:type="GNode*"/>
       </return-value>
@@ -3758,6 +4730,7 @@ such a record does not exist.</doc>
       </parameters>
     </function>
     <function name="structure_print" c:identifier="dmap_structure_print">
+      <source-position filename="dmap-structure.h" line="214"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3769,6 +4742,7 @@ such a record does not exist.</doc>
     </function>
     <function name="structure_serialize"
               c:identifier="dmap_structure_serialize">
+      <source-position filename="dmap-structure.h" line="209"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -3778,6 +4752,18 @@ such a record does not exist.</doc>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <type name="guint" c:type="guint*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_mime_to_format"
+              c:identifier="dmap_utils_mime_to_format">
+      <source-position filename="dmap-utils.h" line="26"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="transcode_mimetype" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>

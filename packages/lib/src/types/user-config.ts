@@ -22,14 +22,29 @@ export interface UserConfig {
     noNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
-    /** Do not generate debugging inline comments */
-    noDebugComments: boolean
-    /** Fix Inheritance and implementation type conflicts */
-    fixConflicts: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
     /** Scope of the generated NPM packages */
     npmScope: string
-    /** Adds Yarn workspace support to the NPM packages */
-    packageYarn: boolean
+    /** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */
+    workspace: boolean
+    /**
+     * Only use the version prefix for the ambient module exports.
+     * This is useful if, for whatever reason, you want to use different library versions of the same library in your project.
+     *
+     * @example
+     * ```ts
+     * declare module 'gi://Gtk?version=4.0' {...}
+     * declare module 'gi://Gtk?version=3.0' {...}
+     * ```
+     */
+    onlyVersionPrefix: boolean
+    /** Do not prettify the generated types */
+    noPrettyPrint: boolean
+    /** Disable GLib.Variant class with string parsing */
+    noAdvancedVariants: boolean
+    /**
+     * Generate the typescript types with package.json support
+     */
+    package: boolean
 }

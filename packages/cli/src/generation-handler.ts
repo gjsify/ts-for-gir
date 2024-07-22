@@ -10,7 +10,7 @@ import {
 } from '@ts-for-gir/lib'
 import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
-// import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
+import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
 import type { OptionsGeneration, NSRegistry } from '@ts-for-gir/lib'
 
@@ -28,9 +28,9 @@ export class GenerationHandler {
             case GeneratorType.TYPES:
                 this.generator = new TypeDefinitionGenerator(config)
                 break
-            // case GeneratorType.HTML_DOC:
-            //     this.generator = new HtmlDocGenerator(config)
-            //     break
+            case GeneratorType.HTML_DOC:
+                this.generator = new HtmlDocGenerator(config)
+                break
             default:
                 throw new Error('Unknown Generator')
         }
@@ -64,7 +64,7 @@ export class GenerationHandler {
             await this.generator.generate(registry, girModule)
         }
 
-        await this.generator.finish(registry)
+        await this.generator.finish(registry, girModules)
 
         this.log.success(GENERATING_TYPES_DONE)
     }

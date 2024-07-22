@@ -4690,6 +4690,9 @@ policies, see [class@HSTSEnforcerDB] for that.</doc>
         </return-value>
       </constructor>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="libsoup/hsts/soup-hsts-enforcer.h"
+             line="27">The class closure for the #SoupHSTSEnforcer::changed signal.</doc>
         <source-position filename="libsoup/hsts/soup-hsts-enforcer.h"
                          line="38"/>
         <return-value transfer-ownership="none">
@@ -4986,6 +4989,10 @@ this signal.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="is_persistent">
+        <doc xml:space="preserve"
+             filename="libsoup/hsts/soup-hsts-enforcer.h"
+             line="20">The @is_persistent function advertises whether the enforcer is persistent or
+whether changes made to it will be lost when the underlying [class@Session] is finished.</doc>
         <callback name="is_persistent">
           <source-position filename="libsoup/hsts/soup-hsts-enforcer.h"
                            line="34"/>
@@ -5006,6 +5013,13 @@ this signal.</doc>
         </callback>
       </field>
       <field name="has_valid_policy">
+        <doc xml:space="preserve"
+             filename="libsoup/hsts/soup-hsts-enforcer.h"
+             line="22">The @has_valid_policy function is called to check whether there is a valid
+policy for the given domain. This method should return %TRUE for #SoupHSTSEnforcer to
+change the scheme of the #GUri in the #SoupMessage to HTTPS. Implementations might want to
+chain up to the @has_valid_policy in the parent class to check, for instance, for runtime
+policies.</doc>
         <callback name="has_valid_policy">
           <source-position filename="libsoup/hsts/soup-hsts-enforcer.h"
                            line="35"/>
@@ -5033,6 +5047,9 @@ this signal.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="libsoup/hsts/soup-hsts-enforcer.h"
+             line="27">The class closure for the #SoupHSTSEnforcer::changed signal.</doc>
         <callback name="changed">
           <source-position filename="libsoup/hsts/soup-hsts-enforcer.h"
                            line="38"/>
@@ -10576,7 +10593,8 @@ will be returned.</doc>
       </method>
       <method name="next_part"
               c:identifier="soup_multipart_input_stream_next_part"
-              throws="1">
+              throws="1"
+              glib:async-func="next_part_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
              line="453">Obtains an input stream for the next part.
@@ -10619,7 +10637,9 @@ to obtain the next part.</doc>
         </parameters>
       </method>
       <method name="next_part_async"
-              c:identifier="soup_multipart_input_stream_next_part_async">
+              c:identifier="soup_multipart_input_stream_next_part_async"
+              glib:finish-func="next_part_finish"
+              glib:sync-func="next_part">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
              line="516">Obtains a [class@Gio.InputStream] for the next request.
@@ -13846,7 +13866,8 @@ some class managed by another feature, such as [class@Auth]).</doc>
         </parameters>
       </method>
       <method name="preconnect_async"
-              c:identifier="soup_session_preconnect_async">
+              c:identifier="soup_session_preconnect_async"
+              glib:finish-func="preconnect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3840">Start a preconnection to @msg.
@@ -13990,7 +14011,10 @@ The operation finishes when the connection is done or an error occurred.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="send" c:identifier="soup_session_send" throws="1">
+      <method name="send"
+              c:identifier="soup_session_send"
+              throws="1"
+              glib:async-func="send_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3138">Synchronously sends @msg and waits for the beginning of a response.
@@ -14045,7 +14069,8 @@ received.</doc>
       </method>
       <method name="send_and_read"
               c:identifier="soup_session_send_and_read"
-              throws="1">
+              throws="1"
+              glib:async-func="send_and_read_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3370">Synchronously sends @msg and reads the response body.
@@ -14087,7 +14112,9 @@ See [method@Session.send] for more details on the general semantics.</doc>
         </parameters>
       </method>
       <method name="send_and_read_async"
-              c:identifier="soup_session_send_and_read_async">
+              c:identifier="soup_session_send_and_read_async"
+              glib:finish-func="send_and_read_finish"
+              glib:sync-func="send_and_read">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3299">Asynchronously sends @msg and reads the response body.
@@ -14186,7 +14213,8 @@ If successful, returns a [struct@GLib.Bytes] with the response body.</doc>
       <method name="send_and_splice"
               c:identifier="soup_session_send_and_splice"
               version="3.4"
-              throws="1">
+              throws="1"
+              glib:async-func="send_and_splice_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3541">Synchronously sends @msg and splices the response body stream into @out_stream.
@@ -14238,7 +14266,9 @@ See [method@Session.send] for more details on the general semantics.</doc>
       </method>
       <method name="send_and_splice_async"
               c:identifier="soup_session_send_and_splice_async"
-              version="3.4">
+              version="3.4"
+              glib:finish-func="send_and_splice_finish"
+              glib:sync-func="send_and_splice">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3469">Asynchronously sends @msg and splices the response body stream into @out_stream.
@@ -14342,7 +14372,10 @@ See [method@Session.send] for more details on the general semantics.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="send_async" c:identifier="soup_session_send_async">
+      <method name="send_async"
+              c:identifier="soup_session_send_async"
+              glib:finish-func="send_finish"
+              glib:sync-func="send">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3046">Asynchronously sends @msg and waits for the beginning of a response.
@@ -14689,7 +14722,8 @@ is %NULL then no "User-Agent" will be included in requests. See
         </parameters>
       </method>
       <method name="websocket_connect_async"
-              c:identifier="soup_session_websocket_connect_async">
+              c:identifier="soup_session_websocket_connect_async"
+              glib:finish-func="websocket_connect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="3703">Asynchronously creates a [class@WebsocketConnection] to communicate with a
@@ -17547,6 +17581,9 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         <type name="utf8" c:type="const char*"/>
       </field>
       <field name="configure">
+        <doc xml:space="preserve"
+             filename="libsoup/websocket/soup-websocket-extension.c"
+             line="41">called to configure the extension with the given parameters</doc>
         <callback name="configure" throws="1">
           <source-position filename="libsoup/websocket/soup-websocket-extension.h"
                            line="39"/>
@@ -17587,6 +17624,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="get_request_params">
+        <doc xml:space="preserve"
+             filename="libsoup/websocket/soup-websocket-extension.c"
+             line="42">called by the client to build the request header.
+   It should include the parameters string starting with ';'</doc>
         <callback name="get_request_params">
           <source-position filename="libsoup/websocket/soup-websocket-extension.h"
                            line="44"/>
@@ -17608,6 +17649,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="get_response_params">
+        <doc xml:space="preserve"
+             filename="libsoup/websocket/soup-websocket-extension.c"
+             line="44">called by the server to build the response header.
+   It should include the parameters string starting with ';'</doc>
         <callback name="get_response_params">
           <source-position filename="libsoup/websocket/soup-websocket-extension.h"
                            line="46"/>
@@ -17629,6 +17674,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="process_outgoing_message">
+        <doc xml:space="preserve"
+             filename="libsoup/websocket/soup-websocket-extension.c"
+             line="46">called to process the payload data of a message
+   before it's sent. Reserved bits of the header should be changed.</doc>
         <callback name="process_outgoing_message" throws="1">
           <source-position filename="libsoup/websocket/soup-websocket-extension.h"
                            line="48"/>
@@ -17665,6 +17714,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="process_incoming_message">
+        <doc xml:space="preserve"
+             filename="libsoup/websocket/soup-websocket-extension.c"
+             line="48">called to process the payload data of a message
+   after it's received. Reserved bits of the header should be cleared.</doc>
         <callback name="process_incoming_message" throws="1">
           <source-position filename="libsoup/websocket/soup-websocket-extension.h"
                            line="53"/>

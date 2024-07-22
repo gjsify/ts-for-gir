@@ -11,9 +11,16 @@ import {
     GirEnumElement,
     GirBitfieldElement,
 } from './types/index.js'
-import { lowerCamelCase, upperCamelCase, isFirstCharNumeric, underscores, slugCase, snakeCase } from './utils.js'
+import { lowerCamelCase, upperCamelCase, isFirstCharNumeric, underscores, slugCase, snakeCase } from './utils/index.js'
 import { Logger } from './logger.js'
-import { NEW_LINE_REG_EXP } from './constants.js'
+import {
+    NEW_LINE_REG_EXP,
+    RESERVED_NAMESPACE_NAMES,
+    RESERVED_CLASS_NAMES,
+    RESERVED_FUNCTION_NAMES,
+    RESERVED_VARIABLE_NAMES,
+    RESERVED_QUOTE_VARIABLE_NAMES,
+} from './constants.js'
 import {
     WARN_RENAMED_PROPERTY,
     WARN_RENAMED_CLASS,
@@ -151,100 +158,6 @@ export const FULL_TYPE_MAP = (value: string, out = true): string | undefined => 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]
     return result
 }
-
-/** The reserved variable names listed here cannot be resolved simply by quotation marks */
-export const RESERVED_QUOTE_VARIABLE_NAMES = ['constructor']
-
-export const RESERVED_VARIABLE_NAMES = [
-    'in',
-    'function',
-    'true',
-    'false',
-    'break',
-    'arguments',
-    'eval',
-    'default',
-    'new',
-    'extends',
-    'with',
-    'var',
-    'class',
-    'delete',
-    'return',
-    'constructor',
-    'this', // TODO check if this is used as we would use this in javascript, if so, this is only allowed as the first parameter
-]
-
-export const RESERVED_CLASS_NAMES = [
-    'break',
-    'boolean',
-    'case',
-    'catch',
-    'class',
-    'const',
-    'continue',
-    'debugger',
-    'default',
-    'delete',
-    'do',
-    'else',
-    'enum',
-    'export',
-    'extends',
-    'false',
-    'finally',
-    'for',
-    'function',
-    'if',
-    'implements',
-    'import',
-    'in',
-    'instanceof',
-    'interface',
-    'let',
-    'new',
-    'number',
-    'package',
-    'private',
-    'protected',
-    'public',
-    'return',
-    'static',
-    'super',
-    'switch',
-    'string',
-    'this',
-    'throw',
-    'true',
-    'try',
-    'typeof',
-    'var',
-    'void',
-    'while',
-    'with',
-    'yield',
-]
-
-export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
-
-/**
- * Some classes already have their own `.connect`, `.disconnect` or `.emit` methods,
- * so these cannot be overwritten with the Gjs signal methods which have the same name.
- */
-export const GOBJECT_SIGNAL_METHOD_NAMES = ['connect', 'connect_after', 'emit', 'disconnect']
-
-export const IGNORE_GIR_TYPE_TS_DOC_TYPES = [
-    'method',
-    'enum',
-    'enum-member',
-    'bitfield-member',
-    'property',
-    'function',
-    'static-function',
-    'constant',
-]
-
-export const RESERVED_NAMESPACE_NAMES = {}
 
 export class Transformation {
     protected static instance?: Transformation

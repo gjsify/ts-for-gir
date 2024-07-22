@@ -956,7 +956,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     girClass,
                     girClass.fields.filter((field) => field.isStatic),
                 ),
-                `Static fields of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Static fields`,
                 indentCount,
             ),
         )
@@ -977,7 +977,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     girClass,
                     girClass.fields.filter((field) => !field.isStatic),
                 ),
-                `Own fields of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Fields`,
                 indentCount,
             ),
         )
@@ -1002,7 +1002,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         def.push(
             ...this.generateProperties(
                 filterConflicts(girClass.namespace, girClass, girClass.props),
-                `Own properties of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Properties`,
                 indentCount,
             ),
         )
@@ -1024,7 +1024,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     [],
                 ),
                 indentCount,
-                `Own static methods of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Static methods`,
             ),
         )
 
@@ -1047,7 +1047,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     [],
                 ),
                 indentCount,
-                `Own methods of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Methods`,
             ),
         )
 
@@ -1088,9 +1088,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
         )
 
         if (def.length) {
-            def.unshift(
-                ...this.addInfoComment(`Constructors of ${girClass.namespace.namespace}.${girClass.name}`, indentCount),
-            )
+            def.unshift(...this.addInfoComment(`Constructors`, indentCount))
         }
 
         return def
@@ -1115,7 +1113,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                     [],
                 ),
                 indentCount,
-                `Own virtual methods of ${girClass.namespace.namespace}.${girClass.name}`,
+                `Virtual methods`,
             ),
         )
 
@@ -1253,7 +1251,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
         const signalDescs = this.generateSignals(girClass)
 
-        def.push(...this.mergeDescs(signalDescs, `Own signals of ${girClass.namespace.namespace}.${girClass.name}`, 1))
+        def.push(...this.mergeDescs(signalDescs, `Signals`, 1))
 
         return def
     }
@@ -1443,7 +1441,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
                 // Static Properties
                 def.push(...this.generateClassProperties(girClass))
 
-                // Static Fields
+                // Static and member Fields
                 def.push(...this.generateClassFields(girClass))
 
                 // Constructors

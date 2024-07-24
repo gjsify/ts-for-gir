@@ -12326,6 +12326,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/cairo-surfaces-tsc@workspace:examples/cairo-surfaces-tsc":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/cairo-surfaces-tsc@workspace:examples/cairo-surfaces-tsc"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    typescript: "npm:^5.5.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat"
@@ -12444,9 +12453,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/gtk-3-clutter-tsc-tsc@workspace:examples/gtk-3-clutter-tsc":
+"@ts-for-gir-example/gtk-3-clutter-tsc@workspace:examples/gtk-3-clutter-tsc":
   version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/gtk-3-clutter-tsc-tsc@workspace:examples/gtk-3-clutter-tsc"
+  resolution: "@ts-for-gir-example/gtk-3-clutter-tsc@workspace:examples/gtk-3-clutter-tsc"
   dependencies:
     "@girs/clutter-1.0": "workspace:^"
     "@girs/gdk-3.0": "workspace:^"

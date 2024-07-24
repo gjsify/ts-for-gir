@@ -1,5 +1,5 @@
 <%_ const Cairo = await dep.get('cairo', '1.0') _%>
-<%_ const GObject = await dep.get('gobject', '2.0') _%>
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
 
 <%_ if(!package){ -%>
 declare module 'cairo' {
@@ -7,7 +7,7 @@ declare module 'cairo' {
 
 // Cairo 1.0
 import type Cairo from '<%- Cairo.importPath %>';
-import type GObject from '<%- GObject.importPath %>';
+<%- GObject.importDef %>
 
 <%- package ? 'declare' : '' %> namespace giCairo {
 

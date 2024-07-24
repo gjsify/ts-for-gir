@@ -7,20 +7,49 @@ and/or use gtk-doc annotations.  -->
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
-  <package name="anthy"/>
+  <package name="anthy-unicode"/>
   <namespace name="Anthy"
              version="9000"
-             shared-library="libanthygobject-1.0.so.5,libanthy.so.0"
+             shared-library="libanthygobject-1.0.so.5,libanthy-unicode.so.0"
              c:identifier-prefixes="Anthy"
              c:symbol-prefixes="anthy">
     <constant name="COMPILED_ENCODING"
               value="0"
               c:type="ANTHY_COMPILED_ENCODING">
+      <source-position filename="anthy.h" line="44"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="EUC_JP_ENCODING" value="1" c:type="ANTHY_EUC_JP_ENCODING">
+      <source-position filename="anthy.h" line="45"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="GCONTEXT"
+                    c:identifier="ANTHY_GCONTEXT"
+                    introspectable="0">
+      <source-position filename="anthygcontext.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GCONTEXT_CLASS"
+                    c:identifier="ANTHY_GCONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="anthygcontext.h" line="35"/>
+      <parameters>
+        <parameter name="class">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GCONTEXT_GET_CLASS"
+                    c:identifier="ANTHY_GCONTEXT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="anthygcontext.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="GContext"
            c:symbol-prefix="gcontext"
            c:type="AnthyGContext"
@@ -28,17 +57,45 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="AnthyGContext"
            glib:get-type="anthy_gcontext_get_type"
            glib:type-struct="GContextClass">
-      <doc xml:space="preserve">An #AnthyGContext is an object that handles conversion strings.</doc>
+      <doc xml:space="preserve"
+           filename="anthygcontext.h"
+           line="51">An #AnthyGContext is an object that handles conversion strings.</doc>
+      <source-position filename="anthygcontext.h" line="70"/>
       <constructor name="new" c:identifier="anthy_gcontext_new">
-        <doc xml:space="preserve">New an #AnthyGobject.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="74">New an #AnthyGobject.</doc>
+        <source-position filename="anthygcontext.h" line="80"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A newly allocated #AnthyGContext</doc>
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="76">A newly allocated #AnthyGContext</doc>
           <type name="GContext" c:type="AnthyGContext*"/>
         </return-value>
       </constructor>
+      <function name="set_logger" c:identifier="anthy_gcontext_set_logger">
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="204">Set Anthy log level.</doc>
+        <source-position filename="anthygcontext.h" line="210"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="206">Log level</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </function>
       <method name="commit_prediction"
               c:identifier="anthy_gcontext_commit_prediction">
-        <doc xml:space="preserve">Commit a prediction string with @ntg_seg .</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="195">Commit a prediction string with @ntg_seg .</doc>
+        <source-position filename="anthygcontext.h" line="201"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -47,14 +104,19 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="nth_seg" transfer-ownership="none">
-            <doc xml:space="preserve">Nth segment</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="197">Nth segment</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="commit_segment"
               c:identifier="anthy_gcontext_commit_segment">
-        <doc xml:space="preserve">Commit a string with @ntg_seg and @nth_lookup.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="145">Commit a string with @ntg_seg and @nth_lookup.</doc>
+        <source-position filename="anthygcontext.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -63,18 +125,25 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="nth_seg" transfer-ownership="none">
-            <doc xml:space="preserve">Nth segment</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="147">Nth segment</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="nth_lookup" transfer-ownership="none">
-            <doc xml:space="preserve">Nth lookup</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="148">Nth lookup</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="do_set_personality"
               c:identifier="anthy_gcontext_do_set_personality">
-        <doc xml:space="preserve">Set a personal dictionary.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="98">Set a personal dictionary.</doc>
+        <source-position filename="anthygcontext.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -83,16 +152,23 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="dict_name" transfer-ownership="none">
-            <doc xml:space="preserve">a Dictionary name</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="100">a Dictionary name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_nr_candidates"
               c:identifier="anthy_gcontext_get_nr_candidates">
-        <doc xml:space="preserve">The number of the candidates</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="156">The number of the candidates</doc>
+        <source-position filename="anthygcontext.h" line="162"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The number of the candidates</doc>
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="158">The number of the candidates</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
@@ -106,9 +182,14 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_nr_predictions"
               c:identifier="anthy_gcontext_get_nr_predictions">
-        <doc xml:space="preserve">The number of the converted segments in the current prediction string.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="175">The number of the converted segments in the current prediction string.</doc>
+        <source-position filename="anthygcontext.h" line="182"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The number of the converted segments in the current
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="177">The number of the converted segments in the current
        prediction string.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -120,9 +201,14 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_nr_segments"
               c:identifier="anthy_gcontext_get_nr_segments">
-        <doc xml:space="preserve">The number of the converted segments</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="125">The number of the converted segments</doc>
+        <source-position filename="anthygcontext.h" line="131"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The number of the converted segments</doc>
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="127">The number of the converted segments</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
@@ -133,9 +219,14 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_prediction"
               c:identifier="anthy_gcontext_get_prediction">
-        <doc xml:space="preserve">A newly assigned string with @ntg_seg .</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="185">A newly assigned string with @ntg_seg .</doc>
+        <source-position filename="anthygcontext.h" line="192"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A newly assigned string.</doc>
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="188">A newly assigned string.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -143,15 +234,22 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="nth_seg" transfer-ownership="none">
-            <doc xml:space="preserve">Nth segment</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="187">Nth segment</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_segment" c:identifier="anthy_gcontext_get_segment">
-        <doc xml:space="preserve">A newly assigned string with @ntg_seg and @nth_lookup .</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="133">A newly assigned string with @ntg_seg and @nth_lookup .</doc>
+        <source-position filename="anthygcontext.h" line="141"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A newly assigned string.</doc>
+          <doc xml:space="preserve"
+               filename="anthygcontext.h"
+               line="137">A newly assigned string.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -159,18 +257,25 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="nth_seg" transfer-ownership="none">
-            <doc xml:space="preserve">Nth segment</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="135">Nth segment</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="nth_lookup" transfer-ownership="none">
-            <doc xml:space="preserve">Nth lookup</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="136">Nth lookup</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="init_personality"
               c:identifier="anthy_gcontext_init_personality">
-        <doc xml:space="preserve">Initialize the personal dictionaries.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="91">Initialize the personal dictionaries.</doc>
+        <source-position filename="anthygcontext.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -182,7 +287,10 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="resize_segment"
               c:identifier="anthy_gcontext_resize_segment">
-        <doc xml:space="preserve">Resize the nth segment.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="107">Resize the nth segment.</doc>
+        <source-position filename="anthygcontext.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -191,17 +299,24 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="nth" transfer-ownership="none">
-            <doc xml:space="preserve">nth segment</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="109">nth segment</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="resize" transfer-ownership="none">
-            <doc xml:space="preserve">size</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="110">size</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_encoding" c:identifier="anthy_gcontext_set_encoding">
-        <doc xml:space="preserve">Set an encoding.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="82">Set an encoding.</doc>
+        <source-position filename="anthygcontext.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -210,14 +325,19 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="encoding" transfer-ownership="none">
-            <doc xml:space="preserve">An encoding</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="84">An encoding</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_prediction_string"
               c:identifier="anthy_gcontext_set_prediction_string">
-        <doc xml:space="preserve">Set a prediction string.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="165">Set a prediction string.</doc>
+        <source-position filename="anthygcontext.h" line="171"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -226,13 +346,18 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="string" transfer-ownership="none">
-            <doc xml:space="preserve">A prediction string</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="167">A prediction string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_string" c:identifier="anthy_gcontext_set_string">
-        <doc xml:space="preserve">Set a conversion string.</doc>
+        <doc xml:space="preserve"
+             filename="anthygcontext.h"
+             line="117">Set a conversion string.</doc>
+        <source-position filename="anthygcontext.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -241,7 +366,9 @@ and/or use gtk-doc annotations.  -->
             <type name="GContext" c:type="AnthyGContext*"/>
           </instance-parameter>
           <parameter name="string" transfer-ownership="none">
-            <doc xml:space="preserve">A conversion string</doc>
+            <doc xml:space="preserve"
+                 filename="anthygcontext.h"
+                 line="119">A conversion string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -253,7 +380,7 @@ and/or use gtk-doc annotations.  -->
         <type name="GContextPrivate" c:type="AnthyGContextPrivate*"/>
       </field>
       <field name="pdummy" readable="0" private="1">
-        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+        <array zero-terminated="0" fixed-size="8">
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
@@ -261,67 +388,105 @@ and/or use gtk-doc annotations.  -->
     <record name="GContextClass"
             c:type="AnthyGContextClass"
             glib:is-gtype-struct-for="GContext">
+      <source-position filename="anthygcontext.h" line="70"/>
       <field name="parent">
         <type name="GObject.InitiallyUnownedClass"
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="pdummy" readable="0" private="1">
-        <array zero-terminated="0" c:type="gpointer" fixed-size="8">
+        <array zero-terminated="0" fixed-size="8">
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
     </record>
-    <record name="GContextPrivate" c:type="AnthyGContextPrivate" disguised="1">
+    <record name="GContextPrivate"
+            c:type="AnthyGContextPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="anthygcontext.h" line="46"/>
     </record>
+    <function-macro name="IS_GCONTEXT"
+                    c:identifier="ANTHY_IS_GCONTEXT"
+                    introspectable="0">
+      <source-position filename="anthygcontext.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GCONTEXT_CLASS"
+                    c:identifier="ANTHY_IS_GCONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="anthygcontext.h" line="39"/>
+      <parameters>
+        <parameter name="class">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="NTH_HALFKANA_CANDIDATE"
               value="-4"
               c:type="NTH_HALFKANA_CANDIDATE">
+      <source-position filename="anthy.h" line="42"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="NTH_HIRAGANA_CANDIDATE"
               value="-3"
               c:type="NTH_HIRAGANA_CANDIDATE">
+      <source-position filename="anthy.h" line="41"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="NTH_KATAKANA_CANDIDATE"
               value="-2"
               c:type="NTH_KATAKANA_CANDIDATE">
+      <source-position filename="anthy.h" line="40"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="NTH_UNCONVERTED_CANDIDATE"
               value="-1"
               c:type="NTH_UNCONVERTED_CANDIDATE">
+      <source-position filename="anthy.h" line="39"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="RECONVERT_ALWAYS"
               value="2"
               c:type="ANTHY_RECONVERT_ALWAYS">
+      <source-position filename="anthy.h" line="50"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="RECONVERT_AUTO" value="0" c:type="ANTHY_RECONVERT_AUTO">
+      <source-position filename="anthy.h" line="48"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="RECONVERT_DISABLE"
               value="1"
               c:type="ANTHY_RECONVERT_DISABLE">
+      <source-position filename="anthy.h" line="49"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="UTF8_ENCODING" value="2" c:type="ANTHY_UTF8_ENCODING">
+      <source-position filename="anthy.h" line="46"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <record name="anthy_context_t" c:type="anthy_context_t" disguised="1">
+    <record name="anthy_context_t"
+            c:type="anthy_context_t"
+            disguised="1"
+            pointer="1">
+      <source-position filename="anthy.h" line="34"/>
     </record>
     <record name="anthy_conv_stat" c:type="anthy_conv_stat">
+      <source-position filename="anthy.h" line="23"/>
       <field name="nr_segment" writable="1">
         <type name="gint" c:type="int"/>
       </field>
     </record>
     <record name="anthy_prediction_stat" c:type="anthy_prediction_stat">
+      <source-position filename="anthy.h" line="32"/>
       <field name="nr_prediction" writable="1">
         <type name="gint" c:type="int"/>
       </field>
     </record>
     <record name="anthy_segment_stat" c:type="anthy_segment_stat">
+      <source-position filename="anthy.h" line="28"/>
       <field name="nr_candidate" writable="1">
         <type name="gint" c:type="int"/>
       </field>
@@ -330,6 +495,7 @@ and/or use gtk-doc annotations.  -->
       </field>
     </record>
     <function name="commit_prediction" c:identifier="anthy_commit_prediction">
+      <source-position filename="anthy.h" line="85"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -343,6 +509,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="commit_segment" c:identifier="anthy_commit_segment">
+      <source-position filename="anthy.h" line="76"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -359,6 +526,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="conf_override" c:identifier="anthy_conf_override">
+      <source-position filename="anthy.h" line="55"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -373,6 +541,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="context_set_encoding"
               c:identifier="anthy_context_set_encoding">
+      <source-position filename="anthy.h" line="96"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -388,11 +557,13 @@ and/or use gtk-doc annotations.  -->
     <function name="create_context"
               c:identifier="anthy_create_context"
               introspectable="0">
+      <source-position filename="anthy.h" line="61"/>
       <return-value>
         <type name="anthy_context_t" c:type="anthy_context_t"/>
       </return-value>
     </function>
     <function name="get_prediction" c:identifier="anthy_get_prediction">
+      <source-position filename="anthy.h" line="83"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -413,6 +584,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="get_prediction_stat"
               c:identifier="anthy_get_prediction_stat">
+      <source-position filename="anthy.h" line="81"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -420,12 +592,16 @@ and/or use gtk-doc annotations.  -->
         <parameter name="arg0" transfer-ownership="none">
           <type name="anthy_context_t" c:type="anthy_context_t"/>
         </parameter>
-        <parameter name="arg1" transfer-ownership="none">
+        <parameter name="arg1"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
           <type name="gpointer" c:type="anthy_prediction_stat*"/>
         </parameter>
       </parameters>
     </function>
     <function name="get_segment" c:identifier="anthy_get_segment">
+      <source-position filename="anthy.h" line="74"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -448,6 +624,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="get_segment_stat" c:identifier="anthy_get_segment_stat">
+      <source-position filename="anthy.h" line="72"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -458,12 +635,16 @@ and/or use gtk-doc annotations.  -->
         <parameter name="arg1" transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </parameter>
-        <parameter name="arg2" transfer-ownership="none">
+        <parameter name="arg2"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
           <type name="gpointer" c:type="anthy_segment_stat*"/>
         </parameter>
       </parameters>
     </function>
     <function name="get_stat" c:identifier="anthy_get_stat">
+      <source-position filename="anthy.h" line="71"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -471,23 +652,29 @@ and/or use gtk-doc annotations.  -->
         <parameter name="arg0" transfer-ownership="none">
           <type name="anthy_context_t" c:type="anthy_context_t"/>
         </parameter>
-        <parameter name="arg1" transfer-ownership="none">
+        <parameter name="arg1"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
           <type name="gpointer" c:type="anthy_conv_stat*"/>
         </parameter>
       </parameters>
     </function>
     <function name="get_version_string"
               c:identifier="anthy_get_version_string">
+      <source-position filename="anthy.h" line="90"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
     </function>
     <function name="init" c:identifier="anthy_init">
+      <source-position filename="anthy.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
     <callback name="logger" c:type="anthy_logger">
+      <source-position filename="anthy.h" line="91"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -501,6 +688,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </callback>
     <function name="print_context" c:identifier="anthy_print_context">
+      <source-position filename="anthy.h" line="88"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -511,11 +699,13 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="quit" c:identifier="anthy_quit">
+      <source-position filename="anthy.h" line="54"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="release_context" c:identifier="anthy_release_context">
+      <source-position filename="anthy.h" line="63"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -526,6 +716,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="reset_context" c:identifier="anthy_reset_context">
+      <source-position filename="anthy.h" line="62"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -536,6 +727,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="resize_segment" c:identifier="anthy_resize_segment">
+      <source-position filename="anthy.h" line="70"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -554,6 +746,7 @@ and/or use gtk-doc annotations.  -->
     <function name="set_logger"
               c:identifier="anthy_set_logger"
               introspectable="0">
+      <source-position filename="anthy.h" line="92"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -567,6 +760,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="set_personality" c:identifier="anthy_set_personality">
+      <source-position filename="anthy.h" line="56"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -578,6 +772,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="set_prediction_string"
               c:identifier="anthy_set_prediction_string">
+      <source-position filename="anthy.h" line="80"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -592,6 +787,7 @@ and/or use gtk-doc annotations.  -->
     </function>
     <function name="set_reconversion_mode"
               c:identifier="anthy_set_reconversion_mode">
+      <source-position filename="anthy.h" line="98"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -605,6 +801,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function>
     <function name="set_string" c:identifier="anthy_set_string">
+      <source-position filename="anthy.h" line="68"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>

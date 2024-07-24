@@ -8135,13 +8135,14 @@ profiles defined in Annex A for service-compatible stereoscopic 3D services</doc
     </enumeration>
     <function name="buffer_add_mpegts_pes_metadata_meta"
               c:identifier="gst_buffer_add_mpegts_pes_metadata_meta"
-              version="1.24">
+              version="1.24"
+              introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
            line="92">Creates and adds a #GstMpegtsPESMetadataMeta to a @buffer.</doc>
       <source-position filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
                        line="104"/>
-      <return-value transfer-ownership="none">
+      <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/mpegts/gst-mpegtspesmetadatameta.h"
              line="98">a newly created #GstMpegtsPESMetadataMeta</doc>

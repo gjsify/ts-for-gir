@@ -18,7 +18,7 @@ and/or use gtk-doc annotations.  -->
            introspectable="0">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="408">An alias for #GHashTable, used in the #TotemPlParser::entry-parsed and
+           line="416">An alias for #GHashTable, used in the #TotemPlParser::entry-parsed and
 #TotemPlParser::playlist-started signals due to #GHashTable not being a
 boxed type when totem-pl-parser was originally written.
 
@@ -26,7 +26,7 @@ The hash table is a mapping from field names (such as
 %TOTEM_PL_PARSER_FIELD_ALBUM) to their associated values.
 
 It is safe to use #GHashTable instead of #TotemPlParserMetadata everywhere.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="420"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="428"/>
       <type name="GLib.HashTable" c:type="GHashTable"/>
     </alias>
     <function-macro name="IS_PARSER"
@@ -100,19 +100,19 @@ It is safe to use #GHashTable instead of #TotemPlParserMetadata everywhere.</doc
     <constant name="PARSER_CONTENT_RATING_CLEAN"
               value="clean"
               c:type="TOTEM_PL_PARSER_CONTENT_RATING_CLEAN">
-      <source-position filename="plparse/totem-pl-parser.h" line="288"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="296"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_CONTENT_RATING_EXPLICIT"
               value="explicit"
               c:type="TOTEM_PL_PARSER_CONTENT_RATING_EXPLICIT">
-      <source-position filename="plparse/totem-pl-parser.h" line="289"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="297"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_CONTENT_RATING_UNRATED"
               value="unrated"
               c:type="TOTEM_PL_PARSER_CONTENT_RATING_UNRATED">
-      <source-position filename="plparse/totem-pl-parser.h" line="290"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="298"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_ABSTRACT"
@@ -120,8 +120,8 @@ It is safe to use #GHashTable instead of #TotemPlParserMetadata everywhere.</doc
               c:type="TOTEM_PL_PARSER_FIELD_ABSTRACT">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="164">Metadata field for an entry's abstract text.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="169"/>
+           line="172">Metadata field for an entry's abstract text.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="177"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_ALBUM"
@@ -129,8 +129,8 @@ It is safe to use #GHashTable instead of #TotemPlParserMetadata everywhere.</doc
               c:type="TOTEM_PL_PARSER_FIELD_ALBUM">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="102">Metadata field for an entry's album.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="107"/>
+           line="110">Metadata field for an entry's album.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="115"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_AUDIO_TRACK"
@@ -138,9 +138,9 @@ It is safe to use #GHashTable instead of #TotemPlParserMetadata everywhere.</doc
               c:type="TOTEM_PL_PARSER_FIELD_AUDIO_TRACK">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="270">Metadata field for an entry's default audio-track selection. The default
+           line="278">Metadata field for an entry's default audio-track selection. The default
 track is defined as NULL. Note that the value is sent as a string.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="276"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="284"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_AUTHOR"
@@ -148,8 +148,8 @@ track is defined as NULL. Note that the value is sent as a string.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_AUTHOR">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="96">Metadata field for an entry's author/composer/director.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="101"/>
+           line="104">Metadata field for an entry's author/composer/director.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="109"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_AUTOPLAY"
@@ -157,8 +157,8 @@ track is defined as NULL. Note that the value is sent as a string.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_AUTOPLAY">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="126">Metadata field for an entry's "autoplay" flag, which is %TRUE if the entry should play automatically.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="131"/>
+           line="134">Metadata field for an entry's "autoplay" flag, which is %TRUE if the entry should play automatically.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="139"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_BASE"
@@ -166,8 +166,8 @@ track is defined as NULL. Note that the value is sent as a string.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_BASE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="108">Metadata field for an entry's base path.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="113"/>
+           line="116">Metadata field for an entry's base path.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="121"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_CONTACT"
@@ -175,8 +175,8 @@ track is defined as NULL. Note that the value is sent as a string.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_CONTACT">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="218">Metadata field for an entry's contact details for the webmaster.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="223"/>
+           line="226">Metadata field for an entry's contact details for the webmaster.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="231"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_CONTENT_RATING"
@@ -184,12 +184,12 @@ track is defined as NULL. Note that the value is sent as a string.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_CONTENT_RATING">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="277">Metadata field for an entry's content rating. It is
+           line="285">Metadata field for an entry's content rating. It is
 %TOTEM_PL_PARSER_CONTENT_RATING_CLEAN for clean content,
 %TOTEM_PL_PARSER_CONTENT_RATING_EXPLICIT for explicit content and
 %TOTEM_PL_PARSER_CONTENT_RATING_UNRATED for content which is not
 rated.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="286"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="294"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_CONTENT_TYPE"
@@ -197,9 +197,9 @@ rated.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_CONTENT_TYPE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="256">Metadata field for an entry's content-type (usually a mime-type coming
+           line="264">Metadata field for an entry's content-type (usually a mime-type coming
 from a web server).</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="262"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="270"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_COPYRIGHT"
@@ -207,8 +207,8 @@ from a web server).</doc>
               c:type="TOTEM_PL_PARSER_FIELD_COPYRIGHT">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="158">Metadata field for an entry's copyright line.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="163"/>
+           line="166">Metadata field for an entry's copyright line.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="171"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_DESCRIPTION"
@@ -216,8 +216,8 @@ from a web server).</doc>
               c:type="TOTEM_PL_PARSER_FIELD_DESCRIPTION">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="170">Metadata field for an entry's description.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="175"/>
+           line="178">Metadata field for an entry's description.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="183"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_DOWNLOAD_URI"
@@ -226,9 +226,9 @@ from a web server).</doc>
               version="2.26">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="232">Metadata field for an entry's download URI. Only used if an alternate download
+           line="240">Metadata field for an entry's download URI. Only used if an alternate download
 location is available for the entry.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="240"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="248"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_DURATION"
@@ -236,8 +236,8 @@ location is available for the entry.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_DURATION">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="132">Metadata field for an entry's playback duration, which should be parsed using totem_pl_parser_parse_duration().</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="137"/>
+           line="140">Metadata field for an entry's playback duration, which should be parsed using totem_pl_parser_parse_duration().</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="145"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_DURATION_MS"
@@ -245,10 +245,10 @@ location is available for the entry.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_DURATION_MS">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="138">Metadata field for an entry's playback duration, in milliseconds. It's only used when an entry's
+           line="146">Metadata field for an entry's playback duration, in milliseconds. It's only used when an entry's
 duration is available in that format, so one would get either the %TOTEM_PL_PARSER_FIELD_DURATION
 or %TOTEM_PL_PARSER_FIELD_DURATION_MS as metadata.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="145"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="153"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_ENDTIME"
@@ -256,8 +256,8 @@ or %TOTEM_PL_PARSER_FIELD_DURATION_MS as metadata.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_ENDTIME">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="152">Metadata field for an entry's playback end time.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="157"/>
+           line="160">Metadata field for an entry's playback end time.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="165"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_FILESIZE"
@@ -265,8 +265,8 @@ or %TOTEM_PL_PARSER_FIELD_DURATION_MS as metadata.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_FILESIZE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="206">Metadata field for an entry's filesize in bytes. This is only advisory, and can sometimes not match the actual filesize of the stream.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="211"/>
+           line="214">Metadata field for an entry's filesize in bytes. This is only advisory, and can sometimes not match the actual filesize of the stream.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="219"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_GENRE"
@@ -274,8 +274,19 @@ or %TOTEM_PL_PARSER_FIELD_DURATION_MS as metadata.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_GENRE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="84">Metadata field for an entry's genre.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="89"/>
+           line="84">Metadata field for an entry's primary genre. This is a string of
+the form 'Genre1' or 'Genre1/SubGenre1".</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="90"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="PARSER_FIELD_GENRES"
+              value="genres"
+              c:type="TOTEM_PL_PARSER_FIELD_GENRES">
+      <doc xml:space="preserve"
+           filename="plparse/totem-pl-parser.h"
+           line="91">Metadata field for an entry's full genre. This is a concatenated
+string of the form 'Genre1/SubGenre1,Genre2/SubGenre2" etc.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="97"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_ID"
@@ -283,9 +294,9 @@ or %TOTEM_PL_PARSER_FIELD_DURATION_MS as metadata.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_ID">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="241">Metadata field for an entry's identifier. Its use is dependent on the format
+           line="249">Metadata field for an entry's identifier. Its use is dependent on the format
 of the playlist parsed, and its origin.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="247"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="255"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_IMAGE_URI"
@@ -294,8 +305,8 @@ of the playlist parsed, and its origin.</doc>
               version="2.26">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="224">Metadata field for an entry's thumbnail image URI.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="231"/>
+           line="232">Metadata field for an entry's thumbnail image URI.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="239"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_IS_PLAYLIST"
@@ -303,10 +314,10 @@ of the playlist parsed, and its origin.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_IS_PLAYLIST">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="248">Metadata field used to tell the calling code that the parsing of a playlist
+           line="256">Metadata field used to tell the calling code that the parsing of a playlist
 started. It is only %TRUE for the metadata passed to #TotemPlParser::playlist-started or
 #TotemPlParser::playlist-ended signal handlers.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="255"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="263"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_LANGUAGE"
@@ -314,8 +325,8 @@ started. It is only %TRUE for the metadata passed to #TotemPlParser::playlist-st
               c:type="TOTEM_PL_PARSER_FIELD_LANGUAGE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="212">Metadata field for an entry's audio language.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="217"/>
+           line="220">Metadata field for an entry's audio language.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="225"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_MOREINFO"
@@ -323,8 +334,8 @@ started. It is only %TRUE for the metadata passed to #TotemPlParser::playlist-st
               c:type="TOTEM_PL_PARSER_FIELD_MOREINFO">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="182">Metadata field for an entry's "more info" URI.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="187"/>
+           line="190">Metadata field for an entry's "more info" URI.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="195"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_PLAYING"
@@ -332,9 +343,9 @@ started. It is only %TRUE for the metadata passed to #TotemPlParser::playlist-st
               c:type="TOTEM_PL_PARSER_FIELD_PLAYING">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="263">Metadata field for an entry's status in a playlist. This is usually
+           line="271">Metadata field for an entry's status in a playlist. This is usually
 used when saving the state of an on-going playlist.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="269"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="277"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_PUB_DATE"
@@ -342,8 +353,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_PUB_DATE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="200">Metadata field for an entry's publication date, which should be parsed using totem_pl_parser_parse_date().</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="205"/>
+           line="208">Metadata field for an entry's publication date, which should be parsed using totem_pl_parser_parse_date().</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="213"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_SCREENSIZE"
@@ -351,8 +362,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_SCREENSIZE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="188">Metadata field for an entry's preferred screen size.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="193"/>
+           line="196">Metadata field for an entry's preferred screen size.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="201"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_STARTTIME"
@@ -360,8 +371,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_STARTTIME">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="146">Metadata field for an entry's playback start time, which should be parsed using totem_pl_parser_parse_duration().</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="151"/>
+           line="154">Metadata field for an entry's playback start time, which should be parsed using totem_pl_parser_parse_duration().</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="159"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_SUBTITLE_URI"
@@ -369,8 +380,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_SUBTITLE_URI">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="114">The URI of the entry's subtitle file.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="119"/>
+           line="122">The URI of the entry's subtitle file.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="127"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_TITLE"
@@ -378,8 +389,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_TITLE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="90">Metadata field for an entry's displayable title.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="95"/>
+           line="98">Metadata field for an entry's displayable title.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="103"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_UI_MODE"
@@ -387,8 +398,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_UI_MODE">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="194">Metadata field for an entry's preferred UI mode.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="199"/>
+           line="202">Metadata field for an entry's preferred UI mode.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="207"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_FIELD_URI"
@@ -406,8 +417,8 @@ used when saving the state of an on-going playlist.</doc>
               c:type="TOTEM_PL_PARSER_FIELD_VOLUME">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="120">Metadata field for an entry's playback volume.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="125"/>
+           line="128">Metadata field for an entry's playback volume.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="133"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="PARSER_VERSION_MAJOR"
@@ -459,16 +470,16 @@ used when saving the state of an on-going playlist.</doc>
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
            line="62">All the fields in the #TotemPlParser structure are private and should never be accessed directly.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="316"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="324"/>
       <constructor name="new" c:identifier="totem_pl_parser_new">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="682">Creates a #TotemPlParser object.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="406"/>
+             line="686">Creates a #TotemPlParser object.</doc>
+        <source-position filename="plparse/totem-pl-parser.h" line="414"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="687">a new #TotemPlParser</doc>
+               line="691">a new #TotemPlParser</doc>
           <type name="Parser" c:type="TotemPlParser*"/>
         </return-value>
       </constructor>
@@ -476,31 +487,31 @@ used when saving the state of an on-going playlist.</doc>
                 c:identifier="totem_pl_parser_can_parse_from_data">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2662">Checks if the first @len bytes of @data can be parsed.</doc>
+             line="2678">Checks if the first @len bytes of @data can be parsed.</doc>
         <source-position filename="plparse/totem-pl-parser-mini.h" line="30"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2670">%TRUE if @data can be parsed</doc>
+               line="2686">%TRUE if @data can be parsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2664">the data to check for parsability</doc>
+                 line="2680">the data to check for parsability</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2665">the length of data to check</doc>
+                 line="2681">the length of data to check</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2666">%TRUE if debug statements should be printed</doc>
+                 line="2682">%TRUE if debug statements should be printed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -509,7 +520,7 @@ used when saving the state of an on-going playlist.</doc>
                 c:identifier="totem_pl_parser_can_parse_from_filename">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2720">Checks if the file can be parsed. Files can be parsed if:
+             line="2736">Checks if the file can be parsed. Files can be parsed if:
 &lt;itemizedlist&gt;
  &lt;listitem&gt;&lt;para&gt;they have a special mimetype, or&lt;/para&gt;&lt;/listitem&gt;
  &lt;listitem&gt;&lt;para&gt;they have a mimetype which could be a video or a playlist.&lt;/para&gt;&lt;/listitem&gt;
@@ -518,20 +529,20 @@ used when saving the state of an on-going playlist.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2731">%TRUE if @filename can be parsed</doc>
+               line="2747">%TRUE if @filename can be parsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2722">the file to check for parsability</doc>
+                 line="2738">the file to check for parsability</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2723">%TRUE if debug statements should be printed</doc>
+                 line="2739">%TRUE if debug statements should be printed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -540,27 +551,27 @@ used when saving the state of an on-going playlist.</doc>
                 c:identifier="totem_pl_parser_can_parse_from_uri">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2758">Checks if the remote URI can be parsed. Note that this does
+             line="2774">Checks if the remote URI can be parsed. Note that this does
 not actually try to open the remote URI, or deduce its mime-type
 from filename, as this would bring too many false positives.</doc>
         <source-position filename="plparse/totem-pl-parser-mini.h" line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2767">%TRUE if @uri could be parsed</doc>
+               line="2783">%TRUE if @uri could be parsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2760">the remote URI to check for parsability</doc>
+                 line="2776">the remote URI to check for parsability</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2761">%TRUE if debug statements should be printed</doc>
+                 line="2777">%TRUE if debug statements should be printed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -568,26 +579,26 @@ from filename, as this would bring too many false positives.</doc>
       <function name="parse_date" c:identifier="totem_pl_parser_parse_date">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2573">Parses the given date string and returns it as a &lt;type&gt;gint64&lt;/type&gt;
+             line="2589">Parses the given date string and returns it as a &lt;type&gt;gint64&lt;/type&gt;
 denoting the date in seconds since the UNIX Epoch.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="358"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="366"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2581">the date in seconds, or -1 on error</doc>
+               line="2597">the date in seconds, or -1 on error</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <parameter name="date_str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2575">the date string to parse</doc>
+                 line="2591">the date string to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2576">%TRUE if debug statements should be printed</doc>
+                 line="2592">%TRUE if debug statements should be printed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -596,32 +607,32 @@ denoting the date in seconds since the UNIX Epoch.</doc>
                 c:identifier="totem_pl_parser_parse_duration">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2503">Parses the given duration string and returns it as a &lt;type&gt;gint64&lt;/type&gt;
+             line="2519">Parses the given duration string and returns it as a &lt;type&gt;gint64&lt;/type&gt;
 denoting the duration in seconds.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="357"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="365"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2511">the duration in seconds, or -1 on error</doc>
+               line="2527">the duration in seconds, or -1 on error</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <parameter name="duration" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2505">the duration string to parse</doc>
+                 line="2521">the duration string to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2506">%TRUE if debug statements should be printed</doc>
+                 line="2522">%TRUE if debug statements should be printed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </function>
       <virtual-method name="entry_parsed">
-        <source-position filename="plparse/totem-pl-parser.h" line="308"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="316"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -641,7 +652,7 @@ denoting the duration in seconds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="playlist_ended">
-        <source-position filename="plparse/totem-pl-parser.h" line="314"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="322"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -655,7 +666,7 @@ denoting the duration in seconds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="playlist_started">
-        <source-position filename="plparse/totem-pl-parser.h" line="311"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="319"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -679,9 +690,9 @@ denoting the duration in seconds.</doc>
               version="3.26.4">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2482">Adds a glob to the list of mimetypes to ignore, so that
+             line="2498">Adds a glob to the list of mimetypes to ignore, so that
 any URI of that glob is ignored during playlist parsing.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="382"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="390"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -689,13 +700,13 @@ any URI of that glob is ignored during playlist parsing.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2484">a #TotemPlParser</doc>
+                 line="2500">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="glob" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2485">a glob to ignore</doc>
+                 line="2501">a glob to ignore</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -704,9 +715,9 @@ any URI of that glob is ignored during playlist parsing.</doc>
               c:identifier="totem_pl_parser_add_ignored_mimetype">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2463">Adds a mimetype to the list of mimetypes to ignore, so that
+             line="2479">Adds a mimetype to the list of mimetypes to ignore, so that
 any URI of that mimetype is ignored during playlist parsing.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="380"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="388"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -714,13 +725,13 @@ any URI of that mimetype is ignored during playlist parsing.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2465">a #TotemPlParser</doc>
+                 line="2481">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="mimetype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2466">the mimetype to ignore</doc>
+                 line="2482">the mimetype to ignore</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -729,9 +740,9 @@ any URI of that mimetype is ignored during playlist parsing.</doc>
               c:identifier="totem_pl_parser_add_ignored_scheme">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2437">Adds a scheme to the list of schemes to ignore, so that
+             line="2453">Adds a scheme to the list of schemes to ignore, so that
 any URI using that scheme is ignored during playlist parsing.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="378"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="386"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -739,13 +750,13 @@ any URI using that scheme is ignored during playlist parsing.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2439">a #TotemPlParser</doc>
+                 line="2455">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="scheme" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2440">the scheme to ignore</doc>
+                 line="2456">the scheme to ignore</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -753,35 +764,35 @@ any URI using that scheme is ignored during playlist parsing.</doc>
       <method name="parse" c:identifier="totem_pl_parser_parse">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2415">Parses a playlist given by the absolute URI @uri. This method is
+             line="2431">Parses a playlist given by the absolute URI @uri. This method is
 synchronous, and will block on (e.g.) network requests to slow
 servers. totem_pl_parser_parse_async() is recommended instead.
 
 Return values are as totem_pl_parser_parse_with_base().</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="385"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="393"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2428">a #TotemPlParserResult</doc>
+               line="2444">a #TotemPlParserResult</doc>
           <type name="ParserResult" c:type="TotemPlParserResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2417">a #TotemPlParser</doc>
+                 line="2433">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2418">the URI of the playlist to parse</doc>
+                 line="2434">the URI of the playlist to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2419">%TRUE if the parser should add the playlist URI to the
+                 line="2435">%TRUE if the parser should add the playlist URI to the
 end of the playlist on parse failure</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -790,14 +801,14 @@ end of the playlist on parse failure</doc>
       <method name="parse_async" c:identifier="totem_pl_parser_parse_async">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2364">Starts asynchronous parsing of a playlist given by the absolute URI @uri. @parser and @uri are both reffed/copied
+             line="2368">Starts asynchronous parsing of a playlist given by the absolute URI @uri. @parser and @uri are both reffed/copied
 when this function is called, so can safely be freed after this function returns.
 
 For more details, see totem_pl_parser_parse(), which is the synchronous version of this function.
 
 When the operation is finished, @callback will be called. You can then call totem_pl_parser_parse_finish()
 to get the results of the operation.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="387"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="395"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -805,19 +816,19 @@ to get the results of the operation.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2366">a #TotemPlParser</doc>
+                 line="2370">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2367">the URI of the playlist to parse</doc>
+                 line="2371">the URI of the playlist to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2368">%TRUE if the parser should add the playlist URI to the
+                 line="2372">%TRUE if the parser should add the playlist URI to the
 end of the playlist on parse failure</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -827,7 +838,7 @@ end of the playlist on parse failure</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2370">optional #GCancellable object, or %NULL</doc>
+                 line="2374">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -838,7 +849,7 @@ end of the playlist on parse failure</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2371">a #GAsyncReadyCallback to call when parsing is finished</doc>
+                 line="2375">a #GAsyncReadyCallback to call when parsing is finished</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -847,7 +858,7 @@ end of the playlist on parse failure</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2372">data to pass to the @callback function</doc>
+                 line="2376">data to pass to the @callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -857,29 +868,29 @@ end of the playlist on parse failure</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2389">Finishes an asynchronous playlist parsing operation started with totem_pl_parser_parse_async()
+             line="2393">Finishes an asynchronous playlist parsing operation started with totem_pl_parser_parse_async()
 or totem_pl_parser_parse_with_base_async().
 
 If parsing of the playlist is cancelled part-way through, %TOTEM_PL_PARSER_RESULT_CANCELLED is returned when
 this function is called.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="391"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="399"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2401">a #TotemPlParserResult</doc>
+               line="2405">a #TotemPlParserResult</doc>
           <type name="ParserResult" c:type="TotemPlParserResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2391">a #TotemPlParser</doc>
+                 line="2395">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="async_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2392">a #GAsyncResult</doc>
+                 line="2396">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -888,26 +899,26 @@ this function is called.</doc>
               c:identifier="totem_pl_parser_parse_with_base">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2312">Parses a playlist given by the absolute URI @uri, using
+             line="2316">Parses a playlist given by the absolute URI @uri, using
 @base to resolve relative paths where appropriate.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="395"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="403"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="2323">a #TotemPlParserResult</doc>
+               line="2327">a #TotemPlParserResult</doc>
           <type name="ParserResult" c:type="TotemPlParserResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2314">a #TotemPlParser</doc>
+                 line="2318">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2315">the URI of the playlist to parse</doc>
+                 line="2319">the URI of the playlist to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="base"
@@ -916,13 +927,13 @@ this function is called.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2316">the base path for relative filenames, or %NULL</doc>
+                 line="2320">the base path for relative filenames, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2317">%TRUE if the parser should add the playlist URI to the
+                 line="2321">%TRUE if the parser should add the playlist URI to the
 end of the playlist on parse failure</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -932,14 +943,14 @@ end of the playlist on parse failure</doc>
               c:identifier="totem_pl_parser_parse_with_base_async">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="2271">Starts asynchronous parsing of a playlist given by the absolute URI @uri, using @base to resolve relative paths where appropriate.
+             line="2275">Starts asynchronous parsing of a playlist given by the absolute URI @uri, using @base to resolve relative paths where appropriate.
 @parser and @uri are both reffed/copied when this function is called, so can safely be freed after this function returns.
 
 For more details, see totem_pl_parser_parse_with_base(), which is the synchronous version of this function.
 
 When the operation is finished, @callback will be called. You can then call totem_pl_parser_parse_finish()
 to get the results of the operation.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="399"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="407"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -947,13 +958,13 @@ to get the results of the operation.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2273">a #TotemPlParser</doc>
+                 line="2277">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2274">the URI of the playlist to parse</doc>
+                 line="2278">the URI of the playlist to parse</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="base"
@@ -962,13 +973,13 @@ to get the results of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2275">the base path for relative filenames, or %NULL</doc>
+                 line="2279">the base path for relative filenames, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2276">%TRUE if the parser should add the playlist URI to the
+                 line="2280">%TRUE if the parser should add the playlist URI to the
 end of the playlist on parse failure</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -978,7 +989,7 @@ end of the playlist on parse failure</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2278">optional #GCancellable object, or %NULL</doc>
+                 line="2282">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -989,7 +1000,7 @@ end of the playlist on parse failure</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2279">a #GAsyncReadyCallback to call when parsing is finished</doc>
+                 line="2283">a #GAsyncReadyCallback to call when parsing is finished</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -998,7 +1009,7 @@ end of the playlist on parse failure</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="2280">data to pass to the @callback function</doc>
+                 line="2284">data to pass to the @callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1006,7 +1017,7 @@ end of the playlist on parse failure</doc>
       <method name="save" c:identifier="totem_pl_parser_save" throws="1">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="1211">Writes the playlist held by @parser and @playlist out to the path
+             line="1215">Writes the playlist held by @parser and @playlist out to the path
 pointed by @dest. The playlist is written in the format @type and is
 given the title @title.
 
@@ -1023,42 +1034,42 @@ parts of the playlist to be written are too long.
 
 If writing a PLA playlist and there is an error converting a URI's encoding,
 a code from #GConvertError will be returned.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="360"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="368"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="1238">%TRUE on success</doc>
+               line="1242">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1213">a #TotemPlParser</doc>
+                 line="1217">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="playlist" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1214">a #TotemPlPlaylist</doc>
+                 line="1218">a #TotemPlPlaylist</doc>
             <type name="Playlist" c:type="TotemPlPlaylist*"/>
           </parameter>
           <parameter name="dest" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1215">output #GFile</doc>
+                 line="1219">output #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1216">the playlist title</doc>
+                 line="1220">the playlist title</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1217">a #TotemPlParserType for the outputted playlist</doc>
+                 line="1221">a #TotemPlParserType for the outputted playlist</doc>
             <type name="ParserType" c:type="TotemPlParserType"/>
           </parameter>
         </parameters>
@@ -1066,12 +1077,12 @@ a code from #GConvertError will be returned.</doc>
       <method name="save_async" c:identifier="totem_pl_parser_save_async">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="1271">Starts asynchronous version of totem_pl_parser_save(). For more details
+             line="1275">Starts asynchronous version of totem_pl_parser_save(). For more details
 see totem_pl_parser_save().
 
 When the operation is finished, @callback will be called. You can then call
 totem_pl_parser_save_finish() to get the results of the operation.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="366"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="374"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1079,31 +1090,31 @@ totem_pl_parser_save_finish() to get the results of the operation.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1273">a #TotemPlParser</doc>
+                 line="1277">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="playlist" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1274">a #TotemPlPlaylist</doc>
+                 line="1278">a #TotemPlPlaylist</doc>
             <type name="Playlist" c:type="TotemPlPlaylist*"/>
           </parameter>
           <parameter name="dest" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1275">output #GFile</doc>
+                 line="1279">output #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1276">the playlist title</doc>
+                 line="1280">the playlist title</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1277">a #TotemPlParserType for the outputted playlist</doc>
+                 line="1281">a #TotemPlParserType for the outputted playlist</doc>
             <type name="ParserType" c:type="TotemPlParserType"/>
           </parameter>
           <parameter name="cancellable"
@@ -1112,7 +1123,7 @@ totem_pl_parser_save_finish() to get the results of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1278">a #GCancellable, or %NULL</doc>
+                 line="1282">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1123,7 +1134,7 @@ totem_pl_parser_save_finish() to get the results of the operation.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1279">a #GAsyncReadyCallback to call when saving has finished</doc>
+                 line="1283">a #GAsyncReadyCallback to call when saving has finished</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1132,7 +1143,7 @@ totem_pl_parser_save_finish() to get the results of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1280">data to pass to the @callback function</doc>
+                 line="1284">data to pass to the @callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1142,28 +1153,28 @@ totem_pl_parser_save_finish() to get the results of the operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
-             line="1319">Finishes an asynchronous playlist saving operation started with totem_pl_parser_save_async().
+             line="1323">Finishes an asynchronous playlist saving operation started with totem_pl_parser_save_async().
 
 If saving of the playlist is cancelled part-way through, %G_IO_ERROR_CANCELLED will be
 returned when this function is called.</doc>
-        <source-position filename="plparse/totem-pl-parser.h" line="374"/>
+        <source-position filename="plparse/totem-pl-parser.h" line="382"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="plparse/totem-pl-parser.c"
-               line="1330">%TRUE on success, %FALSE on failure.</doc>
+               line="1334">%TRUE on success, %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1321">a #TotemPlParser</doc>
+                 line="1325">a #TotemPlParser</doc>
             <type name="Parser" c:type="TotemPlParser*"/>
           </instance-parameter>
           <parameter name="async_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="plparse/totem-pl-parser.c"
-                 line="1322">a #GAsyncResult</doc>
+                 line="1326">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1293,17 +1304,17 @@ started.</doc>
             glib:is-gtype-struct-for="Parser">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="292">The class structure for the #TotemPlParser type.</doc>
-      <source-position filename="plparse/totem-pl-parser.h" line="316"/>
+           line="300">The class structure for the #TotemPlParser type.</doc>
+      <source-position filename="plparse/totem-pl-parser.h" line="324"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="294">the parent class</doc>
+             line="302">the parent class</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="entry_parsed">
         <callback name="entry_parsed">
-          <source-position filename="plparse/totem-pl-parser.h" line="308"/>
+          <source-position filename="plparse/totem-pl-parser.h" line="316"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1325,7 +1336,7 @@ started.</doc>
       </field>
       <field name="playlist_started">
         <callback name="playlist_started">
-          <source-position filename="plparse/totem-pl-parser.h" line="311"/>
+          <source-position filename="plparse/totem-pl-parser.h" line="319"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1347,7 +1358,7 @@ started.</doc>
       </field>
       <field name="playlist_ended">
         <callback name="playlist_ended">
-          <source-position filename="plparse/totem-pl-parser.h" line="314"/>
+          <source-position filename="plparse/totem-pl-parser.h" line="322"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1369,7 +1380,7 @@ started.</doc>
                  glib:error-domain="totem_pl_parser_error">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="336">Allows you to differentiate between different
+           line="344">Allows you to differentiate between different
 errors occurring during file operations in a #TotemPlParser.</doc>
       <member name="no_disc"
               value="0"
@@ -1378,7 +1389,7 @@ errors occurring during file operations in a #TotemPlParser.</doc>
               glib:name="TOTEM_PL_PARSER_ERROR_NO_DISC">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="338">Error attempting to open a disc device when no disc is present</doc>
+             line="346">Error attempting to open a disc device when no disc is present</doc>
       </member>
       <member name="mount_failed"
               value="1"
@@ -1387,7 +1398,7 @@ errors occurring during file operations in a #TotemPlParser.</doc>
               glib:name="TOTEM_PL_PARSER_ERROR_MOUNT_FAILED">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="339">An attempted mount operation failed</doc>
+             line="347">An attempted mount operation failed</doc>
       </member>
       <member name="empty_playlist"
               value="2"
@@ -1396,7 +1407,7 @@ errors occurring during file operations in a #TotemPlParser.</doc>
               glib:name="TOTEM_PL_PARSER_ERROR_EMPTY_PLAYLIST">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="340">Playlist to be saved is empty</doc>
+             line="348">Playlist to be saved is empty</doc>
       </member>
       <function name="quark" c:identifier="totem_pl_parser_error_quark">
         <return-value transfer-ownership="none">
@@ -1470,7 +1481,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
                  c:type="TotemPlParserType">
       <doc xml:space="preserve"
            filename="plparse/totem-pl-parser.h"
-           line="318">The type of playlist a #TotemPlParser will parse.</doc>
+           line="326">The type of playlist a #TotemPlParser will parse.</doc>
       <member name="pls"
               value="0"
               c:identifier="TOTEM_PL_PARSER_PLS"
@@ -1478,7 +1489,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
               glib:name="TOTEM_PL_PARSER_PLS">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="320">PLS parser</doc>
+             line="328">PLS parser</doc>
       </member>
       <member name="m3u"
               value="1"
@@ -1487,7 +1498,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
               glib:name="TOTEM_PL_PARSER_M3U">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="321">M3U parser</doc>
+             line="329">M3U parser</doc>
       </member>
       <member name="m3u_dos"
               value="2"
@@ -1496,7 +1507,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
               glib:name="TOTEM_PL_PARSER_M3U_DOS">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="322">M3U (DOS linebreaks) parser</doc>
+             line="330">M3U (DOS linebreaks) parser</doc>
       </member>
       <member name="xspf"
               value="3"
@@ -1505,7 +1516,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
               glib:name="TOTEM_PL_PARSER_XSPF">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="323">XSPF parser</doc>
+             line="331">XSPF parser</doc>
       </member>
       <member name="iriver_pla"
               value="4"
@@ -1514,7 +1525,7 @@ and totem_pl_parser_add_ignored_mimetype()).</doc>
               glib:name="TOTEM_PL_PARSER_IRIVER_PLA">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.h"
-             line="324">iRiver PLA parser</doc>
+             line="332">iRiver PLA parser</doc>
       </member>
     </enumeration>
     <class name="Playlist"
@@ -1982,7 +1993,7 @@ by @iter.</doc>
     </function>
     <function name="parser_metadata_get_type"
               c:identifier="totem_pl_parser_metadata_get_type">
-      <source-position filename="plparse/totem-pl-parser.h" line="422"/>
+      <source-position filename="plparse/totem-pl-parser.h" line="430"/>
       <return-value transfer-ownership="none">
         <type name="GType" c:type="GType"/>
       </return-value>

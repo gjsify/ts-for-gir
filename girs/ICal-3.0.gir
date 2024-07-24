@@ -77,7 +77,7 @@ is the same as or newer than the passed-in version.</doc>
       </parameters>
     </function-macro>
     <constant name="ERRORS_ARE_FATAL" value="0" c:type="ICAL_ERRORS_ARE_FATAL">
-      <source-position filename="ical.h" line="6821"/>
+      <source-position filename="ical.h" line="6796"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="ICALPARAMETER_FIRST_ENUM"
@@ -116,7 +116,7 @@ is the same as or newer than the passed-in version.</doc>
       <source-position filename="ical.h" line="28"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
-    <constant name="PATCH_VERSION" value="18" c:type="ICAL_PATCH_VERSION">
+    <constant name="PATCH_VERSION" value="17" c:type="ICAL_PATCH_VERSION">
       <source-position filename="ical.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -166,9 +166,9 @@ is the same as or newer than the passed-in version.</doc>
       <source-position filename="ical.h" line="1891"/>
     </record>
     <function name="bt" c:identifier="ical_bt">
-      <doc xml:space="preserve" filename="ical.h" line="6734">}
+      <doc xml:space="preserve" filename="ical.h" line="6709">}
 ```</doc>
-      <source-position filename="ical.h" line="6745"/>
+      <source-position filename="ical.h" line="6720"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -324,7 +324,7 @@ is the same as or newer than the passed-in version.</doc>
       </field>
     </record>
     <function name="decode_base64" c:identifier="decode_base64">
-      <source-position filename="ical.h" line="7298"/>
+      <source-position filename="ical.h" line="7273"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -342,7 +342,7 @@ is the same as or newer than the passed-in version.</doc>
     </function>
     <function name="decode_quoted_printable"
               c:identifier="decode_quoted_printable">
-      <source-position filename="ical.h" line="7296"/>
+      <source-position filename="ical.h" line="7271"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -380,7 +380,7 @@ is the same as or newer than the passed-in version.</doc>
       </field>
     </record>
     <enumeration name="errorenum" c:type="icalerrorenum">
-      <source-position filename="ical.h" line="6572"/>
+      <source-position filename="ical.h" line="6547"/>
       <member name="no_error" value="0" c:identifier="ICAL_NO_ERROR">
       </member>
       <member name="badarg_error" value="1" c:identifier="ICAL_BADARG_ERROR">
@@ -417,7 +417,7 @@ is the same as or newer than the passed-in version.</doc>
       </member>
     </enumeration>
     <enumeration name="errorstate" c:type="icalerrorstate">
-      <source-position filename="ical.h" line="6690"/>
+      <source-position filename="ical.h" line="6665"/>
       <member name="fatal" value="0" c:identifier="ICAL_ERROR_FATAL">
       </member>
       <member name="nonfatal" value="1" c:identifier="ICAL_ERROR_NONFATAL">
@@ -2186,7 +2186,7 @@ icalarray_free(array);
       </parameters>
     </function-macro>
     <function name="icalerrno_return" c:identifier="icalerrno_return">
-      <source-position filename="ical.h" line="6589"/>
+      <source-position filename="ical.h" line="6564"/>
       <return-value transfer-ownership="none">
         <type name="errorenum" c:type="icalerrorenum*"/>
       </return-value>
@@ -2194,7 +2194,7 @@ icalarray_free(array);
     <function-macro name="icalerror_assert"
                     c:identifier="icalerror_assert"
                     introspectable="0">
-      <source-position filename="ical.h" line="6848"/>
+      <source-position filename="ical.h" line="6823"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2205,7 +2205,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_arg"
                     c:identifier="icalerror_check_arg"
                     introspectable="0">
-      <source-position filename="ical.h" line="6883"/>
+      <source-position filename="ical.h" line="6858"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2216,7 +2216,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_arg_re"
                     c:identifier="icalerror_check_arg_re"
                     introspectable="0">
-      <source-position filename="ical.h" line="6960"/>
+      <source-position filename="ical.h" line="6935"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2229,7 +2229,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_arg_rv"
                     c:identifier="icalerror_check_arg_rv"
                     introspectable="0">
-      <source-position filename="ical.h" line="6907"/>
+      <source-position filename="ical.h" line="6882"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2240,7 +2240,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_arg_rx"
                     c:identifier="icalerror_check_arg_rx"
                     introspectable="0">
-      <source-position filename="ical.h" line="6988"/>
+      <source-position filename="ical.h" line="6963"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2253,7 +2253,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_arg_rz"
                     c:identifier="icalerror_check_arg_rz"
                     introspectable="0">
-      <source-position filename="ical.h" line="6933"/>
+      <source-position filename="ical.h" line="6908"/>
       <parameters>
         <parameter name="test">
         </parameter>
@@ -2264,7 +2264,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_component_type"
                     c:identifier="icalerror_check_component_type"
                     introspectable="0">
-      <source-position filename="ical.h" line="6831"/>
+      <source-position filename="ical.h" line="6806"/>
       <parameters>
         <parameter name="value">
         </parameter>
@@ -2275,7 +2275,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_parameter_type"
                     c:identifier="icalerror_check_parameter_type"
                     introspectable="0">
-      <source-position filename="ical.h" line="6830"/>
+      <source-position filename="ical.h" line="6805"/>
       <parameters>
         <parameter name="value">
         </parameter>
@@ -2286,7 +2286,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_property_type"
                     c:identifier="icalerror_check_property_type"
                     introspectable="0">
-      <source-position filename="ical.h" line="6829"/>
+      <source-position filename="ical.h" line="6804"/>
       <parameters>
         <parameter name="value">
         </parameter>
@@ -2297,7 +2297,7 @@ icalarray_free(array);
     <function-macro name="icalerror_check_value_type"
                     c:identifier="icalerror_check_value_type"
                     introspectable="0">
-      <source-position filename="ical.h" line="6828"/>
+      <source-position filename="ical.h" line="6803"/>
       <parameters>
         <parameter name="value">
         </parameter>
@@ -2307,22 +2307,22 @@ icalarray_free(array);
     </function-macro>
     <function name="icalerror_clear_errno"
               c:identifier="icalerror_clear_errno">
-      <doc xml:space="preserve" filename="ical.h" line="6659">}
+      <doc xml:space="preserve" filename="ical.h" line="6634">}
 ```</doc>
-      <source-position filename="ical.h" line="6670"/>
+      <source-position filename="ical.h" line="6645"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="icalerror_crash_here" c:identifier="icalerror_crash_here">
-      <source-position filename="ical.h" line="6523"/>
+      <source-position filename="ical.h" line="6498"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="icalerror_error_from_string"
               c:identifier="icalerror_error_from_string">
-      <source-position filename="ical.h" line="6784"/>
+      <source-position filename="ical.h" line="6759"/>
       <return-value transfer-ownership="none">
         <type name="errorenum" c:type="icalerrorenum"/>
       </return-value>
@@ -2334,7 +2334,7 @@ icalarray_free(array);
     </function>
     <function name="icalerror_get_error_state"
               c:identifier="icalerror_get_error_state">
-      <source-position filename="ical.h" line="6767"/>
+      <source-position filename="ical.h" line="6742"/>
       <return-value transfer-ownership="none">
         <type name="errorstate" c:type="icalerrorstate"/>
       </return-value>
@@ -2346,19 +2346,19 @@ icalarray_free(array);
     </function>
     <function name="icalerror_get_errors_are_fatal"
               c:identifier="icalerror_get_errors_are_fatal">
-      <source-position filename="ical.h" line="6636"/>
+      <source-position filename="ical.h" line="6611"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
     <function name="icalerror_perror" c:identifier="icalerror_perror">
-      <source-position filename="ical.h" line="6732"/>
+      <source-position filename="ical.h" line="6707"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
     </function>
     <function name="icalerror_restore" c:identifier="icalerror_restore">
-      <source-position filename="ical.h" line="7052"/>
+      <source-position filename="ical.h" line="7027"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2372,7 +2372,7 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalerror_set_errno" c:identifier="icalerror_set_errno">
-      <source-position filename="ical.h" line="6826"/>
+      <source-position filename="ical.h" line="6801"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2384,7 +2384,7 @@ icalarray_free(array);
     </function>
     <function name="icalerror_set_error_state"
               c:identifier="icalerror_set_error_state">
-      <source-position filename="ical.h" line="6760"/>
+      <source-position filename="ical.h" line="6735"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2399,7 +2399,7 @@ icalarray_free(array);
     </function>
     <function name="icalerror_set_errors_are_fatal"
               c:identifier="icalerror_set_errors_are_fatal">
-      <source-position filename="ical.h" line="6621"/>
+      <source-position filename="ical.h" line="6596"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2410,13 +2410,13 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalerror_stop_here" c:identifier="icalerror_stop_here">
-      <source-position filename="ical.h" line="6515"/>
+      <source-position filename="ical.h" line="6490"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="icalerror_strerror" c:identifier="icalerror_strerror">
-      <source-position filename="ical.h" line="6712"/>
+      <source-position filename="ical.h" line="6687"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -2427,7 +2427,7 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalerror_supress" c:identifier="icalerror_supress">
-      <source-position filename="ical.h" line="7032"/>
+      <source-position filename="ical.h" line="7007"/>
       <return-value transfer-ownership="none">
         <type name="errorstate" c:type="icalerrorstate"/>
       </return-value>
@@ -2440,7 +2440,7 @@ icalarray_free(array);
     <function-macro name="icalerror_warn"
                     c:identifier="icalerror_warn"
                     introspectable="0">
-      <source-position filename="ical.h" line="6631"/>
+      <source-position filename="ical.h" line="6606"/>
       <parameters>
         <parameter name="message">
         </parameter>
@@ -2448,7 +2448,7 @@ icalarray_free(array);
     </function-macro>
     <function name="icallangbind_access_array"
               c:identifier="icallangbind_access_array">
-      <source-position filename="ical.h" line="7363"/>
+      <source-position filename="ical.h" line="7338"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -2463,7 +2463,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_free_array"
               c:identifier="icallangbind_free_array">
-      <source-position filename="ical.h" line="7361"/>
+      <source-position filename="ical.h" line="7336"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2476,7 +2476,7 @@ icalarray_free(array);
     <function name="icallangbind_get_first_component"
               c:identifier="icallangbind_get_first_component"
               introspectable="0">
-      <source-position filename="ical.h" line="7371"/>
+      <source-position filename="ical.h" line="7346"/>
       <return-value>
         <type name="component" c:type="icalcomponent*"/>
       </return-value>
@@ -2492,7 +2492,7 @@ icalarray_free(array);
     <function name="icallangbind_get_first_parameter"
               c:identifier="icallangbind_get_first_parameter"
               introspectable="0">
-      <source-position filename="ical.h" line="7377"/>
+      <source-position filename="ical.h" line="7352"/>
       <return-value>
         <type name="parameter" c:type="icalparameter*"/>
       </return-value>
@@ -2505,7 +2505,7 @@ icalarray_free(array);
     <function name="icallangbind_get_first_property"
               c:identifier="icallangbind_get_first_property"
               introspectable="0">
-      <source-position filename="ical.h" line="7365"/>
+      <source-position filename="ical.h" line="7340"/>
       <return-value>
         <type name="property" c:type="icalproperty*"/>
       </return-value>
@@ -2521,7 +2521,7 @@ icalarray_free(array);
     <function name="icallangbind_get_next_component"
               c:identifier="icallangbind_get_next_component"
               introspectable="0">
-      <source-position filename="ical.h" line="7374"/>
+      <source-position filename="ical.h" line="7349"/>
       <return-value>
         <type name="component" c:type="icalcomponent*"/>
       </return-value>
@@ -2537,7 +2537,7 @@ icalarray_free(array);
     <function name="icallangbind_get_next_parameter"
               c:identifier="icallangbind_get_next_parameter"
               introspectable="0">
-      <source-position filename="ical.h" line="7379"/>
+      <source-position filename="ical.h" line="7354"/>
       <return-value>
         <type name="parameter" c:type="icalparameter*"/>
       </return-value>
@@ -2550,7 +2550,7 @@ icalarray_free(array);
     <function name="icallangbind_get_next_property"
               c:identifier="icallangbind_get_next_property"
               introspectable="0">
-      <source-position filename="ical.h" line="7368"/>
+      <source-position filename="ical.h" line="7343"/>
       <return-value>
         <type name="property" c:type="icalproperty*"/>
       </return-value>
@@ -2565,7 +2565,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_new_array"
               c:identifier="icallangbind_new_array">
-      <source-position filename="ical.h" line="7359"/>
+      <source-position filename="ical.h" line="7334"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int*"/>
       </return-value>
@@ -2577,7 +2577,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_property_eval_string"
               c:identifier="icallangbind_property_eval_string">
-      <source-position filename="ical.h" line="7381"/>
+      <source-position filename="ical.h" line="7356"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -2592,7 +2592,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_property_eval_string_r"
               c:identifier="icallangbind_property_eval_string_r">
-      <source-position filename="ical.h" line="7384"/>
+      <source-position filename="ical.h" line="7359"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2607,7 +2607,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_quote_as_ical"
               c:identifier="icallangbind_quote_as_ical">
-      <source-position filename="ical.h" line="7389"/>
+      <source-position filename="ical.h" line="7364"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -2619,7 +2619,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_quote_as_ical_r"
               c:identifier="icallangbind_quote_as_ical_r">
-      <source-position filename="ical.h" line="7391"/>
+      <source-position filename="ical.h" line="7366"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2631,7 +2631,7 @@ icalarray_free(array);
     </function>
     <function name="icallangbind_string_to_open_flag"
               c:identifier="icallangbind_string_to_open_flag">
-      <source-position filename="ical.h" line="7387"/>
+      <source-position filename="ical.h" line="7362"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -2643,7 +2643,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_add_tmp_buffer"
               c:identifier="icalmemory_add_tmp_buffer">
-      <source-position filename="ical.h" line="6244"/>
+      <source-position filename="ical.h" line="6219"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2658,7 +2658,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_append_char"
               c:identifier="icalmemory_append_char">
-      <source-position filename="ical.h" line="6434"/>
+      <source-position filename="ical.h" line="6409"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2679,7 +2679,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_append_string"
               c:identifier="icalmemory_append_string">
-      <source-position filename="ical.h" line="6392"/>
+      <source-position filename="ical.h" line="6367"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2700,7 +2700,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_free_buffer"
               c:identifier="icalmemory_free_buffer">
-      <source-position filename="ical.h" line="6345"/>
+      <source-position filename="ical.h" line="6320"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2714,15 +2714,15 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalmemory_free_ring" c:identifier="icalmemory_free_ring">
-      <doc xml:space="preserve" filename="ical.h" line="6246">```</doc>
-      <source-position filename="ical.h" line="6263"/>
+      <doc xml:space="preserve" filename="ical.h" line="6221">```</doc>
+      <source-position filename="ical.h" line="6238"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
     </function>
     <function name="icalmemory_new_buffer"
               c:identifier="icalmemory_new_buffer">
-      <source-position filename="ical.h" line="6298"/>
+      <source-position filename="ical.h" line="6273"/>
       <return-value transfer-ownership="none" nullable="1">
         <type name="gpointer" c:type="void*"/>
       </return-value>
@@ -2734,7 +2734,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_resize_buffer"
               c:identifier="icalmemory_resize_buffer">
-      <source-position filename="ical.h" line="6336"/>
+      <source-position filename="ical.h" line="6311"/>
       <return-value transfer-ownership="none" nullable="1">
         <type name="gpointer" c:type="void*"/>
       </return-value>
@@ -2751,7 +2751,7 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalmemory_strdup" c:identifier="icalmemory_strdup">
-      <source-position filename="ical.h" line="6460"/>
+      <source-position filename="ical.h" line="6435"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2763,7 +2763,7 @@ icalarray_free(array);
     </function>
     <function name="icalmemory_tmp_buffer"
               c:identifier="icalmemory_tmp_buffer">
-      <source-position filename="ical.h" line="6194"/>
+      <source-position filename="ical.h" line="6169"/>
       <return-value transfer-ownership="none" nullable="1">
         <type name="gpointer" c:type="void*"/>
       </return-value>
@@ -2774,7 +2774,7 @@ icalarray_free(array);
       </parameters>
     </function>
     <function name="icalmemory_tmp_copy" c:identifier="icalmemory_tmp_copy">
-      <source-position filename="ical.h" line="6218"/>
+      <source-position filename="ical.h" line="6193"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2787,7 +2787,7 @@ icalarray_free(array);
     <function name="icalmime_parse"
               c:identifier="icalmime_parse"
               introspectable="0">
-      <source-position filename="ical.h" line="7329"/>
+      <source-position filename="ical.h" line="7304"/>
       <return-value>
         <type name="component" c:type="icalcomponent*"/>
       </return-value>
@@ -5224,16 +5224,10 @@ icalparameter_free(param);
         </parameter>
       </parameters>
     </function>
-    <function name="icalparser_get_ctrl" c:identifier="icalparser_get_ctrl">
-      <source-position filename="ical.h" line="6089"/>
-      <return-value transfer-ownership="none" nullable="1">
-        <type name="gpointer" c:type="icalparser_ctrl"/>
-      </return-value>
-    </function>
     <function name="icalparser_get_line"
               c:identifier="icalparser_get_line"
               introspectable="0">
-      <source-position filename="ical.h" line="6115"/>
+      <source-position filename="ical.h" line="6090"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -5316,20 +5310,6 @@ icalparameter_free(param);
         </parameter>
       </parameters>
     </function>
-    <function name="icalparser_set_ctrl" c:identifier="icalparser_set_ctrl">
-      <source-position filename="ical.h" line="6095"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="ctrl"
-                   transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1">
-          <type name="gpointer" c:type="icalparser_ctrl"/>
-        </parameter>
-      </parameters>
-    </function>
     <function name="icalparser_set_gen_data"
               c:identifier="icalparser_set_gen_data">
       <source-position filename="ical.h" line="6041"/>
@@ -5350,7 +5330,7 @@ icalparameter_free(param);
     </function>
     <function name="icalparser_string_line_generator"
               c:identifier="icalparser_string_line_generator">
-      <source-position filename="ical.h" line="6118"/>
+      <source-position filename="ical.h" line="6093"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -13655,7 +13635,7 @@ icalparameter_free(param);
     </function>
     <function name="icalrestriction_check"
               c:identifier="icalrestriction_check">
-      <source-position filename="ical.h" line="7159"/>
+      <source-position filename="ical.h" line="7134"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -13667,7 +13647,7 @@ icalparameter_free(param);
     </function>
     <function name="icalrestriction_compare"
               c:identifier="icalrestriction_compare">
-      <source-position filename="ical.h" line="7139"/>
+      <source-position filename="ical.h" line="7114"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -18874,7 +18854,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </member>
     </enumeration>
     <enumeration name="restriction_kind" c:type="icalrestriction_kind">
-      <source-position filename="ical.h" line="7124"/>
+      <source-position filename="ical.h" line="7099"/>
       <member name="none" value="0" c:identifier="ICAL_RESTRICTION_NONE">
       </member>
       <member name="zero" value="1" c:identifier="ICAL_RESTRICTION_ZERO">
@@ -18927,7 +18907,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </parameters>
     </function>
     <record name="sspm_action_map" c:type="sspm_action_map">
-      <source-position filename="ical.h" line="7280"/>
+      <source-position filename="ical.h" line="7255"/>
       <field name="major" writable="1">
         <type name="gpointer" c:type="sspm_major_type"/>
       </field>
@@ -18936,7 +18916,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
       <field name="new_part">
         <callback name="new_part">
-          <source-position filename="ical.h" line="7276"/>
+          <source-position filename="ical.h" line="7251"/>
           <return-value transfer-ownership="none">
             <type name="gpointer" c:type="void*"/>
           </return-value>
@@ -18944,7 +18924,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
       <field name="add_line">
         <callback name="add_line">
-          <source-position filename="ical.h" line="7277"/>
+          <source-position filename="ical.h" line="7252"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -18966,7 +18946,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
       <field name="end_part">
         <callback name="end_part">
-          <source-position filename="ical.h" line="7278"/>
+          <source-position filename="ical.h" line="7253"/>
           <return-value transfer-ownership="none">
             <type name="gpointer" c:type="void*"/>
           </return-value>
@@ -18979,7 +18959,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
       <field name="free_part">
         <callback name="free_part">
-          <source-position filename="ical.h" line="7279"/>
+          <source-position filename="ical.h" line="7254"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -18992,7 +18972,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
     </record>
     <function name="sspm_encoding_string" c:identifier="sspm_encoding_string">
-      <source-position filename="ical.h" line="7286"/>
+      <source-position filename="ical.h" line="7261"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -19006,7 +18986,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </parameters>
     </function>
     <function name="sspm_free_parts" c:identifier="sspm_free_parts">
-      <source-position filename="ical.h" line="7294"/>
+      <source-position filename="ical.h" line="7269"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -19023,7 +19003,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </parameters>
     </function>
     <record name="sspm_header" c:type="sspm_header">
-      <source-position filename="ical.h" line="7262"/>
+      <source-position filename="ical.h" line="7237"/>
       <field name="def" writable="1">
         <type name="gint" c:type="int"/>
       </field>
@@ -19063,7 +19043,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
     </record>
     <function name="sspm_major_type_string"
               c:identifier="sspm_major_type_string">
-      <source-position filename="ical.h" line="7282"/>
+      <source-position filename="ical.h" line="7257"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -19078,7 +19058,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
     </function>
     <function name="sspm_minor_type_string"
               c:identifier="sspm_minor_type_string">
-      <source-position filename="ical.h" line="7284"/>
+      <source-position filename="ical.h" line="7259"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -19092,7 +19072,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </parameters>
     </function>
     <function name="sspm_parse_mime" c:identifier="sspm_parse_mime">
-      <source-position filename="ical.h" line="7288"/>
+      <source-position filename="ical.h" line="7263"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>
@@ -19133,7 +19113,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </parameters>
     </function>
     <record name="sspm_part" c:type="sspm_part">
-      <source-position filename="ical.h" line="7270"/>
+      <source-position filename="ical.h" line="7245"/>
       <field name="header" writable="1">
         <type name="gpointer" c:type="sspm_header"/>
       </field>
@@ -19148,7 +19128,7 @@ printf("%s\n", icalperiodtype_as_ical_string(period));
       </field>
     </record>
     <function name="sspm_write_mime" c:identifier="sspm_write_mime">
-      <source-position filename="ical.h" line="7300"/>
+      <source-position filename="ical.h" line="7275"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="int"/>
       </return-value>

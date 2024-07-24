@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
              version="2.0"
              shared-library="libgobject-2.0.so.0"
              c:identifier-prefixes="G"
-             c:symbol-prefixes="gobject,g">
+             c:symbol-prefixes="g">
     <alias name="SignalCMarshaller" c:type="GSignalCMarshaller">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
@@ -4121,7 +4121,7 @@ the last parameter.
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5312">A variant of g_cclosure_new() which uses @object as @user_data and
+             line="5287">A variant of g_cclosure_new() which uses @object as @user_data and
 calls g_object_watch_closure() on @object and the created
 closure. This function is useful when you have a callback closely
 associated with a #GObject, and want the callback to no longer run
@@ -4130,20 +4130,20 @@ after the object is is freed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5323">a new #GCClosure</doc>
+               line="5298">a new #GCClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
           <parameter name="callback_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5314">the function to invoke</doc>
+                 line="5289">the function to invoke</doc>
             <type name="Callback" c:type="GCallback"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5315">a #GObject pointer to pass to @callback_func</doc>
+                 line="5290">a #GObject pointer to pass to @callback_func</doc>
             <type name="Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -4153,7 +4153,7 @@ after the object is is freed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5341">A variant of g_cclosure_new_swap() which uses @object as @user_data
+             line="5316">A variant of g_cclosure_new_swap() which uses @object as @user_data
 and calls g_object_watch_closure() on @object and the created
 closure. This function is useful when you have a callback closely
 associated with a #GObject, and want the callback to no longer run
@@ -4162,20 +4162,20 @@ after the object is is freed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5352">a new #GCClosure</doc>
+               line="5327">a new #GCClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
           <parameter name="callback_func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5343">the function to invoke</doc>
+                 line="5318">the function to invoke</doc>
             <type name="Callback" c:type="GCallback"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5344">a #GObject pointer to pass to @callback_func</doc>
+                 line="5319">a #GObject pointer to pass to @callback_func</doc>
             <type name="Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -4565,7 +4565,7 @@ callback function/data pointer combination:
       <constructor name="new_object" c:identifier="g_closure_new_object">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5283">A variant of g_closure_new_simple() which stores @object in the
+             line="5258">A variant of g_closure_new_simple() which stores @object in the
 @data field of the closure and calls g_object_watch_closure() on
 @object and the created closure. This function is mainly useful
 when implementing new types of closures.</doc>
@@ -4573,21 +4573,21 @@ when implementing new types of closures.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5295">a newly allocated #GClosure</doc>
+               line="5270">a newly allocated #GClosure</doc>
           <type name="Closure" c:type="GClosure*"/>
         </return-value>
         <parameters>
           <parameter name="sizeof_closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5285">the size of the structure to allocate, must be at least
+                 line="5260">the size of the structure to allocate, must be at least
  `sizeof (GClosure)`</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5287">a #GObject pointer to store in the @data field of the newly
+                 line="5262">a #GObject pointer to store in the @data field of the newly
  allocated #GClosure</doc>
             <type name="Object" c:type="GObject*"/>
           </parameter>
@@ -8668,7 +8668,7 @@ implementation and should never be accessed directly.</doc>
             <parameter name="object" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gobject/gobject.c"
-                   line="1936">a #GObject</doc>
+                   line="1933">a #GObject</doc>
               <type name="Object" c:type="GObject*"/>
             </parameter>
             <parameter name="pspec" transfer-ownership="none">
@@ -9051,7 +9051,7 @@ by `G_ADD_PRIVATE()`.</doc>
       <constructor name="new" c:identifier="g_object_new" introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="2368">Creates a new instance of a #GObject subtype and sets its properties.
+             line="2365">Creates a new instance of a #GObject subtype and sets its properties.
 
 Construction parameters (see %G_PARAM_CONSTRUCT, %G_PARAM_CONSTRUCT_ONLY)
 which are not explicitly specified are set to their default values. Any
@@ -9081,7 +9081,7 @@ appropriately padded.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="2402">a new instance of
+               line="2399">a new instance of
   @object_type</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
@@ -9089,19 +9089,19 @@ appropriately padded.</doc>
           <parameter name="object_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2370">the type id of the #GObject subtype to instantiate</doc>
+                 line="2367">the type id of the #GObject subtype to instantiate</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2371">the name of the first property</doc>
+                 line="2368">the name of the first property</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2372">the value of the first property, followed optionally by more
+                 line="2369">the value of the first property, followed optionally by more
   name/value pairs, followed by %NULL</doc>
             <varargs/>
           </parameter>
@@ -9112,7 +9112,7 @@ appropriately padded.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="2847">Creates a new instance of a #GObject subtype and sets its properties.
+             line="2844">Creates a new instance of a #GObject subtype and sets its properties.
 
 Construction parameters (see %G_PARAM_CONSTRUCT, %G_PARAM_CONSTRUCT_ONLY)
 which are not explicitly specified are set to their default values.</doc>
@@ -9120,26 +9120,26 @@ which are not explicitly specified are set to their default values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="2859">a new instance of @object_type</doc>
+               line="2856">a new instance of @object_type</doc>
           <type name="Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <parameter name="object_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2849">the type id of the #GObject subtype to instantiate</doc>
+                 line="2846">the type id of the #GObject subtype to instantiate</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2850">the name of the first property</doc>
+                 line="2847">the name of the first property</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="var_args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2851">the value of the first property, followed optionally by more
+                 line="2848">the value of the first property, followed optionally by more
  name/value pairs, followed by %NULL</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
@@ -9151,7 +9151,7 @@ which are not explicitly specified are set to their default values.</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="2712">Creates a new instance of a #GObject subtype and sets its properties using
+             line="2709">Creates a new instance of a #GObject subtype and sets its properties using
 the provided arrays. Both arrays must have exactly @n_properties elements,
 and the names and values correspond by index.
 
@@ -9161,7 +9161,7 @@ which are not explicitly specified are set to their default values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="2726">a new instance of
+               line="2723">a new instance of
 @object_type</doc>
           <type name="Object" c:type="GObject*"/>
         </return-value>
@@ -9169,19 +9169,19 @@ which are not explicitly specified are set to their default values.</doc>
           <parameter name="object_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2714">the object type to instantiate</doc>
+                 line="2711">the object type to instantiate</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="n_properties" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2715">the number of properties</doc>
+                 line="2712">the number of properties</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2716">the names of each property to be set</doc>
+                 line="2713">the names of each property to be set</doc>
             <array length="1" zero-terminated="0" c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -9189,7 +9189,7 @@ which are not explicitly specified are set to their default values.</doc>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2717">the values of each property to be set</doc>
+                 line="2714">the values of each property to be set</doc>
             <array length="1" zero-terminated="0" c:type="const GValue*">
               <type name="Value" c:type="GValue"/>
             </array>
@@ -9202,7 +9202,7 @@ which are not explicitly specified are set to their default values.</doc>
                    deprecated-version="2.54">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="2777">Creates a new instance of a #GObject subtype and sets its properties.
+             line="2774">Creates a new instance of a #GObject subtype and sets its properties.
 
 Construction parameters (see %G_PARAM_CONSTRUCT, %G_PARAM_CONSTRUCT_ONLY)
 which are not explicitly specified are set to their default values.</doc>
@@ -9212,7 +9212,7 @@ deprecated. See #GParameter for more information.</doc-deprecated>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="2788">a new instance of
+               line="2785">a new instance of
 @object_type</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
@@ -9220,19 +9220,19 @@ deprecated. See #GParameter for more information.</doc-deprecated>
           <parameter name="object_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2779">the type id of the #GObject subtype to instantiate</doc>
+                 line="2776">the type id of the #GObject subtype to instantiate</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="n_parameters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2780">the length of the @parameters array</doc>
+                 line="2777">the length of the @parameters array</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="parameters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2781">an array of #GParameter</doc>
+                 line="2778">an array of #GParameter</doc>
             <array length="1" zero-terminated="0" c:type="GParameter*">
               <type name="Parameter" c:type="GParameter"/>
             </array>
@@ -9261,7 +9261,7 @@ deprecated. See #GParameter for more information.</doc-deprecated>
                 version="2.4">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1455">Find the #GParamSpec with the given name for an
+             line="1452">Find the #GParamSpec with the given name for an
 interface. Generally, the interface vtable passed in as @g_iface
 will be the default vtable from g_type_default_interface_ref(), or,
 if you know the interface has already been loaded,
@@ -9270,7 +9270,7 @@ g_type_default_interface_peek().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="1469">the #GParamSpec for the property of the
+               line="1466">the #GParamSpec for the property of the
          interface with the name @property_name, or %NULL if no
          such property exists.</doc>
           <type name="ParamSpec" c:type="GParamSpec*"/>
@@ -9279,14 +9279,14 @@ g_type_default_interface_peek().</doc>
           <parameter name="g_iface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1457">any interface vtable for the
+                 line="1454">any interface vtable for the
  interface, or the default vtable for the interface</doc>
             <type name="TypeInterface" c:type="gpointer"/>
           </parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1459">name of a property to look up.</doc>
+                 line="1456">name of a property to look up.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9296,7 +9296,7 @@ g_type_default_interface_peek().</doc>
                 version="2.4">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1375">Add a property to an interface; this is only useful for interfaces
+             line="1372">Add a property to an interface; this is only useful for interfaces
 that are added to GObject-derived types. Adding a property to an
 interface forces all objects classes with that interface to have a
 compatible property. The compatible property could be a newly
@@ -9320,7 +9320,7 @@ If @pspec is a floating reference, it will be consumed.</doc>
           <parameter name="g_iface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1377">any interface vtable for the
+                 line="1374">any interface vtable for the
    interface, or the default
  vtable for the interface.</doc>
             <type name="TypeInterface" c:type="gpointer"/>
@@ -9328,7 +9328,7 @@ If @pspec is a floating reference, it will be consumed.</doc>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1380">the #GParamSpec for the new property</doc>
+                 line="1377">the #GParamSpec for the new property</doc>
             <type name="ParamSpec" c:type="GParamSpec*"/>
           </parameter>
         </parameters>
@@ -9338,7 +9338,7 @@ If @pspec is a floating reference, it will be consumed.</doc>
                 version="2.4">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1595">Lists the properties of an interface.Generally, the interface
+             line="1592">Lists the properties of an interface.Generally, the interface
 vtable passed in as @g_iface will be the default vtable from
 g_type_default_interface_ref(), or, if you know the interface has
 already been loaded, g_type_default_interface_peek().</doc>
@@ -9346,7 +9346,7 @@ already been loaded, g_type_default_interface_peek().</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="1608">a
+               line="1605">a
   pointer to an array of pointers to #GParamSpec
   structures. The paramspecs are owned by GLib, but the
   array should be freed with g_free() when you are done with
@@ -9359,7 +9359,7 @@ already been loaded, g_type_default_interface_peek().</doc>
           <parameter name="g_iface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1597">any interface vtable for the
+                 line="1594">any interface vtable for the
  interface, or the default vtable for the interface</doc>
             <type name="TypeInterface" c:type="gpointer"/>
           </parameter>
@@ -9369,7 +9369,7 @@ already been loaded, g_type_default_interface_peek().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1599">location to store number of properties returned.</doc>
+                 line="1596">location to store number of properties returned.</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -9477,7 +9477,7 @@ already been loaded, g_type_default_interface_peek().</doc>
       <virtual-method name="notify" invoker="notify">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1934">Emits a "notify" signal for the property @property_name on @object.
+             line="1931">Emits a "notify" signal for the property @property_name on @object.
 
 When possible, eg. when signaling a property change from within the class
 that registered the property, you should use g_object_notify_by_pspec()
@@ -9495,7 +9495,7 @@ called.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1936">a #GObject</doc>
+                 line="1933">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="pspec" transfer-ownership="none">
@@ -9536,7 +9536,7 @@ called.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4019">Increases the reference count of the object by one and sets a
+             line="3973">Increases the reference count of the object by one and sets a
 callback to be called when all other references to the object are
 dropped, or when this is already the last reference to the object
 and another reference is established.
@@ -9579,13 +9579,13 @@ A g_object_add_toggle_ref() must be released with g_object_remove_toggle_ref().<
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4021">a #GObject</doc>
+                 line="3975">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="notify" transfer-ownership="none" closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4022">a function to call when this reference is the
+                 line="3976">a function to call when this reference is the
  last reference to the object, or is no longer
  the last reference.</doc>
             <type name="ToggleNotify" c:type="GToggleNotify"/>
@@ -9596,7 +9596,7 @@ A g_object_add_toggle_ref() must be released with g_object_remove_toggle_ref().<
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4025">data to pass to @notify</doc>
+                 line="3979">data to pass to @notify</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -9606,7 +9606,7 @@ A g_object_add_toggle_ref() must be released with g_object_remove_toggle_ref().<
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3741">Adds a weak reference from weak_pointer to @object to indicate that
+             line="3738">Adds a weak reference from weak_pointer to @object to indicate that
 the pointer located at @weak_pointer_location is only valid during
 the lifetime of @object. When the @object is finalized,
 @weak_pointer will be set to %NULL.
@@ -9623,7 +9623,7 @@ thread. Use #GWeakRef if thread-safety is required.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3743">The object that should be weak referenced.</doc>
+                 line="3740">The object that should be weak referenced.</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="weak_pointer_location"
@@ -9632,7 +9632,7 @@ thread. Use #GWeakRef if thread-safety is required.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3744">The memory address
+                 line="3741">The memory address
    of a pointer.</doc>
             <type name="gpointer" c:type="gpointer*"/>
           </parameter>
@@ -9908,7 +9908,7 @@ function pointers.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3465">A convenience function to connect multiple signals at once.
+             line="3462">A convenience function to connect multiple signals at once.
 
 The signal specs expected by this function have the form
 "modifier::signal_name", where modifier can be one of the following:
@@ -9935,26 +9935,26 @@ The signal specs expected by this function have the form
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="3497">@object</doc>
+               line="3494">@object</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3467">a #GObject</doc>
+                 line="3464">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
           <parameter name="signal_spec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3468">the spec for the first signal</doc>
+                 line="3465">the spec for the first signal</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3469">#GCallback for the first signal, followed by data for the
+                 line="3466">#GCallback for the first signal, followed by data for the
       first signal, followed optionally by more signal
       spec/callback/data triples, followed by %NULL</doc>
             <varargs/>
@@ -9966,7 +9966,7 @@ The signal specs expected by this function have the form
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3567">A convenience function to disconnect multiple signals at once.
+             line="3564">A convenience function to disconnect multiple signals at once.
 
 The signal specs expected by this function have the form
 "any_signal", which means to disconnect any signal with matching
@@ -9980,19 +9980,19 @@ disconnects the signal named "signal_name".</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3569">a #GObject</doc>
+                 line="3566">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
           <parameter name="signal_spec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3570">the spec for the first signal</doc>
+                 line="3567">the spec for the first signal</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3571">#GCallback for the first signal, followed by data for the first signal,
+                 line="3568">#GCallback for the first signal, followed by data for the first signal,
  followed optionally by more signal spec/callback/data triples,
  followed by %NULL</doc>
             <varargs/>
@@ -10005,7 +10005,7 @@ disconnects the signal named "signal_name".</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4785">This is a variant of g_object_get_data() which returns
+             line="4760">This is a variant of g_object_get_data() which returns
 a 'duplicate' of the value. @dup_func defines the
 meaning of 'duplicate' in this context, it could e.g.
 take a reference on a ref-counted object.
@@ -10023,7 +10023,7 @@ object.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4807">the result of calling @dup_func on the value
+               line="4782">the result of calling @dup_func on the value
     associated with @key on @object, or %NULL if not set.
     If @dup_func is %NULL, the value is returned
     unmodified.</doc>
@@ -10033,13 +10033,13 @@ object.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4787">the #GObject to store user data on</doc>
+                 line="4762">the #GObject to store user data on</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4788">a string, naming the user data pointer</doc>
+                 line="4763">a string, naming the user data pointer</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dup_func"
@@ -10049,7 +10049,7 @@ object.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4789">function to dup the value</doc>
+                 line="4764">function to dup the value</doc>
             <type name="GLib.DuplicateFunc" c:type="GDuplicateFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -10058,7 +10058,7 @@ object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4790">passed as user_data to @dup_func</doc>
+                 line="4765">passed as user_data to @dup_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10069,7 +10069,7 @@ object.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4572">This is a variant of g_object_get_qdata() which returns
+             line="4547">This is a variant of g_object_get_qdata() which returns
 a 'duplicate' of the value. @dup_func defines the
 meaning of 'duplicate' in this context, it could e.g.
 take a reference on a ref-counted object.
@@ -10087,7 +10087,7 @@ object.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4594">the result of calling @dup_func on the value
+               line="4569">the result of calling @dup_func on the value
     associated with @quark on @object, or %NULL if not set.
     If @dup_func is %NULL, the value is returned
     unmodified.</doc>
@@ -10097,13 +10097,13 @@ object.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4574">the #GObject to store user data on</doc>
+                 line="4549">the #GObject to store user data on</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4575">a #GQuark, naming the user data pointer</doc>
+                 line="4550">a #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="dup_func"
@@ -10113,7 +10113,7 @@ object.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4576">function to dup the value</doc>
+                 line="4551">function to dup the value</doc>
             <type name="GLib.DuplicateFunc" c:type="GDuplicateFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -10122,7 +10122,7 @@ object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4577">passed as user_data to @dup_func</doc>
+                 line="4552">passed as user_data to @dup_func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10132,7 +10132,7 @@ object.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3927">This function is intended for #GObject implementations to re-enforce
+             line="3924">This function is intended for #GObject implementations to re-enforce
 a [floating][floating-ref] object reference. Doing this is seldom
 required: all #GInitiallyUnowneds are created with a floating reference
 which usually just needs to be sunken by calling g_object_ref_sink().</doc>
@@ -10144,7 +10144,7 @@ which usually just needs to be sunken by calling g_object_ref_sink().</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3929">a #GObject</doc>
+                 line="3926">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
         </parameters>
@@ -10152,7 +10152,7 @@ which usually just needs to be sunken by calling g_object_ref_sink().</doc>
       <method name="freeze_notify" c:identifier="g_object_freeze_notify">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1856">Increases the freeze count on @object. If the freeze count is
+             line="1853">Increases the freeze count on @object. If the freeze count is
 non-zero, the emission of "notify" signals on @object is
 stopped. The signals are queued until the freeze count is decreased
 to zero. Duplicate notifications are squashed so that at most one
@@ -10169,7 +10169,7 @@ premature notification while the object is still being modified.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1858">a #GObject</doc>
+                 line="1855">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
         </parameters>
@@ -10177,7 +10177,7 @@ premature notification while the object is still being modified.</doc>
       <method name="get" c:identifier="g_object_get" introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3321">Gets properties of an object.
+             line="3318">Gets properties of an object.
 
 In general, a copy is made of the property contents and the caller
 is responsible for freeing the memory in the appropriate manner for
@@ -10211,19 +10211,19 @@ of three properties: an integer, a string and an object:
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3323">a #GObject</doc>
+                 line="3320">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3324">name of the first property to get</doc>
+                 line="3321">name of the first property to get</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3325">return location for the first property, followed optionally by more
+                 line="3322">return location for the first property, followed optionally by more
  name/return location pairs, followed by %NULL</doc>
             <varargs/>
           </parameter>
@@ -10232,12 +10232,12 @@ of three properties: an integer, a string and an object:
       <method name="get_data" c:identifier="g_object_get_data">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4737">Gets a named field from the objects table of associations (see g_object_set_data()).</doc>
+             line="4712">Gets a named field from the objects table of associations (see g_object_set_data()).</doc>
         <source-position filename="gobject/gobject.h" line="594"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4744">the data if found,
+               line="4719">the data if found,
          or %NULL if no such data exists.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
@@ -10245,13 +10245,13 @@ of three properties: an integer, a string and an object:
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4739">#GObject containing the associations</doc>
+                 line="4714">#GObject containing the associations</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4740">name of the key for that association</doc>
+                 line="4715">name of the key for that association</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10259,7 +10259,7 @@ of three properties: an integer, a string and an object:
       <method name="get_property" c:identifier="g_object_get_property">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3386">Gets a property of an object.
+             line="3383">Gets a property of an object.
 
 The @value can be:
 
@@ -10283,19 +10283,19 @@ bindings, g_object_get() is much more convenient for C programming.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3388">a #GObject</doc>
+                 line="3385">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3389">the name of the property to get</doc>
+                 line="3386">the name of the property to get</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3390">return location for the property value</doc>
+                 line="3387">return location for the property value</doc>
             <type name="Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -10303,26 +10303,26 @@ bindings, g_object_get() is much more convenient for C programming.</doc>
       <method name="get_qdata" c:identifier="g_object_get_qdata">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4527">This function gets back user data pointers stored via
+             line="4502">This function gets back user data pointers stored via
 g_object_set_qdata().</doc>
         <source-position filename="gobject/gobject.h" line="565"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4535">The user data pointer set, or %NULL</doc>
+               line="4510">The user data pointer set, or %NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4529">The GObject to get a stored user data pointer from</doc>
+                 line="4504">The GObject to get a stored user data pointer from</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4530">A #GQuark, naming the user data pointer</doc>
+                 line="4505">A #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
         </parameters>
@@ -10332,7 +10332,7 @@ g_object_set_qdata().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3225">Gets properties of an object.
+             line="3222">Gets properties of an object.
 
 In general, a copy is made of the property contents and the caller
 is responsible for freeing the memory in the appropriate manner for
@@ -10347,19 +10347,19 @@ See g_object_get().</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3227">a #GObject</doc>
+                 line="3224">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3228">name of the first property to get</doc>
+                 line="3225">name of the first property to get</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="var_args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3229">return location for the first property, followed optionally by more
+                 line="3226">return location for the first property, followed optionally by more
  name/return location pairs, followed by %NULL</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
@@ -10368,7 +10368,7 @@ See g_object_get().</doc>
       <method name="getv" c:identifier="g_object_getv" version="2.54">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3178">Gets @n_properties properties for an @object.
+             line="3175">Gets @n_properties properties for an @object.
 Obtained properties will be set to @values. All properties must be valid.
 Warnings will be emitted and undefined behaviour may result if invalid
 properties are passed in.</doc>
@@ -10380,19 +10380,19 @@ properties are passed in.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3180">a #GObject</doc>
+                 line="3177">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="n_properties" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3181">the number of properties</doc>
+                 line="3178">the number of properties</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3182">the names of each property to get</doc>
+                 line="3179">the names of each property to get</doc>
             <array length="0" zero-terminated="0" c:type="const gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -10400,7 +10400,7 @@ properties are passed in.</doc>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3183">the values of each property to get</doc>
+                 line="3180">the values of each property to get</doc>
             <array length="0" zero-terminated="0" c:type="GValue*">
               <type name="Value" c:type="GValue"/>
             </array>
@@ -10412,19 +10412,19 @@ properties are passed in.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3819">Checks whether @object has a [floating][floating-ref] reference.</doc>
+             line="3816">Checks whether @object has a [floating][floating-ref] reference.</doc>
         <source-position filename="gobject/gobject.h" line="507"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="3827">%TRUE if @object has a floating reference</doc>
+               line="3824">%TRUE if @object has a floating reference</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3821">a #GObject</doc>
+                 line="3818">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
         </parameters>
@@ -10432,7 +10432,7 @@ properties are passed in.</doc>
       <method name="notify" c:identifier="g_object_notify">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1934">Emits a "notify" signal for the property @property_name on @object.
+             line="1931">Emits a "notify" signal for the property @property_name on @object.
 
 When possible, eg. when signaling a property change from within the class
 that registered the property, you should use g_object_notify_by_pspec()
@@ -10450,13 +10450,13 @@ called.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1936">a #GObject</doc>
+                 line="1933">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1937">the name of a property installed on the class of @object.</doc>
+                 line="1934">the name of a property installed on the class of @object.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10466,7 +10466,7 @@ called.</doc>
               version="2.26">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1977">Emits a "notify" signal for the property specified by @pspec on @object.
+             line="1974">Emits a "notify" signal for the property specified by @pspec on @object.
 
 This function omits the property name lookup, hence it is faster than
 g_object_notify().
@@ -10511,13 +10511,13 @@ and then notify a change on the "foo" property with:
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1979">a #GObject</doc>
+                 line="1976">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1980">the #GParamSpec of a property installed on the class of @object.</doc>
+                 line="1977">the #GParamSpec of a property installed on the class of @object.</doc>
             <type name="ParamSpec" c:type="GParamSpec*"/>
           </parameter>
         </parameters>
@@ -10525,7 +10525,7 @@ and then notify a change on the "foo" property with:
       <method name="ref" c:identifier="g_object_ref">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4218">Increases the reference count of @object.
+             line="4179">Increases the reference count of @object.
 
 Since GLib 2.56, if `GLIB_VERSION_MAX_ALLOWED` is 2.56 or greater, the type
 of @object will be propagated to the return type (using the GCC typeof()
@@ -10535,14 +10535,14 @@ explicit.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4229">the same @object</doc>
+               line="4190">the same @object</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4220">a #GObject</doc>
+                 line="4181">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
         </parameters>
@@ -10550,7 +10550,7 @@ explicit.</doc>
       <method name="ref_sink" c:identifier="g_object_ref_sink" version="2.10">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3837">Increase the reference count of @object, and possibly remove the
+             line="3834">Increase the reference count of @object, and possibly remove the
 [floating][floating-ref] reference, if @object has a floating reference.
 
 In other words, if the object is floating, then this call "assumes
@@ -10565,14 +10565,14 @@ under the same conditions as for g_object_ref().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="3855">@object</doc>
+               line="3852">@object</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3839">a #GObject</doc>
+                 line="3836">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
         </parameters>
@@ -10583,7 +10583,7 @@ under the same conditions as for g_object_ref().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4106">Removes a reference added with g_object_add_toggle_ref(). The
+             line="4060">Removes a reference added with g_object_add_toggle_ref(). The
 reference count of the object is decreased by one.
 
 Note that if you unref the object on another thread, then @notify might
@@ -10598,13 +10598,13 @@ you must take care of that yourself.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4108">a #GObject</doc>
+                 line="4062">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="notify" transfer-ownership="none" closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4109">a function to call when this reference is the
+                 line="4063">a function to call when this reference is the
  last reference to the object, or is no longer
  the last reference.</doc>
             <type name="ToggleNotify" c:type="GToggleNotify"/>
@@ -10615,7 +10615,7 @@ you must take care of that yourself.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4112">data to pass to @notify, or %NULL to
+                 line="4066">data to pass to @notify, or %NULL to
  match any toggle refs with the @notify argument.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -10626,7 +10626,7 @@ you must take care of that yourself.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3769">Removes a weak reference from @object that was previously added
+             line="3766">Removes a weak reference from @object that was previously added
 using g_object_add_weak_pointer(). The @weak_pointer_location has
 to match the one used with g_object_add_weak_pointer().</doc>
         <source-position filename="gobject/gobject.h" line="528"/>
@@ -10637,7 +10637,7 @@ to match the one used with g_object_add_weak_pointer().</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3771">The object that is weak referenced.</doc>
+                 line="3768">The object that is weak referenced.</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="weak_pointer_location"
@@ -10646,7 +10646,7 @@ to match the one used with g_object_add_weak_pointer().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3772">The memory address
+                 line="3769">The memory address
    of a pointer.</doc>
             <type name="gpointer" c:type="gpointer*"/>
           </parameter>
@@ -10658,7 +10658,7 @@ to match the one used with g_object_add_weak_pointer().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4828">Compares the user data for the key @key on @object with
+             line="4803">Compares the user data for the key @key on @object with
 @oldval, and if they are the same, replaces @oldval with
 @newval.
 
@@ -10678,7 +10678,7 @@ for @key.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4854">%TRUE if the existing value for @key was replaced
+               line="4829">%TRUE if the existing value for @key was replaced
  by @newval, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10686,13 +10686,13 @@ for @key.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4830">the #GObject to store user data on</doc>
+                 line="4805">the #GObject to store user data on</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4831">a string, naming the user data pointer</doc>
+                 line="4806">a string, naming the user data pointer</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="oldval"
@@ -10701,7 +10701,7 @@ for @key.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4832">the old value to compare against</doc>
+                 line="4807">the old value to compare against</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="newval"
@@ -10710,7 +10710,7 @@ for @key.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4833">the new value</doc>
+                 line="4808">the new value</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy"
@@ -10720,7 +10720,7 @@ for @key.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4834">a destroy notify for the new value</doc>
+                 line="4809">a destroy notify for the new value</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="old_destroy"
@@ -10732,7 +10732,7 @@ for @key.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4835">destroy notify for the existing value</doc>
+                 line="4810">destroy notify for the existing value</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify*"/>
           </parameter>
         </parameters>
@@ -10743,7 +10743,7 @@ for @key.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4613">Compares the user data for the key @quark on @object with
+             line="4588">Compares the user data for the key @quark on @object with
 @oldval, and if they are the same, replaces @oldval with
 @newval.
 
@@ -10760,7 +10760,7 @@ should not destroy the object in the normal way.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4636">%TRUE if the existing value for @quark was replaced
+               line="4611">%TRUE if the existing value for @quark was replaced
  by @newval, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10768,13 +10768,13 @@ should not destroy the object in the normal way.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4615">the #GObject to store user data on</doc>
+                 line="4590">the #GObject to store user data on</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4616">a #GQuark, naming the user data pointer</doc>
+                 line="4591">a #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="oldval"
@@ -10783,7 +10783,7 @@ should not destroy the object in the normal way.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4617">the old value to compare against</doc>
+                 line="4592">the old value to compare against</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="newval"
@@ -10792,7 +10792,7 @@ should not destroy the object in the normal way.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4618">the new value</doc>
+                 line="4593">the new value</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy"
@@ -10802,7 +10802,7 @@ should not destroy the object in the normal way.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4619">a destroy notify for the new value</doc>
+                 line="4594">a destroy notify for the new value</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="old_destroy"
@@ -10814,7 +10814,7 @@ should not destroy the object in the normal way.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4620">destroy notify for the existing value</doc>
+                 line="4595">destroy notify for the existing value</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify*"/>
           </parameter>
         </parameters>
@@ -10822,7 +10822,7 @@ should not destroy the object in the normal way.</doc>
       <method name="run_dispose" c:identifier="g_object_run_dispose">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1822">Releases all references to other objects. This can be used to break
+             line="1819">Releases all references to other objects. This can be used to break
 reference cycles.
 
 This function should only be called from object system implementations.</doc>
@@ -10834,7 +10834,7 @@ This function should only be called from object system implementations.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1824">a #GObject</doc>
+                 line="1821">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
         </parameters>
@@ -10842,7 +10842,7 @@ This function should only be called from object system implementations.</doc>
       <method name="set" c:identifier="g_object_set" introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3288">Sets properties on an object.
+             line="3285">Sets properties on an object.
 
 The same caveats about passing integer literals as varargs apply as with
 g_object_new(). In particular, any integer literals set as the values for
@@ -10860,19 +10860,19 @@ g_object_freeze_notify().</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3290">a #GObject</doc>
+                 line="3287">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3291">name of the first property to set</doc>
+                 line="3288">name of the first property to set</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3292">value for the first property, followed optionally by more
+                 line="3289">value for the first property, followed optionally by more
  name/value pairs, followed by %NULL</doc>
             <varargs/>
           </parameter>
@@ -10881,7 +10881,7 @@ g_object_freeze_notify().</doc>
       <method name="set_data" c:identifier="g_object_set_data">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4757">Each object carries around a table of associations from
+             line="4732">Each object carries around a table of associations from
 strings to pointers.  This function lets you set an association.
 
 If the object already had an association with that name,
@@ -10899,13 +10899,13 @@ for @key in your program, to avoid the #GQuark storage growing unbounded.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4759">#GObject containing the associations.</doc>
+                 line="4734">#GObject containing the associations.</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4760">name of the key</doc>
+                 line="4735">name of the key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="data"
@@ -10914,7 +10914,7 @@ for @key in your program, to avoid the #GQuark storage growing unbounded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4761">data to associate with that key</doc>
+                 line="4736">data to associate with that key</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10924,7 +10924,7 @@ for @key in your program, to avoid the #GQuark storage growing unbounded.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4876">Like g_object_set_data() except it adds notification
+             line="4851">Like g_object_set_data() except it adds notification
 for when the association is destroyed, either by setting it
 to a different value or when the object is destroyed.
 
@@ -10937,13 +10937,13 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4878">#GObject containing the associations</doc>
+                 line="4853">#GObject containing the associations</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4879">name of the key</doc>
+                 line="4854">name of the key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="data"
@@ -10952,7 +10952,7 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4880">data to associate with that key</doc>
+                 line="4855">data to associate with that key</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy"
@@ -10962,7 +10962,7 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4881">function to call when the association is destroyed</doc>
+                 line="4856">function to call when the association is destroyed</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -10970,7 +10970,7 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
       <method name="set_property" c:identifier="g_object_set_property">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3370">Sets a property on an object.</doc>
+             line="3367">Sets a property on an object.</doc>
         <source-position filename="gobject/gobject.h" line="489"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10979,19 +10979,19 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3372">a #GObject</doc>
+                 line="3369">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3373">the name of the property to set</doc>
+                 line="3370">the name of the property to set</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3374">the value</doc>
+                 line="3371">the value</doc>
             <type name="Value" c:type="const GValue*"/>
           </parameter>
         </parameters>
@@ -11001,7 +11001,7 @@ Note that the @destroy callback is not called if @data is %NULL.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4546">This sets an opaque, named pointer on an object.
+             line="4521">This sets an opaque, named pointer on an object.
 The name is specified through a #GQuark (retrieved e.g. via
 g_quark_from_static_string()), and the pointer
 can be gotten back from the @object with g_object_get_qdata()
@@ -11017,13 +11017,13 @@ removes the data stored.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4548">The GObject to set store a user data pointer</doc>
+                 line="4523">The GObject to set store a user data pointer</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4549">A #GQuark, naming the user data pointer</doc>
+                 line="4524">A #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="data"
@@ -11032,7 +11032,7 @@ removes the data stored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4550">An opaque user data pointer</doc>
+                 line="4525">An opaque user data pointer</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -11042,7 +11042,7 @@ removes the data stored.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4657">This function works like g_object_set_qdata(), but in addition,
+             line="4632">This function works like g_object_set_qdata(), but in addition,
 a void (*destroy) (gpointer) function may be specified which is
 called with @data as argument when the @object is finalized, or
 the data is being overwritten by a call to g_object_set_qdata()
@@ -11055,13 +11055,13 @@ with the same @quark.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4659">The GObject to set store a user data pointer</doc>
+                 line="4634">The GObject to set store a user data pointer</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4660">A #GQuark, naming the user data pointer</doc>
+                 line="4635">A #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="data"
@@ -11070,7 +11070,7 @@ with the same @quark.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4661">An opaque user data pointer</doc>
+                 line="4636">An opaque user data pointer</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy"
@@ -11080,7 +11080,7 @@ with the same @quark.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4662">Function to invoke with @data as argument, when @data
+                 line="4637">Function to invoke with @data as argument, when @data
           needs to be freed</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
@@ -11091,7 +11091,7 @@ with the same @quark.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3092">Sets properties on an object.</doc>
+             line="3089">Sets properties on an object.</doc>
         <source-position filename="gobject/gobject.h" line="476"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11100,19 +11100,19 @@ with the same @quark.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3094">a #GObject</doc>
+                 line="3091">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3095">name of the first property to set</doc>
+                 line="3092">name of the first property to set</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="var_args" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3096">value for the first property, followed optionally by more
+                 line="3093">value for the first property, followed optionally by more
  name/value pairs, followed by %NULL</doc>
             <type name="va_list" c:type="va_list"/>
           </parameter>
@@ -11124,7 +11124,7 @@ with the same @quark.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3039">Sets @n_properties properties for an @object.
+             line="3036">Sets @n_properties properties for an @object.
 Properties to be set will be taken from @values. All properties must be
 valid. Warnings will be emitted and undefined behaviour may result if invalid
 properties are passed in.</doc>
@@ -11136,19 +11136,19 @@ properties are passed in.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3041">a #GObject</doc>
+                 line="3038">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="n_properties" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3042">the number of properties</doc>
+                 line="3039">the number of properties</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3043">the names of each property to be set</doc>
+                 line="3040">the names of each property to be set</doc>
             <array length="0" zero-terminated="0" c:type="const gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -11156,7 +11156,7 @@ properties are passed in.</doc>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3044">the values of each property to be set</doc>
+                 line="3041">the values of each property to be set</doc>
             <array length="0" zero-terminated="0" c:type="const GValue*">
               <type name="Value" c:type="GValue"/>
             </array>
@@ -11166,13 +11166,13 @@ properties are passed in.</doc>
       <method name="steal_data" c:identifier="g_object_steal_data">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4902">Remove a specified datum from the object's data associations,
+             line="4877">Remove a specified datum from the object's data associations,
 without invoking the association's destroy handler.</doc>
         <source-position filename="gobject/gobject.h" line="606"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4910">the data if found, or %NULL
+               line="4885">the data if found, or %NULL
          if no such data exists.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
@@ -11180,13 +11180,13 @@ without invoking the association's destroy handler.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4904">#GObject containing the associations</doc>
+                 line="4879">#GObject containing the associations</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4905">name of the key</doc>
+                 line="4880">name of the key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11194,7 +11194,7 @@ without invoking the association's destroy handler.</doc>
       <method name="steal_qdata" c:identifier="g_object_steal_qdata">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4684">This function gets back user data pointers stored via
+             line="4659">This function gets back user data pointers stored via
 g_object_set_qdata() and removes the @data from object
 without invoking its destroy() function (if any was
 set).
@@ -11233,20 +11233,20 @@ g_object_set_qdata_full().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4725">The user data pointer set, or %NULL</doc>
+               line="4700">The user data pointer set, or %NULL</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4686">The GObject to get a stored user data pointer from</doc>
+                 line="4661">The GObject to get a stored user data pointer from</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="quark" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4687">A #GQuark, naming the user data pointer</doc>
+                 line="4662">A #GQuark, naming the user data pointer</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
         </parameters>
@@ -11257,7 +11257,7 @@ g_object_set_qdata_full().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3871">If @object is floating, sink it.  Otherwise, do nothing.
+             line="3868">If @object is floating, sink it.  Otherwise, do nothing.
 
 In other words, this function will convert a floating reference (if
 present) into a full reference.
@@ -11296,14 +11296,14 @@ this situation.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="3913">@object</doc>
+               line="3910">@object</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3873">a #GObject</doc>
+                 line="3870">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
         </parameters>
@@ -11311,7 +11311,7 @@ this situation.</doc>
       <method name="thaw_notify" c:identifier="g_object_thaw_notify">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="2033">Reverts the effect of a previous call to
+             line="2030">Reverts the effect of a previous call to
 g_object_freeze_notify(). The freeze count is decreased on @object
 and when it reaches zero, queued "notify" signals are emitted.
 
@@ -11328,7 +11328,7 @@ It is an error to call this function when the freeze count is zero.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="2035">a #GObject</doc>
+                 line="2032">a #GObject</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
         </parameters>
@@ -11336,7 +11336,7 @@ It is an error to call this function when the freeze count is zero.</doc>
       <method name="unref" c:identifier="g_object_unref">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="4303">Decreases the reference count of @object. When its reference count
+             line="4264">Decreases the reference count of @object. When its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).
 
 If the pointer to the #GObject may be reused in future (for example, if it is
@@ -11351,7 +11351,7 @@ invalid #GObject instance. Use g_clear_object() for this.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="4305">a #GObject</doc>
+                 line="4266">a #GObject</doc>
             <type name="Object" c:type="gpointer"/>
           </instance-parameter>
         </parameters>
@@ -11359,7 +11359,7 @@ invalid #GObject instance. Use g_clear_object() for this.</doc>
       <method name="watch_closure" c:identifier="g_object_watch_closure">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5232">This function essentially limits the life time of the @closure to
+             line="5207">This function essentially limits the life time of the @closure to
 the life time of the object. That is, when the object is finalized,
 the @closure is invalidated by calling g_closure_invalidate() on
 it, in order to prevent invocations of the closure with a finalized
@@ -11376,13 +11376,13 @@ use this @object as closure data.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5234">#GObject restricting lifetime of @closure</doc>
+                 line="5209">#GObject restricting lifetime of @closure</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="closure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5235">#GClosure to watch</doc>
+                 line="5210">#GClosure to watch</doc>
             <type name="Closure" c:type="GClosure*"/>
           </parameter>
         </parameters>
@@ -11392,7 +11392,7 @@ use this @object as closure data.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3650">Adds a weak reference callback to an object. Weak references are
+             line="3647">Adds a weak reference callback to an object. Weak references are
 used for notification when an object is disposed. They are called
 "weak references" because they allow you to safely hold a pointer
 to an object without calling g_object_ref() (g_object_ref() adds a
@@ -11410,13 +11410,13 @@ Use #GWeakRef if thread-safety is required.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3652">#GObject to reference weakly</doc>
+                 line="3649">#GObject to reference weakly</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="notify" transfer-ownership="none" closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3653">callback to invoke before the object is freed</doc>
+                 line="3650">callback to invoke before the object is freed</doc>
             <type name="WeakNotify" c:type="GWeakNotify"/>
           </parameter>
           <parameter name="data"
@@ -11425,7 +11425,7 @@ Use #GWeakRef if thread-safety is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3654">extra data to pass to notify</doc>
+                 line="3651">extra data to pass to notify</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -11435,7 +11435,7 @@ Use #GWeakRef if thread-safety is required.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="3699">Removes a weak reference callback to an object.</doc>
+             line="3696">Removes a weak reference callback to an object.</doc>
         <source-position filename="gobject/gobject.h" line="521"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11444,13 +11444,13 @@ Use #GWeakRef if thread-safety is required.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3701">#GObject to remove a weak reference from</doc>
+                 line="3698">#GObject to remove a weak reference from</doc>
             <type name="Object" c:type="GObject*"/>
           </instance-parameter>
           <parameter name="notify" transfer-ownership="none" closure="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3702">callback to search for</doc>
+                 line="3699">callback to search for</doc>
             <type name="WeakNotify" c:type="GWeakNotify"/>
           </parameter>
           <parameter name="data"
@@ -11459,7 +11459,7 @@ Use #GWeakRef if thread-safety is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="3703">data to search for</doc>
+                 line="3700">data to search for</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -11481,7 +11481,7 @@ Use #GWeakRef if thread-safety is required.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="995">The notify signal is emitted on an object when one of its properties has
+             line="992">The notify signal is emitted on an object when one of its properties has
 its value set through g_object_set_property(), g_object_set(), et al.
 
 Note that getting this signal doesn’t itself guarantee that the value of
@@ -11513,7 +11513,7 @@ detail strings for the notify signal.</doc>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="998">the #GParamSpec of the property which changed.</doc>
+                 line="995">the #GParamSpec of the property which changed.</doc>
             <type name="ParamSpec"/>
           </parameter>
         </parameters>
@@ -11719,7 +11719,7 @@ my_singleton_constructor (GType                  type,
             <parameter name="object" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gobject/gobject.c"
-                   line="1936">a #GObject</doc>
+                   line="1933">a #GObject</doc>
               <type name="Object" c:type="GObject*"/>
             </parameter>
             <parameter name="pspec" transfer-ownership="none">
@@ -11770,12 +11770,12 @@ my_singleton_constructor (GType                  type,
       <method name="find_property" c:identifier="g_object_class_find_property">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1428">Looks up the #GParamSpec for a property of a class.</doc>
+             line="1425">Looks up the #GParamSpec for a property of a class.</doc>
         <source-position filename="gobject/gobject.h" line="405"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="1435">the #GParamSpec for the property, or
+               line="1432">the #GParamSpec for the property, or
          %NULL if the class doesn't have a property of that name</doc>
           <type name="ParamSpec" c:type="GParamSpec*"/>
         </return-value>
@@ -11783,13 +11783,13 @@ my_singleton_constructor (GType                  type,
           <instance-parameter name="oclass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1430">a #GObjectClass</doc>
+                 line="1427">a #GObjectClass</doc>
             <type name="ObjectClass" c:type="GObjectClass*"/>
           </instance-parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1431">the name of the property to look up</doc>
+                 line="1428">the name of the property to look up</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11799,7 +11799,7 @@ my_singleton_constructor (GType                  type,
               version="2.26">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1241">Installs new properties from an array of #GParamSpecs.
+             line="1238">Installs new properties from an array of #GParamSpecs.
 
 All properties should be installed during the class initializer.  It
 is possible to install properties after that, but doing so is not
@@ -11870,19 +11870,19 @@ my_object_set_foo (MyObject *self, gint foo)
           <instance-parameter name="oclass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1243">a #GObjectClass</doc>
+                 line="1240">a #GObjectClass</doc>
             <type name="ObjectClass" c:type="GObjectClass*"/>
           </instance-parameter>
           <parameter name="n_pspecs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1244">the length of the #GParamSpecs array</doc>
+                 line="1241">the length of the #GParamSpecs array</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="pspecs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1245">the #GParamSpecs array
+                 line="1242">the #GParamSpecs array
   defining the new properties</doc>
             <array length="0" zero-terminated="0" c:type="GParamSpec**">
               <type name="ParamSpec" c:type="GParamSpec*"/>
@@ -11894,7 +11894,7 @@ my_object_set_foo (MyObject *self, gint foo)
               c:identifier="g_object_class_install_property">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1132">Installs a new property.
+             line="1129">Installs a new property.
 
 All properties should be installed during the class initializer.  It
 is possible to install properties after that, but doing so is not
@@ -11912,19 +11912,19 @@ e.g. to change the range of allowed values or the default value.</doc>
           <instance-parameter name="oclass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1134">a #GObjectClass</doc>
+                 line="1131">a #GObjectClass</doc>
             <type name="ObjectClass" c:type="GObjectClass*"/>
           </instance-parameter>
           <parameter name="property_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1135">the id for the new property</doc>
+                 line="1132">the id for the new property</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="pspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1136">the #GParamSpec for the new property</doc>
+                 line="1133">the #GParamSpec for the new property</doc>
             <type name="ParamSpec" c:type="GParamSpec*"/>
           </parameter>
         </parameters>
@@ -11933,12 +11933,12 @@ e.g. to change the range of allowed values or the default value.</doc>
               c:identifier="g_object_class_list_properties">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1567">Get an array of #GParamSpec* for all properties of a class.</doc>
+             line="1564">Get an array of #GParamSpec* for all properties of a class.</doc>
         <source-position filename="gobject/gobject.h" line="408"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="1574">an array of
+               line="1571">an array of
          #GParamSpec* which should be freed after use</doc>
           <array length="0" zero-terminated="0" c:type="GParamSpec**">
             <type name="ParamSpec" c:type="GParamSpec*"/>
@@ -11948,7 +11948,7 @@ e.g. to change the range of allowed values or the default value.</doc>
           <instance-parameter name="oclass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1569">a #GObjectClass</doc>
+                 line="1566">a #GObjectClass</doc>
             <type name="ObjectClass" c:type="GObjectClass*"/>
           </instance-parameter>
           <parameter name="n_properties"
@@ -11957,7 +11957,7 @@ e.g. to change the range of allowed values or the default value.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1570">return location for the length of the returned array</doc>
+                 line="1567">return location for the length of the returned array</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -11967,7 +11967,7 @@ e.g. to change the range of allowed values or the default value.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="1490">Registers @property_id as referring to a property with the name
+             line="1487">Registers @property_id as referring to a property with the name
 @name in a parent class or in an interface implemented by @oclass.
 This allows this class to "override" a property implementation in
 a parent class or to provide the implementation of a property from
@@ -11991,19 +11991,19 @@ g_param_spec_get_redirect_target().</doc>
           <instance-parameter name="oclass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1492">a #GObjectClass</doc>
+                 line="1489">a #GObjectClass</doc>
             <type name="ObjectClass" c:type="GObjectClass*"/>
           </instance-parameter>
           <parameter name="property_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1493">the new property ID</doc>
+                 line="1490">the new property ID</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="1494">the name of a property registered in a parent class or
+                 line="1491">the name of a property registered in a parent class or
  in an interface of this class.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -19258,14 +19258,14 @@ return_value);</doc>
       <method name="dup_object" c:identifier="g_value_dup_object">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5119">Get the contents of a %G_TYPE_OBJECT derived #GValue, increasing
+             line="5094">Get the contents of a %G_TYPE_OBJECT derived #GValue, increasing
 its reference count. If the contents of the #GValue are %NULL, then
 %NULL will be returned.</doc>
         <source-position filename="gobject/gobject.h" line="641"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5127">object content of @value,
+               line="5102">object content of @value,
          should be unreferenced when no longer needed.</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
@@ -19273,7 +19273,7 @@ its reference count. If the contents of the #GValue are %NULL, then
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5121">a valid #GValue whose type is derived from %G_TYPE_OBJECT</doc>
+                 line="5096">a valid #GValue whose type is derived from %G_TYPE_OBJECT</doc>
             <type name="Value" c:type="const GValue*"/>
           </instance-parameter>
         </parameters>
@@ -19597,19 +19597,19 @@ Get the contents of a %G_TYPE_CHAR #GValue.</doc>
       <method name="get_object" c:identifier="g_value_get_object">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5103">Get the contents of a %G_TYPE_OBJECT derived #GValue.</doc>
+             line="5078">Get the contents of a %G_TYPE_OBJECT derived #GValue.</doc>
         <source-position filename="gobject/gobject.h" line="639"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5109">object contents of @value</doc>
+               line="5084">object contents of @value</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5105">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
+                 line="5080">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
             <type name="Value" c:type="const GValue*"/>
           </instance-parameter>
         </parameters>
@@ -20246,7 +20246,7 @@ g_intern_string()), and is thus not duplicated when setting the #GValue.</doc>
       <method name="set_object" c:identifier="g_value_set_object">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5014">Set the contents of a %G_TYPE_OBJECT derived #GValue to @v_object.
+             line="4989">Set the contents of a %G_TYPE_OBJECT derived #GValue to @v_object.
 
 g_value_set_object() increases the reference count of @v_object
 (the #GValue holds a reference to @v_object).  If you do not wish
@@ -20265,7 +20265,7 @@ the #GValue still exists).</doc>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5016">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
+                 line="4991">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
             <type name="Value" c:type="GValue*"/>
           </instance-parameter>
           <parameter name="v_object"
@@ -20274,7 +20274,7 @@ the #GValue still exists).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5017">object value to be set</doc>
+                 line="4992">object value to be set</doc>
             <type name="Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -20286,7 +20286,7 @@ the #GValue still exists).</doc>
               deprecated-version="2.4">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5055">This is an internal function introduced mainly for C marshallers.</doc>
+             line="5030">This is an internal function introduced mainly for C marshallers.</doc>
         <doc-deprecated xml:space="preserve">Use g_value_take_object() instead.</doc-deprecated>
         <source-position filename="gobject/gobject.h" line="660"/>
         <return-value transfer-ownership="none">
@@ -20296,7 +20296,7 @@ the #GValue still exists).</doc>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5057">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
+                 line="5032">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
             <type name="Value" c:type="GValue*"/>
           </instance-parameter>
           <parameter name="v_object"
@@ -20305,7 +20305,7 @@ the #GValue still exists).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5058">object value to be set</doc>
+                 line="5033">object value to be set</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -20721,7 +20721,7 @@ the caller doesn’t have to unref it any more.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5071">Sets the contents of a %G_TYPE_OBJECT derived #GValue to @v_object
+             line="5046">Sets the contents of a %G_TYPE_OBJECT derived #GValue to @v_object
 and takes over the ownership of the caller’s reference to @v_object;
 the caller doesn’t have to unref it any more (i.e. the reference
 count of the object is not increased).
@@ -20736,7 +20736,7 @@ g_value_set_object() instead.</doc>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5073">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
+                 line="5048">a valid #GValue of %G_TYPE_OBJECT derived type</doc>
             <type name="Value" c:type="GValue*"/>
           </instance-parameter>
           <parameter name="v_object"
@@ -20745,7 +20745,7 @@ g_value_set_object() instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5074">object value to be set</doc>
+                 line="5049">object value to be set</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -21450,7 +21450,7 @@ them on the object from this callback.</doc>
     <record name="WeakRef" c:type="GWeakRef">
       <doc xml:space="preserve"
            filename="gobject/gobject.c"
-           line="5404">A structure containing a weak reference to a #GObject.
+           line="5379">A structure containing a weak reference to a #GObject.
 
 A `GWeakRef` can either be empty (i.e. point to %NULL), or point to an
 object for as long as at least one "strong" reference to that object
@@ -21487,7 +21487,7 @@ without first having or creating a strong reference to the object.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5665">Frees resources associated with a non-statically-allocated #GWeakRef.
+             line="5640">Frees resources associated with a non-statically-allocated #GWeakRef.
 After this call, the #GWeakRef is left in an undefined state.
 
 You should only call this on a #GWeakRef that previously had
@@ -21503,7 +21503,7 @@ g_weak_ref_init() called on it.</doc>
                               transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5667">location of a weak reference, which
+                 line="5642">location of a weak reference, which
  may be empty</doc>
             <type name="WeakRef" c:type="GWeakRef*"/>
           </instance-parameter>
@@ -21515,7 +21515,7 @@ g_weak_ref_init() called on it.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5687">If @weak_ref is not empty, atomically acquire a strong
+             line="5662">If @weak_ref is not empty, atomically acquire a strong
 reference to the object it points to, and return that reference.
 
 This function is needed because of the potential race between taking
@@ -21528,7 +21528,7 @@ by using g_object_unref().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5701">the object pointed to
+               line="5676">the object pointed to
     by @weak_ref, or %NULL if it was empty</doc>
           <type name="Object" c:type="gpointer"/>
         </return-value>
@@ -21539,7 +21539,7 @@ by using g_object_unref().</doc>
                               transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5689">location of a weak reference to a #GObject</doc>
+                 line="5664">location of a weak reference to a #GObject</doc>
             <type name="WeakRef" c:type="GWeakRef*"/>
           </instance-parameter>
         </parameters>
@@ -21550,7 +21550,7 @@ by using g_object_unref().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5630">Initialise a non-statically-allocated #GWeakRef.
+             line="5605">Initialise a non-statically-allocated #GWeakRef.
 
 This function also calls g_weak_ref_set() with @object on the
 freshly-initialised weak reference.
@@ -21570,7 +21570,7 @@ properly initialised.  Just use g_weak_ref_set() directly.</doc>
                               transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5632">uninitialized or empty location for a weak
+                 line="5607">uninitialized or empty location for a weak
    reference</doc>
             <type name="WeakRef" c:type="GWeakRef*"/>
           </instance-parameter>
@@ -21580,7 +21580,7 @@ properly initialised.  Just use g_weak_ref_set() directly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5634">a #GObject or %NULL</doc>
+                 line="5609">a #GObject or %NULL</doc>
             <type name="Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -21591,7 +21591,7 @@ properly initialised.  Just use g_weak_ref_set() directly.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5796">Change the object to which @weak_ref points, or set it to
+             line="5771">Change the object to which @weak_ref points, or set it to
 %NULL.
 
 You must own a strong reference on @object while calling this
@@ -21604,7 +21604,7 @@ function.</doc>
           <instance-parameter name="weak_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5798">location for a weak reference</doc>
+                 line="5773">location for a weak reference</doc>
             <type name="WeakRef" c:type="GWeakRef*"/>
           </instance-parameter>
           <parameter name="object"
@@ -21613,7 +21613,7 @@ function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gobject/gobject.c"
-                 line="5799">a #GObject or %NULL</doc>
+                 line="5774">a #GObject or %NULL</doc>
             <type name="Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -23229,7 +23229,7 @@ the last parameter.
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gobject.c"
-           line="5312">A variant of g_cclosure_new() which uses @object as @user_data and
+           line="5287">A variant of g_cclosure_new() which uses @object as @user_data and
 calls g_object_watch_closure() on @object and the created
 closure. This function is useful when you have a callback closely
 associated with a #GObject, and want the callback to no longer run
@@ -23238,20 +23238,20 @@ after the object is is freed.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5323">a new #GCClosure</doc>
+             line="5298">a new #GCClosure</doc>
         <type name="Closure" c:type="GClosure*"/>
       </return-value>
       <parameters>
         <parameter name="callback_func" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5314">the function to invoke</doc>
+               line="5289">the function to invoke</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="object" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5315">a #GObject pointer to pass to @callback_func</doc>
+               line="5290">a #GObject pointer to pass to @callback_func</doc>
           <type name="Object" c:type="GObject*"/>
         </parameter>
       </parameters>
@@ -23262,7 +23262,7 @@ after the object is is freed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gobject.c"
-           line="5341">A variant of g_cclosure_new_swap() which uses @object as @user_data
+           line="5316">A variant of g_cclosure_new_swap() which uses @object as @user_data
 and calls g_object_watch_closure() on @object and the created
 closure. This function is useful when you have a callback closely
 associated with a #GObject, and want the callback to no longer run
@@ -23271,20 +23271,20 @@ after the object is is freed.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5352">a new #GCClosure</doc>
+             line="5327">a new #GCClosure</doc>
         <type name="Closure" c:type="GClosure*"/>
       </return-value>
       <parameters>
         <parameter name="callback_func" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5343">the function to invoke</doc>
+               line="5318">the function to invoke</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="object" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5344">a #GObject pointer to pass to @callback_func</doc>
+               line="5319">a #GObject pointer to pass to @callback_func</doc>
           <type name="Object" c:type="GObject*"/>
         </parameter>
       </parameters>
@@ -23341,7 +23341,7 @@ the first parameter.
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gobject.c"
-           line="4503">Clears a reference to a #GObject.
+           line="4478">Clears a reference to a #GObject.
 
 @object_ptr must not be %NULL.
 
@@ -23359,7 +23359,7 @@ pointer casts.</doc>
         <parameter name="object_ptr" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="4505">a pointer to a #GObject reference</doc>
+               line="4480">a pointer to a #GObject reference</doc>
           <type name="Object" c:type="GObject**"/>
         </parameter>
       </parameters>
@@ -23369,7 +23369,7 @@ pointer casts.</doc>
               version="2.62">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="4159">Disconnects a handler from @instance so it will not be called during
+           line="4150">Disconnects a handler from @instance so it will not be called during
 any future or currently ongoing emissions of the signal it has been
 connected to. The @handler_id_ptr is then set to zero, which is never a valid handler ID value (see g_signal_connect()).
 
@@ -23385,13 +23385,13 @@ will be inlined.</doc>
         <parameter name="handler_id_ptr" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4161">A pointer to a handler ID (of type #gulong) of the handler to be disconnected.</doc>
+               line="4152">A pointer to a handler ID (of type #gulong) of the handler to be disconnected.</doc>
           <type name="gulong" c:type="gulong*"/>
         </parameter>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4162">The instance to remove the signal handler from.
+               line="4153">The instance to remove the signal handler from.
   This pointer may be %NULL or invalid, if the handler ID is zero.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
@@ -25507,7 +25507,7 @@ One convenient usage of this function is in implementing property setters:
               version="2.28">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="4127">A predefined #GSignalAccumulator for signals intended to be used as a
+           line="4118">A predefined #GSignalAccumulator for signals intended to be used as a
 hook for application code to provide a particular value.  Usually
 only one such value is desired and multiple handlers for the same
 signal don't make much sense (except for the case of the default
@@ -25517,30 +25517,30 @@ usually want the signal connection to override the class handler).
 This accumulator will use the return value from the first signal
 handler that is run as the return value for the signal and not run
 any further handlers (ie: the first handler "wins").</doc>
-      <source-position filename="gobject/gsignal.h" line="645"/>
+      <source-position filename="gobject/gsignal.h" line="635"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="4145">standard #GSignalAccumulator result</doc>
+             line="4136">standard #GSignalAccumulator result</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="ihint" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4129">standard #GSignalAccumulator parameter</doc>
+               line="4120">standard #GSignalAccumulator parameter</doc>
           <type name="SignalInvocationHint" c:type="GSignalInvocationHint*"/>
         </parameter>
         <parameter name="return_accu" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4130">standard #GSignalAccumulator parameter</doc>
+               line="4121">standard #GSignalAccumulator parameter</doc>
           <type name="Value" c:type="GValue*"/>
         </parameter>
         <parameter name="handler_return" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4131">standard #GSignalAccumulator parameter</doc>
+               line="4122">standard #GSignalAccumulator parameter</doc>
           <type name="Value" c:type="const GValue*"/>
         </parameter>
         <parameter name="dummy"
@@ -25549,7 +25549,7 @@ any further handlers (ie: the first handler "wins").</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4132">standard #GSignalAccumulator parameter</doc>
+               line="4123">standard #GSignalAccumulator parameter</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -25559,37 +25559,37 @@ any further handlers (ie: the first handler "wins").</doc>
               version="2.4">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="4092">A predefined #GSignalAccumulator for signals that return a
+           line="4083">A predefined #GSignalAccumulator for signals that return a
 boolean values. The behavior that this accumulator gives is
 that a return of %TRUE stops the signal emission: no further
 callbacks will be invoked, while a return of %FALSE allows
 the emission to continue. The idea here is that a %TRUE return
 indicates that the callback handled the signal, and no further
 handling is needed.</doc>
-      <source-position filename="gobject/gsignal.h" line="639"/>
+      <source-position filename="gobject/gsignal.h" line="629"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="4109">standard #GSignalAccumulator result</doc>
+             line="4100">standard #GSignalAccumulator result</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="ihint" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4094">standard #GSignalAccumulator parameter</doc>
+               line="4085">standard #GSignalAccumulator parameter</doc>
           <type name="SignalInvocationHint" c:type="GSignalInvocationHint*"/>
         </parameter>
         <parameter name="return_accu" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4095">standard #GSignalAccumulator parameter</doc>
+               line="4086">standard #GSignalAccumulator parameter</doc>
           <type name="Value" c:type="GValue*"/>
         </parameter>
         <parameter name="handler_return" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4096">standard #GSignalAccumulator parameter</doc>
+               line="4087">standard #GSignalAccumulator parameter</doc>
           <type name="Value" c:type="const GValue*"/>
         </parameter>
         <parameter name="dummy"
@@ -25598,7 +25598,7 @@ handling is needed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="4097">standard #GSignalAccumulator parameter</doc>
+               line="4088">standard #GSignalAccumulator parameter</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -25732,17 +25732,13 @@ g_signal_override_class_handler().</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="496">Connects a [type@GObject.Callback] function to a signal for a particular object.
+           line="496">Connects a #GCallback function to a signal for a particular object.
 
-The handler will be called synchronously, before the default handler of the signal.
-[func@GObject.signal_emit] will not return control until all handlers are called.
+The handler will be called synchronously, before the default handler of the signal. g_signal_emit() will not return control until all handlers are called.
 
-See [memory management of signal handlers](signals.html#Memory_management_of_signal_handlers) for
-details on how to handle the return value and memory management of @data.
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
-      <source-position filename="gobject/gsignal.h" line="518"/>
+See [memory management of signal handlers][signals.html#Memory_management_of_signal_handlers] for
+details on how to handle the return value and memory management of @data.</doc>
+      <source-position filename="gobject/gsignal.h" line="514"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
@@ -25771,33 +25767,30 @@ warning is emitted.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="520">Connects a #GCallback function to a signal for a particular object.
+           line="516">Connects a #GCallback function to a signal for a particular object.
 
-The handler will be called synchronously, after the default handler of the signal.
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
-      <source-position filename="gobject/gsignal.h" line="536"/>
+The handler will be called synchronously, after the default handler of the signal.</doc>
+      <source-position filename="gobject/gsignal.h" line="529"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="522">the instance to connect to.</doc>
+               line="518">the instance to connect to.</doc>
         </parameter>
         <parameter name="detailed_signal">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="523">a string of the form "signal-name::detail".</doc>
+               line="519">a string of the form "signal-name::detail".</doc>
         </parameter>
         <parameter name="c_handler">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="524">the #GCallback to connect.</doc>
+               line="520">the #GCallback to connect.</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="525">data to pass to @c_handler calls.</doc>
+               line="521">data to pass to @c_handler calls.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -25805,43 +25798,40 @@ warning is emitted.</doc>
               c:identifier="g_signal_connect_closure">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2359">Connects a closure to a signal for a particular object.
+           line="2356">Connects a closure to a signal for a particular object.
 
 If @closure is a floating reference (see g_closure_sink()), this function
-takes ownership of @closure.
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
+takes ownership of @closure.</doc>
       <source-position filename="gobject/gsignal.h" line="404"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2375">the handler ID (always greater than 0)</doc>
+             line="2369">the handler ID (always greater than 0 for successful connections)</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2361">the instance to connect to.</doc>
+               line="2358">the instance to connect to.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="detailed_signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2362">a string of the form "signal-name::detail".</doc>
+               line="2359">a string of the form "signal-name::detail".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="closure" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2363">the closure to connect.</doc>
+               line="2360">the closure to connect.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="after" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2364">whether the handler should be called before or after the
+               line="2361">whether the handler should be called before or after the
  default handler of the signal.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
@@ -25854,15 +25844,12 @@ warning is emitted.</doc>
            line="2290">Connects a closure to a signal for a particular object.
 
 If @closure is a floating reference (see g_closure_sink()), this function
-takes ownership of @closure.
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
+takes ownership of @closure.</doc>
       <source-position filename="gobject/gsignal.h" line="398"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2307">the handler ID (always greater than 0)</doc>
+             line="2304">the handler ID (always greater than 0 for successful connections)</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
       <parameters>
@@ -25904,38 +25891,35 @@ warning is emitted.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2456">Connects a #GCallback function to a signal for a particular object. Similar
+           line="2450">Connects a #GCallback function to a signal for a particular object. Similar
 to g_signal_connect(), but allows to provide a #GClosureNotify for the data
 which will be called when the signal handler is disconnected and no longer
 used. Specify @connect_flags if you need `..._after()` or
-`..._swapped()` variants of this function.
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
+`..._swapped()` variants of this function.</doc>
       <source-position filename="gobject/gsignal.h" line="409"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2474">the handler ID (always greater than 0)</doc>
+             line="2465">the handler ID (always greater than 0 for successful connections)</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2458">the instance to connect to.</doc>
+               line="2452">the instance to connect to.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="detailed_signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2459">a string of the form "signal-name::detail".</doc>
+               line="2453">a string of the form "signal-name::detail".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="c_handler" transfer-ownership="none" closure="3">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2460">the #GCallback to connect.</doc>
+               line="2454">the #GCallback to connect.</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="data"
@@ -25946,7 +25930,7 @@ warning is emitted.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2461">data to pass to @c_handler calls.</doc>
+               line="2455">data to pass to @c_handler calls.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="destroy_data"
@@ -25957,13 +25941,13 @@ warning is emitted.</doc>
                    destroy="3">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2462">a #GClosureNotify for @data.</doc>
+               line="2456">a #GClosureNotify for @data.</doc>
           <type name="ClosureNotify" c:type="GClosureNotify"/>
         </parameter>
         <parameter name="connect_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2463">a combination of #GConnectFlags.</doc>
+               line="2457">a combination of #GConnectFlags.</doc>
           <type name="ConnectFlags" c:type="GConnectFlags"/>
         </parameter>
       </parameters>
@@ -25973,7 +25957,7 @@ warning is emitted.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gobject.c"
-           line="5138">This is similar to g_signal_connect_data(), but uses a closure which
+           line="5113">This is similar to g_signal_connect_data(), but uses a closure which
 ensures that the @gobject stays alive during the call to @c_handler
 by temporarily adding a reference count to @gobject.
 
@@ -25985,26 +25969,26 @@ is not safe).</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gobject.c"
-             line="5156">the handler id.</doc>
+             line="5131">the handler id.</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5140">the instance to connect to.</doc>
+               line="5115">the instance to connect to.</doc>
           <type name="TypeInstance" c:type="gpointer"/>
         </parameter>
         <parameter name="detailed_signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5141">a string of the form "signal-name::detail".</doc>
+               line="5116">a string of the form "signal-name::detail".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="c_handler" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5142">the #GCallback to connect.</doc>
+               line="5117">the #GCallback to connect.</doc>
           <type name="Callback" c:type="GCallback"/>
         </parameter>
         <parameter name="gobject"
@@ -26013,14 +25997,14 @@ is not safe).</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5143">the object to pass as data
+               line="5118">the object to pass as data
    to @c_handler.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="connect_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gobject.c"
-               line="5145">a combination of #GConnectFlags.</doc>
+               line="5120">a combination of #GConnectFlags.</doc>
           <type name="ConnectFlags" c:type="GConnectFlags"/>
         </parameter>
       </parameters>
@@ -26030,7 +26014,7 @@ is not safe).</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="538">Connects a #GCallback function to a signal for a particular object.
+           line="531">Connects a #GCallback function to a signal for a particular object.
 
 The instance on which the signal is emitted and @data will be swapped when
 calling the handler. This is useful when calling pre-existing functions to
@@ -26055,31 +26039,28 @@ button_clicked_cb (GtkButton *button, GtkWidget *other_widget)
 
 g_signal_connect (button, "clicked",
                   (GCallback) button_clicked_cb, other_widget);
-]|
-
-This function cannot fail. If the given signal doesn’t exist, a critical
-warning is emitted.</doc>
-      <source-position filename="gobject/gsignal.h" line="577"/>
+]|</doc>
+      <source-position filename="gobject/gsignal.h" line="567"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="540">the instance to connect to.</doc>
+               line="533">the instance to connect to.</doc>
         </parameter>
         <parameter name="detailed_signal">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="541">a string of the form "signal-name::detail".</doc>
+               line="534">a string of the form "signal-name::detail".</doc>
         </parameter>
         <parameter name="c_handler">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="542">the #GCallback to connect.</doc>
+               line="535">the #GCallback to connect.</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="543">data to pass to @c_handler calls.</doc>
+               line="536">data to pass to @c_handler calls.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -26088,7 +26069,7 @@ warning is emitted.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="3559">Emits a signal. Signal emission is done synchronously.
+           line="3550">Emits a signal. Signal emission is done synchronously.
 The method will only return control after all handlers are called or signal emission was stopped.
 
 Note that g_signal_emit() resets the return value to the default
@@ -26101,25 +26082,25 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3561">the instance the signal is being emitted on.</doc>
+               line="3552">the instance the signal is being emitted on.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3562">the signal id</doc>
+               line="3553">the signal id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3563">the detail</doc>
+               line="3554">the detail</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3564">parameters to be passed to the signal, followed by a
+               line="3555">parameters to be passed to the signal, followed by a
  location for the return value. If the return type of the signal
  is %G_TYPE_NONE, the return value location can be omitted.</doc>
           <varargs/>
@@ -26131,7 +26112,7 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="3587">Emits a signal. Signal emission is done synchronously.
+           line="3578">Emits a signal. Signal emission is done synchronously.
 The method will only return control after all handlers are called or signal emission was stopped.
 
 Note that g_signal_emit_by_name() resets the return value to the default
@@ -26144,19 +26125,19 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3589">the instance the signal is being emitted on.</doc>
+               line="3580">the instance the signal is being emitted on.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="detailed_signal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3590">a string of the form "signal-name::detail".</doc>
+               line="3581">a string of the form "signal-name::detail".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3591">parameters to be passed to the signal, followed by a
+               line="3582">parameters to be passed to the signal, followed by a
  location for the return value. If the return type of the signal
  is %G_TYPE_NONE, the return value location can be omitted. The
  number of parameters to pass to this function is defined when creating the signal.</doc>
@@ -26169,7 +26150,7 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="3240">Emits a signal. Signal emission is done synchronously.
+           line="3231">Emits a signal. Signal emission is done synchronously.
 The method will only return control after all handlers are called or signal emission was stopped.
 
 Note that g_signal_emit_valist() resets the return value to the default
@@ -26182,26 +26163,26 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3242">the instance the signal is being
+               line="3233">the instance the signal is being
    emitted on.</doc>
           <type name="TypeInstance" c:type="gpointer"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3244">the signal id</doc>
+               line="3235">the signal id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3245">the detail</doc>
+               line="3236">the detail</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="var_args" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3246">a list of parameters to be passed to the signal, followed by a
+               line="3237">a list of parameters to be passed to the signal, followed by a
  location for the return value. If the return type of the signal
  is %G_TYPE_NONE, the return value location can be omitted.</doc>
           <type name="va_list" c:type="va_list"/>
@@ -26211,7 +26192,7 @@ if no handlers are connected, in contrast to g_signal_emitv().</doc>
     <function name="signal_emitv" c:identifier="g_signal_emitv">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="3088">Emits a signal. Signal emission is done synchronously.
+           line="3079">Emits a signal. Signal emission is done synchronously.
 The method will only return control after all handlers are called or signal emission was stopped.
 
 Note that g_signal_emitv() doesn't change @return_value if no handlers are
@@ -26224,7 +26205,7 @@ connected, in contrast to g_signal_emit() and g_signal_emit_valist().</doc>
         <parameter name="instance_and_params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3090">argument list for the signal emission.
+               line="3081">argument list for the signal emission.
  The first element in the array is a #GValue for the instance the signal
  is being emitted on. The rest are any arguments to be passed to the signal.</doc>
           <array zero-terminated="0" c:type="const GValue*">
@@ -26234,13 +26215,13 @@ connected, in contrast to g_signal_emit() and g_signal_emit_valist().</doc>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3093">the signal id</doc>
+               line="3084">the signal id</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3094">the detail</doc>
+               line="3085">the detail</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="return_value"
@@ -26250,7 +26231,7 @@ connected, in contrast to g_signal_emit() and g_signal_emit_valist().</doc>
                    optional="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3095">Location to
+               line="3086">Location to
 store the return value of the signal emission. This must be provided if the
 specified signal returns a value, but may be ignored otherwise.</doc>
           <type name="Value" c:type="GValue*"/>
@@ -26283,7 +26264,7 @@ specified signal returns a value, but may be ignored otherwise.</doc>
               c:identifier="g_signal_handler_block">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2543">Blocks a handler of an instance so it will not be called during any
+           line="2534">Blocks a handler of an instance so it will not be called during any
 signal emissions unless it is unblocked again. Thus "blocking" a
 signal handler means to temporarily deactivate it, a signal handler
 has to be unblocked exactly the same amount of times it has been
@@ -26299,13 +26280,13 @@ signal of @instance.</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2545">The instance to block the signal handler of.</doc>
+               line="2536">The instance to block the signal handler of.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="handler_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2546">Handler id of the handler to be blocked.</doc>
+               line="2537">Handler id of the handler to be blocked.</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
       </parameters>
@@ -26314,7 +26295,7 @@ signal of @instance.</doc>
               c:identifier="g_signal_handler_disconnect">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2645">Disconnects a handler from an instance so it will not be called during
+           line="2636">Disconnects a handler from an instance so it will not be called during
 any future or currently ongoing emissions of the signal it has been
 connected to. The @handler_id becomes invalid and may be reused.
 
@@ -26328,13 +26309,13 @@ signal of @instance.</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2647">The instance to remove the signal handler from.</doc>
+               line="2638">The instance to remove the signal handler from.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="handler_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2648">Handler id of the handler to be disconnected.</doc>
+               line="2639">Handler id of the handler to be disconnected.</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
       </parameters>
@@ -26342,7 +26323,7 @@ signal of @instance.</doc>
     <function name="signal_handler_find" c:identifier="g_signal_handler_find">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2766">Finds the first signal handler that matches certain selection criteria.
+           line="2757">Finds the first signal handler that matches certain selection criteria.
 The criteria mask is passed as an OR-ed combination of #GSignalMatchType
 flags, and the criteria values are passed as arguments.
 The match @mask has to be non-0 for successful matches.
@@ -26351,33 +26332,33 @@ If no handler was found, 0 is returned.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2783">A valid non-0 signal handler id for a successful match.</doc>
+             line="2774">A valid non-0 signal handler id for a successful match.</doc>
         <type name="gulong" c:type="gulong"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2768">The instance owning the signal handler to be found.</doc>
+               line="2759">The instance owning the signal handler to be found.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2769">Mask indicating which of @signal_id, @detail, @closure, @func
+               line="2760">Mask indicating which of @signal_id, @detail, @closure, @func
  and/or @data the handler has to match.</doc>
           <type name="SignalMatchType" c:type="GSignalMatchType"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2771">Signal the handler has to be connected to.</doc>
+               line="2762">Signal the handler has to be connected to.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2772">Signal detail the handler has to be connected to.</doc>
+               line="2763">Signal detail the handler has to be connected to.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="closure"
@@ -26386,7 +26367,7 @@ If no handler was found, 0 is returned.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2773">The closure the handler will invoke.</doc>
+               line="2764">The closure the handler will invoke.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="func"
@@ -26395,7 +26376,7 @@ If no handler was found, 0 is returned.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2774">The C closure callback of the handler (useless for non-C closures).</doc>
+               line="2765">The C closure callback of the handler (useless for non-C closures).</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="data"
@@ -26405,7 +26386,7 @@ If no handler was found, 0 is returned.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2775">The closure data of the handler's closure.</doc>
+               line="2766">The closure data of the handler's closure.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -26414,25 +26395,25 @@ If no handler was found, 0 is returned.</doc>
               c:identifier="g_signal_handler_is_connected">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2688">Returns whether @handler_id is the ID of a handler connected to @instance.</doc>
+           line="2679">Returns whether @handler_id is the ID of a handler connected to @instance.</doc>
       <source-position filename="gobject/gsignal.h" line="425"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2695">whether @handler_id identifies a handler connected to @instance.</doc>
+             line="2686">whether @handler_id identifies a handler connected to @instance.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2690">The instance where a signal handler is sought.</doc>
+               line="2681">The instance where a signal handler is sought.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="handler_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2691">the handler ID.</doc>
+               line="2682">the handler ID.</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
       </parameters>
@@ -26441,7 +26422,7 @@ If no handler was found, 0 is returned.</doc>
               c:identifier="g_signal_handler_unblock">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2592">Undoes the effect of a previous g_signal_handler_block() call.  A
+           line="2583">Undoes the effect of a previous g_signal_handler_block() call.  A
 blocked handler is skipped during signal emissions and will not be
 invoked, unblocking it (for exactly the amount of times it has been
 blocked before) reverts its "blocked" state, so the handler will be
@@ -26462,13 +26443,13 @@ connected to a signal of @instance and is currently blocked.</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2594">The instance to unblock the signal handler of.</doc>
+               line="2585">The instance to unblock the signal handler of.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="handler_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2595">Handler id of the handler to be unblocked.</doc>
+               line="2586">Handler id of the handler to be unblocked.</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
       </parameters>
@@ -26478,23 +26459,23 @@ connected to a signal of @instance and is currently blocked.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="608">Blocks all handlers on an instance that match @func and @data.</doc>
-      <source-position filename="gobject/gsignal.h" line="618"/>
+           line="598">Blocks all handlers on an instance that match @func and @data.</doc>
+      <source-position filename="gobject/gsignal.h" line="608"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="610">The instance to block handlers from.</doc>
+               line="600">The instance to block handlers from.</doc>
         </parameter>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="611">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="601">The C closure callback of the handlers (useless for non-C closures).</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="612">The closure data of the handlers' closures.</doc>
+               line="602">The closure data of the handlers' closures.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -26502,7 +26483,7 @@ connected to a signal of @instance and is currently blocked.</doc>
               c:identifier="g_signal_handlers_block_matched">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2844">Blocks all handlers on an instance that match a certain selection criteria.
+           line="2835">Blocks all handlers on an instance that match a certain selection criteria.
 
 The criteria mask is passed as a combination of #GSignalMatchType flags, and
 the criteria values are passed as arguments. A handler must match on all
@@ -26519,33 +26500,33 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2869">The number of handlers that matched.</doc>
+             line="2860">The number of handlers that matched.</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2846">The instance to block handlers from.</doc>
+               line="2837">The instance to block handlers from.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2847">Mask indicating which of @signal_id, @detail, @closure, @func
+               line="2838">Mask indicating which of @signal_id, @detail, @closure, @func
  and/or @data the handlers have to match.</doc>
           <type name="SignalMatchType" c:type="GSignalMatchType"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2849">Signal the handlers have to be connected to.</doc>
+               line="2840">Signal the handlers have to be connected to.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2850">Signal detail the handlers have to be connected to.</doc>
+               line="2841">Signal detail the handlers have to be connected to.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="closure"
@@ -26554,7 +26535,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2851">The closure the handlers will invoke.</doc>
+               line="2842">The closure the handlers will invoke.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="func"
@@ -26563,7 +26544,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2852">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="2843">The C closure callback of the handlers (useless for non-C closures).</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="data"
@@ -26573,7 +26554,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2853">The closure data of the handlers' closures.</doc>
+               line="2844">The closure data of the handlers' closures.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -26582,10 +26563,10 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
               c:identifier="g_signal_handlers_destroy">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2714">Destroy all signal handlers of a type instance. This function is
+           line="2705">Destroy all signal handlers of a type instance. This function is
 an implementation detail of the #GObject dispose implementation,
 and should not be used outside of the type system.</doc>
-      <source-position filename="gobject/gsignal.h" line="652"/>
+      <source-position filename="gobject/gsignal.h" line="642"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -26593,7 +26574,7 @@ and should not be used outside of the type system.</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2716">The instance whose signal handlers are destroyed</doc>
+               line="2707">The instance whose signal handlers are destroyed</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -26604,18 +26585,18 @@ and should not be used outside of the type system.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="594">Disconnects all handlers on an instance that match @data.</doc>
-      <source-position filename="gobject/gsignal.h" line="605"/>
+           line="584">Disconnects all handlers on an instance that match @data.</doc>
+      <source-position filename="gobject/gsignal.h" line="595"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="596">The instance to remove handlers from</doc>
+               line="586">The instance to remove handlers from</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="597">the closure data of the handlers' closures</doc>
+               line="587">the closure data of the handlers' closures</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -26624,23 +26605,23 @@ and should not be used outside of the type system.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="579">Disconnects all handlers on an instance that match @func and @data.</doc>
-      <source-position filename="gobject/gsignal.h" line="589"/>
+           line="569">Disconnects all handlers on an instance that match @func and @data.</doc>
+      <source-position filename="gobject/gsignal.h" line="579"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="581">The instance to remove handlers from.</doc>
+               line="571">The instance to remove handlers from.</doc>
         </parameter>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="582">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="572">The C closure callback of the handlers (useless for non-C closures).</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="583">The closure data of the handlers' closures.</doc>
+               line="573">The closure data of the handlers' closures.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -26648,7 +26629,7 @@ and should not be used outside of the type system.</doc>
               c:identifier="g_signal_handlers_disconnect_matched">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2954">Disconnects all handlers on an instance that match a certain
+           line="2945">Disconnects all handlers on an instance that match a certain
 selection criteria.
 
 The criteria mask is passed as a combination of #GSignalMatchType flags, and
@@ -26666,33 +26647,33 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2980">The number of handlers that matched.</doc>
+             line="2971">The number of handlers that matched.</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2956">The instance to remove handlers from.</doc>
+               line="2947">The instance to remove handlers from.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2957">Mask indicating which of @signal_id, @detail, @closure, @func
+               line="2948">Mask indicating which of @signal_id, @detail, @closure, @func
  and/or @data the handlers have to match.</doc>
           <type name="SignalMatchType" c:type="GSignalMatchType"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2959">Signal the handlers have to be connected to.</doc>
+               line="2950">Signal the handlers have to be connected to.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2960">Signal detail the handlers have to be connected to.</doc>
+               line="2951">Signal detail the handlers have to be connected to.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="closure"
@@ -26701,7 +26682,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2961">The closure the handlers will invoke.</doc>
+               line="2952">The closure the handlers will invoke.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="func"
@@ -26710,7 +26691,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2962">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="2953">The C closure callback of the handlers (useless for non-C closures).</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="data"
@@ -26720,7 +26701,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2963">The closure data of the handlers' closures.</doc>
+               line="2954">The closure data of the handlers' closures.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -26730,23 +26711,23 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gobject/gsignal.h"
-           line="622">Unblocks all handlers on an instance that match @func and @data.</doc>
-      <source-position filename="gobject/gsignal.h" line="632"/>
+           line="612">Unblocks all handlers on an instance that match @func and @data.</doc>
+      <source-position filename="gobject/gsignal.h" line="622"/>
       <parameters>
         <parameter name="instance">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="624">The instance to unblock handlers from.</doc>
+               line="614">The instance to unblock handlers from.</doc>
         </parameter>
         <parameter name="func">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="625">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="615">The C closure callback of the handlers (useless for non-C closures).</doc>
         </parameter>
         <parameter name="data">
           <doc xml:space="preserve"
                filename="gobject/gsignal.h"
-               line="626">The closure data of the handlers' closures.</doc>
+               line="616">The closure data of the handlers' closures.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -26754,7 +26735,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
               c:identifier="g_signal_handlers_unblock_matched">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="2898">Unblocks all handlers on an instance that match a certain selection
+           line="2889">Unblocks all handlers on an instance that match a certain selection
 criteria.
 
 The criteria mask is passed as a combination of #GSignalMatchType flags, and
@@ -26773,33 +26754,33 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="2925">The number of handlers that matched.</doc>
+             line="2916">The number of handlers that matched.</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2900">The instance to unblock handlers from.</doc>
+               line="2891">The instance to unblock handlers from.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="mask" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2901">Mask indicating which of @signal_id, @detail, @closure, @func
+               line="2892">Mask indicating which of @signal_id, @detail, @closure, @func
  and/or @data the handlers have to match.</doc>
           <type name="SignalMatchType" c:type="GSignalMatchType"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2903">Signal the handlers have to be connected to.</doc>
+               line="2894">Signal the handlers have to be connected to.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2904">Signal detail the handlers have to be connected to.</doc>
+               line="2895">Signal detail the handlers have to be connected to.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="closure"
@@ -26808,7 +26789,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2905">The closure the handlers will invoke.</doc>
+               line="2896">The closure the handlers will invoke.</doc>
           <type name="Closure" c:type="GClosure*"/>
         </parameter>
         <parameter name="func"
@@ -26817,7 +26798,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2906">The C closure callback of the handlers (useless for non-C closures).</doc>
+               line="2897">The C closure callback of the handlers (useless for non-C closures).</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="data"
@@ -26827,7 +26808,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="2907">The closure data of the handlers' closures.</doc>
+               line="2898">The closure data of the handlers' closures.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -26836,7 +26817,7 @@ Support for %G_SIGNAL_MATCH_ID was added in GLib 2.78.</doc>
               c:identifier="g_signal_has_handler_pending">
       <doc xml:space="preserve"
            filename="gobject/gsignal.c"
-           line="3009">Returns whether there are any handlers connected to @instance for the
+           line="3000">Returns whether there are any handlers connected to @instance for the
 given signal id and detail.
 
 If @detail is 0 then it will only match handlers that were connected
@@ -26856,7 +26837,7 @@ of building the arguments.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gobject/gsignal.c"
-             line="3033">%TRUE if a handler is connected to the signal, %FALSE
+             line="3024">%TRUE if a handler is connected to the signal, %FALSE
          otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -26864,25 +26845,25 @@ of building the arguments.</doc>
         <parameter name="instance" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3011">the object whose signal handlers are sought.</doc>
+               line="3002">the object whose signal handlers are sought.</doc>
           <type name="Object" c:type="gpointer"/>
         </parameter>
         <parameter name="signal_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3012">the signal id.</doc>
+               line="3003">the signal id.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="detail" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3013">the detail.</doc>
+               line="3004">the detail.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </parameter>
         <parameter name="may_be_blocked" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/gsignal.c"
-               line="3014">whether blocked handlers should count as match.</doc>
+               line="3005">whether blocked handlers should count as match.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>

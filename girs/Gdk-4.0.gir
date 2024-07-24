@@ -5792,7 +5792,7 @@ applications on the given display.</doc>
               c:identifier="gdk_display_get_default_seat">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2230">Returns the default `GdkSeat` for this display.
+             line="2243">Returns the default `GdkSeat` for this display.
 
 Note that a display may not have a seat. In this case,
 this function will return %NULL.</doc>
@@ -5800,14 +5800,14 @@ this function will return %NULL.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2239">the default seat.</doc>
+               line="2252">the default seat.</doc>
           <type name="Seat" c:type="GdkSeat*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2232">a `GdkDisplay`</doc>
+                 line="2245">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -5818,7 +5818,7 @@ this function will return %NULL.</doc>
               version="4.14">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2011">Returns the dma-buf formats that are supported on this display.
+             line="2021">Returns the dma-buf formats that are supported on this display.
 
 GTK may use OpenGL or Vulkan to support some formats.
 Calling this function will then initialize them if they aren't yet.
@@ -5831,14 +5831,14 @@ To learn more about dma-bufs, see [class@Gdk.DmabufTextureBuilder].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2025">a `GdkDmabufFormats` object</doc>
+               line="2035">a `GdkDmabufFormats` object</doc>
           <type name="DmabufFormats" c:type="GdkDmabufFormats*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2013">a `GdkDisplay`</doc>
+                 line="2023">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -5847,13 +5847,13 @@ To learn more about dma-bufs, see [class@Gdk.DmabufTextureBuilder].</doc>
               c:identifier="gdk_display_get_monitor_at_surface">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2292">Gets the monitor in which the largest area of @surface
+             line="2305">Gets the monitor in which the largest area of @surface
 resides.</doc>
         <source-position filename="gdk/gdkdisplay.h" line="104"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2300">the monitor with the largest
+               line="2313">the monitor with the largest
   overlap with @surface</doc>
           <type name="Monitor" c:type="GdkMonitor*"/>
         </return-value>
@@ -5861,13 +5861,13 @@ resides.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2294">a `GdkDisplay`</doc>
+                 line="2307">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2295">a `GdkSurface`</doc>
+                 line="2308">a `GdkSurface`</doc>
             <type name="Surface" c:type="GdkSurface*"/>
           </parameter>
         </parameters>
@@ -5875,7 +5875,7 @@ resides.</doc>
       <method name="get_monitors" c:identifier="gdk_display_get_monitors">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2270">Gets the list of monitors associated with this display.
+             line="2283">Gets the list of monitors associated with this display.
 
 Subsequent calls to this function will always return the
 same list for the same display.
@@ -5886,14 +5886,14 @@ this list to monitor changes to the monitor of this display.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2282">a `GListModel` of `GdkMonitor`</doc>
+               line="2295">a `GListModel` of `GdkMonitor`</doc>
           <type name="Gio.ListModel" c:type="GListModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2272">a `GdkDisplay`</doc>
+                 line="2285">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -5946,13 +5946,13 @@ GDK emulates this clipboard locally.</doc>
       <method name="get_setting" c:identifier="gdk_display_get_setting">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2357">Retrieves a desktop-wide setting such as double-click time
+             line="2370">Retrieves a desktop-wide setting such as double-click time
 for the @display.</doc>
         <source-position filename="gdk/gdkdisplay.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2366">%TRUE if the setting existed and a value was stored
+               line="2379">%TRUE if the setting existed and a value was stored
   in @value, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5960,19 +5960,19 @@ for the @display.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2359">a `GdkDisplay`</doc>
+                 line="2372">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2360">the name of the setting</doc>
+                 line="2373">the name of the setting</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2361">location to store the value of the setting</doc>
+                 line="2374">location to store the value of the setting</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -6025,7 +6025,7 @@ if no ID has been defined.</doc>
         <attribute name="org.gtk.Method.get_property" value="composited"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2054">Returns whether surfaces can reasonably be expected to have
+             line="2067">Returns whether surfaces can reasonably be expected to have
 their alpha channel drawn correctly on the screen.
 
 Check [method@Gdk.Display.is_rgba] for whether the display
@@ -6039,7 +6039,7 @@ On modern displays, this value is always %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2069">Whether surfaces with RGBA visuals can reasonably
+               line="2082">Whether surfaces with RGBA visuals can reasonably
   be expected to have their alpha channels drawn correctly
   on the screen.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -6048,7 +6048,7 @@ On modern displays, this value is always %TRUE.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2056">a `GdkDisplay`</doc>
+                 line="2069">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -6057,7 +6057,7 @@ On modern displays, this value is always %TRUE.</doc>
         <attribute name="org.gtk.Method.get_property" value="rgba"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2099">Returns whether surfaces on this @display are created with an
+             line="2112">Returns whether surfaces on this @display are created with an
 alpha channel.
 
 Even if a %TRUE is returned, it is possible that the
@@ -6072,7 +6072,7 @@ On modern displays, this value is always %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2115">%TRUE if surfaces are created with an alpha channel or
+               line="2128">%TRUE if surfaces are created with an alpha channel or
   %FALSE if the display does not support this functionality.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -6080,7 +6080,7 @@ On modern displays, this value is always %TRUE.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2101">a `GdkDisplay`</doc>
+                 line="2114">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -6088,12 +6088,12 @@ On modern displays, this value is always %TRUE.</doc>
       <method name="list_seats" c:identifier="gdk_display_list_seats">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2253">Returns the list of seats known to @display.</doc>
+             line="2266">Returns the list of seats known to @display.</doc>
         <source-position filename="gdk/gdkdisplay.h" line="99"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2259">the
+               line="2272">the
   list of seats known to the `GdkDisplay`</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Seat"/>
@@ -6103,7 +6103,7 @@ On modern displays, this value is always %TRUE.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2255">a `GdkDisplay`</doc>
+                 line="2268">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -6111,7 +6111,7 @@ On modern displays, this value is always %TRUE.</doc>
       <method name="map_keycode" c:identifier="gdk_display_map_keycode">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2449">Returns the keyvals bound to @keycode.
+             line="2462">Returns the keyvals bound to @keycode.
 
 The Nth `GdkKeymapKey` in @keys is bound to the Nth keyval in @keyvals.
 
@@ -6124,20 +6124,20 @@ Free the returned arrays with g_free().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2469">%TRUE if there were any entries</doc>
+               line="2482">%TRUE if there were any entries</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2451">a `GdkDisplay`</doc>
+                 line="2464">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2452">a keycode</doc>
+                 line="2465">a keycode</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="keys"
@@ -6148,7 +6148,7 @@ Free the returned arrays with g_free().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2453">return
+                 line="2466">return
   location for array of `GdkKeymapKey`</doc>
             <array length="3" zero-terminated="0" c:type="GdkKeymapKey**">
               <type name="KeymapKey" c:type="GdkKeymapKey*"/>
@@ -6162,7 +6162,7 @@ Free the returned arrays with g_free().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2455">return
+                 line="2468">return
   location for array of keyvals</doc>
             <array length="3" zero-terminated="0" c:type="guint**">
               <type name="guint" c:type="guint*"/>
@@ -6174,7 +6174,7 @@ Free the returned arrays with g_free().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2457">length of @keys and @keyvals</doc>
+                 line="2470">length of @keys and @keyvals</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -6182,7 +6182,7 @@ Free the returned arrays with g_free().</doc>
       <method name="map_keyval" c:identifier="gdk_display_map_keyval">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2411">Obtains a list of keycode/group/level combinations that will
+             line="2424">Obtains a list of keycode/group/level combinations that will
 generate @keyval.
 
 Groups and levels are two kinds of keyboard mode; in general, the level
@@ -6201,20 +6201,20 @@ The returned array should be freed with g_free().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2435">%TRUE if keys were found and returned</doc>
+               line="2448">%TRUE if keys were found and returned</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2413">a `GdkDisplay`</doc>
+                 line="2426">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2414">a keyval, such as %GDK_KEY_a, %GDK_KEY_Up, %GDK_KEY_Return, etc.</doc>
+                 line="2427">a keyval, such as %GDK_KEY_a, %GDK_KEY_Up, %GDK_KEY_Return, etc.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="keys"
@@ -6223,7 +6223,7 @@ The returned array should be freed with g_free().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2415">return location
+                 line="2428">return location
   for an array of `GdkKeymapKey`</doc>
             <array length="2" zero-terminated="0" c:type="GdkKeymapKey**">
               <type name="KeymapKey" c:type="GdkKeymapKey*"/>
@@ -6235,7 +6235,7 @@ The returned array should be freed with g_free().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2417">return location for number of elements in returned array</doc>
+                 line="2430">return location for number of elements in returned array</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -6371,7 +6371,7 @@ On modern displays, this value is always %TRUE.</doc>
         <attribute name="org.gtk.Method.get_property" value="shadow-width"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2144">Returns whether it's possible for a surface to draw outside of the window area.
+             line="2157">Returns whether it's possible for a surface to draw outside of the window area.
 
 If %TRUE is returned the application decides if it wants to draw shadows.
 If %FALSE is returned, the compositor decides if it wants to draw shadows.</doc>
@@ -6379,7 +6379,7 @@ If %FALSE is returned, the compositor decides if it wants to draw shadows.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2153">%TRUE if surfaces can draw shadows or
+               line="2166">%TRUE if surfaces can draw shadows or
   %FALSE if the display does not support this functionality.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -6387,7 +6387,7 @@ If %FALSE is returned, the compositor decides if it wants to draw shadows.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2146">a `GdkDisplay`</doc>
+                 line="2159">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -6421,7 +6421,7 @@ handled synchronously, this function will do nothing.</doc>
       <method name="translate_key" c:identifier="gdk_display_translate_key">
         <doc xml:space="preserve"
              filename="gdk/gdkdisplay.c"
-             line="2485">Translates the contents of a `GdkEventKey` into a keyval, effective group,
+             line="2498">Translates the contents of a `GdkEventKey` into a keyval, effective group,
 and level.
 
 Modifiers that affected the translation and are thus unavailable for
@@ -6444,32 +6444,32 @@ virtualized test environments.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdisplay.c"
-               line="2517">%TRUE if there was a keyval bound to keycode/state/group.</doc>
+               line="2530">%TRUE if there was a keyval bound to keycode/state/group.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2487">a `GdkDisplay`</doc>
+                 line="2500">a `GdkDisplay`</doc>
             <type name="Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2488">a keycode</doc>
+                 line="2501">a keycode</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2489">a modifier state</doc>
+                 line="2502">a modifier state</doc>
             <type name="ModifierType" c:type="GdkModifierType"/>
           </parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2490">active keyboard group</doc>
+                 line="2503">active keyboard group</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="keyval"
@@ -6480,7 +6480,7 @@ virtualized test environments.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2491">return location for keyval</doc>
+                 line="2504">return location for keyval</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="effective_group"
@@ -6491,7 +6491,7 @@ virtualized test environments.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2492">return location for effective group</doc>
+                 line="2505">return location for effective group</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="level"
@@ -6502,7 +6502,7 @@ virtualized test environments.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2493">return location for level</doc>
+                 line="2506">return location for level</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="consumed"
@@ -6513,7 +6513,7 @@ virtualized test environments.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkdisplay.c"
-                 line="2494">return location for modifiers that were used
+                 line="2507">return location for modifiers that were used
   to determine the group or level</doc>
             <type name="ModifierType" c:type="GdkModifierType*"/>
           </parameter>
@@ -8199,7 +8199,7 @@ the source if [method@Gdk.Drag.get_selected_action] returns
       <method name="drop_done" c:identifier="gdk_drag_drop_done">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="716">Informs GDK that the drop ended.
+             line="704">Informs GDK that the drop ended.
 
 Passing %FALSE for @success may trigger a drag cancellation
 animation.
@@ -8218,13 +8218,13 @@ all subsequent calls will be ignored.</doc>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="718">a `GdkDrag`</doc>
+                 line="706">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
           <parameter name="success" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="719">whether the drag was ultimatively successful</doc>
+                 line="707">whether the drag was ultimatively successful</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8235,19 +8235,19 @@ all subsequent calls will be ignored.</doc>
         <attribute name="org.gtk.Method.get_property" value="actions"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="142">Determines the bitmask of possible actions proposed by the source.</doc>
+             line="130">Determines the bitmask of possible actions proposed by the source.</doc>
         <source-position filename="gdk/gdkdrag.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="148">the `GdkDragAction` flags</doc>
+               line="136">the `GdkDragAction` flags</doc>
           <type name="DragAction" c:type="GdkDragAction"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="144">a `GdkDrag`</doc>
+                 line="132">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8258,19 +8258,19 @@ all subsequent calls will be ignored.</doc>
         <attribute name="org.gtk.Method.get_property" value="content"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="196">Returns the `GdkContentProvider` associated to the `GdkDrag` object.</doc>
+             line="184">Returns the `GdkContentProvider` associated to the `GdkDrag` object.</doc>
         <source-position filename="gdk/gdkdrag.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="202">The `GdkContentProvider` associated to @drag.</doc>
+               line="190">The `GdkContentProvider` associated to @drag.</doc>
           <type name="ContentProvider" c:type="GdkContentProvider*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="198">a `GdkDrag`</doc>
+                 line="186">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8281,19 +8281,19 @@ all subsequent calls will be ignored.</doc>
         <attribute name="org.gtk.Method.get_property" value="device"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="178">Returns the `GdkDevice` associated to the `GdkDrag` object.</doc>
+             line="166">Returns the `GdkDevice` associated to the `GdkDrag` object.</doc>
         <source-position filename="gdk/gdkdrag.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="184">The `GdkDevice` associated to @drag.</doc>
+               line="172">The `GdkDevice` associated to @drag.</doc>
           <type name="Device" c:type="GdkDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="180">a `GdkDrag`</doc>
+                 line="168">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8304,19 +8304,19 @@ all subsequent calls will be ignored.</doc>
         <attribute name="org.gtk.Method.get_property" value="display"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="106">Gets the `GdkDisplay` that the drag object was created for.</doc>
+             line="94">Gets the `GdkDisplay` that the drag object was created for.</doc>
         <source-position filename="gdk/gdkdrag.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="112">a `GdkDisplay`</doc>
+               line="100">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="108">a `GdkDrag`</doc>
+                 line="96">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8324,7 +8324,7 @@ all subsequent calls will be ignored.</doc>
       <method name="get_drag_surface" c:identifier="gdk_drag_get_drag_surface">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="669">Returns the surface on which the drag icon should be rendered
+             line="657">Returns the surface on which the drag icon should be rendered
 during the drag operation.
 
 Note that the surface may not be available until the drag operation
@@ -8335,14 +8335,14 @@ when the drag operation is over.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="681">the drag surface</doc>
+               line="669">the drag surface</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="671">a `GdkDrag`</doc>
+                 line="659">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8353,19 +8353,19 @@ when the drag operation is over.</doc>
         <attribute name="org.gtk.Method.get_property" value="formats"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="124">Retrieves the formats supported by this `GdkDrag` object.</doc>
+             line="112">Retrieves the formats supported by this `GdkDrag` object.</doc>
         <source-position filename="gdk/gdkdrag.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="130">a `GdkContentFormats`</doc>
+               line="118">a `GdkContentFormats`</doc>
           <type name="ContentFormats" c:type="GdkContentFormats*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="126">a `GdkDrag`</doc>
+                 line="114">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8376,19 +8376,19 @@ when the drag operation is over.</doc>
         <attribute name="org.gtk.Method.get_property" value="selected-action"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="160">Determines the action chosen by the drag destination.</doc>
+             line="148">Determines the action chosen by the drag destination.</doc>
         <source-position filename="gdk/gdkdrag.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="166">a `GdkDragAction` value</doc>
+               line="154">a `GdkDragAction` value</doc>
           <type name="DragAction" c:type="GdkDragAction"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="162">a `GdkDrag`</doc>
+                 line="150">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8399,19 +8399,19 @@ when the drag operation is over.</doc>
         <attribute name="org.gtk.Method.get_property" value="surface"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="214">Returns the `GdkSurface` where the drag originates.</doc>
+             line="202">Returns the `GdkSurface` where the drag originates.</doc>
         <source-position filename="gdk/gdkdrag.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="220">The `GdkSurface` where the drag originates</doc>
+               line="208">The `GdkSurface` where the drag originates</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="216">a `GdkDrag`</doc>
+                 line="204">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
         </parameters>
@@ -8419,7 +8419,7 @@ when the drag operation is over.</doc>
       <method name="set_hotspot" c:identifier="gdk_drag_set_hotspot">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="694">Sets the position of the drag surface that will be kept
+             line="682">Sets the position of the drag surface that will be kept
 under the cursor hotspot.
 
 Initially, the hotspot is at the top left corner of the drag surface.</doc>
@@ -8431,19 +8431,19 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
           <instance-parameter name="drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="696">a `GdkDrag`</doc>
+                 line="684">a `GdkDrag`</doc>
             <type name="Drag" c:type="GdkDrag*"/>
           </instance-parameter>
           <parameter name="hot_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="697">x coordinate of the drag surface hotspot</doc>
+                 line="685">x coordinate of the drag surface hotspot</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="hot_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="698">y coordinate of the drag surface hotspot</doc>
+                 line="686">y coordinate of the drag surface hotspot</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -8456,7 +8456,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_actions"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="440">The possible actions of this drag.</doc>
+             line="428">The possible actions of this drag.</doc>
         <type name="DragAction"/>
       </property>
       <property name="content"
@@ -8467,7 +8467,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_content"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="376">The `GdkContentProvider`.</doc>
+             line="364">The `GdkContentProvider`.</doc>
         <type name="ContentProvider"/>
       </property>
       <property name="device"
@@ -8478,14 +8478,14 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_device"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="389">The `GdkDevice` that is performing the drag.</doc>
+             line="377">The `GdkDevice` that is performing the drag.</doc>
         <type name="Device"/>
       </property>
       <property name="display" transfer-ownership="none" getter="get_display">
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_display"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="402">The `GdkDisplay` that the drag belongs to.</doc>
+             line="390">The `GdkDisplay` that the drag belongs to.</doc>
         <type name="Display"/>
       </property>
       <property name="formats"
@@ -8496,7 +8496,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_formats"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="414">The possible formats that the drag can provide its data in.</doc>
+             line="402">The possible formats that the drag can provide its data in.</doc>
         <type name="ContentFormats"/>
       </property>
       <property name="selected-action"
@@ -8508,7 +8508,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
                    value="gdk_drag_get_selected_action"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="427">The currently selected action of the drag.</doc>
+             line="415">The currently selected action of the drag.</doc>
         <type name="DragAction"/>
       </property>
       <property name="surface"
@@ -8519,13 +8519,13 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_drag_get_surface"/>
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="453">The surface where the drag originates.</doc>
+             line="441">The surface where the drag originates.</doc>
         <type name="Surface"/>
       </property>
       <glib:signal name="cancel" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="466">Emitted when the drag operation is cancelled.</doc>
+             line="454">Emitted when the drag operation is cancelled.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8533,7 +8533,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="469">The reason the drag was cancelled</doc>
+                 line="457">The reason the drag was cancelled</doc>
             <type name="DragCancelReason"/>
           </parameter>
         </parameters>
@@ -8541,7 +8541,7 @@ Initially, the hotspot is at the top left corner of the drag surface.</doc>
       <glib:signal name="dnd-finished" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="497">Emitted when the destination side has finished reading all data.
+             line="485">Emitted when the destination side has finished reading all data.
 
 The drag object can now free all miscellaneous data.</doc>
         <return-value transfer-ownership="none">
@@ -8551,7 +8551,7 @@ The drag object can now free all miscellaneous data.</doc>
       <glib:signal name="drop-performed" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="482">Emitted when the drop operation is performed on an accepting client.</doc>
+             line="470">Emitted when the drop operation is performed on an accepting client.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8607,7 +8607,7 @@ destination can and should do with the dropped data.</doc>
       <function name="is_unique" c:identifier="gdk_drag_action_is_unique">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="805">Checks if @action represents a single action or includes
+             line="807">Checks if @action represents a single action or includes
 multiple actions.
 
 When @action is 0 - ie no action was given, %TRUE
@@ -8616,14 +8616,14 @@ is returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="815">%TRUE if exactly one action was given</doc>
+               line="817">%TRUE if exactly one action was given</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkdrag.c"
-                 line="807">a `GdkDragAction`</doc>
+                 line="809">a `GdkDragAction`</doc>
             <type name="DragAction" c:type="GdkDragAction"/>
           </parameter>
         </parameters>
@@ -10644,7 +10644,7 @@ they will stay exactly synchronized.</doc>
               c:identifier="gdk_frame_clock_begin_updating">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="315">Starts updates for an animation.
+             line="322">Starts updates for an animation.
 
 Until a matching call to [method@Gdk.FrameClock.end_updating] is made,
 the frame clock will continually request a new frame with the
@@ -10659,7 +10659,7 @@ is called the same number of times.</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="317">a `GdkFrameClock`</doc>
+                 line="324">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10667,7 +10667,7 @@ is called the same number of times.</doc>
       <method name="end_updating" c:identifier="gdk_frame_clock_end_updating">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="335">Stops updates for an animation.
+             line="342">Stops updates for an animation.
 
 See the documentation for [method@Gdk.FrameClock.begin_updating].</doc>
         <source-position filename="gdk/gdkframeclock.h" line="85"/>
@@ -10678,7 +10678,7 @@ See the documentation for [method@Gdk.FrameClock.begin_updating].</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="337">a `GdkFrameClock`</doc>
+                 line="344">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10687,12 +10687,12 @@ See the documentation for [method@Gdk.FrameClock.begin_updating].</doc>
               c:identifier="gdk_frame_clock_get_current_timings">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="518">Gets the frame timings for the current frame.</doc>
+             line="542">Gets the frame timings for the current frame.</doc>
         <source-position filename="gdk/gdkframeclock.h" line="97"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="524">the `GdkFrameTimings` for the
+               line="548">the `GdkFrameTimings` for the
   frame currently being processed, or even no frame is being
   processed, for the previous frame. Before any frames have been
   processed, returns %NULL.</doc>
@@ -10702,7 +10702,7 @@ See the documentation for [method@Gdk.FrameClock.begin_updating].</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="520">a `GdkFrameClock`</doc>
+                 line="544">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10710,20 +10710,20 @@ See the documentation for [method@Gdk.FrameClock.begin_updating].</doc>
       <method name="get_fps" c:identifier="gdk_frame_clock_get_fps">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="763">Calculates the current frames-per-second, based on the
+             line="787">Calculates the current frames-per-second, based on the
 frame timings of @frame_clock.</doc>
         <source-position filename="gdk/gdkframeclock.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="770">the current fps, as a `double`</doc>
+               line="794">the current fps, as a `double`</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="765">a `GdkFrameClock`</doc>
+                 line="789">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10732,13 +10732,13 @@ frame timings of @frame_clock.</doc>
               c:identifier="gdk_frame_clock_get_frame_counter">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="397">`GdkFrameClock` maintains a 64-bit counter that increments for
+             line="404">`GdkFrameClock` maintains a 64-bit counter that increments for
 each frame drawn.</doc>
         <source-position filename="gdk/gdkframeclock.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="404">inside frame processing, the value of the frame counter
+               line="411">inside frame processing, the value of the frame counter
   for the current frame. Outside of frame processing, the frame
   counter for the last frame.</doc>
           <type name="gint64" c:type="gint64"/>
@@ -10747,7 +10747,7 @@ each frame drawn.</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="399">a `GdkFrameClock`</doc>
+                 line="406">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10756,7 +10756,7 @@ each frame drawn.</doc>
               c:identifier="gdk_frame_clock_get_frame_time">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="266">Gets the time that should currently be used for animations.
+             line="273">Gets the time that should currently be used for animations.
 
 Inside the processing of a frame, it’s the time used to compute the
 animation position of everything in a frame. Outside of a frame, it's
@@ -10767,7 +10767,7 @@ time.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="278">a timestamp in microseconds, in the timescale of
+               line="285">a timestamp in microseconds, in the timescale of
  of g_get_monotonic_time().</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -10775,7 +10775,7 @@ time.</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="268">a `GdkFrameClock`</doc>
+                 line="275">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10784,7 +10784,7 @@ time.</doc>
               c:identifier="gdk_frame_clock_get_history_start">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="422">Returns the frame counter for the oldest frame available in history.
+             line="429">Returns the frame counter for the oldest frame available in history.
 
 `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
 objects for recent frames that can be retrieved with
@@ -10796,7 +10796,7 @@ is the set from the counter values given by
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="435">the frame counter value for the oldest frame
+               line="442">the frame counter value for the oldest frame
  that is available in the internal frame history of the
  `GdkFrameClock`</doc>
           <type name="gint64" c:type="gint64"/>
@@ -10805,7 +10805,7 @@ is the set from the counter values given by
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="424">a `GdkFrameClock`</doc>
+                 line="431">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
         </parameters>
@@ -10814,7 +10814,7 @@ is the set from the counter values given by
               c:identifier="gdk_frame_clock_get_refresh_info">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="591">Predicts a presentation time, based on history.
+             line="615">Predicts a presentation time, based on history.
 
 Using the frame history stored in the frame clock, finds the last
 known presentation time and refresh interval, and assuming that
@@ -10829,13 +10829,13 @@ interval after the last presentation time, and later than @base_time.</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="593">a `GdkFrameClock`</doc>
+                 line="617">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
           <parameter name="base_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="594">base time for determining a presentaton time</doc>
+                 line="618">base time for determining a presentaton time</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="refresh_interval_return"
@@ -10846,7 +10846,7 @@ interval after the last presentation time, and later than @base_time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="595">a location to store the
+                 line="619">a location to store the
   determined refresh interval, or %NULL. A default refresh interval of
   1/60th of a second will be stored if no history is present.</doc>
             <type name="gint64" c:type="gint64*"/>
@@ -10857,7 +10857,7 @@ interval after the last presentation time, and later than @base_time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="598">a location to store the next
+                 line="622">a location to store the next
   candidate presentation time after the given base time.
   0 will be will be stored if no history is present.</doc>
             <type name="gint64" c:type="gint64*"/>
@@ -10867,7 +10867,7 @@ interval after the last presentation time, and later than @base_time.</doc>
       <method name="get_timings" c:identifier="gdk_frame_clock_get_timings">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="493">Retrieves a `GdkFrameTimings` object holding timing information
+             line="517">Retrieves a `GdkFrameTimings` object holding timing information
 for the current frame or a recent frame.
 
 The `GdkFrameTimings` object may not yet be complete: see
@@ -10877,7 +10877,7 @@ The `GdkFrameTimings` object may not yet be complete: see
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkframeclock.c"
-               line="506">the `GdkFrameTimings` object
+               line="530">the `GdkFrameTimings` object
   for the specified frame, or %NULL if it is not available</doc>
           <type name="FrameTimings" c:type="GdkFrameTimings*"/>
         </return-value>
@@ -10885,13 +10885,13 @@ The `GdkFrameTimings` object may not yet be complete: see
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="495">a `GdkFrameClock`</doc>
+                 line="519">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
           <parameter name="frame_counter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="496">the frame counter value identifying the frame to
+                 line="520">the frame counter value identifying the frame to
  be received</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
@@ -10901,7 +10901,7 @@ The `GdkFrameTimings` object may not yet be complete: see
               c:identifier="gdk_frame_clock_request_phase">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="289">Asks the frame clock to run a particular phase.
+             line="296">Asks the frame clock to run a particular phase.
 
 The signal corresponding the requested phase will be emitted the next
 time the frame clock processes. Multiple calls to
@@ -10920,13 +10920,13 @@ smooth animations.</doc>
           <instance-parameter name="frame_clock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="291">a `GdkFrameClock`</doc>
+                 line="298">a `GdkFrameClock`</doc>
             <type name="FrameClock" c:type="GdkFrameClock*"/>
           </instance-parameter>
           <parameter name="phase" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkframeclock.c"
-                 line="292">the phase that is requested</doc>
+                 line="299">the phase that is requested</doc>
             <type name="FrameClockPhase" c:type="GdkFrameClockPhase"/>
           </parameter>
         </parameters>
@@ -10934,7 +10934,7 @@ smooth animations.</doc>
       <glib:signal name="after-paint" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="218">This signal ends processing of the frame.
+             line="224">This signal ends processing of the frame.
 
 Applications should generally not handle this signal.</doc>
         <return-value transfer-ownership="none">
@@ -10944,7 +10944,7 @@ Applications should generally not handle this signal.</doc>
       <glib:signal name="before-paint" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="144">Begins processing of the frame.
+             line="150">Begins processing of the frame.
 
 Applications should generally not handle this signal.</doc>
         <return-value transfer-ownership="none">
@@ -10954,7 +10954,7 @@ Applications should generally not handle this signal.</doc>
       <glib:signal name="flush-events" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="127">Used to flush pending motion events that are being batched up and
+             line="133">Used to flush pending motion events that are being batched up and
 compressed together.
 
 Applications should not handle this signal.</doc>
@@ -10965,7 +10965,7 @@ Applications should not handle this signal.</doc>
       <glib:signal name="layout" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="180">Emitted as the second step of toolkit and application processing
+             line="186">Emitted as the second step of toolkit and application processing
 of the frame.
 
 Any work to update sizes and positions of application elements
@@ -10977,7 +10977,7 @@ should be performed. GTK normally handles this internally.</doc>
       <glib:signal name="paint" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="198">Emitted as the third step of toolkit and application processing
+             line="204">Emitted as the third step of toolkit and application processing
 of the frame.
 
 The frame is repainted. GDK normally handles this internally and
@@ -10991,7 +10991,7 @@ by GTK.</doc>
       <glib:signal name="resume-events" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="234">Emitted after processing of the frame is finished.
+             line="240">Emitted after processing of the frame is finished.
 
 This signal is handled internally by GTK to resume normal
 event processing. Applications should not handle this signal.</doc>
@@ -11002,7 +11002,7 @@ event processing. Applications should not handle this signal.</doc>
       <glib:signal name="update" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkframeclock.c"
-             line="160">Emitted as the first step of toolkit and application processing
+             line="166">Emitted as the first step of toolkit and application processing
 of the frame.
 
 Animations should be updated using [method@Gdk.FrameClock.get_frame_time].
@@ -11448,7 +11448,7 @@ that is currently set by calling [func@Gdk.GLContext.clear_current].</doc>
                 c:identifier="gdk_gl_context_clear_current">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1936">Clears the current `GdkGLContext`.
+             line="1971">Clears the current `GdkGLContext`.
 
 Any OpenGL call after this function returns will be ignored
 until [method@Gdk.GLContext.make_current] is called.</doc>
@@ -11460,12 +11460,12 @@ until [method@Gdk.GLContext.make_current] is called.</doc>
       <function name="get_current" c:identifier="gdk_gl_context_get_current">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1984">Retrieves the current `GdkGLContext`.</doc>
+             line="2019">Retrieves the current `GdkGLContext`.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="97"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1989">the current `GdkGLContext`</doc>
+               line="2024">the current `GdkGLContext`</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
       </function>
@@ -11476,19 +11476,19 @@ until [method@Gdk.GLContext.make_current] is called.</doc>
         <attribute name="org.gtk.Method.get_property" value="allowed-apis"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1243">Gets the allowed APIs set via gdk_gl_context_set_allowed_apis().</doc>
+             line="1250">Gets the allowed APIs set via gdk_gl_context_set_allowed_apis().</doc>
         <source-position filename="gdk/gdkglcontext.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1249">the allowed APIs</doc>
+               line="1256">the allowed APIs</doc>
           <type name="GLAPI" c:type="GdkGLAPI"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1245">a GL context</doc>
+                 line="1252">a GL context</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11500,21 +11500,21 @@ until [method@Gdk.GLContext.make_current] is called.</doc>
         <attribute name="org.gtk.Method.get_property" value="api"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1263">Gets the API currently in use.
+             line="1270">Gets the API currently in use.
 
 If the renderer has not been realized yet, 0 is returned.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1271">the currently used API</doc>
+               line="1278">the currently used API</doc>
           <type name="GLAPI" c:type="GdkGLAPI"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1265">a GL context</doc>
+                 line="1272">a GL context</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11523,21 +11523,21 @@ If the renderer has not been realized yet, 0 is returned.</doc>
               c:identifier="gdk_gl_context_get_debug_enabled">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="942">Retrieves whether the context is doing extra validations and runtime checking.
+             line="949">Retrieves whether the context is doing extra validations and runtime checking.
 
 See [method@Gdk.GLContext.set_debug_enabled].</doc>
         <source-position filename="gdk/gdkglcontext.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="950">%TRUE if debugging is enabled</doc>
+               line="957">%TRUE if debugging is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="944">a `GdkGLContext`</doc>
+                 line="951">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11545,19 +11545,19 @@ See [method@Gdk.GLContext.set_debug_enabled].</doc>
       <method name="get_display" c:identifier="gdk_gl_context_get_display">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1806">Retrieves the display the @context is created for</doc>
+             line="1841">Retrieves the display the @context is created for</doc>
         <source-position filename="gdk/gdkglcontext.h" line="44"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1812">a `GdkDisplay`</doc>
+               line="1847">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1808">a `GdkGLContext`</doc>
+                 line="1843">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11566,21 +11566,21 @@ See [method@Gdk.GLContext.set_debug_enabled].</doc>
               c:identifier="gdk_gl_context_get_forward_compatible">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="991">Retrieves whether the context is forward-compatible.
+             line="998">Retrieves whether the context is forward-compatible.
 
 See [method@Gdk.GLContext.set_forward_compatible].</doc>
         <source-position filename="gdk/gdkglcontext.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="999">%TRUE if the context should be forward-compatible</doc>
+               line="1006">%TRUE if the context should be forward-compatible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="993">a `GdkGLContext`</doc>
+                 line="1000">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11589,7 +11589,7 @@ See [method@Gdk.GLContext.set_forward_compatible].</doc>
               c:identifier="gdk_gl_context_get_required_version">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1096">Retrieves required OpenGL version set as a requirement for the @context
+             line="1103">Retrieves required OpenGL version set as a requirement for the @context
 realization. It will not change even if a greater OpenGL version is supported
 and used after the @context is realized. See
 [method@Gdk.GLContext.get_version] for the real version in use.
@@ -11603,7 +11603,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1098">a `GdkGLContext`</doc>
+                 line="1105">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major"
@@ -11613,7 +11613,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1099">return location for the major version to request</doc>
+                 line="1106">return location for the major version to request</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="minor"
@@ -11623,7 +11623,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1100">return location for the minor version to request</doc>
+                 line="1107">return location for the minor version to request</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -11636,7 +11636,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
         <attribute name="org.gtk.Method.get_property" value="shared-context"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1838">Used to retrieves the `GdkGLContext` that this @context share data with.
+             line="1873">Used to retrieves the `GdkGLContext` that this @context share data with.
 
 As many contexts can share data now and no single shared context exists
 anymore, this function has been deprecated and now always returns %NULL.</doc>
@@ -11646,14 +11646,14 @@ anymore, this function has been deprecated and now always returns %NULL.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1847">%NULL</doc>
+               line="1882">%NULL</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1840">a `GdkGLContext`</doc>
+                 line="1875">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11661,19 +11661,19 @@ anymore, this function has been deprecated and now always returns %NULL.</doc>
       <method name="get_surface" c:identifier="gdk_gl_context_get_surface">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1822">Retrieves the surface used by the @context.</doc>
+             line="1857">Retrieves the surface used by the @context.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1828">a `GdkSurface`</doc>
+               line="1863">a `GdkSurface`</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1824">a `GdkGLContext`</doc>
+                 line="1859">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11681,12 +11681,12 @@ anymore, this function has been deprecated and now always returns %NULL.</doc>
       <method name="get_use_es" c:identifier="gdk_gl_context_get_use_es">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1376">Checks whether the @context is using an OpenGL or OpenGL ES profile.</doc>
+             line="1383">Checks whether the @context is using an OpenGL or OpenGL ES profile.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1382">%TRUE if the `GdkGLContext` is using an OpenGL ES profile;
+               line="1389">%TRUE if the `GdkGLContext` is using an OpenGL ES profile;
 %FALSE if other profile is in use of if the @context has not yet
 been realized.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11695,7 +11695,7 @@ been realized.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1378">a `GdkGLContext`</doc>
+                 line="1385">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11703,7 +11703,7 @@ been realized.</doc>
       <method name="get_version" c:identifier="gdk_gl_context_get_version">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1860">Retrieves the OpenGL version of the @context.
+             line="1895">Retrieves the OpenGL version of the @context.
 
 The @context must be realized prior to calling this function.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="50"/>
@@ -11714,7 +11714,7 @@ The @context must be realized prior to calling this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1862">a `GdkGLContext`</doc>
+                 line="1897">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major"
@@ -11723,7 +11723,7 @@ The @context must be realized prior to calling this function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1863">return location for the major version</doc>
+                 line="1898">return location for the major version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="minor"
@@ -11732,7 +11732,7 @@ The @context must be realized prior to calling this function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1864">return location for the minor version</doc>
+                 line="1899">return location for the minor version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -11740,7 +11740,7 @@ The @context must be realized prior to calling this function.</doc>
       <method name="is_legacy" c:identifier="gdk_gl_context_is_legacy">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1124">Whether the `GdkGLContext` is in legacy mode or not.
+             line="1131">Whether the `GdkGLContext` is in legacy mode or not.
 
 The `GdkGLContext` must be realized before calling this function.
 
@@ -11760,14 +11760,14 @@ kind of shader programs to load.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1145">%TRUE if the GL context is in legacy mode</doc>
+               line="1152">%TRUE if the GL context is in legacy mode</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1126">a `GdkGLContext`</doc>
+                 line="1133">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11777,7 +11777,7 @@ kind of shader programs to load.</doc>
               version="4.4">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1176">Checks if the two GL contexts can share resources.
+             line="1183">Checks if the two GL contexts can share resources.
 
 When they can, the texture IDs from @other can be used in @self. This
 is particularly useful when passing `GdkGLTexture` objects between
@@ -11793,20 +11793,20 @@ is not, this function will return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1194">%TRUE if the two GL contexts are compatible.</doc>
+               line="1201">%TRUE if the two GL contexts are compatible.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1178">a `GdkGLContext`</doc>
+                 line="1185">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1179">the `GdkGLContext` that should be compatible with @self</doc>
+                 line="1186">the `GdkGLContext` that should be compatible with @self</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </parameter>
         </parameters>
@@ -11814,7 +11814,7 @@ is not, this function will return %FALSE.</doc>
       <method name="make_current" c:identifier="gdk_gl_context_make_current">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1760">Makes the @context the current one.</doc>
+             line="1795">Makes the @context the current one.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11823,7 +11823,7 @@ is not, this function will return %FALSE.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1762">a `GdkGLContext`</doc>
+                 line="1797">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11831,21 +11831,21 @@ is not, this function will return %FALSE.</doc>
       <method name="realize" c:identifier="gdk_gl_context_realize" throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1497">Realizes the given `GdkGLContext`.
+             line="1504">Realizes the given `GdkGLContext`.
 
 It is safe to call this function on a realized `GdkGLContext`.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1506">%TRUE if the context is realized</doc>
+               line="1513">%TRUE if the context is realized</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1499">a `GdkGLContext`</doc>
+                 line="1506">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11857,7 +11857,7 @@ It is safe to call this function on a realized `GdkGLContext`.</doc>
         <attribute name="org.gtk.Method.set_property" value="allowed-apis"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1212">Sets the allowed APIs. When gdk_gl_context_realize() is called, only the
+             line="1219">Sets the allowed APIs. When gdk_gl_context_realize() is called, only the
 allowed APIs will be tried. If you set this to 0, realizing will always fail.
 
 If you set it on a realized context, the property will not have any effect.
@@ -11872,13 +11872,13 @@ By default, all APIs are allowed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1214">a GL context</doc>
+                 line="1221">a GL context</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="apis" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1215">the allowed APIs</doc>
+                 line="1222">the allowed APIs</doc>
             <type name="GLAPI" c:type="GdkGLAPI"/>
           </parameter>
         </parameters>
@@ -11887,7 +11887,7 @@ By default, all APIs are allowed.</doc>
               c:identifier="gdk_gl_context_set_debug_enabled">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="915">Sets whether the `GdkGLContext` should perform extra validations and
+             line="922">Sets whether the `GdkGLContext` should perform extra validations and
 runtime checking.
 
 This is useful during development, but has additional overhead.
@@ -11902,13 +11902,13 @@ calling this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="917">a `GdkGLContext`</doc>
+                 line="924">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="918">whether to enable debugging in the context</doc>
+                 line="925">whether to enable debugging in the context</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11917,7 +11917,7 @@ calling this function.</doc>
               c:identifier="gdk_gl_context_set_forward_compatible">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="962">Sets whether the `GdkGLContext` should be forward-compatible.
+             line="969">Sets whether the `GdkGLContext` should be forward-compatible.
 
 Forward-compatible contexts must not support OpenGL functionality that
 has been marked as deprecated in the requested version; non-forward
@@ -11934,13 +11934,13 @@ this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="964">a `GdkGLContext`</doc>
+                 line="971">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="compatible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="965">whether the context should be forward-compatible</doc>
+                 line="972">whether the context should be forward-compatible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11949,7 +11949,7 @@ this function.</doc>
               c:identifier="gdk_gl_context_set_required_version">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1041">Sets the major and minor version of OpenGL to request.
+             line="1048">Sets the major and minor version of OpenGL to request.
 
 Setting @major and @minor to zero will use the default values.
 
@@ -11966,19 +11966,19 @@ this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1043">a `GdkGLContext`</doc>
+                 line="1050">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1044">the major version to request</doc>
+                 line="1051">the major version to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="minor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1045">the minor version to request</doc>
+                 line="1052">the minor version to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -11986,7 +11986,7 @@ this function.</doc>
       <method name="set_use_es" c:identifier="gdk_gl_context_set_use_es">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1332">Requests that GDK create an OpenGL ES context instead of an OpenGL one.
+             line="1339">Requests that GDK create an OpenGL ES context instead of an OpenGL one.
 
 Not all platforms support OpenGL ES.
 
@@ -12007,13 +12007,13 @@ the OpenGL or OpenGL ES API, extensions, or shaders.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1334">a `GdkGLContext`</doc>
+                 line="1341">a `GdkGLContext`</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="use_es" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="1335">whether the context should use OpenGL ES instead of OpenGL,
+                 line="1342">whether the context should use OpenGL ES instead of OpenGL,
   or -1 to allow auto-detection</doc>
             <type name="gint" c:type="int"/>
           </parameter>
@@ -12030,7 +12030,7 @@ the OpenGL or OpenGL ES API, extensions, or shaders.</doc>
                    value="gdk_gl_context_get_allowed_apis"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="754">The allowed APIs.</doc>
+             line="760">The allowed APIs.</doc>
         <type name="GLAPI"/>
       </property>
       <property name="api"
@@ -12041,7 +12041,7 @@ the OpenGL or OpenGL ES API, extensions, or shaders.</doc>
         <attribute name="org.gtk.Property.get" value="gdk_gl_context_get_api"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="769">The API currently in use.</doc>
+             line="775">The API currently in use.</doc>
         <type name="GLAPI"/>
       </property>
       <property name="shared-context"
@@ -12055,7 +12055,7 @@ the OpenGL or OpenGL ES API, extensions, or shaders.</doc>
                    value="gdk_gl_context_get_shared_context"/>
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="735">Always %NULL
+             line="741">Always %NULL
 
 As many contexts can share data now and no single shared context exists
 anymore, this function has been deprecated and now always returns %NULL.</doc>
@@ -25130,9 +25130,9 @@ Note that we ignore Caps Lock for matching.</doc>
            line="304">`GdkMemoryFormat` describes formats that image data can have in memory.
 
 It describes formats by listing the contents of the memory passed to it.
-So GDK_MEMORY_A8R8G8B8 will be 1 byte (8 bits) of alpha, followed by a
+So `GDK_MEMORY_A8R8G8B8` will be 1 byte (8 bits) of alpha, followed by a
 byte each of red, green and blue. It is not endian-dependent, so
-CAIRO_FORMAT_ARGB32 is represented by different `GdkMemoryFormats`
+`CAIRO_FORMAT_ARGB32` is represented by different `GdkMemoryFormats`
 on architectures with different endiannesses.
 
 Its naming is modelled after
@@ -25175,7 +25175,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_B8G8R8A8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="314">4 bytes; for blue, green, red, alpha.</doc>
+             line="312">4 bytes; for blue, green, red, alpha.</doc>
       </member>
       <member name="a8r8g8b8"
               value="4"
@@ -25184,7 +25184,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_A8R8G8B8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="315">4 bytes; for alpha, red, green, blue.</doc>
+             line="313">4 bytes; for alpha, red, green, blue.</doc>
       </member>
       <member name="r8g8b8a8"
               value="5"
@@ -25193,7 +25193,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_R8G8B8A8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="316">4 bytes; for red, green, blue, alpha.</doc>
+             line="314">4 bytes; for red, green, blue, alpha.</doc>
       </member>
       <member name="a8b8g8r8"
               value="6"
@@ -25202,7 +25202,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_A8B8G8R8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="317">4 bytes; for alpha, blue, green, red.</doc>
+             line="315">4 bytes; for alpha, blue, green, red.</doc>
       </member>
       <member name="r8g8b8"
               value="7"
@@ -25211,7 +25211,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_R8G8B8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="322">3 bytes; for red, green, blue. The data is opaque.</doc>
+             line="316">3 bytes; for red, green, blue. The data is opaque.</doc>
       </member>
       <member name="b8g8r8"
               value="8"
@@ -25220,231 +25220,252 @@ for details).</doc>
               glib:name="GDK_MEMORY_B8G8R8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="323">3 bytes; for blue, green, red. The data is opaque.</doc>
+             line="317">3 bytes; for blue, green, red. The data is opaque.</doc>
       </member>
       <member name="r16g16b16"
               value="9"
               c:identifier="GDK_MEMORY_R16G16B16"
+              version="4.6"
               glib:nick="r16g16b16"
               glib:name="GDK_MEMORY_R16G16B16">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="324">3 guint16 values; for red, green, blue. Since: 4.6</doc>
+             line="370">3 guint16 values; for red, green, blue.</doc>
       </member>
       <member name="r16g16b16a16_premultiplied"
               value="10"
               c:identifier="GDK_MEMORY_R16G16B16A16_PREMULTIPLIED"
+              version="4.6"
               glib:nick="r16g16b16a16-premultiplied"
               glib:name="GDK_MEMORY_R16G16B16A16_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="325">4 guint16 values; for red, green,
-  blue, alpha. The color values are premultiplied with the alpha value.
- Since: 4.6</doc>
+             line="377">4 guint16 values; for red, green, blue, alpha. The color values are
+premultiplied with the alpha value.</doc>
       </member>
       <member name="r16g16b16a16"
               value="11"
               c:identifier="GDK_MEMORY_R16G16B16A16"
+              version="4.6"
               glib:nick="r16g16b16a16"
               glib:name="GDK_MEMORY_R16G16B16A16">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="328">4 guint16 values; for red, green, blue, alpha.
- Since: 4.6</doc>
+             line="385">4 guint16 values; for red, green, blue, alpha.</doc>
       </member>
       <member name="r16g16b16_float"
               value="12"
               c:identifier="GDK_MEMORY_R16G16B16_FLOAT"
+              version="4.6"
               glib:nick="r16g16b16-float"
               glib:name="GDK_MEMORY_R16G16B16_FLOAT">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="330">3 half-float values; for red, green, blue.
-  The data is opaque. Since: 4.6</doc>
+             line="392">3 half-float values; for red, green, blue. The data is opaque.</doc>
       </member>
       <member name="r16g16b16a16_float_premultiplied"
               value="13"
               c:identifier="GDK_MEMORY_R16G16B16A16_FLOAT_PREMULTIPLIED"
+              version="4.6"
               glib:nick="r16g16b16a16-float-premultiplied"
               glib:name="GDK_MEMORY_R16G16B16A16_FLOAT_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="332">4 half-float values; for
-  red, green, blue and alpha. The color values are premultiplied with
-  the alpha value. Since: 4.6</doc>
+             line="399">4 half-float values; for red, green, blue and alpha. The color values are
+premultiplied with the alpha value.</doc>
       </member>
       <member name="r16g16b16a16_float"
               value="14"
               c:identifier="GDK_MEMORY_R16G16B16A16_FLOAT"
+              version="4.6"
               glib:nick="r16g16b16a16-float"
               glib:name="GDK_MEMORY_R16G16B16A16_FLOAT">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="335">4 half-float values; for red, green,
-  blue and alpha. Since: 4.6</doc>
+             line="407">4 half-float values; for red, green, blue and alpha.</doc>
       </member>
       <member name="r32g32b32_float"
               value="15"
               c:identifier="GDK_MEMORY_R32G32B32_FLOAT"
               glib:nick="r32g32b32-float"
               glib:name="GDK_MEMORY_R32G32B32_FLOAT">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="320">3 float values; for red, green, blue.</doc>
       </member>
       <member name="r32g32b32a32_float_premultiplied"
               value="16"
               c:identifier="GDK_MEMORY_R32G32B32A32_FLOAT_PREMULTIPLIED"
+              version="4.6"
               glib:nick="r32g32b32a32-float-premultiplied"
               glib:name="GDK_MEMORY_R32G32B32A32_FLOAT_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="339">4 float values; for
-  red, green, blue and alpha. The color values are premultiplied with
-  the alpha value. Since: 4.6</doc>
+             line="421">4 float values; for red, green, blue and alpha. The color values are
+premultiplied with the alpha value.</doc>
       </member>
       <member name="r32g32b32a32_float"
               value="17"
               c:identifier="GDK_MEMORY_R32G32B32A32_FLOAT"
+              version="4.6"
               glib:nick="r32g32b32a32-float"
               glib:name="GDK_MEMORY_R32G32B32A32_FLOAT">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="342">4 float values; for red, green, blue and
-  alpha. Since: 4.6</doc>
+             line="429">4 float values; for red, green, blue and alpha.</doc>
       </member>
       <member name="g8a8_premultiplied"
               value="18"
               c:identifier="GDK_MEMORY_G8A8_PREMULTIPLIED"
+              version="4.12"
               glib:nick="g8a8-premultiplied"
               glib:name="GDK_MEMORY_G8A8_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="344">2 bytes; for grayscale, alpha. The color
-  values are premultiplied with the alpha value. Since: 4.12</doc>
+             line="436">2 bytes; for grayscale, alpha. The color values are premultiplied with the
+alpha value.</doc>
       </member>
       <member name="g8a8"
               value="19"
               c:identifier="GDK_MEMORY_G8A8"
+              version="4.12"
               glib:nick="g8a8"
               glib:name="GDK_MEMORY_G8A8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="346">2 bytes; for grayscale, alpha. Since: 4.12</doc>
+             line="444">2 bytes; for grayscale, alpha.</doc>
       </member>
       <member name="g8"
               value="20"
               c:identifier="GDK_MEMORY_G8"
+              version="4.12"
               glib:nick="g8"
               glib:name="GDK_MEMORY_G8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="347">One byte; for grayscale. The data is opaque.
-  Since: 4.12</doc>
+             line="451">One byte; for grayscale. The data is opaque.</doc>
       </member>
       <member name="g16a16_premultiplied"
               value="21"
               c:identifier="GDK_MEMORY_G16A16_PREMULTIPLIED"
+              version="4.12"
               glib:nick="g16a16-premultiplied"
               glib:name="GDK_MEMORY_G16A16_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="349">2 guint16 values; for grayscale, alpha.
- The color values are premultiplied with the alpha value. Since: 4.12</doc>
+             line="458">2 guint16 values; for grayscale, alpha. The color values are premultiplied
+with the alpha value.</doc>
       </member>
       <member name="g16a16"
               value="22"
               c:identifier="GDK_MEMORY_G16A16"
+              version="4.12"
               glib:nick="g16a16"
               glib:name="GDK_MEMORY_G16A16">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="351">2 guint16 values; for grayscale, alpha. Since: 4.12</doc>
+             line="466">2 guint16 values; for grayscale, alpha.</doc>
       </member>
       <member name="g16"
               value="23"
               c:identifier="GDK_MEMORY_G16"
+              version="4.12"
               glib:nick="g16"
               glib:name="GDK_MEMORY_G16">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="352">One guint16 value; for grayscale. The data is opaque.
-  Since: 4.12</doc>
+             line="473">One guint16 value; for grayscale. The data is opaque.</doc>
       </member>
       <member name="a8"
               value="24"
               c:identifier="GDK_MEMORY_A8"
+              version="4.12"
               glib:nick="a8"
               glib:name="GDK_MEMORY_A8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="354">One byte; for alpha.
-  Since: 4.12</doc>
+             line="480">One byte; for alpha.</doc>
       </member>
       <member name="a16"
               value="25"
               c:identifier="GDK_MEMORY_A16"
+              version="4.12"
               glib:nick="a16"
               glib:name="GDK_MEMORY_A16">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="356">One guint16 value; for alpha.
-  Since: 4.12</doc>
+             line="487">One guint16 value; for alpha.</doc>
       </member>
       <member name="a16_float"
               value="26"
               c:identifier="GDK_MEMORY_A16_FLOAT"
+              version="4.12"
               glib:nick="a16-float"
               glib:name="GDK_MEMORY_A16_FLOAT">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="494">One half-float value; for alpha.</doc>
       </member>
       <member name="a32_float"
               value="27"
               c:identifier="GDK_MEMORY_A32_FLOAT"
+              version="4.12"
               glib:nick="a32-float"
               glib:name="GDK_MEMORY_A32_FLOAT">
+        <doc xml:space="preserve"
+             filename="gdk/gdkenums.h"
+             line="501">One float value; for alpha.</doc>
       </member>
       <member name="a8b8g8r8_premultiplied"
               value="28"
               c:identifier="GDK_MEMORY_A8B8G8R8_PREMULTIPLIED"
+              version="4.14"
               glib:nick="a8b8g8r8-premultiplied"
               glib:name="GDK_MEMORY_A8B8G8R8_PREMULTIPLIED">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="312">4 bytes; for alpha, blue, green, red,
-  The color values are premultiplied with the alpha value. Since 4.14</doc>
+             line="334">4 bytes; for alpha, blue, green, red, The color values are premultiplied with
+the alpha value.</doc>
       </member>
       <member name="b8g8r8x8"
               value="29"
               c:identifier="GDK_MEMORY_B8G8R8X8"
+              version="4.14"
               glib:nick="b8g8r8x8"
               glib:name="GDK_MEMORY_B8G8R8X8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="318">4 bytes; for blue, green, red, unused. Since 4.14</doc>
+             line="342">4 bytes; for blue, green, red, unused.</doc>
       </member>
       <member name="x8r8g8b8"
               value="30"
               c:identifier="GDK_MEMORY_X8R8G8B8"
+              version="4.14"
               glib:nick="x8r8g8b8"
               glib:name="GDK_MEMORY_X8R8G8B8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="319">4 bytes; for unused, red, green, blue. Since 4.14</doc>
+             line="349">4 bytes; for unused, red, green, blue.</doc>
       </member>
       <member name="r8g8b8x8"
               value="31"
               c:identifier="GDK_MEMORY_R8G8B8X8"
+              version="4.14"
               glib:nick="r8g8b8x8"
               glib:name="GDK_MEMORY_R8G8B8X8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="320">4 bytes; for red, green, blue, unused. Since 4.14</doc>
+             line="356">4 bytes; for red, green, blue, unused.</doc>
       </member>
       <member name="x8b8g8r8"
               value="32"
               c:identifier="GDK_MEMORY_X8B8G8R8"
+              version="4.14"
               glib:nick="x8b8g8r8"
               glib:name="GDK_MEMORY_X8B8G8R8">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="321">4 bytes; for unused, blue, green, red. Since 4.14</doc>
+             line="363">4 bytes; for unused, blue, green, red.</doc>
       </member>
       <member name="n_formats"
               value="33"
@@ -25453,7 +25474,7 @@ for details).</doc>
               glib:name="GDK_MEMORY_N_FORMATS">
         <doc xml:space="preserve"
              filename="gdk/gdkenums.h"
-             line="358">The number of formats. This value will change as
+             line="318">The number of formats. This value will change as
   more formats get added, so do not rely on its concrete integer.</doc>
       </member>
     </enumeration>
@@ -27107,7 +27128,7 @@ that will make the implementation likely quite slow.</doc>
       <field name="get_flags">
         <doc xml:space="preserve"
              filename="gdk/gdkpaintable.h"
-             line="62">Get the flags for this instance. See [enum@Gdk.PaintableFlags]
+             line="62">Get the flags for this instance. See [flags@Gdk.PaintableFlags]
   for details.</doc>
         <callback name="get_flags">
           <source-position filename="gdk/gdkpaintable.h" line="100"/>
@@ -32721,7 +32742,7 @@ can fail, returning %NULL context.</doc>
       <glib:signal name="images-updated" when="last">
         <doc xml:space="preserve"
              filename="gdk/gdkvulkancontext.c"
-             line="751">Emitted when the images managed by this context have changed.
+             line="756">Emitted when the images managed by this context have changed.
 
 Usually this means that the swapchain had to be recreated,
 for example in response to a change of the surface size.</doc>
@@ -33326,7 +33347,7 @@ call [func@Gdk.content_serialize_finish] to get the result of the operation.</do
               moved-to="DragAction.is_unique">
       <doc xml:space="preserve"
            filename="gdk/gdkdrag.c"
-           line="805">Checks if @action represents a single action or includes
+           line="807">Checks if @action represents a single action or includes
 multiple actions.
 
 When @action is 0 - ie no action was given, %TRUE
@@ -33335,14 +33356,14 @@ is returned.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkdrag.c"
-             line="815">%TRUE if exactly one action was given</doc>
+             line="817">%TRUE if exactly one action was given</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="action" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkdrag.c"
-               line="807">a `GdkDragAction`</doc>
+               line="809">a `GdkDragAction`</doc>
           <type name="DragAction" c:type="GdkDragAction"/>
         </parameter>
       </parameters>

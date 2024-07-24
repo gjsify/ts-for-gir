@@ -27,81 +27,120 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="DbusmenuGtkClient"
            glib:get-type="dbusmenu_gtkclient_get_type"
            glib:type-struct="ClientClass">
-      <doc xml:space="preserve">A subclass of #DbusmenuClient to add functionality with regarding
+      <doc xml:space="preserve"
+           filename="client.h"
+           line="82">A subclass of #DbusmenuClient to add functionality with regarding
 building GTK items out of the abstract tree.</doc>
+      <source-position filename="client.h" line="80"/>
       <constructor name="new" c:identifier="dbusmenu_gtkclient_new">
-        <doc xml:space="preserve">Creates a new #DbusmenuGtkClient object and creates a #DbusmenuClient
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="1016">Creates a new #DbusmenuGtkClient object and creates a #DbusmenuClient
 that connects across DBus to a #DbusmenuServer.</doc>
+        <source-position filename="client.h" line="98"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A new #DbusmenuGtkClient sync'd with a server</doc>
+          <doc xml:space="preserve"
+               filename="client.c"
+               line="1024">A new #DbusmenuGtkClient sync'd with a server</doc>
           <type name="Client" c:type="DbusmenuGtkClient*"/>
         </return-value>
         <parameters>
           <parameter name="dbus_name" transfer-ownership="none">
-            <doc xml:space="preserve">Name of the #DbusmenuServer on DBus</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1018">Name of the #DbusmenuServer on DBus</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="dbus_object" transfer-ownership="none">
-            <doc xml:space="preserve">Name of the object on the #DbusmenuServer</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1019">Name of the object on the #DbusmenuServer</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="get_accel_group"
               c:identifier="dbusmenu_gtkclient_get_accel_group">
-        <doc xml:space="preserve">Gets the accel group for this client.</doc>
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="447">Gets the accel group for this client.</doc>
+        <source-position filename="client.h" line="103"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">Either a valid group or #NULL on error or
+          <doc xml:space="preserve"
+               filename="client.c"
+               line="453">Either a valid group or #NULL on error or
 	none set.</doc>
           <type name="Gtk.AccelGroup" c:type="GtkAccelGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve">Client to query for an accelerator group</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="449">Client to query for an accelerator group</doc>
             <type name="Client" c:type="DbusmenuGtkClient*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="menuitem_get"
               c:identifier="dbusmenu_gtkclient_menuitem_get">
-        <doc xml:space="preserve">This grabs the #GtkMenuItem that is associated with the
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="1035">This grabs the #GtkMenuItem that is associated with the
 #DbusmenuMenuitem.</doc>
+        <source-position filename="client.h" line="99"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #GtkMenuItem that can be played with.</doc>
+          <doc xml:space="preserve"
+               filename="client.c"
+               line="1043">The #GtkMenuItem that can be played with.</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve">A #DbusmenuGtkClient with the item in it.</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1037">A #DbusmenuGtkClient with the item in it.</doc>
             <type name="Client" c:type="DbusmenuGtkClient*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve">#DbusmenuMenuitem to get associated #GtkMenuItem on.</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1038">#DbusmenuMenuitem to get associated #GtkMenuItem on.</doc>
             <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
           </parameter>
         </parameters>
       </method>
       <method name="menuitem_get_submenu"
               c:identifier="dbusmenu_gtkclient_menuitem_get_submenu">
-        <doc xml:space="preserve">This grabs the submenu associated with the menuitem.</doc>
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="1059">This grabs the submenu associated with the menuitem.</doc>
+        <source-position filename="client.h" line="100"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #GtkMenu if there is one.</doc>
+          <doc xml:space="preserve"
+               filename="client.c"
+               line="1066">The #GtkMenu if there is one.</doc>
           <type name="Gtk.Menu" c:type="GtkMenu*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve">A #DbusmenuGtkClient with the item in it.</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1061">A #DbusmenuGtkClient with the item in it.</doc>
             <type name="Client" c:type="DbusmenuGtkClient*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve">#DbusmenuMenuitem to get associated #GtkMenu on.</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="1062">#DbusmenuMenuitem to get associated #GtkMenu on.</doc>
             <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
           </parameter>
         </parameters>
       </method>
       <method name="newitem_base"
               c:identifier="dbusmenu_gtkclient_newitem_base">
-        <doc xml:space="preserve">This function provides some of the basic connectivity for being in
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="895">This function provides some of the basic connectivity for being in
 the GTK world.  Things like visibility and sensitivity of the item are
 handled here so that the subclasses don't have to.  If you're building
 your on GTK menu item you can use this function to apply those basic
@@ -109,42 +148,58 @@ attributes so that you don't have to deal with them either.
 
 This also handles passing the "activate" signal back to the
 #DbusmenuMenuitem side of thing.</doc>
+        <source-position filename="client.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve">The client handling everything on this connection</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="897">The client handling everything on this connection</doc>
             <type name="Client" c:type="DbusmenuGtkClient*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve">The #DbusmenuMenuitem to attach the GTK-isms to</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="898">The #DbusmenuMenuitem to attach the GTK-isms to</doc>
             <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
           </parameter>
           <parameter name="gmi" transfer-ownership="none">
-            <doc xml:space="preserve">A #GtkMenuItem representing the GTK world's view of this menuitem</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="899">A #GtkMenuItem representing the GTK world's view of this menuitem</doc>
             <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
           </parameter>
           <parameter name="parent" transfer-ownership="none">
-            <doc xml:space="preserve">The parent #DbusmenuMenuitem</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="900">The parent #DbusmenuMenuitem</doc>
             <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_accel_group"
               c:identifier="dbusmenu_gtkclient_set_accel_group">
-        <doc xml:space="preserve">Sets the acceleration group for the menu items with accelerators
+        <doc xml:space="preserve"
+             filename="client.c"
+             line="410">Sets the acceleration group for the menu items with accelerators
 on this client.</doc>
+        <source-position filename="client.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
-            <doc xml:space="preserve">To set the group on</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="412">To set the group on</doc>
             <type name="Client" c:type="DbusmenuGtkClient*"/>
           </instance-parameter>
           <parameter name="agroup" transfer-ownership="none">
-            <doc xml:space="preserve">The new acceleration group</doc>
+            <doc xml:space="preserve"
+                 filename="client.c"
+                 line="413">The new acceleration group</doc>
             <type name="Gtk.AccelGroup" c:type="GtkAccelGroup*"/>
           </parameter>
         </parameters>
@@ -159,13 +214,19 @@ on this client.</doc>
     <record name="ClientClass"
             c:type="DbusmenuGtkClientClass"
             glib:is-gtype-struct-for="Client">
-      <doc xml:space="preserve">Functions and signal slots for using a #DbusmenuGtkClient</doc>
+      <doc xml:space="preserve"
+           filename="client.h"
+           line="53">Functions and signal slots for using a #DbusmenuGtkClient</doc>
+      <source-position filename="client.h" line="80"/>
       <field name="parent_class">
-        <doc xml:space="preserve">#GtkMenuClass</doc>
+        <doc xml:space="preserve"
+             filename="client.h"
+             line="55">#GtkMenuClass</doc>
         <type name="Dbusmenu.ClientClass" c:type="DbusmenuClientClass"/>
       </field>
       <field name="root_changed">
         <callback name="root_changed">
+          <source-position filename="client.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -178,6 +239,7 @@ on this client.</doc>
       </field>
       <field name="reserved1">
         <callback name="reserved1">
+          <source-position filename="client.h" line="74"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -185,6 +247,7 @@ on this client.</doc>
       </field>
       <field name="reserved2">
         <callback name="reserved2">
+          <source-position filename="client.h" line="75"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -192,6 +255,7 @@ on this client.</doc>
       </field>
       <field name="reserved3">
         <callback name="reserved3">
+          <source-position filename="client.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -199,6 +263,7 @@ on this client.</doc>
       </field>
       <field name="reserved4">
         <callback name="reserved4">
+          <source-position filename="client.h" line="77"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -206,6 +271,7 @@ on this client.</doc>
       </field>
       <field name="reserved5">
         <callback name="reserved5">
+          <source-position filename="client.h" line="78"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -213,6 +279,7 @@ on this client.</doc>
       </field>
       <field name="reserved6">
         <callback name="reserved6">
+          <source-position filename="client.h" line="79"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -221,13 +288,106 @@ on this client.</doc>
     </record>
     <record name="ClientPrivate"
             c:type="DbusmenuGtkClientPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="client.h" line="51"/>
     </record>
+    <function-macro name="GTKCLIENT"
+                    c:identifier="DBUSMENU_GTKCLIENT"
+                    introspectable="0">
+      <source-position filename="client.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTKCLIENT_CLASS"
+                    c:identifier="DBUSMENU_GTKCLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="client.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTKCLIENT_GET_CLASS"
+                    c:identifier="DBUSMENU_GTKCLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="client.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTKMENU"
+                    c:identifier="DBUSMENU_GTKMENU"
+                    introspectable="0">
+      <source-position filename="menu.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTKMENU_CLASS"
+                    c:identifier="DBUSMENU_GTKMENU_CLASS"
+                    introspectable="0">
+      <source-position filename="menu.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTKMENU_GET_CLASS"
+                    c:identifier="DBUSMENU_GTKMENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="menu.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="GTK_MENUITEM_H__"
               value="1"
               c:type="DBUSMENU_GTK_MENUITEM_H__">
+      <source-position filename="menuitem.h" line="30"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="IS_GTKCLIENT"
+                    c:identifier="DBUSMENU_IS_GTKCLIENT"
+                    introspectable="0">
+      <source-position filename="client.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTKCLIENT_CLASS"
+                    c:identifier="DBUSMENU_IS_GTKCLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="client.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTKMENU"
+                    c:identifier="DBUSMENU_IS_GTKMENU"
+                    introspectable="0">
+      <source-position filename="menu.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTKMENU_CLASS"
+                    c:identifier="DBUSMENU_IS_GTKMENU_CLASS"
+                    introspectable="0">
+      <source-position filename="menu.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="Menu"
            c:symbol-prefix="gtkmenu"
            c:type="DbusmenuGtkMenu"
@@ -235,38 +395,57 @@ on this client.</doc>
            glib:type-name="DbusmenuGtkMenu"
            glib:get-type="dbusmenu_gtkmenu_get_type"
            glib:type-struct="MenuClass">
-      <doc xml:space="preserve">A #GtkMenu that is built using an abstract tree built from
+      <doc xml:space="preserve"
+           filename="menu.h"
+           line="73">A #GtkMenu that is built using an abstract tree built from
 a #DbusmenuGtkClient.</doc>
+      <source-position filename="menu.h" line="71"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="dbusmenu_gtkmenu_new">
-        <doc xml:space="preserve">Creates a new #DbusmenuGtkMenu object and creates a #DbusmenuClient
+        <doc xml:space="preserve"
+             filename="menu.c"
+             line="414">Creates a new #DbusmenuGtkMenu object and creates a #DbusmenuClient
 that connects across DBus to a #DbusmenuServer.</doc>
+        <source-position filename="menu.h" line="88"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A new #DbusmenuGtkMenu sync'd with a server</doc>
+          <doc xml:space="preserve"
+               filename="menu.c"
+               line="422">A new #DbusmenuGtkMenu sync'd with a server</doc>
           <type name="Menu" c:type="DbusmenuGtkMenu*"/>
         </return-value>
         <parameters>
           <parameter name="dbus_name" transfer-ownership="none">
-            <doc xml:space="preserve">Name of the #DbusmenuServer on DBus</doc>
+            <doc xml:space="preserve"
+                 filename="menu.c"
+                 line="416">Name of the #DbusmenuServer on DBus</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="dbus_object" transfer-ownership="none">
-            <doc xml:space="preserve">Name of the object on the #DbusmenuServer</doc>
+            <doc xml:space="preserve"
+                 filename="menu.c"
+                 line="417">Name of the object on the #DbusmenuServer</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="get_client" c:identifier="dbusmenu_gtkmenu_get_client">
-        <doc xml:space="preserve">An accessor for the client that this menu is using to
+        <doc xml:space="preserve"
+             filename="menu.c"
+             line="433">An accessor for the client that this menu is using to
 communicate with the server.</doc>
+        <source-position filename="menu.h" line="89"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A valid #DbusmenuGtkClient or NULL on error.</doc>
+          <doc xml:space="preserve"
+               filename="menu.c"
+               line="440">A valid #DbusmenuGtkClient or NULL on error.</doc>
           <type name="Client" c:type="DbusmenuGtkClient*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
-            <doc xml:space="preserve">The #DbusmenuGtkMenu to get the client from</doc>
+            <doc xml:space="preserve"
+                 filename="menu.c"
+                 line="435">The #DbusmenuGtkMenu to get the client from</doc>
             <type name="Menu" c:type="DbusmenuGtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -274,13 +453,15 @@ communicate with the server.</doc>
       <property name="dbus-name"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="dbus-object"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -293,14 +474,20 @@ communicate with the server.</doc>
     <record name="MenuClass"
             c:type="DbusmenuGtkMenuClass"
             glib:is-gtype-struct-for="Menu">
-      <doc xml:space="preserve">All of the subclassable functions and signal slots for a
+      <doc xml:space="preserve"
+           filename="menu.h"
+           line="47">All of the subclassable functions and signal slots for a
 #DbusmenuGtkMenu.</doc>
+      <source-position filename="menu.h" line="71"/>
       <field name="parent_class">
-        <doc xml:space="preserve">#GtkMenuClass</doc>
+        <doc xml:space="preserve"
+             filename="menu.h"
+             line="49">#GtkMenuClass</doc>
         <type name="Gtk.MenuClass" c:type="GtkMenuClass"/>
       </field>
       <field name="reserved1">
         <callback name="reserved1">
+          <source-position filename="menu.h" line="65"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -308,6 +495,7 @@ communicate with the server.</doc>
       </field>
       <field name="reserved2">
         <callback name="reserved2">
+          <source-position filename="menu.h" line="66"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -315,6 +503,7 @@ communicate with the server.</doc>
       </field>
       <field name="reserved3">
         <callback name="reserved3">
+          <source-position filename="menu.h" line="67"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -322,6 +511,7 @@ communicate with the server.</doc>
       </field>
       <field name="reserved4">
         <callback name="reserved4">
+          <source-position filename="menu.h" line="68"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -329,6 +519,7 @@ communicate with the server.</doc>
       </field>
       <field name="reserved5">
         <callback name="reserved5">
+          <source-position filename="menu.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -336,185 +527,317 @@ communicate with the server.</doc>
       </field>
       <field name="reserved6">
         <callback name="reserved6">
+          <source-position filename="menu.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
         </callback>
       </field>
     </record>
-    <record name="MenuPrivate" c:type="DbusmenuGtkMenuPrivate" disguised="1">
+    <record name="MenuPrivate"
+            c:type="DbusmenuGtkMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="menu.h" line="45"/>
     </record>
+    <docsection name="client">
+      <doc xml:space="preserve"
+           filename="client.h"
+           line="107">In general, this is just a #GtkMenu, why else would you care?  Oh,
+	because this menu is created by someone else on a server that exists
+	on the other side of DBus.  You need a #DbusmenuServer to be able
+	push the data into this menu.
+
+	The first thing you need to know is how to find that #DbusmenuServer
+	on DBus.  This involves both the DBus name and the DBus object that
+	the menu interface can be found on.  Those two value should be set
+	when creating the object using dbusmenu_gtkmenu_new().  They are then
+	stored on two properties #DbusmenuGtkClient:dbus-name and #DbusmenuGtkClient:dbus-object.
+
+	After creation the #DbusmenuGtkClient it will continue to keep in
+	synchronization with the #DbusmenuServer object across Dbus.  If the
+	number of entries change, the menus change, if they change thier
+	properties change, they update in the items.  All of this should
+	be handled transparently to the user of this object.</doc>
+    </docsection>
     <function name="gtk_parse_get_cached_item"
               c:identifier="dbusmenu_gtk_parse_get_cached_item">
-      <doc xml:space="preserve">The Dbusmenu GTK parser adds cached items on the various
+      <doc xml:space="preserve"
+           filename="parser.c"
+           line="260">The Dbusmenu GTK parser adds cached items on the various
 menu items throughout the tree.  Sometimes it can be useful
 to get that cached item to use directly.  This function
 will retrieve it for you.</doc>
+      <source-position filename="parser.h" line="38"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve">A pointer to the cached item
+        <doc xml:space="preserve"
+             filename="parser.c"
+             line="269">A pointer to the cached item
 or NULL if it isn't there.</doc>
         <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
       </return-value>
       <parameters>
         <parameter name="widget" transfer-ownership="none">
-          <doc xml:space="preserve">A #GtkMenuItem that may have a cached #DbusmenuMenuitem from the parser</doc>
+          <doc xml:space="preserve"
+               filename="parser.c"
+               line="262">A #GtkMenuItem that may have a cached #DbusmenuMenuitem from the parser</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
       </parameters>
     </function>
     <function name="gtk_parse_menu_structure"
               c:identifier="dbusmenu_gtk_parse_menu_structure">
-      <doc xml:space="preserve">Goes through the GTK structures and turns them into the appropraite
+      <doc xml:space="preserve"
+           filename="parser.c"
+           line="225">Goes through the GTK structures and turns them into the appropraite
 Dbusmenu structures along with setting up all the relationships
 between the objects.  It also stores the dbusmenu items as a cache
 on the GTK items so that they'll be reused if necissary.</doc>
+      <source-position filename="parser.h" line="37"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve">A dbusmenu item representing the menu structure</doc>
+        <doc xml:space="preserve"
+             filename="parser.c"
+             line="234">A dbusmenu item representing the menu structure</doc>
         <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
       </return-value>
       <parameters>
         <parameter name="widget" transfer-ownership="none">
-          <doc xml:space="preserve">A #GtkMenuItem or #GtkMenuShell to turn into a #DbusmenuMenuitem</doc>
+          <doc xml:space="preserve"
+               filename="parser.c"
+               line="227">A #GtkMenuItem or #GtkMenuShell to turn into a #DbusmenuMenuitem</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
       </parameters>
     </function>
+    <docsection name="menu">
+      <doc xml:space="preserve"
+           filename="menu.h"
+           line="91">In general, this is just a #GtkMenu, why else would you care?  Oh,
+	because this menu is created by someone else on a server that exists
+	on the other side of DBus.  You need a #DbusmenuServer to be able
+	push the data into this menu.
+
+	The first thing you need to know is how to find that #DbusmenuServer
+	on DBus.  This involves both the DBus name and the DBus object that
+	the menu interface can be found on.  Those two value should be set
+	when creating the object using dbusmenu_gtkmenu_new().  They are then
+	stored on two properties #DbusmenuGtkMenu:dbus-name and #DbusmenuGtkMenu:dbus-object.
+
+	After creation the #DbusmenuGtkMenu it will continue to keep in
+	synchronization with the #DbusmenuServer object across Dbus.  If the
+	number of entries change, the menus change, if they change thier
+	properties change, they update in the items.  All of this should
+	be handled transparently to the user of this object.</doc>
+    </docsection>
+    <docsection name="menuitem">
+      <doc xml:space="preserve"
+           filename="menuitem.h"
+           line="48">Some property helpers can't be done without picking up a GTK+
+	dependency.  So those sit in libdbusmenu-gtk but have very similar
+	prototypes to the code in libdbusmenu-glib so your code will
+	look consistent, just with the extra depedency.</doc>
+    </docsection>
     <function name="menuitem_property_get_image"
               c:identifier="dbusmenu_menuitem_property_get_image">
-      <doc xml:space="preserve">This function looks on the menu item for a property by the
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="77">This function looks on the menu item for a property by the
 name of @property.  If one exists it tries to turn it into
 a #GdkPixbuf.  It assumes that the property is a base64 encoded
 PNG file like the one created by #dbusmenu_menuite_property_set_image.</doc>
+      <source-position filename="menuitem.h" line="41"/>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve">A pixbuf or #NULL to signal error.</doc>
+        <doc xml:space="preserve"
+             filename="menuitem.c"
+             line="87">A pixbuf or #NULL to signal error.</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to look for the property on</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="79">The #DbusmenuMenuitem to look for the property on</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="property" transfer-ownership="none">
-          <doc xml:space="preserve">The name of the property to look for.</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="80">The name of the property to look for.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
     <function name="menuitem_property_get_shortcut"
               c:identifier="dbusmenu_menuitem_property_get_shortcut">
-      <doc xml:space="preserve">This function gets a GTK shortcut as a key and a mask
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="260">This function gets a GTK shortcut as a key and a mask
 for use to set the accelerators.</doc>
+      <source-position filename="menuitem.h" line="46"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to get the shortcut off</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="262">The #DbusmenuMenuitem to get the shortcut off</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="key"
                    direction="out"
                    caller-allocates="0"
                    transfer-ownership="full">
-          <doc xml:space="preserve">Location to put the key value</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="263">Location to put the key value</doc>
           <type name="guint" c:type="guint*"/>
         </parameter>
         <parameter name="modifier"
                    direction="out"
                    caller-allocates="0"
                    transfer-ownership="full">
-          <doc xml:space="preserve">Location to put the modifier mask</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="264">Location to put the modifier mask</doc>
           <type name="Gdk.ModifierType" c:type="GdkModifierType*"/>
         </parameter>
       </parameters>
     </function>
     <function name="menuitem_property_set_image"
               c:identifier="dbusmenu_menuitem_property_set_image">
-      <doc xml:space="preserve">This function takes the pixbuf that is stored in @data and
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="33">This function takes the pixbuf that is stored in @data and
 turns it into a base64 encoded PNG so that it can be placed
 onto a standard #DbusmenuMenuitem property.</doc>
+      <source-position filename="menuitem.h" line="40"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve">Whether the function was able to set the property
+        <doc xml:space="preserve"
+             filename="menuitem.c"
+             line="43">Whether the function was able to set the property
 	or not.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to set the property on.</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="35">The #DbusmenuMenuitem to set the property on.</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="property" transfer-ownership="none">
-          <doc xml:space="preserve">Name of the property to set.</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="36">Name of the property to set.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
-          <doc xml:space="preserve">The image to place on the property.</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="37">The image to place on the property.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="const GdkPixbuf*"/>
         </parameter>
       </parameters>
     </function>
     <function name="menuitem_property_set_shortcut"
               c:identifier="dbusmenu_menuitem_property_set_shortcut">
-      <doc xml:space="preserve">Takes the modifer described by @key and @modifier and places that into
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="152">Takes the modifer described by @key and @modifier and places that into
 the format sending across Dbus for shortcuts.</doc>
+      <source-position filename="menuitem.h" line="43"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve">Whether it was successful at setting the property.</doc>
+        <doc xml:space="preserve"
+             filename="menuitem.c"
+             line="161">Whether it was successful at setting the property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to set the shortcut on</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="154">The #DbusmenuMenuitem to set the shortcut on</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
-          <doc xml:space="preserve">The keycode of the key to send</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="155">The keycode of the key to send</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="modifier" transfer-ownership="none">
-          <doc xml:space="preserve">A bitmask of modifiers used to activate the item</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="156">A bitmask of modifiers used to activate the item</doc>
           <type name="Gdk.ModifierType" c:type="GdkModifierType"/>
         </parameter>
       </parameters>
     </function>
     <function name="menuitem_property_set_shortcut_menuitem"
               c:identifier="dbusmenu_menuitem_property_set_shortcut_menuitem">
-      <doc xml:space="preserve">Takes the shortcut that is installed on a menu item and calls
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="206">Takes the shortcut that is installed on a menu item and calls
 #dbusmenu_menuitem_property_set_shortcut with it.  It also sets
 up listeners to watch it change.</doc>
+      <source-position filename="menuitem.h" line="45"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve">Whether it was successful at setting the property.</doc>
+        <doc xml:space="preserve"
+             filename="menuitem.c"
+             line="215">Whether it was successful at setting the property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to set the shortcut on</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="208">The #DbusmenuMenuitem to set the shortcut on</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="gmi" transfer-ownership="none">
-          <doc xml:space="preserve">A menu item to steal the shortcut off of</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="209">A menu item to steal the shortcut off of</doc>
           <type name="Gtk.MenuItem" c:type="const GtkMenuItem*"/>
         </parameter>
       </parameters>
     </function>
     <function name="menuitem_property_set_shortcut_string"
               c:identifier="dbusmenu_menuitem_property_set_shortcut_string">
-      <doc xml:space="preserve">This function takes a GTK shortcut string as defined in
+      <doc xml:space="preserve"
+           filename="menuitem.c"
+           line="122">This function takes a GTK shortcut string as defined in
 #gtk_accelerator_parse and turns that into the information
 required to send it over DBusmenu.</doc>
+      <source-position filename="menuitem.h" line="44"/>
       <return-value transfer-ownership="none">
-        <doc xml:space="preserve">Whether it was successful at setting the property.</doc>
+        <doc xml:space="preserve"
+             filename="menuitem.c"
+             line="131">Whether it was successful at setting the property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="menuitem" transfer-ownership="none">
-          <doc xml:space="preserve">The #DbusmenuMenuitem to set the shortcut on</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="124">The #DbusmenuMenuitem to set the shortcut on</doc>
           <type name="Dbusmenu.Menuitem" c:type="DbusmenuMenuitem*"/>
         </parameter>
         <parameter name="shortcut" transfer-ownership="none">
-          <doc xml:space="preserve">String describing the shortcut</doc>
+          <doc xml:space="preserve"
+               filename="menuitem.c"
+               line="125">String describing the shortcut</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
+    <docsection name="parser">
+      <doc xml:space="preserve"
+           filename="parser.h"
+           line="40">The parser will take a GTK menu tree and attach it to a Dbusmenu menu
+	tree.  Along with setting up all the signals for updates and destruction.
+	The returned item would be the root item of the given tree.</doc>
+    </docsection>
   </namespace>
 </repository>

@@ -10,6 +10,18 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Soup" version="3.0"/>
   <package name="rest-1.0"/>
+  <c:include name="rest/rest-enum-types.h"/>
+  <c:include name="rest/rest-oauth2-proxy-call.h"/>
+  <c:include name="rest/rest-oauth2-proxy.h"/>
+  <c:include name="rest/rest-param.h"/>
+  <c:include name="rest/rest-params.h"/>
+  <c:include name="rest/rest-pkce-code-challenge.h"/>
+  <c:include name="rest/rest-proxy-auth.h"/>
+  <c:include name="rest/rest-proxy-call.h"/>
+  <c:include name="rest/rest-proxy.h"/>
+  <c:include name="rest/rest-utils.h"/>
+  <c:include name="rest/rest-xml-node.h"/>
+  <c:include name="rest/rest-xml-parser.h"/>
   <c:include name="rest/rest.h"/>
   <namespace name="Rest"
              version="1.0"
@@ -54,19 +66,6 @@ g_free() it when it isn't used.</doc>
              line="41">#RestParam will make a copy of the memory block.</doc>
       </member>
     </enumeration>
-    <enumeration name="OAuth2Error"
-                 c:type="RestOAuth2Error"
-                 glib:error-domain="rest-oauth2-error-quark">
-      <source-position filename="rest/rest-oauth2-proxy.h" line="43"/>
-      <member name="no_refresh_token"
-              value="0"
-              c:identifier="REST_OAUTH2_ERROR_NO_REFRESH_TOKEN">
-      </member>
-      <member name="access_token_expired"
-              value="1"
-              c:identifier="REST_OAUTH2_ERROR_ACCESS_TOKEN_EXPIRED">
-      </member>
-    </enumeration>
     <class name="OAuth2Proxy"
            c:symbol-prefix="oauth2_proxy"
            c:type="RestOAuth2Proxy"
@@ -78,12 +77,12 @@ g_free() it when it isn't used.</doc>
       <constructor name="new" c:identifier="rest_oauth2_proxy_new">
         <doc xml:space="preserve"
              filename="rest/rest-oauth2-proxy.c"
-             line="126">Create a new #RestOAuth2Proxy.</doc>
+             line="129">Create a new #RestOAuth2Proxy.</doc>
         <source-position filename="rest/rest-oauth2-proxy.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rest/rest-oauth2-proxy.c"
-               line="131">a newly created #RestOAuth2Proxy</doc>
+               line="134">a newly created #RestOAuth2Proxy</doc>
           <type name="OAuth2Proxy" c:type="RestOAuth2Proxy*"/>
         </return-value>
         <parameters>
@@ -131,7 +130,7 @@ g_free() it when it isn't used.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="rest/rest-oauth2-proxy.c"
-               line="340">the authorization url which should be shown in a WebView in order to accept/decline the request
+               line="343">the authorization url which should be shown in a WebView in order to accept/decline the request
 to authorize the application</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -139,13 +138,13 @@ to authorize the application</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="334">a #RestOAuth2Proxy</doc>
+                 line="337">a #RestOAuth2Proxy</doc>
             <type name="OAuth2Proxy" c:type="RestOAuth2Proxy*"/>
           </instance-parameter>
           <parameter name="code_challenge" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="335">the code challenge (see #RestPkceCodeChallenge)</doc>
+                 line="338">the code challenge (see #RestPkceCodeChallenge)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="scope"
@@ -154,7 +153,7 @@ to authorize the application</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="336">the requesting scope of the resource</doc>
+                 line="339">the requesting scope of the resource</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="state"
@@ -163,7 +162,7 @@ to authorize the application</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="337">a CRSF token which should be verified from the redirect_uri</doc>
+                 line="340">a CRSF token which should be verified from the redirect_uri</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -217,13 +216,13 @@ to authorize the application</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="452">an #RestOauth2Proxy</doc>
+                 line="455">an #RestOauth2Proxy</doc>
             <type name="OAuth2Proxy" c:type="RestOAuth2Proxy*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="453">a #GAsyncResult provided to callback</doc>
+                 line="456">a #GAsyncResult provided to callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -388,13 +387,13 @@ to authorize the application</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="584">an #RestOauth2Proxy</doc>
+                 line="587">an #RestOauth2Proxy</doc>
             <type name="OAuth2Proxy" c:type="RestOAuth2Proxy*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-oauth2-proxy.c"
-                 line="585">a #GAsyncResult provided to callback</doc>
+                 line="588">a #GAsyncResult provided to callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -596,7 +595,7 @@ to authorize the application</doc>
            glib:type-name="RestOAuth2ProxyCall"
            glib:get-type="rest_oauth2_proxy_call_get_type"
            glib:type-struct="OAuth2ProxyCallClass">
-      <source-position filename="rest/rest-oauth2-proxy-call.h" line="32"/>
+      <source-position filename="rest/rest-oauth2-proxy-call.h" line="31"/>
       <field name="parent_instance">
         <type name="ProxyCall" c:type="RestProxyCall"/>
       </field>
@@ -604,7 +603,7 @@ to authorize the application</doc>
     <record name="OAuth2ProxyCallClass"
             c:type="RestOAuth2ProxyCallClass"
             glib:is-gtype-struct-for="OAuth2ProxyCall">
-      <source-position filename="rest/rest-oauth2-proxy-call.h" line="32"/>
+      <source-position filename="rest/rest-oauth2-proxy-call.h" line="31"/>
       <field name="parent_class">
         <type name="ProxyCallClass" c:type="RestProxyCallClass"/>
       </field>
@@ -1274,13 +1273,13 @@ while (rest_params_iter_next (&amp;iter, &amp;name, &amp;param)) {
         <doc xml:space="preserve"
              filename="rest/rest-params.c"
              line="281">Advances @iter and retrieves the name and/or parameter that are now pointed
-at as a result of this advancement.  If %FALSE is returned, @name and @param
-are set to %NULL and the iterator becomes invalid.</doc>
+at as a result of this advancement.  If FALSE is returned, @name and @param
+are not set and the iterator becomes invalid.</doc>
         <source-position filename="rest/rest-params.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-params.c"
-               line="293">%FALSE if the end of the #RestParams has been reached, %TRUE otherwise.</doc>
+               line="291">%FALSE if the end of the #RestParams has been reached, %TRUE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1293,27 +1292,23 @@ are set to %NULL and the iterator becomes invalid.</doc>
           <parameter name="name"
                      direction="out"
                      caller-allocates="0"
-                     transfer-ownership="none"
-                     nullable="1"
+                     transfer-ownership="full"
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rest/rest-params.c"
-                 line="284">a location to store the name,
-or %NULL</doc>
+                 line="284">a location to store the name, or %NULL</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
           <parameter name="param"
                      direction="out"
                      caller-allocates="0"
-                     transfer-ownership="none"
-                     nullable="1"
+                     transfer-ownership="full"
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rest/rest-params.c"
-                 line="286">a location to store the
-#RestParam, or %NULL</doc>
+                 line="285">a location to store the #RestParam, or %NULL</doc>
             <type name="Param" c:type="RestParam**"/>
           </parameter>
         </parameters>
@@ -1940,20 +1935,20 @@ do anything.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1556">Invoker for a virtual method to serialize the parameters for this
+             line="1558">Invoker for a virtual method to serialize the parameters for this
 #RestProxyCall.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1567">TRUE if the serialization was successful, FALSE otherwise.</doc>
+               line="1569">TRUE if the serialization was successful, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1558">The #RestProxyCall</doc>
+                 line="1560">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
           <parameter name="content_type"
@@ -1962,7 +1957,7 @@ do anything.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1559">Content type of the payload</doc>
+                 line="1561">Content type of the payload</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="content"
@@ -1971,7 +1966,7 @@ do anything.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1560">The payload</doc>
+                 line="1562">The payload</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="content_len"
@@ -1980,7 +1975,7 @@ do anything.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1561">Length of the payload data</doc>
+                 line="1563">Length of the payload data</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -2325,12 +2320,12 @@ be freed by the caller.</doc>
       <method name="get_payload" c:identifier="rest_proxy_call_get_payload">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1505">Get the return payload.</doc>
+             line="1507">Get the return payload.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1511">A pointer to the payload. This is owned by #RestProxyCall and should
+               line="1513">A pointer to the payload. This is owned by #RestProxyCall and should
 not be freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2338,7 +2333,7 @@ not be freed.</doc>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1507">The #RestProxyCall</doc>
+                 line="1509">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
         </parameters>
@@ -2347,19 +2342,19 @@ not be freed.</doc>
               c:identifier="rest_proxy_call_get_payload_length">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1486">Get the length of the return payload.</doc>
+             line="1488">Get the length of the return payload.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="182"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1492">the length of the payload in bytes.</doc>
+               line="1494">the length of the payload in bytes.</doc>
           <type name="gint64" c:type="goffset"/>
         </return-value>
         <parameters>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1488">The #RestProxyCall</doc>
+                 line="1490">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
         </parameters>
@@ -2370,7 +2365,7 @@ not be freed.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1467">pointer to a hash
+               line="1469">pointer to a hash
 table of headers. This hash table must not be changed. You should call
 g_hash_table_unref() when you have finished with it.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
@@ -2382,7 +2377,7 @@ g_hash_table_unref() when you have finished with it.</doc>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1465">The #RestProxyCall</doc>
+                 line="1467">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
         </parameters>
@@ -2391,7 +2386,7 @@ g_hash_table_unref() when you have finished with it.</doc>
               c:identifier="rest_proxy_call_get_status_code">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1525">Get the HTTP status code for the call.</doc>
+             line="1527">Get the HTTP status code for the call.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="184"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -2400,7 +2395,7 @@ g_hash_table_unref() when you have finished with it.</doc>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1527">The #RestProxyCall</doc>
+                 line="1529">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
         </parameters>
@@ -2409,12 +2404,12 @@ g_hash_table_unref() when you have finished with it.</doc>
               c:identifier="rest_proxy_call_get_status_message">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1539">Get the human-readable HTTP status message for the call.</doc>
+             line="1541">Get the human-readable HTTP status message for the call.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1545">The status message. This string is owned by #RestProxyCall and
+               line="1547">The status message. This string is owned by #RestProxyCall and
 should not be freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2422,7 +2417,7 @@ should not be freed.</doc>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1541">The #RestProxyCall</doc>
+                 line="1543">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
         </parameters>
@@ -2556,7 +2551,7 @@ freed.</doc>
               c:identifier="rest_proxy_call_lookup_response_header">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1439">Get the string value of the header @header or %NULL if that header is not
+             line="1441">Get the string value of the header @header or %NULL if that header is not
 present or there are no headers.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="177"/>
         <return-value transfer-ownership="none">
@@ -2566,13 +2561,13 @@ present or there are no headers.</doc>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1441">The #RestProxyCall</doc>
+                 line="1443">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
           <parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1442">The name of the header to lookup.</doc>
+                 line="1444">The name of the header to lookup.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2629,20 +2624,20 @@ present or there are no headers.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rest/rest-proxy-call.c"
-             line="1556">Invoker for a virtual method to serialize the parameters for this
+             line="1558">Invoker for a virtual method to serialize the parameters for this
 #RestProxyCall.</doc>
         <source-position filename="rest/rest-proxy-call.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rest/rest-proxy-call.c"
-               line="1567">TRUE if the serialization was successful, FALSE otherwise.</doc>
+               line="1569">TRUE if the serialization was successful, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="call" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1558">The #RestProxyCall</doc>
+                 line="1560">The #RestProxyCall</doc>
             <type name="ProxyCall" c:type="RestProxyCall*"/>
           </instance-parameter>
           <parameter name="content_type"
@@ -2651,7 +2646,7 @@ present or there are no headers.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1559">Content type of the payload</doc>
+                 line="1561">Content type of the payload</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="content"
@@ -2660,7 +2655,7 @@ present or there are no headers.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1560">The payload</doc>
+                 line="1562">The payload</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="content_len"
@@ -2669,7 +2664,7 @@ present or there are no headers.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1561">Length of the payload data</doc>
+                 line="1563">Length of the payload data</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -2867,14 +2862,14 @@ behaviour.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rest/rest-proxy-call.c"
-                 line="1567">TRUE if the serialization was successful, FALSE otherwise.</doc>
+                 line="1569">TRUE if the serialization was successful, FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="call" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="rest/rest-proxy-call.c"
-                   line="1558">The #RestProxyCall</doc>
+                   line="1560">The #RestProxyCall</doc>
               <type name="ProxyCall" c:type="RestProxyCall*"/>
             </parameter>
             <parameter name="content_type"
@@ -2883,7 +2878,7 @@ behaviour.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="rest/rest-proxy-call.c"
-                   line="1559">Content type of the payload</doc>
+                   line="1561">Content type of the payload</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="content"
@@ -2892,7 +2887,7 @@ behaviour.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="rest/rest-proxy-call.c"
-                   line="1560">The payload</doc>
+                   line="1562">The payload</doc>
               <type name="utf8" c:type="gchar**"/>
             </parameter>
             <parameter name="content_len"
@@ -2901,7 +2896,7 @@ behaviour.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="rest/rest-proxy-call.c"
-                   line="1561">Length of the payload data</doc>
+                   line="1563">Length of the payload data</doc>
               <type name="gsize" c:type="gsize*"/>
             </parameter>
           </parameters>

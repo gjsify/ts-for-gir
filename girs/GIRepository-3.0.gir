@@ -5673,34 +5673,17 @@ It is possible to control the search paths programmatically, using
 [method@GIRepository.Repository.prepend_search_path]. It is also possible to
 modify the search paths by using the `GI_TYPELIB_PATH` environment variable.
 The environment variable takes precedence over the default search path
-and the [method@GIRepository.Repository.prepend_search_path] calls.
-
-### Namespace ordering
-
-In situations where namespaces may be searched in order, or returned in a
-list, the namespaces will be returned in alphabetical order, with all fully
-loaded namespaces being returned before any lazily loaded ones (those loaded
-with `GI_REPOSITORY_LOAD_FLAG_LAZY`). This allows for deterministic and
-reproducible results.
-
-Similarly, if a symbol (such as a `GType` or error domain) is being searched
-for in the set of loaded namespaces, the namespaces will be searched in that
-order. In particular, this means that a symbol which exists in two namespaces
-will always be returned from the alphabetically-higher namespace. This should
-only happen in the case of `Gio` and `GioUnix`/`GioWin32`, which all refer to
-the same `.so` file and expose overlapping sets of symbols. Symbols should
-always end up being resolved to `GioUnix` or `GioWin32` if they are platform
-dependent, rather than `Gio` itself.</doc>
+and the [method@GIRepository.Repository.prepend_search_path] calls.</doc>
       <source-position filename="girepository/girepository.h" line="61"/>
       <constructor name="new" c:identifier="gi_repository_new" version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="847">Create a new [class@GIRepository.Repository].</doc>
+             line="786">Create a new [class@GIRepository.Repository].</doc>
         <source-position filename="girepository/girepository.h" line="81"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="852">a new [class@GIRepository.Repository]</doc>
+               line="791">a new [class@GIRepository.Repository]</doc>
           <type name="Repository" c:type="GIRepository*"/>
         </return-value>
       </constructor>
@@ -5752,7 +5735,7 @@ This function will overwrite the contents of the output file.</doc>
                 version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2007">Obtain the option group for girepository.
+             line="1953">Obtain the option group for girepository.
 
 It’s used by the dumper and for programs that want to provide introspection
 information</doc>
@@ -5760,7 +5743,7 @@ information</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2015">the option group</doc>
+               line="1961">the option group</doc>
           <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
         </return-value>
       </function>
@@ -5769,7 +5752,7 @@ information</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1725">Obtain an unordered list of versions (either currently loaded or
+             line="1671">Obtain an unordered list of versions (either currently loaded or
 available) for @namespace_ in this @repository.
 
 The list is guaranteed to be `NULL` terminated. The `NULL` terminator is not
@@ -5778,7 +5761,7 @@ counted in @n_versions_out.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1737">the array of versions.</doc>
+               line="1683">the array of versions.</doc>
           <array length="1" zero-terminated="0" c:type="char**">
             <type name="utf8"/>
           </array>
@@ -5787,13 +5770,13 @@ counted in @n_versions_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1727">A #GIRepository</doc>
+                 line="1673">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1728">GI namespace, e.g. `Gtk`</doc>
+                 line="1674">GI namespace, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="n_versions_out"
@@ -5804,7 +5787,7 @@ counted in @n_versions_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1729">The number of versions returned.</doc>
+                 line="1675">The number of versions returned.</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
         </parameters>
@@ -5814,7 +5797,7 @@ counted in @n_versions_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1104">Searches for the enum type corresponding to the given [type@GLib.Error]
+             line="1047">Searches for the enum type corresponding to the given [type@GLib.Error]
 domain.
 
 Before calling this function for a particular namespace, you must call
@@ -5824,7 +5807,7 @@ ensure the namespace has already been loaded.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1116">[class@GIRepository.EnumInfo]
+               line="1059">[class@GIRepository.EnumInfo]
   representing metadata about @domain’s enum type, or `NULL` if none found</doc>
           <type name="EnumInfo" c:type="GIEnumInfo*"/>
         </return-value>
@@ -5832,13 +5815,13 @@ ensure the namespace has already been loaded.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1106">A #GIRepository</doc>
+                 line="1049">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="domain" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1107">a [type@GLib.Error] domain</doc>
+                 line="1050">a [type@GLib.Error] domain</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
         </parameters>
@@ -5848,7 +5831,7 @@ ensure the namespace has already been loaded.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="964">Searches all loaded namespaces for a particular [type@GObject.Type].
+             line="906">Searches all loaded namespaces for a particular [type@GObject.Type].
 
 Note that in order to locate the metadata, the namespace corresponding to
 the type must first have been loaded.  There is currently no
@@ -5859,7 +5842,7 @@ reliably when you know the [type@GObject.Type] is from a loaded namespace.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="977">[class@GIRepository.BaseInfo]
+               line="919">[class@GIRepository.BaseInfo]
   representing metadata about @type, or `NULL` if none found</doc>
           <type name="BaseInfo" c:type="GIBaseInfo*"/>
         </return-value>
@@ -5867,13 +5850,13 @@ reliably when you know the [type@GObject.Type] is from a loaded namespace.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="966">A #GIRepository</doc>
+                 line="908">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="gtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="967">[type@GObject.Type] to search for</doc>
+                 line="909">[type@GObject.Type] to search for</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -5883,7 +5866,7 @@ reliably when you know the [type@GObject.Type] is from a loaded namespace.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1043">Searches for a particular entry in a namespace.
+             line="985">Searches for a particular entry in a namespace.
 
 Before calling this function for a particular namespace, you must call
 [method@GIRepository.Repository.require] to load the namespace, or otherwise
@@ -5892,7 +5875,7 @@ ensure the namespace has already been loaded.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1055">[class@GIRepository.BaseInfo]
+               line="997">[class@GIRepository.BaseInfo]
   representing metadata about @name, or `NULL` if none found</doc>
           <type name="BaseInfo" c:type="GIBaseInfo*"/>
         </return-value>
@@ -5900,19 +5883,19 @@ ensure the namespace has already been loaded.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1045">A #GIRepository</doc>
+                 line="987">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1046">Namespace which will be searched</doc>
+                 line="988">Namespace which will be searched</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1047">Entry name to find</doc>
+                 line="989">Entry name to find</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5922,7 +5905,7 @@ ensure the namespace has already been loaded.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1386">This function returns the ‘C prefix’, or the C level namespace
+             line="1332">This function returns the ‘C prefix’, or the C level namespace
 associated with the given introspection namespace.
 
 Each C symbol starts with this prefix, as well each [type@GObject.Type] in
@@ -5935,20 +5918,20 @@ function.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1401">C namespace prefix, or `NULL` if none associated</doc>
+               line="1347">C namespace prefix, or `NULL` if none associated</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1388">A #GIRepository</doc>
+                 line="1334">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1389">Namespace to inspect</doc>
+                 line="1335">Namespace to inspect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5958,7 +5941,7 @@ function.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="703">Retrieves all (transitive) versioned dependencies for
+             line="642">Retrieves all (transitive) versioned dependencies for
 @namespace_.
 
 The returned strings are of the form `namespace-version`.
@@ -5976,7 +5959,7 @@ counted in @n_dependencies_out.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="725">String array of
+               line="664">String array of
   all versioned dependencies</doc>
           <array length="1" zero-terminated="0" c:type="char**">
             <type name="utf8"/>
@@ -5986,13 +5969,13 @@ counted in @n_dependencies_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="705">A #GIRepository</doc>
+                 line="644">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="706">Namespace of interest</doc>
+                 line="645">Namespace of interest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="n_dependencies_out"
@@ -6003,7 +5986,7 @@ counted in @n_dependencies_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="707">Return location for the number of
+                 line="646">Return location for the number of
   dependencies</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
@@ -6014,7 +5997,7 @@ counted in @n_dependencies_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="614">Return an array of the immediate versioned dependencies for @namespace_.
+             line="553">Return an array of the immediate versioned dependencies for @namespace_.
 Returned strings are of the form `namespace-version`.
 
 Note: @namespace_ must have already been loaded using a function
@@ -6030,7 +6013,7 @@ counted in @n_dependencies_out.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="634">String array of
+               line="573">String array of
   immediate versioned dependencies</doc>
           <array length="1" zero-terminated="0" c:type="char**">
             <type name="utf8"/>
@@ -6040,13 +6023,13 @@ counted in @n_dependencies_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="616">A #GIRepository</doc>
+                 line="555">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="617">Namespace of interest</doc>
+                 line="556">Namespace of interest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="n_dependencies_out"
@@ -6057,7 +6040,7 @@ counted in @n_dependencies_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="618">Return location for the number of
+                 line="557">Return location for the number of
   dependencies</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
@@ -6068,7 +6051,7 @@ counted in @n_dependencies_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="893">This function returns a particular metadata entry in the
+             line="832">This function returns a particular metadata entry in the
 given namespace @namespace_.
 
 The namespace must have already been loaded before calling this function.
@@ -6078,7 +6061,7 @@ of entries. It is an error to pass an invalid @idx to this function.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="906">[class@GIRepository.BaseInfo]
+               line="845">[class@GIRepository.BaseInfo]
   containing metadata</doc>
           <type name="BaseInfo" c:type="GIBaseInfo*"/>
         </return-value>
@@ -6086,19 +6069,19 @@ of entries. It is an error to pass an invalid @idx to this function.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="895">A #GIRepository</doc>
+                 line="834">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="896">Namespace to inspect</doc>
+                 line="835">Namespace to inspect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="897">0-based offset into namespace metadata for entry</doc>
+                 line="836">0-based offset into namespace metadata for entry</doc>
             <type name="guint" c:type="unsigned int"/>
           </parameter>
         </parameters>
@@ -6108,7 +6091,7 @@ of entries. It is an error to pass an invalid @idx to this function.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="361">Returns the current search path [class@GIRepository.Repository] will use when
+             line="332">Returns the current search path [class@GIRepository.Repository] will use when
 loading shared libraries referenced by imported namespaces.
 
 The list is internal to [class@GIRepository.Repository] and should not be
@@ -6120,7 +6103,7 @@ counted in @n_paths_out.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="375">list of search paths, most
+               line="346">list of search paths, most
   important first</doc>
           <array length="0" zero-terminated="0" c:type="const char* const*">
             <type name="filename"/>
@@ -6130,7 +6113,7 @@ counted in @n_paths_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="363">A #GIRepository</doc>
+                 line="334">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="n_paths_out"
@@ -6141,7 +6124,7 @@ counted in @n_paths_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="364">The number of library paths returned.</doc>
+                 line="335">The number of library paths returned.</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
         </parameters>
@@ -6151,7 +6134,7 @@ counted in @n_paths_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1247">Return the list of currently loaded namespaces.
+             line="1191">Return the list of currently loaded namespaces.
 
 The list is guaranteed to be `NULL` terminated. The `NULL` terminator is not
 counted in @n_namespaces_out.</doc>
@@ -6159,7 +6142,7 @@ counted in @n_namespaces_out.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1258">
+               line="1202">
   list of namespaces</doc>
           <array length="0" zero-terminated="0" c:type="char**">
             <type name="utf8"/>
@@ -6169,7 +6152,7 @@ counted in @n_namespaces_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1249">A #GIRepository</doc>
+                 line="1193">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="n_namespaces_out"
@@ -6180,7 +6163,7 @@ counted in @n_namespaces_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1250">Return location for the number of
+                 line="1194">Return location for the number of
   namespaces</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
@@ -6191,7 +6174,7 @@ counted in @n_namespaces_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="861">This function returns the number of metadata entries in
+             line="800">This function returns the number of metadata entries in
 given namespace @namespace_.
 
 The namespace must have already been loaded before calling this function.</doc>
@@ -6199,20 +6182,20 @@ The namespace must have already been loaded before calling this function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="871">number of metadata entries</doc>
+               line="810">number of metadata entries</doc>
           <type name="guint" c:type="unsigned int"/>
         </return-value>
         <parameters>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="863">A #GIRepository</doc>
+                 line="802">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="864">Namespace to inspect</doc>
+                 line="803">Namespace to inspect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6222,7 +6205,7 @@ The namespace must have already been loaded before calling this function.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1154">Look up the implemented interfaces for @gtype.
+             line="1101">Look up the implemented interfaces for @gtype.
 
 This function cannot fail per se; but for a totally ‘unknown’
 [type@GObject.Type], it may return 0 implemented interfaces.
@@ -6243,13 +6226,13 @@ not statically.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1156">a #GIRepository</doc>
+                 line="1103">a #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="gtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1157">a [type@GObject.Type] whose fundamental type is `G_TYPE_OBJECT`</doc>
+                 line="1104">a [type@GObject.Type] whose fundamental type is `G_TYPE_OBJECT`</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="n_interfaces_out"
@@ -6258,7 +6241,7 @@ not statically.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1158">Number of interfaces</doc>
+                 line="1105">Number of interfaces</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
           <parameter name="interfaces_out"
@@ -6267,7 +6250,7 @@ not statically.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1159">Interfaces for @gtype</doc>
+                 line="1106">Interfaces for @gtype</doc>
             <array length="1" zero-terminated="0" c:type="GIInterfaceInfo***">
               <type name="InterfaceInfo" c:type="GIInterfaceInfo**"/>
             </array>
@@ -6279,7 +6262,7 @@ not statically.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="289">Returns the current search path [class@GIRepository.Repository] will use when
+             line="260">Returns the current search path [class@GIRepository.Repository] will use when
 loading typelib files.
 
 The list is internal to [class@GIRepository.Repository] and should not be
@@ -6291,7 +6274,7 @@ counted in @n_paths_out.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="303">list of search paths, most
+               line="274">list of search paths, most
   important first</doc>
           <array length="0" zero-terminated="0" c:type="const char* const*">
             <type name="filename"/>
@@ -6301,7 +6284,7 @@ counted in @n_paths_out.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="291">A #GIRepository</doc>
+                 line="262">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="n_paths_out"
@@ -6312,7 +6295,7 @@ counted in @n_paths_out.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="292">The number of search paths returned.</doc>
+                 line="263">The number of search paths returned.</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
         </parameters>
@@ -6322,7 +6305,7 @@ counted in @n_paths_out.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1318">This function returns an array of paths to the
+             line="1264">This function returns an array of paths to the
 shared C libraries associated with the given namespace @namespace_.
 
 There may be no shared library path associated, in which case this
@@ -6341,7 +6324,7 @@ counted in @out_n_elements.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1341">Array of
+               line="1287">Array of
   paths to shared libraries, or `NULL` if none are associated</doc>
           <array length="1" zero-terminated="0" c:type="const char* const*">
             <type name="utf8"/>
@@ -6351,13 +6334,13 @@ counted in @out_n_elements.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1320">A #GIRepository</doc>
+                 line="1266">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1321">Namespace to inspect</doc>
+                 line="1267">Namespace to inspect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="out_n_elements"
@@ -6368,7 +6351,7 @@ counted in @out_n_elements.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1322">Return location for the number of elements
+                 line="1268">Return location for the number of elements
   in the returned array</doc>
             <type name="gsize" c:type="size_t*"/>
           </parameter>
@@ -6379,7 +6362,7 @@ counted in @out_n_elements.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1425">If namespace @namespace_ is loaded, return the full path to the
+             line="1371">If namespace @namespace_ is loaded, return the full path to the
 .typelib file it was loaded from.
 
 If the typelib for namespace @namespace_ was included in a shared library,
@@ -6388,7 +6371,7 @@ return the special string `&lt;builtin&gt;`.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1436">Filesystem path (or `&lt;builtin&gt;`) if
+               line="1382">Filesystem path (or `&lt;builtin&gt;`) if
   successful, `NULL` if namespace is not loaded</doc>
           <type name="filename" c:type="const char*"/>
         </return-value>
@@ -6396,13 +6379,13 @@ return the special string `&lt;builtin&gt;`.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1427">A #GIRepository</doc>
+                 line="1373">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1428">GI namespace to use, e.g. `Gtk`</doc>
+                 line="1374">GI namespace to use, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6412,7 +6395,7 @@ return the special string `&lt;builtin&gt;`.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1285">This function returns the loaded version associated with the given
+             line="1231">This function returns the loaded version associated with the given
 namespace @namespace_.
 
 Note: The namespace must have already been loaded using a function
@@ -6422,20 +6405,20 @@ function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1297">Loaded version</doc>
+               line="1243">Loaded version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1287">A #GIRepository</doc>
+                 line="1233">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1288">Namespace to inspect</doc>
+                 line="1234">Namespace to inspect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6445,7 +6428,7 @@ function.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="819">Check whether a particular namespace (and optionally, a specific
+             line="758">Check whether a particular namespace (and optionally, a specific
 version thereof) is currently loaded.
 
 This function is likely to only be useful in unusual circumstances; in order
@@ -6457,20 +6440,20 @@ already been loaded.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="834">`TRUE` if namespace-version is loaded, `FALSE` otherwise</doc>
+               line="773">`TRUE` if namespace-version is loaded, `FALSE` otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="821">A #GIRepository</doc>
+                 line="760">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="822">Namespace of interest</doc>
+                 line="761">Namespace of interest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -6479,7 +6462,7 @@ already been loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="823">Required version, may be `NULL` for latest</doc>
+                 line="762">Required version, may be `NULL` for latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6490,31 +6473,31 @@ already been loaded.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="771">Load the given @typelib into the repository.</doc>
+             line="710">Load the given @typelib into the repository.</doc>
         <source-position filename="girepository/girepository.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="780">namespace of the loaded typelib</doc>
+               line="719">namespace of the loaded typelib</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="773">A #GIRepository</doc>
+                 line="712">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="typelib" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="774">the typelib to load</doc>
+                 line="713">the typelib to load</doc>
             <type name="Typelib" c:type="GITypelib*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="775">flags affecting the loading operation</doc>
+                 line="714">flags affecting the loading operation</doc>
             <type name="RepositoryLoadFlags" c:type="GIRepositoryLoadFlags"/>
           </parameter>
         </parameters>
@@ -6524,7 +6507,7 @@ already been loaded.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="330">Prepends @directory to the search path that is used to
+             line="301">Prepends @directory to the search path that is used to
 search shared libraries referenced by imported namespaces.
 
 Multiple calls to this function all contribute to the final
@@ -6546,13 +6529,13 @@ See the documentation of your dynamic linker for full details.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="332">A #GIRepository</doc>
+                 line="303">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="333">a single directory to scan for shared libraries</doc>
+                 line="304">a single directory to scan for shared libraries</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6562,7 +6545,7 @@ See the documentation of your dynamic linker for full details.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="268">Prepends @directory to the typelib search path.
+             line="239">Prepends @directory to the typelib search path.
 
 See also: gi_repository_get_search_path().</doc>
         <source-position filename="girepository/girepository.h" line="84"/>
@@ -6573,13 +6556,13 @@ See also: gi_repository_get_search_path().</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="270">A #GIRepository</doc>
+                 line="241">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="271">directory name to prepend to the typelib
+                 line="242">directory name to prepend to the typelib
   search path</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
@@ -6591,7 +6574,7 @@ See also: gi_repository_get_search_path().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1910">Force the namespace @namespace_ to be loaded if it isn’t already.
+             line="1856">Force the namespace @namespace_ to be loaded if it isn’t already.
 
 If @namespace_ is not loaded, this function will search for a
 `.typelib` file using the repository search path.  In addition, a
@@ -6601,7 +6584,7 @@ not specified, the latest will be used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1925">a pointer to the [type@GIRepository.Typelib] if
+               line="1871">a pointer to the [type@GIRepository.Typelib] if
   successful, `NULL` otherwise</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
@@ -6609,13 +6592,13 @@ not specified, the latest will be used.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1912">A #GIRepository</doc>
+                 line="1858">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1913">GI namespace to use, e.g. `Gtk`</doc>
+                 line="1859">GI namespace to use, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -6624,13 +6607,13 @@ not specified, the latest will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1914">Version of namespace, may be `NULL` for latest</doc>
+                 line="1860">Version of namespace, may be `NULL` for latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1915">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
+                 line="1861">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
             <type name="RepositoryLoadFlags" c:type="GIRepositoryLoadFlags"/>
           </parameter>
         </parameters>
@@ -6641,7 +6624,7 @@ not specified, the latest will be used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="1945">Force the namespace @namespace_ to be loaded if it isn’t already.
+             line="1891">Force the namespace @namespace_ to be loaded if it isn’t already.
 
 If @namespace_ is not loaded, this function will search for a
 `.typelib` file within the private directory only. In addition, a
@@ -6651,7 +6634,7 @@ not specified, the latest will be used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="1962">a pointer to the [type@GIRepository.Typelib] if
+               line="1908">a pointer to the [type@GIRepository.Typelib] if
   successful, `NULL` otherwise</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
@@ -6659,20 +6642,20 @@ not specified, the latest will be used.</doc>
           <instance-parameter name="repository" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1947">A #GIRepository</doc>
+                 line="1893">A #GIRepository</doc>
             <type name="Repository" c:type="GIRepository*"/>
           </instance-parameter>
           <parameter name="typelib_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1948">Private directory where to find the requested
+                 line="1894">Private directory where to find the requested
   typelib</doc>
             <type name="filename" c:type="const char*"/>
           </parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1950">GI namespace to use, e.g. `Gtk`</doc>
+                 line="1896">GI namespace to use, e.g. `Gtk`</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -6681,13 +6664,13 @@ not specified, the latest will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1951">Version of namespace, may be `NULL` for latest</doc>
+                 line="1897">Version of namespace, may be `NULL` for latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/girepository.c"
-                 line="1952">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
+                 line="1898">Set of [flags@GIRepository.RepositoryLoadFlags], may be 0</doc>
             <type name="RepositoryLoadFlags" c:type="GIRepositoryLoadFlags"/>
           </parameter>
         </parameters>
@@ -7896,7 +7879,7 @@ of a single module’s API.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="girepository/gitypelib.c"
-             line="2334">Creates a new [type@GIRepository.Typelib] from a [type@GLib.Bytes].
+             line="2333">Creates a new [type@GIRepository.Typelib] from a [type@GLib.Bytes].
 
 The [type@GLib.Bytes] can point to a memory location or a mapped file, and
 the typelib will hold a reference to it until the repository is destroyed.</doc>
@@ -7904,14 +7887,14 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/gitypelib.c"
-               line="2344">the new [type@GIRepository.Typelib]</doc>
+               line="2343">the new [type@GIRepository.Typelib]</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
         <parameters>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2336">memory chunk containing the typelib</doc>
+                 line="2335">memory chunk containing the typelib</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -7921,19 +7904,19 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
               version="2.80">
         <doc xml:space="preserve"
              filename="girepository/gitypelib.c"
-             line="2417">Get the name of the namespace represented by @typelib.</doc>
+             line="2416">Get the name of the namespace represented by @typelib.</doc>
         <source-position filename="girepository/gitypelib.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/gitypelib.c"
-               line="2423">name of the namespace represented by @typelib</doc>
+               line="2422">name of the namespace represented by @typelib</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="typelib" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2419">a #GITypelib</doc>
+                 line="2418">a #GITypelib</doc>
             <type name="Typelib" c:type="GITypelib*"/>
           </instance-parameter>
         </parameters>
@@ -7941,19 +7924,19 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
       <method name="ref" c:identifier="gi_typelib_ref" version="2.80">
         <doc xml:space="preserve"
              filename="girepository/gitypelib.c"
-             line="2368">Increment the reference count of a [type@GIRepository.Typelib].</doc>
+             line="2367">Increment the reference count of a [type@GIRepository.Typelib].</doc>
         <source-position filename="girepository/gitypelib.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="girepository/gitypelib.c"
-               line="2374">the same @typelib pointer</doc>
+               line="2373">the same @typelib pointer</doc>
           <type name="Typelib" c:type="GITypelib*"/>
         </return-value>
         <parameters>
           <instance-parameter name="typelib" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2370">a #GITypelib</doc>
+                 line="2369">a #GITypelib</doc>
             <type name="Typelib" c:type="GITypelib*"/>
           </instance-parameter>
         </parameters>
@@ -7961,25 +7944,25 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
       <method name="symbol" c:identifier="gi_typelib_symbol" version="2.80">
         <doc xml:space="preserve"
              filename="girepository/gitypelib.c"
-             line="2432">Loads a symbol from a `GITypelib`.</doc>
+             line="2431">Loads a symbol from a `GITypelib`.</doc>
         <source-position filename="girepository/gitypelib.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/gitypelib.c"
-               line="2441">`TRUE` on success</doc>
+               line="2440">`TRUE` on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="typelib" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2434">the typelib</doc>
+                 line="2433">the typelib</doc>
             <type name="Typelib" c:type="GITypelib*"/>
           </instance-parameter>
           <parameter name="symbol_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2435">name of symbol to be loaded</doc>
+                 line="2434">name of symbol to be loaded</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="symbol"
@@ -7989,7 +7972,7 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2436">returns a pointer to the symbol value, or `NULL`
+                 line="2435">returns a pointer to the symbol value, or `NULL`
   on failure</doc>
             <type name="gpointer" c:type="void**"/>
           </parameter>
@@ -7998,7 +7981,7 @@ the typelib will hold a reference to it until the repository is destroyed.</doc>
       <method name="unref" c:identifier="gi_typelib_unref" version="2.80">
         <doc xml:space="preserve"
              filename="girepository/gitypelib.c"
-             line="2387">Decrement the reference count of a [type@GIRepository.Typelib].
+             line="2386">Decrement the reference count of a [type@GIRepository.Typelib].
 
 Once the reference count reaches zero, the typelib is freed.</doc>
         <source-position filename="girepository/gitypelib.h" line="50"/>
@@ -8009,7 +7992,7 @@ Once the reference count reaches zero, the typelib is freed.</doc>
           <instance-parameter name="typelib" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="girepository/gitypelib.c"
-                 line="2389">a #GITypelib</doc>
+                 line="2388">a #GITypelib</doc>
             <type name="Typelib" c:type="GITypelib*"/>
           </instance-parameter>
         </parameters>
@@ -8957,19 +8940,19 @@ depending on @storage_type.</doc>
               version="2.80">
       <doc xml:space="preserve"
            filename="girepository/girepository.c"
-           line="2037">Obtain a string representation of @type</doc>
+           line="1983">Obtain a string representation of @type</doc>
       <source-position filename="girepository/gitypeinfo.h" line="94"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="girepository/girepository.c"
-             line="2043">the string</doc>
+             line="1989">the string</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="girepository/girepository.c"
-               line="2039">the type_tag</doc>
+               line="1985">the type_tag</doc>
           <type name="TypeTag" c:type="GITypeTag"/>
         </parameter>
       </parameters>

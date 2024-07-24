@@ -19,7 +19,7 @@ declare module 'cairo' {
 // ...
 
 // Re-export Cairo 1.0
-export default <%- Cairo ? Cairo.importName : '' %>;
+export default <%- Cairo ? Cairo.namespace : '' %>;
 
 <%_ if(!package){ -%>
 }

@@ -105,7 +105,12 @@ export class DependencyManager extends GirNSRegistry {
      * @returns
      */
     async core(): Promise<Dependency[]> {
-        return [await this.get('GObject', '2.0'), await this.get('GLib', '2.0'), await this.get('Gio', '2.0')]
+        return [
+            await this.get('GObject', '2.0'),
+            await this.get('GLib', '2.0'),
+            await this.get('Gio', '2.0'),
+            await this.get('Cairo', '1.0'),
+        ]
     }
 
     createImportProperties(namespace: string, packageName: string, version: string) {

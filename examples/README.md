@@ -57,10 +57,10 @@ Run the client:
 yarn start:client
 ```
 
-## Gtk-3.0 Browser
+## Gtk3 Browser
 ![gtk-3-browser](gtk-3-browser/preview.png)
 
-A simple browser using Gtk-3.0 and WebKit-2.0
+A simple browser using Gtk3 and WebKit-2.0
 
 Source: [gtk-3-browser](gtk-3-browser)  
 Bundler: Webpack  
@@ -71,7 +71,7 @@ cd /examples/gtk-3-browser
 yarn start
 ```
 
-## Gtk-3.0 Builder
+## Gtk3 Builder
 ![gtk-3-builder](gtk-3-builder/preview.png)
 
 Source: [gtk-3-builder](gtk-3-builder)  
@@ -83,7 +83,32 @@ cd /examples/gtk-3-builder
 yarn start
 ```
 
-## Gtk-3.0 Editor
+## Gtk3 Calc
+![gtk-3-calc](gtk-3-calc/preview.png)
+
+Source: [gtk-3-calc](gtk-3-calc)  
+Bundler: Esbuild  
+
+Build and run:
+```bash
+cd /examples/gtk-3-calc
+yarn start
+```
+
+## Gtk3 Clutter (TSC)
+![gtk-3-clutter](gtk-3-clutter-tsc/preview.png)
+
+Source: [gtk-3-clutter](gtk-3-clutter-tsc)  
+Bundler: TSC  
+
+Build and run:
+```bash
+cd /examples/gtk-3-clutter-tsc
+yarn start
+```
+
+
+## Gtk3 Editor
 ![gtk-3-editor](gtk-3-editor/preview.png)
 
 Source: [gtk-3-editor](gtk-3-editor)  
@@ -95,7 +120,7 @@ cd /examples/gtk-3-editor
 yarn start
 ```
 
-## Gtk-3.0 Hello Gtk
+## Gtk3 Hello Gtk
 ![gtk-3-hello](gtk-3-hello/preview.png)
 
 Source: [gtk-3-hello](gtk-3-hello)  
@@ -107,7 +132,7 @@ cd /examples/gtk-3-hello
 yarn start
 ```
 
-## Gtk-4.0 ListStore
+## Gtk4 ListStore
 ![gtk-4-list-store](gtk-4-list-store/preview.png)
 
 GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`

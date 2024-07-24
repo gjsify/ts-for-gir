@@ -41,7 +41,7 @@ class App {
     application?: Gtk.Application;
     window?: Gtk.ApplicationWindow;
     constructor() {
-        this.title = 'Example Cairo';
+        this.title = 'Gtk3 Clutter';
         GLib.set_prgname(this.title);
     }
 

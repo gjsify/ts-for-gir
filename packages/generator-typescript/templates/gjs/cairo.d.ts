@@ -1,11 +1,25 @@
+<%_ const Cairo = await dep.get('cairo', '1.0') _%>
+
 <%_ if(!package){ -%>
 declare module 'cairo' {
 <% } -%>
 
-// TODO: See ./cairo-1.0.d.ts
-<%- package ? 'declare' : '' %> const Cairo: any;
+// Cairo 1.0
+<%- Cairo ? Cairo.importDef : '' %>
 
-export default Cairo;
+// TODO: Add overrides here
+
+// See
+// - https://gitlab.gnome.org/GNOME/gjs/-/blob/master/installed-tests/js/testCairoModule.js
+// - https://gitlab.gnome.org/GNOME/gjs/-/blob/master/installed-tests/js/testCairo.js
+// - https://gitlab.gnome.org/GNOME/gjs/-/blob/master/doc/cairo.md
+
+// image_surface_create -> ImageSurface
+// Context.constructor(surface: cairo.ImageSurface)
+// ...
+
+// Re-export Cairo 1.0
+export default <%- Cairo ? Cairo.importName : '' %>;
 
 <%_ if(!package){ -%>
 }

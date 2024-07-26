@@ -126,10 +126,7 @@ class App {
     };
     
     drawRed(area: Gtk.DrawingArea, ctx: Cairo.Context) {
-    
-        // area is Gtk.DrawingArea
-        // ctx is Cairo.Context
-    
+
         let height, width;
     
         height = area.get_allocated_height();
@@ -139,10 +136,7 @@ class App {
     };
     
     drawGreen(canvas: Clutter.Canvas, ctx: Cairo.Context) {
-    
-        // canvas is Clutter.Canvas
-        // ctx is Cairo.Context
-    
+
         let height, width;
     
         height = canvas.height;

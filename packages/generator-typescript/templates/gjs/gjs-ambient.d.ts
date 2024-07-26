@@ -17,3 +17,8 @@ declare module 'cairo' {
   import Cairo from '@girs/gjs/cairo';
   export default Cairo;
 }
+
+declare module 'console' {
+  import Console from '@girs/gjs/console';
+  export default Console;
+}

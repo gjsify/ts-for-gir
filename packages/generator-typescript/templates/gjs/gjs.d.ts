@@ -620,6 +620,14 @@ declare global {
         $gtype: GObject.GType<string>
     }
 
+    interface StringConstructor {
+        $gtype: GObject.GType<string>
+    }
+
+    interface ObjectConstructor {
+        $gtype: GObject.GType<Object>;
+    }
+
     const imports: GjsImports
 
     const ARGV: string[]

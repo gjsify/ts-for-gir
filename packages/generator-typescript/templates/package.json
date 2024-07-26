@@ -44,6 +44,11 @@ _%>
         "import": "./cairo.js",
         "default": "./cairo.js"
       },
+      "./console": {
+        "types": "./console.d.ts",
+        "import": "./console.js",
+        "default": "./console.js"
+      },
       <%_ } else {_%>
       "./import": {
         "types": "./<%- entryPointName %>-import.d.ts",

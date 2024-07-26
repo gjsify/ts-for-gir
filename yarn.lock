@@ -12335,6 +12335,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ts-for-gir-example/console-tsc@workspace:examples/console-tsc":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/console-tsc@workspace:examples/console-tsc"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    typescript: "npm:^5.5.3"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gio-2-cat"
@@ -12604,6 +12613,15 @@ __metadata:
     "@girs/gtk-4.0": "workspace:^"
     typescript: "npm:^5.5.3"
     vite: "npm:^5.3.4"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir-example/pkg-tsc@workspace:examples/pkg-tsc":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/pkg-tsc@workspace:examples/pkg-tsc"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    typescript: "npm:^5.5.3"
   languageName: unknown
   linkType: soft
 

@@ -1,4 +1,5 @@
-<%_ const GLib = dep.find('GLib') -%>
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
+<%_ const GLib = await dep.get('GLib', '2.0') _%>
 <%_ if(!package && GLib){ _%>
 /// <reference path="./glib-2.0.d.ts" />
 <%_ } -%>
@@ -15,7 +16,8 @@
  */
 
 
-<%- GLib ? GLib.importDef : '' %>
+<%- GLib.importDef %>
+<%- GObject.importDef %>
 
 declare global {
 
@@ -224,18 +226,6 @@ declare global {
          * @param _label unique identifier for this action
          */
         timeStamp(_label: string): void
-
-        // GJS-specific extensions for integrating with GLib structured logging
-
-        /**
-         * @param logDomain the GLib log domain this Console should print
-         *   with. Defaults to 'Gjs-Console'.
-         */
-        setLogDomain(logDomain: string): void
-
-        logDomain: string
-
-        interact(): void
     }
 
     interface TextDecodeOptions {

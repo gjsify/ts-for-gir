@@ -19,6 +19,7 @@ declare module 'cairo' {
 }
 
 declare module 'console' {
-  import Console from '@girs/gjs/console';
+  import Console, { setConsoleLogDomain, getConsoleLogDomain, DEFAULT_LOG_DOMAIN } from '@girs/gjs/console';
+  export { setConsoleLogDomain, getConsoleLogDomain, DEFAULT_LOG_DOMAIN }
   export default Console;
 }

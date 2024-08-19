@@ -68,27 +68,18 @@ Install the dependencies and build:
 
 ```bash
 yarn install
-yarn run build
+yarn build
 ```
 
 Generate example type definitions:
 
 ```bash
-yarn run test:girs:local:gtk4
+yarn build:types:packages:gtk4
 ```
 
 ## Gir XML Format
 
 See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) for type definitions.
-
-## Debugging
-
-It is strongly recommended to use the debugger. For Visual Studio Code there are some predefined launch configurations for it.
-The VSCode launch.json configuration is intended that Node was installed via [NVM](https://github.com/nvm-sh/nvm) and yarn was installed globally using npm.
-
-Take a look at the following video, to see how the debugging process looks like:
-
-https://user-images.githubusercontent.com/1073989/150143112-1c0a2dab-3d4c-4472-818f-8404a620cc53.mp4
 
 ## Yarn
 
@@ -100,30 +91,12 @@ We have created some of them for development.
 npm install -g yarn
 ```
 
-### Validate
+## Validate
 
 To validate all your generated type definition files in this project run 
 
 ```bash
-yarn run validate:types:local
-```
-
-To validate only your type definition files for GJS
-
-```bash
-yarn run validate:types:gjs
-```
-
-To validate only your type definition files for node-gtk
-
-```bash
-yarn run validate:types:node
-```
-
-You can also validate a single type definition file like this
-
-```bash
-yarn run validate -- ./@types/gobject-2.0.d.ts
+yarn validate:types:packages
 ```
 
 ## Test
@@ -141,8 +114,18 @@ git submodule update --init
 Now you can run the test with
 
 ```bash
-yarn run test:girs:local
+yarn test:girs:packages
 ```
+
+## Update gir files
+
+To update the gir files we have introduced a new cli command `copy`, you can run it with our default settings as follows:
+
+```bash
+yarn copy:girs
+```
+
+This copies the latest gir file found on your machine into this repository, so that we can ensure that all developers can use the same gir files and that we always use the latest versions if possible.
 
 # FAQ
 
@@ -156,7 +139,7 @@ Solution:
 
 ```bash
 sudo sysctl -w vm.max_map_count=262144
-NODE_OPTIONS=--max-old-space-size=25600 yarn run ...
+NODE_OPTIONS=--max-old-space-size=25600 yarn ...
 ```
 
 # Related Projects

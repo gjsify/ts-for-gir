@@ -57,3 +57,5 @@ export const clutter10 = clutterTemplate("10");
 export const clutter11 = clutterTemplate("11");
 export const clutter12 = clutterTemplate("12");
 export const clutter13 = clutterTemplate("13");
+export const clutter14 = clutterTemplate("14");
+export const clutter15 = clutterTemplate("15");

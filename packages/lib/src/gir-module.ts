@@ -1,9 +1,9 @@
 // TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { IGNORE_GIR_TYPE_TS_DOC_TYPES, Transformation } from './transformation.js'
+import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
 import { DependencyManager } from './dependency-manager.js'
-import { find } from './utils.js'
+import { find, isIntrospectable } from './utils/index.js'
 import { LibraryVersion } from './library-version.js'
 
 import type {
@@ -12,7 +12,6 @@ import type {
     GirConstantElement,
     TsDocTag,
     GirInterfaceElement,
-    GirInfoAttrs,
     OptionsGeneration,
     GirEnumElement,
     GirBitfieldElement,
@@ -74,10 +73,16 @@ export class GirModule {
         return this.dependency.importNamespace
     }
 
+    /**
+     * The NPM package name E.g. 'gtk-4.0'
+     */
     get importName(): string {
         return this.dependency.importName
     }
 
+    /**
+     * Import path for the package E.g. './Gtk-4.0.js' or '@girs/Gtk-4.0'
+     */
     get importPath(): string {
         return this.dependency.importPath
     }
@@ -195,6 +200,16 @@ export class GirModule {
             }
         }
         if (this.packageName === 'GTop-2.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
+                transitiveDependencies.push(await this.dependencyManager.get('GLib', '2.0'))
+            }
+        }
+
+        // Gio
+        if (this.packageName === 'GioUnix-2.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Gio-2.0')) {
+                transitiveDependencies.push(await this.dependencyManager.get('Gio', '2.0'))
+            }
             if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
                 transitiveDependencies.push(await this.dependencyManager.get('GLib', '2.0'))
             }
@@ -408,7 +423,7 @@ export class GirModule {
         const clazz = this.getClass(name)
 
         if (!clazz) {
-            throw new Error(`Class ${name} does not exist in namespace ${this.namespace}.`)
+            throw new Error(`[${this.packageName}] Class ${name} does not exist in namespace ${this.namespace}.`)
         }
 
         return clazz
@@ -687,12 +702,6 @@ export class GirModule {
         }
     }
 }
-
-export const isIntrospectable = (e: { $?: GirInfoAttrs }) =>
-    !e || !e.$ || !e.$.introspectable || e.$.introspectable === '1'
-export const isDeprecated = (e: { $: GirInfoAttrs }) => e && e.$ && e.$.deprecated === '1'
-export const deprecatedVersion = (e: { $: GirInfoAttrs }) => e?.$?.['deprecated-version']
-export const introducedVersion = (e: { $: GirInfoAttrs }) => e?.$?.version
 
 export function promisifyNamespaceFunctions(namespace: GirModule) {
     return namespace.members.forEach((node) => {

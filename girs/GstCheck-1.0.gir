@@ -235,7 +235,7 @@ gst_harness_push_from_src (h);
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="722">Adds a #GstElement to an empty #GstHarness
+             line="762">Adds a #GstElement to an empty #GstHarness
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="71"/>
@@ -246,13 +246,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="724">a #GstHarness</doc>
+                 line="764">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="725">a #GstElement to add to the harness (transfer none)</doc>
+                 line="765">a #GstElement to add to the harness (transfer none)</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
           <parameter name="hsrc"
@@ -261,7 +261,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="726">a #GstStaticPadTemplate describing the harness srcpad.
+                 line="766">a #GstStaticPadTemplate describing the harness srcpad.
 %NULL will not create a harness srcpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -271,7 +271,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="728">a #gchar with the name of the element
+                 line="768">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. Can be a static or request
 or a sometimes pad that has been added. %NULL will not get/request a sinkpad
 from the element. (Like if the element is a src.)</doc>
@@ -283,7 +283,7 @@ from the element. (Like if the element is a src.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="732">a #GstStaticPadTemplate describing the harness sinkpad.
+                 line="772">a #GstStaticPadTemplate describing the harness sinkpad.
 %NULL will not create a harness sinkpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -293,7 +293,7 @@ from the element. (Like if the element is a src.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="734">a #gchar with the name of the element
+                 line="774">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad, similar to the
 @element_sinkpad_name.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -305,7 +305,7 @@ srcpad that is then linked to the harness sinkpad, similar to the
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1204">Links the specified #GstPad the @GstHarness srcpad.
+             line="1242">Links the specified #GstPad the @GstHarness srcpad.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="116"/>
@@ -316,13 +316,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1206">a #GstHarness</doc>
+                 line="1244">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="sinkpad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1207">a #GstPad to link to the harness srcpad</doc>
+                 line="1245">a #GstPad to link to the harness srcpad</doc>
             <type name="Gst.Pad" c:type="GstPad*"/>
           </parameter>
         </parameters>
@@ -332,7 +332,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1178">Links the specified #GstPad the @GstHarness sinkpad. This can be useful if
+             line="1216">Links the specified #GstPad the @GstHarness sinkpad. This can be useful if
 perhaps the srcpad did not exist at the time of creating the harness,
 like a demuxer that provides a sometimes-pad after receiving data.
 
@@ -345,13 +345,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1180">a #GstHarness</doc>
+                 line="1218">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="srcpad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1181">a #GstPad to link to the harness sinkpad</doc>
+                 line="1219">a #GstPad to link to the harness sinkpad</doc>
             <type name="Gst.Pad" c:type="GstPad*"/>
           </parameter>
         </parameters>
@@ -362,7 +362,7 @@ MT safe.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="954">Parses the @launchline and puts that in a #GstBin,
+             line="994">Parses the @launchline and puts that in a #GstBin,
 and then attches the supplied #GstHarness to the bin.
 
 MT safe.</doc>
@@ -374,13 +374,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="956">a #GstHarness</doc>
+                 line="996">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="launchline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="957">a #gchar describing a gst-launch type line</doc>
+                 line="997">a #gchar describing a gst-launch type line</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -390,7 +390,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2793">A convenience function to allows you to call gst_pad_add_probe on a
+             line="2831">A convenience function to allows you to call gst_pad_add_probe on a
 #GstPad of a #GstElement that are residing inside the #GstHarness,
 by using normal gst_pad_add_probe syntax
 
@@ -403,25 +403,25 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2795">a #GstHarness</doc>
+                 line="2833">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2796">a #gchar with a #GstElementFactory name</doc>
+                 line="2834">a #gchar with a #GstElementFactory name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="pad_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2797">a #gchar with the name of the pad to attach the probe to</doc>
+                 line="2835">a #gchar with the name of the pad to attach the probe to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2798">a #GstPadProbeType (see gst_pad_add_probe)</doc>
+                 line="2836">a #GstPadProbeType (see gst_pad_add_probe)</doc>
             <type name="Gst.PadProbeType" c:type="GstPadProbeType"/>
           </parameter>
           <parameter name="callback"
@@ -431,7 +431,7 @@ MT safe.</doc>
                      destroy="5">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2799">a #GstPadProbeCallback (see gst_pad_add_probe)</doc>
+                 line="2837">a #GstPadProbeCallback (see gst_pad_add_probe)</doc>
             <type name="Gst.PadProbeCallback" c:type="GstPadProbeCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -440,7 +440,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2800">a #gpointer (see gst_pad_add_probe)</doc>
+                 line="2838">a #gpointer (see gst_pad_add_probe)</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_data"
@@ -448,7 +448,7 @@ MT safe.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2801">a #GDestroyNotify (see gst_pad_add_probe)</doc>
+                 line="2839">a #GDestroyNotify (see gst_pad_add_probe)</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -458,7 +458,7 @@ MT safe.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2301">Add api with params as one of the supported metadata API to propose when
+             line="2339">Add api with params as one of the supported metadata API to propose when
 receiving an allocation query.
 
 MT safe.</doc>
@@ -470,13 +470,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2303">a #GstHarness</doc>
+                 line="2341">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="api" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2304">a metadata API</doc>
+                 line="2342">a metadata API</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="params"
@@ -485,7 +485,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2305">API specific parameters</doc>
+                 line="2343">API specific parameters</doc>
             <type name="Gst.Structure" c:type="const GstStructure*"/>
           </parameter>
         </parameters>
@@ -495,7 +495,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2582">Similar to gst_harness_add_sink_harness, this is a convenience to
+             line="2620">Similar to gst_harness_add_sink_harness, this is a convenience to
 directly create a sink-harness using the @sink_element_name name specified.
 
 MT safe.</doc>
@@ -507,13 +507,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2584">a #GstHarness</doc>
+                 line="2622">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="sink_element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2585">a #gchar with the name of a #GstElement</doc>
+                 line="2623">a #gchar with the name of a #GstElement</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -523,7 +523,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2530">Similar to gst_harness_add_src, this allows you to send the data coming out
+             line="2568">Similar to gst_harness_add_src, this allows you to send the data coming out
 of your harnessed #GstElement to a sink-element, allowing to test different
 responses the element output might create in sink elements. An example might
 be an existing sink providing some analytical data on the input it receives that
@@ -541,13 +541,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2532">a #GstHarness</doc>
+                 line="2570">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="sink_harness" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2533">a #GstHarness to be added as a sink-harness.</doc>
+                 line="2571">a #GstHarness to be added as a sink-harness.</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </parameter>
         </parameters>
@@ -557,7 +557,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2601">Similar to gst_harness_add_sink, this allows you to specify a launch-line
+             line="2639">Similar to gst_harness_add_sink, this allows you to specify a launch-line
 instead of just an element name. See gst_harness_add_src_parse for details.
 
 MT safe.</doc>
@@ -569,13 +569,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2603">a #GstHarness</doc>
+                 line="2641">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="launchline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2604">a #gchar with the name of a #GstElement</doc>
+                 line="2642">a #gchar with the name of a #GstElement</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -583,7 +583,7 @@ MT safe.</doc>
       <method name="add_src" c:identifier="gst_harness_add_src" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2370">Similar to gst_harness_add_src_harness, this is a convenience to
+             line="2408">Similar to gst_harness_add_src_harness, this is a convenience to
 directly create a src-harness using the @src_element_name name specified.
 
 MT safe.</doc>
@@ -595,19 +595,19 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2372">a #GstHarness</doc>
+                 line="2410">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="src_element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2373">a #gchar with the name of a #GstElement</doc>
+                 line="2411">a #gchar with the name of a #GstElement</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="has_clock_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2374">a #gboolean specifying if the #GstElement uses
+                 line="2412">a #gboolean specifying if the #GstElement uses
 gst_clock_wait_id internally.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -618,7 +618,7 @@ gst_clock_wait_id internally.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2333">A src-harness is a great way of providing the #GstHarness with data.
+             line="2371">A src-harness is a great way of providing the #GstHarness with data.
 By adding a src-type #GstElement, it is then easy to use functions like
 gst_harness_push_from_src or gst_harness_src_crank_and_push_many
 to provide your harnessed element with input. The @has_clock_wait variable
@@ -637,19 +637,19 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2335">a #GstHarness</doc>
+                 line="2373">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="src_harness" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2336">a #GstHarness to be added as a src-harness.</doc>
+                 line="2374">a #GstHarness to be added as a src-harness.</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </parameter>
           <parameter name="has_clock_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2337">a #gboolean specifying if the #GstElement uses
+                 line="2375">a #gboolean specifying if the #GstElement uses
 gst_clock_wait_id internally.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -660,7 +660,7 @@ gst_clock_wait_id internally.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2392">Similar to gst_harness_add_src, this allows you to specify a launch-line,
+             line="2430">Similar to gst_harness_add_src, this allows you to specify a launch-line,
 which can be useful for both having more then one #GstElement acting as your
 src (Like a src producing raw buffers, and then an encoder, providing encoded
 data), but also by allowing you to set properties like "is-live" directly on
@@ -675,19 +675,19 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2394">a #GstHarness</doc>
+                 line="2432">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="launchline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2395">a #gchar describing a gst-launch type line</doc>
+                 line="2433">a #gchar describing a gst-launch type line</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="has_clock_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2396">a #gboolean specifying if the #GstElement uses
+                 line="2434">a #gboolean specifying if the #GstElement uses
 gst_clock_wait_id internally.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -698,21 +698,21 @@ gst_clock_wait_id internally.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1805">The number of #GstBuffers currently in the #GstHarness sinkpad #GAsyncQueue
+             line="1843">The number of #GstBuffers currently in the #GstHarness sinkpad #GAsyncQueue
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="201"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1813">a #guint number of buffers in the queue</doc>
+               line="1851">a #guint number of buffers in the queue</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1807">a #GstHarness</doc>
+                 line="1845">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -722,7 +722,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1784">The total number of #GstBuffers that has arrived on the #GstHarness sinkpad.
+             line="1822">The total number of #GstBuffers that has arrived on the #GstHarness sinkpad.
 This number includes buffers that have been dropped as well as buffers
 that have already been pulled out.
 
@@ -731,14 +731,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1794">a #guint number of buffers received</doc>
+               line="1832">a #guint number of buffers received</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1786">a #GstHarness</doc>
+                 line="1824">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -748,7 +748,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1475">Similar to gst_harness_crank_single_clock_wait(), this is the function to use
+             line="1513">Similar to gst_harness_crank_single_clock_wait(), this is the function to use
 if your harnessed element(s) are using more then one gst_clock_id_wait.
 Failing to do so can (and will) make it racy which #GstClockID you actually
 are releasing, where as this function will process all the waits at the
@@ -760,20 +760,20 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1489">a @gboolean %TRUE if the "crank" was successful, %FALSE if not.</doc>
+               line="1527">a @gboolean %TRUE if the "crank" was successful, %FALSE if not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1477">a #GstHarness</doc>
+                 line="1515">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="waits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1478">a #guint describing the number of #GstClockIDs to crank</doc>
+                 line="1516">a #guint describing the number of #GstClockIDs to crank</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -783,7 +783,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1450">A "crank" consists of three steps:
+             line="1488">A "crank" consists of three steps:
 1: Wait for a #GstClockID to be registered with the #GstTestClock.
 2: Advance the #GstTestClock to the time the #GstClockID is waiting for.
 3: Release the #GstClockID wait.
@@ -797,14 +797,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1465">a @gboolean %TRUE if the "crank" was successful, %FALSE if not.</doc>
+               line="1503">a @gboolean %TRUE if the "crank" was successful, %FALSE if not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1452">a #GstHarness</doc>
+                 line="1490">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -814,7 +814,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1601">Allocates a buffer using a #GstBufferPool if present, or else using the
+             line="1639">Allocates a buffer using a #GstBufferPool if present, or else using the
 configured #GstAllocator and #GstAllocationParams
 
 MT safe.</doc>
@@ -822,20 +822,20 @@ MT safe.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1611">a #GstBuffer of size @size</doc>
+               line="1649">a #GstBuffer of size @size</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1603">a #GstHarness</doc>
+                 line="1641">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1604">a #gsize specifying the size of the buffer</doc>
+                 line="1642">a #gsize specifying the size of the buffer</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -845,7 +845,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1936">Allows you to dump the #GstBuffers the #GstHarness sinkpad #GAsyncQueue
+             line="1974">Allows you to dump the #GstBuffers the #GstHarness sinkpad #GAsyncQueue
 to a file.
 
 MT safe.</doc>
@@ -857,13 +857,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1938">a #GstHarness</doc>
+                 line="1976">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1939">a #gchar with a the name of a file</doc>
+                 line="1977">a #gchar with a the name of a file</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -873,21 +873,21 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2065">The number of #GstEvents currently in the #GstHarness sinkpad #GAsyncQueue
+             line="2103">The number of #GstEvents currently in the #GstHarness sinkpad #GAsyncQueue
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="236"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2073">a #guint number of events in the queue</doc>
+               line="2111">a #guint number of events in the queue</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2067">a #GstHarness</doc>
+                 line="2105">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -897,7 +897,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2044">The total number of #GstEvents that has arrived on the #GstHarness sinkpad
+             line="2082">The total number of #GstEvents that has arrived on the #GstHarness sinkpad
 This number includes events handled by the harness as well as events
 that have already been pulled out.
 
@@ -906,14 +906,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2054">a #guint number of events received</doc>
+               line="2092">a #guint number of events received</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2046">a #GstHarness</doc>
+                 line="2084">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -923,7 +923,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2671">Most useful in conjunction with gst_harness_new_parse, this will scan the
+             line="2709">Most useful in conjunction with gst_harness_new_parse, this will scan the
 #GstElements inside the #GstHarness, and check if any of them matches
 @element_name. Typical usecase being that you need to access one of the
 harnessed elements for properties and/or signals.
@@ -933,20 +933,20 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2683">a #GstElement or %NULL if not found</doc>
+               line="2721">a #GstElement or %NULL if not found</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2673">a #GstHarness</doc>
+                 line="2711">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2674">a #gchar with a #GstElementFactory name</doc>
+                 line="2712">a #gchar with a #GstElementFactory name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -957,7 +957,7 @@ MT safe.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2765">A convenience function to allows you to call g_object_get on a #GstElement
+             line="2803">A convenience function to allows you to call g_object_get on a #GstElement
 that are residing inside the #GstHarness, by using normal g_object_get
 syntax.
 
@@ -970,25 +970,25 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2767">a #GstHarness</doc>
+                 line="2805">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2768">a #gchar with a #GstElementFactory name</doc>
+                 line="2806">a #gchar with a #GstElementFactory name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2769">a #gchar with the first property name</doc>
+                 line="2807">a #gchar with the first property name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2770">return location for the first property, followed optionally by more
+                 line="2808">return location for the first property, followed optionally by more
  name/return location pairs, followed by %NULL</doc>
             <varargs/>
           </parameter>
@@ -999,7 +999,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2251">Gets the @allocator and its @params that has been decided to use after an
+             line="2289">Gets the @allocator and its @params that has been decided to use after an
 allocation query.
 
 MT safe.</doc>
@@ -1011,7 +1011,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2253">a #GstHarness</doc>
+                 line="2291">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="allocator"
@@ -1023,7 +1023,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2254">the #GstAllocator used</doc>
+                 line="2292">the #GstAllocator used</doc>
             <type name="Gst.Allocator" c:type="GstAllocator**"/>
           </parameter>
           <parameter name="params"
@@ -1034,7 +1034,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2255">the #GstAllocationParams of
+                 line="2293">the #GstAllocationParams of
   @allocator</doc>
             <type name="Gst.AllocationParams" c:type="GstAllocationParams*"/>
           </parameter>
@@ -1045,7 +1045,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1963">Get the timestamp of the last #GstBuffer pushed on the #GstHarness srcpad,
+             line="2001">Get the timestamp of the last #GstBuffer pushed on the #GstHarness srcpad,
 typically with gst_harness_push or gst_harness_push_from_src.
 
 MT safe.</doc>
@@ -1053,7 +1053,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1972">a #GstClockTime with the timestamp or %GST_CLOCK_TIME_NONE if no
+               line="2010">a #GstClockTime with the timestamp or %GST_CLOCK_TIME_NONE if no
 #GstBuffer has been pushed on the #GstHarness srcpad</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
@@ -1061,7 +1061,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1965">a #GstHarness</doc>
+                 line="2003">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1071,7 +1071,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1384">Get the #GstTestClock. Useful if specific operations on the testclock is
+             line="1422">Get the #GstTestClock. Useful if specific operations on the testclock is
 needed.
 
 MT safe.</doc>
@@ -1079,7 +1079,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1393">a #GstTestClock, or %NULL if the testclock is not
+               line="1431">a #GstTestClock, or %NULL if the testclock is not
 present.</doc>
           <type name="TestClock" c:type="GstTestClock*"/>
         </return-value>
@@ -1087,7 +1087,7 @@ present.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1386">a #GstHarness</doc>
+                 line="1424">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1095,7 +1095,7 @@ present.</doc>
       <method name="play" c:identifier="gst_harness_play" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1508">This will set the harnessed #GstElement to %GST_STATE_PLAYING.
+             line="1546">This will set the harnessed #GstElement to %GST_STATE_PLAYING.
 #GstElements without a sink-#GstPad and with the %GST_ELEMENT_FLAG_SOURCE
 flag set is considered a src #GstElement
 Non-src #GstElements (like sinks and filters) are automatically set to
@@ -1112,7 +1112,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1510">a #GstHarness</doc>
+                 line="1548">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1120,7 +1120,7 @@ MT safe.</doc>
       <method name="pull" c:identifier="gst_harness_pull" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1669">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. The pull
+             line="1707">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. The pull
 will timeout in 60 seconds. This is the standard way of getting a buffer
 from a harnessed #GstElement.
 
@@ -1129,14 +1129,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1679">a #GstBuffer or %NULL if timed out.</doc>
+               line="1717">a #GstBuffer or %NULL if timed out.</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1671">a #GstHarness</doc>
+                 line="1709">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1146,7 +1146,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2003">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness sinkpad.
+             line="2041">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness sinkpad.
 Timeouts after 60 seconds similar to gst_harness_pull.
 
 MT safe.</doc>
@@ -1154,14 +1154,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2012">a #GstEvent or %NULL if timed out.</doc>
+               line="2050">a #GstEvent or %NULL if timed out.</doc>
           <type name="Gst.Event" c:type="GstEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2005">a #GstHarness</doc>
+                 line="2043">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1171,21 +1171,21 @@ MT safe.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1699">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. The pull
+             line="1737">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. The pull
 will block until an EOS event is received, or timeout in 60 seconds.
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="192"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1709">%TRUE on success, %FALSE on timeout.</doc>
+               line="1747">%TRUE on success, %FALSE on timeout.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1701">a #GstHarness</doc>
+                 line="1739">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="buf"
@@ -1195,7 +1195,7 @@ MT safe.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1702">A #GstBuffer, or %NULL if EOS or timeout occures
+                 line="1740">A #GstBuffer, or %NULL if EOS or timeout occures
   first.</doc>
             <type name="Gst.Buffer" c:type="GstBuffer**"/>
           </parameter>
@@ -1206,7 +1206,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2106">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness srcpad.
+             line="2144">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness srcpad.
 Timeouts after 60 seconds similar to gst_harness_pull.
 
 MT safe.</doc>
@@ -1214,14 +1214,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2115">a #GstEvent or %NULL if timed out.</doc>
+               line="2153">a #GstEvent or %NULL if timed out.</doc>
           <type name="Gst.Event" c:type="GstEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2108">a #GstHarness</doc>
+                 line="2146">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1229,7 +1229,7 @@ MT safe.</doc>
       <method name="push" c:identifier="gst_harness_push" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1646">Pushes a #GstBuffer on the #GstHarness srcpad. The standard way of
+             line="1684">Pushes a #GstBuffer on the #GstHarness srcpad. The standard way of
 interacting with an harnessed element.
 
 MT safe.</doc>
@@ -1237,20 +1237,20 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1656">a #GstFlowReturn with the result from the push</doc>
+               line="1694">a #GstFlowReturn with the result from the push</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1648">a #GstHarness</doc>
+                 line="1686">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1649">a #GstBuffer to push</doc>
+                 line="1687">a #GstBuffer to push</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -1260,7 +1260,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1762">Basically a gst_harness_push and a gst_harness_pull in one line. Reflects
+             line="1800">Basically a gst_harness_push and a gst_harness_pull in one line. Reflects
 the fact that you often want to do exactly this in your test: Push one buffer
 in, and inspect the outcome.
 
@@ -1269,20 +1269,20 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1773">a #GstBuffer or %NULL if timed out.</doc>
+               line="1811">a #GstBuffer or %NULL if timed out.</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1764">a #GstHarness</doc>
+                 line="1802">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1765">a #GstBuffer to push</doc>
+                 line="1803">a #GstBuffer to push</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -1292,27 +1292,27 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1984">Pushes an #GstEvent on the #GstHarness srcpad.
+             line="2022">Pushes an #GstEvent on the #GstHarness srcpad.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="224"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1993">a #gboolean with the result from the push</doc>
+               line="2031">a #gboolean with the result from the push</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1986">a #GstHarness</doc>
+                 line="2024">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1987">a #GstEvent to push</doc>
+                 line="2025">a #GstEvent to push</doc>
             <type name="Gst.Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -1322,7 +1322,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2417">Transfer data from the src-#GstHarness to the main-#GstHarness. It consists
+             line="2455">Transfer data from the src-#GstHarness to the main-#GstHarness. It consists
 of 4 steps:
 1: Make sure the src is started. (see: gst_harness_play)
 2: Crank the clock (see: gst_harness_crank_single_clock_wait)
@@ -1334,14 +1334,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2430">a #GstFlowReturn with the result of the push</doc>
+               line="2468">a #GstFlowReturn with the result of the push</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2419">a #GstHarness</doc>
+                 line="2457">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1351,7 +1351,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2620">Transfer one #GstBuffer from the main-#GstHarness to the sink-#GstHarness.
+             line="2658">Transfer one #GstBuffer from the main-#GstHarness to the sink-#GstHarness.
 See gst_harness_push_from_src for details.
 
 MT safe.</doc>
@@ -1359,14 +1359,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2629">a #GstFlowReturn with the result of the push</doc>
+               line="2667">a #GstFlowReturn with the result of the push</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2622">a #GstHarness</doc>
+                 line="2660">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1376,27 +1376,27 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2084">Pushes an #GstEvent on the #GstHarness sinkpad.
+             line="2122">Pushes an #GstEvent on the #GstHarness sinkpad.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="241"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2093">a #gboolean with the result from the push</doc>
+               line="2131">a #gboolean with the result from the push</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2086">a #GstHarness</doc>
+                 line="2124">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2087">a #GstEvent to push</doc>
+                 line="2125">a #GstEvent to push</doc>
             <type name="Gst.Event" c:type="GstEvent*"/>
           </parameter>
         </parameters>
@@ -1406,21 +1406,21 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2187">Get the min latency reported by any harnessed #GstElement.
+             line="2225">Get the min latency reported by any harnessed #GstElement.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="258"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2195">a #GstClockTime with min latency</doc>
+               line="2233">a #GstClockTime with min latency</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2189">a #GstHarness</doc>
+                 line="2227">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1431,7 +1431,7 @@ MT safe.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2737">A convenience function to allows you to call g_object_set on a #GstElement
+             line="2775">A convenience function to allows you to call g_object_set on a #GstElement
 that are residing inside the #GstHarness, by using normal g_object_set
 syntax.
 
@@ -1444,25 +1444,25 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2739">a #GstHarness</doc>
+                 line="2777">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2740">a #gchar with a #GstElementFactory name</doc>
+                 line="2778">a #gchar with a #GstElementFactory name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="first_property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2741">a #gchar with the first property name</doc>
+                 line="2779">a #gchar with the first property name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2742">value for the first property, followed optionally by more
+                 line="2780">value for the first property, followed optionally by more
  name/value pairs, followed by %NULL</doc>
             <varargs/>
           </parameter>
@@ -1473,7 +1473,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1536">Setting this will make the harness block in the chain-function, and
+             line="1574">Setting this will make the harness block in the chain-function, and
 then release when gst_harness_pull() or gst_harness_try_pull() is called.
 Can be useful when wanting to control a src-element that is not implementing
 gst_clock_id_wait() so it can't be controlled by the #GstTestClock, since
@@ -1488,7 +1488,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1538">a #GstHarness</doc>
+                 line="1576">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1498,7 +1498,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1276">Sets the @GstHarness srcpad and sinkpad caps.
+             line="1314">Sets the @GstHarness srcpad and sinkpad caps.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="127"/>
@@ -1509,19 +1509,19 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1278">a #GstHarness</doc>
+                 line="1316">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="in" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1279">a #GstCaps to set on the harness srcpad</doc>
+                 line="1317">a #GstCaps to set on the harness srcpad</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="out" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1280">a #GstCaps to set on the harness sinkpad</doc>
+                 line="1318">a #GstCaps to set on the harness sinkpad</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -1531,7 +1531,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1330">Sets the @GstHarness srcpad and sinkpad caps using strings.
+             line="1368">Sets the @GstHarness srcpad and sinkpad caps using strings.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="136"/>
@@ -1542,19 +1542,19 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1332">a #GstHarness</doc>
+                 line="1370">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="in" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1333">a @gchar describing a #GstCaps to set on the harness srcpad</doc>
+                 line="1371">a @gchar describing a #GstCaps to set on the harness srcpad</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1334">a @gchar describing a #GstCaps to set on the harness sinkpad</doc>
+                 line="1372">a @gchar describing a #GstCaps to set on the harness sinkpad</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1564,7 +1564,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1824">When set to %TRUE, instead of placing the buffers arriving from the harnessed
+             line="1862">When set to %TRUE, instead of placing the buffers arriving from the harnessed
 #GstElement inside the sinkpads #GAsyncQueue, they are instead unreffed.
 
 MT safe.</doc>
@@ -1576,13 +1576,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1826">a #GstHarness</doc>
+                 line="1864">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="drop_buffers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1827">a #gboolean specifying to drop outgoing buffers or not</doc>
+                 line="1865">a #gboolean specifying to drop outgoing buffers or not</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1592,7 +1592,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1557">As a convenience, a src-harness will forward %GST_EVENT_STREAM_START,
+             line="1595">As a convenience, a src-harness will forward %GST_EVENT_STREAM_START,
 %GST_EVENT_CAPS and %GST_EVENT_SEGMENT to the main-harness if forwarding
 is enabled, and forward any sticky-events from the main-harness to
 the sink-harness. It will also forward the %GST_QUERY_ALLOCATION.
@@ -1615,13 +1615,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1559">a #GstHarness</doc>
+                 line="1597">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="forwarding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1560">a #gboolean to enable/disable forwarding</doc>
+                 line="1598">a #gboolean to enable/disable forwarding</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1631,7 +1631,7 @@ MT safe.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2234">Sets the liveness reported by #GstHarness when receiving a latency-query.
+             line="2272">Sets the liveness reported by #GstHarness when receiving a latency-query.
 The default is %TRUE.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="264"/>
         <return-value transfer-ownership="none">
@@ -1641,13 +1641,13 @@ The default is %TRUE.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2236">a #GstHarness</doc>
+                 line="2274">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="is_live" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2237">%TRUE for live, %FALSE for non-live</doc>
+                 line="2275">%TRUE for live, %FALSE for non-live</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1657,7 +1657,7 @@ The default is %TRUE.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2277">Sets the @allocator and @params to propose when receiving an allocation
+             line="2315">Sets the @allocator and @params to propose when receiving an allocation
 query.
 
 MT safe.</doc>
@@ -1669,7 +1669,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2279">a #GstHarness</doc>
+                 line="2317">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="allocator"
@@ -1678,7 +1678,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2280">a #GstAllocator</doc>
+                 line="2318">a #GstAllocator</doc>
             <type name="Gst.Allocator" c:type="GstAllocator*"/>
           </parameter>
           <parameter name="params"
@@ -1687,7 +1687,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2281">a #GstAllocationParams</doc>
+                 line="2319">a #GstAllocationParams</doc>
             <type name="Gst.AllocationParams"
                   c:type="const GstAllocationParams*"/>
           </parameter>
@@ -1698,7 +1698,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1256">Sets the @GstHarness sinkpad caps.
+             line="1294">Sets the @GstHarness sinkpad caps.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="124"/>
@@ -1709,13 +1709,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1258">a #GstHarness</doc>
+                 line="1296">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1259">a #GstCaps to set on the harness sinkpad</doc>
+                 line="1297">a #GstCaps to set on the harness sinkpad</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -1725,7 +1725,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1313">Sets the @GstHarness sinkpad caps using a string.
+             line="1351">Sets the @GstHarness sinkpad caps using a string.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="133"/>
@@ -1736,13 +1736,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1315">a #GstHarness</doc>
+                 line="1353">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1316">a @gchar describing a #GstCaps to set on the harness sinkpad</doc>
+                 line="1354">a @gchar describing a #GstCaps to set on the harness sinkpad</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1752,7 +1752,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1228">Sets the @GstHarness srcpad caps. This must be done before any buffers
+             line="1266">Sets the @GstHarness srcpad caps. This must be done before any buffers
 can legally be pushed from the harness to the element.
 
 MT safe.</doc>
@@ -1764,13 +1764,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1230">a #GstHarness</doc>
+                 line="1268">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1231">a #GstCaps to set on the harness srcpad</doc>
+                 line="1269">a #GstCaps to set on the harness srcpad</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -1780,7 +1780,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1295">Sets the @GstHarness srcpad caps using a string. This must be done before
+             line="1333">Sets the @GstHarness srcpad caps using a string. This must be done before
 any buffers can legally be pushed from the harness to the element.
 
 MT safe.</doc>
@@ -1792,13 +1792,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1297">a #GstHarness</doc>
+                 line="1335">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1298">a @gchar describing a #GstCaps to set on the harness srcpad</doc>
+                 line="1336">a @gchar describing a #GstCaps to set on the harness srcpad</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1808,27 +1808,27 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1404">Advance the #GstTestClock to a specific time.
+             line="1442">Advance the #GstTestClock to a specific time.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="152"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1413">a @gboolean %TRUE if the time could be set. %FALSE if not.</doc>
+               line="1451">a @gboolean %TRUE if the time could be set. %FALSE if not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1406">a #GstHarness</doc>
+                 line="1444">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1407">a #GstClockTime to advance the clock to</doc>
+                 line="1445">a #GstClockTime to advance the clock to</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -1838,7 +1838,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2217">Sets the min latency reported by #GstHarness when receiving a latency-query</doc>
+             line="2255">Sets the min latency reported by #GstHarness when receiving a latency-query</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="261"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1847,13 +1847,13 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2219">a #GstHarness</doc>
+                 line="2257">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="latency" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2220">a #GstClockTime specifying the latency</doc>
+                 line="2258">a #GstClockTime specifying the latency</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -1863,7 +1863,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2643">Convenience that calls gst_harness_push_to_sink @pushes number of times.
+             line="2681">Convenience that calls gst_harness_push_to_sink @pushes number of times.
 Will abort the pushing if any one push fails.
 
 MT safe.</doc>
@@ -1871,20 +1871,20 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2653">a #GstFlowReturn with the result of the push</doc>
+               line="2691">a #GstFlowReturn with the result of the push</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2645">a #GstHarness</doc>
+                 line="2683">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="pushes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2646">a #gint with the number of calls to gst_harness_push_to_sink</doc>
+                 line="2684">a #gint with the number of calls to gst_harness_push_to_sink</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1894,7 +1894,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2456">Transfer data from the src-#GstHarness to the main-#GstHarness. Similar to
+             line="2494">Transfer data from the src-#GstHarness to the main-#GstHarness. Similar to
 gst_harness_push_from_src, this variant allows you to specify how many cranks
 and how many pushes to perform. This can be useful for both moving a lot
 of data at the same time, as well as cases when one crank does not equal one
@@ -1905,26 +1905,26 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2470">a #GstFlowReturn with the result of the push</doc>
+               line="2508">a #GstFlowReturn with the result of the push</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2458">a #GstHarness</doc>
+                 line="2496">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="cranks" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2459">a #gint with the number of calls to gst_harness_crank_single_clock_wait</doc>
+                 line="2497">a #gint with the number of calls to gst_harness_crank_single_clock_wait</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="pushes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2460">a #gint with the number of calls to gst_harness_push</doc>
+                 line="2498">a #gint with the number of calls to gst_harness_push</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1934,7 +1934,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2501">Similar to what gst_harness_src_push does with #GstBuffers, this transfers
+             line="2539">Similar to what gst_harness_src_push does with #GstBuffers, this transfers
 a #GstEvent from the src-#GstHarness to the main-#GstHarness. Note that
 some #GstEvents are being transferred automagically. Look at sink_forward_pad
 for details.
@@ -1944,14 +1944,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2512">a #gboolean with the result of the push</doc>
+               line="2550">a #gboolean with the result of the push</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2503">a #GstHarness</doc>
+                 line="2541">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -1962,7 +1962,7 @@ MT safe.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3190">Start a custom stress-thread that will call your @callback for every
+             line="3228">Start a custom stress-thread that will call your @callback for every
 iteration allowing you to do something nasty.
 
 MT safe.</doc>
@@ -1970,14 +1970,14 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3204">a #GstHarnessThread</doc>
+               line="3242">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3192">a #GstHarness</doc>
+                 line="3230">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="init"
@@ -1986,13 +1986,13 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3193">a #GFunc that is called initially and only once</doc>
+                 line="3231">a #GFunc that is called initially and only once</doc>
             <type name="GLib.Func" c:type="GFunc"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" closure="2">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3194">a #GFunc that is called as often as possible</doc>
+                 line="3232">a #GFunc that is called as often as possible</doc>
             <type name="GLib.Func" c:type="GFunc"/>
           </parameter>
           <parameter name="data"
@@ -2001,13 +2001,13 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3195">a #gpointer with custom data to pass to the @callback function</doc>
+                 line="3233">a #gpointer with custom data to pass to the @callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3196">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3234">a #gulong specifying how long to sleep in (microseconds) for
 each call to the @callback</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2019,39 +2019,39 @@ each call to the @callback</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3451">Call g_object_set with @name and @value in intervals of @sleep microseconds
+             line="3489">Call g_object_set with @name and @value in intervals of @sleep microseconds
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="456"/>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3463">a #GstHarnessThread</doc>
+               line="3501">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3453">a #GstHarness</doc>
+                 line="3491">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3454">a #gchar specifying a property name</doc>
+                 line="3492">a #gchar specifying a property name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3455">a #GValue to set the property to</doc>
+                 line="3493">a #GValue to set the property to</doc>
             <type name="GObject.Value" c:type="const GValue*"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3456">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3494">a #gulong specifying how long to sleep in (microseconds) for
 each g_object_set with @name and @value</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2063,45 +2063,45 @@ each g_object_set with @name and @value</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3263">Push a #GstBuffer in intervals of @sleep microseconds.
+             line="3301">Push a #GstBuffer in intervals of @sleep microseconds.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="379"/>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3276">a #GstHarnessThread</doc>
+               line="3314">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3265">a #GstHarness</doc>
+                 line="3303">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3266">a #GstCaps for the #GstBuffer</doc>
+                 line="3304">a #GstCaps for the #GstBuffer</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="segment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3267">a #GstSegment</doc>
+                 line="3305">a #GstSegment</doc>
             <type name="Gst.Segment" c:type="const GstSegment*"/>
           </parameter>
           <parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3268">a #GstBuffer to push</doc>
+                 line="3306">a #GstBuffer to push</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3269">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3307">a #gulong specifying how long to sleep in (microseconds) for
 each call to gst_pad_push</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2113,33 +2113,33 @@ each call to gst_pad_push</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3289">Push a #GstBuffer returned by @func in intervals of @sleep microseconds.
+             line="3327">Push a #GstBuffer returned by @func in intervals of @sleep microseconds.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="398"/>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3305">a #GstHarnessThread</doc>
+               line="3343">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3291">a #GstHarness</doc>
+                 line="3329">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3292">a #GstCaps for the #GstBuffer</doc>
+                 line="3330">a #GstCaps for the #GstBuffer</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="segment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3293">a #GstSegment</doc>
+                 line="3331">a #GstSegment</doc>
             <type name="Gst.Segment" c:type="const GstSegment*"/>
           </parameter>
           <parameter name="func"
@@ -2149,7 +2149,7 @@ MT safe.</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3294">a #GstHarnessPrepareBufferFunc function called before every iteration
+                 line="3332">a #GstHarnessPrepareBufferFunc function called before every iteration
 to prepare / create a #GstBuffer for pushing</doc>
             <type name="HarnessPrepareBufferFunc"
                   c:type="GstHarnessPrepareBufferFunc"/>
@@ -2160,19 +2160,19 @@ to prepare / create a #GstBuffer for pushing</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3296">a #gpointer with data to the #GstHarnessPrepareBufferFunc function</doc>
+                 line="3334">a #gpointer with data to the #GstHarnessPrepareBufferFunc function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3297">a #GDestroyNotify that is called when thread is stopped</doc>
+                 line="3335">a #GDestroyNotify that is called when thread is stopped</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3298">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3336">a #gulong specifying how long to sleep in (microseconds) for
 each call to gst_pad_push</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2184,7 +2184,7 @@ each call to gst_pad_push</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3329">Push the @event onto the harnessed #GstElement sinkpad in intervals of
+             line="3367">Push the @event onto the harnessed #GstElement sinkpad in intervals of
 @sleep microseconds
 
 MT safe.</doc>
@@ -2192,26 +2192,26 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3341">a #GstHarnessThread</doc>
+               line="3379">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3331">a #GstHarness</doc>
+                 line="3369">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3332">a #GstEvent to push</doc>
+                 line="3370">a #GstEvent to push</doc>
             <type name="Gst.Event" c:type="GstEvent*"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3333">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3371">a #gulong specifying how long to sleep in (microseconds) for
 each gst_event_push with @event</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2223,7 +2223,7 @@ each gst_event_push with @event</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3354">Push a #GstEvent returned by @func onto the harnessed #GstElement sinkpad
+             line="3392">Push a #GstEvent returned by @func onto the harnessed #GstElement sinkpad
 in intervals of @sleep microseconds.
 
 MT safe.</doc>
@@ -2231,14 +2231,14 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3369">a #GstHarnessThread</doc>
+               line="3407">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3356">a #GstHarness</doc>
+                 line="3394">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="func"
@@ -2248,7 +2248,7 @@ MT safe.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3357">a #GstHarnessPrepareEventFunc function called before every iteration
+                 line="3395">a #GstHarnessPrepareEventFunc function called before every iteration
 to prepare / create a #GstEvent for pushing</doc>
             <type name="HarnessPrepareEventFunc"
                   c:type="GstHarnessPrepareEventFunc"/>
@@ -2259,19 +2259,19 @@ to prepare / create a #GstEvent for pushing</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3359">a #gpointer with data to the #GstHarnessPrepareEventFunc function</doc>
+                 line="3397">a #gpointer with data to the #GstHarnessPrepareEventFunc function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3360">a #GDestroyNotify that is called when thread is stopped</doc>
+                 line="3398">a #GDestroyNotify that is called when thread is stopped</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3361">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3399">a #gulong specifying how long to sleep in (microseconds) for
 each call to gst_pad_push</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2283,7 +2283,7 @@ each call to gst_pad_push</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3390">Push the @event onto the harnessed #GstElement srcpad in intervals of
+             line="3428">Push the @event onto the harnessed #GstElement srcpad in intervals of
 @sleep microseconds.
 
 MT safe.</doc>
@@ -2291,26 +2291,26 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3402">a #GstHarnessThread</doc>
+               line="3440">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3392">a #GstHarness</doc>
+                 line="3430">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3393">a #GstEvent to push</doc>
+                 line="3431">a #GstEvent to push</doc>
             <type name="Gst.Event" c:type="GstEvent*"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3394">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3432">a #gulong specifying how long to sleep in (microseconds) for
 each gst_event_push with @event</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2322,7 +2322,7 @@ each gst_event_push with @event</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3415">Push a #GstEvent returned by @func onto the harnessed #GstElement srcpad
+             line="3453">Push a #GstEvent returned by @func onto the harnessed #GstElement srcpad
 in intervals of @sleep microseconds.
 
 MT safe.</doc>
@@ -2330,14 +2330,14 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3430">a #GstHarnessThread</doc>
+               line="3468">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3417">a #GstHarness</doc>
+                 line="3455">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="func"
@@ -2347,7 +2347,7 @@ MT safe.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3418">a #GstHarnessPrepareEventFunc function called before every iteration
+                 line="3456">a #GstHarnessPrepareEventFunc function called before every iteration
 to prepare / create a #GstEvent for pushing</doc>
             <type name="HarnessPrepareEventFunc"
                   c:type="GstHarnessPrepareEventFunc"/>
@@ -2358,19 +2358,19 @@ to prepare / create a #GstEvent for pushing</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3420">a #gpointer with data to the #GstHarnessPrepareEventFunc function</doc>
+                 line="3458">a #gpointer with data to the #GstHarnessPrepareEventFunc function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3421">a #GDestroyNotify that is called when thread is stopped</doc>
+                 line="3459">a #GDestroyNotify that is called when thread is stopped</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3422">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3460">a #gulong specifying how long to sleep in (microseconds) for
 each call to gst_pad_push</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2382,51 +2382,51 @@ each call to gst_pad_push</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3483">Call gst_element_request_pad in intervals of @sleep microseconds
+             line="3521">Call gst_element_request_pad in intervals of @sleep microseconds
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="465"/>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3497">a #GstHarnessThread</doc>
+               line="3535">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3485">a #GstHarness</doc>
+                 line="3523">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="templ" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3486">a #GstPadTemplate</doc>
+                 line="3524">a #GstPadTemplate</doc>
             <type name="Gst.PadTemplate" c:type="GstPadTemplate*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3487">a #gchar</doc>
+                 line="3525">a #gchar</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3488">a #GstCaps</doc>
+                 line="3526">a #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="release" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3489">a #gboolean</doc>
+                 line="3527">a #gboolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3490">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3528">a #gulong specifying how long to sleep in (microseconds) for
 each gst_element_request_pad</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2438,7 +2438,7 @@ each gst_element_request_pad</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3224">Change the state of your harnessed #GstElement from NULL to PLAYING and
+             line="3262">Change the state of your harnessed #GstElement from NULL to PLAYING and
 back again, only pausing for @sleep microseconds every time.
 
 MT safe.</doc>
@@ -2446,20 +2446,20 @@ MT safe.</doc>
         <return-value>
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3235">a #GstHarnessThread</doc>
+               line="3273">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3226">a #GstHarness</doc>
+                 line="3264">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="sleep" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3227">a #gulong specifying how long to sleep in (microseconds) for
+                 line="3265">a #gulong specifying how long to sleep in (microseconds) for
 each state-change</doc>
             <type name="gulong" c:type="gulong"/>
           </parameter>
@@ -2472,13 +2472,13 @@ each state-change</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1883">Pulls all pending data from the harness and returns it as a single
+             line="1921">Pulls all pending data from the harness and returns it as a single
 data slice.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="210"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1891">a pointer to the data, newly allocated. Free
+               line="1929">a pointer to the data, newly allocated. Free
     with g_free() when no longer needed. Will return %NULL if there is no
     data.</doc>
           <type name="guint8" c:type="guint8*"/>
@@ -2487,7 +2487,7 @@ data slice.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1885">a #GstHarness</doc>
+                 line="1923">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="size"
@@ -2496,7 +2496,7 @@ data slice.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1886">the size of the data in bytes</doc>
+                 line="1924">the size of the data in bytes</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -2506,12 +2506,12 @@ data slice.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1843">Pulls all pending data from the harness and returns it as a single buffer.</doc>
+             line="1881">Pulls all pending data from the harness and returns it as a single buffer.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="213"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1849">the data as a buffer. Unref with gst_buffer_unref()
+               line="1887">the data as a buffer. Unref with gst_buffer_unref()
     when no longer needed.</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
@@ -2519,7 +2519,7 @@ data slice.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1845">a #GstHarness</doc>
+                 line="1883">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2530,12 +2530,12 @@ data slice.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1912">Pulls all pending data from the harness and returns it as a single #GBytes.</doc>
+             line="1950">Pulls all pending data from the harness and returns it as a single #GBytes.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="216"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1918">a pointer to the data, newly allocated. Free
+               line="1956">a pointer to the data, newly allocated. Free
     with g_free() when no longer needed.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
@@ -2543,7 +2543,7 @@ data slice.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1914">a #GstHarness</doc>
+                 line="1952">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2553,7 +2553,7 @@ data slice.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1050">Tears down a @GstHarness, freeing all resources allocated using it.
+             line="1090">Tears down a @GstHarness, freeing all resources allocated using it.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="110"/>
@@ -2564,7 +2564,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1052">a #GstHarness</doc>
+                 line="1092">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2574,7 +2574,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1733">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. Unlike
+             line="1771">Pulls a #GstBuffer from the #GAsyncQueue on the #GstHarness sinkpad. Unlike
 gst_harness_pull this will not wait for any buffers if not any are present,
 and return %NULL straight away.
 
@@ -2583,14 +2583,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1743">a #GstBuffer or %NULL if no buffers are present in the #GAsyncQueue</doc>
+               line="1781">a #GstBuffer or %NULL if no buffers are present in the #GAsyncQueue</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1735">a #GstHarness</doc>
+                 line="1773">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2600,7 +2600,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2024">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness sinkpad.
+             line="2062">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness sinkpad.
 See gst_harness_try_pull for details.
 
 MT safe.</doc>
@@ -2608,14 +2608,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2033">a #GstEvent or %NULL if no buffers are present in the #GAsyncQueue</doc>
+               line="2071">a #GstEvent or %NULL if no buffers are present in the #GAsyncQueue</doc>
           <type name="Gst.Event" c:type="GstEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2026">a #GstHarness</doc>
+                 line="2064">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2625,7 +2625,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2127">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness srcpad.
+             line="2165">Pulls an #GstEvent from the #GAsyncQueue on the #GstHarness srcpad.
 See gst_harness_try_pull for details.
 
 MT safe.</doc>
@@ -2633,14 +2633,14 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2136">a #GstEvent or %NULL if no buffers are present in the #GAsyncQueue</doc>
+               line="2174">a #GstEvent or %NULL if no buffers are present in the #GAsyncQueue</doc>
           <type name="Gst.Event" c:type="GstEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2129">a #GstHarness</doc>
+                 line="2167">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2650,21 +2650,21 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2168">The number of #GstEvents currently in the #GstHarness srcpad #GAsyncQueue
+             line="2206">The number of #GstEvents currently in the #GstHarness srcpad #GAsyncQueue
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="253"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2176">a #guint number of events in the queue</doc>
+               line="2214">a #guint number of events in the queue</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2170">a #GstHarness</doc>
+                 line="2208">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2674,7 +2674,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="2147">The total number of #GstEvents that has arrived on the #GstHarness srcpad
+             line="2185">The total number of #GstEvents that has arrived on the #GstHarness srcpad
 This number includes events handled by the harness as well as events
 that have already been pulled out.
 
@@ -2683,14 +2683,14 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="2157">a #guint number of events received</doc>
+               line="2195">a #guint number of events received</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="2149">a #GstHarness</doc>
+                 line="2187">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2700,7 +2700,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1349">Sets the system #GstClock on the @GstHarness #GstElement
+             line="1387">Sets the system #GstClock on the @GstHarness #GstElement
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="143"/>
@@ -2711,7 +2711,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1351">a #GstHarness</doc>
+                 line="1389">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2721,7 +2721,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1368">Sets the #GstTestClock on the #GstHarness #GstElement
+             line="1406">Sets the #GstTestClock on the #GstHarness #GstElement
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="146"/>
@@ -2732,7 +2732,7 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1370">a #GstHarness</doc>
+                 line="1408">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
         </parameters>
@@ -2742,7 +2742,7 @@ MT safe.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1424">Waits for @timeout seconds until @waits number of #GstClockID waits is
+             line="1462">Waits for @timeout seconds until @waits number of #GstClockID waits is
 registered with the #GstTestClock. Useful for writing deterministic tests,
 where you want to make sure that an expected number of waits have been
 reached.
@@ -2752,7 +2752,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1438">a @gboolean %TRUE if the waits have been registered, %FALSE if not.
+               line="1476">a @gboolean %TRUE if the waits have been registered, %FALSE if not.
 (Could be that it timed out waiting or that more waits than waits was found)</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2760,20 +2760,20 @@ MT safe.</doc>
           <instance-parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1426">a #GstHarness</doc>
+                 line="1464">a #GstHarness</doc>
             <type name="Harness" c:type="GstHarness*"/>
           </instance-parameter>
           <parameter name="waits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1427">a #guint describing the numbers of #GstClockID registered with
+                 line="1465">a #guint describing the numbers of #GstClockID registered with
 the #GstTestClock</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1429">a #guint describing how many seconds to wait for @waits to be true</doc>
+                 line="1467">a #guint describing how many seconds to wait for @waits to be true</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2784,7 +2784,7 @@ the #GstTestClock</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="934">Creates a new harness. Works like gst_harness_new_with_padnames(), except it
+             line="974">Creates a new harness. Works like gst_harness_new_with_padnames(), except it
 assumes the #GstElement sinkpad is named "sink" and srcpad is named "src"
 
 MT safe.</doc>
@@ -2792,7 +2792,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="943">a #GstHarness, or %NULL if the harness could
+               line="983">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2800,7 +2800,7 @@ not be created</doc>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="936">a #gchar describing the #GstElement name</doc>
+                 line="976">a #gchar describing the #GstElement name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2811,7 +2811,7 @@ not be created</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="663">Creates a new empty harness. Use gst_harness_add_element_full() to add
+             line="703">Creates a new empty harness. Use gst_harness_add_element_full() to add
 an #GstElement to it.
 
 MT safe.</doc>
@@ -2819,7 +2819,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="671">a #GstHarness, or %NULL if the harness could
+               line="711">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2830,14 +2830,14 @@ not be created</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="804">Creates a new harness.
+             line="844">Creates a new harness.
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="79"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="823">a #GstHarness, or %NULL if the harness could
+               line="863">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2845,7 +2845,7 @@ not be created</doc>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="806">a #GstElement to attach the harness to (transfer none)</doc>
+                 line="846">a #GstElement to attach the harness to (transfer none)</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
           <parameter name="hsrc"
@@ -2854,7 +2854,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="807">a #GstStaticPadTemplate describing the harness srcpad.
+                 line="847">a #GstStaticPadTemplate describing the harness srcpad.
 %NULL will not create a harness srcpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -2864,7 +2864,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="809">a #gchar with the name of the element
+                 line="849">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. Can be a static or request
 or a sometimes pad that has been added. %NULL will not get/request a sinkpad
 from the element. (Like if the element is a src.)</doc>
@@ -2876,7 +2876,7 @@ from the element. (Like if the element is a src.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="813">a #GstStaticPadTemplate describing the harness sinkpad.
+                 line="853">a #GstStaticPadTemplate describing the harness sinkpad.
 %NULL will not create a harness sinkpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -2886,7 +2886,7 @@ from the element. (Like if the element is a src.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="815">a #gchar with the name of the element
+                 line="855">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad, similar to the
 @element_sinkpad_name.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -2899,7 +2899,7 @@ srcpad that is then linked to the harness sinkpad, similar to the
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1027">Creates a new harness, parsing the @launchline and putting that in a #GstBin,
+             line="1067">Creates a new harness, parsing the @launchline and putting that in a #GstBin,
 and then attches the harness to the bin.
 
 MT safe.</doc>
@@ -2907,7 +2907,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1036">a #GstHarness, or %NULL if the harness could
+               line="1076">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2915,7 +2915,7 @@ not be created</doc>
           <parameter name="launchline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="1029">a #gchar describing a gst-launch type line</doc>
+                 line="1069">a #gchar describing a gst-launch type line</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2926,7 +2926,7 @@ not be created</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="840">Creates a new harness. Works in the same way as gst_harness_new_full(), only
+             line="880">Creates a new harness. Works in the same way as gst_harness_new_full(), only
 that generic padtemplates are used for the harness src and sinkpads, which
 will be sufficient in most usecases.
 
@@ -2935,7 +2935,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="856">a #GstHarness, or %NULL if the harness could
+               line="896">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2943,7 +2943,7 @@ not be created</doc>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="842">a #GstElement to attach the harness to (transfer none)</doc>
+                 line="882">a #GstElement to attach the harness to (transfer none)</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
           <parameter name="element_sinkpad_name"
@@ -2952,7 +2952,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="843">a #gchar with the name of the element
+                 line="883">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. %NULL does not attach a
 sinkpad</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -2963,7 +2963,7 @@ sinkpad</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="846">a #gchar with the name of the element
+                 line="886">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad. %NULL does not attach a
 srcpad</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -2976,7 +2976,7 @@ srcpad</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="869">Creates a new harness. Works like gst_harness_new_with_element(),
+             line="909">Creates a new harness. Works like gst_harness_new_with_element(),
 except you specify the factoryname of the #GstElement
 
 MT safe.</doc>
@@ -2984,7 +2984,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="884">a #GstHarness, or %NULL if the harness could
+               line="924">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -2992,7 +2992,7 @@ not be created</doc>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="871">a #gchar describing the #GstElement name</doc>
+                 line="911">a #gchar describing the #GstElement name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="element_sinkpad_name"
@@ -3001,7 +3001,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="872">a #gchar with the name of the element
+                 line="912">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. %NULL does not attach a
 sinkpad</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -3012,7 +3012,7 @@ sinkpad</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="875">a #gchar with the name of the element
+                 line="915">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad. %NULL does not attach a
 srcpad</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -3025,7 +3025,7 @@ srcpad</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="903">Creates a new harness, like gst_harness_new_full(), except it
+             line="943">Creates a new harness, like gst_harness_new_full(), except it
 assumes the #GstElement sinkpad is named "sink" and srcpad is named "src"
 
 MT safe.</doc>
@@ -3033,7 +3033,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="916">a #GstHarness, or %NULL if the harness could
+               line="956">a #GstHarness, or %NULL if the harness could
 not be created</doc>
           <type name="Harness" c:type="GstHarness*"/>
         </return-value>
@@ -3041,7 +3041,7 @@ not be created</doc>
           <parameter name="element_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="905">a #gchar describing the #GstElement name</doc>
+                 line="945">a #gchar describing the #GstElement name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="hsrc"
@@ -3050,7 +3050,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="906">a #GstStaticPadTemplate describing the harness srcpad.
+                 line="946">a #GstStaticPadTemplate describing the harness srcpad.
 %NULL will not create a harness srcpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -3060,7 +3060,7 @@ not be created</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="908">a #GstStaticPadTemplate describing the harness sinkpad.
+                 line="948">a #GstStaticPadTemplate describing the harness sinkpad.
 %NULL will not create a harness sinkpad.</doc>
             <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
           </parameter>
@@ -3071,7 +3071,7 @@ not be created</doc>
                 version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="3168">Stop the running #GstHarnessThread
+             line="3206">Stop the running #GstHarnessThread
 
 MT safe.</doc>
         <source-position filename="libs/gst/check/gstharness.h" line="359"/>
@@ -3082,7 +3082,7 @@ MT safe.</doc>
           <parameter name="t" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/check/gstharness.c"
-                 line="3170">a #GstHarnessThread</doc>
+                 line="3208">a #GstHarnessThread</doc>
             <type name="HarnessThread" c:type="GstHarnessThread*"/>
           </parameter>
         </parameters>
@@ -4039,7 +4039,7 @@ You must have previously called gst_buffer_straw_start_pipeline() on
     <function name="check_abi_list" c:identifier="gst_check_abi_list">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1052">Verifies that reference values and current values are equals in @list.</doc>
+           line="1053">Verifies that reference values and current values are equals in @list.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="187"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4048,13 +4048,13 @@ You must have previously called gst_buffer_straw_start_pipeline() on
         <parameter name="list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1054">A list of GstCheckABIStruct to be verified</doc>
+               line="1055">A list of GstCheckABIStruct to be verified</doc>
           <type name="CheckABIStruct" c:type="GstCheckABIStruct*"/>
         </parameter>
         <parameter name="have_abi_sizes" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1055">Whether there is a reference ABI size already specified,
+               line="1056">Whether there is a reference ABI size already specified,
 if it is %FALSE and the `GST_ABI` environment variable is set, usable code
 for @list will be printed.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -4128,7 +4128,7 @@ MT safe.</doc>
     <function name="check_buffer_data" c:identifier="gst_check_buffer_data">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="826">Compare the buffer contents with @data and @size.</doc>
+           line="827">Compare the buffer contents with @data and @size.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="171"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4137,7 +4137,7 @@ MT safe.</doc>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="828">buffer to compare</doc>
+               line="829">buffer to compare</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="data"
@@ -4146,13 +4146,13 @@ MT safe.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="829">data to compare to</doc>
+               line="830">data to compare to</doc>
           <type name="gpointer" c:type="gconstpointer"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="830">size of data to compare</doc>
+               line="831">size of data to compare</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
       </parameters>
@@ -4160,7 +4160,7 @@ MT safe.</doc>
     <function name="check_caps_equal" c:identifier="gst_check_caps_equal">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="805">Compare two caps with gst_caps_is_equal and fail unless they are
+           line="806">Compare two caps with gst_caps_is_equal and fail unless they are
 equal.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="168"/>
       <return-value transfer-ownership="none">
@@ -4170,13 +4170,13 @@ equal.</doc>
         <parameter name="caps1" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="807">first caps to compare</doc>
+               line="808">first caps to compare</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="caps2" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="808">second caps to compare</doc>
+               line="809">second caps to compare</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
       </parameters>
@@ -4184,7 +4184,7 @@ equal.</doc>
     <function name="check_chain_func" c:identifier="gst_check_chain_func">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="483">A fake chain function that appends the buffer to the internal list of
+           line="484">A fake chain function that appends the buffer to the internal list of
 buffers.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="114"/>
       <return-value transfer-ownership="none">
@@ -4218,7 +4218,7 @@ MT safe.</doc>
     <function name="check_drop_buffers" c:identifier="gst_check_drop_buffers">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="790">Unref and remove all buffers that are in the global @buffers GList,
+           line="791">Unref and remove all buffers that are in the global @buffers GList,
 emptying the list.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="165"/>
       <return-value transfer-ownership="none">
@@ -4229,7 +4229,7 @@ emptying the list.</doc>
               c:identifier="gst_check_element_push_buffer">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1024">Create an element using the factory providing the @element_name and
+           line="1025">Create an element using the factory providing the @element_name and
 push the @buffer_in to this element. The element should create one buffer
 and this will be compared with @buffer_out. We only check the caps
 and the data of the buffers. This function unrefs the buffers.</doc>
@@ -4241,31 +4241,31 @@ and the data of the buffers. This function unrefs the buffers.</doc>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1026">name of the element that needs to be created</doc>
+               line="1027">name of the element that needs to be created</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="buffer_in" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1027">push this buffer to the element</doc>
+               line="1028">push this buffer to the element</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="caps_in" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1028">the #GstCaps expected of the sinkpad of the element</doc>
+               line="1029">the #GstCaps expected of the sinkpad of the element</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="buffer_out" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1029">compare the result with this buffer</doc>
+               line="1030">compare the result with this buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="caps_out" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1030">the #GstCaps expected of the srcpad of the element</doc>
+               line="1031">the #GstCaps expected of the srcpad of the element</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
       </parameters>
@@ -4274,7 +4274,7 @@ and the data of the buffers. This function unrefs the buffers.</doc>
               c:identifier="gst_check_element_push_buffer_list">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="874">Create an element using the factory providing the @element_name and push the
+           line="875">Create an element using the factory providing the @element_name and push the
 buffers in @buffer_in to this element. The element should create the buffers
 equal to the buffers in @buffer_out. We only check the size and the data of
 the buffers. This function unrefs the buffers in the two lists.
@@ -4290,13 +4290,13 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="876">name of the element that needs to be created</doc>
+               line="877">name of the element that needs to be created</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="buffer_in" transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="877">a list of buffers that needs to be
+               line="878">a list of buffers that needs to be
  pushed to the element</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Gst.Buffer"/>
@@ -4305,13 +4305,13 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
         <parameter name="caps_in" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="879">the #GstCaps expected of the sinkpad of the element</doc>
+               line="880">the #GstCaps expected of the sinkpad of the element</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="buffer_out" transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="880">a list of buffers that we expect from
+               line="881">a list of buffers that we expect from
 the element</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Gst.Buffer"/>
@@ -4320,13 +4320,13 @@ the element</doc>
         <parameter name="caps_out" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="882">the #GstCaps expected of the srcpad of the element</doc>
+               line="883">the #GstCaps expected of the srcpad of the element</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="last_flow_return" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="883">the last buffer push needs to give this GstFlowReturn</doc>
+               line="884">the last buffer push needs to give this GstFlowReturn</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </parameter>
       </parameters>
@@ -4371,7 +4371,7 @@ the element</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1313">Unrefs @object_to_unref and checks that is has properly been
+           line="1314">Unrefs @object_to_unref and checks that is has properly been
 destroyed.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="207"/>
       <return-value transfer-ownership="none">
@@ -4384,7 +4384,7 @@ destroyed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1315">The #GObject to unref</doc>
+               line="1316">The #GObject to unref</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -4395,7 +4395,7 @@ destroyed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1254">Unrefs @object_to_unref and checks that is has properly been
+           line="1255">Unrefs @object_to_unref and checks that is has properly been
 destroyed, also checks that the other objects passed in
 parameter have been destroyed as a concequence of
 unrefing @object_to_unref. Last variable argument should be NULL.</doc>
@@ -4410,7 +4410,7 @@ unrefing @object_to_unref. Last variable argument should be NULL.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1256">The #GObject to unref</doc>
+               line="1257">The #GObject to unref</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="first_object"
@@ -4419,14 +4419,14 @@ unrefing @object_to_unref. Last variable argument should be NULL.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1257">The first object that should be destroyed as a
+               line="1258">The first object that should be destroyed as a
 concequence of unrefing @object_to_unref.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1259">Additional object that should have been destroyed.</doc>
+               line="1260">Additional object that should have been destroyed.</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -4459,26 +4459,26 @@ MT safe.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="1112">number of failed tests</doc>
+             line="1113">number of failed tests</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="suite" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1108">the check test suite</doc>
+               line="1109">the check test suite</doc>
           <type c:type="Suite*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1109">name</doc>
+               line="1110">name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="fname" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1110">file name</doc>
+               line="1111">file name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4487,19 +4487,19 @@ MT safe.</doc>
               c:identifier="gst_check_setup_element">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="502">setup an element for a filter test with mysrcpad and mysinkpad</doc>
+           line="503">setup an element for a filter test with mysrcpad and mysinkpad</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="121"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="508">a new element</doc>
+             line="509">a new element</doc>
         <type name="Gst.Element" c:type="GstElement*"/>
       </return-value>
       <parameters>
         <parameter name="factory" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="504">factory</doc>
+               line="505">factory</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4507,7 +4507,7 @@ MT safe.</doc>
     <function name="check_setup_events" c:identifier="gst_check_setup_events">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1218">Push stream-start, caps and segment event, which consist of the minimum
+           line="1219">Push stream-start, caps and segment event, which consist of the minimum
 required events to allow streaming. Caps is optional to allow raw src
 testing. If @element has more than one src or sink pad, use
 gst_check_setup_events_with_stream_id() instead.</doc>
@@ -4519,13 +4519,13 @@ gst_check_setup_events_with_stream_id() instead.</doc>
         <parameter name="srcpad" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1220">The src #GstPad to push on</doc>
+               line="1221">The src #GstPad to push on</doc>
           <type name="Gst.Pad" c:type="GstPad*"/>
         </parameter>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1221">The #GstElement use to create the stream id</doc>
+               line="1222">The #GstElement use to create the stream id</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="caps"
@@ -4534,13 +4534,13 @@ gst_check_setup_events_with_stream_id() instead.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1222">#GstCaps in case caps event must be sent</doc>
+               line="1223">#GstCaps in case caps event must be sent</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1223">The #GstFormat of the default segment to send</doc>
+               line="1224">The #GstFormat of the default segment to send</doc>
           <type name="Gst.Format" c:type="GstFormat"/>
         </parameter>
       </parameters>
@@ -4549,7 +4549,7 @@ gst_check_setup_events_with_stream_id() instead.</doc>
               c:identifier="gst_check_setup_events_with_stream_id">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="1191">Push stream-start, caps and segment event, which consist of the minimum
+           line="1192">Push stream-start, caps and segment event, which consist of the minimum
 required events to allow streaming. Caps is optional to allow raw src
 testing.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="198"/>
@@ -4560,13 +4560,13 @@ testing.</doc>
         <parameter name="srcpad" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1193">The src #GstPad to push on</doc>
+               line="1194">The src #GstPad to push on</doc>
           <type name="Gst.Pad" c:type="GstPad*"/>
         </parameter>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1194">The #GstElement use to create the stream id</doc>
+               line="1195">The #GstElement use to create the stream id</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="caps"
@@ -4575,19 +4575,19 @@ testing.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1195">#GstCaps in case caps event must be sent</doc>
+               line="1196">#GstCaps in case caps event must be sent</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </parameter>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1196">The #GstFormat of the default segment to send</doc>
+               line="1197">The #GstFormat of the default segment to send</doc>
           <type name="Gst.Format" c:type="GstFormat"/>
         </parameter>
         <parameter name="stream_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="1197">A unique identifier for the stream</doc>
+               line="1198">A unique identifier for the stream</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4596,25 +4596,25 @@ testing.</doc>
               c:identifier="gst_check_setup_sink_pad">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="689">Does the same as #gst_check_setup_sink_pad_by_name with the &lt;emphasis&gt; name &lt;/emphasis&gt; parameter equal to "src".</doc>
+           line="690">Does the same as #gst_check_setup_sink_pad_by_name with the &lt;emphasis&gt; name &lt;/emphasis&gt; parameter equal to "src".</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="143"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="696">a new pad that can be used to check the output of @element</doc>
+             line="697">a new pad that can be used to check the output of @element</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="691">element to setup pad on</doc>
+               line="692">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="692">pad template</doc>
+               line="693">pad template</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
       </parameters>
@@ -4623,33 +4623,33 @@ testing.</doc>
               c:identifier="gst_check_setup_sink_pad_by_name">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="704">Creates a new sink pad (based on the given @tmpl) and links it to the given @element src pad
+           line="705">Creates a new sink pad (based on the given @tmpl) and links it to the given @element src pad
 (the pad that matches the given @name).
 You can set event/chain/query functions on this pad to check the output of the @element.</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="151"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="714">a new pad that can be used to check the output of @element</doc>
+             line="715">a new pad that can be used to check the output of @element</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="706">element to setup pad on</doc>
+               line="707">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="707">pad template</doc>
+               line="708">pad template</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="708">Name of the @element src pad that will be linked to the sink pad that will be setup</doc>
+               line="709">Name of the @element src pad that will be linked to the sink pad that will be setup</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4661,26 +4661,26 @@ You can set event/chain/query functions on this pad to check the output of the @
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="753">a new pad</doc>
+             line="754">a new pad</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="749">element to setup pad on</doc>
+               line="750">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="750">pad template</doc>
+               line="751">pad template</doc>
           <type name="Gst.PadTemplate" c:type="GstPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="751">name</doc>
+               line="752">name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4692,20 +4692,20 @@ You can set event/chain/query functions on this pad to check the output of the @
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="736">a new pad</doc>
+             line="737">a new pad</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="733">element to setup pad on</doc>
+               line="734">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="734">pad template</doc>
+               line="735">pad template</doc>
           <type name="Gst.PadTemplate" c:type="GstPadTemplate*"/>
         </parameter>
       </parameters>
@@ -4714,25 +4714,25 @@ You can set event/chain/query functions on this pad to check the output of the @
               c:identifier="gst_check_setup_src_pad">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="534">Does the same as #gst_check_setup_src_pad_by_name with the &lt;emphasis&gt; name &lt;/emphasis&gt; parameter equal to "sink".</doc>
+           line="535">Does the same as #gst_check_setup_src_pad_by_name with the &lt;emphasis&gt; name &lt;/emphasis&gt; parameter equal to "sink".</doc>
       <source-position filename="libs/gst/check/gstcheck.h" line="127"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="541">A new pad that can be used to inject data on @element</doc>
+             line="542">A new pad that can be used to inject data on @element</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="536">element to setup pad on</doc>
+               line="537">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="537">pad template</doc>
+               line="538">pad template</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
       </parameters>
@@ -4741,7 +4741,7 @@ You can set event/chain/query functions on this pad to check the output of the @
               c:identifier="gst_check_setup_src_pad_by_name">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstcheck.c"
-           line="549">Creates a new src pad (based on the given @tmpl) and links it to the given @element sink pad (the pad that matches the given @name).
+           line="550">Creates a new src pad (based on the given @tmpl) and links it to the given @element sink pad (the pad that matches the given @name).
 Before using the src pad to push data on @element you need to call #gst_check_setup_events on the created src pad.
 
 Example of how to push a buffer on @element:
@@ -4778,26 +4778,26 @@ For very simple input/output test scenarios checkout #gst_check_element_push_buf
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="589">A new pad that can be used to inject data on @element</doc>
+             line="590">A new pad that can be used to inject data on @element</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="551">element to setup src pad on</doc>
+               line="552">element to setup src pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="552">pad template</doc>
+               line="553">pad template</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="553">Name of the @element sink pad that will be linked to the src pad that will be setup</doc>
+               line="554">Name of the @element sink pad that will be linked to the src pad that will be setup</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4809,26 +4809,26 @@ For very simple input/output test scenarios checkout #gst_check_element_push_buf
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="627">a new pad</doc>
+             line="628">a new pad</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="623">element to setup pad on</doc>
+               line="624">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="624">pad template</doc>
+               line="625">pad template</doc>
           <type name="Gst.PadTemplate" c:type="GstPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="625">name</doc>
+               line="626">name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4840,20 +4840,20 @@ For very simple input/output test scenarios checkout #gst_check_element_push_buf
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstcheck.c"
-             line="610">a new pad</doc>
+             line="611">a new pad</doc>
         <type name="Gst.Pad" c:type="GstPad*"/>
       </return-value>
       <parameters>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="607">element to setup pad on</doc>
+               line="608">element to setup pad on</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="tmpl" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstcheck.c"
-               line="608">pad template</doc>
+               line="609">pad template</doc>
           <type name="Gst.PadTemplate" c:type="GstPadTemplate*"/>
         </parameter>
       </parameters>
@@ -5029,7 +5029,7 @@ inside the 'check' directories of various GStreamer packages.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="934">Creates a new harness. Works like gst_harness_new_with_padnames(), except it
+           line="974">Creates a new harness. Works like gst_harness_new_with_padnames(), except it
 assumes the #GstElement sinkpad is named "sink" and srcpad is named "src"
 
 MT safe.</doc>
@@ -5037,7 +5037,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="943">a #GstHarness, or %NULL if the harness could
+             line="983">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5045,7 +5045,7 @@ not be created</doc>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="936">a #gchar describing the #GstElement name</doc>
+               line="976">a #gchar describing the #GstElement name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -5057,7 +5057,7 @@ not be created</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="663">Creates a new empty harness. Use gst_harness_add_element_full() to add
+           line="703">Creates a new empty harness. Use gst_harness_add_element_full() to add
 an #GstElement to it.
 
 MT safe.</doc>
@@ -5065,7 +5065,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="671">a #GstHarness, or %NULL if the harness could
+             line="711">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5077,14 +5077,14 @@ not be created</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="804">Creates a new harness.
+           line="844">Creates a new harness.
 
 MT safe.</doc>
       <source-position filename="libs/gst/check/gstharness.h" line="79"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="823">a #GstHarness, or %NULL if the harness could
+             line="863">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5092,7 +5092,7 @@ not be created</doc>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="806">a #GstElement to attach the harness to (transfer none)</doc>
+               line="846">a #GstElement to attach the harness to (transfer none)</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="hsrc"
@@ -5101,7 +5101,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="807">a #GstStaticPadTemplate describing the harness srcpad.
+               line="847">a #GstStaticPadTemplate describing the harness srcpad.
 %NULL will not create a harness srcpad.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
@@ -5111,7 +5111,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="809">a #gchar with the name of the element
+               line="849">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. Can be a static or request
 or a sometimes pad that has been added. %NULL will not get/request a sinkpad
 from the element. (Like if the element is a src.)</doc>
@@ -5123,7 +5123,7 @@ from the element. (Like if the element is a src.)</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="813">a #GstStaticPadTemplate describing the harness sinkpad.
+               line="853">a #GstStaticPadTemplate describing the harness sinkpad.
 %NULL will not create a harness sinkpad.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
@@ -5133,7 +5133,7 @@ from the element. (Like if the element is a src.)</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="815">a #gchar with the name of the element
+               line="855">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad, similar to the
 @element_sinkpad_name.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5147,7 +5147,7 @@ srcpad that is then linked to the harness sinkpad, similar to the
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="1027">Creates a new harness, parsing the @launchline and putting that in a #GstBin,
+           line="1067">Creates a new harness, parsing the @launchline and putting that in a #GstBin,
 and then attches the harness to the bin.
 
 MT safe.</doc>
@@ -5155,7 +5155,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="1036">a #GstHarness, or %NULL if the harness could
+             line="1076">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5163,7 +5163,7 @@ not be created</doc>
         <parameter name="launchline" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="1029">a #gchar describing a gst-launch type line</doc>
+               line="1069">a #gchar describing a gst-launch type line</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -5175,7 +5175,7 @@ not be created</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="840">Creates a new harness. Works in the same way as gst_harness_new_full(), only
+           line="880">Creates a new harness. Works in the same way as gst_harness_new_full(), only
 that generic padtemplates are used for the harness src and sinkpads, which
 will be sufficient in most usecases.
 
@@ -5184,7 +5184,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="856">a #GstHarness, or %NULL if the harness could
+             line="896">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5192,7 +5192,7 @@ not be created</doc>
         <parameter name="element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="842">a #GstElement to attach the harness to (transfer none)</doc>
+               line="882">a #GstElement to attach the harness to (transfer none)</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="element_sinkpad_name"
@@ -5201,7 +5201,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="843">a #gchar with the name of the element
+               line="883">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. %NULL does not attach a
 sinkpad</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5212,7 +5212,7 @@ sinkpad</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="846">a #gchar with the name of the element
+               line="886">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad. %NULL does not attach a
 srcpad</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5226,7 +5226,7 @@ srcpad</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="869">Creates a new harness. Works like gst_harness_new_with_element(),
+           line="909">Creates a new harness. Works like gst_harness_new_with_element(),
 except you specify the factoryname of the #GstElement
 
 MT safe.</doc>
@@ -5234,7 +5234,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="884">a #GstHarness, or %NULL if the harness could
+             line="924">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5242,7 +5242,7 @@ not be created</doc>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="871">a #gchar describing the #GstElement name</doc>
+               line="911">a #gchar describing the #GstElement name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="element_sinkpad_name"
@@ -5251,7 +5251,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="872">a #gchar with the name of the element
+               line="912">a #gchar with the name of the element
 sinkpad that is then linked to the harness srcpad. %NULL does not attach a
 sinkpad</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5262,7 +5262,7 @@ sinkpad</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="875">a #gchar with the name of the element
+               line="915">a #gchar with the name of the element
 srcpad that is then linked to the harness sinkpad. %NULL does not attach a
 srcpad</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -5276,7 +5276,7 @@ srcpad</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="903">Creates a new harness, like gst_harness_new_full(), except it
+           line="943">Creates a new harness, like gst_harness_new_full(), except it
 assumes the #GstElement sinkpad is named "sink" and srcpad is named "src"
 
 MT safe.</doc>
@@ -5284,7 +5284,7 @@ MT safe.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libs/gst/check/gstharness.c"
-             line="916">a #GstHarness, or %NULL if the harness could
+             line="956">a #GstHarness, or %NULL if the harness could
 not be created</doc>
         <type name="Harness" c:type="GstHarness*"/>
       </return-value>
@@ -5292,7 +5292,7 @@ not be created</doc>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="905">a #gchar describing the #GstElement name</doc>
+               line="945">a #gchar describing the #GstElement name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="hsrc"
@@ -5301,7 +5301,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="906">a #GstStaticPadTemplate describing the harness srcpad.
+               line="946">a #GstStaticPadTemplate describing the harness srcpad.
 %NULL will not create a harness srcpad.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
@@ -5311,7 +5311,7 @@ not be created</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="908">a #GstStaticPadTemplate describing the harness sinkpad.
+               line="948">a #GstStaticPadTemplate describing the harness sinkpad.
 %NULL will not create a harness sinkpad.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
@@ -5448,7 +5448,7 @@ not be created</doc>
               version="1.6">
       <doc xml:space="preserve"
            filename="libs/gst/check/gstharness.c"
-           line="3168">Stop the running #GstHarnessThread
+           line="3206">Stop the running #GstHarnessThread
 
 MT safe.</doc>
       <source-position filename="libs/gst/check/gstharness.h" line="359"/>
@@ -5459,7 +5459,7 @@ MT safe.</doc>
         <parameter name="t" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/check/gstharness.c"
-               line="3170">a #GstHarnessThread</doc>
+               line="3208">a #GstHarnessThread</doc>
           <type name="HarnessThread" c:type="GstHarnessThread*"/>
         </parameter>
       </parameters>

@@ -1,3 +1,6 @@
+<%_ if(!package){ -%>
+declare module 'gettext' {
+<% } -%>
 export enum LocaleCategory {
     ALL,
     COLLATE,
@@ -23,7 +26,7 @@ export function domain(domainName: string): {
     pgettext: (context: string, msgid: string) => string
 }
 
-declare const Gettext: {
+<%- package ? 'declare' : '' %> const Gettext: {
     LocaleCategory: typeof LocaleCategory,
     setlocale: typeof setlocale,
     textdomain: typeof textdomain,
@@ -39,3 +42,7 @@ declare const Gettext: {
 }
 
 export default Gettext
+
+<%_ if(!package){ -%>
+}
+<% } -%>

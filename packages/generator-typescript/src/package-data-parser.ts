@@ -72,7 +72,7 @@ export class PackageDataParser {
     }
 
     async start() {
-        const filePath = resolve(__dirname, '../packages.xml')
+        const filePath = resolve(__dirname, './packages.xml')
         const fileContents = await readFile(filePath, 'utf8')
         const result = (await parseStringPromise(fileContents)) as ParsedPackageData
         this.parseSections(result.packages.section)

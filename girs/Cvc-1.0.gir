@@ -1389,7 +1389,7 @@ priority, 0 if @a and @b have the same priority.</doc>
           <doc xml:space="preserve"
                filename="libcvc/gvc-mixer-control.c"
                line="532">This method will attempt to swap the profile on the card of
-the device with given profile name.  If successfull it will set the
+the device with given profile name.  If successful it will set the
 preferred profile on that device so as we know the next time the user
 moves to that device it should have this profile active.</doc>
           <type name="gboolean" c:type="gboolean"/>

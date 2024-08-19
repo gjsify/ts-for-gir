@@ -1,4 +1,12 @@
-<%_ const GObject = dep.getSync('GObject', '2.0') _%>
+<%_ const GObject = await dep.get('GObject', '2.0') _%>
+<%_ if(!package && GObject){ _%>
+/// <reference path="./gobject-2.0.d.ts" />
+<%_ } -%>
+
+<%_ if(!package){ -%>
+declare module 'system' {
+<% } -%>
+
 <%- GObject ? GObject.importDef : '' %>
 
 /**
@@ -156,7 +164,7 @@ export function exit(code: number): void
  * Note that the majority of the functions and properties in this module should not
  * be used in normal operation of a GJS application.
  */
-declare const System: {
+<%- package ? 'declare' : '' %> const System: {
     programInvocationName: typeof programInvocationName,
     version: typeof version,
     programPath: typeof programPath,
@@ -173,3 +181,7 @@ declare const System: {
 }
 
 export default System
+
+<%_ if(!package){ -%>
+}
+<% } -%>

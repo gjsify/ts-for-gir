@@ -598,7 +598,7 @@ For the time-format used, see ev_document_misc_format_date().</doc>
             <doc xml:space="preserve"
                  filename="libdocument/ev-annotation.c"
                  line="542">a #time_t</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -9271,7 +9271,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="libdocument/ev-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="EV_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="EV_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="46">The micro version number of the EV library
@@ -9279,7 +9279,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="libdocument/ev-version.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="0" c:type="EV_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="2" c:type="EV_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="38">The minor version number of the EV library

@@ -13099,12 +13099,12 @@ contains a [class@Gtk.ScrolledWindow], which in turn contains a
       <constructor name="new" c:identifier="adw_combo_row_new">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="743">Creates a new `AdwComboRow`.</doc>
+             line="742">Creates a new `AdwComboRow`.</doc>
         <source-position filename="src/adw-combo-row.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="748">the newly created `AdwComboRow`</doc>
+               line="747">the newly created `AdwComboRow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -13114,7 +13114,7 @@ contains a [class@Gtk.ScrolledWindow], which in turn contains a
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1186">Gets whether search is enabled.
+             line="1185">Gets whether search is enabled.
 
 If set to `TRUE`, a search entry will be shown in the popup that
 allows to search for items in the list.
@@ -13124,14 +13124,14 @@ Search requires [property@ComboRow:expression] to be set.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="1197">whether the popup includes a search entry</doc>
+               line="1196">whether the popup includes a search entry</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1188">a combo row</doc>
+                 line="1187">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13141,19 +13141,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="expression">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1064">Gets the expression used to obtain strings from items.</doc>
+             line="1063">Gets the expression used to obtain strings from items.</doc>
         <source-position filename="src/adw-combo-row.h" line="74"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="1070">the expression used to obtain strings from items</doc>
+               line="1069">the expression used to obtain strings from items</doc>
           <type name="Gtk.Expression" c:type="GtkExpression*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1066">a combo row</doc>
+                 line="1065">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13163,19 +13163,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="923">Gets the factory for populating list items.</doc>
+             line="922">Gets the factory for populating list items.</doc>
         <source-position filename="src/adw-combo-row.h" line="56"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="929">the factory in use</doc>
+               line="928">the factory in use</doc>
           <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="925">a combo row</doc>
+                 line="924">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13186,19 +13186,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="963">Gets the factory that's currently used to create header widgets for the popup.</doc>
+             line="962">Gets the factory that's currently used to create header widgets for the popup.</doc>
         <source-position filename="src/adw-combo-row.h" line="62"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="969">The factory in use</doc>
+               line="968">The factory in use</doc>
           <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="965">a combo row</doc>
+                 line="964">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13208,19 +13208,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="list-factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1013">Gets the factory for populating list items in the popup.</doc>
+             line="1012">Gets the factory for populating list items in the popup.</doc>
         <source-position filename="src/adw-combo-row.h" line="68"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="1019">the factory in use</doc>
+               line="1018">the factory in use</doc>
           <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1015">a combo row</doc>
+                 line="1014">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13230,19 +13230,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="model">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="830">Gets the model that provides the displayed items.</doc>
+             line="829">Gets the model that provides the displayed items.</doc>
         <source-position filename="src/adw-combo-row.h" line="41"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="836">The model in use</doc>
+               line="835">The model in use</doc>
           <type name="Gio.ListModel" c:type="GListModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="832">a combo row</doc>
+                 line="831">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13253,12 +13253,12 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1250">Returns the match mode that the search filter is using.</doc>
+             line="1249">Returns the match mode that the search filter is using.</doc>
         <source-position filename="src/adw-combo-row.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="1256">the match mode of the search filter</doc>
+               line="1255">the match mode of the search filter</doc>
           <type name="Gtk.StringFilterMatchMode"
                 c:type="GtkStringFilterMatchMode"/>
         </return-value>
@@ -13266,7 +13266,7 @@ Search requires [property@ComboRow:expression] to be set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1252">a combo row</doc>
+                 line="1251">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13276,12 +13276,12 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="selected">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="783">Gets the position of the selected item.</doc>
+             line="782">Gets the position of the selected item.</doc>
         <source-position filename="src/adw-combo-row.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="789">the position of the selected item, or
+               line="788">the position of the selected item, or
   [const@Gtk.INVALID_LIST_POSITION] if no item is selected</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -13289,7 +13289,7 @@ Search requires [property@ComboRow:expression] to be set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="785">a combo row</doc>
+                 line="784">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13299,19 +13299,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="selected-item">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="807">Gets the selected item.</doc>
+             line="806">Gets the selected item.</doc>
         <source-position filename="src/adw-combo-row.h" line="53"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="813">the selected item</doc>
+               line="812">the selected item</doc>
           <type name="GObject.Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="809">a combo row</doc>
+                 line="808">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13321,19 +13321,19 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:get-property="use-subtitle">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1128">Gets whether to use the current value as the subtitle.</doc>
+             line="1127">Gets whether to use the current value as the subtitle.</doc>
         <source-position filename="src/adw-combo-row.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-combo-row.c"
-               line="1134">whether to use the current value as the subtitle</doc>
+               line="1133">whether to use the current value as the subtitle</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1130">a combo row</doc>
+                 line="1129">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
         </parameters>
@@ -13344,7 +13344,7 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1213">Sets whether to enable search.
+             line="1212">Sets whether to enable search.
 
 If set to `TRUE`, a search entry will be shown in the popup that
 allows to search for items in the list.
@@ -13358,13 +13358,13 @@ Search requires [property@ComboRow:expression] to be set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1215">a combo row</doc>
+                 line="1214">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="enable_search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1216">whether to enable search</doc>
+                 line="1215">whether to enable search</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -13374,7 +13374,7 @@ Search requires [property@ComboRow:expression] to be set.</doc>
               glib:set-property="expression">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1084">Sets the expression used to obtain strings from items.
+             line="1083">Sets the expression used to obtain strings from items.
 
 The expression must have a value type of `G_TYPE_STRING`.
 
@@ -13389,7 +13389,7 @@ It's used to bind strings to labels produced by the default factory if
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1086">a combo row</doc>
+                 line="1085">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="expression"
@@ -13398,7 +13398,7 @@ It's used to bind strings to labels produced by the default factory if
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1087">an expression</doc>
+                 line="1086">an expression</doc>
             <type name="Gtk.Expression" c:type="GtkExpression*"/>
           </parameter>
         </parameters>
@@ -13408,7 +13408,7 @@ It's used to bind strings to labels produced by the default factory if
               glib:set-property="factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="943">Sets the factory for populating list items.
+             line="942">Sets the factory for populating list items.
 
 This factory is always used for the item in the row. It is also used for
 items in the popup unless [property@ComboRow:list-factory] is set.</doc>
@@ -13420,7 +13420,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="945">a combo row</doc>
+                 line="944">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -13429,7 +13429,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="946">the factory to use</doc>
+                 line="945">the factory to use</doc>
             <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -13440,7 +13440,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="985">Sets the factory to use for creating header widgets for the popup.</doc>
+             line="984">Sets the factory to use for creating header widgets for the popup.</doc>
         <source-position filename="src/adw-combo-row.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13449,7 +13449,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="987">a combo row</doc>
+                 line="986">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -13458,7 +13458,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="988">the factory to use</doc>
+                 line="987">the factory to use</doc>
             <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -13468,7 +13468,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
               glib:set-property="list-factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1033">Sets the factory for populating list items in the popup.
+             line="1032">Sets the factory for populating list items in the popup.
 
 If this is not set, [property@ComboRow:factory] is used.</doc>
         <source-position filename="src/adw-combo-row.h" line="70"/>
@@ -13479,7 +13479,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1035">a combo row</doc>
+                 line="1034">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -13488,7 +13488,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1036">the factory to use</doc>
+                 line="1035">the factory to use</doc>
             <type name="Gtk.ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -13498,7 +13498,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
               glib:set-property="model">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="850">Sets the model that provides the displayed items.</doc>
+             line="849">Sets the model that provides the displayed items.</doc>
         <source-position filename="src/adw-combo-row.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13507,7 +13507,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="852">a combo row</doc>
+                 line="851">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="model"
@@ -13516,7 +13516,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="853">the model to use</doc>
+                 line="852">the model to use</doc>
             <type name="Gio.ListModel" c:type="GListModel*"/>
           </parameter>
         </parameters>
@@ -13527,7 +13527,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1272">Sets the match mode for the search filter.</doc>
+             line="1271">Sets the match mode for the search filter.</doc>
         <source-position filename="src/adw-combo-row.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13536,13 +13536,13 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1274">a combo row</doc>
+                 line="1273">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="search_match_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1275">the new match mode</doc>
+                 line="1274">the new match mode</doc>
             <type name="Gtk.StringFilterMatchMode"
                   c:type="GtkStringFilterMatchMode"/>
           </parameter>
@@ -13553,7 +13553,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
               glib:set-property="selected">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="756">Selects the item at the given position.</doc>
+             line="755">Selects the item at the given position.</doc>
         <source-position filename="src/adw-combo-row.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13562,13 +13562,13 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="758">a combo row</doc>
+                 line="757">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="759">the position of the item to select, or
+                 line="758">the position of the item to select, or
   [const@Gtk.INVALID_LIST_POSITION]</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -13579,7 +13579,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
               glib:set-property="use-subtitle">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="1148">Sets whether to use the current value as the subtitle.
+             line="1147">Sets whether to use the current value as the subtitle.
 
 If you use a custom list item factory, you will need to give the row a
 name conversion expression with [property@ComboRow:expression].
@@ -13596,13 +13596,13 @@ The subtitle is interpreted as Pango markup if
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1150">a combo row</doc>
+                 line="1149">a combo row</doc>
             <type name="ComboRow" c:type="AdwComboRow*"/>
           </instance-parameter>
           <parameter name="use_subtitle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-combo-row.c"
-                 line="1151">whether to use the current value as the subtitle</doc>
+                 line="1150">whether to use the current value as the subtitle</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -13616,7 +13616,7 @@ The subtitle is interpreted as Pango markup if
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="682">Whether to show a search entry in the popup.
+             line="681">Whether to show a search entry in the popup.
 
 If set to `TRUE`, a search entry will be shown in the popup that
 allows to search for items in the list.
@@ -13631,7 +13631,7 @@ Search requires [property@ComboRow:expression] to be set.</doc>
                 getter="get_expression">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="647">An expression used to obtain strings from items.
+             line="646">An expression used to obtain strings from items.
 
 The expression must have a value type of `G_TYPE_STRING`.
 
@@ -13647,7 +13647,7 @@ It's used to bind strings to labels produced by the default factory if
                 getter="get_factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="610">Factory for populating list items.
+             line="609">Factory for populating list items.
 
 This factory is always used for the item in the row. It is also used for
 items in the popup unless [property@ComboRow:list-factory] is set.</doc>
@@ -13661,7 +13661,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
                 getter="get_header_factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="623">The factory for creating header widgets for the popup.</doc>
+             line="622">The factory for creating header widgets for the popup.</doc>
         <type name="Gtk.ListItemFactory"/>
       </property>
       <property name="list-factory"
@@ -13671,7 +13671,7 @@ items in the popup unless [property@ComboRow:list-factory] is set.</doc>
                 getter="get_list_factory">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="635">The factory for populating list items in the popup.
+             line="634">The factory for populating list items in the popup.
 
 If this is not set, [property@ComboRow:factory] is used.</doc>
         <type name="Gtk.ListItemFactory"/>
@@ -13683,7 +13683,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
                 getter="get_model">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="600">The model that provides the displayed items.</doc>
+             line="599">The model that provides the displayed items.</doc>
         <type name="Gio.ListModel"/>
       </property>
       <property name="search-match-mode"
@@ -13695,7 +13695,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
                 default-value="GTK_STRING_FILTER_MATCH_MODE_PREFIX">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="699">The match mode for the search filter.</doc>
+             line="698">The match mode for the search filter.</doc>
         <type name="Gtk.StringFilterMatchMode"/>
       </property>
       <property name="selected"
@@ -13706,7 +13706,7 @@ If this is not set, [property@ComboRow:factory] is used.</doc>
                 default-value="4294967295">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="577">The position of the selected item.
+             line="576">The position of the selected item.
 
 If no item is selected, the property has the value
 [const@Gtk.INVALID_LIST_POSITION]</doc>
@@ -13717,7 +13717,7 @@ If no item is selected, the property has the value
                 getter="get_selected_item">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="590">The selected item.</doc>
+             line="589">The selected item.</doc>
         <type name="GObject.Object"/>
       </property>
       <property name="use-subtitle"
@@ -13728,7 +13728,7 @@ If no item is selected, the property has the value
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-combo-row.c"
-             line="664">Whether to use the current value as the subtitle.
+             line="663">Whether to use the current value as the subtitle.
 
 If you use a custom list item factory, you will need to give the row a
 name conversion expression with [property@ComboRow:expression].
@@ -28881,6 +28881,214 @@ See [signal@Gtk.SpinButton::wrapped].</doc>
         <type name="ActionRowClass" c:type="AdwActionRowClass"/>
       </field>
     </record>
+    <class name="Spinner"
+           c:symbol-prefix="spinner"
+           c:type="AdwSpinner"
+           version="1.6"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="AdwSpinner"
+           glib:get-type="adw_spinner_get_type"
+           glib:type-struct="SpinnerClass">
+      <doc xml:space="preserve"
+           filename="src/adw-spinner.c"
+           line="17">A widget showing a loading spinner.
+
+&lt;picture&gt;
+  &lt;source srcset="spinner-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="spinner.png" alt="spinner"&gt;
+&lt;/picture&gt;
+
+The size of the spinner depends on the available size, never smaller than
+16×16 pixels and never larger than 64×64 pixels.
+
+Use the [property@Gtk.Widget:halign] and [property@Gtk.Widget:valign]
+properties in combination with [property@Gtk.Widget:width-request] and
+[property@Gtk.Widget:height-request] for fine sizing control.
+
+For example, the following snippet shows the spinner at 48×48 pixels:
+
+```xml
+&lt;object class="AdwSpinner"&gt;
+  &lt;property name="halign"&gt;center&lt;/property&gt;
+  &lt;property name="valign"&gt;center&lt;/property&gt;
+  &lt;property name="width-request"&gt;48&lt;/property&gt;
+  &lt;property name="height-request"&gt;48&lt;/property&gt;
+&lt;/object&gt;
+```
+
+See [class@SpinnerPaintable] for cases where using a widget is impractical or
+impossible, such as [property@StatusPage:paintable].
+
+## CSS nodes
+
+`AdwSpinner` has a single node with the name `image` and the style class
+`.spinner`.</doc>
+      <source-position filename="src/adw-spinner.h" line="22"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="adw_spinner_new" version="1.6">
+        <doc xml:space="preserve"
+             filename="src/adw-spinner.c"
+             line="135">Creates a new `AdwSpinner`.</doc>
+        <source-position filename="src/adw-spinner.h" line="25"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-spinner.c"
+               line="140">the newly created `AdwSpinner`</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+    </class>
+    <record name="SpinnerClass"
+            c:type="AdwSpinnerClass"
+            glib:is-gtype-struct-for="Spinner">
+      <source-position filename="src/adw-spinner.h" line="22"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <class name="SpinnerPaintable"
+           c:symbol-prefix="spinner_paintable"
+           c:type="AdwSpinnerPaintable"
+           version="1.6"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="AdwSpinnerPaintable"
+           glib:get-type="adw_spinner_paintable_get_type"
+           glib:type-struct="SpinnerPaintableClass">
+      <doc xml:space="preserve"
+           filename="src/adw-spinner-paintable.c"
+           line="37">A paintable showing a loading spinner.
+
+&lt;picture&gt;
+  &lt;source srcset="spinner-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="spinner.png" alt="spinner"&gt;
+&lt;/picture&gt;
+
+`AdwSpinnerPaintable` size varies depending on the available space, but is
+capped at 64×64 pixels.
+
+To be able to animate, `AdwSpinnerPaintable` needs a widget. It will be
+animated according to that widget's frame clock, and only if that widget is
+mapped. Ideally it should be the same widget the paintable is displayed in,
+but that's not a requirement.
+
+Most applications should be using [class@Spinner] instead.
+`AdwSpinnerPaintable` is provided for the cases where using a widget is
+impractical or impossible, such as [property@StatusPage:paintable]:
+
+```xml
+&lt;object class="AdwStatusPage" id="status_page"&gt;
+  &lt;property name="paintable"&gt;
+    &lt;object class="AdwSpinnerPaintable"&gt;
+      &lt;property name="widget"&gt;status_page&lt;/property&gt;
+    &lt;/object&gt;
+  &lt;/property&gt;
+  &lt;!-- ... --&gt;
+&lt;/object&gt;
+```</doc>
+      <source-position filename="src/adw-spinner-paintable.h" line="22"/>
+      <implements name="Gdk.Paintable"/>
+      <implements name="Gtk.SymbolicPaintable"/>
+      <constructor name="new"
+                   c:identifier="adw_spinner_paintable_new"
+                   version="1.6">
+        <doc xml:space="preserve"
+             filename="src/adw-spinner-paintable.c"
+             line="398">Creates a new `AdwSpinnerPaintable` for @widget.</doc>
+        <source-position filename="src/adw-spinner-paintable.h" line="25"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/adw-spinner-paintable.c"
+               line="404">the newly created `AdwSpinnerPaintable`</doc>
+          <type name="SpinnerPaintable" c:type="AdwSpinnerPaintable*"/>
+        </return-value>
+        <parameters>
+          <parameter name="widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-spinner-paintable.c"
+                 line="400">the widget used for frame clock</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_widget"
+              c:identifier="adw_spinner_paintable_get_widget"
+              glib:get-property="widget"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="src/adw-spinner-paintable.c"
+             line="418">Gets the widget used for frame clock.</doc>
+        <source-position filename="src/adw-spinner-paintable.h" line="28"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-spinner-paintable.c"
+               line="424">the widget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-spinner-paintable.c"
+                 line="420">a spinner paintable</doc>
+            <type name="SpinnerPaintable" c:type="AdwSpinnerPaintable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_widget"
+              c:identifier="adw_spinner_paintable_set_widget"
+              glib:set-property="widget"
+              version="1.6">
+        <doc xml:space="preserve"
+             filename="src/adw-spinner-paintable.c"
+             line="436">Sets the widget used for frame clock.</doc>
+        <source-position filename="src/adw-spinner-paintable.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-spinner-paintable.c"
+                 line="438">a spinner paintable</doc>
+            <type name="SpinnerPaintable" c:type="AdwSpinnerPaintable*"/>
+          </instance-parameter>
+          <parameter name="widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-spinner-paintable.c"
+                 line="439">the widget to use for frame clock</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="widget"
+                version="1.6"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_widget"
+                getter="get_widget">
+        <doc xml:space="preserve"
+             filename="src/adw-spinner-paintable.c"
+             line="244">The widget the spinner uses for frame clock.</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+    </class>
+    <record name="SpinnerPaintableClass"
+            c:type="AdwSpinnerPaintableClass"
+            glib:is-gtype-struct-for="SpinnerPaintable">
+      <source-position filename="src/adw-spinner-paintable.h" line="22"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <class name="SplitButton"
            c:symbol-prefix="split_button"
            c:type="AdwSplitButton"
@@ -31555,7 +31763,7 @@ window width, or any other constraint you find suitable.</doc>
            glib:type-struct="StatusPageClass">
       <doc xml:space="preserve"
            filename="src/adw-status-page.c"
-           line="13">A page used for empty/error states and similar use-cases.
+           line="14">A page used for empty/error states and similar use-cases.
 
 &lt;picture&gt;
   &lt;source srcset="status-page-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -31571,7 +31779,11 @@ custom widget which is displayed below them.
 
 `AdwStatusPage` can use the
 [`.compact`](style-classes.html#compact-status-page) style class for when it
-needs to fit into a small space such a sidebar or a popover.</doc>
+needs to fit into a small space such a sidebar or a popover.
+
+When setting an [class@SpinnerPaintable] as [property@StatusPage:paintable],
+the main nodes gains the `.spinner` style class for a more compact
+appearance, similar to `.compact`.</doc>
       <source-position filename="src/adw-status-page.h" line="22"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
@@ -31579,12 +31791,12 @@ needs to fit into a small space such a sidebar or a popover.</doc>
       <constructor name="new" c:identifier="adw_status_page_new">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="294">Creates a new `AdwStatusPage`.</doc>
+             line="299">Creates a new `AdwStatusPage`.</doc>
         <source-position filename="src/adw-status-page.h" line="25"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="299">the newly created `AdwStatusPage`</doc>
+               line="304">the newly created `AdwStatusPage`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -31593,19 +31805,19 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:get-property="child">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="482">Gets the child widget of @self.</doc>
+             line="493">Gets the child widget of @self.</doc>
         <source-position filename="src/adw-status-page.h" line="52"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="488">the child widget of @self</doc>
+               line="499">the child widget of @self</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="484">a status page</doc>
+                 line="495">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
         </parameters>
@@ -31615,19 +31827,19 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:get-property="description">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="443">Gets the description markup for @self.</doc>
+             line="454">Gets the description markup for @self.</doc>
         <source-position filename="src/adw-status-page.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="449">the description</doc>
+               line="460">the description</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="445">a status page</doc>
+                 line="456">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
         </parameters>
@@ -31637,19 +31849,19 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:get-property="icon-name">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="307">Gets the icon name for @self.</doc>
+             line="312">Gets the icon name for @self.</doc>
         <source-position filename="src/adw-status-page.h" line="28"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="313">the icon name</doc>
+               line="318">the icon name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="309">a status page</doc>
+                 line="314">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
         </parameters>
@@ -31659,19 +31871,19 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:get-property="paintable">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="355">Gets the paintable for @self.</doc>
+             line="360">Gets the paintable for @self.</doc>
         <source-position filename="src/adw-status-page.h" line="34"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="361">the paintable</doc>
+               line="366">the paintable</doc>
           <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="357">a status page</doc>
+                 line="362">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
         </parameters>
@@ -31681,19 +31893,19 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:get-property="title">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="404">Gets the title for @self.</doc>
+             line="415">Gets the title for @self.</doc>
         <source-position filename="src/adw-status-page.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-status-page.c"
-               line="410">the title</doc>
+               line="421">the title</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="406">a status page</doc>
+                 line="417">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
         </parameters>
@@ -31703,7 +31915,7 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:set-property="child">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="498">Sets the child widget of @self.</doc>
+             line="509">Sets the child widget of @self.</doc>
         <source-position filename="src/adw-status-page.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -31712,7 +31924,7 @@ needs to fit into a small space such a sidebar or a popover.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="500">a status page</doc>
+                 line="511">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
           <parameter name="child"
@@ -31721,7 +31933,7 @@ needs to fit into a small space such a sidebar or a popover.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="501">the child widget</doc>
+                 line="512">the child widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -31731,7 +31943,7 @@ needs to fit into a small space such a sidebar or a popover.</doc>
               glib:set-property="description">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="459">Sets the description markup for @self.
+             line="470">Sets the description markup for @self.
 
 The description is displayed below the title. It is parsed as Pango markup.</doc>
         <source-position filename="src/adw-status-page.h" line="48"/>
@@ -31742,7 +31954,7 @@ The description is displayed below the title. It is parsed as Pango markup.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="461">a status page</doc>
+                 line="472">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
           <parameter name="description"
@@ -31751,7 +31963,7 @@ The description is displayed below the title. It is parsed as Pango markup.</doc
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="462">the description</doc>
+                 line="473">the description</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -31761,7 +31973,7 @@ The description is displayed below the title. It is parsed as Pango markup.</doc
               glib:set-property="icon-name">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="323">Sets the icon name for @self.
+             line="328">Sets the icon name for @self.
 
 Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
         <source-position filename="src/adw-status-page.h" line="30"/>
@@ -31772,7 +31984,7 @@ Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="325">a status page</doc>
+                 line="330">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
           <parameter name="icon_name"
@@ -31781,7 +31993,7 @@ Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="326">the icon name</doc>
+                 line="331">the icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -31791,7 +32003,7 @@ Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
               glib:set-property="paintable">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="371">Sets the paintable for @self.
+             line="376">Sets the paintable for @self.
 
 Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
         <source-position filename="src/adw-status-page.h" line="36"/>
@@ -31802,7 +32014,7 @@ Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="373">a status page</doc>
+                 line="378">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
           <parameter name="paintable"
@@ -31811,7 +32023,7 @@ Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="374">the paintable</doc>
+                 line="379">the paintable</doc>
             <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
           </parameter>
         </parameters>
@@ -31821,7 +32033,7 @@ Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
               glib:set-property="title">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="420">Sets the title for @self.
+             line="431">Sets the title for @self.
 
 The title is displayed below the icon. It is not parsed as Pango markup.</doc>
         <source-position filename="src/adw-status-page.h" line="42"/>
@@ -31832,13 +32044,13 @@ The title is displayed below the icon. It is not parsed as Pango markup.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="422">a status page</doc>
+                 line="433">a status page</doc>
             <type name="StatusPage" c:type="AdwStatusPage*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-status-page.c"
-                 line="423">the title</doc>
+                 line="434">the title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -31850,7 +32062,7 @@ The title is displayed below the icon. It is not parsed as Pango markup.</doc>
                 getter="get_child">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="236">The child widget.</doc>
+             line="241">The child widget.</doc>
         <type name="Gtk.Widget"/>
       </property>
       <property name="description"
@@ -31860,7 +32072,7 @@ The title is displayed below the icon. It is not parsed as Pango markup.</doc>
                 getter="get_description">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="226">The description markup to be displayed below the title.</doc>
+             line="231">The description markup to be displayed below the title.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-name"
@@ -31871,7 +32083,7 @@ The title is displayed below the icon. It is not parsed as Pango markup.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="190">The name of the icon to be used.
+             line="195">The name of the icon to be used.
 
 Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -31883,7 +32095,7 @@ Changing this will set [property@StatusPage:paintable] to `NULL`.</doc>
                 getter="get_paintable">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="202">The paintable to be used.
+             line="207">The paintable to be used.
 
 Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
         <type name="Gdk.Paintable"/>
@@ -31895,7 +32107,7 @@ Changing this will set [property@StatusPage:icon-name] to `NULL`.</doc>
                 getter="get_title">
         <doc xml:space="preserve"
              filename="src/adw-status-page.c"
-             line="214">The title to be displayed below the icon.
+             line="219">The title to be displayed below the icon.
 
 It is not parsed as Pango markup.</doc>
         <type name="utf8" c:type="gchar*"/>

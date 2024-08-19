@@ -81,6 +81,7 @@ export let TYPE_BOXED: GType<unknown>;
 export let TYPE_PARAM: GType<unknown>;
 export let TYPE_INTERFACE: GType<unknown>;
 export let TYPE_OBJECT: GType<object>;
+export let TYPE_JSOBJECT: GType<Object>;
 export let TYPE_VARIANT: GType<GLib.Variant>;
 export let TYPE_INT: GType<number>;
 export let TYPE_UINT: GType<number>;

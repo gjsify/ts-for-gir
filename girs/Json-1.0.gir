@@ -4995,9 +4995,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </return-value>
       </constructor>
       <virtual-method name="array_element">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="96">class handler for the JsonParser::array-element signal</doc>
         <source-position filename="json-glib/json-parser.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5015,9 +5012,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="array_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="97">class handler for the JsonParser::array-end signal</doc>
         <source-position filename="json-glib/json-parser.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5032,9 +5026,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="array_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="95">class handler for the JsonParser::array-start signal</doc>
         <source-position filename="json-glib/json-parser.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5046,9 +5037,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="error">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="99">class handler for the JsonParser::error signal</doc>
         <source-position filename="json-glib/json-parser.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5063,9 +5051,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="object_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="94">class handler for the JsonParser::object-end signal</doc>
         <source-position filename="json-glib/json-parser.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5080,9 +5065,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="object_member">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="93">class handler for the JsonParser::object-member signal</doc>
         <source-position filename="json-glib/json-parser.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5100,9 +5082,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="object_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="92">class handler for the JsonParser::object-start signal</doc>
         <source-position filename="json-glib/json-parser.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5114,9 +5093,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="parse_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="98">class handler for the JsonParser::parse-end signal</doc>
         <source-position filename="json-glib/json-parser.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5128,9 +5104,6 @@ property set to `TRUE` to create immutable output trees.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="parse_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="91">class handler for the JsonParser::parse-start signal</doc>
         <source-position filename="json-glib/json-parser.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5369,8 +5342,7 @@ If mapping or reading the file fails, a `G_FILE_ERROR` will be returned.</doc>
       <method name="load_from_stream"
               c:identifier="json_parser_load_from_stream"
               version="0.12"
-              throws="1"
-              glib:async-func="load_from_stream_async">
+              throws="1">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
              line="1422">Loads the contents of an input stream and parses them.
@@ -5413,9 +5385,7 @@ on the given `error`.</doc>
       </method>
       <method name="load_from_stream_async"
               c:identifier="json_parser_load_from_stream_async"
-              version="0.12"
-              glib:finish-func="load_from_stream_finish"
-              glib:sync-func="load_from_stream">
+              version="0.12">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
              line="1589">Asynchronously reads the contents of a stream.
@@ -5697,9 +5667,6 @@ JSON data stream</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="parse_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="91">class handler for the JsonParser::parse-start signal</doc>
         <callback name="parse_start">
           <source-position filename="json-glib/json-parser.h" line="109"/>
           <return-value transfer-ownership="none">
@@ -5713,9 +5680,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="object_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="92">class handler for the JsonParser::object-start signal</doc>
         <callback name="object_start">
           <source-position filename="json-glib/json-parser.h" line="111"/>
           <return-value transfer-ownership="none">
@@ -5729,9 +5693,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="object_member">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="93">class handler for the JsonParser::object-member signal</doc>
         <callback name="object_member">
           <source-position filename="json-glib/json-parser.h" line="112"/>
           <return-value transfer-ownership="none">
@@ -5751,9 +5712,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="object_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="94">class handler for the JsonParser::object-end signal</doc>
         <callback name="object_end">
           <source-position filename="json-glib/json-parser.h" line="115"/>
           <return-value transfer-ownership="none">
@@ -5770,9 +5728,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="array_start">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="95">class handler for the JsonParser::array-start signal</doc>
         <callback name="array_start">
           <source-position filename="json-glib/json-parser.h" line="118"/>
           <return-value transfer-ownership="none">
@@ -5786,9 +5741,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="array_element">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="96">class handler for the JsonParser::array-element signal</doc>
         <callback name="array_element">
           <source-position filename="json-glib/json-parser.h" line="119"/>
           <return-value transfer-ownership="none">
@@ -5808,9 +5760,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="array_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="97">class handler for the JsonParser::array-end signal</doc>
         <callback name="array_end">
           <source-position filename="json-glib/json-parser.h" line="122"/>
           <return-value transfer-ownership="none">
@@ -5827,9 +5776,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="parse_end">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="98">class handler for the JsonParser::parse-end signal</doc>
         <callback name="parse_end">
           <source-position filename="json-glib/json-parser.h" line="125"/>
           <return-value transfer-ownership="none">
@@ -5843,9 +5789,6 @@ JSON data stream</doc>
         </callback>
       </field>
       <field name="error">
-        <doc xml:space="preserve"
-             filename="json-glib/json-parser.h"
-             line="99">class handler for the JsonParser::error signal</doc>
         <callback name="error">
           <source-position filename="json-glib/json-parser.h" line="127"/>
           <return-value transfer-ownership="none">
@@ -7326,10 +7269,6 @@ the given property.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="list_properties" introspectable="0">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="47">virtual function for listing the installed property
-  definitions</doc>
         <source-position filename="json-glib/json-gobject.h" line="78"/>
         <return-value>
           <type name="GObject.ParamSpec" c:type="GParamSpec**"/>
@@ -7789,10 +7728,6 @@ sequence.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="serialize_property">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="41">virtual function for serializing an object property
-  into JSON</doc>
         <callback name="serialize_property">
           <source-position filename="json-glib/json-gobject.h" line="66"/>
           <return-value transfer-ownership="full">
@@ -7830,10 +7765,6 @@ sequence.</doc>
         </callback>
       </field>
       <field name="deserialize_property">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="43">virtual function for deserializing JSON
-  into an object property</doc>
         <callback name="deserialize_property">
           <source-position filename="json-glib/json-gobject.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -7880,10 +7811,6 @@ sequence.</doc>
         </callback>
       </field>
       <field name="find_property">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="45">virtual function for finding a property definition using
-  its name</doc>
         <callback name="find_property">
           <source-position filename="json-glib/json-gobject.h" line="76"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -7909,10 +7836,6 @@ sequence.</doc>
         </callback>
       </field>
       <field name="list_properties" introspectable="0">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="47">virtual function for listing the installed property
-  definitions</doc>
         <callback name="list_properties" introspectable="0">
           <source-position filename="json-glib/json-gobject.h" line="78"/>
           <return-value>
@@ -7929,9 +7852,6 @@ sequence.</doc>
         </callback>
       </field>
       <field name="set_property">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="49">virtual function for setting a property</doc>
         <callback name="set_property">
           <source-position filename="json-glib/json-gobject.h" line="80"/>
           <return-value transfer-ownership="none">
@@ -7960,9 +7880,6 @@ sequence.</doc>
         </callback>
       </field>
       <field name="get_property">
-        <doc xml:space="preserve"
-             filename="json-glib/json-gobject.h"
-             line="50">virtual function for getting a property</doc>
         <callback name="get_property">
           <source-position filename="json-glib/json-gobject.h" line="83"/>
           <return-value transfer-ownership="none">

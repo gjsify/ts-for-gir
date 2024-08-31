@@ -72,7 +72,7 @@ and/or use gtk-doc annotations.  -->
     <constant name="EXTRA_VERSION" value="" c:type="GPLUGIN_EXTRA_VERSION">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="163">This is the extra version string of GPlugin that was compiled against.</doc>
+           line="162">This is the extra version string of GPlugin that was compiled against.</doc>
       <source-position filename="gplugin/gplugin-version-defs.h" line="28"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -176,7 +176,7 @@ paths from @manager.</doc>
             <type name="Loader" c:type="GPluginLoader*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -231,7 +231,7 @@ paths from @manager.</doc>
           <doc xml:space="preserve"
                filename="gplugin/gplugin-loader.c"
                line="169">The ID of @loader.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="loader" transfer-ownership="none">
@@ -322,7 +322,7 @@ so, dll, py, etc.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-loader.c"
                  line="188">The filename to query.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -422,7 +422,7 @@ so, dll, py, etc.</doc>
               <type name="Loader" c:type="GPluginLoader*"/>
             </parameter>
             <parameter name="filename" transfer-ownership="none">
-              <type name="utf8" c:type="const gchar*"/>
+              <type name="utf8" c:type="const char*"/>
             </parameter>
           </parameters>
         </callback>
@@ -479,21 +479,21 @@ so, dll, py, etc.</doc>
     <constant name="MAJOR_VERSION" value="0" c:type="GPLUGIN_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="145">This is the major version number of GPlugin that was compiled against.</doc>
+           line="144">This is the major version number of GPlugin that was compiled against.</doc>
       <source-position filename="gplugin/gplugin-version-defs.h" line="25"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="GPLUGIN_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="GPLUGIN_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="157">This is the micro version number of GPlugin that was compiled against.</doc>
+           line="156">This is the micro version number of GPlugin that was compiled against.</doc>
       <source-position filename="gplugin/gplugin-version-defs.h" line="27"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="43" c:type="GPLUGIN_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="44" c:type="GPLUGIN_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="151">This is the minor version number of GPlugin that was compiled against.</doc>
+           line="150">This is the minor version number of GPlugin that was compiled against.</doc>
       <source-position filename="gplugin/gplugin-version-defs.h" line="26"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -517,12 +517,12 @@ searched for plugins.</doc>
                 version="0.33">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1530">Gets the default plugin manager in GPlugin.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="148"/>
+             line="1580">Gets the default plugin manager in GPlugin.</doc>
+        <source-position filename="gplugin/gplugin-manager.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1535">The default GPluginManager instance.</doc>
+               line="1585">The default GPluginManager instance.</doc>
           <type name="Manager" c:type="GPluginManager*"/>
         </return-value>
       </function>
@@ -534,7 +534,7 @@ searched for plugins.</doc>
 
 This will add `{prefix}/{appname}/plugins` to the list as well as
 `${XDG_CONFIG_HOME}/{appname}/plugins`.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="59"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -549,13 +549,13 @@ This will add `{prefix}/{appname}/plugins` to the list as well as
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="685">The installation prefix for the application.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="appname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="686">The name of the application whose paths to add.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -566,7 +566,7 @@ This will add `{prefix}/{appname}/plugins` to the list as well as
              line="658">Adds the path that GPlugin was installed to to the plugin search path, as
 well as `${XDG_CONFIG_HOME}/gplugin` so users can install additional loaders
 themselves.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="56"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -583,7 +583,7 @@ themselves.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="556">Adds @path to the end of the list of paths to search for plugins.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="44"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -598,7 +598,7 @@ themselves.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="559">A path to add to the end of the plugin search paths.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -608,7 +608,7 @@ themselves.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="713">Append the paths held in the environment variable @name to the list.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="65"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -623,7 +623,7 @@ themselves.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="716">The name of the environment variable containing the paths to add.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -634,7 +634,7 @@ themselves.</doc>
 
 This function uses [method@GPlugin.Manager.find_plugins] and returns the
 first plugin in the list.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="117"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -653,7 +653,39 @@ first plugin in the list.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="1070">The ID of the plugin to find.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_plugin_with_filename"
+              c:identifier="gplugin_manager_find_plugin_with_filename"
+              version="0.44">
+        <doc xml:space="preserve"
+             filename="gplugin/gplugin-manager.c"
+             line="1100">Finds a plugin with the given filename.
+
+This method should be used sparingly as you should typically be using plugin
+id's to identify them, however, sometimes it's necessary to find them by
+filename.</doc>
+        <source-position filename="gplugin/gplugin-manager.h" line="120"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gplugin/gplugin-manager.c"
+               line="1111">The plugin if found, otherwise %NULL.</doc>
+          <type name="Plugin" c:type="GPluginPlugin*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin/gplugin-manager.c"
+                 line="1102">The instance.</doc>
+            <type name="Manager" c:type="GPluginManager*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin/gplugin-manager.c"
+                 line="1103">The filename of the plugin.</doc>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -661,14 +693,14 @@ first plugin in the list.</doc>
               c:identifier="gplugin_manager_find_plugin_with_newest_version">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1100">Calls [method@GPlugin.Manager.find_plugins] with @id, and then returns the
+             line="1150">Calls [method@GPlugin.Manager.find_plugins] with @id, and then returns the
 plugins with the highest version number or %NULL if no plugins with @id are
 found.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="122"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="125"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1109">The plugin with an ID of @id that has the highest
+               line="1159">The plugin with an ID of @id that has the highest
          version number, or %NULL if no plugins were found with @id.</doc>
           <type name="Plugin" c:type="GPluginPlugin*"/>
         </return-value>
@@ -676,14 +708,14 @@ found.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1102">The manager instance.</doc>
+                 line="1152">The manager instance.</doc>
             <type name="Manager" c:type="GPluginManager*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1103">The ID of the plugin to find.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+                 line="1153">The ID of the plugin to find.</doc>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -691,7 +723,7 @@ found.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="930">Finds all plugins matching @id.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="102"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="100"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -712,7 +744,7 @@ found.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="933">The ID of the plugin to find.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -721,7 +753,7 @@ found.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="1030">Finds all plugins that currently have a state of @state.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="112"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="110"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -755,7 +787,7 @@ whose versions match @op and @version.
 
 This is primarily used for dependency loading where a plugin may depend on a
 specific range of versions of another plugin.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="105"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -776,19 +808,19 @@ specific range of versions of another plugin.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="957">The ID of the plugin to find.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="op" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="958">one of &lt;, &lt;=, =, ==, &gt;=, &gt;.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="959">The version to compare against.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -796,7 +828,7 @@ specific range of versions of another plugin.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="904">Calls @func for each plugin that is known.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="96"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -832,7 +864,7 @@ specific range of versions of another plugin.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="859">Returns a list of all registered loaders.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="90"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="88"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -855,7 +887,7 @@ specific range of versions of another plugin.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="747">Gets the list of paths which will be searched for plugins.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="75"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -879,12 +911,12 @@ specific range of versions of another plugin.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1176">Returns a list of all the plugins that @plugin depends on.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="127"/>
+             line="1226">Returns a list of all the plugins that @plugin depends on.</doc>
+        <source-position filename="gplugin/gplugin-manager.h" line="130"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1184">A [struct@GLib.SList]
+               line="1234">A [struct@GLib.SList]
          of plugins that @plugin depends on, or %NULL on error with @error
          set.</doc>
           <type name="GLib.SList" c:type="GSList*">
@@ -895,13 +927,13 @@ specific range of versions of another plugin.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1178">The manager instance.</doc>
+                 line="1228">The manager instance.</doc>
             <type name="Manager" c:type="GPluginManager*"/>
           </instance-parameter>
           <parameter name="plugin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1179">The plugin whose dependencies to get.</doc>
+                 line="1229">The plugin whose dependencies to get.</doc>
             <type name="Plugin" c:type="GPluginPlugin*"/>
           </parameter>
         </parameters>
@@ -909,14 +941,14 @@ specific range of versions of another plugin.</doc>
       <method name="list_plugins" c:identifier="gplugin_manager_list_plugins">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1467">Returns a list of all plugin IDs.
+             line="1517">Returns a list of all plugin IDs.
 
 Each id should be queried directly for more information.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="145"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="148"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1475">A [struct@GLib.List] of
+               line="1525">A [struct@GLib.List] of
          each unique plugin ID.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="utf8"/>
@@ -926,7 +958,7 @@ Each id should be queried directly for more information.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1469">The manager instance.</doc>
+                 line="1519">The manager instance.</doc>
             <type name="Manager" c:type="GPluginManager*"/>
           </instance-parameter>
         </parameters>
@@ -936,16 +968,16 @@ Each id should be queried directly for more information.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1275">Loads @plugin and all of its dependencies.
+             line="1325">Loads @plugin and all of its dependencies.
 
 If a dependency can not be loaded, @plugin will not be loaded either.
 However, any other plugins that @plugin depends on that were loaded from
 this call, will not be unloaded.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="133"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1287">%TRUE if @plugin was loaded successfully or already loaded, %FALSE
+               line="1337">%TRUE if @plugin was loaded successfully or already loaded, %FALSE
          otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -953,13 +985,13 @@ this call, will not be unloaded.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1277">The manager instance.</doc>
+                 line="1327">The manager instance.</doc>
             <type name="Manager" c:type="GPluginManager*"/>
           </instance-parameter>
           <parameter name="plugin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1278">The plugin instance.</doc>
+                 line="1328">The plugin instance.</doc>
             <type name="Plugin" c:type="GPluginPlugin*"/>
           </parameter>
         </parameters>
@@ -968,7 +1000,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="585">Adds @path to the beginning of the list of paths to search for plugins.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="47"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -983,7 +1015,7 @@ this call, will not be unloaded.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="588">A path to add to the beginning of the plugin search paths.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -993,7 +1025,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="730">Prepends the paths held in the environment variable @name to the list.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="70"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1008,7 +1040,7 @@ this call, will not be unloaded.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="733">The name of the environment variable containing the paths to add.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -1016,7 +1048,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="876">Forces a refresh of all plugins found in the search paths.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="93"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1035,7 +1067,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="764">Registers @loader as an available loader.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="78"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -1062,7 +1094,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="614">Removes @path from the list of paths to search for plugins.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="50"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1077,7 +1109,7 @@ this call, will not be unloaded.</doc>
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
                  line="617">A path to remove from the plugin search paths.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -1085,7 +1117,7 @@ this call, will not be unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="644">Clears all paths that are set to search for plugins.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="53"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1103,14 +1135,14 @@ this call, will not be unloaded.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
-             line="1386">Unloads @plugin.
+             line="1436">Unloads @plugin.
 
 If @plugin has dependencies, they are not unloaded.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="139"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
-               line="1396">%TRUE if @plugin was unloaded successfully or not loaded, %FALSE
+               line="1446">%TRUE if @plugin was unloaded successfully or not loaded, %FALSE
          otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1118,13 +1150,13 @@ If @plugin has dependencies, they are not unloaded.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1388">The manager instance.</doc>
+                 line="1438">The manager instance.</doc>
             <type name="Manager" c:type="GPluginManager*"/>
           </instance-parameter>
           <parameter name="plugin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-manager.c"
-                 line="1389">The plugin instance.</doc>
+                 line="1439">The plugin instance.</doc>
             <type name="Plugin" c:type="GPluginPlugin*"/>
           </parameter>
         </parameters>
@@ -1135,7 +1167,7 @@ If @plugin has dependencies, they are not unloaded.</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-manager.c"
              line="809">Unregisters @loader as an available loader.</doc>
-        <source-position filename="gplugin/gplugin-manager.h" line="84"/>
+        <source-position filename="gplugin/gplugin-manager.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
@@ -1340,7 +1372,7 @@ If @plugin has dependencies, they are not unloaded.</doc>
       <doc xml:space="preserve"
            filename="gplugin/gplugin-manager.c"
            line="32">A callback function for [method@GPlugin.Manager.foreach].</doc>
-      <source-position filename="gplugin/gplugin-manager.h" line="38"/>
+      <source-position filename="gplugin/gplugin-manager.h" line="39"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1349,7 +1381,7 @@ If @plugin has dependencies, they are not unloaded.</doc>
           <doc xml:space="preserve"
                filename="gplugin/gplugin-manager.c"
                line="34">The id of the plugin.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="plugins" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1468,7 +1500,7 @@ unload.</doc>
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin.c"
                line="193">The filename of @plugin.</doc>
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="plugin" transfer-ownership="none">
@@ -1707,20 +1739,20 @@ a plugin is queried.</doc>
               glib:get-property="abi-version">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1033">Returns the ABI or Application Binary Interface version that the plugin
+             line="1066">Returns the ABI or Application Binary Interface version that the plugin
 is supposed to work against.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1040">The abi_version from @info.</doc>
+               line="1073">The abi_version from @info.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1035">The plugin info instance.</doc>
+                 line="1068">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1730,13 +1762,13 @@ is supposed to work against.</doc>
               glib:get-property="authors">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1330">Returns the authors of the plugin as specified in @info.</doc>
+             line="1363">Returns the authors of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1336">The authors from @info.</doc>
-          <array c:type="const gchar* const*">
+               line="1369">The authors from @info.</doc>
+          <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
         </return-value>
@@ -1744,7 +1776,7 @@ is supposed to work against.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1332">The plugin info instance.</doc>
+                 line="1365">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1755,7 +1787,7 @@ is supposed to work against.</doc>
               version="0.39">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1076">Returns whether or not this plugin should be loaded when queried.  This is
+             line="1109">Returns whether or not this plugin should be loaded when queried.  This is
 useful for internal plugins that are adding functionality and should always
 be turned on. The plugin loaders use this to make sure all plugins can
 always be loaded.</doc>
@@ -1763,7 +1795,7 @@ always be loaded.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1085">%TRUE if the plugin should be loaded when queried, %FALSE
+               line="1118">%TRUE if the plugin should be loaded when queried, %FALSE
          otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1771,7 +1803,7 @@ always be loaded.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1078">The plugin info instance.</doc>
+                 line="1111">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1781,13 +1813,13 @@ always be loaded.</doc>
               glib:get-property="bind-global">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1391">This property and therefore function is only used by the native plugin
+             line="1446">This property and therefore function is only used by the native plugin
 loader.</doc>
-        <source-position filename="gplugin/gplugin-plugin-info.h" line="125"/>
+        <source-position filename="gplugin/gplugin-plugin-info.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1398">%TRUE if the plugin has requested to be loaded with its symbols
+               line="1453">%TRUE if the plugin has requested to be loaded with its symbols
          bound global, %FALSE if they should be bound locally.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1795,7 +1827,7 @@ loader.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1393">The plugin info instance.</doc>
+                 line="1448">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1805,19 +1837,19 @@ loader.</doc>
               glib:get-property="category">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1310">Returns the category of the plugin as specified in @info.</doc>
+             line="1343">Returns the category of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1316">The category from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1349">The category from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1312">The plugin info instance.</doc>
+                 line="1345">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1827,14 +1859,14 @@ loader.</doc>
               glib:get-property="dependencies">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1370">Returns the dependencies of the plugins as specified in @info.</doc>
+             line="1403">Returns the dependencies of the plugins as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1376">The list of
+               line="1409">The list of
          dependencies from @info.</doc>
-          <array c:type="const gchar* const*">
+          <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
         </return-value>
@@ -1842,7 +1874,7 @@ loader.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1372">The plugin info instance.</doc>
+                 line="1405">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1852,19 +1884,42 @@ loader.</doc>
               glib:get-property="description">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1290">Returns the description for the plugin as specified in @info.</doc>
+             line="1323">Returns the description for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1296">The description from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1329">The description from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1292">The plugin info instance.</doc>
+                 line="1325">The plugin info instance.</doc>
+            <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_discriminator"
+              c:identifier="gplugin_plugin_info_get_discriminator"
+              glib:get-property="discriminator"
+              version="0.44">
+        <doc xml:space="preserve"
+             filename="gplugin/gplugin-plugin-info.c"
+             line="1424">Gets the discriminator from @info.</doc>
+        <source-position filename="gplugin/gplugin-plugin-info.h" line="125"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin/gplugin-plugin-info.c"
+               line="1430">The discriminator.</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin/gplugin-plugin-info.c"
+                 line="1426">The instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1874,19 +1929,19 @@ loader.</doc>
               glib:get-property="icon-name">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1250">Returns the name of the icon for the plugin as specified in @info.</doc>
+             line="1283">Returns the name of the icon for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1256">The icon name from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1289">The icon name from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1252">The plugin info instance.</doc>
+                 line="1285">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1896,19 +1951,19 @@ loader.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="936">Returns the id that the plugin identifies itself as.</doc>
+             line="969">Returns the id that the plugin identifies itself as.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="942">The id from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="975">The id from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="938">The plugin info instance.</doc>
+                 line="971">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1917,20 +1972,20 @@ loader.</doc>
               c:identifier="gplugin_plugin_info_get_id_normalized">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="956">Gets the normalized version of the id from @info.  That is, a version where
+             line="989">Gets the normalized version of the id from @info.  That is, a version where
 only alphanumeric and -'s are in the id.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="64"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="963">The normalized id of @info.</doc>
-          <type name="utf8" c:type="gchar*"/>
+               line="996">The normalized id of @info.</doc>
+          <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="958">The plugin info instance.</doc>
+                 line="991">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1940,21 +1995,21 @@ only alphanumeric and -'s are in the id.</doc>
               glib:get-property="internal">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1054">Returns where or not this plugin is is considered an internal plugin.  An
+             line="1087">Returns where or not this plugin is is considered an internal plugin.  An
 internal plugin would be something like a plugin loader or another plugin
 that should not be shown to users.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1062">%TRUE if the plugin is internal, %FALSE otherwise.</doc>
+               line="1095">%TRUE if the plugin is internal, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1056">The plugin info instance.</doc>
+                 line="1089">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1964,19 +2019,19 @@ that should not be shown to users.</doc>
               glib:get-property="license-id">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1190">Returns the liences id for the plugin as specified in @info.</doc>
+             line="1223">Returns the liences id for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1196">The license-id from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1229">The license-id from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1192">The plugin info instance.</doc>
+                 line="1225">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1986,19 +2041,19 @@ that should not be shown to users.</doc>
               glib:get-property="license-text">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1210">Returns the license text for the plugin as specified in @info.</doc>
+             line="1243">Returns the license text for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1216">The text of the license from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1249">The text of the license from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1212">The plugin info instance.</doc>
+                 line="1245">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2008,19 +2063,19 @@ that should not be shown to users.</doc>
               glib:get-property="license-url">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1230">Returns the url of the license for the plugin as specified in @info</doc>
+             line="1263">Returns the url of the license for the plugin as specified in @info</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1236">The url of the license from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1269">The url of the license from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1232">The plugin info instance.</doc>
+                 line="1265">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2032,7 +2087,7 @@ that should not be shown to users.</doc>
               deprecated-version="0.39.0">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1102">Returns whether or not this plugin should be loaded when queried.  This is
+             line="1135">Returns whether or not this plugin should be loaded when queried.  This is
 useful for internal plugins that are adding functionality and should always
 be turned on. The plugin loaders use this to make sure all plugins can
 always be loaded.</doc>
@@ -2041,7 +2096,7 @@ always be loaded.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1111">%TRUE if the plugin should be loaded when queried, %FALSE
+               line="1144">%TRUE if the plugin should be loaded when queried, %FALSE
          otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2049,7 +2104,7 @@ always be loaded.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1104">The plugin info instance.</doc>
+                 line="1137">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2059,19 +2114,19 @@ always be loaded.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1128">Returns the name of the plugin as specified in @info.</doc>
+             line="1161">Returns the name of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1134">The name from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1167">The name from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1130">The plugin info instance.</doc>
+                 line="1163">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2082,19 +2137,19 @@ always be loaded.</doc>
               version="0.32">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1011">Gets the priority of the plugin as specified in @info.</doc>
+             line="1044">Gets the priority of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1017">The priority from @info.</doc>
-          <type name="gint" c:type="gint"/>
+               line="1050">The priority from @info.</doc>
+          <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1013">The plugin info instance.</doc>
+                 line="1046">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2105,14 +2160,14 @@ always be loaded.</doc>
               version="0.32">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="988">Gets the provides of the plugin as specified in @info.</doc>
+             line="1021">Gets the provides of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="994">The list of
+               line="1027">The list of
          dependencies from @info.</doc>
-          <array c:type="const gchar* const*">
+          <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
         </return-value>
@@ -2120,7 +2175,7 @@ always be loaded.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="990">The plugin info instance.</doc>
+                 line="1023">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2131,19 +2186,19 @@ always be loaded.</doc>
               version="0.39">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1168">Returns the ID of the [class@Gio.Settings] schema as specified in @info.</doc>
+             line="1201">Returns the ID of the [class@Gio.Settings] schema as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1176">The schema ID from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1209">The schema ID from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1170">The plugin info instance.</doc>
+                 line="1203">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2153,19 +2208,19 @@ always be loaded.</doc>
               glib:get-property="summary">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1270">Returns the summery for the plugin as specified in @info.</doc>
+             line="1303">Returns the summery for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1276">The summary from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1309">The summary from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1272">The plugin info instance.</doc>
+                 line="1305">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2176,23 +2231,23 @@ always be loaded.</doc>
               version="0.35">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1413">Gets whether or not the plugin is unloadable. Certain libraries can not be
+             line="1468">Gets whether or not the plugin is unloadable. Certain libraries can not be
 shutdown cleanly and then re-enabled during the life time of a program. A
 plugin using one of these libraries should set the
 [property@GPlugin.PluginInfo:unloadable] property to %FALSE to tell
 [class@GPlugin.Manager] to not even attempt to unload it.</doc>
-        <source-position filename="gplugin/gplugin-plugin-info.h" line="128"/>
+        <source-position filename="gplugin/gplugin-plugin-info.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1423">%TRUE if the plugin is unloadable, otherwise %FALSE.</doc>
+               line="1478">%TRUE if the plugin is unloadable, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1415">The plugin info instance.</doc>
+                 line="1470">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2202,19 +2257,19 @@ plugin using one of these libraries should set the
               glib:get-property="version">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1148">Returns the version of the plugin as specified in @info.</doc>
+             line="1181">Returns the version of the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1154">The version from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1187">The version from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1150">The plugin info instance.</doc>
+                 line="1183">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2224,19 +2279,19 @@ plugin using one of these libraries should set the
               glib:get-property="website">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="1350">Returns the website for the plugin as specified in @info.</doc>
+             line="1383">Returns the website for the plugin as specified in @info.</doc>
         <source-position filename="gplugin/gplugin-plugin-info.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="1356">The website from @info.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="1389">The website from @info.</doc>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gplugin/gplugin-plugin-info.c"
-                 line="1352">The plugin info instance.</doc>
+                 line="1385">The plugin info instance.</doc>
             <type name="PluginInfo" c:type="GPluginPluginInfo*"/>
           </instance-parameter>
         </parameters>
@@ -2249,7 +2304,7 @@ plugin using one of these libraries should set the
                 default-value="0">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="630">The GPlugin ABI version that the plugin was compiled against.
+             line="663">The GPlugin ABI version that the plugin was compiled against.
 
 GPlugin only uses the first byte (`0xff000000`) of this value.  The
 remaining 3 bytes are available for the application to use.
@@ -2273,7 +2328,7 @@ the second as well.</doc>
                 getter="get_authors">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="864">A list of the names and email addresses of the authors.
+             line="897">A list of the names and email addresses of the authors.
 
 It is recommended to use the RFC 822, 2822 format of:
 `"First Last &lt;user@domain.com&gt;"`.</doc>
@@ -2290,7 +2345,7 @@ It is recommended to use the RFC 822, 2822 format of:
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="672">Whether or not the plugin should be loaded when it's queried.
+             line="705">Whether or not the plugin should be loaded when it's queried.
 
 This is used by the loaders and may be useful to your application as
 well.
@@ -2306,7 +2361,7 @@ Defaults to %FALSE.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="710">Determines whether the plugin should be have its symbols bound globally.
+             line="743">Determines whether the plugin should be have its symbols bound globally.
 
 Note: This should only be used by the native plugin loader.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -2319,7 +2374,7 @@ Note: This should only be used by the native plugin loader.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="847">The category of this plugin.
+             line="880">The category of this plugin.
 
 This property is used to organize plugins into categories in a user
 interface.  It is recommended that an application has a well defined
@@ -2334,7 +2389,7 @@ that don't match this category into an "Other" category.</doc>
                 getter="get_dependencies">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="891">A comma separated list of plugin id's that this plugin depends on.</doc>
+             line="924">A comma separated list of plugin id's that this plugin depends on.</doc>
         <array>
           <type name="utf8"/>
         </array>
@@ -2347,8 +2402,20 @@ that don't match this category into an "Other" category.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="834">The full description of the plugin that will be used in a "more
+             line="867">The full description of the plugin that will be used in a "more
 information" section in a user interface.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="discriminator"
+                version="0.44"
+                transfer-ownership="none"
+                getter="get_discriminator"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="gplugin/gplugin-plugin-info.c"
+             line="607">A unique value that can be used to identify plugins with the same id.
+
+This is an opaque token and may change in the future.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-name"
@@ -2359,7 +2426,7 @@ information" section in a user interface.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="808">A XDG icon name for the plugin.  The actual use of this is determined by
+             line="841">A XDG icon name for the plugin.  The actual use of this is determined by
 the application/library using GPlugin.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2371,7 +2438,7 @@ the application/library using GPlugin.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="572">The id of the plugin.
+             line="589">The id of the plugin.
 
 While not required, the recommended convention is to use the following
 format: &amp;lt;application or library&amp;gt;/&amp;lt;name of the plugin&amp;gt;.
@@ -2388,7 +2455,7 @@ For example, the Python3 loader in GPlugin has an id of
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="658">Whether or not the plugin is considered an "internal" plugin.
+             line="691">Whether or not the plugin is considered an "internal" plugin.
 
 Defaults to %FALSE.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -2401,7 +2468,7 @@ Defaults to %FALSE.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="762">The short name of the license.
+             line="795">The short name of the license.
 
 It is recommended to use the identifier of the license from
 https://spdx.org/licenses/ and should be "Other" for licenses that are
@@ -2420,7 +2487,7 @@ the same time, they should be separated by an ampersand (&amp;).</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="782">The text of the license for this plugin.  This should only be used when
+             line="815">The text of the license for this plugin.  This should only be used when
 the plugin is licensed under a license that is not listed at spdx.org.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2432,7 +2499,7 @@ the plugin is licensed under a license that is not listed at spdx.org.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="795">The url to the text of the license.  This should primarily only be used
+             line="828">The url to the text of the license.  This should primarily only be used
 for licenses not listed at spdx.org.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2446,7 +2513,7 @@ for licenses not listed at spdx.org.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="691">Whether or not the plugin should be loaded when it's queried.
+             line="724">Whether or not the plugin should be loaded when it's queried.
 
 This is used by the loaders and may be useful to your application as
 well.
@@ -2463,7 +2530,7 @@ Defaults to %FALSE.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="724">The display name of the plugin.  This should be a translated string.</doc>
+             line="757">The display name of the plugin.  This should be a translated string.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="priority"
@@ -2475,7 +2542,7 @@ Defaults to %FALSE.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="611">The priority that this plugin should have when determining which plugin
+             line="644">The priority that this plugin should have when determining which plugin
 to use when multiple plugins have the same id or provides. Higher values
 take precedence over lower values.  If two plugins have the same id and
 priority, the first one found will be used.</doc>
@@ -2489,7 +2556,7 @@ priority, the first one found will be used.</doc>
                 getter="get_provides">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="590">A list of additional plugin ids and versions that this plugin can
+             line="623">A list of additional plugin ids and versions that this plugin can
 provide.  This mechanism is used so that plugins can replace and extend
 the behavior of other plugins.
 
@@ -2510,7 +2577,7 @@ on a specific version.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="748">The ID of the [class@Gio.Settings] schema for the plugin.</doc>
+             line="781">The ID of the [class@Gio.Settings] schema for the plugin.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="summary"
@@ -2521,7 +2588,7 @@ on a specific version.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="821">A short description of the plugin that can be listed with the name in a
+             line="854">A short description of the plugin that can be listed with the name in a
 user interface.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2534,7 +2601,7 @@ user interface.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="903">Sets whether or not a plugin is unloadable. See
+             line="936">Sets whether or not a plugin is unloadable. See
 [method@GPlugin.PluginInfo.get_unloadable] for more information.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -2546,7 +2613,7 @@ user interface.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="736">The version of the plugin.  Preferably a semantic version.</doc>
+             line="769">The version of the plugin.  Preferably a semantic version.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="website"
@@ -2557,7 +2624,7 @@ user interface.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin-info.c"
-             line="879">The url of the plugin that can be represented in a user interface.</doc>
+             line="912">The url of the plugin that can be represented in a user interface.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -2702,7 +2769,7 @@ signals.</doc>
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin.c"
                line="385">The string representation of @state.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="state" transfer-ownership="none">
@@ -2852,10 +2919,10 @@ which will tell the manager to continue scanning.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION" value="0.43.2" c:type="GPLUGIN_VERSION">
+    <constant name="VERSION" value="0.44.0" c:type="GPLUGIN_VERSION">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="169">This is the string version number of GPlugin that was compiled against.</doc>
+           line="168">This is the string version number of GPlugin that was compiled against.</doc>
       <source-position filename="gplugin/gplugin-version-defs.h" line="30"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -2864,24 +2931,24 @@ which will tell the manager to continue scanning.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="175">Checks the version of the GPlugin library that is being compiled
+           line="174">Checks the version of the GPlugin library that is being compiled
 against.</doc>
-      <source-position filename="gplugin/gplugin-version.h" line="335"/>
+      <source-position filename="gplugin/gplugin-version.h" line="351"/>
       <parameters>
         <parameter name="major">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="177">The major version to compare for.</doc>
+               line="176">The major version to compare for.</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="178">The minor version to compare for.</doc>
+               line="177">The minor version to compare for.</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="179">The micro version to compare for.</doc>
+               line="178">The micro version to compare for.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2967,23 +3034,23 @@ internally calls [func@GPlugin.init].</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-plugin-info.c"
-           line="925">Creates a new #GPluginPluginInfo instance.</doc>
+           line="958">Creates a new #GPluginPluginInfo instance.</doc>
       <source-position filename="gplugin/gplugin-plugin-info.h" line="52"/>
       <parameters>
         <parameter name="id">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="927">The id of the plugin.</doc>
+               line="960">The id of the plugin.</doc>
         </parameter>
         <parameter name="abi_version">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="928">The GPlugin ABI version that the plugin uses.</doc>
+               line="961">The GPlugin ABI version that the plugin uses.</doc>
         </parameter>
         <parameter name="...">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-plugin-info.c"
-               line="929">name/value pairs of properties to set, followed by %NULL.</doc>
+               line="962">name/value pairs of properties to set, followed by %NULL.</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -2999,7 +3066,7 @@ internally calls [func@GPlugin.init].</doc>
         <doc xml:space="preserve"
              filename="gplugin/gplugin-plugin.c"
              line="385">The string representation of @state.</doc>
-        <type name="utf8" c:type="const gchar*"/>
+        <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="state" transfer-ownership="none">
@@ -3022,7 +3089,7 @@ internally calls [func@GPlugin.init].</doc>
     <function name="version_check" c:identifier="gplugin_version_check">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="188">Checks that the GPlugin library in use is compatible with the given version.
+           line="187">Checks that the GPlugin library in use is compatible with the given version.
 
 Generally you would pass in the constants [const@GPlugin.MAJOR_VERSION],
 [const@GPlugin.MINOR_VERSION], [const@GPlugin.MICRO_VERSION] as the three
@@ -3034,32 +3101,32 @@ Compatibility is defined by two things: first the version of the running
 library is newer than the version @major.@minor.@micro. Second the running
 library must be binary compatible with the version @major.@minor.@micro
 (same major version).</doc>
-      <source-position filename="gplugin/gplugin-version.h" line="344"/>
+      <source-position filename="gplugin/gplugin-version.h" line="360"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-version.c"
-             line="207">%NULL if the GPlugin library is compatible with the given version,
+             line="206">%NULL if the GPlugin library is compatible with the given version,
          or a string describing the version mismatch. The returned string
          is owned by GPlugin and must not be modified or freed.</doc>
-        <type name="utf8" c:type="const gchar*"/>
+        <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="major" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="190">The required major version.</doc>
+               line="189">The required major version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="minor" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="191">The required minor version.</doc>
+               line="190">The required minor version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="micro" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="192">The required micro version.</doc>
+               line="191">The required micro version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -3067,28 +3134,28 @@ library must be binary compatible with the version @major.@minor.@micro
     <function name="version_compare" c:identifier="gplugin_version_compare">
       <doc xml:space="preserve"
            filename="gplugin/gplugin-version.c"
-           line="235">A semantic version checker which ignores any characters after the micro
+           line="234">A semantic version checker which ignores any characters after the micro
 version.</doc>
-      <source-position filename="gplugin/gplugin-version.h" line="347"/>
+      <source-position filename="gplugin/gplugin-version.h" line="363"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gplugin/gplugin-version.c"
-             line="243">less than 0 if @v1 is less than @v2, 0 if @v1 is equal to @v1, and
+             line="242">less than 0 if @v1 is less than @v2, 0 if @v1 is equal to @v1, and
          greater than 0 if @v1 is greater than @v2.</doc>
-        <type name="gint" c:type="gint"/>
+        <type name="gint" c:type="int"/>
       </return-value>
       <parameters>
         <parameter name="v1" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="237">The first version to compare.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="236">The first version to compare.</doc>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="v2" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gplugin/gplugin-version.c"
-               line="238">The second version to compare.</doc>
-          <type name="utf8" c:type="const gchar*"/>
+               line="237">The second version to compare.</doc>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
     </function>

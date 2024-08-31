@@ -1595,7 +1595,7 @@ out of a title and a URI.</doc>
               c:identifier="webkit_back_forward_list_item_get_original_uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitBackForwardListItem.cpp"
-             line="134">Obtain the original URI of the item.
+             line="140">Obtain the original URI of the item.
 
 See also webkit_back_forward_list_item_get_uri().</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitBackForwardListItem.h"
@@ -1603,7 +1603,7 @@ See also webkit_back_forward_list_item_get_uri().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitBackForwardListItem.cpp"
-               line="142">the original URI of @list_item or %NULL
+               line="148">the original URI of @list_item or %NULL
    when the original URI is empty.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1611,25 +1611,24 @@ See also webkit_back_forward_list_item_get_uri().</doc>
           <instance-parameter name="list_item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitBackForwardListItem.cpp"
-                 line="136">a #WebKitBackForwardListItem</doc>
+                 line="142">a #WebKitBackForwardListItem</doc>
             <type name="BackForwardListItem"
                   c:type="WebKitBackForwardListItem*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_title"
-              c:identifier="webkit_back_forward_list_item_get_title"
-              deprecated="1"
-              deprecated-version="2.44">
+              c:identifier="webkit_back_forward_list_item_get_title">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitBackForwardListItem.cpp"
-             line="118">Since 2.44, page titles are no longer stored in history. This function now returns an empty string.</doc>
+             line="118">Obtain the title of the item.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitBackForwardListItem.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitBackForwardListItem.cpp"
-               line="124">an empty string</doc>
+               line="124">the page title of @list_item or %NULL
+   when the title is empty.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -12412,7 +12411,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="2" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -34951,13 +34950,13 @@ to @reason.</doc>
                    version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="447">Creates a new #WebKitWebViewSessionState from serialized data.</doc>
+             line="448">Creates a new #WebKitWebViewSessionState from serialized data.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitWebViewSessionState.h"
                          line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="453">a new #WebKitWebViewSessionState, or %NULL if @data doesn't contain a
+               line="454">a new #WebKitWebViewSessionState, or %NULL if @data doesn't contain a
     valid serialized #WebKitWebViewSessionState.</doc>
           <type name="WebViewSessionState"
                 c:type="WebKitWebViewSessionState*"/>
@@ -34966,7 +34965,7 @@ to @reason.</doc>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="449">a #GBytes</doc>
+                 line="450">a #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -34976,7 +34975,7 @@ to @reason.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="468">Atomically increments the reference count of @state by one.
+             line="469">Atomically increments the reference count of @state by one.
 
 This
 function is MT-safe and may be called from any thread.</doc>
@@ -34985,7 +34984,7 @@ function is MT-safe and may be called from any thread.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="477">The passed in #WebKitWebViewSessionState</doc>
+               line="478">The passed in #WebKitWebViewSessionState</doc>
           <type name="WebViewSessionState"
                 c:type="WebKitWebViewSessionState*"/>
         </return-value>
@@ -34993,7 +34992,7 @@ function is MT-safe and may be called from any thread.</doc>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="470">a #WebKitWebViewSessionState</doc>
+                 line="471">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>
@@ -35004,20 +35003,20 @@ function is MT-safe and may be called from any thread.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="509">Serializes a #WebKitWebViewSessionState.</doc>
+             line="510">Serializes a #WebKitWebViewSessionState.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.1/WebKitGTK/DerivedSources/webkit/WebKitWebViewSessionState.h"
                          line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="515">a #GBytes containing the @state serialized.</doc>
+               line="516">a #GBytes containing the @state serialized.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="511">a #WebKitWebViewSessionState</doc>
+                 line="512">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>
@@ -35028,7 +35027,7 @@ function is MT-safe and may be called from any thread.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="488">Atomically decrements the reference count of @state by one.
+             line="489">Atomically decrements the reference count of @state by one.
 
 If the
 reference count drops to 0, all memory allocated by the #WebKitWebViewSessionState is
@@ -35042,7 +35041,7 @@ released. This function is MT-safe and may be called from any thread.</doc>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="490">a #WebKitWebViewSessionState</doc>
+                 line="491">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>

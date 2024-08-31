@@ -54,7 +54,7 @@ and/or use gtk-doc annotations.  -->
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="2"
+              value="0"
               c:type="GPLUGIN_GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gplugin-gtk4/gplugin-gtk-version.c"
@@ -64,7 +64,7 @@ and/or use gtk-doc annotations.  -->
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="43"
+              value="44"
               c:type="GPLUGIN_GTK_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gplugin-gtk4/gplugin-gtk-version.c"
@@ -350,7 +350,7 @@ about a [iface@GPlugin.Plugin].</doc>
           <doc xml:space="preserve"
                filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
                line="292">The sort key.</doc>
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="row" transfer-ownership="none">
@@ -386,7 +386,7 @@ about a [iface@GPlugin.Plugin].</doc>
             <doc xml:space="preserve"
                  filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
                  line="307">The text to search for.</doc>
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -605,7 +605,7 @@ A @plugin value of %NULL will clear the widget.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION" value="0.43.2" c:type="GPLUGIN_GTK_VERSION">
+    <constant name="VERSION" value="0.44.0" c:type="GPLUGIN_GTK_VERSION">
       <doc xml:space="preserve"
            filename="gplugin-gtk4/gplugin-gtk-version.c"
            line="48">This is the string version number of GPluginGtk that was compiled against.</doc>
@@ -956,7 +956,7 @@ library must be binary compatible with the version @major.@minor.@micro
              line="86">%NULL if the GPluginGtk library is compatible with the given
          version, or a string describing the version mismatch. The returned
          string is owned by GPluginGtk and must not be modified or freed.</doc>
-        <type name="utf8" c:type="const gchar*"/>
+        <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="major" transfer-ownership="none">

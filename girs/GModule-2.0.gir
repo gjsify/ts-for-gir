@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
              version="2.0"
              shared-library="libgmodule-2.0.so.0"
              c:identifier-prefixes="G"
-             c:symbol-prefixes="g">
+             c:symbol-prefixes="gmodule,g">
     <function-macro name="DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     c:identifier="GMODULE_DEPRECATED_ENUMERATOR_IN_2_26_FOR"
                     introspectable="0">

@@ -70,11 +70,10 @@ to corresponding property notify signals on the [class@Clapper.Player].</doc>
               c:identifier="clapper_gtk_billboard_announce_speed">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-billboard.c"
-             line="331">Temporarily displays current speed value on the
+             line="330">Temporarily displays current speed value on the
 side of @billboard.
 
-Use this if you want to present current speed value to the user.
-Note that @billboard also automatically announces speed changes.</doc>
+Use this if you want to present current speed value to the user.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
                          line="49"/>
         <return-value transfer-ownership="none">
@@ -84,7 +83,7 @@ Note that @billboard also automatically announces speed changes.</doc>
           <instance-parameter name="billboard" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-billboard.c"
-                 line="333">a #ClapperGtkBillboard</doc>
+                 line="332">a #ClapperGtkBillboard</doc>
             <type name="Billboard" c:type="ClapperGtkBillboard*"/>
           </instance-parameter>
         </parameters>
@@ -96,8 +95,7 @@ Note that @billboard also automatically announces speed changes.</doc>
              line="285">Temporarily displays current volume level on the
 side of @billboard.
 
-Use this if you want to present current volume level to the user.
-Note that @billboard also automatically announces volume changes.</doc>
+Use this if you want to present current volume level to the user.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-billboard.h"
                          line="47"/>
         <return-value transfer-ownership="none">
@@ -646,13 +644,13 @@ behavior on descendants.</doc>
       <constructor name="new" c:identifier="clapper_gtk_extra_menu_button_new">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="319">Creates a new #ClapperGtkExtraMenuButton instance.</doc>
+             line="320">Creates a new #ClapperGtkExtraMenuButton instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-               line="324">a new extra menu button #GtkWidget.</doc>
+               line="325">a new extra menu button #GtkWidget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -661,20 +659,20 @@ behavior on descendants.</doc>
               glib:get-property="can-open-subtitles">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="432">Get whether an option to open external subtitle stream inside popover is visible.</doc>
+             line="433">Get whether an option to open external subtitle stream inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-               line="438">%TRUE if open subtitles is visible, %FALSE otherwise.</doc>
+               line="439">%TRUE if open subtitles is visible, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="434">a #ClapperGtkExtraMenuButton</doc>
+                 line="435">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
         </parameters>
@@ -684,20 +682,20 @@ behavior on descendants.</doc>
               glib:get-property="speed-visible">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="388">Get whether speed control inside popover is visible.</doc>
+             line="389">Get whether speed control inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-               line="394">%TRUE if speed control is visible, %FALSE otherwise.</doc>
+               line="395">%TRUE if speed control is visible, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="390">a #ClapperGtkExtraMenuButton</doc>
+                 line="391">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
         </parameters>
@@ -707,20 +705,20 @@ behavior on descendants.</doc>
               glib:get-property="volume-visible">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="352">Get whether volume control inside popover is visible.</doc>
+             line="353">Get whether volume control inside popover is visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-               line="358">TRUE if volume control is visible, %FALSE otherwise.</doc>
+               line="359">TRUE if volume control is visible, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="354">a #ClapperGtkExtraMenuButton</doc>
+                 line="355">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
         </parameters>
@@ -730,7 +728,7 @@ behavior on descendants.</doc>
               glib:set-property="can-open-subtitles">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="404">Set whether an option to open external subtitle stream should be allowed.
+             line="405">Set whether an option to open external subtitle stream should be allowed.
 
 Note that this [class@Gtk.Widget] can only add subtitles to currently playing
 [class@Clapper.MediaItem]. When no media is selected, option to open subtitles
@@ -744,13 +742,13 @@ will not be shown regardless how this option is set.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="406">a #ClapperGtkExtraMenuButton</doc>
+                 line="407">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
           <parameter name="allowed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="407">whether opening subtitles should be allowed</doc>
+                 line="408">whether opening subtitles should be allowed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -760,7 +758,7 @@ will not be shown regardless how this option is set.</doc>
               glib:set-property="speed-visible">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="368">Set whether speed control inside popover should be visible.</doc>
+             line="369">Set whether speed control inside popover should be visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="43"/>
         <return-value transfer-ownership="none">
@@ -770,13 +768,13 @@ will not be shown regardless how this option is set.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="370">a #ClapperGtkExtraMenuButton</doc>
+                 line="371">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
           <parameter name="visible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="371">whether visible</doc>
+                 line="372">whether visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -786,7 +784,7 @@ will not be shown regardless how this option is set.</doc>
               glib:set-property="volume-visible">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="332">Set whether volume control inside popover should be visible.</doc>
+             line="333">Set whether volume control inside popover should be visible.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.h"
                          line="39"/>
         <return-value transfer-ownership="none">
@@ -796,13 +794,13 @@ will not be shown regardless how this option is set.</doc>
           <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="334">a #ClapperGtkExtraMenuButton</doc>
+                 line="335">a #ClapperGtkExtraMenuButton</doc>
             <type name="ExtraMenuButton" c:type="ClapperGtkExtraMenuButton*"/>
           </instance-parameter>
           <parameter name="visible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="335">whether visible</doc>
+                 line="336">whether visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -815,7 +813,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="725">Visibility of open subtitles option inside popover.</doc>
+             line="729">Visibility of open subtitles option inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="speed-visible"
@@ -826,7 +824,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="716">Visibility of speed control inside popover.</doc>
+             line="720">Visibility of speed control inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="volume-visible"
@@ -837,7 +835,7 @@ will not be shown regardless how this option is set.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="707">Visibility of volume control inside popover.</doc>
+             line="711">Visibility of volume control inside popover.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="open-subtitles"
@@ -846,7 +844,7 @@ will not be shown regardless how this option is set.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-             line="734">A signal that user wants to open subtitles file.
+             line="738">A signal that user wants to open subtitles file.
 
 Implementation should add a way for user to select subtitles to open
 such as by e.g. using [class@Gtk.FileDialog] and then add them to the
@@ -869,7 +867,7 @@ so you do not have to implement handler for it otherwise.</doc>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-extra-menu-button.c"
-                 line="737">a #ClapperMediaItem</doc>
+                 line="741">a #ClapperMediaItem</doc>
             <type name="Clapper.MediaItem"/>
           </parameter>
         </parameters>
@@ -1086,7 +1084,7 @@ their default behavior, instead container and its contents will take priority.</
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="CLAPPER_GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/lib/clapper-gtk/clapper-gtk-version.h"
@@ -2050,7 +2048,7 @@ be displayed as a label text when no other title could be determined.</doc>
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
     </record>
-    <constant name="VERSION_S" value="0.6.0" c:type="CLAPPER_GTK_VERSION_S">
+    <constant name="VERSION_S" value="0.6.1" c:type="CLAPPER_GTK_VERSION_S">
       <doc xml:space="preserve"
            filename="src/lib/clapper-gtk/clapper-gtk-version.h"
            line="54">ClapperGtk version, encoded as a string</doc>
@@ -2155,13 +2153,18 @@ Position of overlaid content is determined by `valign/halign` properties.
       <constructor name="new" c:identifier="clapper_gtk_video_new">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1101">Creates a new #ClapperGtkVideo instance.</doc>
+             line="1106">Creates a new #ClapperGtkVideo instance.
+
+Newly created video widget will also set some default GStreamer elements
+on its [class@Clapper.Player]. This includes Clapper own video sink and
+a "scaletempo" element as audio filter. Both can still be changed after
+construction by setting corresponding player properties.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1106">a new video #GtkWidget.</doc>
+               line="1116">a new video #GtkWidget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -2169,7 +2172,7 @@ Position of overlaid content is determined by `valign/halign` properties.
               c:identifier="clapper_gtk_video_add_fading_overlay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1140">Similiar as clapper_gtk_video_add_overlay() but will also automatically
+             line="1150">Similiar as clapper_gtk_video_add_overlay() but will also automatically
 add fading functionality to overlaid #GtkWidget for convenience. This will
 make widget reveal itself when interacting with @video and fade otherwise.
 Useful when placing widgets such as playback controls panels.</doc>
@@ -2182,13 +2185,13 @@ Useful when placing widgets such as playback controls panels.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1142">a #ClapperGtkVideo</doc>
+                 line="1152">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1143">a #GtkWidget</doc>
+                 line="1153">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -2196,7 +2199,7 @@ Useful when placing widgets such as playback controls panels.</doc>
       <method name="add_overlay" c:identifier="clapper_gtk_video_add_overlay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1114">Add another #GtkWidget to be overlaid on top of video.
+             line="1124">Add another #GtkWidget to be overlaid on top of video.
 
 The position at which @widget is placed is determined from
 [property@Gtk.Widget:halign] and [property@Gtk.Widget:valign] properties.
@@ -2215,13 +2218,13 @@ function for convenience.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1116">a #ClapperGtkVideo</doc>
+                 line="1126">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1117">a #GtkWidget</doc>
+                 line="1127">a #GtkWidget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -2231,20 +2234,20 @@ function for convenience.</doc>
               glib:get-property="auto-inhibit">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1293">Get whether automatic session inhibit is enabled.</doc>
+             line="1303">Get whether automatic session inhibit is enabled.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1299">%TRUE if enabled, %FALSE otherwise.</doc>
+               line="1309">%TRUE if enabled, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1295">a #ClapperGtkVideo</doc>
+                 line="1305">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2254,20 +2257,20 @@ function for convenience.</doc>
               glib:get-property="fade-delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1214">Get time in milliseconds after which fading overlays should fade.</doc>
+             line="1224">Get time in milliseconds after which fading overlays should fade.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1220">currently set fade delay.</doc>
+               line="1230">currently set fade delay.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1216">a #ClapperGtkVideo</doc>
+                 line="1226">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2277,21 +2280,21 @@ function for convenience.</doc>
               glib:get-property="inhibited">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1309">Get whether session is currently inhibited by
+             line="1319">Get whether session is currently inhibited by
 [property@ClapperGtk.Video:auto-inhibit].</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1316">%TRUE if inhibited, %FALSE otherwise.</doc>
+               line="1326">%TRUE if inhibited, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1311">a #ClapperGtkVideo</doc>
+                 line="1321">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2301,20 +2304,20 @@ function for convenience.</doc>
               glib:get-property="player">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1181">Get #ClapperPlayer used by this #ClapperGtkVideo instance.</doc>
+             line="1191">Get #ClapperPlayer used by this #ClapperGtkVideo instance.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1187">a #ClapperPlayer used by video.</doc>
+               line="1197">a #ClapperPlayer used by video.</doc>
           <type name="Clapper.Player" c:type="ClapperPlayer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1183">a #ClapperGtkVideo</doc>
+                 line="1193">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2324,21 +2327,21 @@ function for convenience.</doc>
               glib:get-property="touch-fade-delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1252">Get time in milliseconds after which fading overlays should fade
+             line="1262">Get time in milliseconds after which fading overlays should fade
 when revealed using touch device.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-               line="1259">currently set touch fade delay.</doc>
+               line="1269">currently set touch fade delay.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1254">a #ClapperGtkVideo</doc>
+                 line="1264">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
         </parameters>
@@ -2348,7 +2351,7 @@ when revealed using touch device.</doc>
               glib:set-property="auto-inhibit">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1269">Set whether video should try to automatically inhibit session
+             line="1279">Set whether video should try to automatically inhibit session
 from idling (and possibly screen going black) when video is playing.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="54"/>
@@ -2359,13 +2362,13 @@ from idling (and possibly screen going black) when video is playing.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1271">a #ClapperGtkVideo</doc>
+                 line="1281">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="inhibit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1272">whether to enable automatic session inhibit</doc>
+                 line="1282">whether to enable automatic session inhibit</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2374,7 +2377,7 @@ from idling (and possibly screen going black) when video is playing.</doc>
               c:identifier="clapper_gtk_video_set_fade_delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1197">Set time in milliseconds after which fading overlays should fade.</doc>
+             line="1207">Set time in milliseconds after which fading overlays should fade.</doc>
         <source-position filename="src/lib/clapper-gtk/clapper-gtk-video.h"
                          line="46"/>
         <return-value transfer-ownership="none">
@@ -2384,13 +2387,13 @@ from idling (and possibly screen going black) when video is playing.</doc>
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1199">a #ClapperGtkVideo</doc>
+                 line="1209">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1200">a fade delay</doc>
+                 line="1210">a fade delay</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2399,7 +2402,7 @@ from idling (and possibly screen going black) when video is playing.</doc>
               c:identifier="clapper_gtk_video_set_touch_fade_delay">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1230">Set time in milliseconds after which fading overlays should fade
+             line="1240">Set time in milliseconds after which fading overlays should fade
 when using touchscreen.
 
 It is often useful to set this higher then normal fade delay property,
@@ -2414,13 +2417,13 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
           <instance-parameter name="video" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1232">a #ClapperGtkVideo</doc>
+                 line="1242">a #ClapperGtkVideo</doc>
             <type name="Video" c:type="ClapperGtkVideo*"/>
           </instance-parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1233">a touch fade delay</doc>
+                 line="1243">a touch fade delay</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2433,7 +2436,7 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1560">Try to automatically inhibit session when video is playing.</doc>
+             line="1598">Try to automatically inhibit session when video is playing.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="fade-delay"
@@ -2442,7 +2445,7 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="3000">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1541">A delay in milliseconds before trying to fade all fading overlays.</doc>
+             line="1579">A delay in milliseconds before trying to fade all fading overlays.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="inhibited"
@@ -2451,13 +2454,13 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1569">Get whether session is currently inhibited by the video.</doc>
+             line="1607">Get whether session is currently inhibited by the video.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="player" transfer-ownership="none" getter="get_player">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1532">A #ClapperPlayer used by video.</doc>
+             line="1570">A #ClapperPlayer used by video.</doc>
         <type name="Clapper.Player"/>
       </property>
       <property name="touch-fade-delay"
@@ -2466,14 +2469,14 @@ extend fade timeout, so he can have more time to decide what to press next.</doc
                 default-value="5000">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1550">A delay in milliseconds before trying to fade all fading overlays
+             line="1588">A delay in milliseconds before trying to fade all fading overlays
 after revealed using touchscreen.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <glib:signal name="seek-request" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1592">A helper signal for implementing common seeking by double tap
+             line="1630">A helper signal for implementing common seeking by double tap
 on screen side for touchscreen devices.
 
 Note that @forward already takes into account RTL direction,
@@ -2485,7 +2488,7 @@ so implementation does not have to check.</doc>
           <parameter name="forward" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-                 line="1595">%TRUE if seek should be forward, %FALSE if backward</doc>
+                 line="1633">%TRUE if seek should be forward, %FALSE if backward</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2496,7 +2499,7 @@ so implementation does not have to check.</doc>
                    no-hooks="1">
         <doc xml:space="preserve"
              filename="src/lib/clapper-gtk/clapper-gtk-video.c"
-             line="1578">A signal that user requested a change in fullscreen state of the video.
+             line="1616">A signal that user requested a change in fullscreen state of the video.
 
 Note that when going fullscreen from this signal, user will expect
 for only video to be fullscreened and not the whole app window.

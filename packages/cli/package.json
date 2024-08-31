@@ -54,16 +54,16 @@
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.14.11",
-    "@types/yargs": "^17.0.32",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
+    "@types/node": "^20.16.2",
+    "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@gi.ts/parser": "workspace:^",
@@ -74,7 +74,7 @@
     "colorette": "^2.0.20",
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.0",
-    "inquirer": "^9.3.5",
+    "inquirer": "^9.3.6",
     "prettier": "^3.3.3",
     "yargs": "^17.7.2"
   }

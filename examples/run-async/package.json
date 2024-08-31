@@ -18,8 +18,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.23.0",
-    "typescript": "^5.5.3"
+    "esbuild": "^0.23.1",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@girs/adw-1": "workspace:^",

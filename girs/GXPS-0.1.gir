@@ -1847,7 +1847,7 @@ from a #GXPSDocument with gxps_document_get_page().</doc>
     <docsection name="gxps-version">
       <doc xml:space="preserve"
            filename="libgxps/gxps-version.h"
-           line="26">GXPS provides version information, primarily useful in configure checks
+           line="19">GXPS provides version information, primarily useful in configure checks
 for builds that have a configure script. Applications will not typically
 use the features described here.</doc>
     </docsection>

@@ -6,61 +6,173 @@ and/or use gtk-doc annotations.  -->
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="Atk" version="1.0"/>
-  <include name="GLib" version="2.0"/>
-  <include name="GModule" version="2.0"/>
   <include name="GObject" version="2.0"/>
-  <include name="Gdk" version="3.0"/>
-  <include name="GdkPixbuf" version="2.0"/>
-  <include name="Gio" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <include name="Json" version="1.0"/>
-  <include name="Pango" version="1.0"/>
-  <include name="cairo" version="1.0"/>
-  <include name="xlib" version="2.0"/>
-  <c:include name="cc-timezone-map.h"/>
-  <c:include name="timezone-completion.h"/>
-  <c:include name="tz.h"/>
   <namespace name="TimezoneMap"
              version="1.0"
              shared-library="libtimezonemap.so.1"
              c:identifier-prefixes="Cc"
              c:symbol-prefixes="cc">
+    <function-macro name="IS_TIMEZONE_LOCATION"
+                    c:identifier="CC_IS_TIMEZONE_LOCATION"
+                    introspectable="0">
+      <source-position filename="cc-timezone-location.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TIMEZONE_LOCATION_CLASS"
+                    c:identifier="CC_IS_TIMEZONE_LOCATION_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-location.h" line="47"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TIMEZONE_MAP"
+                    c:identifier="CC_IS_TIMEZONE_MAP"
+                    introspectable="0">
+      <source-position filename="cc-timezone-map.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TIMEZONE_MAP_CLASS"
+                    c:identifier="CC_IS_TIMEZONE_MAP_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-map.h" line="46"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_COMPLETION"
+                    c:identifier="CC_TIMEZONE_COMPLETION"
+                    introspectable="0">
+      <source-position filename="timezone-completion.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="TIMEZONE_COMPLETION_ADMIN1"
               value="2"
               c:type="CC_TIMEZONE_COMPLETION_ADMIN1">
+      <source-position filename="timezone-completion.h" line="53"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="TIMEZONE_COMPLETION_CLASS"
+                    c:identifier="CC_TIMEZONE_COMPLETION_CLASS"
+                    introspectable="0">
+      <source-position filename="timezone-completion.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="TIMEZONE_COMPLETION_COUNTRY"
               value="3"
               c:type="CC_TIMEZONE_COMPLETION_COUNTRY">
+      <source-position filename="timezone-completion.h" line="54"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="TIMEZONE_COMPLETION_GET_CLASS"
+                    c:identifier="CC_TIMEZONE_COMPLETION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="timezone-completion.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="TIMEZONE_COMPLETION_LAST"
               value="6"
               c:type="CC_TIMEZONE_COMPLETION_LAST">
+      <source-position filename="timezone-completion.h" line="57"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="TIMEZONE_COMPLETION_LATITUDE"
               value="5"
               c:type="CC_TIMEZONE_COMPLETION_LATITUDE">
+      <source-position filename="timezone-completion.h" line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="TIMEZONE_COMPLETION_LONGITUDE"
               value="4"
               c:type="CC_TIMEZONE_COMPLETION_LONGITUDE">
+      <source-position filename="timezone-completion.h" line="55"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="TIMEZONE_COMPLETION_NAME"
               value="1"
               c:type="CC_TIMEZONE_COMPLETION_NAME">
+      <source-position filename="timezone-completion.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="TIMEZONE_COMPLETION_ZONE"
               value="0"
               c:type="CC_TIMEZONE_COMPLETION_ZONE">
+      <source-position filename="timezone-completion.h" line="51"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="TIMEZONE_LOCATION"
+                    c:identifier="CC_TIMEZONE_LOCATION"
+                    introspectable="0">
+      <source-position filename="cc-timezone-location.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_LOCATION_CLASS"
+                    c:identifier="CC_TIMEZONE_LOCATION_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-location.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_LOCATION_GET_CLASS"
+                    c:identifier="CC_TIMEZONE_LOCATION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-location.h" line="51"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_MAP"
+                    c:identifier="CC_TIMEZONE_MAP"
+                    introspectable="0">
+      <source-position filename="cc-timezone-map.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_MAP_CLASS"
+                    c:identifier="CC_TIMEZONE_MAP_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-map.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TIMEZONE_MAP_GET_CLASS"
+                    c:identifier="CC_TIMEZONE_MAP_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="cc-timezone-map.h" line="50"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="TimezoneCompletion"
            c:symbol-prefix="timezone_completion"
            c:type="CcTimezoneCompletion"
@@ -68,19 +180,25 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CcTimezoneCompletion"
            glib:get-type="cc_timezone_completion_get_type"
            glib:type-struct="TimezoneCompletionClass">
+      <source-position filename="timezone-completion.h" line="49"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.CellLayout"/>
       <constructor name="new" c:identifier="cc_timezone_completion_new">
+        <source-position filename="timezone-completion.h" line="60"/>
         <return-value transfer-ownership="full">
           <type name="TimezoneCompletion" c:type="CcTimezoneCompletion*"/>
         </return-value>
       </constructor>
       <method name="watch_entry"
               c:identifier="cc_timezone_completion_watch_entry">
+        <source-position filename="timezone-completion.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="completion" transfer-ownership="none">
+            <type name="TimezoneCompletion" c:type="CcTimezoneCompletion*"/>
+          </instance-parameter>
           <parameter name="entry" transfer-ownership="none">
             <type name="Gtk.Entry" c:type="GtkEntry*"/>
           </parameter>
@@ -97,6 +215,7 @@ and/or use gtk-doc annotations.  -->
     <record name="TimezoneCompletionClass"
             c:type="CcTimezoneCompletionClass"
             glib:is-gtype-struct-for="TimezoneCompletion">
+      <source-position filename="timezone-completion.h" line="49"/>
       <field name="parent_class">
         <type name="Gtk.EntryCompletionClass"
               c:type="GtkEntryCompletionClass"/>
@@ -104,7 +223,9 @@ and/or use gtk-doc annotations.  -->
     </record>
     <record name="TimezoneCompletionPrivate"
             c:type="CcTimezoneCompletionPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="timezone-completion.h" line="38"/>
     </record>
     <class name="TimezoneLocation"
            c:symbol-prefix="timezone_location"
@@ -113,28 +234,333 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CcTimezoneLocation"
            glib:get-type="cc_timezone_location_get_type"
            glib:type-struct="TimezoneLocationClass">
+      <source-position filename="cc-timezone-location.h" line="68"/>
       <constructor name="new" c:identifier="cc_timezone_location_new">
+        <source-position filename="cc-timezone-location.h" line="72"/>
         <return-value transfer-ownership="full">
           <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
         </return-value>
       </constructor>
+      <method name="get_comment"
+              c:identifier="cc_timezone_location_get_comment">
+        <source-position filename="cc-timezone-location.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_country"
+              c:identifier="cc_timezone_location_get_country"
+              glib:get-property="country">
+        <source-position filename="cc-timezone-location.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dist"
+              c:identifier="cc_timezone_location_get_dist"
+              glib:get-property="dist">
+        <source-position filename="cc-timezone-location.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_en_name"
+              c:identifier="cc_timezone_location_get_en_name"
+              glib:get-property="en-name">
+        <source-position filename="cc-timezone-location.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_full_country"
+              c:identifier="cc_timezone_location_get_full_country"
+              glib:get-property="full-country">
+        <source-position filename="cc-timezone-location.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_latitude"
+              c:identifier="cc_timezone_location_get_latitude"
+              glib:get-property="latitude">
+        <source-position filename="cc-timezone-location.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_longitude"
+              c:identifier="cc_timezone_location_get_longitude"
+              glib:get-property="longitude">
+        <source-position filename="cc-timezone-location.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="cc_timezone_location_get_state"
+              glib:get-property="state">
+        <source-position filename="cc-timezone-location.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_zone"
+              c:identifier="cc_timezone_location_get_zone"
+              glib:get-property="zone">
+        <source-position filename="cc-timezone-location.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_comment"
+              c:identifier="cc_timezone_location_set_comment">
+        <source-position filename="cc-timezone-location.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="comment" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_country"
+              c:identifier="cc_timezone_location_set_country"
+              glib:set-property="country">
+        <source-position filename="cc-timezone-location.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="country" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_dist"
+              c:identifier="cc_timezone_location_set_dist"
+              glib:set-property="dist">
+        <source-position filename="cc-timezone-location.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="dist" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_en_name"
+              c:identifier="cc_timezone_location_set_en_name"
+              glib:set-property="en-name">
+        <source-position filename="cc-timezone-location.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="en_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_full_country"
+              c:identifier="cc_timezone_location_set_full_country"
+              glib:set-property="full-country">
+        <source-position filename="cc-timezone-location.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="full_country" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_latitude"
+              c:identifier="cc_timezone_location_set_latitude"
+              glib:set-property="latitude">
+        <source-position filename="cc-timezone-location.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_longitude"
+              c:identifier="cc_timezone_location_set_longitude"
+              glib:set-property="longitude">
+        <source-position filename="cc-timezone-location.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="lng" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_state"
+              c:identifier="cc_timezone_location_set_state"
+              glib:set-property="state">
+        <source-position filename="cc-timezone-location.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_zone"
+              c:identifier="cc_timezone_location_set_zone"
+              glib:set-property="zone">
+        <source-position filename="cc-timezone-location.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="loc" transfer-ownership="none">
+            <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
+          </instance-parameter>
+          <parameter name="zone" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
       <property name="Comment" writable="1" transfer-ownership="none">
-        <type name="utf8"/>
+        <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="country" writable="1" transfer-ownership="none">
-        <type name="utf8"/>
+      <property name="country"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_country"
+                getter="get_country">
+        <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="dist" writable="1" transfer-ownership="none">
-        <type name="gdouble"/>
+      <property name="dist"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_dist"
+                getter="get_dist"
+                default-value="0.000000">
+        <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="latitude" writable="1" transfer-ownership="none">
-        <type name="gdouble"/>
+      <property name="en-name"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_en_name"
+                getter="get_en_name">
+        <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="longitude" writable="1" transfer-ownership="none">
-        <type name="gdouble"/>
+      <property name="full-country"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_full_country"
+                getter="get_full_country">
+        <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="zone" writable="1" transfer-ownership="none">
-        <type name="utf8"/>
+      <property name="latitude"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_latitude"
+                getter="get_latitude"
+                default-value="0.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="longitude"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_longitude"
+                getter="get_longitude"
+                default-value="0.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="state"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_state"
+                getter="get_state">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="zone"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_zone"
+                getter="get_zone">
+        <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
         <type name="GObject.Object" c:type="GObject"/>
@@ -147,13 +573,16 @@ and/or use gtk-doc annotations.  -->
     <record name="TimezoneLocationClass"
             c:type="CcTimezoneLocationClass"
             glib:is-gtype-struct-for="TimezoneLocation">
+      <source-position filename="cc-timezone-location.h" line="68"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <record name="TimezoneLocationPrivate"
             c:type="CcTimezoneLocationPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="cc-timezone-location.h" line="57"/>
     </record>
     <class name="TimezoneMap"
            c:symbol-prefix="timezone_map"
@@ -162,26 +591,86 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="CcTimezoneMap"
            glib:get-type="cc_timezone_map_get_type"
            glib:type-struct="TimezoneMapClass">
+      <source-position filename="cc-timezone-map.h" line="68"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="cc_timezone_map_new">
+        <source-position filename="cc-timezone-map.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
         </return-value>
       </constructor>
-      <method name="get_location"
-              c:identifier="cc_timezone_map_get_location"
-              introspectable="0">
-        <return-value>
+      <method name="clear_location"
+              c:identifier="cc_timezone_map_clear_location">
+        <doc xml:space="preserve"
+             filename="cc-timezone-map.c"
+             line="940">Clear the location currently set for the #CcTimezoneMap. This will remove
+the highlight and reset the map to its original state.</doc>
+        <source-position filename="cc-timezone-map.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cc-timezone-map.c"
+                 line="942">A #CcTimezoneMap</doc>
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location" c:identifier="cc_timezone_map_get_location">
+        <doc xml:space="preserve"
+             filename="cc-timezone-map.c"
+             line="926">Returns the current location set for the map.</doc>
+        <source-position filename="cc-timezone-map.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cc-timezone-map.c"
+               line="932">the map location.</doc>
           <type name="TimezoneLocation" c:type="CcTimezoneLocation*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cc-timezone-map.c"
+                 line="928">A #CcTimezoneMap</doc>
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected_offset"
+              c:identifier="cc_timezone_map_get_selected_offset"
+              glib:get-property="selected-offset">
+        <doc xml:space="preserve"
+             filename="cc-timezone-map.c"
+             line="954">Returns the currently selected offset in hours from GMT.</doc>
+        <source-position filename="cc-timezone-map.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="cc-timezone-map.c"
+               line="960">The selected offset.</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cc-timezone-map.c"
+                 line="956">A #CcTimezoneMap</doc>
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_timezone_at_coords"
               c:identifier="cc_timezone_map_get_timezone_at_coords">
+        <source-position filename="cc-timezone-map.h" line="82"/>
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
           <parameter name="lon" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -191,10 +680,14 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="set_coords" c:identifier="cc_timezone_map_set_coords">
+        <source-position filename="cc-timezone-map.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
           <parameter name="lon" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -203,27 +696,85 @@ and/or use gtk-doc annotations.  -->
           </parameter>
         </parameters>
       </method>
-      <method name="set_timezone" c:identifier="cc_timezone_map_set_timezone">
+      <method name="set_location" c:identifier="cc_timezone_map_set_location">
+        <source-position filename="cc-timezone-map.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
+          <parameter name="lon" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="lat" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_selected_offset"
+              c:identifier="cc_timezone_map_set_selected_offset"
+              glib:set-property="selected-offset">
+        <doc xml:space="preserve"
+             filename="cc-timezone-map.c"
+             line="968">Set the currently selected offset for the map and redraw the highlighted
+time zone.</doc>
+        <source-position filename="cc-timezone-map.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cc-timezone-map.c"
+                 line="970">A #CcTimezoneMap</doc>
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="cc-timezone-map.c"
+                 line="971">The offset from GMT in hours</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timezone" c:identifier="cc_timezone_map_set_timezone">
+        <source-position filename="cc-timezone-map.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
           <parameter name="timezone" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_watermark"
               c:identifier="cc_timezone_map_set_watermark">
+        <source-position filename="cc-timezone-map.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="TimezoneMap" c:type="CcTimezoneMap*"/>
+          </instance-parameter>
           <parameter name="watermark" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
+      <property name="selected-offset"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_selected_offset"
+                getter="get_selected_offset">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
       <field name="parent">
         <type name="Gtk.Widget" c:type="GtkWidget"/>
       </field>
@@ -232,7 +783,7 @@ and/or use gtk-doc annotations.  -->
       </field>
       <glib:signal name="location-changed" when="first">
         <return-value transfer-ownership="none">
-          <type name="none"/>
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="object" transfer-ownership="none">
@@ -244,13 +795,16 @@ and/or use gtk-doc annotations.  -->
     <record name="TimezoneMapClass"
             c:type="CcTimezoneMapClass"
             glib:is-gtype-struct-for="TimezoneMap">
+      <source-position filename="cc-timezone-map.h" line="68"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
     </record>
     <record name="TimezoneMapPrivate"
             c:type="CcTimezoneMapPrivate"
-            disguised="1">
+            disguised="1"
+            opaque="1">
+      <source-position filename="cc-timezone-map.h" line="56"/>
     </record>
   </namespace>
 </repository>

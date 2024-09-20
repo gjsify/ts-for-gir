@@ -1023,7 +1023,7 @@ coordinator of the wireless network allowing clients to connect) or
               c:type="NMActivationStateFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1057">Flags describing the current activation state.</doc>
+           line="1063">Flags describing the current activation state.</doc>
       <member name="none"
               value="0"
               c:identifier="NM_ACTIVATION_STATE_FLAG_NONE"
@@ -1031,7 +1031,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1059">an alias for numeric zero, no flags set.</doc>
+             line="1065">an alias for numeric zero, no flags set.</doc>
       </member>
       <member name="is_master"
               value="1"
@@ -1040,7 +1040,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_IS_MASTER">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1060">the device is a master.</doc>
+             line="1066">the device is a master.</doc>
       </member>
       <member name="is_slave"
               value="2"
@@ -1049,7 +1049,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_IS_SLAVE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1061">the device is a slave.</doc>
+             line="1067">the device is a slave.</doc>
       </member>
       <member name="layer2_ready"
               value="4"
@@ -1058,7 +1058,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_LAYER2_READY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1062">layer2 is activated and ready.</doc>
+             line="1068">layer2 is activated and ready.</doc>
       </member>
       <member name="ip4_ready"
               value="8"
@@ -1067,7 +1067,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_IP4_READY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1063">IPv4 setting is completed.</doc>
+             line="1069">IPv4 setting is completed.</doc>
       </member>
       <member name="ip6_ready"
               value="16"
@@ -1076,7 +1076,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_IP6_READY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1064">IPv6 setting is completed.</doc>
+             line="1070">IPv6 setting is completed.</doc>
       </member>
       <member name="master_has_slaves"
               value="32"
@@ -1085,7 +1085,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_MASTER_HAS_SLAVES">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1065">The master has any slave devices attached.
+             line="1071">The master has any slave devices attached.
   This only makes sense if the device is a master.</doc>
       </member>
       <member name="lifetime_bound_to_profile_visibility"
@@ -1095,7 +1095,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_LIFETIME_BOUND_TO_PROFILE_VISIBILITY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1067">the lifetime
+             line="1073">the lifetime
   of the activation is bound to the visibility of the connection profile,
   which in turn depends on "connection.permissions" and whether a session
   for the user exists. Since: 1.16.</doc>
@@ -1107,7 +1107,7 @@ coordinator of the wireless network allowing clients to connect) or
               glib:name="NM_ACTIVATION_STATE_FLAG_EXTERNAL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1071">the active connection was generated to
+             line="1077">the active connection was generated to
  represent an external configuration of a networking device. Since: 1.26.</doc>
       </member>
     </bitfield>
@@ -3094,6 +3094,19 @@ comparing to this value.</doc>
   This only has an effect for bridge ports. Before 1.38, this was the default
   behavior. Since: 1.38.</doc>
       </member>
+      <member name="track_internal_global_dns"
+              value="32"
+              c:identifier="NM_CHECKPOINT_CREATE_FLAG_TRACK_INTERNAL_GLOBAL_DNS"
+              glib:nick="track-internal-global-dns"
+              glib:name="NM_CHECKPOINT_CREATE_FLAG_TRACK_INTERNAL_GLOBAL_DNS">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-dbus-interface.h"
+             line="994">during rollback,
+  by default changes to global DNS via D-BUS interface are preserved.
+  With this flag, the rollback reverts the global DNS changes made via D-Bus
+  interface. Global DNS defined in [global-dns] section of
+  NetworkManager.conf is not impacted by this flag. Since: 1.48.</doc>
+      </member>
     </bitfield>
     <class name="Client"
            c:symbol-prefix="client"
@@ -3191,7 +3204,9 @@ does not cause a failure.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new_async" c:identifier="nm_client_new_async">
+      <function name="new_async"
+                c:identifier="nm_client_new_async"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="7941">Creates a new #NMClient asynchronously.
@@ -3275,7 +3290,8 @@ does not cause a failure.</doc>
         </parameters>
       </function>
       <method name="activate_connection_async"
-              c:identifier="nm_client_activate_connection_async">
+              c:identifier="nm_client_activate_connection_async"
+              glib:finish-func="activate_connection_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5027">Asynchronously starts a connection to a particular network using the
@@ -3402,7 +3418,8 @@ track the activation to its completion.</doc>
       </method>
       <method name="add_and_activate_connection2"
               c:identifier="nm_client_add_and_activate_connection2"
-              version="1.16">
+              version="1.16"
+              glib:finish-func="add_and_activate_connection2_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5337">Adds a new connection using the given details (if any) as a template,
@@ -3559,7 +3576,8 @@ You can call nm_active_connection_get_connection() on the returned
         </parameters>
       </method>
       <method name="add_and_activate_connection_async"
-              c:identifier="nm_client_add_and_activate_connection_async">
+              c:identifier="nm_client_add_and_activate_connection_async"
+              glib:finish-func="add_and_activate_connection_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5263">Adds a new connection using the given details (if any) as a template,
@@ -3686,7 +3704,8 @@ You can call nm_active_connection_get_connection() on the returned
       </method>
       <method name="add_connection2"
               c:identifier="nm_client_add_connection2"
-              version="1.20">
+              version="1.20"
+              glib:finish-func="add_connection2_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5832">Call AddConnection2() D-Bus API asynchronously.</doc>
@@ -3812,7 +3831,8 @@ You can call nm_active_connection_get_connection() on the returned
         </parameters>
       </method>
       <method name="add_connection_async"
-              c:identifier="nm_client_add_connection_async">
+              c:identifier="nm_client_add_connection_async"
+              glib:finish-func="add_connection_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5767">Requests that the remote settings service add the given settings to a new
@@ -3919,7 +3939,8 @@ completion and/or normalization of connection properties.</doc>
               c:identifier="nm_client_check_connectivity"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="check_connectivity_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="4610">Updates the network connectivity state and returns the (new)
@@ -3956,7 +3977,9 @@ if you do not want to block.</doc>
         </parameters>
       </method>
       <method name="check_connectivity_async"
-              c:identifier="nm_client_check_connectivity_async">
+              c:identifier="nm_client_check_connectivity_async"
+              glib:finish-func="check_connectivity_finish"
+              glib:sync-func="check_connectivity">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="4668">Asynchronously updates the network connectivity state and invokes
@@ -4038,7 +4061,8 @@ call.</doc>
       </method>
       <method name="checkpoint_adjust_rollback_timeout"
               c:identifier="nm_client_checkpoint_adjust_rollback_timeout"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="checkpoint_adjust_rollback_timeout_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6654">Resets the timeout for the checkpoint with path @checkpoint_path
@@ -4131,7 +4155,8 @@ to @timeout_add.</doc>
       </method>
       <method name="checkpoint_create"
               c:identifier="nm_client_checkpoint_create"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="checkpoint_create_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6438">Creates a checkpoint of the current networking configuration
@@ -4236,7 +4261,8 @@ automatically performed after the given timeout.</doc>
       </method>
       <method name="checkpoint_destroy"
               c:identifier="nm_client_checkpoint_destroy"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="checkpoint_destroy_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6514">Destroys an existing checkpoint without performing a rollback.</doc>
@@ -4322,7 +4348,8 @@ automatically performed after the given timeout.</doc>
       </method>
       <method name="checkpoint_rollback"
               c:identifier="nm_client_checkpoint_rollback"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="checkpoint_rollback_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6574">Performs the rollback of a checkpoint before the timeout is reached.</doc>
@@ -4516,7 +4543,8 @@ have any effect.</doc>
       </method>
       <method name="dbus_call"
               c:identifier="nm_client_dbus_call"
-              version="1.24">
+              version="1.24"
+              glib:finish-func="dbus_call_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6785">Call g_dbus_connection_call() on the current name owner with the specified
@@ -4649,7 +4677,8 @@ also use g_dbus_connection_call() directly, with the same effect.</doc>
       </method>
       <method name="dbus_set_property"
               c:identifier="nm_client_dbus_set_property"
-              version="1.24">
+              version="1.24"
+              glib:finish-func="dbus_set_property_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6867">Like nm_client_dbus_call() but calls "Set" on the standard "org.freedesktop.DBus.Properties"
@@ -4764,7 +4793,8 @@ D-Bus interface.</doc>
               c:identifier="nm_client_deactivate_connection"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="deactivate_connection_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5435">Deactivates an active #NMActiveConnection.</doc>
@@ -4802,7 +4832,9 @@ D-Bus interface.</doc>
         </parameters>
       </method>
       <method name="deactivate_connection_async"
-              c:identifier="nm_client_deactivate_connection_async">
+              c:identifier="nm_client_deactivate_connection_async"
+              glib:finish-func="deactivate_connection_finish"
+              glib:sync-func="deactivate_connection">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5474">Asynchronously deactivates an active #NMActiveConnection.</doc>
@@ -5853,7 +5885,8 @@ that indicate that the daemon supports a certain capability.</doc>
               c:identifier="nm_client_load_connections"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="load_connections_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5902">Requests that the remote settings service load or reload the given files,
@@ -5922,7 +5955,9 @@ Warning: before libnm 1.22, the boolean return value was inconsistent.
         </parameters>
       </method>
       <method name="load_connections_async"
-              c:identifier="nm_client_load_connections_async">
+              c:identifier="nm_client_load_connections_async"
+              glib:finish-func="load_connections_finish"
+              glib:sync-func="load_connections">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="5969">Requests that the remote settings service asynchronously load or reload the
@@ -6081,7 +6116,10 @@ all controlled interfaces are available for activation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="reload" c:identifier="nm_client_reload" version="1.22">
+      <method name="reload"
+              c:identifier="nm_client_reload"
+              version="1.22"
+              glib:finish-func="reload_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6721">Reload NetworkManager's configuration and perform certain updates, like
@@ -6142,7 +6180,8 @@ PolicyKit and contrary to signals it is synchronous.</doc>
               c:identifier="nm_client_reload_connections"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="reload_connections_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6046">Requests that the remote settings service reload all connection
@@ -6176,7 +6215,9 @@ the in-memory state matches the on-disk state.</doc>
         </parameters>
       </method>
       <method name="reload_connections_async"
-              c:identifier="nm_client_reload_connections_async">
+              c:identifier="nm_client_reload_connections_async"
+              glib:finish-func="reload_connections_finish"
+              glib:sync-func="reload_connections">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="6085">Requests that the remote settings service begin reloading all connection
@@ -6288,7 +6329,8 @@ in-memory state matches the on-disk state.</doc>
               c:identifier="nm_client_save_hostname"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="save_hostname_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="4734">Requests that the machine's persistent hostname be set to the specified value
@@ -6331,7 +6373,9 @@ or cleared.</doc>
         </parameters>
       </method>
       <method name="save_hostname_async"
-              c:identifier="nm_client_save_hostname_async">
+              c:identifier="nm_client_save_hostname_async"
+              glib:finish-func="save_hostname_finish"
+              glib:sync-func="save_hostname">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-client.c"
              line="4770">Requests that the machine's persistent hostname be set to the specified value
@@ -7440,7 +7484,7 @@ D-Bus operations may also return errors from other domains, including
                  c:type="NMClientPermission">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1262">#NMClientPermission values indicate various permissions that NetworkManager
+           line="1268">#NMClientPermission values indicate various permissions that NetworkManager
 clients can obtain to perform certain tasks on behalf of the current user.</doc>
       <member name="none"
               value="0"
@@ -7449,7 +7493,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1264">unknown or no permission</doc>
+             line="1270">unknown or no permission</doc>
       </member>
       <member name="enable_disable_network"
               value="1"
@@ -7458,7 +7502,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_NETWORK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1265">controls whether networking
+             line="1271">controls whether networking
  can be globally enabled or disabled</doc>
       </member>
       <member name="enable_disable_wifi"
@@ -7468,7 +7512,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_WIFI">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1267">controls whether Wi-Fi can be
+             line="1273">controls whether Wi-Fi can be
  globally enabled or disabled</doc>
       </member>
       <member name="enable_disable_wwan"
@@ -7478,7 +7522,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_WWAN">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1269">controls whether WWAN (3G) can be
+             line="1275">controls whether WWAN (3G) can be
  globally enabled or disabled</doc>
       </member>
       <member name="enable_disable_wimax"
@@ -7488,7 +7532,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_WIMAX">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1271">controls whether WiMAX can be
+             line="1277">controls whether WiMAX can be
  globally enabled or disabled</doc>
       </member>
       <member name="sleep_wake"
@@ -7498,7 +7542,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_SLEEP_WAKE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1273">controls whether the client can ask
+             line="1279">controls whether the client can ask
  NetworkManager to sleep and wake</doc>
       </member>
       <member name="network_control"
@@ -7508,7 +7552,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_NETWORK_CONTROL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1275">controls whether networking connections
+             line="1281">controls whether networking connections
  can be started, stopped, and changed</doc>
       </member>
       <member name="wifi_share_protected"
@@ -7518,7 +7562,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_WIFI_SHARE_PROTECTED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1277">controls whether a password
+             line="1283">controls whether a password
  protected Wi-Fi hotspot can be created</doc>
       </member>
       <member name="wifi_share_open"
@@ -7528,7 +7572,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_WIFI_SHARE_OPEN">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1279">controls whether an open Wi-Fi hotspot
+             line="1285">controls whether an open Wi-Fi hotspot
  can be created</doc>
       </member>
       <member name="settings_modify_system"
@@ -7538,7 +7582,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_SETTINGS_MODIFY_SYSTEM">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1281">controls whether connections
+             line="1287">controls whether connections
  that are available to all users can be modified</doc>
       </member>
       <member name="settings_modify_own"
@@ -7548,7 +7592,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_SETTINGS_MODIFY_OWN">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1283">controls whether connections
+             line="1289">controls whether connections
  owned by the current user can be modified</doc>
       </member>
       <member name="settings_modify_hostname"
@@ -7558,7 +7602,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_SETTINGS_MODIFY_HOSTNAME">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1285">controls whether the
+             line="1291">controls whether the
  persistent hostname can be changed</doc>
       </member>
       <member name="settings_modify_global_dns"
@@ -7568,7 +7612,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_SETTINGS_MODIFY_GLOBAL_DNS">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1287">modify persistent global
+             line="1293">modify persistent global
  DNS configuration</doc>
       </member>
       <member name="reload"
@@ -7578,7 +7622,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_RELOAD">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1289">controls access to Reload.</doc>
+             line="1295">controls access to Reload.</doc>
       </member>
       <member name="checkpoint_rollback"
               value="14"
@@ -7587,7 +7631,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_CHECKPOINT_ROLLBACK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1290">permission to create checkpoints.</doc>
+             line="1296">permission to create checkpoints.</doc>
       </member>
       <member name="enable_disable_statistics"
               value="15"
@@ -7596,7 +7640,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_STATISTICS">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1291">controls whether device
+             line="1297">controls whether device
  statistics can be globally enabled or disabled</doc>
       </member>
       <member name="enable_disable_connectivity_check"
@@ -7606,7 +7650,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_ENABLE_DISABLE_CONNECTIVITY_CHECK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1293">controls whether
+             line="1299">controls whether
  connectivity check can be enabled or disabled</doc>
       </member>
       <member name="wifi_scan"
@@ -7616,7 +7660,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_WIFI_SCAN">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1295">controls whether wifi scans can be performed</doc>
+             line="1301">controls whether wifi scans can be performed</doc>
       </member>
       <member name="last"
               value="17"
@@ -7625,7 +7669,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
               glib:name="NM_CLIENT_PERMISSION_LAST">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1296">a reserved boundary value</doc>
+             line="1302">a reserved boundary value</doc>
       </member>
     </enumeration>
     <enumeration name="ClientPermissionResult"
@@ -7634,7 +7678,7 @@ clients can obtain to perform certain tasks on behalf of the current user.</doc>
                  c:type="NMClientPermissionResult">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1324">#NMClientPermissionResult values indicate what authorizations and permissions
+           line="1330">#NMClientPermissionResult values indicate what authorizations and permissions
 the user requires to obtain a given #NMClientPermission</doc>
       <member name="unknown"
               value="0"
@@ -7643,7 +7687,7 @@ the user requires to obtain a given #NMClientPermission</doc>
               glib:name="NM_CLIENT_PERMISSION_RESULT_UNKNOWN">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1326">unknown or no authorization</doc>
+             line="1332">unknown or no authorization</doc>
       </member>
       <member name="yes"
               value="1"
@@ -7652,7 +7696,7 @@ the user requires to obtain a given #NMClientPermission</doc>
               glib:name="NM_CLIENT_PERMISSION_RESULT_YES">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1327">the permission is available</doc>
+             line="1333">the permission is available</doc>
       </member>
       <member name="auth"
               value="2"
@@ -7661,7 +7705,7 @@ the user requires to obtain a given #NMClientPermission</doc>
               glib:name="NM_CLIENT_PERMISSION_RESULT_AUTH">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1328">authorization is necessary before the
+             line="1334">authorization is necessary before the
  permission is available</doc>
       </member>
       <member name="no"
@@ -7671,7 +7715,7 @@ the user requires to obtain a given #NMClientPermission</doc>
               glib:name="NM_CLIENT_PERMISSION_RESULT_NO">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1330">permission to perform the operation is
+             line="1336">permission to perform the operation is
  denied by system policy</doc>
       </member>
     </enumeration>
@@ -7687,6 +7731,9 @@ the user requires to obtain a given #NMClientPermission</doc>
 client side, and #NMSettingsConnection on the daemon side.</doc>
       <source-position filename="libnm-core-public/nm-connection.h" line="70"/>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="60">emitted when any change to the connection's settings occurs</doc>
         <source-position filename="libnm-core-public/nm-connection.h"
                          line="68"/>
         <return-value transfer-ownership="none">
@@ -7699,6 +7746,9 @@ client side, and #NMSettingsConnection on the daemon side.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="secrets_cleared">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="59">emitted when the connection's secrets are cleared</doc>
         <source-position filename="libnm-core-public/nm-connection.h"
                          line="67"/>
         <return-value transfer-ownership="none">
@@ -7711,6 +7761,9 @@ client side, and #NMSettingsConnection on the daemon side.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="secrets_updated">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="58">emitted when the connection's secrets are updated</doc>
         <source-position filename="libnm-core-public/nm-connection.h"
                          line="66"/>
         <return-value transfer-ownership="none">
@@ -9628,6 +9681,9 @@ methods, or may be returned from D-Bus operations (eg on #NMClient or
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="secrets_updated">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="58">emitted when the connection's secrets are updated</doc>
         <callback name="secrets_updated">
           <source-position filename="libnm-core-public/nm-connection.h"
                            line="66"/>
@@ -9645,6 +9701,9 @@ methods, or may be returned from D-Bus operations (eg on #NMClient or
         </callback>
       </field>
       <field name="secrets_cleared">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="59">emitted when the connection's secrets are cleared</doc>
         <callback name="secrets_cleared">
           <source-position filename="libnm-core-public/nm-connection.h"
                            line="67"/>
@@ -9659,6 +9718,9 @@ methods, or may be returned from D-Bus operations (eg on #NMClient or
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-connection.h"
+             line="60">emitted when any change to the connection's settings occurs</doc>
         <callback name="changed">
           <source-position filename="libnm-core-public/nm-connection.h"
                            line="68"/>
@@ -12574,7 +12636,8 @@ if is incompatible with the device's capabilities and characteristics.</doc>
               c:identifier="nm_device_delete"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2744">Deletes the software device. Hardware devices can't be deleted.</doc>
@@ -12606,7 +12669,10 @@ will be set.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="delete_async" c:identifier="nm_device_delete_async">
+      <method name="delete_async"
+              c:identifier="nm_device_delete_async"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2776">Asynchronously begins deleting the software device. Hardware devices can't
@@ -12688,7 +12754,8 @@ will be set.</doc>
               c:identifier="nm_device_disconnect"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="disconnect_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2655">Disconnects the device if currently connected, and prevents the device from
@@ -12722,7 +12789,9 @@ request.</doc>
         </parameters>
       </method>
       <method name="disconnect_async"
-              c:identifier="nm_device_disconnect_async">
+              c:identifier="nm_device_disconnect_async"
+              glib:finish-func="disconnect_finish"
+              glib:sync-func="disconnect">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2688">Asynchronously begins disconnecting the device if currently connected, and
@@ -12875,7 +12944,8 @@ not part of an active connection</doc>
               version="1.2"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="get_applied_connection_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2502">Fetch the currently applied connection on the device.</doc>
@@ -12930,7 +13000,9 @@ to nm_connection_verify().</doc>
       </method>
       <method name="get_applied_connection_async"
               c:identifier="nm_device_get_applied_connection_async"
-              version="1.2">
+              version="1.2"
+              glib:finish-func="get_applied_connection_finish"
+              glib:sync-func="get_applied_connection">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2565">Asynchronously begins and gets the currently applied connection.</doc>
@@ -13900,7 +13972,8 @@ that could be automatically created by NetworkManager if one of its
               version="1.2"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="reapply_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2369">Attempts to update device with changes to the currently active connection
@@ -13958,7 +14031,9 @@ made since it was last applied.</doc>
       </method>
       <method name="reapply_async"
               c:identifier="nm_device_reapply_async"
-              version="1.2">
+              version="1.2"
+              glib:finish-func="reapply_finish"
+              glib:sync-func="reapply">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device.c"
              line="2423">Asynchronously begins an attempt to update device with changes to the
@@ -16060,7 +16135,7 @@ device, and must not be modified.</doc>
               c:type="NMDeviceInterfaceFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1232">Flags for a network interface.</doc>
+           line="1238">Flags for a network interface.</doc>
       <member name="up"
               value="1"
               c:identifier="NM_DEVICE_INTERFACE_FLAG_UP"
@@ -16068,7 +16143,7 @@ device, and must not be modified.</doc>
               glib:name="NM_DEVICE_INTERFACE_FLAG_UP">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1235">the interface is enabled from the
+             line="1241">the interface is enabled from the
   administrative point of view. Corresponds to kernel IFF_UP.</doc>
       </member>
       <member name="lower_up"
@@ -16078,7 +16153,7 @@ device, and must not be modified.</doc>
               glib:name="NM_DEVICE_INTERFACE_FLAG_LOWER_UP">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1237">the physical link is up. Corresponds
+             line="1243">the physical link is up. Corresponds
   to kernel IFF_LOWER_UP.</doc>
       </member>
       <member name="promisc"
@@ -16088,7 +16163,7 @@ device, and must not be modified.</doc>
               glib:name="NM_DEVICE_INTERFACE_FLAG_PROMISC">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1239">receive all packets. Corresponds to
+             line="1245">receive all packets. Corresponds to
   kernel IFF_PROMISC. Since: 1.32.</doc>
       </member>
       <member name="carrier"
@@ -16098,7 +16173,7 @@ device, and must not be modified.</doc>
               glib:name="NM_DEVICE_INTERFACE_FLAG_CARRIER">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1241">the interface has carrier. In most
+             line="1247">the interface has carrier. In most
   cases this is equal to the value of @NM_DEVICE_INTERFACE_FLAG_LOWER_UP.
   However some devices have a non-standard carrier detection mechanism.</doc>
       </member>
@@ -16109,7 +16184,7 @@ device, and must not be modified.</doc>
               glib:name="NM_DEVICE_INTERFACE_FLAG_LLDP_CLIENT_ENABLED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1244">the flag to indicate device
+             line="1250">the flag to indicate device
   LLDP status. Since: 1.32.</doc>
       </member>
     </bitfield>
@@ -17340,7 +17415,7 @@ copy used by the device, and must not be modified.</doc>
               c:type="NMDeviceReapplyFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1172">Flags for the Reapply() D-Bus call of a device and
+           line="1178">Flags for the Reapply() D-Bus call of a device and
 nm_device_reapply_async().</doc>
       <member name="none"
               value="0"
@@ -17349,7 +17424,7 @@ nm_device_reapply_async().</doc>
               glib:name="NM_DEVICE_REAPPLY_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1174">no flag set.</doc>
+             line="1180">no flag set.</doc>
       </member>
       <member name="preserve_external_ip"
               value="1"
@@ -17358,7 +17433,7 @@ nm_device_reapply_async().</doc>
               glib:name="NM_DEVICE_REAPPLY_FLAGS_PRESERVE_EXTERNAL_IP">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1175">during reapply,
+             line="1181">during reapply,
   preserve external IP addresses and routes.</doc>
       </member>
     </bitfield>
@@ -19915,7 +19990,8 @@ device, and must not be modified.</doc>
               c:identifier="nm_device_wifi_request_scan"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="request_scan_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device-wifi.c"
              line="257">Request NM to scan for access points on @device. Note that the function
@@ -19950,7 +20026,9 @@ set.</doc>
         </parameters>
       </method>
       <method name="request_scan_async"
-              c:identifier="nm_device_wifi_request_scan_async">
+              c:identifier="nm_device_wifi_request_scan_async"
+              glib:finish-func="request_scan_finish"
+              glib:sync-func="request_scan">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device-wifi.c"
              line="333">Request NM to scan for access points on @device. Note that @callback will be
@@ -20487,7 +20565,8 @@ The returned array is owned by the client and should not be modified.</doc>
       </method>
       <method name="start_find"
               c:identifier="nm_device_wifi_p2p_start_find"
-              version="1.16">
+              version="1.16"
+              glib:finish-func="start_find_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device-wifi-p2p.c"
              line="130">Request NM to search for Wi-Fi P2P peers on @device. Note that the call
@@ -20580,7 +20659,8 @@ using nm_device_p2p_wifi_stop_find().</doc>
       </method>
       <method name="stop_find"
               c:identifier="nm_device_wifi_p2p_stop_find"
-              version="1.16">
+              version="1.16"
+              glib:finish-func="stop_find_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-device-wifi-p2p.c"
              line="198">Request NM to stop any ongoing find operation for Wi-Fi P2P peers on @device.</doc>
@@ -28442,7 +28522,7 @@ is compiled against.</doc>
                        line="17"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="NM_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="NM_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-version-macros.h"
            line="27">Evaluates to the micro version number of NetworkManager which this source
@@ -28617,7 +28697,7 @@ errors in that namespace.</doc>
               c:type="NMManagerReloadFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1204">Flags for the manager Reload() call.</doc>
+           line="1210">Flags for the manager Reload() call.</doc>
       <member name="conf"
               value="1"
               c:identifier="NM_MANAGER_RELOAD_FLAG_CONF"
@@ -28625,7 +28705,7 @@ errors in that namespace.</doc>
               glib:name="NM_MANAGER_RELOAD_FLAG_CONF">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1208">reload the NetworkManager.conf configuration
+             line="1214">reload the NetworkManager.conf configuration
   from disk. Note that this does not include connections, which can be
   reloaded via Setting's ReloadConnections().</doc>
       </member>
@@ -28636,7 +28716,7 @@ errors in that namespace.</doc>
               glib:name="NM_MANAGER_RELOAD_FLAG_DNS_RC">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1211">update DNS configuration, which usually
+             line="1217">update DNS configuration, which usually
   involves writing /etc/resolv.conf anew.</doc>
       </member>
       <member name="dns_full"
@@ -28646,7 +28726,7 @@ errors in that namespace.</doc>
               glib:name="NM_MANAGER_RELOAD_FLAG_DNS_FULL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1213">means to restart the DNS plugin. This
+             line="1219">means to restart the DNS plugin. This
   is for example useful when using dnsmasq plugin, which uses additional
   configuration in /etc/NetworkManager/dnsmasq.d. If you edit those files,
   you can restart the DNS plugin. This action shortly interrupts name
@@ -28744,7 +28824,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1363">The default, meaning that no MPTCP flags are set.</doc>
+             line="1369">The default, meaning that no MPTCP flags are set.</doc>
       </member>
       <member name="disabled"
               value="1"
@@ -28753,7 +28833,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_DISABLED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1364">don't configure MPTCP endpoints on the device.</doc>
+             line="1370">don't configure MPTCP endpoints on the device.</doc>
       </member>
       <member name="enabled"
               value="2"
@@ -28762,7 +28842,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_ENABLED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1365">MPTCP is enabled and endpoints will be configured.
+             line="1371">MPTCP is enabled and endpoints will be configured.
   This flag is implied if any of the other flags indicate that
   MPTCP is enabled and therefore in most cases unnecessary.
   Note that if "/proc/sys/net/mptcp/enabled" sysctl is disabled, MPTCP
@@ -28780,7 +28860,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_ALSO_WITHOUT_SYSCTL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1375">even if MPTCP handling is enabled
+             line="1381">even if MPTCP handling is enabled
   via the "enabled" flag, it is ignored unless "/proc/sys/net/mptcp/enabled"
   is on. With this flag, MPTCP endpoints will be configured regardless
   of the sysctl setting.</doc>
@@ -28792,7 +28872,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_ALSO_WITHOUT_DEFAULT_ROUTE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1379">even if MPTCP handling is enabled
+             line="1385">even if MPTCP handling is enabled
   via the "enabled" flag, it is ignored per-address family unless NetworkManager
   configures a default route. With this flag, NetworkManager will also configure
   MPTCP endpoints if there is no default route. This takes effect per-address
@@ -28805,7 +28885,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_SIGNAL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1384">Flag for the MPTCP endpoint. The endpoint will be
+             line="1390">Flag for the MPTCP endpoint. The endpoint will be
   announced/signaled to each peer via an MPTCP ADD_ADDR sub-option.</doc>
       </member>
       <member name="subflow"
@@ -28815,7 +28895,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_SUBFLOW">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1386">Flag for the MPTCP endpoint. If additional subflow creation
+             line="1392">Flag for the MPTCP endpoint. If additional subflow creation
   is allowed by the MPTCP limits, the MPTCP path manager will try to create an
   additional subflow using this endpoint as the source address after the MPTCP connection
   is established.</doc>
@@ -28827,7 +28907,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_BACKUP">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1390">Flag for the MPTCP endpoint. If this is a subflow endpoint, the
+             line="1396">Flag for the MPTCP endpoint. If this is a subflow endpoint, the
   subflows created using this endpoint will have the backup flag set during the connection
   process. This flag instructs the peer to only send data on a given subflow when all
   non-backup subflows are unavailable. This does not affect outgoing data,
@@ -28841,7 +28921,7 @@ the per-device's metered states.</doc>
               glib:name="NM_MPTCP_FLAGS_FULLMESH">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1396">Flag for the MPTCP endpoint. If this is a subflow endpoint and additional
+             line="1402">Flag for the MPTCP endpoint. If this is a subflow endpoint and additional
   subflow creation is allowed by the MPTCP limits, the MPTCP path manager will try to create an
   additional subflow for each known peer address, using this endpoint as the source address.
   This will occur after the MPTCP connection is established. If the peer did not announce
@@ -29068,7 +29148,7 @@ cache, check NMObject:client.</doc>
               c:type="NMRadioFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1343">Flags related to radio interfaces.</doc>
+           line="1349">Flags related to radio interfaces.</doc>
       <member name="none"
               value="0"
               c:identifier="NM_RADIO_FLAG_NONE"
@@ -29076,7 +29156,7 @@ cache, check NMObject:client.</doc>
               glib:name="NM_RADIO_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1345">an alias for numeric zero, no flags set.</doc>
+             line="1351">an alias for numeric zero, no flags set.</doc>
       </member>
       <member name="wlan_available"
               value="1"
@@ -29085,7 +29165,7 @@ cache, check NMObject:client.</doc>
               glib:name="NM_RADIO_FLAG_WLAN_AVAILABLE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1346">A Wireless LAN device or rfkill switch
+             line="1352">A Wireless LAN device or rfkill switch
   is detected in the system.</doc>
       </member>
       <member name="wwan_available"
@@ -29095,7 +29175,7 @@ cache, check NMObject:client.</doc>
               glib:name="NM_RADIO_FLAG_WWAN_AVAILABLE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1348">A Wireless WAN device or rfkill switch
+             line="1354">A Wireless WAN device or rfkill switch
   is detected in the system.</doc>
       </member>
     </bitfield>
@@ -29109,26 +29189,26 @@ cache, check NMObject:client.</doc>
       <constructor name="new" c:identifier="nm_range_new" version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4302">Creates a new #NMRange object for the given range. Setting @end
+             line="4303">Creates a new #NMRange object for the given range. Setting @end
 equal to @start creates a single-element range.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="268"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4311">the new #NMRange object.</doc>
+               line="4312">the new #NMRange object.</doc>
           <type name="Range" c:type="NMRange*"/>
         </return-value>
         <parameters>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4304">the first element of the range</doc>
+                 line="4305">the first element of the range</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4305">the last element of the range, must be greater than or equal
+                 line="4306">the last element of the range, must be greater than or equal
 to @start.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
@@ -29137,12 +29217,12 @@ to @start.</doc>
       <method name="cmp" c:identifier="nm_range_cmp" version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4373">Compare two ranges.</doc>
+             line="4374">Compare two ranges.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="274"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4380">zero if the two instances are equivalent or
+               line="4381">zero if the two instances are equivalent or
   a non-zero integer otherwise. This defines a total ordering
   over the ranges.</doc>
           <type name="gint" c:type="int"/>
@@ -29151,13 +29231,13 @@ to @start.</doc>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4375">a #NMRange</doc>
+                 line="4376">a #NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4376">another #NMRange</doc>
+                 line="4377">another #NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </parameter>
         </parameters>
@@ -29167,12 +29247,12 @@ to @start.</doc>
               version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4396">Gets the start and end values for the range.</doc>
+             line="4397">Gets the start and end values for the range.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="276"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4404">%TRUE if the range contains more than one
+               line="4405">%TRUE if the range contains more than one
 element, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -29180,7 +29260,7 @@ element, %FALSE otherwise.</doc>
           <instance-parameter name="range" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4398">the #NMRange</doc>
+                 line="4399">the #NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </instance-parameter>
           <parameter name="start"
@@ -29189,7 +29269,7 @@ element, %FALSE otherwise.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4399">location to store the start value</doc>
+                 line="4400">location to store the start value</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
           <parameter name="end"
@@ -29198,7 +29278,7 @@ element, %FALSE otherwise.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4400">location to store the end value</doc>
+                 line="4401">location to store the end value</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
         </parameters>
@@ -29206,20 +29286,20 @@ element, %FALSE otherwise.</doc>
       <method name="ref" c:identifier="nm_range_ref" version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4332">Increases the reference count of the object.
+             line="4333">Increases the reference count of the object.
 This is thread-safe.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="270"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4339">the input argument @range object.</doc>
+               line="4340">the input argument @range object.</doc>
           <type name="Range" c:type="NMRange*"/>
         </return-value>
         <parameters>
           <instance-parameter name="range" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4334">the #NMRange</doc>
+                 line="4335">the #NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </instance-parameter>
         </parameters>
@@ -29227,19 +29307,19 @@ This is thread-safe.</doc>
       <method name="to_str" c:identifier="nm_range_to_str" version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4427">Convert a %NMRange to a string.</doc>
+             line="4428">Convert a %NMRange to a string.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="278"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4433">a string representing the range.</doc>
+               line="4434">a string representing the range.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="range" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4429">the %NMRange</doc>
+                 line="4430">the %NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </instance-parameter>
         </parameters>
@@ -29247,7 +29327,7 @@ This is thread-safe.</doc>
       <method name="unref" c:identifier="nm_range_unref" version="1.42">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4354">Decreases the reference count of the object.  If the reference count
+             line="4355">Decreases the reference count of the object.  If the reference count
 reaches zero the object will be destroyed.
 This is thread-safe.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="272"/>
@@ -29258,7 +29338,7 @@ This is thread-safe.</doc>
           <instance-parameter name="range" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4356">the #NMRange</doc>
+                 line="4357">the #NMRange</doc>
             <type name="Range" c:type="const NMRange*"/>
           </instance-parameter>
         </parameters>
@@ -29269,20 +29349,20 @@ This is thread-safe.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4454">Parses the string representation of the range to create a %NMRange
+             line="4455">Parses the string representation of the range to create a %NMRange
 instance.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="280"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4462">the %NMRange or %NULL</doc>
+               line="4463">the %NMRange or %NULL</doc>
           <type name="Range" c:type="NMRange*"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4456">the string representation of a range</doc>
+                 line="4457">the string representation of a range</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -29302,7 +29382,8 @@ instance.</doc>
               c:identifier="nm_remote_connection_commit_changes"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="commit_changes_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="156">Send any local changes to the settings and properties of @connection to
@@ -29342,7 +29423,9 @@ disk; if %FALSE, then only the in-memory representation will be changed.</doc>
         </parameters>
       </method>
       <method name="commit_changes_async"
-              c:identifier="nm_remote_connection_commit_changes_async">
+              c:identifier="nm_remote_connection_commit_changes_async"
+              glib:finish-func="commit_changes_finish"
+              glib:sync-func="commit_changes">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="204">Asynchronously sends any local changes to the settings and properties of
@@ -29431,7 +29514,8 @@ changed.</doc>
               c:identifier="nm_remote_connection_delete"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="350">Deletes the connection.</doc>
@@ -29463,7 +29547,9 @@ changed.</doc>
         </parameters>
       </method>
       <method name="delete_async"
-              c:identifier="nm_remote_connection_delete_async">
+              c:identifier="nm_remote_connection_delete_async"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="381">Asynchronously deletes the connection.</doc>
@@ -29584,7 +29670,8 @@ changed.</doc>
       </method>
       <method name="get_secrets"
               c:identifier="nm_remote_connection_get_secrets"
-              throws="1">
+              throws="1"
+              glib:async-func="get_secrets_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="437">Request the connection's secrets. Note that this is a blocking D-Bus call,
@@ -29629,7 +29716,9 @@ Warning: NMClient contains a cache of objects on D-Bus. This cache gets updated
         </parameters>
       </method>
       <method name="get_secrets_async"
-              c:identifier="nm_remote_connection_get_secrets_async">
+              c:identifier="nm_remote_connection_get_secrets_async"
+              glib:finish-func="get_secrets_finish"
+              glib:sync-func="get_secrets">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="488">Asynchronously requests the connection's secrets.</doc>
@@ -29791,7 +29880,8 @@ user, %FALSE if not.</doc>
               c:identifier="nm_remote_connection_save"
               deprecated="1"
               deprecated-version="1.22"
-              throws="1">
+              throws="1"
+              glib:async-func="save_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="260">Saves the connection to disk if the connection has changes that have not yet
@@ -29823,7 +29913,10 @@ been written to disk, or if the connection has never been saved.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_async" c:identifier="nm_remote_connection_save_async">
+      <method name="save_async"
+              c:identifier="nm_remote_connection_save_async"
+              glib:finish-func="save_finish"
+              glib:sync-func="save">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="291">Saves the connection to disk if the connection has changes that have not yet
@@ -29902,7 +29995,8 @@ been written to disk, or if the connection has never been saved.</doc>
       </method>
       <method name="update2"
               c:identifier="nm_remote_connection_update2"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="update2_finish">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-remote-connection.c"
              line="71">Asynchronously calls the Update2() D-Bus method.</doc>
@@ -30074,34 +30168,34 @@ after you already have a reference to it.)</doc>
     <enumeration name="RollbackResult" version="1.4" c:type="NMRollbackResult">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1008">The result of a checkpoint Rollback() operation for a specific device.</doc>
+           line="1014">The result of a checkpoint Rollback() operation for a specific device.</doc>
       <source-position filename="libnm-core-public/nm-dbus-interface.h"
-                       line="1024"/>
+                       line="1030"/>
       <member name="ok" value="0" c:identifier="NM_ROLLBACK_RESULT_OK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1010">the rollback succeeded.</doc>
+             line="1016">the rollback succeeded.</doc>
       </member>
       <member name="err_no_device"
               value="1"
               c:identifier="NM_ROLLBACK_RESULT_ERR_NO_DEVICE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1011">the device no longer exists.</doc>
+             line="1017">the device no longer exists.</doc>
       </member>
       <member name="err_device_unmanaged"
               value="2"
               c:identifier="NM_ROLLBACK_RESULT_ERR_DEVICE_UNMANAGED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1012">the device is now unmanaged.</doc>
+             line="1018">the device is now unmanaged.</doc>
       </member>
       <member name="err_failed"
               value="3"
               c:identifier="NM_ROLLBACK_RESULT_ERR_FAILED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1013">other errors during rollback.</doc>
+             line="1019">other errors during rollback.</doc>
       </member>
     </enumeration>
     <function-macro name="SECRET_AGENT_OLD"
@@ -30173,21 +30267,21 @@ after you already have a reference to it.)</doc>
               value="x-dynamic-challenge:"
               c:type="NM_SECRET_TAG_DYNAMIC_CHALLENGE">
       <source-position filename="libnm-core-public/nm-dbus-interface.h"
-                       line="1434"/>
+                       line="1440"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="SECRET_TAG_DYNAMIC_CHALLENGE_ECHO"
               value="x-dynamic-challenge-echo:"
               c:type="NM_SECRET_TAG_DYNAMIC_CHALLENGE_ECHO">
       <source-position filename="libnm-core-public/nm-dbus-interface.h"
-                       line="1435"/>
+                       line="1441"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="SECRET_TAG_VPN_MSG"
               value="x-vpn-message:"
               c:type="NM_SECRET_TAG_VPN_MSG">
       <source-position filename="libnm-core-public/nm-dbus-interface.h"
-                       line="1423"/>
+                       line="1429"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="SETTING"
@@ -37012,7 +37106,8 @@ secrets from the user.</doc>
               c:identifier="nm_secret_agent_old_register"
               deprecated="1"
               deprecated-version="1.24"
-              throws="1">
+              throws="1"
+              glib:async-func="register_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-secret-agent-old.c"
              line="685">Registers the #NMSecretAgentOld with the NetworkManager secret manager,
@@ -37054,7 +37149,9 @@ Since 1.24, registration is idempotent. It has the same effect as setting
         </parameters>
       </method>
       <method name="register_async"
-              c:identifier="nm_secret_agent_old_register_async">
+              c:identifier="nm_secret_agent_old_register_async"
+              glib:finish-func="register_finish"
+              glib:sync-func="register">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-secret-agent-old.c"
              line="766">Asynchronously registers the #NMSecretAgentOld with the NetworkManager secret
@@ -37196,7 +37293,8 @@ disk.</doc>
               c:identifier="nm_secret_agent_old_unregister"
               deprecated="1"
               deprecated-version="1.24"
-              throws="1">
+              throws="1"
+              glib:async-func="unregister_async">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-secret-agent-old.c"
              line="854">Unregisters the #NMSecretAgentOld with the NetworkManager secret manager,
@@ -37236,7 +37334,9 @@ or nm_secret_agent_old_enable().</doc>
       <method name="unregister_async"
               c:identifier="nm_secret_agent_old_unregister_async"
               deprecated="1"
-              deprecated-version="1.24">
+              deprecated-version="1.24"
+              glib:finish-func="unregister_finish"
+              glib:sync-func="unregister">
         <doc xml:space="preserve"
              filename="libnm-client-impl/nm-secret-agent-old.c"
              line="891">Asynchronously unregisters the #NMSecretAgentOld with the NetworkManager secret
@@ -37788,7 +37888,7 @@ has returned</doc>
                 version="1.46">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4519">Get the type of the enum that defines the values that the property accepts. It is only
+             line="4520">Get the type of the enum that defines the values that the property accepts. It is only
 useful for properties configured to accept values from certain enum type, otherwise
 it will return %G_TYPE_INVALID. Note that flags (children of G_TYPE_FLAGS) are also
 considered enums.
@@ -37800,20 +37900,20 @@ setting the GObject property.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4533">the enum's GType, or %G_TYPE_INVALID if the property is not of enum type</doc>
+               line="4534">the enum's GType, or %G_TYPE_INVALID if the property is not of enum type</doc>
           <type name="GType" c:type="GType"/>
         </return-value>
         <parameters>
           <parameter name="setting_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4521">the GType of the NMSetting instance</doc>
+                 line="4522">the GType of the NMSetting instance</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="property_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4522">the name of the property</doc>
+                 line="4523">the name of the property</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -38088,7 +38188,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4039">the #NMSetting</doc>
+                 line="4040">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="predicate"
@@ -38098,7 +38198,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
                      scope="call">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4040">the predicate for which names
+                 line="4041">the predicate for which names
   should be clear.
   If the predicate returns %TRUE for an option name, the option
   gets removed. If %NULL, all options will be removed.</doc>
@@ -38113,7 +38213,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4086">the #GVariant or %NULL if the option
+               line="4087">the #GVariant or %NULL if the option
   is not set.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -38121,13 +38221,13 @@ this setting, and if that property is secret), %FALSE if not</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4083">the #NMSetting</doc>
+                 line="4084">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4084">the option name to request.</doc>
+                 line="4085">the option name to request.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -38137,12 +38237,12 @@ this setting, and if that property is secret), %FALSE if not</doc>
               version="1.26">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="3995">Gives the name of all set options.</doc>
+             line="3996">Gives the name of all set options.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="248"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4002">
+               line="4003">
   A %NULL terminated array of key names. If no names are present, this returns
   %NULL. The returned array and the names are owned by %NMSetting and might be invalidated
   by the next operation.</doc>
@@ -38154,7 +38254,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="3997">the #NMSetting</doc>
+                 line="3998">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="out_len"
@@ -38174,20 +38274,20 @@ this setting, and if that property is secret), %FALSE if not</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4110">%TRUE if @opt_name is set to a boolean variant.</doc>
+               line="4111">%TRUE if @opt_name is set to a boolean variant.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4105">the #NMSetting</doc>
+                 line="4106">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4106">the option to get</doc>
+                 line="4107">the option to get</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="out_value"
@@ -38197,7 +38297,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4107">the optional output value.
+                 line="4108">the optional output value.
   If the option is unset, %FALSE will be returned.</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
@@ -38210,20 +38310,20 @@ this setting, and if that property is secret), %FALSE if not</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4135">%TRUE if @opt_name is set to a uint32 variant.</doc>
+               line="4136">%TRUE if @opt_name is set to a uint32 variant.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4130">the #NMSetting</doc>
+                 line="4131">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4131">the option to get</doc>
+                 line="4132">the option to get</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="out_value"
@@ -38233,7 +38333,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4132">the optional output value.
+                 line="4133">the optional output value.
   If the option is unset, 0 will be returned.</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
@@ -38244,7 +38344,7 @@ this setting, and if that property is secret), %FALSE if not</doc>
               version="1.26">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4153">If @variant is %NULL, this clears the option if it is set.
+             line="4154">If @variant is %NULL, this clears the option if it is set.
 Otherwise, @variant is set as the option. If @variant is
 a floating reference, it will be consumed.
 
@@ -38259,13 +38359,13 @@ Currently, only #NMSettingEthtool supports it.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4155">the #NMSetting</doc>
+                 line="4156">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4156">the option name to set</doc>
+                 line="4157">the option name to set</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="variant"
@@ -38274,7 +38374,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4157">the variant to set.</doc>
+                 line="4158">the variant to set.</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -38284,7 +38384,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
               version="1.26">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4220">Like nm_setting_option_set() to set a boolean GVariant.</doc>
+             line="4221">Like nm_setting_option_set() to set a boolean GVariant.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="245"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -38293,7 +38393,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4222">the #NMSetting</doc>
+                 line="4223">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
@@ -38302,7 +38402,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4223">the value to set.</doc>
+                 line="4224">the value to set.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -38312,7 +38412,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
               version="1.26">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4257">Like nm_setting_option_set() to set a uint32 GVariant.</doc>
+             line="4258">Like nm_setting_option_set() to set a uint32 GVariant.</doc>
         <source-position filename="libnm-core-public/nm-setting.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -38321,7 +38421,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4259">the #NMSetting</doc>
+                 line="4260">the #NMSetting</doc>
             <type name="Setting" c:type="NMSetting*"/>
           </instance-parameter>
           <parameter name="opt_name" transfer-ownership="none">
@@ -38330,7 +38430,7 @@ Currently, only #NMSettingEthtool supports it.</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting.c"
-                 line="4260">the value to set.</doc>
+                 line="4261">the value to set.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -38472,7 +38572,7 @@ in some cases connection failure is not desired just for the secrets.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4650">The setting's name, which uniquely identifies the setting within the
+             line="4651">The setting's name, which uniquely identifies the setting within the
 connection.  Each setting type has a name unique to that type, for
 example "ppp" or "802-11-wireless" or "802-3-ethernet".</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -45604,10 +45704,9 @@ are unrelated to this setting.
 The permitted values are: 0: leave slave connections untouched,
 1: activate all the slave connections with this connection, -1: default.
 If -1 (default) is set, global connection.autoconnect-slaves is read to
-determine the real value. If it is default as well, this fallbacks to 0.</doc>
-        <doc-version xml:space="preserve">
+determine the real value. If it is default as well, this fallbacks to 0.
 
-Deprecated 1.46. Use #NMSettingConnection:autoconnect-ports instead, this is just an alias.</doc-version>
+Deprecated 1.46. Use #NMSettingConnection:autoconnect-ports instead, this is just an alias.</doc>
         <type name="SettingConnectionAutoconnectSlaves"/>
       </property>
       <property name="controller"
@@ -57293,19 +57392,19 @@ doesn't touch the filters present on the interface.</doc>
            glib:type-struct="SettingTeamClass">
       <doc xml:space="preserve"
            filename="libnm-core-impl/nm-setting-team.c"
-           line="744">Teaming Settings</doc>
+           line="738">Teaming Settings</doc>
       <source-position filename="libnm-core-public/nm-setting-team.h"
                        line="156"/>
       <constructor name="new" c:identifier="nm_setting_team_new">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1470">Creates a new #NMSettingTeam object with default values.</doc>
+             line="1464">Creates a new #NMSettingTeam object with default values.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="160"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1475">the new empty #NMSettingTeam object</doc>
+               line="1469">the new empty #NMSettingTeam object</doc>
           <type name="Setting" c:type="NMSetting*"/>
         </return-value>
       </constructor>
@@ -57314,13 +57413,13 @@ doesn't touch the filters present on the interface.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1175">Appends a new link watcher to the setting.</doc>
+             line="1169">Appends a new link watcher to the setting.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="204"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1182">%TRUE if the link watcher is added; %FALSE if an identical link
+               line="1176">%TRUE if the link watcher is added; %FALSE if an identical link
 watcher was already there.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -57328,13 +57427,13 @@ watcher was already there.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1177">the #NMSettingTeam</doc>
+                 line="1171">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="link_watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1178">the link watcher to add</doc>
+                 line="1172">the link watcher to add</doc>
             <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
           </parameter>
         </parameters>
@@ -57344,13 +57443,13 @@ watcher was already there.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1112">Adds a new txhash element to the setting.</doc>
+             line="1106">Adds a new txhash element to the setting.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="198"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1119">%TRUE if the txhash element was added; %FALSE if the element
+               line="1113">%TRUE if the txhash element was added; %FALSE if the element
 was already knnown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -57358,13 +57457,13 @@ was already knnown.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1114">the #NMSettingTeam</doc>
+                 line="1108">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="txhash" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1115">the element to add to txhash</doc>
+                 line="1109">the element to add to txhash</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -57374,7 +57473,7 @@ was already knnown.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1247">Removes all configured link watchers.</doc>
+             line="1241">Removes all configured link watchers.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="211"/>
         <return-value transfer-ownership="none">
@@ -57384,7 +57483,7 @@ was already knnown.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1249">the #NMSettingTeam</doc>
+                 line="1243">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57397,14 +57496,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="790">the #NMSettingTeam:config property of the setting</doc>
+               line="784">the #NMSettingTeam:config property of the setting</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="788">the #NMSettingTeam</doc>
+                 line="782">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57417,20 +57516,20 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1157">the link watcher at index @idx.</doc>
+               line="1151">the link watcher at index @idx.</doc>
           <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1154">the #NMSettingTeam</doc>
+                 line="1148">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1155">index number of the link watcher to return</doc>
+                 line="1149">index number of the link watcher to return</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -57444,14 +57543,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="836">the ##NMSettingTeam:mcast-rejoin-count property of the setting</doc>
+               line="830">the ##NMSettingTeam:mcast-rejoin-count property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="834">the #NMSettingTeam</doc>
+                 line="828">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57465,14 +57564,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="852">the ##NMSettingTeam:mcast-rejoin-interval property of the setting</doc>
+               line="846">the ##NMSettingTeam:mcast-rejoin-interval property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="850">the #NMSettingTeam</doc>
+                 line="844">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57486,14 +57585,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="804">the ##NMSettingTeam:notify-peers-count property of the setting</doc>
+               line="798">the ##NMSettingTeam:notify-peers-count property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="802">the #NMSettingTeam</doc>
+                 line="796">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57507,14 +57606,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="820">the ##NMSettingTeam:notify-peers-interval property of the setting</doc>
+               line="814">the ##NMSettingTeam:notify-peers-interval property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="818">the #NMSettingTeam</doc>
+                 line="812">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57527,14 +57626,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1140">the number of configured link watchers</doc>
+               line="1134">the number of configured link watchers</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1138">the #NMSettingTeam</doc>
+                 line="1132">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57547,14 +57646,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1047">the number of elements in txhash</doc>
+               line="1041">the number of elements in txhash</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1045">the #NMSettingTeam</doc>
+                 line="1039">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57568,14 +57667,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="868">the ##NMSettingTeam:runner property of the setting</doc>
+               line="862">the ##NMSettingTeam:runner property of the setting</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="866">the #NMSettingTeam</doc>
+                 line="860">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57589,14 +57688,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="932">the ##NMSettingTeam:runner_active property of the setting</doc>
+               line="926">the ##NMSettingTeam:runner_active property of the setting</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="930">the #NMSettingTeam</doc>
+                 line="924">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57610,14 +57709,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="996">the ##NMSettingTeam:runner-agg-select-policy property of the setting</doc>
+               line="990">the ##NMSettingTeam:runner-agg-select-policy property of the setting</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="994">the #NMSettingTeam</doc>
+                 line="988">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57631,14 +57730,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="948">the ##NMSettingTeam:runner-fast-rate property of the setting</doc>
+               line="942">the ##NMSettingTeam:runner-fast-rate property of the setting</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="946">the #NMSettingTeam</doc>
+                 line="940">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57652,14 +57751,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="884">the ##NMSettingTeam:runner-hwaddr-policy property of the setting</doc>
+               line="878">the ##NMSettingTeam:runner-hwaddr-policy property of the setting</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="882">the #NMSettingTeam</doc>
+                 line="876">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57673,14 +57772,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="980">the ##NMSettingTeam:runner-min-ports property of the setting</doc>
+               line="974">the ##NMSettingTeam:runner-min-ports property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="978">the #NMSettingTeam</doc>
+                 line="972">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57694,14 +57793,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="964">the ##NMSettingTeam:runner-sys-prio property of the setting</doc>
+               line="958">the ##NMSettingTeam:runner-sys-prio property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="962">the #NMSettingTeam</doc>
+                 line="956">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57715,14 +57814,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="900">the ##NMSettingTeam:runner-tx-balancer property of the setting</doc>
+               line="894">the ##NMSettingTeam:runner-tx-balancer property of the setting</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="898">the #NMSettingTeam</doc>
+                 line="892">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57736,14 +57835,14 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="916">the ##NMSettingTeam:runner-tx-balancer_interval property of the setting</doc>
+               line="910">the ##NMSettingTeam:runner-tx-balancer_interval property of the setting</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="914">the #NMSettingTeam</doc>
+                 line="908">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
         </parameters>
@@ -57757,20 +57856,20 @@ was already knnown.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1067">the txhash element at index @idx</doc>
+               line="1061">the txhash element at index @idx</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1064">the #NMSettingTeam</doc>
+                 line="1058">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1065">index number of the txhash element to return</doc>
+                 line="1059">index number of the txhash element to return</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -57780,7 +57879,7 @@ was already knnown.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1199">Removes the link watcher at index #idx.</doc>
+             line="1193">Removes the link watcher at index #idx.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -57790,13 +57889,13 @@ was already knnown.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1201">the #NMSettingTeam</doc>
+                 line="1195">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1202">index number of the link watcher to remove</doc>
+                 line="1196">index number of the link watcher to remove</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -57806,26 +57905,26 @@ was already knnown.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1223">Removes the link watcher entry matching link_watcher.</doc>
+             line="1217">Removes the link watcher entry matching link_watcher.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="208"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1230">%TRUE if the link watcher was found and removed, %FALSE otherwise.</doc>
+               line="1224">%TRUE if the link watcher was found and removed, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1225">the #NMSettingTeam</doc>
+                 line="1219">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="link_watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1226">the link watcher to remove</doc>
+                 line="1220">the link watcher to remove</doc>
             <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
           </parameter>
         </parameters>
@@ -57835,7 +57934,7 @@ was already knnown.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1086">Removes the txhash element at index @idx.</doc>
+             line="1080">Removes the txhash element at index @idx.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="196"/>
         <return-value transfer-ownership="none">
@@ -57845,13 +57944,13 @@ was already knnown.</doc>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1088">the #NMSettingTeam</doc>
+                 line="1082">the #NMSettingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="idx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1089">index number of the element to remove from txhash</doc>
+                 line="1083">index number of the element to remove from txhash</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -57861,26 +57960,26 @@ was already knnown.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1008">Removes the txhash element #txhash</doc>
+             line="1002">Removes the txhash element #txhash</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="190"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="1015">%TRUE if the txhash element was found and removed; %FALSE if it was not.</doc>
+               line="1009">%TRUE if the txhash element was found and removed; %FALSE if it was not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1010">the #NMSetetingTeam</doc>
+                 line="1004">the #NMSetetingTeam</doc>
             <type name="SettingTeam" c:type="NMSettingTeam*"/>
           </instance-parameter>
           <parameter name="txhash" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="1011">the txhash element to remove</doc>
+                 line="1005">the txhash element to remove</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -57892,7 +57991,7 @@ was already knnown.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1508">The JSON configuration for the team network interface.  The property
+             line="1502">The JSON configuration for the team network interface.  The property
 should contain raw JSON configuration data suitable for teamd, because
 the value is passed directly to teamd. If not specified, the default
 configuration is used.  See man teamd.conf for the format details.</doc>
@@ -57904,7 +58003,7 @@ configuration is used.  See man teamd.conf for the format details.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1792">Link watchers configuration for the connection: each link watcher is
+             line="1786">Link watchers configuration for the connection: each link watcher is
 defined by a dictionary, whose keys depend upon the selected link
 watcher. Available link watchers are 'ethtool', 'nsna_ping' and
 'arp_ping' and it is specified in the dictionary with the key 'name'.
@@ -57924,7 +58023,7 @@ arp_ping: all the ones in nsna_ping and 'source-host', 'validate-active',
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1575">Corresponds to the teamd mcast_rejoin.count.</doc>
+             line="1569">Corresponds to the teamd mcast_rejoin.count.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="mcast-rejoin-interval"
@@ -57935,7 +58034,7 @@ arp_ping: all the ones in nsna_ping and 'source-host', 'validate-active',
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1594">Corresponds to the teamd mcast_rejoin.interval.</doc>
+             line="1588">Corresponds to the teamd mcast_rejoin.interval.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="notify-peers-count"
@@ -57946,7 +58045,7 @@ arp_ping: all the ones in nsna_ping and 'source-host', 'validate-active',
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1537">Corresponds to the teamd notify_peers.count.</doc>
+             line="1531">Corresponds to the teamd notify_peers.count.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="notify-peers-interval"
@@ -57957,7 +58056,7 @@ arp_ping: all the ones in nsna_ping and 'source-host', 'validate-active',
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1556">Corresponds to the teamd notify_peers.interval.</doc>
+             line="1550">Corresponds to the teamd notify_peers.interval.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="runner"
@@ -57968,7 +58067,7 @@ arp_ping: all the ones in nsna_ping and 'source-host', 'validate-active',
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1613">Corresponds to the teamd runner.name.
+             line="1607">Corresponds to the teamd runner.name.
 Permitted values are: "roundrobin", "broadcast", "activebackup",
 "loadbalance", "lacp", "random".</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -57981,7 +58080,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1703">Corresponds to the teamd runner.active.</doc>
+             line="1697">Corresponds to the teamd runner.active.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="runner-agg-select-policy"
@@ -57992,7 +58091,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1775">Corresponds to the teamd runner.agg_select_policy.</doc>
+             line="1769">Corresponds to the teamd runner.agg_select_policy.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="runner-fast-rate"
@@ -58003,7 +58102,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1720">Corresponds to the teamd runner.fast_rate.</doc>
+             line="1714">Corresponds to the teamd runner.fast_rate.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="runner-hwaddr-policy"
@@ -58014,7 +58113,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1632">Corresponds to the teamd runner.hwaddr_policy.</doc>
+             line="1626">Corresponds to the teamd runner.hwaddr_policy.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="runner-min-ports"
@@ -58025,7 +58124,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1756">Corresponds to the teamd runner.min_ports.</doc>
+             line="1750">Corresponds to the teamd runner.min_ports.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="runner-sys-prio"
@@ -58036,7 +58135,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1737">Corresponds to the teamd runner.sys_prio.</doc>
+             line="1731">Corresponds to the teamd runner.sys_prio.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="runner-tx-balancer"
@@ -58047,7 +58146,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1666">Corresponds to the teamd runner.tx_balancer.name.</doc>
+             line="1660">Corresponds to the teamd runner.tx_balancer.name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="runner-tx-balancer-interval"
@@ -58058,7 +58157,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1683">Corresponds to the teamd runner.tx_balancer.interval.</doc>
+             line="1677">Corresponds to the teamd runner.tx_balancer.interval.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="runner-tx-hash"
@@ -58068,7 +58167,7 @@ Permitted values are: "roundrobin", "broadcast", "activebackup",
                 getter="get_runner_tx_hash">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="1649">Corresponds to the teamd runner.tx_hash.</doc>
+             line="1643">Corresponds to the teamd runner.tx_hash.</doc>
         <array>
           <type name="utf8"/>
         </array>
@@ -59586,13 +59685,13 @@ value is '802.1Q'.</doc>
       <constructor name="new" c:identifier="nm_setting_vpn_new">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1036">Creates a new #NMSettingVpn object with default values.</doc>
+             line="1085">Creates a new #NMSettingVpn object with default values.</doc>
         <source-position filename="libnm-core-public/nm-setting-vpn.h"
                          line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-vpn.c"
-               line="1041">the new empty #NMSettingVpn object</doc>
+               line="1090">the new empty #NMSettingVpn object</doc>
           <type name="Setting" c:type="NMSetting*"/>
         </return-value>
       </constructor>
@@ -60075,7 +60174,7 @@ nm_setting_vpn_add_secret().</doc>
       <property name="data" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1131">Dictionary of key/value pairs of VPN plugin specific data.  Both keys and
+             line="1180">Dictionary of key/value pairs of VPN plugin specific data.  Both keys and
 values must be strings.</doc>
         <type name="GLib.HashTable">
           <type name="utf8"/>
@@ -60089,7 +60188,7 @@ values must be strings.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1115">If the VPN service supports persistence, and this property is %TRUE,
+             line="1164">If the VPN service supports persistence, and this property is %TRUE,
 the VPN will attempt to stay connected across link changes and outages,
 until explicitly disconnected.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -60097,7 +60196,7 @@ until explicitly disconnected.</doc>
       <property name="secrets" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1154">Dictionary of key/value pairs of VPN plugin specific secrets like
+             line="1203">Dictionary of key/value pairs of VPN plugin specific secrets like
 passwords or private keys.  Both keys and values must be strings.</doc>
         <type name="GLib.HashTable">
           <type name="utf8"/>
@@ -60111,7 +60210,7 @@ passwords or private keys.  Both keys and values must be strings.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1080">D-Bus service name of the VPN plugin that this setting uses to connect to
+             line="1129">D-Bus service name of the VPN plugin that this setting uses to connect to
 its network.  i.e. org.freedesktop.NetworkManager.vpnc for the vpnc
 plugin.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -60124,7 +60223,7 @@ plugin.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1183">Timeout for the VPN service to establish the connection. Some services
+             line="1232">Timeout for the VPN service to establish the connection. Some services
 may take quite a long time to connect.
 Value of 0 means a default timeout, which is 60 seconds (unless overridden
 by vpn.timeout in configuration file). Values greater than zero mean
@@ -60138,7 +60237,7 @@ timeout in seconds.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-vpn.c"
-             line="1096">If the VPN connection requires a user name for authentication, that name
+             line="1145">If the VPN connection requires a user name for authentication, that name
 should be provided here.  If the connection is available to more than one
 user, and the VPN requires each user to supply a different name, then
 leave this property empty.  If this property is empty, NetworkManager
@@ -65250,7 +65349,7 @@ set, use whatever the device is already set to".</doc>
               c:type="NMSettingsAddConnection2Flags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1091">Numeric flags for the "flags" argument of AddConnection2() D-Bus API.</doc>
+           line="1097">Numeric flags for the "flags" argument of AddConnection2() D-Bus API.</doc>
       <member name="none"
               value="0"
               c:identifier="NM_SETTINGS_ADD_CONNECTION2_FLAG_NONE"
@@ -65258,7 +65357,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_ADD_CONNECTION2_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1093">an alias for numeric zero, no flags set.</doc>
+             line="1099">an alias for numeric zero, no flags set.</doc>
       </member>
       <member name="to_disk"
               value="1"
@@ -65267,7 +65366,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_ADD_CONNECTION2_FLAG_TO_DISK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1094">to persist the connection to disk.</doc>
+             line="1100">to persist the connection to disk.</doc>
       </member>
       <member name="in_memory"
               value="2"
@@ -65276,7 +65375,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_ADD_CONNECTION2_FLAG_IN_MEMORY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1095">to make the connection in-memory only.</doc>
+             line="1101">to make the connection in-memory only.</doc>
       </member>
       <member name="block_autoconnect"
               value="32"
@@ -65285,7 +65384,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_ADD_CONNECTION2_FLAG_BLOCK_AUTOCONNECT">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1096">usually, when the connection
+             line="1102">usually, when the connection
   has autoconnect enabled and gets added, it becomes eligible to autoconnect
   right away. Setting this flag, disables autoconnect until the connection
   is manually activated.</doc>
@@ -65298,7 +65397,7 @@ set, use whatever the device is already set to".</doc>
               c:type="NMSettingsConnectionFlags">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1026">Flags describing the current activation state.</doc>
+           line="1032">Flags describing the current activation state.</doc>
       <member name="none"
               value="0"
               c:identifier="NM_SETTINGS_CONNECTION_FLAG_NONE"
@@ -65306,7 +65405,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_CONNECTION_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1028">an alias for numeric zero, no flags set.</doc>
+             line="1034">an alias for numeric zero, no flags set.</doc>
       </member>
       <member name="unsaved"
               value="1"
@@ -65315,7 +65414,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_CONNECTION_FLAG_UNSAVED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1029">the connection is not saved to disk.
+             line="1035">the connection is not saved to disk.
   That either means, that the connection is in-memory only and currently
   is not backed by a file. Or, that the connection is backed by a file,
   but has modifications in-memory that were not persisted to disk.</doc>
@@ -65327,7 +65426,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_CONNECTION_FLAG_NM_GENERATED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1033">A connection is "nm-generated" if
+             line="1039">A connection is "nm-generated" if
  it was generated by NetworkManger. If the connection gets modified or saved
  by the user, the flag gets cleared. A nm-generated is also unsaved
  and has no backing file as it is in-memory only.</doc>
@@ -65339,7 +65438,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_CONNECTION_FLAG_VOLATILE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1037">The connection will be deleted
+             line="1043">The connection will be deleted
  when it disconnects. That is for in-memory connections (unsaved), which are
  currently active but deleted on disconnect. Volatile connections are
  always unsaved, but they are also no backing file on disk and are entirely
@@ -65352,7 +65451,7 @@ set, use whatever the device is already set to".</doc>
               glib:name="NM_SETTINGS_CONNECTION_FLAG_EXTERNAL">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1042">the profile was generated to represent
+             line="1048">the profile was generated to represent
  an external configuration of a networking device. Since: 1.26.</doc>
       </member>
     </bitfield>
@@ -65482,7 +65581,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_NONE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1114">an alias for numeric zero, no flags set.</doc>
+             line="1120">an alias for numeric zero, no flags set.</doc>
       </member>
       <member name="to_disk"
               value="1"
@@ -65491,7 +65590,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_TO_DISK">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1115">to persist the connection to disk.</doc>
+             line="1121">to persist the connection to disk.</doc>
       </member>
       <member name="in_memory"
               value="2"
@@ -65500,7 +65599,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1116">makes the profile in-memory.
+             line="1122">makes the profile in-memory.
   Note that such profiles are stored in keyfile format under /run.
   If the file is already in-memory, the file in /run is updated in-place.
   Otherwise, the previous storage for the profile is left unchanged
@@ -65519,7 +65618,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY_DETACHED">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1127">this is almost the same
+             line="1133">this is almost the same
   as %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY, with one difference: when later deleting
   the profile, the original profile will not be deleted. Instead a nmmeta
   file is written to /run to indicate that the profile is gone.
@@ -65534,7 +65633,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY_ONLY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1134">this is like %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY,
+             line="1140">this is like %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY,
   but if the connection has a corresponding file on persistent storage, the file
   will be deleted right away. If the profile is later again persisted to disk,
   a new, unused filename will be chosen.</doc>
@@ -65546,7 +65645,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_VOLATILE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1138">This can be specified with either
+             line="1144">This can be specified with either
   %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY, %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY_DETACHED
   or %NM_SETTINGS_UPDATE2_FLAG_IN_MEMORY_ONLY.
   After making the connection in-memory only, the connection is marked
@@ -65563,7 +65662,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_BLOCK_AUTOCONNECT">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1147">usually, when the connection
+             line="1153">usually, when the connection
   has autoconnect enabled and is modified, it becomes eligible to autoconnect
   right away. Setting this flag, disables autoconnect until the connection
   is manually activated.</doc>
@@ -65575,7 +65674,7 @@ D-Bus errors in that namespace.</doc>
               glib:name="NM_SETTINGS_UPDATE2_FLAG_NO_REAPPLY">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1151">when a profile gets modified that is
+             line="1157">when a profile gets modified that is
   currently active, then these changes don't take effect for the active
   device unless the profile gets reactivated or the configuration reapplied.
   There are two exceptions: by default "connection.zone" and "connection.metered"
@@ -67211,52 +67310,52 @@ reaches zero, the object will be destroyed.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="218">Creates a new arp_ping #NMTeamLinkWatcher object</doc>
+             line="212">Creates a new arp_ping #NMTeamLinkWatcher object</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="232">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
+               line="226">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
           <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
         </return-value>
         <parameters>
           <parameter name="init_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="220">init_wait value</doc>
+                 line="214">init_wait value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="221">interval value</doc>
+                 line="215">interval value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="missed_max" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="222">missed_max value</doc>
+                 line="216">missed_max value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="target_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="223">the host name or the ip address that will be used as destination
+                 line="217">the host name or the ip address that will be used as destination
   address in the arp request</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="source_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="225">the host name or the ip address that will be used as source
+                 line="219">the host name or the ip address that will be used as source
   address in the arp request</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="227">the watcher #NMTeamLinkWatcherArpPingFlags</doc>
+                 line="221">the watcher #NMTeamLinkWatcherArpPingFlags</doc>
             <type name="TeamLinkWatcherArpPingFlags"
                   c:type="NMTeamLinkWatcherArpPingFlags"/>
           </parameter>
@@ -67268,58 +67367,58 @@ reaches zero, the object will be destroyed.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="255">Creates a new arp_ping #NMTeamLinkWatcher object</doc>
+             line="249">Creates a new arp_ping #NMTeamLinkWatcher object</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="270">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
+               line="264">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
           <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
         </return-value>
         <parameters>
           <parameter name="init_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="257">init_wait value</doc>
+                 line="251">init_wait value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="258">interval value</doc>
+                 line="252">interval value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="missed_max" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="259">missed_max value</doc>
+                 line="253">missed_max value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="vlanid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="260">vlanid value</doc>
+                 line="254">vlanid value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="target_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="261">the host name or the ip address that will be used as destination
+                 line="255">the host name or the ip address that will be used as destination
   address in the arp request</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="source_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="263">the host name or the ip address that will be used as source
+                 line="257">the host name or the ip address that will be used as source
   address in the arp request</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="265">the watcher #NMTeamLinkWatcherArpPingFlags</doc>
+                 line="259">the watcher #NMTeamLinkWatcherArpPingFlags</doc>
             <type name="TeamLinkWatcherArpPingFlags"
                   c:type="NMTeamLinkWatcherArpPingFlags"/>
           </parameter>
@@ -67361,38 +67460,38 @@ reaches zero, the object will be destroyed.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="141">Creates a new nsna_ping #NMTeamLinkWatcher object</doc>
+             line="135">Creates a new nsna_ping #NMTeamLinkWatcher object</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="152">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
+               line="146">the new #NMTeamLinkWatcher object, or %NULL on error</doc>
           <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
         </return-value>
         <parameters>
           <parameter name="init_wait" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="143">init_wait value</doc>
+                 line="137">init_wait value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="144">interval value</doc>
+                 line="138">interval value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="missed_max" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="145">missed_max value</doc>
+                 line="139">missed_max value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="target_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="146">the host name or the ipv6 address that will be used as
+                 line="140">the host name or the ipv6 address that will be used as
   target address in the NS packet</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -67403,20 +67502,20 @@ reaches zero, the object will be destroyed.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="500">Creates a copy of @watcher</doc>
+             line="494">Creates a copy of @watcher</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="506">a copy of @watcher</doc>
+               line="500">a copy of @watcher</doc>
           <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="502">the #NMTeamLinkWatcher</doc>
+                 line="496">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67426,27 +67525,27 @@ reaches zero, the object will be destroyed.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="441">Determines if two #NMTeamLinkWatcher objects contain the same values
+             line="435">Determines if two #NMTeamLinkWatcher objects contain the same values
 in all the properties.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting-team.c"
-               line="449">%TRUE if the objects contain the same values, %FALSE if they do not.</doc>
+               line="443">%TRUE if the objects contain the same values, %FALSE if they do not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="443">the #NMTeamLinkWatcher</doc>
+                 line="437">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="444">the #NMTeamLinkWatcher to compare @watcher to.</doc>
+                 line="438">the #NMTeamLinkWatcher to compare @watcher to.</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </parameter>
         </parameters>
@@ -67456,7 +67555,7 @@ in all the properties.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="578">Gets the delay_down interval (in milliseconds) that elapses between the link
+             line="572">Gets the delay_down interval (in milliseconds) that elapses between the link
 going down and the runner being notified about it.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="85"/>
@@ -67467,7 +67566,7 @@ going down and the runner being notified about it.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="580">the #NMTeamLinkWatcher</doc>
+                 line="574">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67477,7 +67576,7 @@ going down and the runner being notified about it.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="559">Gets the delay_up interval (in milliseconds) that elapses between the link
+             line="553">Gets the delay_up interval (in milliseconds) that elapses between the link
 coming up and the runner being notified about it.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="83"/>
@@ -67488,7 +67587,7 @@ coming up and the runner being notified about it.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="561">the #NMTeamLinkWatcher</doc>
+                 line="555">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67498,7 +67597,7 @@ coming up and the runner being notified about it.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="716">Gets the arp ping watcher flags.</doc>
+             line="710">Gets the arp ping watcher flags.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="97"/>
         <return-value transfer-ownership="none">
@@ -67509,7 +67608,7 @@ coming up and the runner being notified about it.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="718">the #NMTeamLinkWatcher</doc>
+                 line="712">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67519,7 +67618,7 @@ coming up and the runner being notified about it.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="597">Gets the init_wait interval (in milliseconds) that the team slave should
+             line="591">Gets the init_wait interval (in milliseconds) that the team slave should
 wait before sending the first packet to the target host.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="87"/>
@@ -67530,7 +67629,7 @@ wait before sending the first packet to the target host.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="599">the #NMTeamLinkWatcher</doc>
+                 line="593">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67540,7 +67639,7 @@ wait before sending the first packet to the target host.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="618">Gets the interval (in milliseconds) that the team slave should wait between
+             line="612">Gets the interval (in milliseconds) that the team slave should wait between
 sending two check packets to the target host.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="89"/>
@@ -67551,7 +67650,7 @@ sending two check packets to the target host.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="620">the #NMTeamLinkWatcher</doc>
+                 line="614">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67561,7 +67660,7 @@ sending two check packets to the target host.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="639">Gets the number of missed replies after which the link is considered down.</doc>
+             line="633">Gets the number of missed replies after which the link is considered down.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="91"/>
         <return-value transfer-ownership="none">
@@ -67571,7 +67670,7 @@ sending two check packets to the target host.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="641">the #NMTeamLinkWatcher</doc>
+                 line="635">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67581,7 +67680,7 @@ sending two check packets to the target host.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="543">Gets the name of the link watcher to be used.</doc>
+             line="537">Gets the name of the link watcher to be used.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="81"/>
         <return-value transfer-ownership="none">
@@ -67591,7 +67690,7 @@ sending two check packets to the target host.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="545">the #NMTeamLinkWatcher</doc>
+                 line="539">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67601,7 +67700,7 @@ sending two check packets to the target host.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="698">Gets the ip address to be used as source for the link probing packets.</doc>
+             line="692">Gets the ip address to be used as source for the link probing packets.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="95"/>
         <return-value transfer-ownership="none">
@@ -67611,7 +67710,7 @@ sending two check packets to the target host.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="700">the #NMTeamLinkWatcher</doc>
+                 line="694">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67621,7 +67720,7 @@ sending two check packets to the target host.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="677">Gets the host name/ip address to be used as destination for the link probing
+             line="671">Gets the host name/ip address to be used as destination for the link probing
 packets.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="93"/>
@@ -67632,7 +67731,7 @@ packets.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="679">the #NMTeamLinkWatcher</doc>
+                 line="673">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67642,7 +67741,7 @@ packets.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="659">Gets the VLAN tag ID to be used to outgoing link probes</doc>
+             line="653">Gets the VLAN tag ID to be used to outgoing link probes</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
                          line="99"/>
         <return-value transfer-ownership="none">
@@ -67652,7 +67751,7 @@ packets.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="661">the #NMTeamLinkWatcher</doc>
+                 line="655">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="const NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67662,7 +67761,7 @@ packets.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="374">Increases the reference count of the object.
+             line="368">Increases the reference count of the object.
 
 Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
         <source-position filename="libnm-core-public/nm-setting-team.h"
@@ -67674,7 +67773,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="376">the #NMTeamLinkWatcher</doc>
+                 line="370">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67684,7 +67783,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting-team.c"
-             line="390">Decreases the reference count of the object.  If the reference count
+             line="384">Decreases the reference count of the object.  If the reference count
 reaches zero, the object will be destroyed.
 
 Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
@@ -67697,7 +67796,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libnm-core-impl/nm-setting-team.c"
-                 line="392">the #NMTeamLinkWatcher</doc>
+                 line="386">the #NMTeamLinkWatcher</doc>
             <type name="TeamLinkWatcher" c:type="NMTeamLinkWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -67746,7 +67845,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
                  c:type="NMTernary">
       <doc xml:space="preserve"
            filename="libnm-core-public/nm-dbus-interface.h"
-           line="1188">An boolean value that can be overridden by a default.</doc>
+           line="1194">An boolean value that can be overridden by a default.</doc>
       <member name="default"
               value="-1"
               c:identifier="NM_TERNARY_DEFAULT"
@@ -67754,7 +67853,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
               glib:name="NM_TERNARY_DEFAULT">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1190">use the globally-configured default value.</doc>
+             line="1196">use the globally-configured default value.</doc>
       </member>
       <member name="false"
               value="0"
@@ -67763,7 +67862,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
               glib:name="NM_TERNARY_FALSE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1191">the option is disabled.</doc>
+             line="1197">the option is disabled.</doc>
       </member>
       <member name="true"
               value="1"
@@ -67772,7 +67871,7 @@ Since 1.20, ref-counting of #NMTeamLinkWatcher is thread-safe.</doc>
               glib:name="NM_TERNARY_TRUE">
         <doc xml:space="preserve"
              filename="libnm-core-public/nm-dbus-interface.h"
-             line="1192">the option is enabled.</doc>
+             line="1198">the option is enabled.</doc>
       </member>
     </enumeration>
     <constant name="UTILS_HWADDR_LEN_MAX"
@@ -68898,6 +68997,10 @@ string used by the connection, and must not be modified.</doc>
       <source-position filename="libnm-client-public/nm-vpn-editor.h"
                        line="57"/>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="42">emitted when the value of a UI widget changes.  May trigger a
+  validity check via @update_connection to write values to the connection.</doc>
         <source-position filename="libnm-client-public/nm-vpn-editor.h"
                          line="56"/>
         <return-value transfer-ownership="none">
@@ -68910,6 +69013,9 @@ string used by the connection, and must not be modified.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_widget" invoker="get_widget">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="34">return the #GtkWidget for the VPN editor's UI</doc>
         <source-position filename="libnm-client-public/nm-vpn-editor.h"
                          line="50"/>
         <return-value transfer-ownership="none">
@@ -68927,6 +69033,14 @@ string used by the connection, and must not be modified.</doc>
       <virtual-method name="update_connection"
                       invoker="update_connection"
                       throws="1">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="36">called to save the user-entered options to the connection
+  object.  Should return %FALSE and set @error if the current options are
+  invalid.  @error should contain enough information for the plugin to
+  determine which UI widget is invalid at a later point in time.  For
+  example, creating unique error codes for what error occurred and populating
+  the message field of @error with the name of the invalid property.</doc>
         <source-position filename="libnm-client-public/nm-vpn-editor.h"
                          line="54"/>
         <return-value transfer-ownership="none">
@@ -68994,6 +69108,9 @@ string used by the connection, and must not be modified.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_widget">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="34">return the #GtkWidget for the VPN editor's UI</doc>
         <callback name="get_widget">
           <source-position filename="libnm-client-public/nm-vpn-editor.h"
                            line="50"/>
@@ -69011,6 +69128,9 @@ string used by the connection, and must not be modified.</doc>
         </callback>
       </field>
       <field name="placeholder">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="35">not currently used</doc>
         <callback name="placeholder">
           <source-position filename="libnm-client-public/nm-vpn-editor.h"
                            line="52"/>
@@ -69020,6 +69140,14 @@ string used by the connection, and must not be modified.</doc>
         </callback>
       </field>
       <field name="update_connection">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="36">called to save the user-entered options to the connection
+  object.  Should return %FALSE and set @error if the current options are
+  invalid.  @error should contain enough information for the plugin to
+  determine which UI widget is invalid at a later point in time.  For
+  example, creating unique error codes for what error occurred and populating
+  the message field of @error with the name of the invalid property.</doc>
         <callback name="update_connection" throws="1">
           <source-position filename="libnm-client-public/nm-vpn-editor.h"
                            line="54"/>
@@ -69037,6 +69165,10 @@ string used by the connection, and must not be modified.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="libnm-client-public/nm-vpn-editor.h"
+             line="42">emitted when the value of a UI widget changes.  May trigger a
+  validity check via @update_connection to write values to the connection.</doc>
         <callback name="changed">
           <source-position filename="libnm-client-public/nm-vpn-editor.h"
                            line="56"/>
@@ -69170,6 +69302,12 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </function>
       <virtual-method name="export_to_file" throws="1">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="83">Export the given connection to the specified path.  Return
+  %TRUE on success.  On error, return %FALSE and set @error with additional
+  error information.  Note that @error can be %NULL, in which case no
+  additional error information should be provided.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="105"/>
         <return-value transfer-ownership="none">
@@ -69188,6 +69326,9 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_capabilities" invoker="get_capabilities">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="78">returns a bitmask of capabilities.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="101"/>
         <return-value transfer-ownership="none">
@@ -69201,6 +69342,10 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_editor" invoker="get_editor" throws="1">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="76">returns an #NMVpnEditor, pre-filled with values from @connection
+  if non-%NULL.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="99"/>
         <return-value transfer-ownership="full">
@@ -69226,6 +69371,11 @@ as you could for nm_vpn_editor_plugin_load().</doc>
       </virtual-method>
       <virtual-method name="get_suggested_filename"
                       invoker="get_suggested_filename">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="87">For a given connection, return a suggested file
+  name.  Returned value will be %NULL or a suggested file name to be freed by
+  the caller.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="110"/>
         <return-value transfer-ownership="full">
@@ -69241,6 +69391,10 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_vt">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="91">return a virtual function table to implement further functions in
+  the plugin, without requiring to update libnm. Used by nm_vpn_editor_plugin_get_vt().</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="114"/>
         <return-value transfer-ownership="none">
@@ -69256,6 +69410,12 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="import_from_file" introspectable="0" throws="1">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="79">Try to import a connection from the specified path.  On
+  success, return a partial #NMConnection object.  On error, return %NULL and
+  set @error with additional information.  Note that @error can be %NULL, in
+  which case no additional error information should be provided.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="103"/>
         <return-value>
@@ -69271,6 +69431,9 @@ as you could for nm_vpn_editor_plugin_load().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="notify_plugin_info_set">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="90">A callback to be called when the plugin info is set.</doc>
         <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                          line="112"/>
         <return-value transfer-ownership="none">
@@ -69562,6 +69725,10 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_editor">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="76">returns an #NMVpnEditor, pre-filled with values from @connection
+  if non-%NULL.</doc>
         <callback name="get_editor" throws="1">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="99"/>
@@ -69588,6 +69755,9 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="get_capabilities">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="78">returns a bitmask of capabilities.</doc>
         <callback name="get_capabilities">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="101"/>
@@ -69603,6 +69773,12 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="import_from_file" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="79">Try to import a connection from the specified path.  On
+  success, return a partial #NMConnection object.  On error, return %NULL and
+  set @error with additional information.  Note that @error can be %NULL, in
+  which case no additional error information should be provided.</doc>
         <callback name="import_from_file" introspectable="0" throws="1">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="103"/>
@@ -69620,6 +69796,12 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="export_to_file">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="83">Export the given connection to the specified path.  Return
+  %TRUE on success.  On error, return %FALSE and set @error with additional
+  error information.  Note that @error can be %NULL, in which case no
+  additional error information should be provided.</doc>
         <callback name="export_to_file" throws="1">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="105"/>
@@ -69640,6 +69822,11 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="get_suggested_filename">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="87">For a given connection, return a suggested file
+  name.  Returned value will be %NULL or a suggested file name to be freed by
+  the caller.</doc>
         <callback name="get_suggested_filename">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="110"/>
@@ -69657,6 +69844,9 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="notify_plugin_info_set">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="90">A callback to be called when the plugin info is set.</doc>
         <callback name="notify_plugin_info_set">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="112"/>
@@ -69674,6 +69864,10 @@ reference as the plugin-info might also reference the editor-plugin.</doc>
         </callback>
       </field>
       <field name="get_vt">
+        <doc xml:space="preserve"
+             filename="libnm-core-public/nm-vpn-editor-plugin.h"
+             line="91">return a virtual function table to implement further functions in
+  the plugin, without requiring to update libnm. Used by nm_vpn_editor_plugin_get_vt().</doc>
         <callback name="get_vt">
           <source-position filename="libnm-core-public/nm-vpn-editor-plugin.h"
                            line="114"/>
@@ -74803,20 +74997,20 @@ access points and devices, among other things.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libnm-core-impl/nm-setting.c"
-           line="4454">Parses the string representation of the range to create a %NMRange
+           line="4455">Parses the string representation of the range to create a %NMRange
 instance.</doc>
       <source-position filename="libnm-core-public/nm-setting.h" line="280"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libnm-core-impl/nm-setting.c"
-             line="4462">the %NMRange or %NULL</doc>
+             line="4463">the %NMRange or %NULL</doc>
         <type name="Range" c:type="NMRange*"/>
       </return-value>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnm-core-impl/nm-setting.c"
-               line="4456">the string representation of a range</doc>
+               line="4457">the string representation of a range</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

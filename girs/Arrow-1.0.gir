@@ -10687,6 +10687,10 @@ node.</doc>
            glib:type-struct="ExtensionDataTypeClass">
       <source-position filename="arrow-glib/basic-data-type.h" line="633"/>
       <virtual-method name="deserialize" introspectable="0" throws="1">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="611">It must returns a serialized #GArrowDataType from the given
+  `serialized_data`.</doc>
         <source-position filename="arrow-glib/basic-data-type.h" line="627"/>
         <return-value>
           <type name="DataType" c:type="GArrowDataType*"/>
@@ -10704,6 +10708,10 @@ node.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="equal">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="609">It must returns %TRUE only when the both data types equal, %FALSE
+  otherwise.</doc>
         <source-position filename="arrow-glib/basic-data-type.h" line="625"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -10718,6 +10726,10 @@ node.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_array_gtype">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="615">It must returns #GType for corresponding extension array
+  class.</doc>
         <source-position filename="arrow-glib/basic-data-type.h" line="632"/>
         <return-value transfer-ownership="none">
           <type name="GType" c:type="GType"/>
@@ -10731,6 +10743,9 @@ node.</doc>
       <virtual-method name="get_extension_name"
                       invoker="get_extension_name"
                       version="3.0.0">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="608">It must returns the name of this extension data type.</doc>
         <source-position filename="arrow-glib/basic-data-type.h" line="624"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -10750,6 +10765,10 @@ node.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="serialize">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="613">It must returns a serialized data of this extension data type
+  to deserialize later.</doc>
         <source-position filename="arrow-glib/basic-data-type.h" line="631"/>
         <return-value transfer-ownership="full">
           <type name="GLib.Bytes" c:type="GBytes*"/>
@@ -10851,6 +10870,9 @@ node.</doc>
         <type name="DataTypeClass" c:type="GArrowDataTypeClass"/>
       </field>
       <field name="get_extension_name">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="608">It must returns the name of this extension data type.</doc>
         <callback name="get_extension_name">
           <source-position filename="arrow-glib/basic-data-type.h" line="624"/>
           <return-value transfer-ownership="full">
@@ -10873,6 +10895,10 @@ node.</doc>
         </callback>
       </field>
       <field name="equal">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="609">It must returns %TRUE only when the both data types equal, %FALSE
+  otherwise.</doc>
         <callback name="equal">
           <source-position filename="arrow-glib/basic-data-type.h" line="625"/>
           <return-value transfer-ownership="none">
@@ -10891,6 +10917,10 @@ node.</doc>
         </callback>
       </field>
       <field name="deserialize" introspectable="0">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="611">It must returns a serialized #GArrowDataType from the given
+  `serialized_data`.</doc>
         <callback name="deserialize" introspectable="0" throws="1">
           <source-position filename="arrow-glib/basic-data-type.h" line="627"/>
           <return-value>
@@ -10911,6 +10941,10 @@ node.</doc>
         </callback>
       </field>
       <field name="serialize">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="613">It must returns a serialized data of this extension data type
+  to deserialize later.</doc>
         <callback name="serialize">
           <source-position filename="arrow-glib/basic-data-type.h" line="631"/>
           <return-value transfer-ownership="full">
@@ -10925,6 +10959,10 @@ node.</doc>
         </callback>
       </field>
       <field name="get_array_gtype">
+        <doc xml:space="preserve"
+             filename="arrow-glib/basic-data-type.h"
+             line="615">It must returns #GType for corresponding extension array
+  class.</doc>
         <callback name="get_array_gtype">
           <source-position filename="arrow-glib/basic-data-type.h" line="632"/>
           <return-value transfer-ownership="none">

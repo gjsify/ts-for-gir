@@ -3039,7 +3039,7 @@ and should not be directly accessed.</doc>
       <constructor name="new" c:identifier="gdl_dock_layout_new">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="550">Creates a new #GdlDockLayout. Instead of setting @master
+             line="551">Creates a new #GdlDockLayout. Instead of setting @master
 directly with a master object, it is possible to use a #GdlDockObject, in
 this case the layout will be attached to the same master than the dock
 object.</doc>
@@ -3047,14 +3047,14 @@ object.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="559">New #GdlDockLayout item.</doc>
+               line="560">New #GdlDockLayout item.</doc>
           <type name="DockLayout" c:type="GdlDockLayout*"/>
         </return-value>
         <parameters>
           <parameter name="master" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="552">A master or a dock object to which the layout will be attached.</doc>
+                 line="553">A master or a dock object to which the layout will be attached.</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -3089,7 +3089,7 @@ Deprecated 3.6: Use gdl_dock_layout_set_master() instead.</doc>
               c:identifier="gdl_dock_layout_delete_layout">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="744">Deletes the layout with the given name from the memory.
+             line="745">Deletes the layout with the given name from the memory.
 This will set #GdlDockLayout:dirty to %TRUE.</doc>
         <source-position filename="gdl-dock-layout.h" line="83"/>
         <return-value transfer-ownership="none">
@@ -3099,13 +3099,13 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="746">The dock item.</doc>
+                 line="747">The dock item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="747">The name of the layout to delete.</doc>
+                 line="748">The name of the layout to delete.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3113,12 +3113,12 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
       <method name="get_layouts" c:identifier="gdl_dock_layout_get_layouts">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="868">Get the list of layout names including or not the default layout.</doc>
+             line="869">Get the list of layout names including or not the default layout.</doc>
         <source-position filename="gdl-dock-layout.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="875">a #GList list
+               line="876">a #GList list
  holding the layout names. You must first free each element in the list
  with g_free(), then free the list itself with g_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -3129,13 +3129,13 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="870">The layout item.</doc>
+                 line="871">The layout item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="include_default" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="871">%TRUE to include the default layout.</doc>
+                 line="872">%TRUE to include the default layout.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3146,19 +3146,19 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
               version="3.6">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="637">Retrieves the master of the object.</doc>
+             line="638">Retrieves the master of the object.</doc>
         <source-position filename="gdl-dock-layout.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="643">a #GdlDockMaster object</doc>
+               line="644">a #GdlDockMaster object</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="639">a #GdlDockLayout</doc>
+                 line="640">a #GdlDockLayout</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
         </parameters>
@@ -3166,19 +3166,19 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
       <method name="is_dirty" c:identifier="gdl_dock_layout_is_dirty">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="853">Checks whether the XML tree in memory is different from the file where the layout was saved.</doc>
+             line="854">Checks whether the XML tree in memory is different from the file where the layout was saved.</doc>
         <source-position filename="gdl-dock-layout.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="858">%TRUE is the layout in the memory is different from the file, else %FALSE.</doc>
+               line="859">%TRUE is the layout in the memory is different from the file, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="855">The layout item.</doc>
+                 line="856">The layout item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
         </parameters>
@@ -3187,26 +3187,26 @@ This will set #GdlDockLayout:dirty to %TRUE.</doc>
               c:identifier="gdl_dock_layout_load_from_file">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="773">Loads the layout from file with the given @filename.
+             line="774">Loads the layout from file with the given @filename.
 This will set #GdlDockLayout:dirty to %FALSE.</doc>
         <source-position filename="gdl-dock-layout.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="781">%TRUE if @layout successfully loaded else %FALSE</doc>
+               line="782">%TRUE if @layout successfully loaded else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="775">The layout item.</doc>
+                 line="776">The layout item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="776">The name of the file to load.</doc>
+                 line="777">The name of the file to load.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3214,7 +3214,7 @@ This will set #GdlDockLayout:dirty to %FALSE.</doc>
       <method name="load_layout" c:identifier="gdl_dock_layout_load_layout">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="656">Loads the layout with the given name from the memory.
+             line="657">Loads the layout with the given name from the memory.
 This will set #GdlDockLayout:dirty to %TRUE.
 
 See also gdl_dock_layout_load_from_file()</doc>
@@ -3222,14 +3222,14 @@ See also gdl_dock_layout_load_from_file()</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="666">%TRUE if layout successfully loaded else %FALSE</doc>
+               line="667">%TRUE if layout successfully loaded else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="658">The dock item.</doc>
+                 line="659">The dock item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="name"
@@ -3238,7 +3238,7 @@ See also gdl_dock_layout_load_from_file()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="659">The name of the layout to load or %NULL for a default layout name.</doc>
+                 line="660">The name of the layout to load or %NULL for a default layout name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3246,7 +3246,7 @@ See also gdl_dock_layout_load_from_file()</doc>
       <method name="save_layout" c:identifier="gdl_dock_layout_save_layout">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="697">Saves the @layout with the given name to the memory.
+             line="698">Saves the @layout with the given name to the memory.
 This will set #GdlDockLayout:dirty to %TRUE.
 
 See also gdl_dock_layout_save_to_file().</doc>
@@ -3258,7 +3258,7 @@ See also gdl_dock_layout_save_to_file().</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="699">The dock item.</doc>
+                 line="700">The dock item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="name"
@@ -3267,7 +3267,7 @@ See also gdl_dock_layout_save_to_file().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="700">The name of the layout to save or %NULL for a default layout name.</doc>
+                 line="701">The name of the layout to save or %NULL for a default layout name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3275,26 +3275,26 @@ See also gdl_dock_layout_save_to_file().</doc>
       <method name="save_to_file" c:identifier="gdl_dock_layout_save_to_file">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="814">This function saves the current layout in XML format to
+             line="815">This function saves the current layout in XML format to
 the file with the given @filename.</doc>
         <source-position filename="gdl-dock-layout.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdl-dock-layout.c"
-               line="822">%TRUE if @layout successfuly save to the file, otherwise %FALSE.</doc>
+               line="823">%TRUE if @layout successfuly save to the file, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="816">The layout item.</doc>
+                 line="817">The layout item.</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="817">Name of the file we want to save in layout</doc>
+                 line="818">Name of the file we want to save in layout</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3304,7 +3304,7 @@ the file with the given @filename.</doc>
               glib:set-property="master">
         <doc xml:space="preserve"
              filename="gdl-dock-layout.c"
-             line="593">Attach the @layout to the @master and delete the reference to
+             line="594">Attach the @layout to the @master and delete the reference to
 the master that the layout attached previously. Instead of setting @master
 directly with the master object, it is possible to use a #GdlDockObject, in
 this case the layout will be attached to the same master than the dock
@@ -3317,13 +3317,13 @@ object.</doc>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="595">The layout object</doc>
+                 line="596">The layout object</doc>
             <type name="DockLayout" c:type="GdlDockLayout*"/>
           </instance-parameter>
           <parameter name="master" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdl-dock-layout.c"
-                 line="596">The master object to which the layout will be attached</doc>
+                 line="597">The master object to which the layout will be attached</doc>
             <type name="GObject.Object" c:type="GObject*"/>
           </parameter>
         </parameters>
@@ -6332,7 +6332,7 @@ The second one allows to close the dock item.</doc>
     <docsection name="gdl-dock-layout">
       <doc xml:space="preserve"
            filename="gdl-dock-layout.c"
-           line="35">The layout of all docking widgets can be saved using this #GdlDockLayout
+           line="36">The layout of all docking widgets can be saved using this #GdlDockLayout
 object. It automatically monitors the layout_changed signal of the
 dock master and stores the position of all widgets in memory after each
 change.

@@ -1,45 +1,44 @@
 #!/bin/bash
 
-# This script is used to find all the .gir files in the Fedora repositories that are not already found on the filesystem.
-# Feel free to add a similar script for other distributions.
-
 echo "Starting to find .gir files..."
 # First, get the list of .gir file paths from the repositories
-repo_gir_files=$(dnf repoquery -l '*/*.gir' | grep '.gir$' | sort -u)
+repo_gir_files=$(dnf repoquery -l '*/*.gir' | grep '\.gir$' | sort -u)
 
 # Filter out .gir files that are already on the filesystem
 gir_files=()
-for file in $repo_gir_files; do
+while IFS= read -r file; do
     if [ ! -f "$file" ]; then
         gir_files+=("$file")
     fi
-done
+done <<< "$repo_gir_files"
 
-echo "Found ${#gir_files[@]} .gir files not on the filesystem:"
-echo "${gir_files[@]}"
+echo "Found ${#gir_files[@]} .gir files not on the filesystem."
 
 # Initialize an array to store all package names
 pkg_names=()
 
 echo "Processing .gir files to find corresponding packages..."
 # For each file path, find the corresponding package and store it in the array
-total_files=$(echo "$gir_files" | wc -l)
-current_file=0
-for file in $gir_files; do
-    current_file=$((current_file + 1))
-    echo -ne "Processing file $current_file of $total_files\r"
-    pkg=$(dnf repoquery --whatprovides "$file" | sort -V | tail -n 1)
-    pkg_names+=("$pkg")
+total_files=${#gir_files[@]}
+for ((i=0; i<total_files; i++)); do
+    file="${gir_files[i]}"
+    echo -ne "Processing file $((i+1)) of $total_files\r"
+    pkg=$(dnf repoquery --whatprovides "$file" | sort -V | tail -n 1 | sed 's/-[0-9].*$//')
+    if [ -n "$pkg" ]; then
+        pkg_names+=("$pkg")
+    fi
 done
 echo -ne '\n'
 
-echo "Found ${#pkg_names[@]} unique packages."
-echo "${pkg_names[@]}"
+echo "Found ${#pkg_names[@]} packages."
 
 echo "Sorting and deduplicating package names..."
-# Sort the package names to only get the latest version
-pkg_names=($(for pkg in "${pkg_names[@]}"; do echo "$pkg"; done | sort -u))
+# Sort and deduplicate the package names
+readarray -t pkg_names < <(printf '%s\n' "${pkg_names[@]}" | sort -u)
 
 echo "Completed. Found ${#pkg_names[@]} unique packages."
 # Output all collected package names
-echo "${pkg_names[@]}"
+printf '%s\n' "${pkg_names[@]}"
+
+echo -e "\nTo install these packages, run:"
+echo "sudo dnf install --skip-unavailable $(printf '%s ' "${pkg_names[@]}")"

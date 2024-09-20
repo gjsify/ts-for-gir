@@ -13165,7 +13165,7 @@ this enum should also be considered experimental.</doc>
     <function-macro name="TRACE_BEGIN_ANCHORED"
                     c:identifier="COGL_TRACE_BEGIN_ANCHORED"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="131"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="177"/>
       <parameters>
         <parameter name="Name">
         </parameter>
@@ -13176,7 +13176,7 @@ this enum should also be considered experimental.</doc>
     <function-macro name="TRACE_BEGIN_SCOPED"
                     c:identifier="COGL_TRACE_BEGIN_SCOPED"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="105"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="151"/>
       <parameters>
         <parameter name="Name">
         </parameter>
@@ -13184,10 +13184,36 @@ this enum should also be considered experimental.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="TRACE_DEFINE_COUNTER_DOUBLE"
+                    c:identifier="COGL_TRACE_DEFINE_COUNTER_DOUBLE"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="211"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="name">
+        </parameter>
+        <parameter name="description">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_DEFINE_COUNTER_INT"
+                    c:identifier="COGL_TRACE_DEFINE_COUNTER_INT"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="207"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="name">
+        </parameter>
+        <parameter name="description">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="TRACE_DESCRIBE"
                     c:identifier="COGL_TRACE_DESCRIBE"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="122"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="168"/>
       <parameters>
         <parameter name="Name">
         </parameter>
@@ -13198,16 +13224,44 @@ this enum should also be considered experimental.</doc>
     <function-macro name="TRACE_END"
                     c:identifier="COGL_TRACE_END"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="115"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="161"/>
       <parameters>
         <parameter name="Name">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_INTERNAL_DEFINE_COUNTER"
+                    c:identifier="COGL_TRACE_INTERNAL_DEFINE_COUNTER"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="195"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="name">
+        </parameter>
+        <parameter name="description">
+        </parameter>
+        <parameter name="func">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_INTERNAL_SET_COUNTER"
+                    c:identifier="COGL_TRACE_INTERNAL_SET_COUNTER"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="215"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="value">
+        </parameter>
+        <parameter name="func">
         </parameter>
       </parameters>
     </function-macro>
     <function-macro name="TRACE_MESSAGE"
                     c:identifier="COGL_TRACE_MESSAGE"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="138"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="184"/>
       <parameters>
         <parameter name="name">
         </parameter>
@@ -13218,9 +13272,31 @@ this enum should also be considered experimental.</doc>
     <function-macro name="TRACE_SCOPED_ANCHOR"
                     c:identifier="COGL_TRACE_SCOPED_ANCHOR"
                     introspectable="0">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="126"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="172"/>
       <parameters>
         <parameter name="Name">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_SET_COUNTER_DOUBLE"
+                    c:identifier="COGL_TRACE_SET_COUNTER_DOUBLE"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="229"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TRACE_SET_COUNTER_INT"
+                    c:identifier="COGL_TRACE_SET_COUNTER_INT"
+                    introspectable="0">
+      <source-position filename="cogl/cogl/cogl-trace.h" line="225"/>
+      <parameters>
+        <parameter name="Name">
+        </parameter>
+        <parameter name="value">
         </parameter>
       </parameters>
     </function-macro>
@@ -15513,7 +15589,7 @@ low-level texture maps to the original region.</doc>
     </function>
     <function name="set_tracing_disabled_on_thread"
               c:identifier="cogl_set_tracing_disabled_on_thread">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="176"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="264"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -15528,7 +15604,7 @@ low-level texture maps to the original region.</doc>
     </function>
     <function name="set_tracing_enabled_on_thread"
               c:identifier="cogl_set_tracing_enabled_on_thread">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="172"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="260"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -15547,7 +15623,7 @@ low-level texture maps to the original region.</doc>
     <function name="start_tracing_with_fd"
               c:identifier="cogl_start_tracing_with_fd"
               throws="1">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="165"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="253"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -15560,7 +15636,7 @@ low-level texture maps to the original region.</doc>
     <function name="start_tracing_with_path"
               c:identifier="cogl_start_tracing_with_path"
               throws="1">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="161"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="249"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -15571,7 +15647,7 @@ low-level texture maps to the original region.</doc>
       </parameters>
     </function>
     <function name="stop_tracing" c:identifier="cogl_stop_tracing">
-      <source-position filename="cogl/cogl/cogl-trace.h" line="169"/>
+      <source-position filename="cogl/cogl/cogl-trace.h" line="257"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

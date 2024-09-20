@@ -486,7 +486,7 @@ the background that are obscured by other windows.</doc>
       <method name="set_file" c:identifier="meta_background_set_file">
         <doc xml:space="preserve"
              filename="src/compositor/meta-background.c"
-             line="984">Set the background to @file</doc>
+             line="989">Set the background to @file</doc>
         <source-position filename="src/meta/meta-background.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -495,7 +495,7 @@ the background that are obscured by other windows.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background.c"
-                 line="986">a #MetaBackground</doc>
+                 line="991">a #MetaBackground</doc>
             <type name="Background" c:type="MetaBackground*"/>
           </instance-parameter>
           <parameter name="file"
@@ -504,13 +504,13 @@ the background that are obscured by other windows.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background.c"
-                 line="987">a #GFile representing the background file</doc>
+                 line="992">a #GFile representing the background file</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="style" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background.c"
-                 line="988">the background style to apply</doc>
+                 line="993">the background style to apply</doc>
             <type name="GDesktopEnums.BackgroundStyle"
                   c:type="GDesktopBackgroundStyle"/>
           </parameter>
@@ -682,26 +682,26 @@ adding the vignette and opacity.</doc>
       <function name="new" c:identifier="meta_background_content_new">
         <doc xml:space="preserve"
              filename="src/compositor/meta-background-content.c"
-             line="1026">Creates a new actor to draw the background for the given monitor.</doc>
+             line="1029">Creates a new actor to draw the background for the given monitor.</doc>
         <source-position filename="src/meta/meta-background-content.h"
                          line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/compositor/meta-background-content.c"
-               line="1033">the newly created background actor</doc>
+               line="1036">the newly created background actor</doc>
           <type name="Clutter.Content" c:type="ClutterContent*"/>
         </return-value>
         <parameters>
           <parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background-content.c"
-                 line="1028">a #MetaDisplay</doc>
+                 line="1031">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background-content.c"
-                 line="1029">Index of the monitor for which to draw the background</doc>
+                 line="1032">Index of the monitor for which to draw the background</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -750,7 +750,7 @@ adding the vignette and opacity.</doc>
               c:identifier="meta_background_content_set_rounded_clip_bounds">
         <doc xml:space="preserve"
              filename="src/compositor/meta-background-content.c"
-             line="1173">Sets the bounding clip rectangle of the #MetaBackgroundContent that's used
+             line="1176">Sets the bounding clip rectangle of the #MetaBackgroundContent that's used
 when a rounded clip set via meta_background_content_set_rounded_clip_radius()
 is in effect, set it to  %NULL to use no bounding clip, rounding the edges
 of the full texture.</doc>
@@ -763,7 +763,7 @@ of the full texture.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background-content.c"
-                 line="1175">The #MetaBackgroundContent</doc>
+                 line="1178">The #MetaBackgroundContent</doc>
             <type name="BackgroundContent" c:type="MetaBackgroundContent*"/>
           </instance-parameter>
           <parameter name="bounds"
@@ -772,7 +772,7 @@ of the full texture.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-background-content.c"
-                 line="1176">The new bounding clip rectangle, or %NULL</doc>
+                 line="1179">The new bounding clip rectangle, or %NULL</doc>
             <type name="Graphene.Rect" c:type="const graphene_rect_t*"/>
           </parameter>
         </parameters>
@@ -1960,7 +1960,7 @@ top window group.</doc>
               c:identifier="meta_context_add_option_entries">
         <doc xml:space="preserve"
              filename="src/core/meta-context.c"
-             line="113">See g_option_context_add_main_entries() for more details.</doc>
+             line="115">See g_option_context_add_main_entries() for more details.</doc>
         <source-position filename="src/meta/meta-context.h" line="37"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1969,13 +1969,13 @@ top window group.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="115">a #MetaContext</doc>
+                 line="117">a #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="116">a %NULL-terminated array of #GOptionEntrys</doc>
+                 line="118">a %NULL-terminated array of #GOptionEntrys</doc>
             <array c:type="const GOptionEntry*">
               <type name="GLib.OptionEntry" c:type="GOptionEntry"/>
             </array>
@@ -1986,7 +1986,7 @@ top window group.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="117">a translation domain to use, or %NULL</doc>
+                 line="119">a translation domain to use, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1995,7 +1995,7 @@ top window group.</doc>
               c:identifier="meta_context_add_option_group">
         <doc xml:space="preserve"
              filename="src/core/meta-context.c"
-             line="137">See g_option_context_add_group() for more details.</doc>
+             line="139">See g_option_context_add_group() for more details.</doc>
         <source-position filename="src/meta/meta-context.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2004,13 +2004,13 @@ top window group.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="139">a #MetaContext</doc>
+                 line="141">a #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="140">the group to add</doc>
+                 line="142">the group to add</doc>
             <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
           </parameter>
         </parameters>
@@ -2022,7 +2022,7 @@ top window group.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context.c"
-               line="376">%TRUE if the commandline arguments (if any) were valid and if the
+               line="386">%TRUE if the commandline arguments (if any) were valid and if the
 configuration has been successful, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2030,7 +2030,7 @@ configuration has been successful, %FALSE otherwise</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="369">a #MetaContext</doc>
+                 line="379">a #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
           <parameter name="argc"
@@ -2039,7 +2039,7 @@ configuration has been successful, %FALSE otherwise</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="370">Address of the `argc` parameter of your main() function (or 0
+                 line="380">Address of the `argc` parameter of your main() function (or 0
 if @argv is %NULL).</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
@@ -2051,7 +2051,7 @@ if @argv is %NULL).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="372">Address of the`argv` parameter
+                 line="382">Address of the`argv` parameter
 of main(), or %NULL.</doc>
             <array length="0" zero-terminated="0" c:type="char***">
               <type name="utf8" c:type="char**"/>
@@ -2075,14 +2075,14 @@ of main(), or %NULL.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context.c"
-               line="236">the #MetaBackend</doc>
+               line="246">the #MetaBackend</doc>
           <type name="Backend" c:type="MetaBackend*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="234">The #MetaContext</doc>
+                 line="244">The #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2105,14 +2105,14 @@ of main(), or %NULL.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context.c"
-               line="891">the #MetaDebugControl</doc>
+               line="973">the #MetaDebugControl</doc>
           <type name="DebugControl" c:type="MetaDebugControl*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="889">The #MetaContext</doc>
+                 line="971">The #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2122,14 +2122,14 @@ of main(), or %NULL.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context.c"
-               line="252">the #MetaDisplay</doc>
+               line="262">the #MetaDisplay</doc>
           <type name="Display" c:type="MetaDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="250">The #MetaContext</doc>
+                 line="260">The #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2138,7 +2138,7 @@ of main(), or %NULL.</doc>
               c:identifier="meta_context_get_wayland_compositor">
         <doc xml:space="preserve"
              filename="src/core/meta-context.c"
-             line="265">Get the #MetaWaylandCompositor associated with the MetaContext. The might be
+             line="275">Get the #MetaWaylandCompositor associated with the MetaContext. The might be
 none currently associated if the context hasn't been started or if the
 requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
         <source-position filename="src/meta/meta-wayland-compositor.h"
@@ -2146,14 +2146,14 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/meta-context.c"
-               line="273">the #MetaWaylandCompositor</doc>
+               line="283">the #MetaWaylandCompositor</doc>
           <type name="WaylandCompositor" c:type="MetaWaylandCompositor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="267">The #MetaContext</doc>
+                 line="277">The #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2185,7 +2185,7 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/core/meta-context.c"
-             line="639">Raises the RLIMIT_NOFILE limit value to the hard limit.</doc>
+             line="649">Raises the RLIMIT_NOFILE limit value to the hard limit.</doc>
         <source-position filename="src/meta/meta-context.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2194,7 +2194,7 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="641">a #MetaContext</doc>
+                 line="651">a #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2204,7 +2204,7 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/core/meta-context.c"
-             line="681">Restores the RLIMIT_NOFILE limits from when the #MetaContext was created.</doc>
+             line="691">Restores the RLIMIT_NOFILE limits from when the #MetaContext was created.</doc>
         <source-position filename="src/meta/meta-context.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2213,7 +2213,7 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/meta-context.c"
-                 line="683">a #MetaContext</doc>
+                 line="693">a #MetaContext</doc>
             <type name="Context" c:type="MetaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2325,6 +2325,13 @@ requested compositor type is not %META_COMPOSITOR_TYPE_WAYLAND.</doc>
         </parameters>
       </method>
       <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="nick"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
@@ -3145,6 +3152,15 @@ the cursor image, now more of a "core pointer abstraction"</doc>
         <doc xml:space="preserve"
              filename="src/meta/meta-debug.h"
              line="53">KMS deadline timers</doc>
+      </member>
+      <member name="session_management"
+              value="1073741824"
+              c:identifier="META_DEBUG_SESSION_MANAGEMENT"
+              glib:nick="session-management"
+              glib:name="META_DEBUG_SESSION_MANAGEMENT">
+        <doc xml:space="preserve"
+             filename="src/meta/meta-debug.h"
+             line="54">session management</doc>
       </member>
     </bitfield>
     <bitfield name="Direction"
@@ -3972,7 +3988,7 @@ functionality.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-display.c"
-                 line="2605">a #MetaDisplay</doc>
+                 line="2809">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4990,20 +5006,20 @@ with %NULL for @message.</doc>
       <function name="to_string" c:identifier="meta_frame_type_to_string">
         <doc xml:space="preserve"
              filename="src/x11/meta-x11-frame.c"
-             line="557">Converts a frame type enum value to the name string that would
+             line="604">Converts a frame type enum value to the name string that would
 appear in the theme definition file.</doc>
         <source-position filename="src/meta/util.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/x11/meta-x11-frame.c"
-               line="564">the string value</doc>
+               line="611">the string value</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-frame.c"
-                 line="559">a #MetaFrameType</doc>
+                 line="606">a #MetaFrameType</doc>
             <type name="FrameType" c:type="MetaFrameType"/>
           </parameter>
         </parameters>
@@ -7190,7 +7206,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
               c:identifier="meta_monitor_manager_get_is_builtin_display_on">
         <doc xml:space="preserve"
              filename="src/backends/meta-monitor-manager.c"
-             line="3813">Returns whether the built-in display (i.e. a laptop panel) is turned on.</doc>
+             line="3994">Returns whether the built-in display (i.e. a laptop panel) is turned on.</doc>
         <source-position filename="src/meta/meta-monitor-manager.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7199,7 +7215,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="3815">A #MetaMonitorManager object</doc>
+                 line="3996">A #MetaMonitorManager object</doc>
             <type name="MonitorManager" c:type="MetaMonitorManager*"/>
           </instance-parameter>
         </parameters>
@@ -7210,7 +7226,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-monitor-manager.c"
-               line="3792">The monitor index or -1 if @id isn't valid or the connector
+               line="3973">The monitor index or -1 if @id isn't valid or the connector
 isn't associated with a logical monitor.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -7218,13 +7234,13 @@ isn't associated with a logical monitor.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="3789">A #MetaMonitorManager</doc>
+                 line="3970">A #MetaMonitorManager</doc>
             <type name="MonitorManager" c:type="MetaMonitorManager*"/>
           </instance-parameter>
           <parameter name="connector" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="3790">A valid connector name</doc>
+                 line="3971">A valid connector name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7308,14 +7324,14 @@ isn't associated with a logical monitor.</doc>
           <parameter name="logical_monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="1454">The #MetaLogicalMonitor where the privacy screen state
+                 line="1489">The #MetaLogicalMonitor where the privacy screen state
                   changed</doc>
             <type/>
           </parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="1456">%TRUE if the privacy screen was enabled, otherwise %FALSE</doc>
+                 line="1491">%TRUE if the privacy screen was enabled, otherwise %FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10299,14 +10315,14 @@ crop-and-scale operation.</doc>
       <method name="get_image" c:identifier="meta_shaped_texture_get_image">
         <doc xml:space="preserve"
              filename="src/compositor/meta-shaped-texture.c"
-             line="1612">Flattens the two layers of the shaped texture into one ARGB32
+             line="1626">Flattens the two layers of the shaped texture into one ARGB32
 image by alpha blending the two images, and returns the flattened
 image.</doc>
         <source-position filename="src/meta/meta-shaped-texture.h" line="53"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/compositor/meta-shaped-texture.c"
-               line="1623">a new cairo surface to be freed with
+               line="1637">a new cairo surface to be freed with
 cairo_surface_destroy().</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
@@ -10314,7 +10330,7 @@ cairo_surface_destroy().</doc>
           <instance-parameter name="stex" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-shaped-texture.c"
-                 line="1614">A #MetaShapedTexture</doc>
+                 line="1628">A #MetaShapedTexture</doc>
             <type name="ShapedTexture" c:type="MetaShapedTexture*"/>
           </instance-parameter>
           <parameter name="clip"
@@ -10323,7 +10339,7 @@ cairo_surface_destroy().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-shaped-texture.c"
-                 line="1615">A clipping rectangle, to help prevent extra processing.
+                 line="1629">A clipping rectangle, to help prevent extra processing.
 In the case that the clipping rectangle is partially or fully
 outside the bounds of the texture, the rectangle will be clipped.</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
@@ -10336,14 +10352,14 @@ outside the bounds of the texture, the rectangle will be clipped.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/compositor/meta-shaped-texture.c"
-               line="1381">the unshaped texture</doc>
+               line="1395">the unshaped texture</doc>
           <type name="MultiTexture" c:type="MetaMultiTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stex" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/meta-shaped-texture.c"
-                 line="1379">The #MetaShapedTexture</doc>
+                 line="1393">The #MetaShapedTexture</doc>
             <type name="ShapedTexture" c:type="MetaShapedTexture*"/>
           </instance-parameter>
         </parameters>
@@ -11403,14 +11419,14 @@ will be set)</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/wayland/meta-wayland.c"
-               line="1130">the Wayland display object</doc>
+               line="1133">the Wayland display object</doc>
           <type name="gpointer" c:type="wl_display*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compositor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/wayland/meta-wayland.c"
-                 line="1128">The #MetaWaylandCompositor</doc>
+                 line="1131">The #MetaWaylandCompositor</doc>
             <type name="WaylandCompositor" c:type="MetaWaylandCompositor*"/>
           </instance-parameter>
         </parameters>
@@ -11443,19 +11459,19 @@ will be set)</doc>
               glib:get-property="window">
         <doc xml:space="preserve"
              filename="src/wayland/meta-wayland-surface.c"
-             line="2167">Get the #MetaWindow associated with this wayland surface.</doc>
+             line="2201">Get the #MetaWindow associated with this wayland surface.</doc>
         <source-position filename="src/meta/meta-wayland-surface.h" line="33"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/wayland/meta-wayland-surface.c"
-               line="2173">a #MetaWindow</doc>
+               line="2207">a #MetaWindow</doc>
           <type name="Window" c:type="MetaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/wayland/meta-wayland-surface.c"
-                 line="2169">a #MetaWaylandSurface</doc>
+                 line="2203">a #MetaWaylandSurface</doc>
             <type name="WaylandSurface" c:type="MetaWaylandSurface*"/>
           </instance-parameter>
         </parameters>
@@ -13263,6 +13279,40 @@ the relative position of the window's top left corner.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="protocol_to_stage_rect"
+              c:identifier="meta_window_protocol_to_stage_rect">
+        <doc xml:space="preserve"
+             filename="src/core/window.c"
+             line="8088">Transform the coordinates from protocol coordinates to coordinates expected
+by the stage and internal window management logic.</doc>
+        <source-position filename="src/meta/window.h" line="435"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8090">A #MetaWindow</doc>
+            <type name="Window" c:type="MetaWindow*"/>
+          </instance-parameter>
+          <parameter name="protocol_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8091">rectangle in protocol coordinate space</doc>
+            <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+          <parameter name="stage_rect"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8092">rect in stage coordinate space</doc>
+            <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="raise" c:identifier="meta_window_raise">
         <source-position filename="src/meta/window.h" line="299"/>
         <return-value transfer-ownership="none">
@@ -13377,6 +13427,39 @@ interface element displaying the icon, and is relative to the root window.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="stage_to_protocol_rect"
+              c:identifier="meta_window_stage_to_protocol_rect">
+        <doc xml:space="preserve"
+             filename="src/core/window.c"
+             line="8041">Transform the coordinates from stage coordinates to protocol coordinates</doc>
+        <source-position filename="src/meta/window.h" line="430"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8043">A #MetaWindow</doc>
+            <type name="Window" c:type="MetaWindow*"/>
+          </instance-parameter>
+          <parameter name="stage_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8044">x #MtkRectangle in stage coordinate space</doc>
+            <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+          <parameter name="protocol_rect"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/core/window.c"
+                 line="8045">x #MtkRectangle in protocol coordinate space</doc>
+            <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="stick" c:identifier="meta_window_stick">
         <source-position filename="src/meta/window.h" line="362"/>
         <return-value transfer-ownership="none">
@@ -13466,14 +13549,14 @@ interface element displaying the icon, and is relative to the root window.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/x11/window-x11.c"
-               line="4705">the #MetaGroup of the window</doc>
+               line="4820">the #MetaGroup of the window</doc>
           <type name="Group" c:type="MetaGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/window-x11.c"
-                 line="4703">a #MetaWindow</doc>
+                 line="4818">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -14912,7 +14995,7 @@ The X11 display is represented as a #MetaX11Display struct.</doc>
           <instance-parameter name="x11_display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-display.c"
-                 line="1616">a #MetaX11Display</doc>
+                 line="1793">a #MetaX11Display</doc>
             <type name="X11Display" c:type="MetaX11Display*"/>
           </instance-parameter>
         </parameters>
@@ -14928,7 +15011,7 @@ The X11 display is represented as a #MetaX11Display struct.</doc>
           <instance-parameter name="x11_display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-display.c"
-                 line="1627">A #MetaX11Display</doc>
+                 line="1804">A #MetaX11Display</doc>
             <type name="X11Display" c:type="MetaX11Display*"/>
           </instance-parameter>
         </parameters>
@@ -15096,7 +15179,7 @@ The X11 display is represented as a #MetaX11Display struct.</doc>
     <function name="add_verbose_topic" c:identifier="meta_add_verbose_topic">
       <doc xml:space="preserve"
            filename="src/core/util.c"
-           line="149">Ensure log messages for the given topic @topic
+           line="150">Ensure log messages for the given topic @topic
 will be printed.</doc>
       <source-position filename="src/meta/util.h" line="67"/>
       <return-value transfer-ownership="none">
@@ -15106,7 +15189,7 @@ will be printed.</doc>
         <parameter name="topic" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/util.c"
-               line="151">Topic for which logging will be started</doc>
+               line="152">Topic for which logging will be started</doc>
           <type name="DebugTopic" c:type="MetaDebugTopic"/>
         </parameter>
       </parameters>
@@ -15128,19 +15211,19 @@ will be printed.</doc>
     <function name="create_context" c:identifier="meta_create_context">
       <doc xml:space="preserve"
            filename="src/core/meta-context-main.c"
-           line="709">Create a context.</doc>
+           line="729">Create a context.</doc>
       <source-position filename="src/meta/meta-context.h" line="31"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/core/meta-context-main.c"
-             line="715">A new context instance.</doc>
+             line="735">A new context instance.</doc>
         <type name="Context" c:type="MetaContext*"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context-main.c"
-               line="711">Human readable name of display server or window manager</doc>
+               line="731">Human readable name of display server or window manager</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -15224,20 +15307,20 @@ unredirected windows is undesirable like when recording a video.</doc>
               moved-to="FrameType.to_string">
       <doc xml:space="preserve"
            filename="src/x11/meta-x11-frame.c"
-           line="557">Converts a frame type enum value to the name string that would
+           line="604">Converts a frame type enum value to the name string that would
 appear in the theme definition file.</doc>
       <source-position filename="src/meta/util.h" line="86"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/x11/meta-x11-frame.c"
-             line="564">the string value</doc>
+             line="611">the string value</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/x11/meta-x11-frame.c"
-               line="559">a #MetaFrameType</doc>
+               line="606">a #MetaFrameType</doc>
           <type name="FrameType" c:type="MetaFrameType"/>
         </parameter>
       </parameters>
@@ -15271,7 +15354,7 @@ appear in the theme definition file.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/core/util.c"
-               line="550">return location for debug flags</doc>
+               line="553">return location for debug flags</doc>
           <type name="Clutter.DebugFlag" c:type="ClutterDebugFlag*"/>
         </parameter>
         <parameter name="draw_flags"
@@ -15282,7 +15365,7 @@ appear in the theme definition file.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/core/util.c"
-               line="551">return location for draw debug flags</doc>
+               line="554">return location for draw debug flags</doc>
           <type name="Clutter.DrawDebugFlag" c:type="ClutterDrawDebugFlag*"/>
         </parameter>
         <parameter name="pick_flags"
@@ -15293,7 +15376,7 @@ appear in the theme definition file.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/core/util.c"
-               line="552">return location for pick debug flags</doc>
+               line="555">return location for pick debug flags</doc>
           <type name="Clutter.PickDebugFlag" c:type="ClutterPickDebugFlag*"/>
         </parameter>
       </parameters>
@@ -15405,7 +15488,7 @@ or animations should be suppressed.</doc>
       </return-value>
     </function>
     <function name="is_topic_enabled" c:identifier="meta_is_topic_enabled">
-      <source-position filename="src/meta/meta-debug.h" line="91"/>
+      <source-position filename="src/meta/meta-debug.h" line="93"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -15479,7 +15562,7 @@ builtin key binding.</doc>
       </parameters>
     </function>
     <function name="log" c:identifier="meta_log" introspectable="0">
-      <source-position filename="src/meta/meta-debug.h" line="99"/>
+      <source-position filename="src/meta/meta-debug.h" line="101"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -15953,7 +16036,7 @@ builtin key binding.</doc>
               c:identifier="meta_remove_verbose_topic">
       <doc xml:space="preserve"
            filename="src/core/util.c"
-           line="172">Stop printing log messages for the given topic @topic.
+           line="173">Stop printing log messages for the given topic @topic.
 
 Note that this method does not stack with [func@Meta.add_verbose_topic];
 i.e. if two calls to [func@Meta.add_verbose_topic] for the same
@@ -15967,7 +16050,7 @@ remove it.</doc>
         <parameter name="topic" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/util.c"
-               line="174">Topic for which logging will be stopped</doc>
+               line="175">Topic for which logging will be stopped</doc>
           <type name="DebugTopic" c:type="MetaDebugTopic"/>
         </parameter>
       </parameters>
@@ -16010,7 +16093,7 @@ message passed here on the Clutter stage
       </parameters>
     </function>
     <function-macro name="topic" c:identifier="meta_topic" introspectable="0">
-      <source-position filename="src/meta/meta-debug.h" line="101"/>
+      <source-position filename="src/meta/meta-debug.h" line="103"/>
       <parameters>
         <parameter name="debug_topic">
         </parameter>
@@ -16019,7 +16102,7 @@ message passed here on the Clutter stage
       </parameters>
     </function-macro>
     <function name="topic_to_string" c:identifier="meta_topic_to_string">
-      <source-position filename="src/meta/meta-debug.h" line="96"/>
+      <source-position filename="src/meta/meta-debug.h" line="98"/>
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -16067,7 +16150,7 @@ message passed here on the Clutter stage
     <function-macro name="verbose"
                     c:identifier="meta_verbose"
                     introspectable="0">
-      <source-position filename="src/meta/meta-debug.h" line="115"/>
+      <source-position filename="src/meta/meta-debug.h" line="117"/>
       <parameters>
         <parameter name="...">
         </parameter>

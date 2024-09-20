@@ -16838,13 +16838,13 @@ actor content is in pq or not, and things like that</doc>
       <constructor name="new" c:identifier="clutter_color_state_new">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="334">Create a new ClutterColorState object.</doc>
+             line="465">Create a new ClutterColorState object.</doc>
         <source-position filename="clutter/clutter/clutter-color-state.h"
                          line="42"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state.c"
-               line="339">A new ClutterColorState object.</doc>
+               line="470">A new ClutterColorState object.</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
@@ -16859,10 +16859,44 @@ actor content is in pq or not, and things like that</doc>
           </parameter>
         </parameters>
       </constructor>
+      <constructor name="new_full" c:identifier="clutter_color_state_new_full">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-color-state.c"
+             line="482">Create a new ClutterColorState object with all possible parameters. Some
+arguments might not be valid to set with other arguments.</doc>
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="clutter/clutter/clutter-color-state.c"
+               line="488">A new ClutterColorState object.</doc>
+          <type name="ColorState" c:type="ClutterColorState*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Context" c:type="ClutterContext*"/>
+          </parameter>
+          <parameter name="colorspace" transfer-ownership="none">
+            <type name="Colorspace" c:type="ClutterColorspace"/>
+          </parameter>
+          <parameter name="transfer_function" transfer-ownership="none">
+            <type name="TransferFunction" c:type="ClutterTransferFunction"/>
+          </parameter>
+          <parameter name="min_lum" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="max_lum" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="ref_lum" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </constructor>
       <method name="add_pipeline_transform"
               c:identifier="clutter_color_state_add_pipeline_transform">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="59"/>
+                         line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16880,7 +16914,7 @@ actor content is in pq or not, and things like that</doc>
       </method>
       <method name="equals" c:identifier="clutter_color_state_equals">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="64"/>
+                         line="84"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -16897,7 +16931,7 @@ actor content is in pq or not, and things like that</doc>
               c:identifier="clutter_color_state_get_blending">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="926">Retrieves a variant of @color_state that is suitable for blending. This
+             line="1067">Retrieves a variant of @color_state that is suitable for blending. This
 usually is a variant with linear transfer characteristics. If @color_state
 already is a #ClutterColorState suitable for blending, then @color_state is
 returned.
@@ -16907,24 +16941,24 @@ characteristics.
 
 If @force is TRUE then linear transfer characteristics are used always.</doc>
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="71"/>
+                         line="91"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-color-state.c"
-               line="941">the #ClutterColorState suitable for blending</doc>
+               line="1082">the #ClutterColorState suitable for blending</doc>
           <type name="ColorState" c:type="ClutterColorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="color_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="928">a #ClutterColorState</doc>
+                 line="1069">a #ClutterColorState</doc>
             <type name="ColorState" c:type="ClutterColorState*"/>
           </instance-parameter>
           <parameter name="force" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-color-state.c"
-                 line="929">if a linear variant should be forced</doc>
+                 line="1070">if a linear variant should be forced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -16933,7 +16967,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
               c:identifier="clutter_color_state_get_colorspace"
               glib:get-property="colorspace">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="53"/>
+                         line="61"/>
         <return-value transfer-ownership="none">
           <type name="Colorspace" c:type="ClutterColorspace"/>
         </return-value>
@@ -16945,7 +16979,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       </method>
       <method name="get_id" c:identifier="clutter_color_state_get_id">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="50"/>
+                         line="58"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="unsigned int"/>
         </return-value>
@@ -16955,11 +16989,33 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_luminances"
+              c:identifier="clutter_color_state_get_luminances">
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </instance-parameter>
+          <parameter name="min_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="max_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="ref_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_transfer_function"
               c:identifier="clutter_color_state_get_transfer_function"
               glib:get-property="transfer-function">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="56"/>
+                         line="64"/>
         <return-value transfer-ownership="none">
           <type name="TransferFunction" c:type="ClutterTransferFunction"/>
         </return-value>
@@ -16972,7 +17028,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       <method name="required_format"
               c:identifier="clutter_color_state_required_format">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="68"/>
+                         line="88"/>
         <return-value transfer-ownership="none">
           <type name="EncodingRequiredFormat"
                 c:type="ClutterEncodingRequiredFormat"/>
@@ -16985,7 +17041,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
       </method>
       <method name="to_string" c:identifier="clutter_color_state_to_string">
         <source-position filename="clutter/clutter/clutter-color-state.h"
-                         line="47"/>
+                         line="55"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -16993,6 +17049,25 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
           <instance-parameter name="color_state" transfer-ownership="none">
             <type name="ColorState" c:type="ClutterColorState*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="update_uniforms"
+              c:identifier="clutter_color_state_update_uniforms">
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </instance-parameter>
+          <parameter name="target_color_state" transfer-ownership="none">
+            <type name="ColorState" c:type="ClutterColorState*"/>
+          </parameter>
+          <parameter name="pipeline" transfer-ownership="none">
+            <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
+          </parameter>
         </parameters>
       </method>
       <property name="colorspace"
@@ -17003,7 +17078,7 @@ If @force is TRUE then linear transfer characteristics are used always.</doc>
                 default-value="CLUTTER_COLORSPACE_SRGB">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="299">Colorspace information of the each color state,
+             line="394">Colorspace information of the each color state,
 defaults to sRGB colorspace</doc>
         <type name="Colorspace"/>
       </property>
@@ -17013,8 +17088,38 @@ defaults to sRGB colorspace</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="287">The associated ClutterContext.</doc>
+             line="382">The associated ClutterContext.</doc>
         <type name="Context"/>
+      </property>
+      <property name="max-luminance"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-color-state.c"
+             line="433">Maximum luminance.</doc>
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <property name="min-luminance"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-color-state.c"
+             line="421">Minimum luminance.</doc>
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <property name="ref-luminance"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-color-state.c"
+             line="445">Reference luminance.</doc>
+        <type name="gfloat" c:type="gfloat"/>
       </property>
       <property name="transfer-function"
                 writable="1"
@@ -17024,7 +17129,7 @@ defaults to sRGB colorspace</doc>
                 default-value="CLUTTER_TRANSFER_FUNCTION_SRGB">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-color-state.c"
-             line="313">Transfer function.</doc>
+             line="408">Transfer function.</doc>
         <type name="TransferFunction"/>
       </property>
     </class>
@@ -19506,7 +19611,7 @@ flag set.</doc>
       <method name="get_angle" c:identifier="clutter_event_get_angle">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1196">Retrieves the angle relative from @source to @target.
+             line="1199">Retrieves the angle relative from @source to @target.
 
 The direction of the angle is from the position X axis towards
 the positive Y axis.</doc>
@@ -19515,20 +19620,20 @@ the positive Y axis.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1206">the angle between two #ClutterEvent</doc>
+               line="1209">the angle between two #ClutterEvent</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1198">a #ClutterEvent</doc>
+                 line="1201">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1199">a #ClutterEvent</doc>
+                 line="1202">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </parameter>
         </parameters>
@@ -19536,20 +19641,20 @@ the positive Y axis.</doc>
       <method name="get_axes" c:identifier="clutter_event_get_axes">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1107">Retrieves the array of axes values attached to the event.</doc>
+             line="1110">Retrieves the array of axes values attached to the event.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1114">an array of axis values</doc>
+               line="1117">an array of axis values</doc>
           <type name="gdouble" c:type="gdouble*"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1109">a #ClutterEvent</doc>
+                 line="1112">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="n_axes"
@@ -19558,7 +19663,7 @@ the positive Y axis.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1110">return location for the number of axes returned</doc>
+                 line="1113">return location for the number of axes returned</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -19697,26 +19802,26 @@ be cast to the platform-specific implementation.</doc>
       <method name="get_distance" c:identifier="clutter_event_get_distance">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1175">Retrieves the distance between two events, a @source and a @target.</doc>
+             line="1178">Retrieves the distance between two events, a @source and a @target.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1182">the distance between two #ClutterEvent</doc>
+               line="1185">the distance between two #ClutterEvent</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1177">a #ClutterEvent</doc>
+                 line="1180">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1178">a #ClutterEvent</doc>
+                 line="1181">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </parameter>
         </parameters>
@@ -19783,7 +19888,7 @@ be cast to the platform-specific implementation.</doc>
               c:identifier="clutter_event_get_gesture_motion_delta">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1467">Returns the gesture motion deltas relative to the current pointer
+             line="1470">Returns the gesture motion deltas relative to the current pointer
 position.4</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="247"/>
@@ -19794,7 +19899,7 @@ position.4</doc>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1469">A clutter touchpad gesture event</doc>
+                 line="1472">A clutter touchpad gesture event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="dx"
@@ -19805,7 +19910,7 @@ position.4</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1470">the displacement relative to the pointer
+                 line="1473">the displacement relative to the pointer
      position in the X axis, or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19817,7 +19922,7 @@ position.4</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1472">the displacement relative to the pointer
+                 line="1475">the displacement relative to the pointer
      position in the Y axis, or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19827,7 +19932,7 @@ position.4</doc>
               c:identifier="clutter_event_get_gesture_motion_delta_unaccelerated">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1511">Returns the unaccelerated gesture motion deltas relative to the current
+             line="1514">Returns the unaccelerated gesture motion deltas relative to the current
 pointer position. Unlike [method@Clutter.Event.get_gesture_motion_delta],
 pointer acceleration is ignored.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
@@ -19839,7 +19944,7 @@ pointer acceleration is ignored.</doc>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1513">A clutter touchpad gesture event</doc>
+                 line="1516">A clutter touchpad gesture event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="dx"
@@ -19850,7 +19955,7 @@ pointer acceleration is ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1514">the displacement relative to the pointer
+                 line="1517">the displacement relative to the pointer
      position in the X axis, or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19862,7 +19967,7 @@ pointer acceleration is ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1516">the displacement relative to the pointer
+                 line="1519">the displacement relative to the pointer
      position in the Y axis, or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19872,13 +19977,13 @@ pointer acceleration is ignored.</doc>
               c:identifier="clutter_event_get_gesture_phase">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1440">Returns the phase of the event, See #ClutterTouchpadGesturePhase.</doc>
+             line="1443">Returns the phase of the event, See #ClutterTouchpadGesturePhase.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="244"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1446">the phase of the gesture event.</doc>
+               line="1449">the phase of the gesture event.</doc>
           <type name="TouchpadGesturePhase"
                 c:type="ClutterTouchpadGesturePhase"/>
         </return-value>
@@ -19886,7 +19991,7 @@ pointer acceleration is ignored.</doc>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1442">a touchpad gesture event</doc>
+                 line="1445">a touchpad gesture event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -19895,20 +20000,20 @@ pointer acceleration is ignored.</doc>
               c:identifier="clutter_event_get_gesture_pinch_angle_delta">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1403">Returns the angle delta reported by this specific event.</doc>
+             line="1406">Returns the angle delta reported by this specific event.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="238"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1409">The angle delta relative to the previous event.4</doc>
+               line="1412">The angle delta relative to the previous event.4</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1405">a touchpad pinch event</doc>
+                 line="1408">a touchpad pinch event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -19917,7 +20022,7 @@ pointer acceleration is ignored.</doc>
               c:identifier="clutter_event_get_gesture_pinch_scale">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1420">Returns the current scale as reported by @event, 1.0 being the original
+             line="1423">Returns the current scale as reported by @event, 1.0 being the original
 distance at the time the corresponding event with phase
 %CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN is received.
 is received.</doc>
@@ -19926,14 +20031,14 @@ is received.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1429">the current pinch gesture scale4</doc>
+               line="1432">the current pinch gesture scale4</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1422">a touchpad pinch event</doc>
+                 line="1425">a touchpad pinch event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20128,20 +20233,20 @@ composition of these 3 states, see [method@Clutter.Event.get_state].</doc>
               c:identifier="clutter_event_get_pad_details">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1614">Returns the details of a pad event.</doc>
+             line="1617">Returns the details of a pad event.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="266"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1624">#TRUE if event details could be obtained</doc>
+               line="1627">#TRUE if event details could be obtained</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1616">a pad event</doc>
+                 line="1619">a pad event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
           <parameter name="number"
@@ -20152,7 +20257,7 @@ composition of these 3 states, see [method@Clutter.Event.get_state].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1617">ring/strip/button number</doc>
+                 line="1620">ring/strip/button number</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="mode"
@@ -20163,7 +20268,7 @@ composition of these 3 states, see [method@Clutter.Event.get_state].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1618">pad mode as per the event</doc>
+                 line="1621">pad mode as per the event</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="source"
@@ -20174,7 +20279,7 @@ composition of these 3 states, see [method@Clutter.Event.get_state].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1619">source of the event</doc>
+                 line="1622">source of the event</doc>
             <type name="InputDevicePadSource"
                   c:type="ClutterInputDevicePadSource*"/>
           </parameter>
@@ -20186,7 +20291,7 @@ composition of these 3 states, see [method@Clutter.Event.get_state].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1620">event axis value</doc>
+                 line="1623">event axis value</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -20334,7 +20439,7 @@ of %CLUTTER_SCROLL_SMOOTH.</doc>
               c:identifier="clutter_event_get_scroll_finish_flags">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1573">Returns the #ClutterScrollFinishFlags of an scroll event. Those
+             line="1576">Returns the #ClutterScrollFinishFlags of an scroll event. Those
 can be used to determine whether post-scroll effects like kinetic
 scrolling should be applied.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
@@ -20342,14 +20447,14 @@ scrolling should be applied.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1581">The scroll finish flags6</doc>
+               line="1584">The scroll finish flags6</doc>
           <type name="ScrollFinishFlags" c:type="ClutterScrollFinishFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1575">an scroll event</doc>
+                 line="1578">an scroll event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20358,20 +20463,20 @@ scrolling should be applied.</doc>
               c:identifier="clutter_event_get_scroll_source">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1555">Returns the #ClutterScrollSource that applies to an scroll event.</doc>
+             line="1558">Returns the #ClutterScrollSource that applies to an scroll event.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="257"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1561">The source of scroll events6</doc>
+               line="1564">The source of scroll events6</doc>
           <type name="ScrollSource" c:type="ClutterScrollSource"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1557">an scroll event</doc>
+                 line="1560">an scroll event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20402,7 +20507,7 @@ NULL if the event has no source.</doc>
               c:identifier="clutter_event_get_source_device">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1082">Retrieves the hardware device that originated the event.
+             line="1085">Retrieves the hardware device that originated the event.
 
 If you need the virtual device, use [method@Clutter.Event.get_device].
 
@@ -20413,7 +20518,7 @@ return the same device as [method@Clutter.Event.get_device].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1093">a pointer to a #ClutterInputDevice
+               line="1096">a pointer to a #ClutterInputDevice
   or %NULL</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </return-value>
@@ -20421,7 +20526,7 @@ return the same device as [method@Clutter.Event.get_device].</doc>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1084">a #ClutterEvent</doc>
+                 line="1087">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20486,20 +20591,20 @@ the effective state.</doc>
               c:identifier="clutter_event_get_touchpad_gesture_finger_count">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1377">Returns the number of fingers that is triggering the touchpad gesture.</doc>
+             line="1380">Returns the number of fingers that is triggering the touchpad gesture.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="235"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1383">the number of fingers in the gesture.4</doc>
+               line="1386">the number of fingers in the gesture.4</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1379">a touchpad swipe/pinch event</doc>
+                 line="1382">a touchpad swipe/pinch event</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20508,20 +20613,20 @@ the effective state.</doc>
               c:identifier="clutter_event_has_control_modifier">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1250">Checks whether @event has the Control modifier mask set.</doc>
+             line="1253">Checks whether @event has the Control modifier mask set.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="196"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1256">%TRUE if the event has the Control modifier mask set</doc>
+               line="1259">%TRUE if the event has the Control modifier mask set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1252">a #ClutterEvent</doc>
+                 line="1255">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20530,20 +20635,20 @@ the effective state.</doc>
               c:identifier="clutter_event_has_shift_modifier">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1236">Checks whether @event has the Shift modifier mask set.</doc>
+             line="1239">Checks whether @event has the Shift modifier mask set.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="194"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1242">%TRUE if the event has the Shift modifier mask set</doc>
+               line="1245">%TRUE if the event has the Shift modifier mask set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1238">a #ClutterEvent</doc>
+                 line="1241">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20552,7 +20657,7 @@ the effective state.</doc>
               c:identifier="clutter_event_is_pointer_emulated">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1264">Checks whether a pointer @event has been generated by the windowing
+             line="1267">Checks whether a pointer @event has been generated by the windowing
 system. The returned value can be used to distinguish between events
 synthesized by the windowing system itself (as opposed by Clutter).</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
@@ -20560,14 +20665,14 @@ synthesized by the windowing system itself (as opposed by Clutter).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1272">%TRUE if the event is pointer emulated</doc>
+               line="1275">%TRUE if the event is pointer emulated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1266">a #ClutterEvent</doc>
+                 line="1269">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20575,7 +20680,7 @@ synthesized by the windowing system itself (as opposed by Clutter).</doc>
       <method name="put" c:identifier="clutter_event_put">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1007">Puts a copy of the event on the back of the event queue. The event will
+             line="1010">Puts a copy of the event on the back of the event queue. The event will
 have the %CLUTTER_EVENT_FLAG_SYNTHETIC flag set. If the source is set
 event signals will be emitted for this source and capture/bubbling for
 its ancestors. If the source is not set it will be generated by picking
@@ -20589,7 +20694,7 @@ or use the actor that currently has keyboard focus</doc>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1009">a #ClutterEvent</doc>
+                 line="1012">a #ClutterEvent</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </instance-parameter>
         </parameters>
@@ -20618,7 +20723,7 @@ or use the actor that currently has keyboard focus</doc>
       <function name="add_filter" c:identifier="clutter_event_add_filter">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1309">Adds a function which will be called for all events that Clutter
+             line="1312">Adds a function which will be called for all events that Clutter
 processes. The function will be called before any signals are
 emitted for the event and it will take precedence over any grabs.</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
@@ -20626,7 +20731,7 @@ emitted for the event and it will take precedence over any grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1320">an identifier for the event filter, to be used
+               line="1323">an identifier for the event filter, to be used
   with [func@Clutter.Event.remove_filter].</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -20637,7 +20742,7 @@ emitted for the event and it will take precedence over any grabs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1311">The #ClutterStage to capture events for</doc>
+                 line="1314">The #ClutterStage to capture events for</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </parameter>
           <parameter name="func"
@@ -20647,13 +20752,13 @@ emitted for the event and it will take precedence over any grabs.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1312">The callback function which will be passed all events.</doc>
+                 line="1315">The callback function which will be passed all events.</doc>
             <type name="EventFilterFunc" c:type="ClutterEventFilterFunc"/>
           </parameter>
           <parameter name="notify" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1313">A #GDestroyNotify</doc>
+                 line="1316">A #GDestroyNotify</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="user_data"
@@ -20662,7 +20767,7 @@ emitted for the event and it will take precedence over any grabs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1314">A data pointer to pass to the function.</doc>
+                 line="1317">A data pointer to pass to the function.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -20685,7 +20790,7 @@ this.</doc>
                 c:identifier="clutter_event_remove_filter">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1346">Removes an event filter that was previously added with
+             line="1349">Removes an event filter that was previously added with
 [func@Clutter.Event.add_filter].</doc>
         <source-position filename="clutter/clutter/clutter-event.h"
                          line="149"/>
@@ -20696,7 +20801,7 @@ this.</doc>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-event.c"
-                 line="1348">The ID of the event filter, as returned from [func@Clutter.Event.add_filter]</doc>
+                 line="1351">The ID of the event filter, as returned from [func@Clutter.Event.add_filter]</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -24157,7 +24262,7 @@ once the drag exceed the configured threshold.</doc>
       <method name="activate" c:identifier="clutter_grab_activate">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="3903">Activates a grab onto its assigned actor. Events will be propagated as
+             line="3830">Activates a grab onto its assigned actor. Events will be propagated as
 usual inside its hierarchy. Activating an already active grab will have
 no side effects.
 
@@ -24174,7 +24279,7 @@ to undo the effects of this function, call [method@Grab.dismiss].</doc>
           <instance-parameter name="grab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3905">a `ClutterGrab`</doc>
+                 line="3832">a `ClutterGrab`</doc>
             <type name="Grab" c:type="ClutterGrab*"/>
           </instance-parameter>
         </parameters>
@@ -24182,7 +24287,7 @@ to undo the effects of this function, call [method@Grab.dismiss].</doc>
       <method name="dismiss" c:identifier="clutter_grab_dismiss">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4107">Removes a grab. If this grab is effective, crossing events
+             line="4034">Removes a grab. If this grab is effective, crossing events
 will be generated to indicate the change in event redirection.</doc>
         <source-position filename="clutter/clutter/clutter-grab.h" line="43"/>
         <return-value transfer-ownership="none">
@@ -24192,7 +24297,7 @@ will be generated to indicate the change in event redirection.</doc>
           <instance-parameter name="grab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4109">Grab to undo</doc>
+                 line="4036">Grab to undo</doc>
             <type name="Grab" c:type="ClutterGrab*"/>
           </instance-parameter>
         </parameters>
@@ -24200,21 +24305,21 @@ will be generated to indicate the change in event redirection.</doc>
       <method name="get_seat_state" c:identifier="clutter_grab_get_seat_state">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4122">Returns the windowing-level state of the
+             line="4049">Returns the windowing-level state of the
 grab, the devices that are guaranteed to be
 grabbed.</doc>
         <source-position filename="clutter/clutter/clutter-grab.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="4130">The state of the grab.</doc>
+               line="4057">The state of the grab.</doc>
           <type name="GrabState" c:type="ClutterGrabState"/>
         </return-value>
         <parameters>
           <instance-parameter name="grab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4124">a Grab handle</doc>
+                 line="4051">a Grab handle</doc>
             <type name="Grab" c:type="ClutterGrab*"/>
           </instance-parameter>
         </parameters>
@@ -45340,10 +45445,10 @@ Pipeline
 In both cases, the "Pipeline" node is created with the return value
 of [vfunc@OffscreenEffect.create_pipeline].</doc>
       <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                       line="66"/>
+                       line="67"/>
       <virtual-method name="create_pipeline" introspectable="0">
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="61"/>
+                         line="62"/>
         <return-value>
           <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
         </return-value>
@@ -45359,13 +45464,13 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
       <virtual-method name="create_texture" invoker="create_texture">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="706">Calls the [vfunc@OffscreenEffect.create_texture] virtual function of the @effect</doc>
+             line="711">Calls the [vfunc@OffscreenEffect.create_texture] virtual function of the @effect</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
                          line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-offscreen-effect.c"
-               line="714">a handle to a Cogl texture, or
+               line="719">a handle to a Cogl texture, or
   %NULL. The returned handle has its reference
   count increased.</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
@@ -45374,19 +45479,22 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="708">a #ClutterOffscreenEffect</doc>
+                 line="713">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
+          <parameter name="cogl_context" transfer-ownership="none">
+            <type name="Cogl.Context" c:type="CoglContext*"/>
+          </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="709">the minimum width of the target texture</doc>
+                 line="714">the minimum width of the target texture</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="710">the minimum height of the target texture</doc>
+                 line="715">the minimum height of the target texture</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -45394,9 +45502,9 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
       <virtual-method name="paint_target" invoker="paint_target">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="686">Calls the [vfunc@OffscreenEffect.paint_target] virtual function of the @effect</doc>
+             line="691">Calls the [vfunc@OffscreenEffect.paint_target] virtual function of the @effect</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="63"/>
+                         line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -45404,19 +45512,19 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="688">a #ClutterOffscreenEffect</doc>
+                 line="693">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="689">a #ClutterPaintNode</doc>
+                 line="694">a #ClutterPaintNode</doc>
             <type name="PaintNode" c:type="ClutterPaintNode*"/>
           </parameter>
           <parameter name="paint_context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="690">a #ClutterPaintContext</doc>
+                 line="695">a #ClutterPaintContext</doc>
             <type name="PaintContext" c:type="ClutterPaintContext*"/>
           </parameter>
         </parameters>
@@ -45425,13 +45533,13 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
               c:identifier="clutter_offscreen_effect_create_texture">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="706">Calls the [vfunc@OffscreenEffect.create_texture] virtual function of the @effect</doc>
+             line="711">Calls the [vfunc@OffscreenEffect.create_texture] virtual function of the @effect</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="79"/>
+                         line="80"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-offscreen-effect.c"
-               line="714">a handle to a Cogl texture, or
+               line="719">a handle to a Cogl texture, or
   %NULL. The returned handle has its reference
   count increased.</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
@@ -45440,19 +45548,22 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="708">a #ClutterOffscreenEffect</doc>
+                 line="713">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Cogl.Context" c:type="CoglContext*"/>
+          </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="709">the minimum width of the target texture</doc>
+                 line="714">the minimum width of the target texture</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="710">the minimum height of the target texture</doc>
+                 line="715">the minimum height of the target texture</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -45461,17 +45572,17 @@ of [vfunc@OffscreenEffect.create_pipeline].</doc>
               c:identifier="clutter_offscreen_effect_get_pipeline">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="660">Retrieves the pipeline used as a render target for the offscreen
+             line="665">Retrieves the pipeline used as a render target for the offscreen
 buffer created by @effect
 
 You should only use the returned [class@Cogl.Pipeline] when painting. The
 returned pipeline might change between different frames.</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="69"/>
+                         line="70"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-offscreen-effect.c"
-               line="670">a #CoglPipeline. The
+               line="675">a #CoglPipeline. The
   pipeline is owned by Clutter and it should not be modified
   or freed</doc>
           <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
@@ -45480,7 +45591,7 @@ returned pipeline might change between different frames.</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="662">a #ClutterOffscreenEffect</doc>
+                 line="667">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
         </parameters>
@@ -45489,18 +45600,18 @@ returned pipeline might change between different frames.</doc>
               c:identifier="clutter_offscreen_effect_get_target_size">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="731">Retrieves the size of the offscreen buffer used by @effect to
+             line="739">Retrieves the size of the offscreen buffer used by @effect to
 paint the actor to which it has been applied.
 
 This function should only be called by #ClutterOffscreenEffect
 implementations, from within the [vfunc@OffscreenEffect.paint_target]
 virtual function.</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="84"/>
+                         line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-offscreen-effect.c"
-               line="744">%TRUE if the offscreen buffer has a valid size,
+               line="752">%TRUE if the offscreen buffer has a valid size,
   and %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -45508,7 +45619,7 @@ virtual function.</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="733">a #ClutterOffscreenEffect</doc>
+                 line="741">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
           <parameter name="width"
@@ -45517,7 +45628,7 @@ virtual function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="734">return location for the target width, or %NULL</doc>
+                 line="742">return location for the target width, or %NULL</doc>
             <type name="gfloat" c:type="gfloat*"/>
           </parameter>
           <parameter name="height"
@@ -45526,7 +45637,7 @@ virtual function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="735">return location for the target height, or %NULL</doc>
+                 line="743">return location for the target height, or %NULL</doc>
             <type name="gfloat" c:type="gfloat*"/>
           </parameter>
         </parameters>
@@ -45535,7 +45646,7 @@ virtual function.</doc>
               c:identifier="clutter_offscreen_effect_get_texture">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="630">Retrieves the texture used as a render target for the offscreen
+             line="635">Retrieves the texture used as a render target for the offscreen
 buffer created by @effect
 
 You should only use the returned texture when painting. The texture
@@ -45545,11 +45656,11 @@ chaining-up to the parent's pre_paint implementation. This can be
 used instead of [method@OffscreenEffect.get_texture] when the
 effect subclass wants to paint using its own pipeline.</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="72"/>
+                         line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-offscreen-effect.c"
-               line="644">a #CoglTexture or %NULL. The
+               line="649">a #CoglTexture or %NULL. The
   returned texture is owned by Clutter and it should not be
   modified or freed</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
@@ -45558,7 +45669,7 @@ effect subclass wants to paint using its own pipeline.</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="632">a #ClutterOffscreenEffect</doc>
+                 line="637">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
         </parameters>
@@ -45567,9 +45678,9 @@ effect subclass wants to paint using its own pipeline.</doc>
               c:identifier="clutter_offscreen_effect_paint_target">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-offscreen-effect.c"
-             line="686">Calls the [vfunc@OffscreenEffect.paint_target] virtual function of the @effect</doc>
+             line="691">Calls the [vfunc@OffscreenEffect.paint_target] virtual function of the @effect</doc>
         <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                         line="75"/>
+                         line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -45577,19 +45688,19 @@ effect subclass wants to paint using its own pipeline.</doc>
           <instance-parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="688">a #ClutterOffscreenEffect</doc>
+                 line="693">a #ClutterOffscreenEffect</doc>
             <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
           </instance-parameter>
           <parameter name="node" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="689">a #ClutterPaintNode</doc>
+                 line="694">a #ClutterPaintNode</doc>
             <type name="PaintNode" c:type="ClutterPaintNode*"/>
           </parameter>
           <parameter name="paint_context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="690">a #ClutterPaintContext</doc>
+                 line="695">a #ClutterPaintContext</doc>
             <type name="PaintContext" c:type="ClutterPaintContext*"/>
           </parameter>
         </parameters>
@@ -45605,7 +45716,7 @@ effect subclass wants to paint using its own pipeline.</doc>
            filename="clutter/clutter/clutter-offscreen-effect.h"
            line="45">The #ClutterOffscreenEffectClass structure contains only private data</doc>
       <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                       line="66"/>
+                       line="67"/>
       <field name="parent_class" readable="0" private="1">
         <type name="EffectClass" c:type="ClutterEffectClass"/>
       </field>
@@ -45619,7 +45730,7 @@ effect subclass wants to paint using its own pipeline.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-offscreen-effect.c"
-                 line="714">a handle to a Cogl texture, or
+                 line="719">a handle to a Cogl texture, or
   %NULL. The returned handle has its reference
   count increased.</doc>
             <type name="Cogl.Texture" c:type="CoglTexture*"/>
@@ -45628,19 +45739,22 @@ effect subclass wants to paint using its own pipeline.</doc>
             <parameter name="effect" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="708">a #ClutterOffscreenEffect</doc>
+                   line="713">a #ClutterOffscreenEffect</doc>
               <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
+            </parameter>
+            <parameter name="cogl_context" transfer-ownership="none">
+              <type name="Cogl.Context" c:type="CoglContext*"/>
             </parameter>
             <parameter name="width" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="709">the minimum width of the target texture</doc>
+                   line="714">the minimum width of the target texture</doc>
               <type name="gfloat" c:type="gfloat"/>
             </parameter>
             <parameter name="height" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="710">the minimum height of the target texture</doc>
+                   line="715">the minimum height of the target texture</doc>
               <type name="gfloat" c:type="gfloat"/>
             </parameter>
           </parameters>
@@ -45649,7 +45763,7 @@ effect subclass wants to paint using its own pipeline.</doc>
       <field name="create_pipeline" introspectable="0">
         <callback name="create_pipeline" introspectable="0">
           <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                           line="61"/>
+                           line="62"/>
           <return-value>
             <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
           </return-value>
@@ -45669,7 +45783,7 @@ effect subclass wants to paint using its own pipeline.</doc>
              line="48">virtual function</doc>
         <callback name="paint_target">
           <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
-                           line="63"/>
+                           line="64"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -45677,19 +45791,19 @@ effect subclass wants to paint using its own pipeline.</doc>
             <parameter name="effect" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="688">a #ClutterOffscreenEffect</doc>
+                   line="693">a #ClutterOffscreenEffect</doc>
               <type name="OffscreenEffect" c:type="ClutterOffscreenEffect*"/>
             </parameter>
             <parameter name="node" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="689">a #ClutterPaintNode</doc>
+                   line="694">a #ClutterPaintNode</doc>
               <type name="PaintNode" c:type="ClutterPaintNode*"/>
             </parameter>
             <parameter name="paint_context" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-offscreen-effect.c"
-                   line="690">a #ClutterPaintContext</doc>
+                   line="695">a #ClutterPaintContext</doc>
               <type name="PaintContext" c:type="ClutterPaintContext*"/>
             </parameter>
           </parameters>
@@ -49235,25 +49349,25 @@ to infer the scroll source.6</doc>
                       invoker="create_virtual_device">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="590">Creates a virtual input device.</doc>
+             line="607">Creates a virtual input device.</doc>
         <source-position filename="clutter/clutter/clutter-seat.h" line="109"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="597">a newly created virtual device</doc>
+               line="614">a newly created virtual device</doc>
           <type name="VirtualInputDevice" c:type="ClutterVirtualInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="592">a #ClutterSeat</doc>
+                 line="609">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="device_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="593">the type of the virtual device</doc>
+                 line="610">the type of the virtual device</doc>
             <type name="InputDeviceType" c:type="ClutterInputDeviceType"/>
           </parameter>
         </parameters>
@@ -49261,19 +49375,19 @@ to infer the scroll source.6</doc>
       <virtual-method name="get_keyboard" invoker="get_keyboard">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="342">Returns the logical keyboard</doc>
+             line="359">Returns the logical keyboard</doc>
         <source-position filename="clutter/clutter/clutter-seat.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="348">the logical keyboard</doc>
+               line="365">the logical keyboard</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="344">a #ClutterSeat</doc>
+                 line="361">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49281,19 +49395,19 @@ to infer the scroll source.6</doc>
       <virtual-method name="get_keymap" invoker="get_keymap">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="394">Returns the seat keymap</doc>
+             line="411">Returns the seat keymap</doc>
         <source-position filename="clutter/clutter/clutter-seat.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="400">the seat keymap</doc>
+               line="417">the seat keymap</doc>
           <type name="Keymap" c:type="ClutterKeymap*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="396">a #ClutterSeat</doc>
+                 line="413">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49301,19 +49415,19 @@ to infer the scroll source.6</doc>
       <virtual-method name="get_pointer" invoker="get_pointer">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="326">Returns the logical pointer</doc>
+             line="343">Returns the logical pointer</doc>
         <source-position filename="clutter/clutter/clutter-seat.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="332">the logical pointer</doc>
+               line="349">the logical pointer</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="328">a #ClutterSeat</doc>
+                 line="345">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49396,7 +49510,7 @@ to infer the scroll source.6</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="740">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
+               line="757">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -49404,13 +49518,13 @@ to infer the scroll source.6</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="734">a #ClutterSeat</doc>
+                 line="751">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="735">a #ClutterInputDevice</doc>
+                 line="752">a #ClutterInputDevice</doc>
             <type name="InputDevice" c:type="ClutterInputDevice*"/>
           </parameter>
           <parameter name="sequence"
@@ -49419,7 +49533,7 @@ to infer the scroll source.6</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="736">a #ClutterEventSequence</doc>
+                 line="753">a #ClutterEventSequence</doc>
             <type name="EventSequence" c:type="ClutterEventSequence*"/>
           </parameter>
           <parameter name="coords"
@@ -49430,7 +49544,7 @@ to infer the scroll source.6</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="737">the coordinates of the pointer</doc>
+                 line="754">the coordinates of the pointer</doc>
             <type name="Graphene.Point" c:type="graphene_point_t*"/>
           </parameter>
           <parameter name="modifiers"
@@ -49441,7 +49555,7 @@ to infer the scroll source.6</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="738">the current #ClutterModifierType of the pointer</doc>
+                 line="755">the current #ClutterModifierType of the pointer</doc>
             <type name="ModifierType" c:type="ClutterModifierType*"/>
           </parameter>
         </parameters>
@@ -49478,7 +49592,7 @@ to infer the scroll source.6</doc>
         </parameters>
       </virtual-method>
       <method name="bell_notify" c:identifier="clutter_seat_bell_notify">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="122"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49492,34 +49606,50 @@ to infer the scroll source.6</doc>
               c:identifier="clutter_seat_create_virtual_device">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="590">Creates a virtual input device.</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="152"/>
+             line="607">Creates a virtual input device.</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="597">a newly created virtual device</doc>
+               line="614">a newly created virtual device</doc>
           <type name="VirtualInputDevice" c:type="ClutterVirtualInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="592">a #ClutterSeat</doc>
+                 line="609">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="device_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="593">the type of the virtual device</doc>
+                 line="610">the type of the virtual device</doc>
             <type name="InputDeviceType" c:type="ClutterInputDeviceType"/>
           </parameter>
         </parameters>
       </method>
       <method name="ensure_a11y_state"
               c:identifier="clutter_seat_ensure_a11y_state">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="128"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="seat" transfer-ownership="none">
+            <type name="Seat" c:type="ClutterSeat*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_context"
+              c:identifier="clutter_seat_get_context"
+              glib:get-property="context">
+        <source-position filename="clutter/clutter/clutter-seat.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="clutter/clutter/clutter-seat.c"
+               line="819">The %ClutterContext</doc>
+          <type name="Context" c:type="ClutterContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
@@ -49530,19 +49660,19 @@ to infer the scroll source.6</doc>
       <method name="get_keyboard" c:identifier="clutter_seat_get_keyboard">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="342">Returns the logical keyboard</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="117"/>
+             line="359">Returns the logical keyboard</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="348">the logical keyboard</doc>
+               line="365">the logical keyboard</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="344">a #ClutterSeat</doc>
+                 line="361">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49550,19 +49680,19 @@ to infer the scroll source.6</doc>
       <method name="get_keymap" c:identifier="clutter_seat_get_keymap">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="394">Returns the seat keymap</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="125"/>
+             line="411">Returns the seat keymap</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="127"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="400">the seat keymap</doc>
+               line="417">the seat keymap</doc>
           <type name="Keymap" c:type="ClutterKeymap*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="396">a #ClutterSeat</doc>
+                 line="413">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49570,7 +49700,7 @@ to infer the scroll source.6</doc>
       <method name="get_name"
               c:identifier="clutter_seat_get_name"
               glib:get-property="name">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="176"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="178"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -49583,19 +49713,19 @@ to infer the scroll source.6</doc>
       <method name="get_pointer" c:identifier="clutter_seat_get_pointer">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="326">Returns the logical pointer</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="115"/>
+             line="343">Returns the logical pointer</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="332">the logical pointer</doc>
+               line="349">the logical pointer</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="328">a #ClutterSeat</doc>
+                 line="345">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49604,8 +49734,8 @@ to infer the scroll source.6</doc>
               c:identifier="clutter_seat_get_pointer_a11y_settings">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="475">Gets the current pointer accessibility settings</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="135"/>
+             line="492">Gets the current pointer accessibility settings</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49613,13 +49743,13 @@ to infer the scroll source.6</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="477">a #ClutterSeat</doc>
+                 line="494">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="478">a pointer to a #ClutterPointerA11ySettings</doc>
+                 line="495">a pointer to a #ClutterPointerA11ySettings</doc>
             <type name="PointerA11ySettings"
                   c:type="ClutterPointerA11ySettings*"/>
           </parameter>
@@ -49628,7 +49758,7 @@ to infer the scroll source.6</doc>
       <method name="get_supported_virtual_device_types"
               c:identifier="clutter_seat_get_supported_virtual_device_types"
               introspectable="0">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="156"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="VirtualDeviceType" c:type="ClutterVirtualDeviceType"/>
         </return-value>
@@ -49643,17 +49773,17 @@ to infer the scroll source.6</doc>
               glib:get-property="touch-mode">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="679">Gets the current touch-mode state of the #ClutterSeat @seat.
+             line="696">Gets the current touch-mode state of the #ClutterSeat @seat.
 The [property@Seat:touch-mode] property is set to %TRUE if the following
 requirements are fulfilled:
 
  - A touchscreen is available
  - A tablet mode switch, if present, is enabled</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="163"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="165"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="690">%TRUE if the device is a tablet that doesn't have an external
+               line="707">%TRUE if the device is a tablet that doesn't have an external
   keyboard attached, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -49661,7 +49791,7 @@ requirements are fulfilled:
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="681">a #ClutterSeat</doc>
+                 line="698">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49685,7 +49815,7 @@ requirements are fulfilled:
       <method name="has_touchscreen"
               c:identifier="clutter_seat_has_touchscreen"
               introspectable="0">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="166"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -49699,13 +49829,13 @@ requirements are fulfilled:
               c:identifier="clutter_seat_inhibit_unfocus">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="511">Inhibits unsetting of the pointer focus-surface for the #ClutterSeat @seat,
+             line="528">Inhibits unsetting of the pointer focus-surface for the #ClutterSeat @seat,
 this allows to keep using the pointer even when it's hidden.
 
 This property is refcounted, so [method@Seat.uninhibit_unfocus] must be
 called the exact same number of times as [method@Seat.inhibit_unfocus]
 was called before.</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="143"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="145"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49713,7 +49843,7 @@ was called before.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="513">a #ClutterSeat</doc>
+                 line="530">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49722,20 +49852,20 @@ was called before.</doc>
               c:identifier="clutter_seat_is_unfocus_inhibited">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="569">Gets whether unsetting of the pointer focus-surface is inhibited
+             line="586">Gets whether unsetting of the pointer focus-surface is inhibited
 for the #ClutterSeat @seat.</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="149"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="576">%TRUE if unsetting is inhibited, %FALSE otherwise</doc>
+               line="593">%TRUE if unsetting is inhibited, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="571">a #ClutterSeat</doc>
+                 line="588">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49743,12 +49873,12 @@ for the #ClutterSeat @seat.</doc>
       <method name="list_devices" c:identifier="clutter_seat_list_devices">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="369">Returns the list of HW devices</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="119"/>
+             line="386">Returns the list of HW devices</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="121"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="375">A list
+               line="392">A list
   of #ClutterInputDevice. The elements of the returned list are owned by
   Clutter and may not be freed, the returned list should be freed using
   g_list_free() when done.</doc>
@@ -49760,7 +49890,7 @@ for the #ClutterSeat @seat.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="371">a #ClutterSeat</doc>
+                 line="388">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
@@ -49768,7 +49898,7 @@ for the #ClutterSeat @seat.</doc>
       <method name="peek_devices"
               c:identifier="clutter_seat_peek_devices"
               introspectable="0">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="120"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="GLib.List" c:type="const GList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -49781,11 +49911,11 @@ for the #ClutterSeat @seat.</doc>
         </parameters>
       </method>
       <method name="query_state" c:identifier="clutter_seat_query_state">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="169"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-seat.c"
-               line="740">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
+               line="757">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -49793,13 +49923,13 @@ for the #ClutterSeat @seat.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="734">a #ClutterSeat</doc>
+                 line="751">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="735">a #ClutterInputDevice</doc>
+                 line="752">a #ClutterInputDevice</doc>
             <type name="InputDevice" c:type="ClutterInputDevice*"/>
           </parameter>
           <parameter name="sequence"
@@ -49808,7 +49938,7 @@ for the #ClutterSeat @seat.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="736">a #ClutterEventSequence</doc>
+                 line="753">a #ClutterEventSequence</doc>
             <type name="EventSequence" c:type="ClutterEventSequence*"/>
           </parameter>
           <parameter name="coords"
@@ -49819,7 +49949,7 @@ for the #ClutterSeat @seat.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="737">the coordinates of the pointer</doc>
+                 line="754">the coordinates of the pointer</doc>
             <type name="Graphene.Point" c:type="graphene_point_t*"/>
           </parameter>
           <parameter name="modifiers"
@@ -49830,7 +49960,7 @@ for the #ClutterSeat @seat.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="738">the current #ClutterModifierType of the pointer</doc>
+                 line="755">the current #ClutterModifierType of the pointer</doc>
             <type name="ModifierType" c:type="ClutterModifierType*"/>
           </parameter>
         </parameters>
@@ -49839,8 +49969,8 @@ for the #ClutterSeat @seat.</doc>
               c:identifier="clutter_seat_set_pointer_a11y_dwell_click_type">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="493">Sets the dwell click type</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="139"/>
+             line="510">Sets the dwell click type</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49848,13 +49978,13 @@ for the #ClutterSeat @seat.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="495">a #ClutterSeat</doc>
+                 line="512">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="click_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="496">type of click as #ClutterPointerA11yDwellClickType</doc>
+                 line="513">type of click as #ClutterPointerA11yDwellClickType</doc>
             <type name="PointerA11yDwellClickType"
                   c:type="ClutterPointerA11yDwellClickType"/>
           </parameter>
@@ -49864,8 +49994,8 @@ for the #ClutterSeat @seat.</doc>
               c:identifier="clutter_seat_set_pointer_a11y_settings">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="449">Sets the pointer accessibility settings</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="131"/>
+             line="466">Sets the pointer accessibility settings</doc>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49873,13 +50003,13 @@ for the #ClutterSeat @seat.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="451">a #ClutterSeat</doc>
+                 line="468">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="452">a pointer to a #ClutterPointerA11ySettings</doc>
+                 line="469">a pointer to a #ClutterPointerA11ySettings</doc>
             <type name="PointerA11ySettings"
                   c:type="ClutterPointerA11ySettings*"/>
           </parameter>
@@ -49889,13 +50019,13 @@ for the #ClutterSeat @seat.</doc>
               c:identifier="clutter_seat_uninhibit_unfocus">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="537">Disables the inhibiting of unsetting of the pointer focus-surface
+             line="554">Disables the inhibiting of unsetting of the pointer focus-surface
 previously enabled by calling [method@Seat.inhibit_unfocus].
 
 This property is refcounted, so [method@Seat.uninhibit_unfocus] must be
 called the exact same number of times as [method@Seat.inhibit_unfocus]
 was called before.</doc>
-        <source-position filename="clutter/clutter/clutter-seat.h" line="146"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49903,13 +50033,13 @@ was called before.</doc>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="539">a #ClutterSeat</doc>
+                 line="556">a #ClutterSeat</doc>
             <type name="Seat" c:type="ClutterSeat*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="warp_pointer" c:identifier="clutter_seat_warp_pointer">
-        <source-position filename="clutter/clutter/clutter-seat.h" line="159"/>
+        <source-position filename="clutter/clutter/clutter-seat.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -49925,6 +50055,13 @@ was called before.</doc>
           </parameter>
         </parameters>
       </method>
+      <property name="context"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_context">
+        <type name="Context"/>
+      </property>
       <property name="name"
                 writable="1"
                 construct-only="1"
@@ -49939,7 +50076,7 @@ was called before.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="294">The current touch-mode of the #ClutterSeat, it is set to %TRUE if the
+             line="304">The current touch-mode of the #ClutterSeat, it is set to %TRUE if the
 requirements documented in [method@Seat.get_touch_mode] are fulfilled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -49969,7 +50106,7 @@ requirements documented in [method@Seat.get_touch_mode] are fulfilled.</doc>
       <glib:signal name="is-unfocus-inhibited-changed" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="278">The signal is emitted when the property to inhibit the unsetting
+             line="288">The signal is emitted when the property to inhibit the unsetting
 of the focus-surface of the #ClutterSeat changed.
 
 To get the current state of this property, use [method@Seat.is_unfocus_inhibited].</doc>
@@ -49980,7 +50117,7 @@ To get the current state of this property, use [method@Seat.is_unfocus_inhibited
       <glib:signal name="kbd-a11y-flags-changed" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="190">The signal is emitted each time the ClutterKeyboardA11yFlags
+             line="200">The signal is emitted each time the ClutterKeyboardA11yFlags
 configuration is changed as the result of keyboard accessibility operations.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -49989,13 +50126,13 @@ configuration is changed as the result of keyboard accessibility operations.</do
           <parameter name="settings_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="193">the new ClutterKeyboardA11yFlags configuration</doc>
+                 line="203">the new ClutterKeyboardA11yFlags configuration</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="changed_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="194">the ClutterKeyboardA11yFlags changed</doc>
+                 line="204">the ClutterKeyboardA11yFlags changed</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -50003,7 +50140,7 @@ configuration is changed as the result of keyboard accessibility operations.</do
       <glib:signal name="kbd-a11y-mods-state-changed" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="167">The signal is emitted each time either the
+             line="177">The signal is emitted each time either the
 latched modifiers mask or locked modifiers mask are changed as the
 result of keyboard accessibility's sticky keys operations.</doc>
         <return-value transfer-ownership="none">
@@ -50013,13 +50150,13 @@ result of keyboard accessibility's sticky keys operations.</doc>
           <parameter name="latched_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="170">the latched modifier mask from stickykeys</doc>
+                 line="180">the latched modifier mask from stickykeys</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="locked_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="171">the locked modifier mask from stickykeys</doc>
+                 line="181">the locked modifier mask from stickykeys</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -50027,7 +50164,7 @@ result of keyboard accessibility's sticky keys operations.</doc>
       <glib:signal name="ptr-a11y-dwell-click-type-changed" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="212">The signal is emitted each time the ClutterPointerA11yDwellClickType
+             line="222">The signal is emitted each time the ClutterPointerA11yDwellClickType
 mode is changed as the result of pointer accessibility operations.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -50036,7 +50173,7 @@ mode is changed as the result of pointer accessibility operations.</doc>
           <parameter name="click_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="215">the new #ClutterPointerA11yDwellClickType mode</doc>
+                 line="225">the new #ClutterPointerA11yDwellClickType mode</doc>
             <type name="PointerA11yDwellClickType"/>
           </parameter>
         </parameters>
@@ -50044,7 +50181,7 @@ mode is changed as the result of pointer accessibility operations.</doc>
       <glib:signal name="ptr-a11y-timeout-started" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="228">The signal is emitted when a pointer accessibility timeout delay is started,
+             line="238">The signal is emitted when a pointer accessibility timeout delay is started,
 so that upper layers can notify the user with some visual feedback.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -50053,19 +50190,19 @@ so that upper layers can notify the user with some visual feedback.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="231">the core pointer #ClutterInputDevice</doc>
+                 line="241">the core pointer #ClutterInputDevice</doc>
             <type name="InputDevice"/>
           </parameter>
           <parameter name="timeout_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="232">the type of timeout #ClutterPointerA11yTimeoutType</doc>
+                 line="242">the type of timeout #ClutterPointerA11yTimeoutType</doc>
             <type name="PointerA11yTimeoutType"/>
           </parameter>
           <parameter name="delay" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="233">the delay in ms before secondary-click is triggered.</doc>
+                 line="243">the delay in ms before secondary-click is triggered.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -50073,7 +50210,7 @@ so that upper layers can notify the user with some visual feedback.</doc>
       <glib:signal name="ptr-a11y-timeout-stopped" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-seat.c"
-             line="252">The signal is emitted when a running pointer accessibility timeout
+             line="262">The signal is emitted when a running pointer accessibility timeout
 delay is stopped, either because it's triggered at the end of
 the delay or cancelled, so that upper layers can notify the user
 with some visual feedback.</doc>
@@ -50084,19 +50221,19 @@ with some visual feedback.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="255">the core pointer #ClutterInputDevice</doc>
+                 line="265">the core pointer #ClutterInputDevice</doc>
             <type name="InputDevice"/>
           </parameter>
           <parameter name="timeout_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="256">the type of timeout #ClutterPointerA11yTimeoutType</doc>
+                 line="266">the type of timeout #ClutterPointerA11yTimeoutType</doc>
             <type name="PointerA11yTimeoutType"/>
           </parameter>
           <parameter name="clicked" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="257">%TRUE if the timeout finished and triggered a click</doc>
+                 line="267">%TRUE if the timeout finished and triggered a click</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -50116,14 +50253,14 @@ with some visual feedback.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="332">the logical pointer</doc>
+                 line="349">the logical pointer</doc>
             <type name="InputDevice" c:type="ClutterInputDevice*"/>
           </return-value>
           <parameters>
             <parameter name="seat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="328">a #ClutterSeat</doc>
+                   line="345">a #ClutterSeat</doc>
               <type name="Seat" c:type="ClutterSeat*"/>
             </parameter>
           </parameters>
@@ -50136,14 +50273,14 @@ with some visual feedback.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="348">the logical keyboard</doc>
+                 line="365">the logical keyboard</doc>
             <type name="InputDevice" c:type="ClutterInputDevice*"/>
           </return-value>
           <parameters>
             <parameter name="seat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="344">a #ClutterSeat</doc>
+                   line="361">a #ClutterSeat</doc>
               <type name="Seat" c:type="ClutterSeat*"/>
             </parameter>
           </parameters>
@@ -50186,14 +50323,14 @@ with some visual feedback.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="400">the seat keymap</doc>
+                 line="417">the seat keymap</doc>
             <type name="Keymap" c:type="ClutterKeymap*"/>
           </return-value>
           <parameters>
             <parameter name="seat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="396">a #ClutterSeat</doc>
+                   line="413">a #ClutterSeat</doc>
               <type name="Seat" c:type="ClutterSeat*"/>
             </parameter>
           </parameters>
@@ -50263,7 +50400,7 @@ with some visual feedback.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="740">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
+                 line="757">%TRUE if @device (or the specific @sequence) is on the stage, %FALSE
   otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -50271,13 +50408,13 @@ with some visual feedback.</doc>
             <parameter name="seat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="734">a #ClutterSeat</doc>
+                   line="751">a #ClutterSeat</doc>
               <type name="Seat" c:type="ClutterSeat*"/>
             </parameter>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="735">a #ClutterInputDevice</doc>
+                   line="752">a #ClutterInputDevice</doc>
               <type name="InputDevice" c:type="ClutterInputDevice*"/>
             </parameter>
             <parameter name="sequence"
@@ -50286,7 +50423,7 @@ with some visual feedback.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="736">a #ClutterEventSequence</doc>
+                   line="753">a #ClutterEventSequence</doc>
               <type name="EventSequence" c:type="ClutterEventSequence*"/>
             </parameter>
             <parameter name="coords"
@@ -50297,7 +50434,7 @@ with some visual feedback.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="737">the coordinates of the pointer</doc>
+                   line="754">the coordinates of the pointer</doc>
               <type name="Graphene.Point" c:type="graphene_point_t*"/>
             </parameter>
             <parameter name="modifiers"
@@ -50308,7 +50445,7 @@ with some visual feedback.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="738">the current #ClutterModifierType of the pointer</doc>
+                   line="755">the current #ClutterModifierType of the pointer</doc>
               <type name="ModifierType" c:type="ClutterModifierType*"/>
             </parameter>
           </parameters>
@@ -50355,7 +50492,7 @@ with some visual feedback.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-seat.c"
-                 line="597">a newly created virtual device</doc>
+                 line="614">a newly created virtual device</doc>
             <type name="VirtualInputDevice"
                   c:type="ClutterVirtualInputDevice*"/>
           </return-value>
@@ -50363,13 +50500,13 @@ with some visual feedback.</doc>
             <parameter name="seat" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="592">a #ClutterSeat</doc>
+                   line="609">a #ClutterSeat</doc>
               <type name="Seat" c:type="ClutterSeat*"/>
             </parameter>
             <parameter name="device_type" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="clutter/clutter/clutter-seat.c"
-                   line="593">the type of the virtual device</doc>
+                   line="610">the type of the virtual device</doc>
               <type name="InputDeviceType" c:type="ClutterInputDeviceType"/>
             </parameter>
           </parameters>
@@ -51459,7 +51596,7 @@ parent class corresponding function.</doc>
               c:identifier="clutter_stage_ensure_viewport">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2216">Ensures that the GL viewport is updated with the current
+             line="2143">Ensures that the GL viewport is updated with the current
 stage window size.
 
 This function will queue a redraw of @stage.
@@ -51468,7 +51605,7 @@ This function should not be called by applications; it is used
 when embedding a #ClutterStage into a toolkit with another
 windowing system, like GTK+.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="167"/>
+                         line="162"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -51476,7 +51613,7 @@ windowing system, like GTK+.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2218">a #ClutterStage</doc>
+                 line="2145">a #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
         </parameters>
@@ -51485,7 +51622,7 @@ windowing system, like GTK+.</doc>
               c:identifier="clutter_stage_get_actor_at_pos">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2000">Checks the scene at the coordinates @x and @y and returns a pointer
+             line="1976">Checks the scene at the coordinates @x and @y and returns a pointer
 to the [class@Clutter.Actor] at those coordinates. The result is the actor which
 would be at the specified location on the next redraw, and is not
 necessarily that which was there on the previous redraw. This allows the
@@ -51495,11 +51632,11 @@ the scene, and even if nothing has been drawn.
 By using @pick_mode it is possible to control which actors will be
 painted and thus available.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="155"/>
+                         line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="2017">the actor at the specified coordinates,
+               line="1993">the actor at the specified coordinates,
   if any</doc>
           <type name="Actor" c:type="ClutterActor*"/>
         </return-value>
@@ -51507,25 +51644,25 @@ painted and thus available.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2002">a #ClutterStage</doc>
+                 line="1978">a #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="pick_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2003">how the scene graph should be painted</doc>
+                 line="1979">how the scene graph should be painted</doc>
             <type name="PickMode" c:type="ClutterPickMode"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2004">X coordinate to check</doc>
+                 line="1980">X coordinate to check</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2005">Y coordinate to check</doc>
+                 line="1981">Y coordinate to check</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -51534,28 +51671,28 @@ painted and thus available.</doc>
               c:identifier="clutter_stage_get_capture_final_size">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2636">Get the size of the framebuffer one must pass to
+             line="2563">Get the size of the framebuffer one must pass to
 [method@Stage.paint_to_buffer] or [method@Stage.paint_to_framebuffer]
 would be used with the same @rect.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="176"/>
+                         line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="2648">%TRUE if the size has been retrieved, %FALSE otherwise.</doc>
+               line="2575">%TRUE if the size has been retrieved, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2638">a #ClutterStage actor</doc>
+                 line="2565">a #ClutterStage actor</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2639">a rectangle</doc>
+                 line="2566">a rectangle</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
           <parameter name="out_width"
@@ -51566,7 +51703,7 @@ would be used with the same @rect.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2640">the final width</doc>
+                 line="2567">the final width</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="out_height"
@@ -51577,7 +51714,7 @@ would be used with the same @rect.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2641">the final height</doc>
+                 line="2568">the final height</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="out_scale"
@@ -51588,7 +51725,7 @@ would be used with the same @rect.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2642">the final scale factor</doc>
+                 line="2569">the final scale factor</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -51597,27 +51734,27 @@ would be used with the same @rect.</doc>
               c:identifier="clutter_stage_get_device_actor">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="3138">Retrieves the [class@Clutter.Actor] underneath the pointer or touch point
+             line="3065">Retrieves the [class@Clutter.Actor] underneath the pointer or touch point
 of @device and @sequence.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="212"/>
+                         line="207"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="3147">a pointer to the #ClutterActor or %NULL</doc>
+               line="3074">a pointer to the #ClutterActor or %NULL</doc>
           <type name="Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3140">a #ClutterStage</doc>
+                 line="3067">a #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3141">a #ClutterInputDevice</doc>
+                 line="3068">a #ClutterInputDevice</doc>
             <type name="InputDevice" c:type="ClutterInputDevice*"/>
           </parameter>
           <parameter name="sequence"
@@ -51626,7 +51763,7 @@ of @device and @sequence.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3142">an optional #ClutterEventSequence</doc>
+                 line="3069">an optional #ClutterEventSequence</doc>
             <type name="EventSequence" c:type="ClutterEventSequence*"/>
           </parameter>
         </parameters>
@@ -51658,7 +51795,7 @@ of @device and @sequence.</doc>
               c:identifier="clutter_stage_get_event_actor">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4163">Retrieves the current focus actor for an event. This is
+             line="4090">Retrieves the current focus actor for an event. This is
 the key focus for key events and other events directed
 to the key focus, or the actor directly under the
 coordinates of a device or touch sequence.
@@ -51667,24 +51804,24 @@ The actor is looked up at the time of calling this function,
 and may differ from the actor that the stage originally
 delivered the event to.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="216"/>
+                         line="211"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="4177">a pointer to the #ClutterActor or %NULL</doc>
+               line="4104">a pointer to the #ClutterActor or %NULL</doc>
           <type name="Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4165">a #ClutterStage</doc>
+                 line="4092">a #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4166">an event received on the stage</doc>
+                 line="4093">an event received on the stage</doc>
             <type name="Event" c:type="const ClutterEvent*"/>
           </parameter>
         </parameters>
@@ -51706,20 +51843,20 @@ delivered the event to.</doc>
               c:identifier="clutter_stage_get_grab_actor">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4143">Gets the actor that currently holds a grab.</doc>
+             line="4070">Gets the actor that currently holds a grab.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="228"/>
+                         line="223"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="4149">The grabbing actor</doc>
+               line="4076">The grabbing actor</doc>
           <type name="Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4145">a #ClutterStage</doc>
+                 line="4072">a #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
         </parameters>
@@ -51729,20 +51866,20 @@ delivered the event to.</doc>
               glib:get-property="key-focus">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2172">Retrieves the actor that is currently under key focus.</doc>
+             line="2099">Retrieves the actor that is currently under key focus.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="152"/>
+                         line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="2178">the actor with key focus, or the stage</doc>
+               line="2105">the actor with key focus, or the stage</doc>
           <type name="Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2174">the #ClutterStage</doc>
+                 line="2101">the #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
         </parameters>
@@ -51752,7 +51889,7 @@ delivered the event to.</doc>
               glib:get-property="perspective">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1719">Retrieves the stage perspective.</doc>
+             line="1695">Retrieves the stage perspective.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
                          line="136"/>
         <return-value transfer-ownership="none">
@@ -51762,7 +51899,7 @@ delivered the event to.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1721">A #ClutterStage</doc>
+                 line="1697">A #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="perspective"
@@ -51773,42 +51910,17 @@ delivered the event to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1722">return location for a
+                 line="1698">return location for a
   #ClutterPerspective</doc>
             <type name="Perspective" c:type="ClutterPerspective*"/>
           </parameter>
-        </parameters>
-      </method>
-      <method name="get_title"
-              c:identifier="clutter_stage_get_title"
-              glib:get-property="title">
-        <doc xml:space="preserve"
-             filename="clutter/clutter/clutter-stage.c"
-             line="2059">Gets the stage title.</doc>
-        <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="142"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="clutter/clutter/clutter-stage.c"
-               line="2065">pointer to the title string for the stage. The
-returned string is owned by the actor and should not
-be modified or freed.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stage" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="clutter/clutter/clutter-stage.c"
-                 line="2061">A #ClutterStage</doc>
-            <type name="Stage" c:type="ClutterStage*"/>
-          </instance-parameter>
         </parameters>
       </method>
       <method name="get_view_at"
               c:identifier="clutter_stage_get_view_at"
               introspectable="0">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="207"/>
+                         line="202"/>
         <return-value>
           <type name="StageView" c:type="ClutterStageView*"/>
         </return-value>
@@ -51827,14 +51939,14 @@ be modified or freed.</doc>
       <method name="grab" c:identifier="clutter_stage_grab">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="3978">Grabs input onto a certain actor. Events will be propagated as
+             line="3905">Grabs input onto a certain actor. Events will be propagated as
 usual inside its hierarchy.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="220"/>
+                         line="215"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="3986">an opaque #ClutterGrab handle, drop
+               line="3913">an opaque #ClutterGrab handle, drop
   with [method@Grab.dismiss]</doc>
           <type name="Grab" c:type="ClutterGrab*"/>
         </return-value>
@@ -51842,13 +51954,13 @@ usual inside its hierarchy.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3980">The #ClutterStage</doc>
+                 line="3907">The #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="3981">The actor grabbing input</doc>
+                 line="3908">The actor grabbing input</doc>
             <type name="Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -51856,27 +51968,27 @@ usual inside its hierarchy.</doc>
       <method name="grab_inactive" c:identifier="clutter_stage_grab_inactive">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4001">Creates an inactive grab. The grab will become effective
+             line="3928">Creates an inactive grab. The grab will become effective
 after [method@Grab.activate].</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="224"/>
+                         line="219"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="4009">an opaque #ClutterGrab handle</doc>
+               line="3936">an opaque #ClutterGrab handle</doc>
           <type name="Grab" c:type="ClutterGrab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4003">The #ClutterStage</doc>
+                 line="3930">The #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4004">The actor that will grab input</doc>
+                 line="3931">The actor that will grab input</doc>
             <type name="Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -51912,7 +52024,7 @@ toolkit, and it should never be called by applications.</doc>
       </method>
       <method name="is_active" c:identifier="clutter_stage_is_active">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="254"/>
+                         line="249"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -51926,7 +52038,7 @@ toolkit, and it should never be called by applications.</doc>
               c:identifier="clutter_stage_is_redraw_queued_on_view"
               introspectable="0">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="170"/>
+                         line="165"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -51944,38 +52056,38 @@ toolkit, and it should never be called by applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2753">Take a snapshot of the stage to a provided buffer.</doc>
+             line="2680">Take a snapshot of the stage to a provided buffer.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="190"/>
+                         line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="2766">%TRUE is the buffer has been paint successfully, %FALSE otherwise.</doc>
+               line="2693">%TRUE is the buffer has been paint successfully, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2755">a #ClutterStage actor</doc>
+                 line="2682">a #ClutterStage actor</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2756">a rectangle</doc>
+                 line="2683">a rectangle</doc>
             <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2757">the scale</doc>
+                 line="2684">the scale</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2758">a pointer to the data</doc>
+                 line="2685">a pointer to the data</doc>
             <array zero-terminated="0" c:type="uint8_t*">
               <type name="guint8"/>
             </array>
@@ -51983,19 +52095,19 @@ toolkit, and it should never be called by applications.</doc>
           <parameter name="stride" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2759">stride of the image surface</doc>
+                 line="2686">stride of the image surface</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2760">the pixel format</doc>
+                 line="2687">the pixel format</doc>
             <type name="Cogl.PixelFormat" c:type="CoglPixelFormat"/>
           </parameter>
           <parameter name="paint_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2761">the #ClutterPaintFlag</doc>
+                 line="2688">the #ClutterPaintFlag</doc>
             <type name="PaintFlag" c:type="ClutterPaintFlag"/>
           </parameter>
         </parameters>
@@ -52005,38 +52117,38 @@ toolkit, and it should never be called by applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2830">Take a snapshot of the stage to a #ClutterContent.</doc>
+             line="2757">Take a snapshot of the stage to a #ClutterContent.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="200"/>
+                         line="195"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="2840">the #ClutterContent or %NULL on error.</doc>
+               line="2767">the #ClutterContent or %NULL on error.</doc>
           <type name="Content" c:type="ClutterContent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2832">a #ClutterStage actor</doc>
+                 line="2759">a #ClutterStage actor</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2833">a rectangle</doc>
+                 line="2760">a rectangle</doc>
             <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2834">the scale</doc>
+                 line="2761">the scale</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="paint_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2835">the #ClutterPaintFlag</doc>
+                 line="2762">the #ClutterPaintFlag</doc>
             <type name="PaintFlag" c:type="ClutterPaintFlag"/>
           </parameter>
         </parameters>
@@ -52044,7 +52156,7 @@ toolkit, and it should never be called by applications.</doc>
       <method name="paint_to_framebuffer"
               c:identifier="clutter_stage_paint_to_framebuffer">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="183"/>
+                         line="178"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52086,20 +52198,20 @@ toolkit, and it should never be called by applications.</doc>
               c:identifier="clutter_stage_pointing_input_foreach">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="4616">Iterates over active input.</doc>
+             line="4543">Iterates over active input.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="249"/>
+                         line="244"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="4624">%TRUE if the foreach function did not stop.</doc>
+               line="4551">%TRUE if the foreach function did not stop.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4618">The stage</doc>
+                 line="4545">The stage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="func"
@@ -52108,7 +52220,7 @@ toolkit, and it should never be called by applications.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4619">Iterator function</doc>
+                 line="4546">Iterator function</doc>
             <type name="StageInputForeachFunc"
                   c:type="ClutterStageInputForeachFunc"/>
           </parameter>
@@ -52118,7 +52230,7 @@ toolkit, and it should never be called by applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="4620">user data</doc>
+                 line="4547">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -52126,17 +52238,17 @@ toolkit, and it should never be called by applications.</doc>
       <method name="read_pixels" c:identifier="clutter_stage_read_pixels">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1910">Makes a screenshot of the stage in RGBA 8bit data, returns a
+             line="1886">Makes a screenshot of the stage in RGBA 8bit data, returns a
 linear buffer with @width * 4 as rowstride.
 
 The alpha data contained in the returned buffer is driver-dependent,
 and not guaranteed to hold any sensible value.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="160"/>
+                         line="155"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.c"
-               line="1926">a pointer to newly allocated memory with the buffer
+               line="1902">a pointer to newly allocated memory with the buffer
   or %NULL if the read failed. Use g_free() on the returned data
   to release the resources it has allocated.</doc>
           <array zero-terminated="0" c:type="guchar*">
@@ -52147,32 +52259,32 @@ and not guaranteed to hold any sensible value.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1912">A #ClutterStage</doc>
+                 line="1888">A #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1913">x coordinate of the first pixel that is read from stage</doc>
+                 line="1889">x coordinate of the first pixel that is read from stage</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1914">y coordinate of the first pixel that is read from stage</doc>
+                 line="1890">y coordinate of the first pixel that is read from stage</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1915">Width dimension of pixels to be read, or -1 for the
+                 line="1891">Width dimension of pixels to be read, or -1 for the
   entire stage width</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1917">Height dimension of pixels to be read, or -1 for the
+                 line="1893">Height dimension of pixels to be read, or -1 for the
   entire stage height</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -52182,9 +52294,9 @@ and not guaranteed to hold any sensible value.</doc>
               c:identifier="clutter_stage_schedule_update">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2528">Schedules a redraw of the #ClutterStage at the next optimal timestamp.</doc>
+             line="2455">Schedules a redraw of the #ClutterStage at the next optimal timestamp.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="173"/>
+                         line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52192,14 +52304,14 @@ and not guaranteed to hold any sensible value.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2530">a #ClutterStage actor</doc>
+                 line="2457">a #ClutterStage actor</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="set_active" c:identifier="clutter_stage_set_active">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="257"/>
+                         line="252"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52217,11 +52329,11 @@ and not guaranteed to hold any sensible value.</doc>
               glib:set-property="key-focus">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="2080">Sets the key focus on @actor. An actor with key focus will receive
+             line="2007">Sets the key focus on @actor. An actor with key focus will receive
 all the key events. If @actor is %NULL, the stage will receive
 focus.</doc>
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="149"/>
+                         line="144"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52229,7 +52341,7 @@ focus.</doc>
           <instance-parameter name="stage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2082">the #ClutterStage</doc>
+                 line="2009">the #ClutterStage</doc>
             <type name="Stage" c:type="ClutterStage*"/>
           </instance-parameter>
           <parameter name="actor"
@@ -52238,7 +52350,7 @@ focus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="2083">the actor to set key focus to, or %NULL</doc>
+                 line="2010">the actor to set key focus to, or %NULL</doc>
             <type name="Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -52246,7 +52358,7 @@ focus.</doc>
       <method name="set_minimum_size"
               c:identifier="clutter_stage_set_minimum_size">
         <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="145"/>
+                         line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52259,32 +52371,6 @@ focus.</doc>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <type name="guint" c:type="guint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_title"
-              c:identifier="clutter_stage_set_title"
-              glib:set-property="title">
-        <doc xml:space="preserve"
-             filename="clutter/clutter/clutter-stage.c"
-             line="2031">Sets the stage title.</doc>
-        <source-position filename="clutter/clutter/clutter-stage.h"
-                         line="139"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stage" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="clutter/clutter/clutter-stage.c"
-                 line="2033">A #ClutterStage</doc>
-            <type name="Stage" c:type="ClutterStage*"/>
-          </instance-parameter>
-          <parameter name="title" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="clutter/clutter/clutter-stage.c"
-                 line="2034">A utf8 string for the stage windows title.</doc>
-            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -52329,7 +52415,7 @@ focus.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1498">%TRUE if there is currently an active grab on the stage.</doc>
+             line="1474">%TRUE if there is currently an active grab on the stage.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="key-focus"
@@ -52339,7 +52425,7 @@ focus.</doc>
                 getter="get_key_focus">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1483">The [class@Clutter.Actor] that will receive key events from the underlying
+             line="1459">The [class@Clutter.Actor] that will receive key events from the underlying
 windowing system.
 
 If %NULL, the #ClutterStage will receive the events.</doc>
@@ -52350,20 +52436,9 @@ If %NULL, the #ClutterStage will receive the events.</doc>
                 getter="get_perspective">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1458">The parameters used for the perspective projection from 3D
+             line="1446">The parameters used for the perspective projection from 3D
 coordinates to 2D</doc>
         <type name="Perspective"/>
-      </property>
-      <property name="title"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_title"
-                getter="get_title"
-                default-value="NULL">
-        <doc xml:space="preserve"
-             filename="clutter/clutter/clutter-stage.c"
-             line="1471">The stage's title - usually displayed in stage windows title decorations.</doc>
-        <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
         <type name="Actor" c:type="ClutterActor"/>
@@ -52371,7 +52446,7 @@ coordinates to 2D</doc>
       <glib:signal name="after-paint" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1577">The signal is emitted after the stage is painted,
+             line="1553">The signal is emitted after the stage is painted,
 but before the results are displayed on the screen.0</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -52380,13 +52455,13 @@ but before the results are displayed on the screen.0</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1580">a #ClutterStageView</doc>
+                 line="1556">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1581">a #ClutterFrame</doc>
+                 line="1557">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52399,13 +52474,13 @@ but before the results are displayed on the screen.0</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1603">a #ClutterStageView</doc>
+                 line="1579">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1604">a #ClutterFrame</doc>
+                 line="1580">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52413,7 +52488,7 @@ but before the results are displayed on the screen.0</doc>
       <glib:signal name="before-paint" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1555">The signal is emitted before the stage is painted.</doc>
+             line="1531">The signal is emitted before the stage is painted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52421,13 +52496,13 @@ but before the results are displayed on the screen.0</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1558">a #ClutterStageView</doc>
+                 line="1534">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1559">a #ClutterFrame</doc>
+                 line="1535">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52440,13 +52515,13 @@ but before the results are displayed on the screen.0</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1515">a #ClutterStageView</doc>
+                 line="1491">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1516">a #ClutterFrame</doc>
+                 line="1492">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52456,7 +52531,7 @@ but before the results are displayed on the screen.0</doc>
                    introspectable="0">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1671">Signals that the underlying GL driver has had its texture memory purged
+             line="1647">Signals that the underlying GL driver has had its texture memory purged
 so anything presently held in texture memory is now invalidated, and
 likely corrupt. It needs redrawing.</doc>
         <return-value transfer-ownership="none">
@@ -52466,7 +52541,7 @@ likely corrupt. It needs redrawing.</doc>
       <glib:signal name="paint-view" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1620">The signal is emitted before a [class@Clutter.StageView] is being
+             line="1596">The signal is emitted before a [class@Clutter.StageView] is being
 painted.
 
 The view is painted in the default handler. Hence, if you want to perform
@@ -52479,19 +52554,19 @@ framebuffer, use [func@GObject.signal_connect_after] or pass %G_CONNECT_AFTER.</
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1623">a #ClutterStageView</doc>
+                 line="1599">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="redraw_clip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1624">a #MtkRegion with the redraw clip</doc>
+                 line="1600">a #MtkRegion with the redraw clip</doc>
             <type name="Mtk.Region"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1625">a #ClutterFrame</doc>
+                 line="1601">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52499,7 +52574,7 @@ framebuffer, use [func@GObject.signal_connect_after] or pass %G_CONNECT_AFTER.</
       <glib:signal name="prepare-frame" when="last">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1532">The signal is emitted after the stage is updated,
+             line="1508">The signal is emitted after the stage is updated,
 before the stage is painted, even if it will not be painted.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -52508,13 +52583,13 @@ before the stage is painted, even if it will not be painted.</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1535">a #ClutterStageView</doc>
+                 line="1511">a #ClutterStageView</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1536">a #ClutterFrame</doc>
+                 line="1512">a #ClutterFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -52522,7 +52597,7 @@ before the stage is painted, even if it will not be painted.</doc>
       <glib:signal name="presented" when="last" introspectable="0">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.c"
-             line="1649">Signals that the #ClutterStage was presented on the screen to the user.</doc>
+             line="1625">Signals that the #ClutterStage was presented on the screen to the user.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -52530,7 +52605,7 @@ before the stage is painted, even if it will not be painted.</doc>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1652">the #ClutterStageView presented</doc>
+                 line="1628">the #ClutterStageView presented</doc>
             <type name="StageView"/>
           </parameter>
           <parameter name="frame_info"
@@ -52539,7 +52614,7 @@ before the stage is painted, even if it will not be painted.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="clutter/clutter/clutter-stage.c"
-                 line="1653">a #ClutterFrameInfo</doc>
+                 line="1629">a #ClutterFrameInfo</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -52603,33 +52678,33 @@ before the stage is painted, even if it will not be painted.</doc>
               c:type="ClutterStageInputForeachFunc">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-stage.h"
-           line="230">Iterator function for active input. Active input counts as any pointing
+           line="225">Iterator function for active input. Active input counts as any pointing
 device currently known to have some form of activity on the stage: Pointers
 leaning on a widget, tablet styli in proximity, active touchpoints...</doc>
-      <source-position filename="clutter/clutter/clutter-stage.h" line="243"/>
+      <source-position filename="clutter/clutter/clutter-stage.h" line="238"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-stage.h"
-             line="241">%TRUE to keep iterating. %FALSE to stop.</doc>
+             line="236">%TRUE to keep iterating. %FALSE to stop.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="stage" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="232">the stage</doc>
+               line="227">the stage</doc>
           <type name="Stage" c:type="ClutterStage*"/>
         </parameter>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="233">Active input device</doc>
+               line="228">Active input device</doc>
           <type name="InputDevice" c:type="ClutterInputDevice*"/>
         </parameter>
         <parameter name="sequence" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="234">Active sequence in @device, or %NULL</doc>
+               line="229">Active sequence in @device, or %NULL</doc>
           <type name="EventSequence" c:type="ClutterEventSequence*"/>
         </parameter>
         <parameter name="user_data"
@@ -52639,7 +52714,7 @@ leaning on a widget, tablet styli in proximity, active touchpoints...</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-stage.h"
-               line="235">Data passed to clutter_stage_active_input_foreach()</doc>
+               line="230">Data passed to clutter_stage_active_input_foreach()</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -59052,6 +59127,28 @@ See also #ClutterTouchpadPinchEvent and #ClutterTouchpadPinchEvent.4</doc>
              filename="clutter/clutter/clutter-enums.h"
              line="980">Linear transfer function</doc>
       </member>
+      <function name="get_default_luminances"
+                c:identifier="clutter_transfer_function_get_default_luminances">
+        <source-position filename="clutter/clutter/clutter-color-state.h"
+                         line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="transfer_function" transfer-ownership="none">
+            <type name="TransferFunction" c:type="ClutterTransferFunction"/>
+          </parameter>
+          <parameter name="min_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="max_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="ref_lum_out" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+        </parameters>
+      </function>
     </enumeration>
     <class name="TransformNode"
            c:symbol-prefix="transform_node"
@@ -60870,14 +60967,14 @@ only private data</doc>
               moved-to="Event.add_filter">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-event.c"
-           line="1309">Adds a function which will be called for all events that Clutter
+           line="1312">Adds a function which will be called for all events that Clutter
 processes. The function will be called before any signals are
 emitted for the event and it will take precedence over any grabs.</doc>
       <source-position filename="clutter/clutter/clutter-event.h" line="144"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1320">an identifier for the event filter, to be used
+             line="1323">an identifier for the event filter, to be used
   with [func@Clutter.Event.remove_filter].</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
@@ -60888,7 +60985,7 @@ emitted for the event and it will take precedence over any grabs.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1311">The #ClutterStage to capture events for</doc>
+               line="1314">The #ClutterStage to capture events for</doc>
           <type name="Stage" c:type="ClutterStage*"/>
         </parameter>
         <parameter name="func"
@@ -60898,13 +60995,13 @@ emitted for the event and it will take precedence over any grabs.</doc>
                    destroy="2">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1312">The callback function which will be passed all events.</doc>
+               line="1315">The callback function which will be passed all events.</doc>
           <type name="EventFilterFunc" c:type="ClutterEventFilterFunc"/>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1313">A #GDestroyNotify</doc>
+               line="1316">A #GDestroyNotify</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
         <parameter name="user_data"
@@ -60913,7 +61010,7 @@ emitted for the event and it will take precedence over any grabs.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1314">A data pointer to pass to the function.</doc>
+               line="1317">A data pointer to pass to the function.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -60938,7 +61035,7 @@ this.</doc>
               moved-to="Event.remove_filter">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-event.c"
-           line="1346">Removes an event filter that was previously added with
+           line="1349">Removes an event filter that was previously added with
 [func@Clutter.Event.add_filter].</doc>
       <source-position filename="clutter/clutter/clutter-event.h" line="149"/>
       <return-value transfer-ownership="none">
@@ -60948,7 +61045,7 @@ this.</doc>
         <parameter name="id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="clutter/clutter/clutter-event.c"
-               line="1348">The ID of the event filter, as returned from [func@Clutter.Event.add_filter]</doc>
+               line="1351">The ID of the event filter, as returned from [func@Clutter.Event.add_filter]</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -60956,12 +61053,12 @@ this.</doc>
     <function name="events_pending" c:identifier="clutter_events_pending">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-event.c"
-           line="1023">Checks if events are pending in the event queue.</doc>
+           line="1026">Checks if events are pending in the event queue.</doc>
       <source-position filename="clutter/clutter/clutter-event.h" line="137"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1028">TRUE if there are pending events, FALSE otherwise.</doc>
+             line="1031">TRUE if there are pending events, FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -60982,7 +61079,7 @@ this.</doc>
               c:identifier="clutter_get_current_event">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-event.c"
-           line="1061">If an event is currently being processed, return that event.
+           line="1064">If an event is currently being processed, return that event.
 This function is intended to be used to access event state
 that might not be exposed by higher-level widgets.  For
 example, to get the key modifier state from a Button 'clicked'
@@ -60991,7 +61088,7 @@ event.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1070">The current ClutterEvent, or %NULL if none</doc>
+             line="1073">The current ClutterEvent, or %NULL if none</doc>
         <type name="Event" c:type="const ClutterEvent*"/>
       </return-value>
     </function>
@@ -60999,13 +61096,13 @@ event.</doc>
               c:identifier="clutter_get_current_event_time">
       <doc xml:space="preserve"
            filename="clutter/clutter/clutter-event.c"
-           line="1040">Retrieves the timestamp of the last event, if there is an
+           line="1043">Retrieves the timestamp of the last event, if there is an
 event or if the event has a timestamp.</doc>
       <source-position filename="clutter/clutter/clutter-event.h" line="230"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="clutter/clutter/clutter-event.c"
-             line="1046">the event timestamp, or %CLUTTER_CURRENT_TIME</doc>
+             line="1049">the event timestamp, or %CLUTTER_CURRENT_TIME</doc>
         <type name="guint32" c:type="guint32"/>
       </return-value>
     </function>
@@ -61579,6 +61676,29 @@ See also clutter_threads_add_idle_full().</doc>
                filename="clutter/clutter/clutter-main.c"
                line="591">an unsigned integer greater than zero</doc>
           <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="transfer_function_get_default_luminances"
+              c:identifier="clutter_transfer_function_get_default_luminances"
+              moved-to="TransferFunction.get_default_luminances">
+      <source-position filename="clutter/clutter/clutter-color-state.h"
+                       line="95"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="transfer_function" transfer-ownership="none">
+          <type name="TransferFunction" c:type="ClutterTransferFunction"/>
+        </parameter>
+        <parameter name="min_lum_out" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="max_lum_out" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="ref_lum_out" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
         </parameter>
       </parameters>
     </function>

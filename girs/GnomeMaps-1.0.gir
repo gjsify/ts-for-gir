@@ -651,38 +651,38 @@ and should be accessed using the provided API</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/maps-shield.c"
-               line="1642">a [class@Shumate.VectorSprite]</doc>
+               line="1660">a [class@Shumate.VectorSprite]</doc>
           <type name="Shumate.VectorSprite" c:type="ShumateVectorSprite*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/maps-shield.c"
-                 line="1636">a [class@Shield]</doc>
+                 line="1654">a [class@Shield]</doc>
             <type name="Shield" c:type="MapsShield*"/>
           </instance-parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/maps-shield.c"
-                 line="1637">the highway reference</doc>
+                 line="1655">the highway reference</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/maps-shield.c"
-                 line="1638">the highway name</doc>
+                 line="1656">the highway name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/maps-shield.c"
-                 line="1639">the route color</doc>
+                 line="1657">the route color</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/maps-shield.c"
-                 line="1640">the scale factor</doc>
+                 line="1658">the scale factor</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>

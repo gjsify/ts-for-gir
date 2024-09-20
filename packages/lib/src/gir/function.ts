@@ -352,11 +352,10 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMe
         >;
     }
 
-    copy(
-        options?:
-            | { parent?: IntrospectedBaseClass | undefined; parameters?: IntrospectedFunctionParameter[] }
-            | undefined
-    ): IntrospectedDirectAllocationConstructor {
+    copy(options?: {
+        parent?: IntrospectedBaseClass | undefined;
+        parameters?: IntrospectedFunctionParameter[];
+    }): IntrospectedDirectAllocationConstructor {
         const copy = new IntrospectedDirectAllocationConstructor(
             options?.parameters ?? this.parameters,
             options?.parent ?? this.parent

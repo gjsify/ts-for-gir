@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.21.2",
+    "rollup": "^4.22.0",
     "typescript": "^5.5.4"
   },
   "dependencies": {

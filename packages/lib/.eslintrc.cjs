@@ -14,6 +14,7 @@ module.exports = {
         '@typescript-eslint/triple-slash-reference': 'off',
         camelcase: 'off',
         '@typescript-eslint/camelcase': 'off',
+        '@typescript-eslint/no-empty-object-type': 'off',
     },
     parserOptions: {
         tsconfigRootDir: __dirname,

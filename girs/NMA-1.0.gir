@@ -1405,7 +1405,7 @@ is compiled against.</doc>
       <source-position filename="src/nma-version.h" line="18"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="7" c:type="NMA_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="6" c:type="NMA_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/nma-version.h"
            line="28">Evaluates to the micro version number of NetworkManager which this source
@@ -1832,7 +1832,9 @@ is compiled against.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="nma_mobile_providers_database_new">
+      <function name="new"
+                c:identifier="nma_mobile_providers_database_new"
+                glib:finish-func="new_finish">
         <source-position filename="src/nma-mobile-providers.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3140,20 +3142,20 @@ from either of them or a file.</doc>
               c:identifier="nma_utils_menu_to_secret_flags">
       <doc xml:space="preserve"
            filename="src/nma-ui-utils.c"
-           line="365">Returns secret flags corresponding to the selected password storage menu
+           line="359">Returns secret flags corresponding to the selected password storage menu
 in the attached icon</doc>
       <source-position filename="src/nma-ui-utils.h" line="19"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/nma-ui-utils.c"
-             line="372">secret flags corresponding to the active item in password menu</doc>
+             line="366">secret flags corresponding to the active item in password menu</doc>
         <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
       </return-value>
       <parameters>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="367">password #GtkEntry which the password icon/menu is attached to</doc>
+               line="361">password #GtkEntry which the password icon/menu is attached to</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
       </parameters>
@@ -3162,7 +3164,7 @@ in the attached icon</doc>
               c:identifier="nma_utils_setup_password_storage">
       <doc xml:space="preserve"
            filename="src/nma-ui-utils.c"
-           line="246">Adds a secondary icon and creates a popup menu for password entry.
+           line="240">Adds a secondary icon and creates a popup menu for password entry.
 The active menu item is set up according to initial_flags, or
 from @setting/@password_flags_name (if they are not NULL).
 If the @setting/@password_flags_name are not NULL, secret flags will
@@ -3175,37 +3177,37 @@ be automatically updated in the setting when menu is changed.</doc>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="248">password #GtkEntry which the icon is attached to</doc>
+               line="242">password #GtkEntry which the icon is attached to</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="initial_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="249">initial secret flags to setup password menu from</doc>
+               line="243">initial secret flags to setup password menu from</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </parameter>
         <parameter name="setting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="250">#NMSetting containing the password, or NULL</doc>
+               line="244">#NMSetting containing the password, or NULL</doc>
           <type name="NM.Setting" c:type="NMSetting*"/>
         </parameter>
         <parameter name="password_flags_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="251">name of the secret flags (like psk-flags), or NULL</doc>
+               line="245">name of the secret flags (like psk-flags), or NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="with_not_required" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="252">whether to include "Not required" menu item</doc>
+               line="246">whether to include "Not required" menu item</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="ask_mode" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="253">%TRUE if the entry is shown in ASK mode. That means,
+               line="247">%TRUE if the entry is shown in ASK mode. That means,
   while prompting for a password, contrary to being inside the
   editor mode.
   If %TRUE, the entry should be sensivive on selected "always-ask"
@@ -3222,7 +3224,7 @@ be automatically updated in the setting when menu is changed.</doc>
               c:identifier="nma_utils_update_password_storage">
       <doc xml:space="preserve"
            filename="src/nma-ui-utils.c"
-           line="398">Updates secret flags in the password storage popup menu and also
+           line="392">Updates secret flags in the password storage popup menu and also
 in the @setting (if @setting and @password_flags_name are not NULL).</doc>
       <source-position filename="src/nma-ui-utils.h" line="20"/>
       <return-value transfer-ownership="none">
@@ -3232,25 +3234,25 @@ in the @setting (if @setting and @password_flags_name are not NULL).</doc>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="400">#GtkEntry with the password</doc>
+               line="394">#GtkEntry with the password</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="secret_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="401">secret flags to set</doc>
+               line="395">secret flags to set</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </parameter>
         <parameter name="setting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="402">#NMSetting containing the password, or NULL</doc>
+               line="396">#NMSetting containing the password, or NULL</doc>
           <type name="NM.Setting" c:type="NMSetting*"/>
         </parameter>
         <parameter name="password_flags_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/nma-ui-utils.c"
-               line="403">name of the secret flags (like psk-flags), or NULL</doc>
+               line="397">name of the secret flags (like psk-flags), or NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

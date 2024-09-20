@@ -1143,7 +1143,6 @@ If [property@DataSourceRequest:data] was previously set, it will be cleared.</do
       </method>
       <method name="is_completed"
               c:identifier="shumate_data_source_request_is_completed"
-              glib:get-property="completed"
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-data-source-request.c"
@@ -1169,7 +1168,6 @@ receive new data or errors.</doc>
       <property name="completed"
                 version="1.1"
                 transfer-ownership="none"
-                getter="is_completed"
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="shumate/shumate-data-source-request.c"
@@ -6804,7 +6802,7 @@ clicked.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="1006">a #GQuark</doc>
+               line="1008">a #GQuark</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -8340,20 +8338,20 @@ not, vector renderers cannot be created or used.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="563">Gets the sprite sheet used to render icons and textures.</doc>
+             line="565">Gets the sprite sheet used to render icons and textures.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
                          line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="569">the [class@VectorSpriteSheet]</doc>
+               line="571">the [class@VectorSpriteSheet]</doc>
           <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="565">a [class@VectorRenderer]</doc>
+                 line="567">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
         </parameters>
@@ -8363,7 +8361,7 @@ not, vector renderers cannot be created or used.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="614">Adds a data source to the renderer.
+             line="616">Adds a data source to the renderer.
 
 Currently, [class@VectorRenderer] only supports one data source
 and throws an error if the style does not contain exactly one
@@ -8380,19 +8378,19 @@ will have no effect.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="616">a [class@VectorRenderer]</doc>
+                 line="618">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="617">the name of the data source</doc>
+                 line="619">the name of the data source</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="data_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="618">a [class@DataSource]</doc>
+                 line="620">a [class@DataSource]</doc>
             <type name="DataSource" c:type="ShumateDataSource*"/>
           </parameter>
         </parameters>
@@ -8403,7 +8401,7 @@ will have no effect.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="589">Sets the sprite sheet used to render icons and textures.</doc>
+             line="591">Sets the sprite sheet used to render icons and textures.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
                          line="45"/>
         <return-value transfer-ownership="none">
@@ -8413,13 +8411,13 @@ will have no effect.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="591">a [class@VectorRenderer]</doc>
+                 line="593">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="sprites" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="592">a [class@VectorSpriteSheet]</doc>
+                 line="594">a [class@VectorSpriteSheet]</doc>
             <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
           </parameter>
         </parameters>
@@ -8431,7 +8429,7 @@ will have no effect.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="523">Sets the sprite sheet used by the style JSON to render icons and textures.
+             line="525">Sets the sprite sheet used by the style JSON to render icons and textures.
 
 The existing [property@VectorRenderer:sprite-sheet] property will be replaced
 with a new instance of [class@VectorSpriteSheet].</doc>
@@ -8441,26 +8439,26 @@ with a new instance of [class@VectorSpriteSheet].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="535">whether the sprite sheet was loaded successfully</doc>
+               line="537">whether the sprite sheet was loaded successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="525">a [class@VectorRenderer]</doc>
+                 line="527">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="sprites_pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="526">a [class@GdkPixbuf.Pixbuf]</doc>
+                 line="528">a [class@GdkPixbuf.Pixbuf]</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="sprites_json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="527">a JSON string</doc>
+                 line="529">a JSON string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -8473,7 +8471,7 @@ with a new instance of [class@VectorSpriteSheet].</doc>
                 getter="get_sprite_sheet">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="238">The sprite sheet used to render icons and textures.</doc>
+             line="240">The sprite sheet used to render icons and textures.</doc>
         <type name="VectorSpriteSheet"/>
       </property>
       <property name="style-json"
@@ -8483,7 +8481,7 @@ with a new instance of [class@VectorSpriteSheet].</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="223">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
+             line="225">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 format.
 
 Note that not all features of the specification are supported.</doc>
@@ -9564,7 +9562,7 @@ an application was linked to.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="1006">a #GQuark</doc>
+             line="1008">a #GQuark</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

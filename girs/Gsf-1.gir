@@ -7738,6 +7738,9 @@ data structures necessary to validate a doument based on that description.</doc>
         <type name="utf8" c:type="const char*"/>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="gsf/gsf-libxml.c"
+             line="553">callback for the node opening</doc>
         <callback name="start">
           <source-position filename="gsf/gsf-libxml.h" line="92"/>
           <return-value transfer-ownership="none">
@@ -7754,6 +7757,9 @@ data structures necessary to validate a doument based on that description.</doc>
         </callback>
       </field>
       <field name="end">
+        <doc xml:space="preserve"
+             filename="gsf/gsf-libxml.c"
+             line="554">callback for node end</doc>
         <callback name="end">
           <source-position filename="gsf/gsf-libxml.h" line="93"/>
           <return-value transfer-ownership="none">

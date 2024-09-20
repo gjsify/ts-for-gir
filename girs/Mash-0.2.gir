@@ -329,6 +329,9 @@ pass the %MASH_DATA_NEGATE_Y flag.</doc>
            line="78">The #MashDataLoader structure contains only private data.</doc>
       <source-position filename="mash-data-loader.h" line="76"/>
       <virtual-method name="get_data" invoker="get_data">
+        <doc xml:space="preserve"
+             filename="mash-data-loader.h"
+             line="62">Virtual used to get the loaded data</doc>
         <source-position filename="mash-data-loader.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -416,6 +419,9 @@ This function is not usually called by applications.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load">
+        <doc xml:space="preserve"
+             filename="mash-data-loader.h"
+             line="61">Virtual used for loading the model from the file</doc>
         <callback name="load" throws="1">
           <source-position filename="mash-data-loader.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -438,6 +444,9 @@ This function is not usually called by applications.</doc>
         </callback>
       </field>
       <field name="get_data">
+        <doc xml:space="preserve"
+             filename="mash-data-loader.h"
+             line="62">Virtual used to get the loaded data</doc>
         <callback name="get_data">
           <source-position filename="mash-data-loader.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -1407,6 +1416,9 @@ in mash_light_append_shader().</doc>
         <type name="Clutter.ActorClass" c:type="ClutterActorClass"/>
       </field>
       <field name="generate_shader">
+        <doc xml:space="preserve"
+             filename="mash-light.h"
+             line="57">Virtual used for creating custom light types</doc>
         <callback name="generate_shader">
           <source-position filename="mash-light.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -1435,6 +1447,9 @@ in mash_light_append_shader().</doc>
         </callback>
       </field>
       <field name="update_uniforms">
+        <doc xml:space="preserve"
+             filename="mash-light.h"
+             line="58">Virtual used for creating custom light types</doc>
         <callback name="update_uniforms">
           <source-position filename="mash-light.h" line="69"/>
           <return-value transfer-ownership="none">

@@ -3795,34 +3795,30 @@ See goa_account_proxy_new_for_bus_sync() for the synchronous, blocking version o
                     introspectable="0">
       <doc xml:space="preserve"
            filename="src/goa/goaversion.c"
-           line="68">Checks the version of the GOA library that is being compiled
-against.
+           line="58">Checks the version of the GOA library that is being compiled against.
 
-&lt;example&gt;
-&lt;title&gt;Checking the version of the GOA library&lt;/title&gt;
-&lt;programlisting&gt;
-  if (!GOA_CHECK_VERSION (3, 8, 0))
-    g_error ("GOA version 3.8.0 or above is needed");
-&lt;/programlisting&gt;
-&lt;/example&gt;
+```c
+if (!GOA_CHECK_VERSION (3, 8, 0))
+  g_error ("GOA version 3.8.0 or above is needed");
+```
 
-See goa_check_version() for a runtime check.</doc>
+See [func@Goa.check_version] for a runtime check.</doc>
       <source-position filename="src/goa/goaversion.h" line="39"/>
       <parameters>
         <parameter name="major">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="70">the major version to check for</doc>
+               line="60">the major version to check for</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="71">the minor version to check for</doc>
+               line="61">the minor version to check for</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="72">the micro version to check for</doc>
+               line="62">the micro version to check for</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -5077,7 +5073,7 @@ See goa_chat_proxy_new_for_bus_sync() for the synchronous, blocking version of t
            glib:type-struct="ClientClass">
       <doc xml:space="preserve"
            filename="src/goa/goaclient.c"
-           line="27">#GoaClient is used for accessing the GNOME Online Accounts service
+           line="27">[class@Goa.Client] is used for accessing the GNOME Online Accounts service
 from a client program.</doc>
       <source-position filename="src/goa/goaclient.h" line="32"/>
       <implements name="Gio.AsyncInitable"/>
@@ -5087,20 +5083,19 @@ from a client program.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="255">Finishes an operation started with goa_client_new().</doc>
+             line="246">Finishes an operation started with [func@Goa.Client.new].</doc>
         <source-position filename="src/goa/goaclient.h" line="37"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="262">A #GoaClient or %NULL if @error is set. Free with
-g_object_unref() when done with it.</doc>
+               line="253">A `GoaClient`, or %NULL with @error set</doc>
           <type name="Client" c:type="GoaClient*"/>
         </return-value>
         <parameters>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="257">A #GAsyncResult.</doc>
+                 line="248">A `GAsyncResult`</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5110,13 +5105,12 @@ g_object_unref() when done with it.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="280">Synchronously gets a #GoaClient for the local system.</doc>
+             line="270">Synchronously gets a [class@Goa.Client].</doc>
         <source-position filename="src/goa/goaclient.h" line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="287">A #GoaClient or %NULL if @error is set. Free with
-g_object_unref() when done with it.</doc>
+               line="277">A `GoaClient`, or %NULL with @error set</doc>
           <type name="Client" c:type="GoaClient*"/>
         </return-value>
         <parameters>
@@ -5126,7 +5120,7 @@ g_object_unref() when done with it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="282">A #GCancellable or %NULL.</doc>
+                 line="272">A `GCancellable`</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5136,10 +5130,11 @@ g_object_unref() when done with it.</doc>
                 glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="231">Asynchronously gets a #GoaClient. When the operation is
-finished, @callback will be invoked in the &lt;link
-linkend="g-main-context-push-thread-default"&gt;thread-default main
-loop&lt;/link&gt; of the thread you are calling this method from.</doc>
+             line="221">Asynchronously gets a [class@Goa.Client].
+
+This is a failable asynchronous constructor - when the client is ready,
+@callback will be invoked and you can use [ctor@Goa.Client.new_finish] to
+get the result.</doc>
         <source-position filename="src/goa/goaclient.h" line="34"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5151,7 +5146,7 @@ loop&lt;/link&gt; of the thread you are calling this method from.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="233">A #GCancellable or %NULL.</doc>
+                 line="223">A `GCancellable`</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5162,7 +5157,7 @@ loop&lt;/link&gt; of the thread you are calling this method from.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="234">Function that will be called when the result is ready.</doc>
+                 line="224">A callback to call when the operation is complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5171,7 +5166,7 @@ loop&lt;/link&gt; of the thread you are calling this method from.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="235">Data to pass to @callback.</doc>
+                 line="225">Data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5179,18 +5174,18 @@ loop&lt;/link&gt; of the thread you are calling this method from.</doc>
       <method name="get_accounts" c:identifier="goa_client_get_accounts">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="426">Gets all accounts that @self knows about. The result is a list of
-#GoaObject instances where each object at least has an #GoaAccount
-interface (that can be obtained via the goa_object_get_account()
-method) but may also implement other interfaces such as
-#GoaMail or #GoaFiles.</doc>
+             line="413">Gets all accounts that @self knows about.
+
+The result is a list of [iface@Goa.Object] instances where each object at
+least has an [iface@Goa.Account] interface (that can be obtained via the
+[method@Goa.Object.get_account] method) but may also implement other
+interfaces such as [iface@Goa.Mail] or [iface@Goa.Files].</doc>
         <source-position filename="src/goa/goaclient.h" line="43"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="436">A list of
-#GoaObject instances that must be freed with g_list_free() after
-each element has been freed with g_object_unref().</doc>
+               line="424">A list of `GoaObject`
+  instances</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Object"/>
           </type>
@@ -5199,7 +5194,7 @@ each element has been freed with g_object_unref().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="428">A #GoaClient.</doc>
+                 line="415">A `GoaClient`</doc>
             <type name="Client" c:type="GoaClient*"/>
           </instance-parameter>
         </parameters>
@@ -5207,20 +5202,19 @@ each element has been freed with g_object_unref().</doc>
       <method name="get_manager" c:identifier="goa_client_get_manager">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="400">Gets the #GoaManager for @self, if any.</doc>
+             line="388">Gets the [iface@Goa.Manager] for @self, if any.</doc>
         <source-position filename="src/goa/goaclient.h" line="42"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="406">A #GoaManager or %NULL. Do not
-free, the returned object belongs to @self.</doc>
+               line="394">A `GoaManager` or %NULL</doc>
           <type name="Manager" c:type="GoaManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="402">A #GoaClient.</doc>
+                 line="390">A `GoaClient`</doc>
             <type name="Client" c:type="GoaClient*"/>
           </instance-parameter>
         </parameters>
@@ -5230,20 +5224,19 @@ free, the returned object belongs to @self.</doc>
               glib:get-property="object-manager">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="384">Gets the #GDBusObjectManager used by @self.</doc>
+             line="373">Gets the [iface@Gio.DBusObjectManager] used by @self.</doc>
         <source-position filename="src/goa/goaclient.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="390">A #GDBusObjectManager. Do not free, the
-instance is owned by @self.</doc>
+               line="379">A `GDBusObjectManager`</doc>
           <type name="Gio.DBusObjectManager" c:type="GDBusObjectManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="386">A #GoaClient.</doc>
+                 line="375">A `GoaClient`</doc>
             <type name="Client" c:type="GoaClient*"/>
           </instance-parameter>
         </parameters>
@@ -5253,29 +5246,26 @@ instance is owned by @self.</doc>
               version="3.6">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="462">Finds and returns the #GoaObject instance whose
-&lt;link
-linkend="gdbus-property-org-gnome-OnlineAccounts-Account.Id"&gt;"Id"&lt;/link&gt;
-D-Bus property matches @id.</doc>
+             line="449">Finds and returns the [iface@Goa.Object] instance whose
+[property@Goa.Account:id] D-Bus property matches @id.</doc>
         <source-position filename="src/goa/goaclient.h" line="44"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/goa/goaclient.c"
-               line="472">A #GoaObject. Free the returned
-object with g_object_unref().</doc>
+               line="457">the object for the given id</doc>
           <type name="Object" c:type="GoaObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="464">A #GoaClient.</doc>
+                 line="451">A `GoaClient`</doc>
             <type name="Client" c:type="GoaClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="465">The ID to look for.</doc>
+                 line="452">The ID to look for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5285,15 +5275,14 @@ object with g_object_unref().</doc>
                 getter="get_object_manager">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="156">The #GDBusObjectManager used by the #GoaClient instance.</doc>
+             line="147">The [iface@Gio.DBusObjectManager] used by the [class@Goa.Client] instance.</doc>
         <type name="Gio.DBusObjectManager"/>
       </property>
       <glib:signal name="account-added" when="last">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="170">Emitted when @object has been added. See
-goa_client_get_accounts() for information about how to use this
-object.</doc>
+             line="161">Emitted when @object has been added. See [method@Goa.Client.get_accounts]
+for information about how to use this object.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5301,7 +5290,7 @@ object.</doc>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="173">The #GoaObject for the added account.</doc>
+                 line="164">The `GoaObject` for the added account</doc>
             <type name="Object"/>
           </parameter>
         </parameters>
@@ -5309,7 +5298,7 @@ object.</doc>
       <glib:signal name="account-changed" when="last">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="210">Emitted when something on @object changes.</doc>
+             line="200">Emitted when something on @object changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5317,7 +5306,7 @@ object.</doc>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="213">The #GoaObject for the account with changes.</doc>
+                 line="203">The `GoaObject` for the account with changes</doc>
             <type name="Object"/>
           </parameter>
         </parameters>
@@ -5325,7 +5314,7 @@ object.</doc>
       <glib:signal name="account-removed" when="last">
         <doc xml:space="preserve"
              filename="src/goa/goaclient.c"
-             line="191">Emitted when @object has been removed.</doc>
+             line="181">Emitted when @object has been removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5333,7 +5322,7 @@ object.</doc>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/goa/goaclient.c"
-                 line="194">The #GoaObject for the removed account.</doc>
+                 line="184">The `GoaObject` for the removed account</doc>
             <type name="Object"/>
           </parameter>
         </parameters>
@@ -6707,7 +6696,7 @@ See goa_documents_proxy_new_for_bus_sync() for the synchronous, blocking version
                  glib:error-domain="goa-error-quark">
       <doc xml:space="preserve"
            filename="src/goa/goaenums.h"
-           line="30">Error codes for the #GOA_ERROR error domain and the
+           line="30">Error codes for the [type@Goa.Error] error domain and the
 corresponding D-Bus error names.</doc>
       <member name="failed"
               value="0"
@@ -6764,7 +6753,13 @@ corresponding D-Bus error names.</doc>
              line="37">Invalid SSL certificate.</doc>
       </member>
       <function name="quark" c:identifier="goa_error_quark">
+        <doc xml:space="preserve"
+             filename="src/goa/goaerror.c"
+             line="36">Registers an error quark for `Goa` errors and a domain for D-Bus errors</doc>
         <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/goa/goaerror.c"
+               line="41">The error quark used for `Goa` errors.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -9463,7 +9458,7 @@ See goa_files_proxy_new_for_bus_sync() for the synchronous, blocking version of 
               version="3.8">
       <doc xml:space="preserve"
            filename="src/goa/goaversion.c"
-           line="32">The major version number of the GOA daemon and library.
+           line="22">The major version number of the GOA daemon and library.
 
 Like #goa_major_version, but from the headers used at
 application compile time, rather than from the library
@@ -9686,12 +9681,12 @@ linked against at application run time.</doc>
       </parameters>
     </function-macro>
     <constant name="MICRO_VERSION"
-              value="2"
+              value="0"
               c:type="GOA_MICRO_VERSION"
               version="3.8">
       <doc xml:space="preserve"
            filename="src/goa/goaversion.c"
-           line="56">The micro version number of the GOA daemon and library.
+           line="46">The micro version number of the GOA daemon and library.
 
 Like #goa_micro_version, but from the headers used at
 application compile time, rather than from the library
@@ -9700,12 +9695,12 @@ linked against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="50"
+              value="52"
               c:type="GOA_MINOR_VERSION"
               version="3.8">
       <doc xml:space="preserve"
            filename="src/goa/goaversion.c"
-           line="44">The minor version number of the GOA daemon and library.
+           line="34">The minor version number of the GOA daemon and library.
 
 Like #goa_minor_version, but from the headers used at
 application compile time, rather than from the library
@@ -23962,47 +23957,44 @@ The properties are overridden in the order they are defined.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="src/goa/goaversion.c"
-           line="97">Checks that the GOA library in use is compatible with the
-given version. Generally you would pass in the constants
-#GOA_MAJOR_VERSION, #GOA_MINOR_VERSION, #GOA_MICRO_VERSION
-as the three arguments to this function; that produces
-a check that the library in use is compatible with
-the version of GOA the application or module was compiled
-against.
+           line="83">Checks that the GOA library in use is compatible with the given version.
 
-Compatibility is defined by two things: first the version
-of the running library is newer than the version
-@required_major.@required_minor.@required_micro. Second
-the running library must be binary compatible with the
-version @required_major.@required_minor.@required_micro
-(same major and minor version).</doc>
+Generally you would pass in the constants [const@Goa.MAJOR_VERSION],
+[const@Goa.MINOR_VERSION], [const@Goa.MICRO_VERSION] as three arguments to
+this function; that produces a check that the library in use is compatible
+with the version of GOA the application or module was compiled against.
+
+Compatibility is defined by two things: first the version of the running
+library is newer than the version
+@required_major.@required_minor.@required_micro. Second the running library
+must be binary compatible with the version
+@required_major.@required_minor.@required_micro (same major and minor
+version).</doc>
       <source-position filename="src/goa/goaversion.h" line="35"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/goa/goaversion.c"
-             line="118">%NULL if the GOA library is compatible with the
-  given version, or a string describing the version mismatch.
-  The returned string is owned by GOA and must not be modified
-  or freed.</doc>
+             line="103">%NULL if the GOA library is compatible with the
+  given version, or a string describing the version mismatch.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="required_major" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="99">the required major version.</doc>
+               line="85">the required major version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="required_minor" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="100">the required minor version.</doc>
+               line="86">the required minor version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="required_micro" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/goa/goaversion.c"
-               line="101">the required micro version.</doc>
+               line="87">the required micro version.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -24100,7 +24092,13 @@ The properties are overridden in the order they are defined.</doc>
     <function name="error_quark"
               c:identifier="goa_error_quark"
               moved-to="Error.quark">
+      <doc xml:space="preserve"
+           filename="src/goa/goaerror.c"
+           line="36">Registers an error quark for `Goa` errors and a domain for D-Bus errors</doc>
       <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/goa/goaerror.c"
+             line="41">The error quark used for `Goa` errors.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
@@ -24194,18 +24192,6 @@ The properties are overridden in the order they are defined.</doc>
         </parameter>
       </parameters>
     </function>
-    <docsection name="goaerror">
-      <doc xml:space="preserve"
-           filename="src/goa/goaerror.c"
-           line="26">Error codes and D-Bus errors.</doc>
-    </docsection>
-    <docsection name="goaversion">
-      <doc xml:space="preserve"
-           filename="src/goa/goaversion.c"
-           line="22">GOA provides version information, primarily useful in configure
-checks for builds that have a configure script. Applications will
-not typically use the features described here.</doc>
-    </docsection>
     <function name="mail_interface_info"
               c:identifier="goa_mail_interface_info"
               moved-to="Mail.interface_info">

@@ -11473,7 +11473,7 @@ a newly allocated #GList of #GVirConfigDomainOsBootDevice.</doc>
         <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-snapshot.h"
                          line="101"/>
         <return-value transfer-ownership="none">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="snapshot" transfer-ownership="none">

@@ -3472,13 +3472,13 @@ equivalent to storing as sRGB.</doc>
                 writable="1"
                 construct="1"
                 transfer-ownership="none"
-                default-value="6">
+                default-value="48">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="tile-cache-size"
                 writable="1"
                 transfer-ownership="none"
-                default-value="3903913984">
+                default-value="101935591424">
         <type name="guint64" c:type="guint64"/>
       </property>
       <property name="tile-height"
@@ -5433,6 +5433,10 @@ completes operations.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="register_map">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="139">See gegl_metadata_register_map().  If called with a NULL map,
+the registration is deleted.</doc>
         <callback name="register_map">
           <source-position filename="gegl/gegl-metadata.h" line="156"/>
           <return-value transfer-ownership="none">
@@ -5478,6 +5482,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="set_resolution">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="141">See gegl_metadata_set_resolution().</doc>
         <callback name="set_resolution">
           <source-position filename="gegl/gegl-metadata.h" line="163"/>
           <return-value transfer-ownership="none">
@@ -5515,6 +5522,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="get_resolution">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="142">See gegl_metadata_get_resolution().</doc>
         <callback name="get_resolution">
           <source-position filename="gegl/gegl-metadata.h" line="166"/>
           <return-value transfer-ownership="none">
@@ -5552,6 +5562,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="iter_lookup">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="143">See gegl_metadata_iter_lookup().</doc>
         <callback name="iter_lookup">
           <source-position filename="gegl/gegl-metadata.h" line="170"/>
           <return-value transfer-ownership="none">
@@ -5583,6 +5596,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="iter_init">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="144">See gegl_metadata_iter_init().</doc>
         <callback name="iter_init">
           <source-position filename="gegl/gegl-metadata.h" line="173"/>
           <return-value transfer-ownership="none">
@@ -5605,6 +5621,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="iter_next">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="145">See gegl_metadata_iter_next().</doc>
         <callback name="iter_next">
           <source-position filename="gegl/gegl-metadata.h" line="175"/>
           <return-value transfer-ownership="none">
@@ -5630,6 +5649,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="iter_set_value">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="146">See gegl_metadata_iter_set_value().</doc>
         <callback name="iter_set_value">
           <source-position filename="gegl/gegl-metadata.h" line="177"/>
           <return-value transfer-ownership="none">
@@ -5661,6 +5683,9 @@ completes operations.</doc>
         </callback>
       </field>
       <field name="iter_get_value">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadata.h"
+             line="147">See gegl_metadata_iter_get_value().</doc>
         <callback name="iter_get_value">
           <source-position filename="gegl/gegl-metadata.h" line="180"/>
           <return-value transfer-ownership="none">
@@ -5747,6 +5772,17 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
       <source-position filename="gegl/gegl-metadatastore.h" line="159"/>
       <implements name="Metadata"/>
       <virtual-method name="_declare">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="69">The _declare virtual method creates a metadata variable in the
+underlying data store. It implements gegl_metadata_store_declare(). A
+#GParamSpec is used to describe the variable.  If the metadata shadows an
+object property, shadow should be %TRUE, otherwise %FALSE.  It is acceptable
+for a subclass to provide additional variables which are implicitly
+declared, that is, they need not be declared using
+gegl_metadata_store_declare(), however the @pspec method must still retrieve
+a #GParamSpec describing such variables.  This method MUST be provided by
+the subclass.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5764,6 +5800,12 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
         </parameters>
       </virtual-method>
       <virtual-method name="_get_value">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="91">Return a pointer to a #GValue with the value of the metadata
+variable or %NULL if not declared or the variable does not contain a valid
+value.  Implements gegl_metadata_store_get_value().  This method MUST be
+provided by the subclass.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="GObject.Value" c:type="const GValue*"/>
@@ -5778,6 +5820,19 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
         </parameters>
       </virtual-method>
       <virtual-method name="generate_value" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="110">This method is called to optionally generate a value to be
+written to and image file. If no generator is available it returns %FALSE
+and the registered mapping is used. If a generator is available it should
+create a suitable value to be written to the image file and return %TRUE.
+The default method checks if a signal handler is registered for the
+generate-value signal with the variable name as the detail parameter. If a
+handler is registered it emits the signal with an initialised #GValue to
+receive the file metadata and returns %TRUE otherwise %FALSE.  @parse_value
+and @generate_value are provided to handle the case where some file formats
+overload, for example, image comments. A typical case is formatting many
+values into a TIFF file's ImageDescription field.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5824,6 +5879,18 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
         </parameters>
       </virtual-method>
       <virtual-method name="parse_value" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="100">This method is called to optionally parse image file metadata
+prior to setting metadata variables in the #GeglMetadataStore. If no parser
+is available it returns %FALSE and the registered mapping is used.  If a
+parser available it should set one or more metadata variables using
+gegl_metadata_store_set_value() and return %TRUE. Note that the parser MUST
+return %TRUE even if setting individual values fails.  The default method
+checks if a signal handler is registered for the parse-value signal with
+the variable name as the detail parameter. If a handler is registered it
+emits the signal with the file metadata provided as a #GValue and returns
+%TRUE otherwise %FALSE.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5844,6 +5911,12 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
         </parameters>
       </virtual-method>
       <virtual-method name="pspec" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="78">The pspec virtual method returns the #GParamSpec used to declare a
+metadata variable. It is used to implement
+gegl_metadata_store_typeof_value(). This method MUST be provided by the
+subclass.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="134"/>
         <return-value>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
@@ -5858,6 +5931,13 @@ function may be specified, e.g. to transform from a #GDatetime to a string.</doc
         </parameters>
       </virtual-method>
       <virtual-method name="register_hook">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="95">This method is called after a file loader or saver registers
+a #GeglMetadataMap and before any further processing takes place.  It is
+intended to allow an application to create further application-specific
+mappings using gegl_metadata_store_register().  #GeglMetadataStore provides
+a default method which emits the `::mapped` signal.</doc>
         <source-position filename="gegl/gegl-metadatastore.h" line="145"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7110,6 +7190,17 @@ up the metadata.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="_declare" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="69">The _declare virtual method creates a metadata variable in the
+underlying data store. It implements gegl_metadata_store_declare(). A
+#GParamSpec is used to describe the variable.  If the metadata shadows an
+object property, shadow should be %TRUE, otherwise %FALSE.  It is acceptable
+for a subclass to provide additional variables which are implicitly
+declared, that is, they need not be declared using
+gegl_metadata_store_declare(), however the @pspec method must still retrieve
+a #GParamSpec describing such variables.  This method MUST be provided by
+the subclass.</doc>
         <callback name="_declare">
           <source-position filename="gegl/gegl-metadatastore.h" line="131"/>
           <return-value transfer-ownership="none">
@@ -7129,6 +7220,12 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="pspec" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="78">The pspec virtual method returns the #GParamSpec used to declare a
+metadata variable. It is used to implement
+gegl_metadata_store_typeof_value(). This method MUST be provided by the
+subclass.</doc>
         <callback name="pspec" introspectable="0">
           <source-position filename="gegl/gegl-metadatastore.h" line="134"/>
           <return-value>
@@ -7145,6 +7242,13 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="set_value">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="86">Set a metadata variable using a #GValue. Implements
+gegl_metadata_store_set_value().  The metadata variable should be declared
+and the #GValue must be of the correct type.  Note that failure to set a
+variable may be dependent of properties of the underlying storage mechanism.
+This method MUST be provided by the subclass.</doc>
         <callback name="set_value">
           <source-position filename="gegl/gegl-metadatastore.h" line="136"/>
           <return-value transfer-ownership="none">
@@ -7173,6 +7277,12 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="_get_value" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="91">Return a pointer to a #GValue with the value of the metadata
+variable or %NULL if not declared or the variable does not contain a valid
+value.  Implements gegl_metadata_store_get_value().  This method MUST be
+provided by the subclass.</doc>
         <callback name="_get_value">
           <source-position filename="gegl/gegl-metadatastore.h" line="139"/>
           <return-value transfer-ownership="none">
@@ -7189,6 +7299,12 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="has_value">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="82">The has_value virtual method implements
+gegl_metadata_store_has_value() It should return %TRUE if the variable is
+declared and contains a valid value of the correct type, otherwise %FALSE.
+This method MUST be provided by the subclass.</doc>
         <callback name="has_value">
           <source-position filename="gegl/gegl-metadatastore.h" line="141"/>
           <return-value transfer-ownership="none">
@@ -7214,6 +7330,13 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="register_hook">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="95">This method is called after a file loader or saver registers
+a #GeglMetadataMap and before any further processing takes place.  It is
+intended to allow an application to create further application-specific
+mappings using gegl_metadata_store_register().  #GeglMetadataStore provides
+a default method which emits the `::mapped` signal.</doc>
         <callback name="register_hook">
           <source-position filename="gegl/gegl-metadatastore.h" line="145"/>
           <return-value transfer-ownership="none">
@@ -7233,6 +7356,18 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="parse_value" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="100">This method is called to optionally parse image file metadata
+prior to setting metadata variables in the #GeglMetadataStore. If no parser
+is available it returns %FALSE and the registered mapping is used.  If a
+parser available it should set one or more metadata variables using
+gegl_metadata_store_set_value() and return %TRUE. Note that the parser MUST
+return %TRUE even if setting individual values fails.  The default method
+checks if a signal handler is registered for the parse-value signal with
+the variable name as the detail parameter. If a handler is registered it
+emits the signal with the file metadata provided as a #GValue and returns
+%TRUE otherwise %FALSE.</doc>
         <callback name="parse_value" introspectable="0">
           <source-position filename="gegl/gegl-metadatastore.h" line="148"/>
           <return-value transfer-ownership="none">
@@ -7255,6 +7390,19 @@ up the metadata.</doc>
         </callback>
       </field>
       <field name="generate_value" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gegl/gegl-metadatastore.h"
+             line="110">This method is called to optionally generate a value to be
+written to and image file. If no generator is available it returns %FALSE
+and the registered mapping is used. If a generator is available it should
+create a suitable value to be written to the image file and return %TRUE.
+The default method checks if a signal handler is registered for the
+generate-value signal with the variable name as the detail parameter. If a
+handler is registered it emits the signal with an initialised #GValue to
+receive the file metadata and returns %TRUE otherwise %FALSE.  @parse_value
+and @generate_value are provided to handle the case where some file formats
+overload, for example, image comments. A typical case is formatting many
+values into a TIFF file's ImageDescription field.</doc>
         <callback name="generate_value" introspectable="0">
           <source-position filename="gegl/gegl-metadatastore.h" line="152"/>
           <return-value transfer-ownership="none">

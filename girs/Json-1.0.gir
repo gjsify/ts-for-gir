@@ -2228,14 +2228,14 @@ stream.</doc>
       <source-position filename="json-glib/json-version.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="JSON_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="JSON_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="46">Json micro version component (e.g. 3 if `JSON_VERSION` is "1.2.3")</doc>
       <source-position filename="json-glib/json-version.h" line="51"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="10" c:type="JSON_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="9" c:type="JSON_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="39">Json minor version component (e.g. 2 if `JSON_VERSION` is "1.2.3")</doc>
@@ -3678,26 +3678,26 @@ with the same name.</doc>
       <method name="equal" c:identifier="json_object_equal" version="1.2">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="1032">Check whether @a and @b are equal objects, meaning they have the same
+             line="1018">Check whether @a and @b are equal objects, meaning they have the same
 set of members, and the values of corresponding members are equal.</doc>
         <source-position filename="json-glib/json-types.h" line="406"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="1040">`TRUE` if @a and @b are equal, and `FALSE` otherwise</doc>
+               line="1026">`TRUE` if @a and @b are equal, and `FALSE` otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1034">a JSON object</doc>
+                 line="1020">a JSON object</doc>
             <type name="Object" c:type="gconstpointer"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1035">another JSON object</doc>
+                 line="1021">another JSON object</doc>
             <type name="Object" c:type="gconstpointer"/>
           </parameter>
         </parameters>
@@ -3707,7 +3707,7 @@ set of members, and the values of corresponding members are equal.</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="953">Iterates over all members of @object and calls @func on
+             line="939">Iterates over all members of @object and calls @func on
 each one of them.
 
 It is safe to change the value of a member of the oobject
@@ -3724,7 +3724,7 @@ insertion order.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="955">a JSON object</doc>
+                 line="941">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="func"
@@ -3733,7 +3733,7 @@ insertion order.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="956">the function to be called on each member</doc>
+                 line="942">the function to be called on each member</doc>
             <type name="ObjectForeach" c:type="JsonObjectForeach"/>
           </parameter>
           <parameter name="data"
@@ -3742,7 +3742,7 @@ insertion order.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="957">data to be passed to the function</doc>
+                 line="943">data to be passed to the function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3752,10 +3752,9 @@ insertion order.</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="815">Convenience function that retrieves the array
+             line="802">Convenience function that retrieves the array
 stored in @member_name of @object. It is an error to specify a
-@member_name which does not exist or which holds a non-`null`, non-array
-value.
+@member_name which does not exist.
 
 If @member_name contains `null`, then this function will return `NULL`.
 
@@ -3764,20 +3763,20 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="829">the array inside the object's member</doc>
+               line="815">the array inside the object's member</doc>
           <type name="Array" c:type="JsonArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="817">a JSON object</doc>
+                 line="804">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="818">the name of the member</doc>
+                 line="805">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3787,10 +3786,9 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="696">Convenience function that retrieves the boolean value
+             line="689">Convenience function that retrieves the boolean value
 stored in @member_name of @object. It is an error to specify a
-@member_name which does not exist or which holds a non-scalar,
-non-`null` value.
+@member_name which does not exist.
 
 See also: [method@Json.Object.get_boolean_member_with_default],
   [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
@@ -3798,20 +3796,20 @@ See also: [method@Json.Object.get_boolean_member_with_default],
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="709">the boolean value of the object's member</doc>
+               line="701">the boolean value of the object's member</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="698">a JSON object</doc>
+                 line="691">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="699">the name of the member</doc>
+                 line="692">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3821,18 +3819,16 @@ See also: [method@Json.Object.get_boolean_member_with_default],
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="715">Convenience function that retrieves the boolean value
+             line="707">Convenience function that retrieves the boolean value
 stored in @member_name of @object.
 
 If @member_name does not exist, does not contain a scalar value,
-or contains `null`, then @default_value is returned instead. If
-@member_name contains a non-boolean, non-`null` scalar value, then
-whatever json_node_get_boolean() would return is returned.</doc>
+or contains `null`, then @default_value is returned instead.</doc>
         <source-position filename="json-glib/json-types.h" line="364"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="729">the boolean value of the object's member, or the
+               line="719">the boolean value of the object's member, or the
   given default</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3840,19 +3836,19 @@ whatever json_node_get_boolean() would return is returned.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="717">a JSON object</doc>
+                 line="709">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="718">the name of the @object member</doc>
+                 line="710">the name of the @object member</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="default_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="719">the value to return if @member_name is not valid</doc>
+                 line="711">the value to return if @member_name is not valid</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3862,10 +3858,9 @@ whatever json_node_get_boolean() would return is returned.</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="656">Convenience function that retrieves the floating point value
+             line="652">Convenience function that retrieves the floating point value
 stored in @member_name of @object. It is an error to specify a
-@member_name which does not exist or which holds a non-scalar,
-non-`null` value.
+@member_name which does not exist.
 
 See also: [method@Json.Object.get_double_member_with_default],
   [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
@@ -3873,20 +3868,20 @@ See also: [method@Json.Object.get_double_member_with_default],
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="669">the floating point value of the object's member</doc>
+               line="664">the floating point value of the object's member</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="658">a JSON object</doc>
+                 line="654">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="659">the name of the member</doc>
+                 line="655">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3896,18 +3891,16 @@ See also: [method@Json.Object.get_double_member_with_default],
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="675">Convenience function that retrieves the floating point value
+             line="670">Convenience function that retrieves the floating point value
 stored in @member_name of @object.
 
 If @member_name does not exist, does not contain a scalar value,
-or contains `null`, then @default_value is returned instead. If
-@member_name contains a non-double, non-`null` scalar value, then
-whatever json_node_get_double() would return is returned.</doc>
+or contains `null`, then @default_value is returned instead.</doc>
         <source-position filename="json-glib/json-types.h" line="357"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="689">the floating point value of the object's member, or the
+               line="682">the floating point value of the object's member, or the
   given default</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
@@ -3915,19 +3908,19 @@ whatever json_node_get_double() would return is returned.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="677">a JSON object</doc>
+                 line="672">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="678">the name of the @object member</doc>
+                 line="673">the name of the @object member</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="default_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="679">the value to return if @member_name is not valid</doc>
+                 line="674">the value to return if @member_name is not valid</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3937,10 +3930,9 @@ whatever json_node_get_double() would return is returned.</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="616">Convenience function that retrieves the integer value
+             line="615">Convenience function that retrieves the integer value
 stored in @member_name of @object. It is an error to specify a
-@member_name which does not exist or which holds a non-scalar,
-non-`null` value.
+@member_name which does not exist.
 
 See also: [method@Json.Object.get_int_member_with_default],
   [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
@@ -3948,20 +3940,20 @@ See also: [method@Json.Object.get_int_member_with_default],
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="629">the integer value of the object's member</doc>
+               line="627">the integer value of the object's member</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="618">a JSON object</doc>
+                 line="617">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="619">the name of the object member</doc>
+                 line="618">the name of the object member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3971,18 +3963,16 @@ See also: [method@Json.Object.get_int_member_with_default],
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="635">Convenience function that retrieves the integer value
+             line="633">Convenience function that retrieves the integer value
 stored in @member_name of @object.
 
 If @member_name does not exist, does not contain a scalar value,
-or contains `null`, then @default_value is returned instead. If
-@member_name contains a non-integer, non-`null` scalar value, then whatever
-json_node_get_int() would return is returned.</doc>
+or contains `null`, then @default_value is returned instead.</doc>
         <source-position filename="json-glib/json-types.h" line="350"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="649">the integer value of the object's member, or the
+               line="645">the integer value of the object's member, or the
   given default</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -3990,19 +3980,19 @@ json_node_get_int() would return is returned.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="637">a JSON object</doc>
+                 line="635">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="638">the name of the object member</doc>
+                 line="636">the name of the object member</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="default_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="639">the value to return if @member_name is not valid</doc>
+                 line="637">the value to return if @member_name is not valid</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -4065,7 +4055,7 @@ and calling [method@Json.Object.get_member].</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="776">Convenience function that checks whether the value
+             line="763">Convenience function that checks whether the value
 stored in @member_name of @object is null. It is an error to
 specify a @member_name which does not exist.
 
@@ -4074,20 +4064,20 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="787">`TRUE` if the value is `null`</doc>
+               line="774">`TRUE` if the value is `null`</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="778">a JSON object</doc>
+                 line="765">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="779">the name of the member</doc>
+                 line="766">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4097,9 +4087,9 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="852">Convenience function that retrieves the object
+             line="838">Convenience function that retrieves the object
 stored in @member_name of @object. It is an error to specify a @member_name
-which does not exist or which holds a non-`null`, non-object value.
+which does not exist.
 
 If @member_name contains `null`, then this function will return `NULL`.
 
@@ -4108,20 +4098,20 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="865">the object inside the object's member</doc>
+               line="851">the object inside the object's member</doc>
           <type name="Object" c:type="JsonObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="854">a JSON object</doc>
+                 line="840">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="855">the name of the member</doc>
+                 line="841">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4129,19 +4119,19 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
       <method name="get_size" c:identifier="json_object_get_size">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="907">Retrieves the number of members of a JSON object.</doc>
+             line="893">Retrieves the number of members of a JSON object.</doc>
         <source-position filename="json-glib/json-types.h" line="392"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="913">the number of members</doc>
+               line="899">the number of members</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="909">a JSON object</doc>
+                 line="895">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
         </parameters>
@@ -4151,10 +4141,9 @@ See also: [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="736">Convenience function that retrieves the string value
+             line="726">Convenience function that retrieves the string value
 stored in @member_name of @object. It is an error to specify a
-@member_name that does not exist or which holds a non-scalar,
-non-`null` value.
+@member_name that does not exist.
 
 See also: [method@Json.Object.get_string_member_with_default],
   [method@Json.Object.get_member], [method@Json.Object.has_member]</doc>
@@ -4162,20 +4151,20 @@ See also: [method@Json.Object.get_string_member_with_default],
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="749">the string value of the object's member</doc>
+               line="738">the string value of the object's member</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="738">a JSON object</doc>
+                 line="728">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="739">the name of the member</doc>
+                 line="729">the name of the member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4185,18 +4174,16 @@ See also: [method@Json.Object.get_string_member_with_default],
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="755">Convenience function that retrieves the string value
+             line="744">Convenience function that retrieves the string value
 stored in @member_name of @object.
 
 If @member_name does not exist, does not contain a scalar value,
-or contains `null`, then @default_value is returned instead. If
-@member_name contains a non-string, non-`null` scalar value, then
-%NULL is returned.</doc>
+or contains `null`, then @default_value is returned instead.</doc>
         <source-position filename="json-glib/json-types.h" line="371"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="769">the string value of the object's member, or the
+               line="756">the string value of the object's member, or the
   given default</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -4204,19 +4191,19 @@ or contains `null`, then @default_value is returned instead. If
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="757">a JSON object</doc>
+                 line="746">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="758">the name of the @object member</doc>
+                 line="747">the name of the @object member</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="default_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="759">the value to return if @member_name is not valid</doc>
+                 line="748">the value to return if @member_name is not valid</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4247,25 +4234,25 @@ or contains `null`, then @default_value is returned instead. If
       <method name="has_member" c:identifier="json_object_has_member">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="888">Checks whether @object has a member named @member_name.</doc>
+             line="874">Checks whether @object has a member named @member_name.</doc>
         <source-position filename="json-glib/json-types.h" line="384"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="895">`TRUE` if the JSON object has the requested member</doc>
+               line="881">`TRUE` if the JSON object has the requested member</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="890">a JSON object</doc>
+                 line="876">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="891">the name of a JSON object member</doc>
+                 line="877">the name of a JSON object member</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4273,7 +4260,7 @@ or contains `null`, then @default_value is returned instead. If
       <method name="hash" c:identifier="json_object_hash" version="1.2">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="995">Calculate a hash value for the given @key (a JSON object).
+             line="981">Calculate a hash value for the given @key (a JSON object).
 
 The hash is calculated over the object and all its members, recursively. If
 the object is immutable, this is a fast operation; otherwise, it scales
@@ -4282,14 +4269,14 @@ proportionally with the number of members in the object.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="1005">hash value for @key</doc>
+               line="991">hash value for @key</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="997">a JSON object to hash</doc>
+                 line="983">a JSON object to hash</doc>
             <type name="Object" c:type="gconstpointer"/>
           </instance-parameter>
         </parameters>
@@ -4341,7 +4328,7 @@ proportionally with the number of members in the object.</doc>
       <method name="remove_member" c:identifier="json_object_remove_member">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="923">Removes @member_name from @object, freeing its allocated resources.</doc>
+             line="909">Removes @member_name from @object, freeing its allocated resources.</doc>
         <source-position filename="json-glib/json-types.h" line="387"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4350,13 +4337,13 @@ proportionally with the number of members in the object.</doc>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="925">a JSON object</doc>
+                 line="911">a JSON object</doc>
             <type name="Object" c:type="JsonObject*"/>
           </instance-parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="926">the name of the member to remove</doc>
+                 line="912">the name of the member to remove</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4741,7 +4728,7 @@ never be accessed directly.</doc>
       <method name="init" c:identifier="json_object_iter_init" version="1.2">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="1091">Initialises the @iter and associate it with @object.
+             line="1077">Initialises the @iter and associate it with @object.
 
 ```c
 JsonObjectIter iter;
@@ -4767,13 +4754,13 @@ See also: [method@Json.ObjectIter.init_ordered]</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1093">an uninitialised JSON object iterator</doc>
+                 line="1079">an uninitialised JSON object iterator</doc>
             <type name="ObjectIter" c:type="JsonObjectIter*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1094">the JSON object to iterate over</doc>
+                 line="1080">the JSON object to iterate over</doc>
             <type name="Object" c:type="JsonObject*"/>
           </parameter>
         </parameters>
@@ -4783,7 +4770,7 @@ See also: [method@Json.ObjectIter.init_ordered]</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="1174">Initialises the @iter and associate it with @object.
+             line="1160">Initialises the @iter and associate it with @object.
 
 ```c
 JsonObjectIter iter;
@@ -4806,13 +4793,13 @@ See also: [method@Json.ObjectIter.init]</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1176">an uninitialised iterator</doc>
+                 line="1162">an uninitialised iterator</doc>
             <type name="ObjectIter" c:type="JsonObjectIter*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1177">the JSON object to iterate over</doc>
+                 line="1163">the JSON object to iterate over</doc>
             <type name="Object" c:type="JsonObject*"/>
           </parameter>
         </parameters>
@@ -4820,7 +4807,7 @@ See also: [method@Json.ObjectIter.init]</doc>
       <method name="next" c:identifier="json_object_iter_next" version="1.2">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="1130">Advances the iterator and retrieves the next member in the object.
+             line="1116">Advances the iterator and retrieves the next member in the object.
 
 If the end of the object is reached, `FALSE` is returned and @member_name
 and @member_node are set to invalid values. After that point, the @iter
@@ -4839,7 +4826,7 @@ See also: [method@Json.ObjectIter.next_ordered]</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="1154">`TRUE` if @member_name and @member_node are valid; `FALSE` if
+               line="1140">`TRUE` if @member_name and @member_node are valid; `FALSE` if
   there are no more members</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4847,7 +4834,7 @@ See also: [method@Json.ObjectIter.next_ordered]</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1132">a JSON object iterator</doc>
+                 line="1118">a JSON object iterator</doc>
             <type name="ObjectIter" c:type="JsonObjectIter*"/>
           </instance-parameter>
           <parameter name="member_name"
@@ -4858,7 +4845,7 @@ See also: [method@Json.ObjectIter.next_ordered]</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1133">return
+                 line="1119">return
    location for the member name, or %NULL to ignore</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
@@ -4870,7 +4857,7 @@ See also: [method@Json.ObjectIter.next_ordered]</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1135">return
+                 line="1121">return
    location for the member value, or %NULL to ignore</doc>
             <type name="Node" c:type="JsonNode**"/>
           </parameter>
@@ -4881,7 +4868,7 @@ See also: [method@Json.ObjectIter.next_ordered]</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="json-glib/json-object.c"
-             line="1212">Advances the iterator and retrieves the next member in the object.
+             line="1198">Advances the iterator and retrieves the next member in the object.
 
 If the end of the object is reached, `FALSE` is returned and @member_name and
 @member_node are set to invalid values. After that point, the @iter is invalid.
@@ -4899,7 +4886,7 @@ See also: [method@Json.ObjectIter.next]</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-object.c"
-               line="1235">`TRUE `if @member_name and @member_node are valid; `FALSE` if the end
+               line="1221">`TRUE `if @member_name and @member_node are valid; `FALSE` if the end
    of the object has been reached</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4907,7 +4894,7 @@ See also: [method@Json.ObjectIter.next]</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1214">an ordered JSON object iterator</doc>
+                 line="1200">an ordered JSON object iterator</doc>
             <type name="ObjectIter" c:type="JsonObjectIter*"/>
           </instance-parameter>
           <parameter name="member_name"
@@ -4918,7 +4905,7 @@ See also: [method@Json.ObjectIter.next]</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1215">return
+                 line="1201">return
    location for the member name, or %NULL to ignore</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
@@ -4930,7 +4917,7 @@ See also: [method@Json.ObjectIter.next]</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-object.c"
-                 line="1217">return
+                 line="1203">return
    location for the member value, or %NULL to ignore</doc>
             <type name="Node" c:type="JsonNode**"/>
           </parameter>
@@ -5030,7 +5017,7 @@ task itself.</doc>
       <constructor name="new" c:identifier="json_parser_new">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1203">Creates a new JSON parser.
+             line="1123">Creates a new JSON parser.
 
 You can use the `JsonParser` to load a JSON stream from either a file or a
 buffer and then walk the hierarchy using the data types API.</doc>
@@ -5038,7 +5025,7 @@ buffer and then walk the hierarchy using the data types API.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1211">the newly created parser</doc>
+               line="1131">the newly created parser</doc>
           <type name="Parser" c:type="JsonParser*"/>
         </return-value>
       </constructor>
@@ -5047,13 +5034,13 @@ buffer and then walk the hierarchy using the data types API.</doc>
                    version="1.2">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1219">Creates a new parser instance with its [property@Json.Parser:immutable]
+             line="1139">Creates a new parser instance with its [property@Json.Parser:immutable]
 property set to `TRUE` to create immutable output trees.</doc>
         <source-position filename="json-glib/json-parser.h" line="194"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1226">the newly created parser</doc>
+               line="1146">the newly created parser</doc>
           <type name="Parser" c:type="JsonParser*"/>
         </return-value>
       </constructor>
@@ -5208,7 +5195,7 @@ property set to `TRUE` to create immutable output trees.</doc>
               c:identifier="json_parser_get_current_line">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1569">Retrieves the line currently parsed, starting from 1.
+             line="1489">Retrieves the line currently parsed, starting from 1.
 
 This function has defined behaviour only while parsing; calling this
 function from outside the signal handlers emitted by the parser will
@@ -5217,14 +5204,14 @@ yield 0.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1579">the currently parsed line, or 0.</doc>
+               line="1499">the currently parsed line, or 0.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1571">a parser</doc>
+                 line="1491">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
         </parameters>
@@ -5233,7 +5220,7 @@ yield 0.</doc>
               c:identifier="json_parser_get_current_pos">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1592">Retrieves the current position inside the current line, starting
+             line="1512">Retrieves the current position inside the current line, starting
 from 0.
 
 This function has defined behaviour only while parsing; calling this
@@ -5243,14 +5230,14 @@ yield 0.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1603">the position in the current line, or 0.</doc>
+               line="1523">the position in the current line, or 0.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1594">a parser</doc>
+                 line="1514">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
         </parameters>
@@ -5258,7 +5245,7 @@ yield 0.</doc>
       <method name="get_root" c:identifier="json_parser_get_root">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1516">Retrieves the top level node from the parsed JSON stream.
+             line="1436">Retrieves the top level node from the parsed JSON stream.
 
 If the parser input was an empty string, or if parsing failed, the root
 will be `NULL`. It will also be `NULL` if it has been stolen using
@@ -5267,14 +5254,14 @@ will be `NULL`. It will also be `NULL` if it has been stolen using
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1526">the root node.</doc>
+               line="1446">the root node.</doc>
           <type name="Node" c:type="JsonNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1518">a parser</doc>
+                 line="1438">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
         </parameters>
@@ -5285,19 +5272,19 @@ will be `NULL`. It will also be `NULL` if it has been stolen using
               version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1900">Retrieves whether the parser is operating in strict mode.</doc>
+             line="1820">Retrieves whether the parser is operating in strict mode.</doc>
         <source-position filename="json-glib/json-parser.h" line="199"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1906">true if the parser is strict, and false otherwise</doc>
+               line="1826">true if the parser is strict, and false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1902">the JSON parser</doc>
+                 line="1822">the JSON parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
         </parameters>
@@ -5307,7 +5294,7 @@ will be `NULL`. It will also be `NULL` if it has been stolen using
               version="0.4">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1616">A JSON data stream might sometimes contain an assignment, like:
+             line="1536">A JSON data stream might sometimes contain an assignment, like:
 
 ```
 var _json_data = { "member_name" : [ ...
@@ -5323,14 +5310,14 @@ used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1634">`TRUE` if there was an assignment, and `FALSE` otherwise</doc>
+               line="1554">`TRUE` if there was an assignment, and `FALSE` otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1618">a parser</doc>
+                 line="1538">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="variable_name"
@@ -5341,7 +5328,7 @@ used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1619">the variable name</doc>
+                 line="1539">the variable name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -5351,7 +5338,7 @@ used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1470">Loads a JSON stream from a buffer and parses it.
+             line="1390">Loads a JSON stream from a buffer and parses it.
 
 You can call this function multiple times with the same parser, but the
 contents of the parser will be destroyed each time.</doc>
@@ -5359,26 +5346,26 @@ contents of the parser will be destroyed each time.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1482">`TRUE` if the buffer was succesfully parsed</doc>
+               line="1402">`TRUE` if the buffer was succesfully parsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1472">a parser</doc>
+                 line="1392">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1473">the buffer to parse</doc>
+                 line="1393">the buffer to parse</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1474">the length of the buffer, or -1 if it is `NUL` terminated</doc>
+                 line="1394">the length of the buffer, or -1 if it is `NUL` terminated</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -5388,7 +5375,7 @@ contents of the parser will be destroyed each time.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1359">Loads a JSON stream from the content of `filename` and parses it.
+             line="1279">Loads a JSON stream from the content of `filename` and parses it.
 
 If the file is large or shared between processes,
 [method@Json.Parser.load_from_mapped_file] may be a more efficient
@@ -5399,20 +5386,20 @@ See also: [method@Json.Parser.load_from_data]</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1373">`TRUE` if the file was successfully loaded and parsed.</doc>
+               line="1293">`TRUE` if the file was successfully loaded and parsed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1361">a parser</doc>
+                 line="1281">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1362">the path for the file to parse</doc>
+                 line="1282">the path for the file to parse</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5423,7 +5410,7 @@ See also: [method@Json.Parser.load_from_data]</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1414">Loads a JSON stream from the content of `filename` and parses it.
+             line="1334">Loads a JSON stream from the content of `filename` and parses it.
 
 Unlike [method@Json.Parser.load_from_file], `filename` will be memory
 mapped as read-only and parsed. `filename` will be unmapped before this
@@ -5434,20 +5421,20 @@ If mapping or reading the file fails, a `G_FILE_ERROR` will be returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1428">`TRUE` if the file was successfully loaded and parsed.</doc>
+               line="1348">`TRUE` if the file was successfully loaded and parsed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1416">a parser</doc>
+                 line="1336">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1417">the path for the file to parse</doc>
+                 line="1337">the path for the file to parse</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5459,7 +5446,7 @@ If mapping or reading the file fails, a `G_FILE_ERROR` will be returned.</doc>
               glib:async-func="load_from_stream_async">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1656">Loads the contents of an input stream and parses them.
+             line="1576">Loads the contents of an input stream and parses them.
 
 If `cancellable` is not `NULL`, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the
@@ -5469,7 +5456,7 @@ on the given `error`.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1670">`TRUE` if the data stream was successfully read and
+               line="1590">`TRUE` if the data stream was successfully read and
   parsed, and `FALSE` otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5477,13 +5464,13 @@ on the given `error`.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1658">a parser</doc>
+                 line="1578">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1659">the input stream with the JSON data</doc>
+                 line="1579">the input stream with the JSON data</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5492,7 +5479,7 @@ on the given `error`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1660">a #GCancellable</doc>
+                 line="1580">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5504,7 +5491,7 @@ on the given `error`.</doc>
               glib:sync-func="load_from_stream">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1823">Asynchronously reads the contents of a stream.
+             line="1743">Asynchronously reads the contents of a stream.
 
 For more details, see [method@Json.Parser.load_from_stream], which is the
 synchronous version of this call.
@@ -5520,13 +5507,13 @@ of the operation.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1825">a parser</doc>
+                 line="1745">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1826">the input stream with the JSON data</doc>
+                 line="1746">the input stream with the JSON data</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5535,7 +5522,7 @@ of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1827">a #GCancellable</doc>
+                 line="1747">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5546,7 +5533,7 @@ of the operation.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1828">the function to call when the request is satisfied</doc>
+                 line="1748">the function to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5555,7 +5542,7 @@ of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1829">the data to pass to @callback</doc>
+                 line="1749">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5566,13 +5553,13 @@ of the operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1747">Finishes an asynchronous stream loading started with
+             line="1667">Finishes an asynchronous stream loading started with
 [method@Json.Parser.load_from_stream_async].</doc>
         <source-position filename="json-glib/json-parser.h" line="225"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1756">`TRUE` if the content of the stream was successfully retrieved
+               line="1676">`TRUE` if the content of the stream was successfully retrieved
   and parsed, and `FALSE` otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5580,13 +5567,13 @@ of the operation.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1749">a parser</doc>
+                 line="1669">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1750">the result of the asynchronous operation</doc>
+                 line="1670">the result of the asynchronous operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5597,7 +5584,7 @@ of the operation.</doc>
               version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1868">Sets whether the parser should operate in strict mode.
+             line="1788">Sets whether the parser should operate in strict mode.
 
 If @strict is true, `JsonParser` will strictly conform to
 the JSON format.
@@ -5612,13 +5599,13 @@ to the JSON format, like comments.</doc>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1870">the JSON parser</doc>
+                 line="1790">the JSON parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
           <parameter name="strict" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1871">whether the parser should be strict</doc>
+                 line="1791">whether the parser should be strict</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5628,7 +5615,7 @@ to the JSON format, like comments.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="1541">Steals the top level node from the parsed JSON stream.
+             line="1461">Steals the top level node from the parsed JSON stream.
 
 This will be `NULL` in the same situations as [method@Json.Parser.get_root]
 return `NULL`.</doc>
@@ -5636,14 +5623,14 @@ return `NULL`.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="json-glib/json-parser.c"
-               line="1550">the root node</doc>
+               line="1470">the root node</doc>
           <type name="Node" c:type="JsonNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="1543">a parser</doc>
+                 line="1463">a parser</doc>
             <type name="Parser" c:type="JsonParser*"/>
           </instance-parameter>
         </parameters>
@@ -5656,7 +5643,7 @@ return `NULL`.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="338">Whether the tree built by the parser should be immutable
+             line="334">Whether the tree built by the parser should be immutable
 when created.
 
 Making the output immutable on creation avoids the expense
@@ -5672,7 +5659,7 @@ of traversing it to make it immutable later.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="354">Whether the parser should be strictly conforming to the
+             line="350">Whether the parser should be strictly conforming to the
 JSON format, or allow custom extensions like comments.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -5688,7 +5675,7 @@ JSON format, or allow custom extensions like comments.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="476">The `::array-element` signal is emitted each time a parser
+             line="472">The `::array-element` signal is emitted each time a parser
 has successfully parsed a single element of a JSON array.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.array_element] virtual function</doc-deprecated>
@@ -5699,13 +5686,13 @@ has successfully parsed a single element of a JSON array.</doc>
           <parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="479">a JSON array</doc>
+                 line="475">a JSON array</doc>
             <type name="Array"/>
           </parameter>
           <parameter name="index_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="480">the index of the newly parsed array element</doc>
+                 line="476">the index of the newly parsed array element</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5716,7 +5703,7 @@ has successfully parsed a single element of a JSON array.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="497">The `::array-end` signal is emitted each time a parser
+             line="493">The `::array-end` signal is emitted each time a parser
 has successfully parsed an entire JSON array.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.array_end] virtual function</doc-deprecated>
@@ -5727,7 +5714,7 @@ has successfully parsed an entire JSON array.</doc>
           <parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="500">the parsed JSON array</doc>
+                 line="496">the parsed JSON array</doc>
             <type name="Array"/>
           </parameter>
         </parameters>
@@ -5738,7 +5725,7 @@ has successfully parsed an entire JSON array.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="459">The `::array-start` signal is emitted each time a parser
+             line="455">The `::array-start` signal is emitted each time a parser
 starts parsing a JSON array.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.array_start] virtual function</doc-deprecated>
@@ -5752,7 +5739,7 @@ starts parsing a JSON array.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="516">The `::error` signal is emitted each time a parser encounters
+             line="512">The `::error` signal is emitted each time a parser encounters
 an error in a JSON stream.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.error] virtual function</doc-deprecated>
@@ -5766,7 +5753,7 @@ an error in a JSON stream.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="519">the error</doc>
+                 line="515">the error</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5777,7 +5764,7 @@ an error in a JSON stream.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="440">The `::object-end` signal is emitted each time a parser
+             line="436">The `::object-end` signal is emitted each time a parser
 has successfully parsed an entire JSON object.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.object_end] virtual function</doc-deprecated>
@@ -5788,7 +5775,7 @@ has successfully parsed an entire JSON object.</doc>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="443">the parsed JSON object</doc>
+                 line="439">the parsed JSON object</doc>
             <type name="Object"/>
           </parameter>
         </parameters>
@@ -5799,7 +5786,7 @@ has successfully parsed an entire JSON object.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="419">The `::object-member` signal is emitted each time a parser
+             line="415">The `::object-member` signal is emitted each time a parser
 has successfully parsed a single member of a JSON object.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.object_member] virtual function</doc-deprecated>
@@ -5810,13 +5797,13 @@ has successfully parsed a single member of a JSON object.</doc>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="422">the JSON object being parsed</doc>
+                 line="418">the JSON object being parsed</doc>
             <type name="Object"/>
           </parameter>
           <parameter name="member_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="json-glib/json-parser.c"
-                 line="423">the name of the newly parsed member</doc>
+                 line="419">the name of the newly parsed member</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -5827,7 +5814,7 @@ has successfully parsed a single member of a JSON object.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="403">This signal is emitted each time a parser starts parsing a JSON object.</doc>
+             line="399">This signal is emitted each time a parser starts parsing a JSON object.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.object_start] virtual function</doc-deprecated>
         <return-value transfer-ownership="none">
@@ -5840,7 +5827,7 @@ has successfully parsed a single member of a JSON object.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="386">This signal is emitted when a parser successfully finished parsing a
+             line="382">This signal is emitted when a parser successfully finished parsing a
 JSON data stream.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.parse_end] virtual function</doc-deprecated>
@@ -5854,7 +5841,7 @@ JSON data stream.</doc>
                    deprecated-version="1.10">
         <doc xml:space="preserve"
              filename="json-glib/json-parser.c"
-             line="369">This signal is emitted when a parser starts parsing a JSON data stream.</doc>
+             line="365">This signal is emitted when a parser starts parsing a JSON data stream.</doc>
         <doc-deprecated xml:space="preserve">Derive your own parser type from `JsonParser` and
   override the [vfunc@Json.Parser.parse_start] virtual function</doc-deprecated>
         <return-value transfer-ownership="none">
@@ -8229,7 +8216,7 @@ sequence.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.10.1" c:type="JSON_VERSION_S">
+    <constant name="VERSION_S" value="1.9.2" c:type="JSON_VERSION_S">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="60">The version of JSON-GLib, encoded as a string, useful for printing and

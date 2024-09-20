@@ -5174,7 +5174,10 @@ using the provided API.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="mbim_device_new" version="1.0">
+      <function name="new"
+                c:identifier="mbim_device_new"
+                version="1.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="131">Asynchronously creates a #MbimDevice object to manage @file.
@@ -5224,7 +5227,8 @@ mbim_device_new_finish() to get the result of the operation.</doc>
       </function>
       <method name="add_link"
               c:identifier="mbim_device_add_link"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="add_link_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="546">Asynchronously creates a new virtual network device node on top of
@@ -5400,7 +5404,10 @@ than the passed-in version.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close" c:identifier="mbim_device_close" version="1.0">
+      <method name="close"
+              c:identifier="mbim_device_close"
+              version="1.0"
+              glib:finish-func="close_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="387">Asynchronously closes a #MbimDevice for I/O.
@@ -5507,7 +5514,10 @@ mbim_device_close_finish() to get the result of the operation.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="command" c:identifier="mbim_device_command" version="1.0">
+      <method name="command"
+              c:identifier="mbim_device_command"
+              version="1.0"
+              glib:finish-func="command_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="476">Asynchronously sends a #MbimMessage to the device.
@@ -5602,7 +5612,8 @@ partial fragment). There is no need to call mbim_message_validate() again.</doc>
       </method>
       <method name="delete_all_links"
               c:identifier="mbim_device_delete_all_links"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="delete_all_links_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="645">Asynchronously deletes all virtual network interfaces that have been previously
@@ -5696,7 +5707,8 @@ management.
       </method>
       <method name="delete_link"
               c:identifier="mbim_device_delete_link"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="delete_link_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="604">Asynchronously deletes a virtual network interface that has been previously
@@ -6016,7 +6028,10 @@ created with mbim_device_add_link() in @base_ifname.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open" c:identifier="mbim_device_open" version="1.0">
+      <method name="open"
+              c:identifier="mbim_device_open"
+              version="1.0"
+              glib:finish-func="open_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="350">Asynchronously opens a #MbimDevice for I/O.
@@ -6102,7 +6117,8 @@ mbim_device_open_finish() to get the result of the operation.</doc>
       </method>
       <method name="open_full"
               c:identifier="mbim_device_open_full"
-              version="1.10">
+              version="1.10"
+              glib:finish-func="open_full_finish">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/mbim-device.h"
              line="308">Asynchronously opens a #MbimDevice for I/O.

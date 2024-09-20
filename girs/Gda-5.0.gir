@@ -42967,7 +42967,7 @@ Free-function: gda_value_free</doc>
           <doc xml:space="preserve"
                filename="gda-value.c"
                line="1663">value to set for the new #GValue.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>

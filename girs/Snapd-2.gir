@@ -1695,7 +1695,8 @@ See also snapd_channel_get_revision().</doc>
       </constructor>
       <method name="abort_change_async"
               c:identifier="snapd_client_abort_change_async"
-              version="1.30">
+              version="1.30"
+              glib:finish-func="abort_change_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1456">Asynchronously abort a change.
@@ -1818,7 +1819,8 @@ See snapd_client_abort_change_sync() for more information.</doc>
       </method>
       <method name="add_assertions_async"
               c:identifier="snapd_client_add_assertions_async"
-              version="1.8">
+              version="1.8"
+              glib:finish-func="add_assertions_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2041">Asynchronously add an assertion.
@@ -1945,7 +1947,8 @@ See snapd_client_add_assertions_sync() for more information.</doc>
       </method>
       <method name="alias_async"
               c:identifier="snapd_client_alias_async"
-              version="1.25">
+              version="1.25"
+              glib:finish-func="alias_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3698">Asynchronously create an alias to an app.
@@ -2129,7 +2132,8 @@ See snapd_client_alias_sync() for more information.</doc>
       </method>
       <method name="buy_async"
               c:identifier="snapd_client_buy_async"
-              version="1.3">
+              version="1.3"
+              glib:finish-func="buy_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3339">Asynchronously buy a snap from the store.
@@ -2277,7 +2281,8 @@ snapd_client_install2_sync().</doc>
       </method>
       <method name="check_buy_async"
               c:identifier="snapd_client_check_buy_async"
-              version="1.3">
+              version="1.3"
+              glib:finish-func="check_buy_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3295">Asynchronously check if able to buy snaps.
@@ -2388,7 +2393,8 @@ See snapd_client_check_buy_sync() for more information.</doc>
       </method>
       <method name="check_themes_async"
               c:identifier="snapd_client_check_themes_async"
-              version="1.60">
+              version="1.60"
+              glib:finish-func="check_themes_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4185">Asynchronously check for snaps providing the requested desktop themes.
@@ -2638,7 +2644,8 @@ installed, uninstalled but available on the store, or unavailable.</doc>
               c:identifier="snapd_client_connect_async"
               version="1.3"
               deprecated="1"
-              deprecated-version="1.24">
+              deprecated-version="1.24"
+              glib:finish-func="connect_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="965">This method is no longer required and does nothing, snapd-glib now connects on demand.</doc>
@@ -2716,7 +2723,8 @@ See snapd_client_connect_sync() for more information.</doc>
       </method>
       <method name="connect_interface_async"
               c:identifier="snapd_client_connect_interface_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="connect_interface_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2327">Asynchronously connect two interfaces together.
@@ -2948,7 +2956,8 @@ An asynchronous version of this function is snapd_client_connect_interface_async
       </method>
       <method name="create_user_async"
               c:identifier="snapd_client_create_user_async"
-              version="1.3">
+              version="1.3"
+              glib:finish-func="create_user_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3389">Asynchronously create a local user account.
@@ -3083,7 +3092,8 @@ See snapd_client_create_user_sync() for more information.</doc>
       </method>
       <method name="create_users_async"
               c:identifier="snapd_client_create_users_async"
-              version="1.3">
+              version="1.3"
+              glib:finish-func="create_users_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3445">Asynchronously create local user accounts using the system-user assertions that are valid for this device.
@@ -3200,7 +3210,8 @@ See snapd_client_create_users_sync() for more information.</doc>
               c:identifier="snapd_client_disable_aliases_async"
               version="1.8"
               deprecated="1"
-              deprecated-version="1.25">
+              deprecated-version="1.25"
+              glib:finish-func="disable_aliases_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3899">Asynchronously change the state of aliases.
@@ -3386,7 +3397,8 @@ See snapd_client_disable_aliases_sync() for more information.</doc>
       </method>
       <method name="disable_async"
               c:identifier="snapd_client_disable_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="disable_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3193">Asynchronously disable an installed snap.
@@ -3549,7 +3561,8 @@ See snapd_client_disable_sync() for more information.</doc>
       </method>
       <method name="disconnect_interface_async"
               c:identifier="snapd_client_disconnect_interface_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="disconnect_interface_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2381">Asynchronously disconnect two interfaces.
@@ -3748,7 +3761,8 @@ See snapd_client_disconnect_interface_sync() for more information.</doc>
       </method>
       <method name="download_async"
               c:identifier="snapd_client_download_async"
-              version="1.54">
+              version="1.54"
+              glib:finish-func="download_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4131">Asynchronously download a snap.
@@ -3909,7 +3923,8 @@ See snapd_client_download_sync() for more information.</doc>
               c:identifier="snapd_client_enable_aliases_async"
               version="1.8"
               deprecated="1"
-              deprecated-version="1.25">
+              deprecated-version="1.25"
+              glib:finish-func="enable_aliases_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3847">Asynchronously change the state of aliases.
@@ -4095,7 +4110,8 @@ See snapd_client_enable_aliases_sync() for more information.</doc>
       </method>
       <method name="enable_async"
               c:identifier="snapd_client_enable_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="enable_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3143">Asynchronously enable an installed snap.
@@ -4258,7 +4274,8 @@ See snapd_client_enable_sync() for more information.</doc>
       </method>
       <method name="find_async"
               c:identifier="snapd_client_find_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="find_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2435">Asynchronously find snaps in the store.
@@ -4322,7 +4339,8 @@ See snapd_client_find_sync() for more information.</doc>
       </method>
       <method name="find_category_async"
               c:identifier="snapd_client_find_category_async"
-              version="1.64">
+              version="1.64"
+              glib:finish-func="find_category_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2549">Asynchronously find snaps in the store.
@@ -4550,7 +4568,8 @@ See snapd_client_find_sync() for more information.</doc>
       </method>
       <method name="find_refreshable_async"
               c:identifier="snapd_client_find_refreshable_async"
-              version="1.8">
+              version="1.8"
+              glib:finish-func="find_refreshable_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2618">Asynchronously find snaps in store that are newer revisions than locally installed versions.
@@ -4667,7 +4686,8 @@ See snapd_client_find_refreshable_sync() for more information.</doc>
               c:identifier="snapd_client_find_section_async"
               version="1.7"
               deprecated="1"
-              deprecated-version="1.64">
+              deprecated-version="1.64"
+              glib:finish-func="find_section_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2478">Asynchronously find snaps in the store.
@@ -4919,7 +4939,8 @@ See snapd_client_find_sync() for more information.</doc>
       </method>
       <method name="follow_logs_async"
               c:identifier="snapd_client_follow_logs_async"
-              version="1.64">
+              version="1.64"
+              glib:finish-func="follow_logs_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4354">Follow logs for snap services. This call will only complete if snapd closes the connection and will
@@ -5089,7 +5110,8 @@ stop any other request on this client from being sent.</doc>
       </method>
       <method name="get_aliases_async"
               c:identifier="snapd_client_get_aliases_async"
-              version="1.8">
+              version="1.8"
+              glib:finish-func="get_aliases_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3639">Asynchronously get the available aliases.
@@ -5226,7 +5248,8 @@ See snapd_client_get_aliases_sync() for more information.</doc>
       </method>
       <method name="get_apps2_async"
               c:identifier="snapd_client_get_apps2_async"
-              version="1.45">
+              version="1.45"
+              glib:finish-func="get_apps2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1792">Asynchronously get information on installed apps.
@@ -5377,7 +5400,8 @@ See snapd_client_get_apps2_sync() for more information.</doc>
               c:identifier="snapd_client_get_apps_async"
               version="1.25"
               deprecated="1"
-              deprecated-version="1.45">
+              deprecated-version="1.45"
+              glib:finish-func="get_apps_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1750">Asynchronously get information on installed apps.
@@ -5511,7 +5535,8 @@ See snapd_client_get_apps_sync() for more information.</doc>
       </method>
       <method name="get_assertions_async"
               c:identifier="snapd_client_get_assertions_async"
-              version="1.8">
+              version="1.8"
+              glib:finish-func="get_assertions_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1990">Asynchronously get assertions.
@@ -5660,7 +5685,8 @@ See snapd_client_get_assertions_sync() for more information.</doc>
       </method>
       <method name="get_categories_async"
               c:identifier="snapd_client_get_categories_async"
-              version="1.64">
+              version="1.64"
+              glib:finish-func="get_categories_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3591">Asynchronously get the store categories.
@@ -5775,7 +5801,8 @@ See snapd_client_get_categories_sync() for more information.</doc>
       </method>
       <method name="get_change_async"
               c:identifier="snapd_client_get_change_async"
-              version="1.29">
+              version="1.29"
+              glib:finish-func="get_change_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1405">Asynchronously get information on a change.
@@ -5898,7 +5925,8 @@ See snapd_client_get_change_sync() for more information.</doc>
       </method>
       <method name="get_changes_async"
               c:identifier="snapd_client_get_changes_async"
-              version="1.29">
+              version="1.29"
+              glib:finish-func="get_changes_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1340">Asynchronously get changes that have occurred / are occurring on the snap daemon.
@@ -6043,7 +6071,8 @@ See snapd_client_get_changes_sync() for more information.</doc>
       </method>
       <method name="get_connections2_async"
               c:identifier="snapd_client_get_connections2_async"
-              version="1.49">
+              version="1.49"
+              glib:finish-func="get_connections2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2257">Asynchronously get the installed snap connections.
@@ -6310,7 +6339,8 @@ See snapd_client_get_connections_sync() for more information.</doc>
               c:identifier="snapd_client_get_connections_async"
               version="1.48"
               deprecated="1"
-              deprecated-version="1.49">
+              deprecated-version="1.49"
+              glib:finish-func="get_connections_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2210">Asynchronously get the installed snap connections.
@@ -6532,7 +6562,8 @@ See snapd_client_get_connections_sync() for more information.</doc>
       </method>
       <method name="get_icon_async"
               c:identifier="snapd_client_get_icon_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="get_icon_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1846">Asynchronously get the icon for an installed snap.
@@ -6655,7 +6686,8 @@ See snapd_client_get_icon_sync() for more information.</doc>
       </method>
       <method name="get_interfaces2_async"
               c:identifier="snapd_client_get_interfaces2_async"
-              version="1.48">
+              version="1.48"
+              glib:finish-func="get_interfaces2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2146">Asynchronously get the installed snap interfaces.
@@ -6806,7 +6838,8 @@ See snapd_client_get_interfaces2_sync() for more information.</doc>
               c:identifier="snapd_client_get_interfaces_async"
               version="1.0"
               deprecated="1"
-              deprecated-version="1.48">
+              deprecated-version="1.48"
+              glib:finish-func="get_interfaces_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2088">Asynchronously get the installed snap interfaces.
@@ -6976,7 +7009,8 @@ See snapd_client_get_interfaces_sync() for more information.</doc>
       </method>
       <method name="get_logs_async"
               c:identifier="snapd_client_get_logs_async"
-              version="1.64">
+              version="1.64"
+              glib:finish-func="get_logs_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4300">Asynchronously get logs for snap services.
@@ -7150,7 +7184,8 @@ This information is updated after every request.</doc>
               c:identifier="snapd_client_get_sections_async"
               version="1.7"
               deprecated="1"
-              deprecated-version="1.64">
+              deprecated-version="1.64"
+              glib:finish-func="get_sections_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3541">Asynchronously get the store sections.
@@ -7272,7 +7307,8 @@ See snapd_client_get_sections_sync() for more information.</doc>
       </method>
       <method name="get_snap_async"
               c:identifier="snapd_client_get_snap_async"
-              version="1.42">
+              version="1.42"
+              glib:finish-func="get_snap_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1597">Asynchronously get information of a single installed snap.
@@ -7327,7 +7363,8 @@ See snapd_client_get_snap_sync() for more information.</doc>
       </method>
       <method name="get_snap_conf_async"
               c:identifier="snapd_client_get_snap_conf_async"
-              version="1.48">
+              version="1.48"
+              glib:finish-func="get_snap_conf_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1647">Asynchronously get configuration for a snap.
@@ -7546,7 +7583,8 @@ See snapd_client_get_snap_sync() for more information.</doc>
       </method>
       <method name="get_snaps_async"
               c:identifier="snapd_client_get_snaps_async"
-              version="1.42">
+              version="1.42"
+              glib:finish-func="get_snaps_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1936">Asynchronously get information on installed snaps.
@@ -7722,7 +7760,8 @@ returned. If a snap is not installed it is not returned (no error is generated).
       </method>
       <method name="get_system_information_async"
               c:identifier="snapd_client_get_system_information_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="get_system_information_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1507">Request system information asynchronously from snapd.
@@ -7856,7 +7895,8 @@ While this blocks, snapd is expected to return the information quickly.</doc>
       </method>
       <method name="get_users_async"
               c:identifier="snapd_client_get_users_async"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="get_users_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3493">Asynchronously get user accounts that are valid for this device.
@@ -7971,7 +8011,8 @@ See snapd_client_get_users_sync() for more information.</doc>
       </method>
       <method name="install2_async"
               c:identifier="snapd_client_install2_async"
-              version="1.12">
+              version="1.12"
+              glib:finish-func="install2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2714">Asynchronously install a snap from the store.
@@ -8184,7 +8225,8 @@ See snapd_client_install2_sync() for more information.</doc>
               c:identifier="snapd_client_install_async"
               version="1.0"
               deprecated="1"
-              deprecated-version="1.12">
+              deprecated-version="1.12"
+              glib:finish-func="install_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2668">Asynchronously install a snap from the store.
@@ -8302,7 +8344,8 @@ See snapd_client_install_sync() for more information.</doc>
       </method>
       <method name="install_stream_async"
               c:identifier="snapd_client_install_stream_async"
-              version="1.9">
+              version="1.9"
+              glib:finish-func="install_stream_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2830">Asynchronously install a snap.
@@ -8561,7 +8604,8 @@ snapd_client_install_stream_sync (self, stream, progress_cb, NULL, cancellable, 
       </method>
       <method name="install_themes_async"
               c:identifier="snapd_client_install_themes_async"
-              version="1.60">
+              version="1.60"
+              glib:finish-func="install_themes_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4252">Asynchronously install snaps that provide the requested desktop themes.
@@ -8779,7 +8823,8 @@ an error will be returned.</doc>
               c:identifier="snapd_client_list_async"
               version="1.0"
               deprecated="1"
-              deprecated-version="1.42">
+              deprecated-version="1.42"
+              glib:finish-func="list_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1896">Asynchronously get information on all installed snaps.
@@ -8866,7 +8911,8 @@ See snapd_client_list_sync() for more information.</doc>
               c:identifier="snapd_client_list_one_async"
               version="1.0"
               deprecated="1"
-              deprecated-version="1.42">
+              deprecated-version="1.42"
+              glib:finish-func="list_one_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1555">Asynchronously get information of a single installed snap.
@@ -9033,7 +9079,8 @@ See snapd_client_list_one_sync() for more information.</doc>
       </method>
       <method name="login2_async"
               c:identifier="snapd_client_login2_async"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="login2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1196">Asynchronously get authorization to install/remove snaps.
@@ -9188,7 +9235,8 @@ See snapd_client_login2_sync() for more information.</doc>
               c:identifier="snapd_client_login_async"
               version="1.0"
               deprecated="1"
-              deprecated-version="1.26">
+              deprecated-version="1.26"
+              glib:finish-func="login_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1146">Asynchronously get authorization to install/remove snaps.
@@ -9348,7 +9396,8 @@ See snapd_client_login_sync() for more information.</doc>
       </method>
       <method name="logout_async"
               c:identifier="snapd_client_logout_async"
-              version="1.55">
+              version="1.55"
+              glib:finish-func="logout_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1248">Asynchronously log out from the snap store.
@@ -9471,7 +9520,8 @@ See snapd_client_logout_sync() for more information.</doc>
       </method>
       <method name="prefer_async"
               c:identifier="snapd_client_prefer_async"
-              version="1.25">
+              version="1.25"
+              glib:finish-func="prefer_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3799">Asynchronously ???.
@@ -9631,7 +9681,8 @@ See snapd_client_prefer_sync() for more information.</doc>
       </method>
       <method name="refresh_all_async"
               c:identifier="snapd_client_refresh_all_async"
-              version="1.5">
+              version="1.5"
+              glib:finish-func="refresh_all_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2992">Asynchronously ensure all snaps are updated to their latest versions.
@@ -9786,7 +9837,8 @@ See snapd_client_refresh_all_sync() for more information.</doc>
       </method>
       <method name="refresh_async"
               c:identifier="snapd_client_refresh_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="refresh_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2940">Asynchronously ensure an installed snap is at the latest version.
@@ -9967,7 +10019,8 @@ See snapd_client_refresh_sync() for more information.</doc>
       </method>
       <method name="remove2_async"
               c:identifier="snapd_client_remove2_async"
-              version="1.50">
+              version="1.50"
+              glib:finish-func="remove2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3089">Asynchronously uninstall a snap.
@@ -10142,7 +10195,8 @@ See snapd_client_remove2_sync() for more information.</doc>
       </method>
       <method name="remove_async"
               c:identifier="snapd_client_remove_async"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3044">Asynchronously uninstall a snap.
@@ -10314,7 +10368,8 @@ Deprecated 1.50: Use snapd_client_remove2_finish()</doc-version>
               c:identifier="snapd_client_reset_aliases_async"
               version="1.8"
               deprecated="1"
-              deprecated-version="1.25">
+              deprecated-version="1.25"
+              glib:finish-func="reset_aliases_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3951">Asynchronously change the state of aliases.
@@ -10500,7 +10555,8 @@ See snapd_client_reset_aliases_sync() for more information.</doc>
       </method>
       <method name="run_snapctl2_async"
               c:identifier="snapd_client_run_snapctl2_async"
-              version="1.59">
+              version="1.59"
+              glib:finish-func="run_snapctl2_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4058">Asynchronously run a snapctl command.
@@ -10707,7 +10763,8 @@ See snapd_client_run_snapctl2_sync() for more information.</doc>
               c:identifier="snapd_client_run_snapctl_async"
               version="1.8"
               deprecated="1"
-              deprecated-version="1.59">
+              deprecated-version="1.59"
+              glib:finish-func="run_snapctl_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="4003">Asynchronously run a snapctl command.
@@ -10957,7 +11014,8 @@ obtained by:
       </method>
       <method name="set_snap_conf_async"
               c:identifier="snapd_client_set_snap_conf_async"
-              version="1.48">
+              version="1.48"
+              glib:finish-func="set_snap_conf_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="1700">Asynchronously set configuration for a snap.
@@ -11156,7 +11214,8 @@ Defaults to "snapd-glib/VERSION".</doc>
       </method>
       <method name="switch_async"
               c:identifier="snapd_client_switch_async"
-              version="1.26">
+              version="1.26"
+              glib:finish-func="switch_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3243">Asynchronously set the tracking channel on an installed snap.
@@ -11331,7 +11390,8 @@ See snapd_client_switch_sync() for more information.</doc>
       </method>
       <method name="try_async"
               c:identifier="snapd_client_try_async"
-              version="1.9">
+              version="1.9"
+              glib:finish-func="try_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="2890">Asynchronously try a snap.
@@ -11494,7 +11554,8 @@ See snapd_client_try_sync() for more information.</doc>
       </method>
       <method name="unalias_async"
               c:identifier="snapd_client_unalias_async"
-              version="1.25">
+              version="1.25"
+              glib:finish-func="unalias_finish">
         <doc xml:space="preserve"
              filename="snapd-glib/snapd-client.c"
              line="3750">Asynchronously remove an alias from an app.

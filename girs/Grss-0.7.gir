@@ -467,7 +467,10 @@ while fetching it. More cookie can be added to every #GrssFeedChannel</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="fetch" c:identifier="grss_feed_channel_fetch" throws="1">
+      <method name="fetch"
+              c:identifier="grss_feed_channel_fetch"
+              throws="1"
+              glib:async-func="fetch_async">
         <doc xml:space="preserve"
              filename="feed-channel.c"
              line="989">Utility to fetch and populate a #GrssFeedChannel for the first time, and init
@@ -493,7 +496,8 @@ otherwise.</doc>
       </method>
       <method name="fetch_all"
               c:identifier="grss_feed_channel_fetch_all"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_all_async">
         <doc xml:space="preserve"
              filename="feed-channel.c"
              line="1122">Utility to fetch and populate a #GrssFeedChannel, and retrieve all its
@@ -519,7 +523,9 @@ longer in use, or %NULL if an error occurs.</doc>
         </parameters>
       </method>
       <method name="fetch_all_async"
-              c:identifier="grss_feed_channel_fetch_all_async">
+              c:identifier="grss_feed_channel_fetch_all_async"
+              glib:finish-func="fetch_all_finish"
+              glib:sync-func="fetch_all">
         <doc xml:space="preserve"
              filename="feed-channel.c"
              line="1211">Similar to grss_feed_channel_fetch_all(), but asyncronous.</doc>
@@ -590,7 +596,10 @@ callback</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="fetch_async" c:identifier="grss_feed_channel_fetch_async">
+      <method name="fetch_async"
+              c:identifier="grss_feed_channel_fetch_async"
+              glib:finish-func="fetch_finish"
+              glib:sync-func="fetch">
         <doc xml:space="preserve"
              filename="feed-channel.c"
              line="1090">Similar to grss_feed_channel_fetch(), but asyncronous.</doc>
@@ -967,7 +976,7 @@ this is the feed).</doc>
           <doc xml:space="preserve"
                filename="feed-channel.c"
                line="876">time of feed's publish.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
@@ -1116,7 +1125,7 @@ grss_feed_channel_set_update_interval().</doc>
                line="903">time of the feed's latest update. If this value was not set
 (with grss_feed_channel_set_update_time()) returns
 grss_feed_channel_get_publish_time().</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="channel" transfer-ownership="none">
@@ -1438,7 +1447,7 @@ grss_feed_channel_get_publish_time().</doc>
             <doc xml:space="preserve"
                  filename="feed-channel.c"
                  line="860">timestamp of publishing.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1594,7 +1603,7 @@ pass %NULL as parameter.</doc>
             <doc xml:space="preserve"
                  filename="feed-channel.c"
                  line="887">update time of the feed.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -1671,7 +1680,10 @@ pass %NULL as parameter.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <method name="fetch" c:identifier="grss_feed_enclosure_fetch" throws="1">
+      <method name="fetch"
+              c:identifier="grss_feed_enclosure_fetch"
+              throws="1"
+              glib:async-func="fetch_async">
         <doc xml:space="preserve"
              filename="feed-enclosure.c"
              line="197">Utility to fetch a #GrssFeedEnclosure. Contents are stored in a temporary
@@ -1695,7 +1707,9 @@ written, or %NULL if an error occours.</doc>
         </parameters>
       </method>
       <method name="fetch_async"
-              c:identifier="grss_feed_enclosure_fetch_async">
+              c:identifier="grss_feed_enclosure_fetch_async"
+              glib:finish-func="fetch_finish"
+              glib:sync-func="fetch">
         <doc xml:space="preserve"
              filename="feed-enclosure.c"
              line="269">Similar to grss_feed_enclosure_fetch(), but asyncronous.</doc>
@@ -2467,7 +2481,7 @@ changed with grss_feed_item_set_publish_time().</doc>
           <doc xml:space="preserve"
                filename="feed-item.c"
                line="604">publish time of @item.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
@@ -2741,7 +2755,7 @@ is just a string used to identify in unique way the item.</doc>
             <doc xml:space="preserve"
                  filename="feed-item.c"
                  line="586">publishing timestamp of the item.</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>

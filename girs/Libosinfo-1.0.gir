@@ -5942,7 +5942,8 @@ configuration parameter</doc>
       <method name="generate"
               c:identifier="osinfo_install_script_generate"
               version="0.2.0"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1345">Creates an install script.</doc>
@@ -5991,7 +5992,9 @@ that you use #osinfo_install_script_generate_for_tree() in instead.</doc>
       </method>
       <method name="generate_async"
               c:identifier="osinfo_install_script_generate_async"
-              version="0.2.0">
+              version="0.2.0"
+              glib:finish-func="generate_finish"
+              glib:sync-func="generate">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1111">Asynchronous variant of #osinfo_install_script_generate(). From the callback,
@@ -6211,7 +6214,8 @@ The tree @tree must have been identified successfully using
       <method name="generate_for_media"
               c:identifier="osinfo_install_script_generate_for_media"
               version="0.2.12"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_for_media_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1446">Creates an install script. The media @media must have been identified
@@ -6255,7 +6259,9 @@ successfully using #osinfo_db_identify_media() before calling this function.</do
       </method>
       <method name="generate_for_media_async"
               c:identifier="osinfo_install_script_generate_for_media_async"
-              version="0.2.12">
+              version="0.2.12"
+              glib:finish-func="generate_for_media_finish"
+              glib:sync-func="generate_for_media">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1394">Asynchronous variant of #osinfo_install_script_generate_for_media(). From the
@@ -6344,7 +6350,8 @@ conclude this call and get the generated script.</doc>
       <method name="generate_for_tree"
               c:identifier="osinfo_install_script_generate_for_tree"
               version="1.6.0"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_for_tree_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1542">Creates an install script. The tree @tree must have been identified
@@ -6388,7 +6395,9 @@ successfully using #osinfo_db_identify_tree() before calling this function.</doc
       </method>
       <method name="generate_for_tree_async"
               c:identifier="osinfo_install_script_generate_for_tree_async"
-              version="1.6.0">
+              version="1.6.0"
+              glib:finish-func="generate_for_tree_finish"
+              glib:sync-func="generate_for_tree">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1490">Asynchronous variant of #osinfo_install_script_generate_for_tree(). From the
@@ -6477,7 +6486,8 @@ conclude this call and get the generated script.</doc>
       <method name="generate_output"
               c:identifier="osinfo_install_script_generate_output"
               version="0.2.0"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_output_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1778">Creates an install script that is written to the returned file.</doc>
@@ -6533,7 +6543,9 @@ that you use #osinfo_install_script_generate_output_for_tree() instead.</doc>
       </method>
       <method name="generate_output_async"
               c:identifier="osinfo_install_script_generate_output_async"
-              version="0.2.0">
+              version="0.2.0"
+              glib:finish-func="generate_output_finish"
+              glib:sync-func="generate_output">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1685">Asynchronous variant of #osinfo_install_script_generate_output(). From the
@@ -6632,7 +6644,8 @@ you use #osinfo_install_script_generate_output_for_media_async() instead.</doc>
       <method name="generate_output_for_media"
               c:identifier="osinfo_install_script_generate_output_for_media"
               version="0.2.12"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_output_for_media_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1854">Creates an install script that is written to the returned file.</doc>
@@ -6682,7 +6695,9 @@ you use #osinfo_install_script_generate_output_for_media_async() instead.</doc>
       </method>
       <method name="generate_output_for_media_async"
               c:identifier="osinfo_install_script_generate_output_for_media_async"
-              version="0.2.12">
+              version="0.2.12"
+              glib:finish-func="generate_output_for_media_finish"
+              glib:sync-func="generate_output_for_media">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1817">Asynchronous variant of #osinfo_install_script_generate_output_for_media().
@@ -6779,7 +6794,8 @@ call and get the generated file.</doc>
       <method name="generate_output_for_tree"
               c:identifier="osinfo_install_script_generate_output_for_tree"
               version="1.6.0"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_output_for_tree_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1924">Creates an install script that is written to the returned file.</doc>
@@ -6829,7 +6845,9 @@ call and get the generated file.</doc>
       </method>
       <method name="generate_output_for_tree_async"
               c:identifier="osinfo_install_script_generate_output_for_tree_async"
-              version="1.6.0">
+              version="1.6.0"
+              glib:finish-func="generate_output_for_tree_finish"
+              glib:sync-func="generate_output_for_tree">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_install_script.c"
              line="1887">Asynchronous variant of #osinfo_install_script_generate_output_for_tree().
@@ -8654,7 +8672,8 @@ be recursively traversed, loading all files as XML.</doc>
       </constructor>
       <function name="create_from_location"
                 c:identifier="osinfo_media_create_from_location"
-                throws="1">
+                throws="1"
+                glib:async-func="create_from_location_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_media.c"
              line="727">Creates a new #OsinfoMedia for installation media at @location. The @location
@@ -8687,7 +8706,9 @@ NOTE: Currently this only works for ISO images/devices.</doc>
         </parameters>
       </function>
       <function name="create_from_location_async"
-                c:identifier="osinfo_media_create_from_location_async">
+                c:identifier="osinfo_media_create_from_location_async"
+                glib:finish-func="create_from_location_finish"
+                glib:sync-func="create_from_location">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_media.c"
              line="1313">Asynchronous variant of #osinfo_media_create_from_location.</doc>
@@ -8766,7 +8787,8 @@ NOTE: Currently this only works for ISO images/devices.</doc>
       <function name="create_from_location_with_flags"
                 c:identifier="osinfo_media_create_from_location_with_flags"
                 version="1.6.0"
-                throws="1">
+                throws="1"
+                glib:async-func="create_from_location_with_flags_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_media.c"
              line="750">Creates a new #OsinfoMedia for installation media at @location. The @location
@@ -8806,7 +8828,9 @@ NOTE: Currently this only works for ISO images/devices.</doc>
       </function>
       <function name="create_from_location_with_flags_async"
                 c:identifier="osinfo_media_create_from_location_with_flags_async"
-                version="1.6.0">
+                version="1.6.0"
+                glib:finish-func="create_from_location_with_flags_finish"
+                glib:sync-func="create_from_location_with_flags">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_media.c"
              line="1355">Asynchronous variant of #osinfo_media_create_from_location_with_flags.</doc>
@@ -12902,7 +12926,8 @@ resources instances that are present in either @sourceOne and @sourceTwo.</doc>
       <function name="create_from_location"
                 c:identifier="osinfo_tree_create_from_location"
                 version="0.1.0"
-                throws="1">
+                throws="1"
+                glib:async-func="create_from_location_async">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_tree.c"
              line="485">Creates a new #OsinfoTree for installation tree at @location. The @location
@@ -12936,7 +12961,9 @@ NOTE: Currently this only works for trees with a .treeinfo file</doc>
       </function>
       <function name="create_from_location_async"
                 c:identifier="osinfo_tree_create_from_location_async"
-                version="0.1.0">
+                version="0.1.0"
+                glib:finish-func="create_from_location_finish"
+                glib:sync-func="create_from_location">
         <doc xml:space="preserve"
              filename="osinfo/osinfo_tree.c"
              line="854">Asynchronous variant of #osinfo_tree_create_from_location.</doc>

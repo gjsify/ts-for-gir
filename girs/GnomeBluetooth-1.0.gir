@@ -752,7 +752,8 @@ only private fields and should not be directly accessed.</doc>
         </return-value>
       </constructor>
       <method name="connect_service"
-              c:identifier="bluetooth_client_connect_service">
+              c:identifier="bluetooth_client_connect_service"
+              glib:finish-func="connect_service_finish">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
              line="1615">When the connection operation is finished, @callback will be called. You can

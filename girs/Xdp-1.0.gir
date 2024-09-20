@@ -719,7 +719,9 @@ See also: [func@Portal.running_under_sandbox].</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
-      <method name="access_camera" c:identifier="xdp_portal_access_camera">
+      <method name="access_camera"
+              c:identifier="xdp_portal_access_camera"
+              glib:finish-func="access_camera_finish">
         <doc xml:space="preserve"
              filename="libportal/camera.c"
              line="211">Request access to a camera.
@@ -819,7 +821,8 @@ to obtain a pipewire remote.</doc>
         </parameters>
       </method>
       <method name="add_notification"
-              c:identifier="xdp_portal_add_notification">
+              c:identifier="xdp_portal_add_notification"
+              glib:finish-func="add_notification_finish">
         <doc xml:space="preserve"
              filename="libportal/notification.c"
              line="81">Sends a desktop notification.
@@ -943,7 +946,9 @@ Returns the result as a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="compose_email" c:identifier="xdp_portal_compose_email">
+      <method name="compose_email"
+              c:identifier="xdp_portal_compose_email"
+              glib:finish-func="compose_email_finish">
         <doc xml:space="preserve"
              filename="libportal/email.c"
              line="295">Presents a window that lets the user compose an email,
@@ -1099,7 +1104,8 @@ call [method@Portal.compose_email_finish] to get the results.</doc>
         </parameters>
       </method>
       <method name="create_remote_desktop_session"
-              c:identifier="xdp_portal_create_remote_desktop_session">
+              c:identifier="xdp_portal_create_remote_desktop_session"
+              glib:finish-func="create_remote_desktop_session_finish">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="529">Creates a session for remote desktop.
@@ -1201,7 +1207,8 @@ call [method@Portal.create_remote_desktop_session_finish] to get the results.</d
         </parameters>
       </method>
       <method name="create_screencast_session"
-              c:identifier="xdp_portal_create_screencast_session">
+              c:identifier="xdp_portal_create_screencast_session"
+              glib:finish-func="create_screencast_session_finish">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="455">Creates a session for a screencast.
@@ -1465,7 +1472,8 @@ the app.</doc>
         </parameters>
       </method>
       <method name="dynamic_launcher_prepare_install"
-              c:identifier="xdp_portal_dynamic_launcher_prepare_install">
+              c:identifier="xdp_portal_dynamic_launcher_prepare_install"
+              glib:finish-func="dynamic_launcher_prepare_install_finish">
         <doc xml:space="preserve"
              filename="libportal/dynamic-launcher.c"
              line="224">Presents a dialog to the user so they can confirm they want to install a
@@ -1672,7 +1680,8 @@ The @desktop_file_id must be prefixed with the caller's app ID followed by a
         </parameters>
       </method>
       <method name="get_user_information"
-              c:identifier="xdp_portal_get_user_information">
+              c:identifier="xdp_portal_get_user_information"
+              glib:finish-func="get_user_information_finish">
         <doc xml:space="preserve"
              filename="libportal/account.c"
              line="200">Gets information about the user.
@@ -1804,7 +1813,8 @@ containing the following fields:
         </parameters>
       </method>
       <method name="location_monitor_start"
-              c:identifier="xdp_portal_location_monitor_start">
+              c:identifier="xdp_portal_location_monitor_start"
+              glib:finish-func="location_monitor_start_finish">
         <doc xml:space="preserve"
              filename="libportal/location.c"
              line="320">Makes `XdpPortal` start monitoring location changes.
@@ -1944,7 +1954,9 @@ Returns result in the form of boolean.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_directory" c:identifier="xdp_portal_open_directory">
+      <method name="open_directory"
+              c:identifier="xdp_portal_open_directory"
+              glib:finish-func="open_directory_finish">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
              line="336">Opens the directory containing the file specified by the @uri.
@@ -2041,7 +2053,9 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open_file" c:identifier="xdp_portal_open_file">
+      <method name="open_file"
+              c:identifier="xdp_portal_open_file"
+              glib:finish-func="open_file_finish">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="234">Asks the user to open one or more files.
@@ -2222,7 +2236,9 @@ pipewire node.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open_uri" c:identifier="xdp_portal_open_uri">
+      <method name="open_uri"
+              c:identifier="xdp_portal_open_uri"
+              glib:finish-func="open_uri_finish">
         <doc xml:space="preserve"
              filename="libportal/openuri.c"
              line="269">Opens @uri with an external handler.</doc>
@@ -2316,7 +2332,9 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="pick_color" c:identifier="xdp_portal_pick_color">
+      <method name="pick_color"
+              c:identifier="xdp_portal_pick_color"
+              glib:finish-func="pick_color_finish">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="282">Lets the user pick a color from the screen.
@@ -2405,7 +2423,9 @@ red, green and blue components in the range [0,1].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="prepare_print" c:identifier="xdp_portal_prepare_print">
+      <method name="prepare_print"
+              c:identifier="xdp_portal_prepare_print"
+              glib:finish-func="prepare_print_finish">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="270">Presents a print dialog to the user and returns print settings and page setup.
@@ -2528,7 +2548,9 @@ Returns a [struct@GLib.Variant] dictionary with the following information:
           </parameter>
         </parameters>
       </method>
-      <method name="print_file" c:identifier="xdp_portal_print_file">
+      <method name="print_file"
+              c:identifier="xdp_portal_print_file"
+              glib:finish-func="print_file_finish">
         <doc xml:space="preserve"
              filename="libportal/print.c"
              line="348">Prints a file.
@@ -2667,7 +2689,8 @@ call [method@Portal.print_file_finish] to get the results.</doc>
         </parameters>
       </method>
       <method name="request_background"
-              c:identifier="xdp_portal_request_background">
+              c:identifier="xdp_portal_request_background"
+              glib:finish-func="request_background_finish">
         <doc xml:space="preserve"
              filename="libportal/background.c"
              line="320">Requests background permissions.
@@ -2778,7 +2801,9 @@ Returns `TRUE` if successful.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_file" c:identifier="xdp_portal_save_file">
+      <method name="save_file"
+              c:identifier="xdp_portal_save_file"
+              glib:finish-func="save_file_finish">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="342">Asks the user for a location to save a file.
@@ -2942,7 +2967,9 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="save_files" c:identifier="xdp_portal_save_files">
+      <method name="save_files"
+              c:identifier="xdp_portal_save_files"
+              glib:finish-func="save_files_finish">
         <doc xml:space="preserve"
              filename="libportal/filechooser.c"
              line="440">Asks for a folder as a location to save one or more files.
@@ -3091,7 +3118,9 @@ containing the following fields:
           </parameter>
         </parameters>
       </method>
-      <method name="session_inhibit" c:identifier="xdp_portal_session_inhibit">
+      <method name="session_inhibit"
+              c:identifier="xdp_portal_session_inhibit"
+              glib:finish-func="session_inhibit_finish">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="210">Inhibits various session status changes.
@@ -3225,7 +3254,8 @@ ready for the session to end.</doc>
         </parameters>
       </method>
       <method name="session_monitor_start"
-              c:identifier="xdp_portal_session_monitor_start">
+              c:identifier="xdp_portal_session_monitor_start"
+              glib:finish-func="session_monitor_start_finish">
         <doc xml:space="preserve"
              filename="libportal/inhibit.c"
              line="562">Makes [class@Portal] start monitoring the login session state.
@@ -3366,7 +3396,8 @@ to [method@Portal.session_inhibit].</doc>
         </parameters>
       </method>
       <method name="set_background_status"
-              c:identifier="xdp_portal_set_background_status">
+              c:identifier="xdp_portal_set_background_status"
+              glib:finish-func="set_background_status_finish">
         <doc xml:space="preserve"
              filename="libportal/background.c"
              line="393">Sets the status information of the application, for when it's running
@@ -3450,7 +3481,9 @@ in background.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_wallpaper" c:identifier="xdp_portal_set_wallpaper">
+      <method name="set_wallpaper"
+              c:identifier="xdp_portal_set_wallpaper"
+              glib:finish-func="set_wallpaper_finish">
         <doc xml:space="preserve"
              filename="libportal/wallpaper.c"
              line="278">Sets a desktop background image, given by a uri.</doc>
@@ -3547,7 +3580,9 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="spawn" c:identifier="xdp_portal_spawn">
+      <method name="spawn"
+              c:identifier="xdp_portal_spawn"
+              glib:finish-func="spawn_finish">
         <doc xml:space="preserve"
              filename="libportal/spawn.c"
              line="188">Creates a new copy of the applications sandbox, and runs
@@ -3746,7 +3781,9 @@ by [method@Portal.spawn].</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="take_screenshot" c:identifier="xdp_portal_take_screenshot">
+      <method name="take_screenshot"
+              c:identifier="xdp_portal_take_screenshot"
+              glib:finish-func="take_screenshot_finish">
         <doc xml:space="preserve"
              filename="libportal/screenshot.c"
              line="217">Takes a screenshot.
@@ -3840,7 +3877,9 @@ Returns the result in the form of a URI pointing to an image file.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="trash_file" c:identifier="xdp_portal_trash_file">
+      <method name="trash_file"
+              c:identifier="xdp_portal_trash_file"
+              glib:finish-func="trash_file_finish">
         <doc xml:space="preserve"
              filename="libportal/trash.c"
              line="122">Sends the file at @path to the trash can.</doc>
@@ -3922,7 +3961,9 @@ Returns the result in the form of a boolean.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update_install" c:identifier="xdp_portal_update_install">
+      <method name="update_install"
+              c:identifier="xdp_portal_update_install"
+              glib:finish-func="update_install_finish">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
              line="384">Installs an available software update.
@@ -4022,7 +4063,8 @@ to learn when the installation is complete.</doc>
         </parameters>
       </method>
       <method name="update_monitor_start"
-              c:identifier="xdp_portal_update_monitor_start">
+              c:identifier="xdp_portal_update_monitor_start"
+              glib:finish-func="update_monitor_start_finish">
         <doc xml:space="preserve"
              filename="libportal/updates.c"
              line="202">Makes `XdpPortal` start monitoring for available software updates.
@@ -4917,7 +4959,9 @@ with `XDP_DEVICE_POINTER` access.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start" c:identifier="xdp_session_start">
+      <method name="start"
+              c:identifier="xdp_session_start"
+              glib:finish-func="start_finish">
         <doc xml:space="preserve"
              filename="libportal/remote.c"
              line="772">Starts the session.

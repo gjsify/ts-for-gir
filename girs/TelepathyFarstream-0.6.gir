@@ -110,7 +110,9 @@ and/or use gtk-doc annotations.  -->
           </parameter>
         </parameters>
       </constructor>
-      <function name="new_async" c:identifier="tf_channel_new_async">
+      <function name="new_async"
+                c:identifier="tf_channel_new_async"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="channel.c"
              line="606">Creates a new #TfChannel from an existing channel proxy, the new

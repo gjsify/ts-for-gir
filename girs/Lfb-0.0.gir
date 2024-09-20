@@ -34,9 +34,9 @@ in the
 One event can trigger multiple feedbacks at once (e.g. audio and
 haptic feedback). This is determined by the feedback theme in
 use (which is not under the appliction's control) and the active
-feedback profile (see [func@Lfb.set_feedback_profile]().
+feedback profile (see [func@Lfb.set_feedback_profile].
 
-After initializing the library via [func@Lfb.init]() feedback can be
+After initializing the library via [func@Lfb.init] feedback can be
 triggered like:
 
 ```c
@@ -49,7 +49,7 @@ triggered like:
 
 When all feedback for this event has ended the [signal@LfbEvent::feedback-ended]
 signal is emitted. If you want to end the feedback ahead of time use
-[method@LfbEvent.end_feedback]():
+[method@LfbEvent.end_feedback]:
 
 ```c
   if (!lfb_event_end_feedback (event, &amp;err))
@@ -57,7 +57,7 @@ signal is emitted. If you want to end the feedback ahead of time use
 ```
 
 Since these methods involve DBus calls there are asynchronous variants
-available, e.g. [method@LfbEvent.trigger_feedback_async]():
+available, e.g. [method@LfbEvent.trigger_feedback_async]:
 
 ```c
   static void
@@ -85,36 +85,37 @@ available, e.g. [method@LfbEvent.trigger_feedback_async]():
       <constructor name="new" c:identifier="lfb_event_new">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="385">Creates a new [class@Lfb.Event] based on the given event
+             line="409">Creates a new [class@Lfb.Event] based on the given event
 name. See [property@Lfb.Event:event] for details.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="392">The [class@Lfb.Event].</doc>
+               line="416">The [class@Lfb.Event].</doc>
           <type name="Event" c:type="LfbEvent*"/>
         </return-value>
         <parameters>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="387">The event's name.</doc>
+                 line="411">The event's name.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="end_feedback"
               c:identifier="lfb_event_end_feedback"
-              throws="1">
+              throws="1"
+              glib:async-func="end_feedback_async">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="544">Tells the feedback server to end all feedback for the given event as
+             line="568">Tells the feedback server to end all feedback for the given event as
 soon as possible.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="552">%TRUE if successful. On error, this will return %FALSE and set
+               line="576">%TRUE if successful. On error, this will return %FALSE and set
          @error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -122,16 +123,18 @@ soon as possible.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="546">The event to end feedback for.</doc>
+                 line="570">The event to end feedback for.</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="end_feedback_async"
-              c:identifier="lfb_event_end_feedback_async">
+              c:identifier="lfb_event_end_feedback_async"
+              glib:finish-func="end_feedback_finish"
+              glib:sync-func="end_feedback">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="596">Tells the feedback server to end all feedback for the given event as
+             line="620">Tells the feedback server to end all feedback for the given event as
 soon as possible.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="67"/>
         <return-value transfer-ownership="none">
@@ -141,7 +144,7 @@ soon as possible.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="598">The event to end feedback for.</doc>
+                 line="622">The event to end feedback for.</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -150,7 +153,7 @@ soon as possible.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="599">A #GCancellable to cancel the operation or %NULL.</doc>
+                 line="623">A #GCancellable to cancel the operation or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -161,7 +164,7 @@ soon as possible.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="600">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+                 line="624">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -170,7 +173,7 @@ soon as possible.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="601">User data to pass to @callback.</doc>
+                 line="625">User data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -180,7 +183,7 @@ soon as possible.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="571">Finish an async operation started by lfb_event_end_feedback_async. You
+             line="595">Finish an async operation started by lfb_event_end_feedback_async. You
 must call this function in the callback to free memory and receive any
 errors which occurred.
 
@@ -190,20 +193,20 @@ This does not mean that the feedbacks finished right away. Connect to the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="584">%TRUE if ending the feedbacks was successful</doc>
+               line="608">%TRUE if ending the feedbacks was successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="573">the event</doc>
+                 line="597">the event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="574">Result object passed to the callback of [method@LfbEvent.end_feedback_async]()</doc>
+                 line="598">Result object passed to the callback of [method@LfbEvent.end_feedback_async]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -213,21 +216,21 @@ This does not mean that the feedbacks finished right away. Connect to the
               glib:get-property="app-id">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="787">Returns the app-id for this event. If no app-id has been explicitly
-set, %NULL is returned. The event uses the app-id returns by
-[func@lfb_get_app_id] in this case.</doc>
-        <source-position filename="libfeedback/lfb-event.h" line="79"/>
+             line="849">Returns the app-id for this event. If no app-id has been explicitly
+set, %NULL is returned. The event uses the app-id returned by
+[func@Lfb.get_app_id] in this case.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="795">The set app-id for this event or %NULL.</doc>
+               line="857">The set app-id for this event or %NULL.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="789">The event</doc>
+                 line="851">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -237,19 +240,19 @@ set, %NULL is returned. The event uses the app-id returns by
               glib:get-property="end-reason">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="703">Get the reason why the feadback ended.</doc>
-        <source-position filename="libfeedback/lfb-event.h" line="82"/>
+             line="727">Get the reason why the feadback ended.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="709">The reason why feedback ended.</doc>
+               line="733">The reason why feedback ended.</doc>
           <type name="EventEndReason" c:type="LfbEventEndReason"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="705">The event</doc>
+                 line="729">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -259,19 +262,19 @@ set, %NULL is returned. The event uses the app-id returns by
               glib:get-property="event">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="657">Get the event's name according to the event naming spec.</doc>
-        <source-position filename="libfeedback/lfb-event.h" line="80"/>
+             line="681">Get the event's name according to the event naming spec.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="663">The event name</doc>
+               line="687">The event name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="659">The event</doc>
+                 line="683">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -281,20 +284,43 @@ set, %NULL is returned. The event uses the app-id returns by
               glib:get-property="feedback-profile">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="743">Gets the set feedback profile. If no profile was set it returns
+             line="767">Gets the set feedback profile. If no profile was set it returns
 %NULL. The event uses the system wide profile in this case.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="750">The set feedback profile to use for this event or %NULL.</doc>
+               line="774">The set feedback profile to use for this event or %NULL.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="745">The event</doc>
+                 line="769">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_important"
+              c:identifier="lfb_event_get_important"
+              glib:get-property="important">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="805">Gets the set feedback profile. If no profile was set it returns
+%NULL. The event uses the system wide profile in this case.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="812">The set feedback profile to use for this event or %NULL.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="807">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -304,20 +330,20 @@ set, %NULL is returned. The event uses the app-id returns by
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="687">Get the current event state (e.g. if triggered feeedback is
+             line="711">Get the current event state (e.g. if triggered feeedback is
 currently running.</doc>
-        <source-position filename="libfeedback/lfb-event.h" line="81"/>
+        <source-position filename="libfeedback/lfb-event.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="694">The state of the feedback triggered by event.</doc>
+               line="718">The state of the feedback triggered by event.</doc>
           <type name="EventState" c:type="LfbEventState"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="689">The event</doc>
+                 line="713">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -327,19 +353,19 @@ currently running.</doc>
               glib:get-property="timeout">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="672">Get the currently set timeout.</doc>
+             line="696">Get the currently set timeout.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="678">The event timeout in milliseconds</doc>
+               line="702">The event timeout in milliseconds</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="674">The event</doc>
+                 line="698">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
@@ -349,7 +375,7 @@ currently running.</doc>
               glib:set-property="app-id">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="760">Tells the feedback server to use the given application id for
+             line="822">Tells the feedback server to use the given application id for
 this event when it is submitted. The server might ignore this
 request. This can be used by notification daemons to honor per
 application settings automatically.
@@ -357,7 +383,7 @@ application settings automatically.
 The functions is usually not used by applications.
 
 A value of %NULL (the default) lets the server pick the profile.</doc>
-        <source-position filename="libfeedback/lfb-event.h" line="78"/>
+        <source-position filename="libfeedback/lfb-event.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -365,13 +391,13 @@ A value of %NULL (the default) lets the server pick the profile.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="762">The event</doc>
+                 line="824">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="app_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="763">The application id to use</doc>
+                 line="825">The application id to use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -381,7 +407,7 @@ A value of %NULL (the default) lets the server pick the profile.</doc>
               glib:set-property="feedback-profile">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="718">Tells the feedback server to use the given feedback profile for
+             line="742">Tells the feedback server to use the given feedback profile for
 this event when it is submitted. The server might ignore this
 request.  Valid profile names and their 'noisiness' are specified
 in the [Feedback theme specification](Feedback-theme-spec-0.0.0.html).
@@ -395,14 +421,41 @@ A value of %NULL (the default) lets the server pick the profile.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="720">The event</doc>
+                 line="744">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="721">The feedback profile to use</doc>
+                 line="745">The feedback profile to use</doc>
             <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_important"
+              c:identifier="lfb_event_set_important"
+              glib:set-property="important">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="784">Tells the feedback server that the sender deems this to be an
+important event. A feedback server might allow the sender to
+override the current feedback level when this is set.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="786">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="important" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="787">Whether to flag this event as important</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
@@ -411,13 +464,13 @@ A value of %NULL (the default) lets the server pick the profile.</doc>
               glib:set-property="timeout">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="632">Tells the feedback server to end feedack after #timeout seconds.
+             line="656">Tells the feedback server to end feedack after #timeout seconds.
 The value -1 indicates to not set a timeout and let feedbacks stop
 on their own while 0 indicates to loop all feedbacks endlessly.
-They must be stopped via [method@LfbEvent.end_feedback]() in this case.
+They must be stopped via [method@LfbEvent.end_feedback] in this case.
 
 It is an error to change the timeout after the feedback has been triggered
-via [method@LfbEvent.trigger_feedback]().</doc>
+via [method@LfbEvent.trigger_feedback].</doc>
         <source-position filename="libfeedback/lfb-event.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -426,29 +479,30 @@ via [method@LfbEvent.trigger_feedback]().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="634">The event</doc>
+                 line="658">The event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="635">The timeout</doc>
+                 line="659">The timeout</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="trigger_feedback"
               c:identifier="lfb_event_trigger_feedback"
-              throws="1">
+              throws="1"
+              glib:async-func="trigger_feedback_async">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="421">Tells the feedback server to provide proper feedback for the give
+             line="445">Tells the feedback server to provide proper feedback for the give
 event to the user.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="429">%TRUE if successful. On error, this will return %FALSE and set
+               line="453">%TRUE if successful. On error, this will return %FALSE and set
          @error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -456,18 +510,20 @@ event to the user.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="423">The event to trigger feedback for.</doc>
+                 line="447">The event to trigger feedback for.</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="trigger_feedback_async"
-              c:identifier="lfb_event_trigger_feedback_async">
+              c:identifier="lfb_event_trigger_feedback_async"
+              glib:finish-func="trigger_feedback_finish"
+              glib:sync-func="trigger_feedback">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="471">Tells the feedback server to provide proper feedback for the give
+             line="495">Tells the feedback server to provide proper feedback for the give
 event to the user. This is the sync version of
-[method@LfbEvent.trigger_feedback]().</doc>
+[method@LfbEvent.trigger_feedback].</doc>
         <source-position filename="libfeedback/lfb-event.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -476,7 +532,7 @@ event to the user. This is the sync version of
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="473">The event to trigger feedback for.</doc>
+                 line="497">The event to trigger feedback for.</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -485,7 +541,7 @@ event to the user. This is the sync version of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="474">A #GCancellable to cancel the operation or %NULL.</doc>
+                 line="498">A #GCancellable to cancel the operation or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -496,7 +552,7 @@ event to the user. This is the sync version of
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="475">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+                 line="499">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -505,7 +561,7 @@ event to the user. This is the sync version of
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="476">User data to pass to @callback.</doc>
+                 line="500">User data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -515,27 +571,27 @@ event to the user. This is the sync version of
               throws="1">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="522">Finish an async operation started by [method@LfbEvent.trigger_feedback_async](). You
+             line="546">Finish an async operation started by [method@LfbEvent.trigger_feedback_async]. You
 must call this function in the callback to free memory and receive any
 errors which occurred.</doc>
         <source-position filename="libfeedback/lfb-event.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfeedback/lfb-event.c"
-               line="532">%TRUE if triggering the feedbacks was successful</doc>
+               line="556">%TRUE if triggering the feedbacks was successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="524">the event</doc>
+                 line="548">the event</doc>
             <type name="Event" c:type="LfbEvent*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfeedback/lfb-event.c"
-                 line="525">Result object passed to the callback of [method@LfbEvent.trigger_feedback_async]</doc>
+                 line="549">Result object passed to the callback of [method@LfbEvent.trigger_feedback_async]</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -548,8 +604,8 @@ errors which occurred.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="348">The application id to use for the event.
-[method@LfbEvent.set_feedback_profile]() for details.</doc>
+             line="372">The application id to use for the event.
+[method@LfbEvent.set_feedback_profile] for details.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="end-reason"
@@ -566,7 +622,7 @@ errors which occurred.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="288">The type of event from the Event naming spec, e.g. 'message-new-instant'.</doc>
+             line="298">The type of event from the Event naming spec, e.g. 'message-new-instant'.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="feedback-profile"
@@ -577,9 +633,21 @@ errors which occurred.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="334">The name of the feedback profile to use for this event. See
-[method@LfbEvent.set_feedback_profile]() for details.</doc>
+             line="344">The name of the feedback profile to use for this event. See
+[method@LfbEvent.set_feedback_profile] for details.</doc>
         <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="important"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_important"
+                getter="get_important"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="358">Whether to flag this event as important.
+[method@LfbEvent.set_important] for details.</doc>
+        <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="state"
                 transfer-ownership="none"
@@ -595,15 +663,15 @@ errors which occurred.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="301">How long feedback should be provided in seconds. The special value
+             line="311">How long feedback should be provided in seconds. The special value
 %-1 uses the natural length of each feedback while %0 plays each feedback
-in a loop until ended explicitly via e.g. [method@LfbEvent.end_feedback]().</doc>
+in a loop until ended explicitly via e.g. [method@LfbEvent.end_feedback].</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <glib:signal name="feedback-ended" when="last">
         <doc xml:space="preserve"
              filename="libfeedback/lfb-event.c"
-             line="364">Emitted when all feedbacks triggered by the event have ended.</doc>
+             line="388">Emitted when all feedbacks triggered by the event have ended.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -876,6 +944,9 @@ The properties are overridden in the order they are defined.</doc>
         </parameters>
       </function>
       <virtual-method name="feedback_ended">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="641">Handler for the #LfbGdbusFeedback::feedback-ended signal.</doc>
         <source-position filename="data/lfb-gdbus.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -919,6 +990,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <virtual-method name="handle_end_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="638">Handler for the #LfbGdbusFeedback::handle-end-feedback signal.</doc>
         <source-position filename="data/lfb-gdbus.h" line="35"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -937,6 +1011,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <virtual-method name="handle_trigger_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="639">Handler for the #LfbGdbusFeedback::handle-trigger-feedback signal.</doc>
         <source-position filename="data/lfb-gdbus.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -964,7 +1041,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <method name="call_end_feedback"
-              c:identifier="lfb_gdbus_feedback_call_end_feedback">
+              c:identifier="lfb_gdbus_feedback_call_end_feedback"
+              glib:finish-func="call_end_feedback_finish"
+              glib:sync-func="call_end_feedback_sync">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="928">Asynchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method on @proxy.
@@ -1050,7 +1129,8 @@ See lfb_gdbus_feedback_call_end_feedback_sync() for the synchronous, blocking ve
       </method>
       <method name="call_end_feedback_sync"
               c:identifier="lfb_gdbus_feedback_call_end_feedback_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_end_feedback">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="988">Synchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -1088,7 +1168,9 @@ See lfb_gdbus_feedback_call_end_feedback() for the asynchronous version of this 
         </parameters>
       </method>
       <method name="call_trigger_feedback"
-              c:identifier="lfb_gdbus_feedback_call_trigger_feedback">
+              c:identifier="lfb_gdbus_feedback_call_trigger_feedback"
+              glib:finish-func="call_trigger_feedback_finish"
+              glib:sync-func="call_trigger_feedback_sync">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="806">Asynchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method on @proxy.
@@ -1203,7 +1285,8 @@ See lfb_gdbus_feedback_call_trigger_feedback_sync() for the synchronous, blockin
       </method>
       <method name="call_trigger_feedback_sync"
               c:identifier="lfb_gdbus_feedback_call_trigger_feedback_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_trigger_feedback">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="878">Synchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -1562,6 +1645,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_end_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="638">Handler for the #LfbGdbusFeedback::handle-end-feedback signal.</doc>
         <callback name="handle_end_feedback">
           <source-position filename="data/lfb-gdbus.h" line="35"/>
           <return-value transfer-ownership="none">
@@ -1582,6 +1668,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_trigger_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="639">Handler for the #LfbGdbusFeedback::handle-trigger-feedback signal.</doc>
         <callback name="handle_trigger_feedback">
           <source-position filename="data/lfb-gdbus.h" line="40"/>
           <return-value transfer-ownership="none">
@@ -1611,6 +1700,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_profile">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="640">Getter for the #LfbGdbusFeedback:profile property.</doc>
         <callback name="get_profile">
           <source-position filename="data/lfb-gdbus.h" line="48"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -1630,6 +1722,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="feedback_ended">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="641">Handler for the #LfbGdbusFeedback::feedback-ended signal.</doc>
         <callback name="feedback_ended">
           <source-position filename="data/lfb-gdbus.h" line="50"/>
           <return-value transfer-ownership="none">
@@ -1817,7 +1912,9 @@ See lfb_gdbus_feedback_proxy_new() for the asynchronous version of this construc
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="lfb_gdbus_feedback_proxy_new">
+      <function name="new"
+                c:identifier="lfb_gdbus_feedback_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="1297">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -1890,7 +1987,8 @@ See lfb_gdbus_feedback_proxy_new_sync() for the synchronous, blocking version of
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="lfb_gdbus_feedback_proxy_new_for_bus">
+                c:identifier="lfb_gdbus_feedback_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="data/lfb-gdbus.c"
              line="1387">Like lfb_gdbus_feedback_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -2093,7 +2191,7 @@ The properties are overridden in the order they are defined.</doc>
     <function name="get_app_id" c:identifier="lfb_get_app_id">
       <doc xml:space="preserve"
            filename="libfeedback/libfeedback.c"
-           line="131">Get the application id set via [func@Lfb.set_app_id]().</doc>
+           line="131">Get the application id set via [func@Lfb.set_app_id].</doc>
       <source-position filename="libfeedback/libfeedback.h" line="25"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"

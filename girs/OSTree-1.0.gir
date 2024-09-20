@@ -3824,7 +3824,7 @@ object.</doc>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="RELEASE_VERSION"
-              value="7"
+              value="8"
               c:type="OSTREE_RELEASE_VERSION"
               version="2017.4">
       <doc xml:space="preserve"
@@ -4290,7 +4290,7 @@ the commits the key belongs to.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2284">Abort the active transaction; any staged objects and ref changes will be
+             line="2290">Abort the active transaction; any staged objects and ref changes will be
 discarded. You *must* invoke this if you have chosen not to invoke
 ostree_repo_commit_transaction(). Calling this function when not in a
 transaction will do nothing and return successfully.</doc>
@@ -4302,7 +4302,7 @@ transaction will do nothing and return successfully.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2286">An #OstreeRepo</doc>
+                 line="2292">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -4311,7 +4311,7 @@ transaction will do nothing and return successfully.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2287">Cancellable</doc>
+                 line="2293">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4735,7 +4735,7 @@ the composefs mount tooling.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2187">Complete the transaction. Any refs set with
+             line="2193">Complete the transaction. Any refs set with
 ostree_repo_transaction_set_ref() or
 ostree_repo_transaction_set_refspec() will be written out.
 
@@ -4753,7 +4753,7 @@ active at a time.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2189">An #OstreeRepo</doc>
+                 line="2195">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="out_stats"
@@ -4764,7 +4764,7 @@ active at a time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2190">A set of statistics of things
+                 line="2196">A set of statistics of things
 that happened during this transaction.</doc>
             <type name="RepoTransactionStats"
                   c:type="OstreeRepoTransactionStats*"/>
@@ -4775,7 +4775,7 @@ that happened during this transaction.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2192">Cancellable</doc>
+                 line="2198">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6748,7 +6748,7 @@ If @self is not writable by the user, then no locking is attempted and
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="1972">Commits in the "partial" state do not have all their child objects
+             line="1978">Commits in the "partial" state do not have all their child objects
 written.  This occurs in various situations, such as during a pull,
 but also if a "subpath" pull is used, as well as "commit only"
 pulls.
@@ -6763,19 +6763,19 @@ should use this if you are implementing a different type of transport.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1974">Repo</doc>
+                 line="1980">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1975">Commit SHA-256</doc>
+                 line="1981">Commit SHA-256</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="is_partial" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1976">Whether or not this commit is partial</doc>
+                 line="1982">Whether or not this commit is partial</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6786,7 +6786,7 @@ should use this if you are implementing a different type of transport.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="1924">Allows the setting of a reason code for a partial commit. Presently
+             line="1930">Allows the setting of a reason code for a partial commit. Presently
 it only supports setting reason bitmask to
 OSTREE_REPO_COMMIT_STATE_FSCK_PARTIAL, or
 OSTREE_REPO_COMMIT_STATE_NORMAL.  This will allow successive ostree
@@ -6801,25 +6801,25 @@ it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1926">Repo</doc>
+                 line="1932">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1927">Commit SHA-256</doc>
+                 line="1933">Commit SHA-256</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="is_partial" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1928">Whether or not this commit is partial</doc>
+                 line="1934">Whether or not this commit is partial</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="in_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1929">Reason bitmask for partial commit</doc>
+                 line="1935">Reason bitmask for partial commit</doc>
             <type name="RepoCommitState" c:type="OstreeRepoCommitState"/>
           </parameter>
         </parameters>
@@ -6846,7 +6846,7 @@ it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="1586">Starts or resumes a transaction. In order to write to a repo, you
+             line="1592">Starts or resumes a transaction. In order to write to a repo, you
 need to start a transaction. You can complete the transaction with
 ostree_repo_commit_transaction(), or abort the transaction with
 ostree_repo_abort_transaction().
@@ -6871,7 +6871,7 @@ active at a time.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1588">An #OstreeRepo</doc>
+                 line="1594">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="out_transaction_resume"
@@ -6882,7 +6882,7 @@ active at a time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1589">Whether this transaction
+                 line="1595">Whether this transaction
 is resuming from a previous one.  This is a legacy state, now OSTree
 pulls use per-commit `state/.commitpartial` files.</doc>
             <type name="gboolean" c:type="gboolean*"/>
@@ -6893,7 +6893,7 @@ pulls use per-commit `state/.commitpartial` files.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1592">Cancellable</doc>
+                 line="1598">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -7606,7 +7606,7 @@ compression has been applied.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2976">OSTree commits can have arbitrary metadata associated; this
+             line="2982">OSTree commits can have arbitrary metadata associated; this
 function retrieves them.  If none exists, @out_metadata will be set
 to %NULL.</doc>
         <source-position filename="ostree-repo.h" line="714"/>
@@ -7617,13 +7617,13 @@ to %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2978">Repo</doc>
+                 line="2984">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2979">ASCII SHA256 commit checksum</doc>
+                 line="2985">ASCII SHA256 commit checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="out_metadata"
@@ -7633,7 +7633,7 @@ to %NULL.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2980">Metadata associated with commit in with format
+                 line="2986">Metadata associated with commit in with format
 "a{sv}", or %NULL if none exists</doc>
             <type name="GLib.Variant" c:type="GVariant**"/>
           </parameter>
@@ -7643,7 +7643,7 @@ to %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2982">Cancellable</doc>
+                 line="2988">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8742,7 +8742,7 @@ does not exist</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="1547">This function is deprecated in favor of using ostree_repo_devino_cache_new(),
+             line="1553">This function is deprecated in favor of using ostree_repo_devino_cache_new(),
 which allows a precise mapping to be built up between hardlink checkout files
 and their checksums between `ostree_repo_checkout_at()` and
 `ostree_repo_write_directory_to_mtree()`.
@@ -8767,7 +8767,7 @@ Multithreading: This function is *not* MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1549">An #OstreeRepo</doc>
+                 line="1555">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -8776,7 +8776,7 @@ Multithreading: This function is *not* MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1550">Cancellable</doc>
+                 line="1556">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8787,7 +8787,7 @@ Multithreading: This function is *not* MT safe.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2135">Like ostree_repo_set_ref_immediate(), but creates an alias.</doc>
+             line="2141">Like ostree_repo_set_ref_immediate(), but creates an alias.</doc>
         <source-position filename="ostree-repo.h" line="299"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -8796,7 +8796,7 @@ Multithreading: This function is *not* MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2137">An #OstreeRepo</doc>
+                 line="2143">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="remote"
@@ -8805,13 +8805,13 @@ Multithreading: This function is *not* MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2138">A remote for the ref</doc>
+                 line="2144">A remote for the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2139">The ref to write</doc>
+                 line="2145">The ref to write</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="target"
@@ -8820,7 +8820,7 @@ Multithreading: This function is *not* MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2140">The ref target to point it to, or %NULL to unset</doc>
+                 line="2146">The ref target to point it to, or %NULL to unset</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -8829,7 +8829,7 @@ Multithreading: This function is *not* MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2141">GCancellable</doc>
+                 line="2147">GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8918,27 +8918,27 @@ configuration on disk using ostree_repo_write_config().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2156">This is like ostree_repo_transaction_set_collection_ref(), except it may be
+             line="2162">This is like ostree_repo_transaction_set_collection_ref(), except it may be
 invoked outside of a transaction.  This is presently safe for the
 case where we're creating or overwriting an existing ref.</doc>
         <source-position filename="ostree-repo.h" line="304"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ostree-repo-commit.c"
-               line="2168">%TRUE on success, %FALSE otherwise</doc>
+               line="2174">%TRUE on success, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2158">An #OstreeRepo</doc>
+                 line="2164">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2159">The collection–ref to write</doc>
+                 line="2165">The collection–ref to write</doc>
             <type name="CollectionRef" c:type="const OstreeCollectionRef*"/>
           </parameter>
           <parameter name="checksum"
@@ -8947,7 +8947,7 @@ case where we're creating or overwriting an existing ref.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2160">The checksum to point it to, or %NULL to unset</doc>
+                 line="2166">The checksum to point it to, or %NULL to unset</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -8956,7 +8956,7 @@ case where we're creating or overwriting an existing ref.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2161">GCancellable</doc>
+                 line="2167">GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8993,7 +8993,7 @@ ensuring data consistency.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2112">This is like ostree_repo_transaction_set_ref(), except it may be
+             line="2118">This is like ostree_repo_transaction_set_ref(), except it may be
 invoked outside of a transaction.  This is presently safe for the
 case where we're creating or overwriting an existing ref.
 
@@ -9006,7 +9006,7 @@ Multithreading: This function is MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2114">An #OstreeRepo</doc>
+                 line="2120">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="remote"
@@ -9015,13 +9015,13 @@ Multithreading: This function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2115">A remote for the ref</doc>
+                 line="2121">A remote for the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2116">The ref to write</doc>
+                 line="2122">The ref to write</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="checksum"
@@ -9030,7 +9030,7 @@ Multithreading: This function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2117">The checksum to point it to, or %NULL to unset</doc>
+                 line="2123">The checksum to point it to, or %NULL to unset</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -9039,7 +9039,7 @@ Multithreading: This function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2118">GCancellable</doc>
+                 line="2124">GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9491,7 +9491,7 @@ signature engine provided, FALSE otherwise.</doc>
               version="2018.6">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2071">If @checksum is not %NULL, then record it as the target of local ref named
+             line="2077">If @checksum is not %NULL, then record it as the target of local ref named
 @ref.
 
 Otherwise, if @checksum is %NULL, then record that the ref should
@@ -9511,13 +9511,13 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2073">An #OstreeRepo</doc>
+                 line="2079">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2074">The collection–ref to write</doc>
+                 line="2080">The collection–ref to write</doc>
             <type name="CollectionRef" c:type="const OstreeCollectionRef*"/>
           </parameter>
           <parameter name="checksum"
@@ -9526,7 +9526,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2075">The checksum to point it to</doc>
+                 line="2081">The checksum to point it to</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9535,7 +9535,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
               c:identifier="ostree_repo_transaction_set_ref">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2022">If @checksum is not %NULL, then record it as the target of ref named
+             line="2028">If @checksum is not %NULL, then record it as the target of ref named
 @ref; if @remote is provided, the ref will appear to originate from that
 remote.
 
@@ -9564,7 +9564,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2024">An #OstreeRepo</doc>
+                 line="2030">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="remote"
@@ -9573,13 +9573,13 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2025">A remote for the ref</doc>
+                 line="2031">A remote for the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2026">The ref to write</doc>
+                 line="2032">The ref to write</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="checksum"
@@ -9588,7 +9588,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2027">The checksum to point it to</doc>
+                 line="2033">The checksum to point it to</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9597,7 +9597,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
               c:identifier="ostree_repo_transaction_set_refspec">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="1997">Like ostree_repo_transaction_set_ref(), but takes concatenated
+             line="2003">Like ostree_repo_transaction_set_ref(), but takes concatenated
 @refspec format as input instead of separate remote and name
 arguments.
 
@@ -9610,13 +9610,13 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="1999">An #OstreeRepo</doc>
+                 line="2005">An #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="refspec" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2000">The refspec to write</doc>
+                 line="2006">The refspec to write</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="checksum"
@@ -9625,7 +9625,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2001">The checksum to point it to</doc>
+                 line="2007">The checksum to point it to</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9635,7 +9635,7 @@ Multithreading: Since v2017.15 this function is MT safe.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-traverse.c"
-             line="657">Create a new set @out_reachable containing all objects reachable
+             line="659">Create a new set @out_reachable containing all objects reachable
 from @commit_checksum, traversing @maxdepth parent commits.</doc>
         <source-position filename="ostree-repo.h" line="969"/>
         <return-value transfer-ownership="none">
@@ -9645,19 +9645,19 @@ from @commit_checksum, traversing @maxdepth parent commits.</doc>
           <instance-parameter name="repo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="659">Repo</doc>
+                 line="661">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="commit_checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="660">ASCII SHA256 checksum</doc>
+                 line="662">ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="maxdepth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="661">Traverse this many parent commits, -1 for unlimited</doc>
+                 line="663">Traverse this many parent commits, -1 for unlimited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="out_reachable"
@@ -9666,7 +9666,7 @@ from @commit_checksum, traversing @maxdepth parent commits.</doc>
                      transfer-ownership="container">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="662">Set of reachable
+                 line="664">Set of reachable
 objects</doc>
             <type name="GLib.HashTable" c:type="GHashTable**">
               <type name="GLib.Variant"/>
@@ -9679,7 +9679,7 @@ objects</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="664">Cancellable</doc>
+                 line="666">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9690,7 +9690,7 @@ objects</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-traverse.c"
-             line="636">Update the set @inout_reachable containing all objects reachable
+             line="638">Update the set @inout_reachable containing all objects reachable
 from @commit_checksum, traversing @maxdepth parent commits.</doc>
         <source-position filename="ostree-repo.h" line="974"/>
         <return-value transfer-ownership="none">
@@ -9700,25 +9700,25 @@ from @commit_checksum, traversing @maxdepth parent commits.</doc>
           <instance-parameter name="repo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="638">Repo</doc>
+                 line="640">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="commit_checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="639">ASCII SHA256 checksum</doc>
+                 line="641">ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="maxdepth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="640">Traverse this many parent commits, -1 for unlimited</doc>
+                 line="642">Traverse this many parent commits, -1 for unlimited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="inout_reachable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="641">Set of reachable objects</doc>
+                 line="643">Set of reachable objects</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9730,7 +9730,7 @@ from @commit_checksum, traversing @maxdepth parent commits.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="642">Cancellable</doc>
+                 line="644">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9742,7 +9742,7 @@ from @commit_checksum, traversing @maxdepth parent commits.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-traverse.c"
-             line="606">Update the set @inout_reachable containing all objects reachable
+             line="608">Update the set @inout_reachable containing all objects reachable
 from @commit_checksum, traversing @maxdepth parent commits.
 
 Additionally this constructs a mapping from each object to the parents
@@ -9756,25 +9756,25 @@ belongs to.</doc>
           <instance-parameter name="repo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="608">Repo</doc>
+                 line="610">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="commit_checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="609">ASCII SHA256 checksum</doc>
+                 line="611">ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="maxdepth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="610">Traverse this many parent commits, -1 for unlimited</doc>
+                 line="612">Traverse this many parent commits, -1 for unlimited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="inout_reachable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="611">Set of reachable objects</doc>
+                 line="613">Set of reachable objects</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9783,7 +9783,7 @@ belongs to.</doc>
           <parameter name="inout_parents" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="612">Map from object to parent object</doc>
+                 line="614">Map from object to parent object</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9795,7 +9795,7 @@ belongs to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="613">Cancellable</doc>
+                 line="615">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9807,7 +9807,7 @@ belongs to.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-traverse.c"
-             line="511">Update the set @inout_reachable containing all objects reachable
+             line="513">Update the set @inout_reachable containing all objects reachable
 from @commit_checksum, traversing @maxdepth parent commits.
 
 Additionally this constructs a mapping from each object to the parents
@@ -9821,32 +9821,32 @@ belongs to.</doc>
           <instance-parameter name="repo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="513">Repo</doc>
+                 line="515">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="514">change traversal behaviour according to these flags</doc>
+                 line="516">change traversal behaviour according to these flags</doc>
             <type name="RepoCommitTraverseFlags"
                   c:type="OstreeRepoCommitTraverseFlags"/>
           </parameter>
           <parameter name="commit_checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="515">ASCII SHA256 checksum</doc>
+                 line="517">ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="maxdepth" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="516">Traverse this many parent commits, -1 for unlimited</doc>
+                 line="518">Traverse this many parent commits, -1 for unlimited</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="inout_reachable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="517">Set of reachable objects</doc>
+                 line="519">Set of reachable objects</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9855,7 +9855,7 @@ belongs to.</doc>
           <parameter name="inout_parents" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="518">Map from object to parent object</doc>
+                 line="520">Map from object to parent object</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9867,7 +9867,7 @@ belongs to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-traverse.c"
-                 line="519">Cancellable</doc>
+                 line="521">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10245,7 +10245,7 @@ its file structure to @mtree.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2866">Write a commit metadata object, referencing @root_contents_checksum
+             line="2872">Write a commit metadata object, referencing @root_contents_checksum
 and @root_metadata_checksum.
 This uses the current time as the commit timestamp, but it can be
 overridden with an explicit timestamp via the
@@ -10259,7 +10259,7 @@ overridden with an explicit timestamp via the
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2868">Repo</doc>
+                 line="2874">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -10268,7 +10268,7 @@ overridden with an explicit timestamp via the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2869">ASCII SHA256 checksum for parent, or %NULL for none</doc>
+                 line="2875">ASCII SHA256 checksum for parent, or %NULL for none</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subject"
@@ -10277,7 +10277,7 @@ overridden with an explicit timestamp via the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2870">Subject</doc>
+                 line="2876">Subject</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="body"
@@ -10286,7 +10286,7 @@ overridden with an explicit timestamp via the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2871">Body</doc>
+                 line="2877">Body</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="metadata"
@@ -10295,13 +10295,13 @@ overridden with an explicit timestamp via the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2872">GVariant of type a{sv}, or %NULL for none</doc>
+                 line="2878">GVariant of type a{sv}, or %NULL for none</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="root" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2873">The tree to point the commit to</doc>
+                 line="2879">The tree to point the commit to</doc>
             <type name="RepoFile" c:type="OstreeRepoFile*"/>
           </parameter>
           <parameter name="out_commit"
@@ -10312,7 +10312,7 @@ overridden with an explicit timestamp via the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2874">Resulting ASCII SHA256 checksum for
+                 line="2880">Resulting ASCII SHA256 checksum for
 commit</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
@@ -10322,7 +10322,7 @@ commit</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2876">Cancellable</doc>
+                 line="2882">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10332,7 +10332,7 @@ commit</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="3022">Replace any existing metadata associated with commit referred to by
+             line="3028">Replace any existing metadata associated with commit referred to by
 @checksum with @metadata.  If @metadata is %NULL, then existing
 data will be deleted.</doc>
         <source-position filename="ostree-repo.h" line="719"/>
@@ -10343,13 +10343,13 @@ data will be deleted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3024">Repo</doc>
+                 line="3030">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3025">ASCII SHA256 commit checksum</doc>
+                 line="3031">ASCII SHA256 commit checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="metadata"
@@ -10358,7 +10358,7 @@ data will be deleted.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3026">Metadata to associate with commit in with format "a{sv}", or %NULL to
+                 line="3032">Metadata to associate with commit in with format "a{sv}", or %NULL to
 delete</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
@@ -10368,7 +10368,7 @@ delete</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3028">Cancellable</doc>
+                 line="3034">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10378,7 +10378,7 @@ delete</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2927">Write a commit metadata object, referencing @root_contents_checksum
+             line="2933">Write a commit metadata object, referencing @root_contents_checksum
 and @root_metadata_checksum.</doc>
         <source-position filename="ostree-repo.h" line="707"/>
         <return-value transfer-ownership="none">
@@ -10388,7 +10388,7 @@ and @root_metadata_checksum.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2929">Repo</doc>
+                 line="2935">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="parent"
@@ -10397,7 +10397,7 @@ and @root_metadata_checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2930">ASCII SHA256 checksum for parent, or %NULL for none</doc>
+                 line="2936">ASCII SHA256 checksum for parent, or %NULL for none</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subject"
@@ -10406,7 +10406,7 @@ and @root_metadata_checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2931">Subject</doc>
+                 line="2937">Subject</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="body"
@@ -10415,7 +10415,7 @@ and @root_metadata_checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2932">Body</doc>
+                 line="2938">Body</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="metadata"
@@ -10424,19 +10424,19 @@ and @root_metadata_checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2933">GVariant of type a{sv}, or %NULL for none</doc>
+                 line="2939">GVariant of type a{sv}, or %NULL for none</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="root" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2934">The tree to point the commit to</doc>
+                 line="2940">The tree to point the commit to</doc>
             <type name="RepoFile" c:type="OstreeRepoFile*"/>
           </parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2935">The time to use to stamp the commit</doc>
+                 line="2941">The time to use to stamp the commit</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="out_commit"
@@ -10447,7 +10447,7 @@ and @root_metadata_checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2936">Resulting ASCII SHA256 checksum for
+                 line="2942">Resulting ASCII SHA256 checksum for
 commit</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
@@ -10457,7 +10457,7 @@ commit</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2938">Cancellable</doc>
+                 line="2944">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10493,7 +10493,7 @@ commit</doc>
               glib:async-func="write_content_async">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2610">Store the content object streamed as @object_input,
+             line="2616">Store the content object streamed as @object_input,
 with total length @length.  The actual checksum will
 be returned as @out_csum.</doc>
         <source-position filename="ostree-repo.h" line="329"/>
@@ -10504,7 +10504,7 @@ be returned as @out_csum.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2612">Repo</doc>
+                 line="2618">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="expected_checksum"
@@ -10513,19 +10513,19 @@ be returned as @out_csum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2613">If provided, validate content against this checksum</doc>
+                 line="2619">If provided, validate content against this checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object_input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2614">Content object stream</doc>
+                 line="2620">Content object stream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2615">Length of @object_input</doc>
+                 line="2621">Length of @object_input</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="out_csum"
@@ -10537,7 +10537,7 @@ be returned as @out_csum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2616">Binary checksum</doc>
+                 line="2622">Binary checksum</doc>
             <array zero-terminated="0" c:type="guchar**" fixed-size="32">
               <type name="guint8" c:type="guchar*"/>
             </array>
@@ -10548,7 +10548,7 @@ be returned as @out_csum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2617">Cancellable</doc>
+                 line="2623">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10559,7 +10559,7 @@ be returned as @out_csum.</doc>
               glib:sync-func="write_content">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2802">Asynchronously store the content object @object.  If provided, the
+             line="2808">Asynchronously store the content object @object.  If provided, the
 checksum @expected_checksum will be verified.</doc>
         <source-position filename="ostree-repo.h" line="367"/>
         <return-value transfer-ownership="none">
@@ -10569,7 +10569,7 @@ checksum @expected_checksum will be verified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2804">Repo</doc>
+                 line="2810">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="expected_checksum"
@@ -10578,19 +10578,19 @@ checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2805">If provided, validate content against this checksum</doc>
+                 line="2811">If provided, validate content against this checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2806">Input</doc>
+                 line="2812">Input</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2807">Length of @object</doc>
+                 line="2813">Length of @object</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="cancellable"
@@ -10599,7 +10599,7 @@ checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2808">Cancellable</doc>
+                 line="2814">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -10610,7 +10610,7 @@ checksum @expected_checksum will be verified.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2809">Invoked when content is writed</doc>
+                 line="2815">Invoked when content is writed</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -10619,7 +10619,7 @@ checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2810">User data for @callback</doc>
+                 line="2816">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10629,7 +10629,7 @@ checksum @expected_checksum will be verified.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2836">Completes an invocation of ostree_repo_write_content_async().</doc>
+             line="2842">Completes an invocation of ostree_repo_write_content_async().</doc>
         <source-position filename="ostree-repo.h" line="373"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -10638,13 +10638,13 @@ checksum @expected_checksum will be verified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2838">a #OstreeRepo</doc>
+                 line="2844">a #OstreeRepo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2839">a #GAsyncResult</doc>
+                 line="2845">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="out_csum"
@@ -10655,7 +10655,7 @@ checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2840">A binary SHA256
+                 line="2846">A binary SHA256
 checksum of the content object</doc>
             <type name="guint8" c:type="guchar**"/>
           </parameter>
@@ -10666,7 +10666,7 @@ checksum of the content object</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2587">Store the content object streamed as @object_input, with total
+             line="2593">Store the content object streamed as @object_input, with total
 length @length.  The given @checksum will be treated as trusted.
 
 This function should be used when importing file objects from local
@@ -10679,25 +10679,25 @@ disk, for example.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2589">Repo</doc>
+                 line="2595">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2590">Store content using this ASCII SHA256 checksum</doc>
+                 line="2596">Store content using this ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object_input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2591">Content stream</doc>
+                 line="2597">Content stream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2592">Length of @object_input</doc>
+                 line="2598">Length of @object_input</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="cancellable"
@@ -10706,7 +10706,7 @@ disk, for example.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2593">Cancellable</doc>
+                 line="2599">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10716,7 +10716,7 @@ disk, for example.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="3937">Store as objects all contents of the directory referred to by @dfd
+             line="3943">Store as objects all contents of the directory referred to by @dfd
 and @path all children into the repository @self, overlaying the
 resulting filesystem hierarchy into @mtree.</doc>
         <source-position filename="ostree-repo.h" line="591"/>
@@ -10727,25 +10727,25 @@ resulting filesystem hierarchy into @mtree.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3939">Repo</doc>
+                 line="3945">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="dfd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3940">Directory file descriptor</doc>
+                 line="3946">Directory file descriptor</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3941">Path</doc>
+                 line="3947">Path</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3942">Overlay directory contents into this tree</doc>
+                 line="3948">Overlay directory contents into this tree</doc>
             <type name="MutableTree" c:type="OstreeMutableTree*"/>
           </parameter>
           <parameter name="modifier"
@@ -10754,7 +10754,7 @@ resulting filesystem hierarchy into @mtree.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3943">Optional modifier</doc>
+                 line="3949">Optional modifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </parameter>
@@ -10764,7 +10764,7 @@ resulting filesystem hierarchy into @mtree.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3944">Cancellable</doc>
+                 line="3950">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10774,7 +10774,7 @@ resulting filesystem hierarchy into @mtree.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="3900">Store objects for @dir and all children into the repository @self,
+             line="3906">Store objects for @dir and all children into the repository @self,
 overlaying the resulting filesystem hierarchy into @mtree.</doc>
         <source-position filename="ostree-repo.h" line="585"/>
         <return-value transfer-ownership="none">
@@ -10784,19 +10784,19 @@ overlaying the resulting filesystem hierarchy into @mtree.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3902">Repo</doc>
+                 line="3908">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3903">Path to a directory</doc>
+                 line="3909">Path to a directory</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="mtree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3904">Overlay directory contents into this tree</doc>
+                 line="3910">Overlay directory contents into this tree</doc>
             <type name="MutableTree" c:type="OstreeMutableTree*"/>
           </parameter>
           <parameter name="modifier"
@@ -10805,7 +10805,7 @@ overlaying the resulting filesystem hierarchy into @mtree.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3905">Optional modifier</doc>
+                 line="3911">Optional modifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </parameter>
@@ -10815,7 +10815,7 @@ overlaying the resulting filesystem hierarchy into @mtree.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3906">Cancellable</doc>
+                 line="3912">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10826,7 +10826,7 @@ overlaying the resulting filesystem hierarchy into @mtree.</doc>
               glib:async-func="write_metadata_async">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2347">Store the metadata object @object.  Return the checksum
+             line="2353">Store the metadata object @object.  Return the checksum
 as @out_csum.
 
 If @expected_checksum is not %NULL, verify it against the
@@ -10839,13 +10839,13 @@ computed checksum.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2349">Repo</doc>
+                 line="2355">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="objtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2350">Object type</doc>
+                 line="2356">Object type</doc>
             <type name="ObjectType" c:type="OstreeObjectType"/>
           </parameter>
           <parameter name="expected_checksum"
@@ -10854,13 +10854,13 @@ computed checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2351">If provided, validate content against this checksum</doc>
+                 line="2357">If provided, validate content against this checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2352">Metadata</doc>
+                 line="2358">Metadata</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="out_csum"
@@ -10871,7 +10871,7 @@ computed checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2353">Binary checksum</doc>
+                 line="2359">Binary checksum</doc>
             <array zero-terminated="0" c:type="guchar**" fixed-size="32">
               <type name="guint8" c:type="guchar*"/>
             </array>
@@ -10882,7 +10882,7 @@ computed checksum.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2354">Cancellable</doc>
+                 line="2360">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -10893,7 +10893,7 @@ computed checksum.</doc>
               glib:sync-func="write_metadata">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2505">Asynchronously store the metadata object @variant.  If provided,
+             line="2511">Asynchronously store the metadata object @variant.  If provided,
 the checksum @expected_checksum will be verified.</doc>
         <source-position filename="ostree-repo.h" line="319"/>
         <return-value transfer-ownership="none">
@@ -10903,13 +10903,13 @@ the checksum @expected_checksum will be verified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2507">Repo</doc>
+                 line="2513">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="objtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2508">Object type</doc>
+                 line="2514">Object type</doc>
             <type name="ObjectType" c:type="OstreeObjectType"/>
           </parameter>
           <parameter name="expected_checksum"
@@ -10918,13 +10918,13 @@ the checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2509">If provided, validate content against this checksum</doc>
+                 line="2515">If provided, validate content against this checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2510">Metadata</doc>
+                 line="2516">Metadata</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -10933,7 +10933,7 @@ the checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2511">Cancellable</doc>
+                 line="2517">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -10944,7 +10944,7 @@ the checksum @expected_checksum will be verified.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2512">Invoked when metadata is writed</doc>
+                 line="2518">Invoked when metadata is writed</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -10953,7 +10953,7 @@ the checksum @expected_checksum will be verified.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2513">Data for @callback</doc>
+                 line="2519">Data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -10963,7 +10963,7 @@ the checksum @expected_checksum will be verified.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2540">Complete a call to ostree_repo_write_metadata_async().</doc>
+             line="2546">Complete a call to ostree_repo_write_metadata_async().</doc>
         <source-position filename="ostree-repo.h" line="325"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -10972,13 +10972,13 @@ the checksum @expected_checksum will be verified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2542">Repo</doc>
+                 line="2548">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2543">Result</doc>
+                 line="2549">Result</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="out_csum"
@@ -10987,7 +10987,7 @@ the checksum @expected_checksum will be verified.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2544">Binary checksum value</doc>
+                 line="2550">Binary checksum value</doc>
             <array zero-terminated="0" c:type="guchar**" fixed-size="32">
               <type name="guint8"/>
             </array>
@@ -10999,7 +10999,7 @@ the checksum @expected_checksum will be verified.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2415">Store the metadata object @variant; the provided @checksum is
+             line="2421">Store the metadata object @variant; the provided @checksum is
 trusted.</doc>
         <source-position filename="ostree-repo.h" line="356"/>
         <return-value transfer-ownership="none">
@@ -11009,31 +11009,31 @@ trusted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2417">Repo</doc>
+                 line="2423">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="objtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2418">Object type</doc>
+                 line="2424">Object type</doc>
             <type name="ObjectType" c:type="OstreeObjectType"/>
           </parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2419">Store object with this ASCII SHA256 checksum</doc>
+                 line="2425">Store object with this ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="object_input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2420">Metadata object stream</doc>
+                 line="2426">Metadata object stream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2421">Length, may be 0 for unknown</doc>
+                 line="2427">Length, may be 0 for unknown</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="cancellable"
@@ -11042,7 +11042,7 @@ trusted.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2422">Cancellable</doc>
+                 line="2428">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11052,7 +11052,7 @@ trusted.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2450">Store the metadata object @variant; the provided @checksum is
+             line="2456">Store the metadata object @variant; the provided @checksum is
 trusted.</doc>
         <source-position filename="ostree-repo.h" line="351"/>
         <return-value transfer-ownership="none">
@@ -11062,25 +11062,25 @@ trusted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2452">Repo</doc>
+                 line="2458">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="objtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2453">Object type</doc>
+                 line="2459">Object type</doc>
             <type name="ObjectType" c:type="OstreeObjectType"/>
           </parameter>
           <parameter name="checksum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2454">Store object with this ASCII SHA256 checksum</doc>
+                 line="2460">Store object with this ASCII SHA256 checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="variant" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2455">Metadata object</doc>
+                 line="2461">Metadata object</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="cancellable"
@@ -11089,7 +11089,7 @@ trusted.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2456">Cancellable</doc>
+                 line="2462">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11099,7 +11099,7 @@ trusted.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="3985">Write all metadata objects for @mtree to repo; the resulting
+             line="3991">Write all metadata objects for @mtree to repo; the resulting
 @out_file points to the %OSTREE_OBJECT_TYPE_DIR_TREE object that
 the @mtree represented.</doc>
         <source-position filename="ostree-repo.h" line="693"/>
@@ -11110,13 +11110,13 @@ the @mtree represented.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3987">Repo</doc>
+                 line="3993">Repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="mtree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3988">Mutable tree</doc>
+                 line="3994">Mutable tree</doc>
             <type name="MutableTree" c:type="OstreeMutableTree*"/>
           </parameter>
           <parameter name="out_file"
@@ -11125,7 +11125,7 @@ the @mtree represented.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3989">An #OstreeRepoFile representing @mtree's root.</doc>
+                 line="3995">An #OstreeRepoFile representing @mtree's root.</doc>
             <type name="Gio.File" c:type="GFile**"/>
           </parameter>
           <parameter name="cancellable"
@@ -11134,7 +11134,7 @@ the @mtree represented.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="3990">Cancellable</doc>
+                 line="3996">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11145,20 +11145,20 @@ the @mtree represented.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2734">Create an `OstreeContentWriter` that allows streaming output into
+             line="2740">Create an `OstreeContentWriter` that allows streaming output into
 the repository.</doc>
         <source-position filename="ostree-repo.h" line="340"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ostree-repo-commit.c"
-               line="2748">A new writer, or %NULL on error</doc>
+               line="2754">A new writer, or %NULL on error</doc>
           <type name="ContentWriter" c:type="OstreeContentWriter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2736">Repo,</doc>
+                 line="2742">Repo,</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="expected_checksum"
@@ -11167,31 +11167,31 @@ the repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2737">Expected checksum (SHA-256 hex string)</doc>
+                 line="2743">Expected checksum (SHA-256 hex string)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2738">user id</doc>
+                 line="2744">user id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="gid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2739">group id</doc>
+                 line="2745">group id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2740">Unix file mode</doc>
+                 line="2746">Unix file mode</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="content_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2741">Expected content length</doc>
+                 line="2747">Expected content length</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="xattrs"
@@ -11200,7 +11200,7 @@ the repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2742">Extended attributes (GVariant type `(ayay)`)</doc>
+                 line="2748">Extended attributes (GVariant type `(ayay)`)</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -11211,7 +11211,7 @@ the repository.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2661">Synchronously create a file object from the provided content.  This API
+             line="2667">Synchronously create a file object from the provided content.  This API
 is intended for small files where it is reasonable to buffer the entire
 content in memory.
 
@@ -11221,14 +11221,14 @@ this function will not check for the presence of the object beforehand.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ostree-repo-commit.c"
-               line="2680">Checksum (as a hex string) of the committed file</doc>
+               line="2686">Checksum (as a hex string) of the committed file</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2663">repo</doc>
+                 line="2669">repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="expected_checksum"
@@ -11237,25 +11237,25 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2664">The expected checksum</doc>
+                 line="2670">The expected checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2665">User id</doc>
+                 line="2671">User id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="gid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2666">Group id</doc>
+                 line="2672">Group id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2667">File mode</doc>
+                 line="2673">File mode</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="xattrs"
@@ -11264,13 +11264,13 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2668">Extended attributes, GVariant of type (ayay)</doc>
+                 line="2674">Extended attributes, GVariant of type (ayay)</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2669">File contents</doc>
+                 line="2675">File contents</doc>
             <array length="6" zero-terminated="0" c:type="const guint8*">
               <type name="guint8"/>
             </array>
@@ -11284,7 +11284,7 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2670">Cancellable</doc>
+                 line="2676">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11295,7 +11295,7 @@ this function will not check for the presence of the object beforehand.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="2699">Synchronously create a symlink object.
+             line="2705">Synchronously create a symlink object.
 
 Unlike `ostree_repo_write_content()`, if @expected_checksum is provided,
 this function will not check for the presence of the object beforehand.</doc>
@@ -11303,14 +11303,14 @@ this function will not check for the presence of the object beforehand.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ostree-repo-commit.c"
-               line="2715">Checksum (as a hex string) of the committed file</doc>
+               line="2721">Checksum (as a hex string) of the committed file</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2701">repo</doc>
+                 line="2707">repo</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </instance-parameter>
           <parameter name="expected_checksum"
@@ -11319,19 +11319,19 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2702">The expected checksum</doc>
+                 line="2708">The expected checksum</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2703">User id</doc>
+                 line="2709">User id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="gid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2704">Group id</doc>
+                 line="2710">Group id</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="xattrs"
@@ -11340,13 +11340,13 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2705">Extended attributes, GVariant of type (ayay)</doc>
+                 line="2711">Extended attributes, GVariant of type (ayay)</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="symlink_target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2706">Target of the symbolic link</doc>
+                 line="2712">Target of the symbolic link</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -11355,7 +11355,7 @@ this function will not check for the presence of the object beforehand.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="2707">Cancellable</doc>
+                 line="2713">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -11799,14 +11799,14 @@ identical (requires hardlink checkouts)</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ostree-repo-commit.c"
-               line="4070">A new commit modifier.</doc>
+               line="4076">A new commit modifier.</doc>
           <type name="RepoCommitModifier" c:type="OstreeRepoCommitModifier*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4065">Control options for filter</doc>
+                 line="4071">Control options for filter</doc>
             <type name="RepoCommitModifierFlags"
                   c:type="OstreeRepoCommitModifierFlags"/>
           </parameter>
@@ -11819,7 +11819,7 @@ identical (requires hardlink checkouts)</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4066">Function that can inspect individual files</doc>
+                 line="4072">Function that can inspect individual files</doc>
             <type name="RepoCommitFilter" c:type="OstreeRepoCommitFilter"/>
           </parameter>
           <parameter name="user_data"
@@ -11828,7 +11828,7 @@ identical (requires hardlink checkouts)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4067">User data</doc>
+                 line="4073">User data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_notify"
@@ -11836,7 +11836,7 @@ identical (requires hardlink checkouts)</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4068">A #GDestroyNotify</doc>
+                 line="4074">A #GDestroyNotify</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -11858,7 +11858,7 @@ identical (requires hardlink checkouts)</doc>
               version="2017.13">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="4189">See the documentation for
+             line="4195">See the documentation for
 `ostree_repo_devino_cache_new()`.  This function can
 then be used for later calls to
 `ostree_repo_write_directory_to_mtree()` to optimize commits.
@@ -11876,14 +11876,14 @@ should avoid further mutation of the cache.</doc>
           <instance-parameter name="modifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4191">Modifier</doc>
+                 line="4197">Modifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </instance-parameter>
           <parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4192">A hash table caching device,inode to checksums</doc>
+                 line="4198">A hash table caching device,inode to checksums</doc>
             <type name="RepoDevInoCache" c:type="OstreeRepoDevInoCache*"/>
           </parameter>
         </parameters>
@@ -11892,7 +11892,7 @@ should avoid further mutation of the cache.</doc>
               c:identifier="ostree_repo_commit_modifier_set_sepolicy">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="4140">If @policy is non-%NULL, use it to look up labels to use for
+             line="4146">If @policy is non-%NULL, use it to look up labels to use for
 "security.selinux" extended attributes.
 
 Note that any policy specified this way operates in addition to any
@@ -11908,7 +11908,7 @@ policy wins.</doc>
           <instance-parameter name="modifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4142">An #OstreeRepoCommitModifier</doc>
+                 line="4148">An #OstreeRepoCommitModifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </instance-parameter>
@@ -11918,7 +11918,7 @@ policy wins.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4143">Policy to use for labeling</doc>
+                 line="4149">Policy to use for labeling</doc>
             <type name="SePolicy" c:type="OstreeSePolicy*"/>
           </parameter>
         </parameters>
@@ -11929,7 +11929,7 @@ policy wins.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="4162">In many cases, one wants to create a "derived" commit from base commit.
+             line="4168">In many cases, one wants to create a "derived" commit from base commit.
 SELinux policy labels are part of that base commit.  This API allows
 one to easily set up SELinux labeling from a base commit.</doc>
         <source-position filename="ostree-repo.h" line="570"/>
@@ -11940,20 +11940,20 @@ one to easily set up SELinux labeling from a base commit.</doc>
           <instance-parameter name="modifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4164">Commit modifier</doc>
+                 line="4170">Commit modifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </instance-parameter>
           <parameter name="repo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4165">OSTree repo containing @rev</doc>
+                 line="4171">OSTree repo containing @rev</doc>
             <type name="Repo" c:type="OstreeRepo*"/>
           </parameter>
           <parameter name="rev" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4166">Find SELinux policy from this base commit</doc>
+                 line="4172">Find SELinux policy from this base commit</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -11968,7 +11968,7 @@ one to easily set up SELinux labeling from a base commit.</doc>
               c:identifier="ostree_repo_commit_modifier_set_xattr_callback">
         <doc xml:space="preserve"
              filename="ostree-repo-commit.c"
-             line="4118">If set, this function should return extended attributes to use for
+             line="4124">If set, this function should return extended attributes to use for
 the given path.  This is useful for things like ACLs and SELinux,
 where a build system can label the files as it's committing to the
 repository.</doc>
@@ -11980,7 +11980,7 @@ repository.</doc>
           <instance-parameter name="modifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4120">An #OstreeRepoCommitModifier</doc>
+                 line="4126">An #OstreeRepoCommitModifier</doc>
             <type name="RepoCommitModifier"
                   c:type="OstreeRepoCommitModifier*"/>
           </instance-parameter>
@@ -11991,14 +11991,14 @@ repository.</doc>
                      destroy="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4121">Function to be invoked, should return extended attributes for path</doc>
+                 line="4127">Function to be invoked, should return extended attributes for path</doc>
             <type name="RepoCommitModifierXattrCallback"
                   c:type="OstreeRepoCommitModifierXattrCallback"/>
           </parameter>
           <parameter name="destroy" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4122">Destroy notification</doc>
+                 line="4128">Destroy notification</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="user_data"
@@ -12007,7 +12007,7 @@ repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-repo-commit.c"
-                 line="4123">Data for @callback:</doc>
+                 line="4129">Data for @callback:</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -16096,7 +16096,7 @@ ostree_sysroot_new_default().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3834">Given the target deployment (which must be the staged deployment) this API
+             line="3839">Given the target deployment (which must be the staged deployment) this API
 will toggle its "finalization locking" state.  If it is currently locked,
 it will be unlocked (and hence queued to apply on shutdown).</doc>
         <source-position filename="ostree-sysroot.h" line="222"/>
@@ -16107,13 +16107,13 @@ it will be unlocked (and hence queued to apply on shutdown).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3836">Sysroot</doc>
+                 line="3841">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="deployment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3837">Deployment which must be staged</doc>
+                 line="3842">Deployment which must be staged</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
         </parameters>
@@ -16221,7 +16221,7 @@ Locking: exclusive</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3552">Older version of ostree_sysroot_stage_tree_with_options().</doc>
+             line="3557">Older version of ostree_sysroot_stage_tree_with_options().</doc>
         <source-position filename="ostree-sysroot.h" line="192"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -16230,7 +16230,7 @@ Locking: exclusive</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3554">Sysroot</doc>
+                 line="3559">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="osname"
@@ -16239,13 +16239,13 @@ Locking: exclusive</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3555">osname to use for merge deployment</doc>
+                 line="3560">osname to use for merge deployment</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="revision" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3556">Checksum to add</doc>
+                 line="3561">Checksum to add</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="origin"
@@ -16254,7 +16254,7 @@ Locking: exclusive</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3557">Origin to use for upgrades</doc>
+                 line="3562">Origin to use for upgrades</doc>
             <type name="GLib.KeyFile" c:type="GKeyFile*"/>
           </parameter>
           <parameter name="provided_merge_deployment"
@@ -16263,7 +16263,7 @@ Locking: exclusive</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3558">Use this deployment for merge path</doc>
+                 line="3563">Use this deployment for merge path</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="override_kernel_argv"
@@ -16272,7 +16272,7 @@ Locking: exclusive</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3559">Use these as
+                 line="3564">Use these as
 kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
             <array c:type="char**">
               <type name="utf8"/>
@@ -16284,7 +16284,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3561">The new deployment path</doc>
+                 line="3566">The new deployment path</doc>
             <type name="Deployment" c:type="OstreeDeployment**"/>
           </parameter>
           <parameter name="cancellable"
@@ -16293,7 +16293,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3562">Cancellable</doc>
+                 line="3567">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16304,7 +16304,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3506">Check out deployment tree with revision @revision, performing a 3
+             line="3511">Check out deployment tree with revision @revision, performing a 3
 way merge with @provided_merge_deployment for configuration.
 
 When booted into the sysroot, you should use the
@@ -16317,7 +16317,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3508">Sysroot</doc>
+                 line="3513">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="osname"
@@ -16326,13 +16326,13 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3509">osname to use for merge deployment</doc>
+                 line="3514">osname to use for merge deployment</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="revision" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3510">Checksum to add</doc>
+                 line="3515">Checksum to add</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="origin"
@@ -16341,7 +16341,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3511">Origin to use for upgrades</doc>
+                 line="3516">Origin to use for upgrades</doc>
             <type name="GLib.KeyFile" c:type="GKeyFile*"/>
           </parameter>
           <parameter name="provided_merge_deployment"
@@ -16350,7 +16350,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3512">Use this deployment for merge path</doc>
+                 line="3517">Use this deployment for merge path</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="opts"
@@ -16359,7 +16359,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3513">Options</doc>
+                 line="3518">Options</doc>
             <type name="SysrootDeployTreeOpts"
                   c:type="OstreeSysrootDeployTreeOpts*"/>
           </parameter>
@@ -16369,7 +16369,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3514">The new deployment path</doc>
+                 line="3519">The new deployment path</doc>
             <type name="Deployment" c:type="OstreeDeployment**"/>
           </parameter>
           <parameter name="cancellable"
@@ -16378,7 +16378,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3515">Cancellable</doc>
+                 line="3520">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16388,7 +16388,7 @@ ostree_sysroot_stage_tree() API instead.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="4074">Entirely replace the kernel arguments of @deployment with the
+             line="4079">Entirely replace the kernel arguments of @deployment with the
 values in @new_kargs.</doc>
         <source-position filename="ostree-sysroot.h" line="146"/>
         <return-value transfer-ownership="none">
@@ -16398,19 +16398,19 @@ values in @new_kargs.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4076">Sysroot</doc>
+                 line="4081">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="deployment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4077">A deployment</doc>
+                 line="4082">A deployment</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="new_kargs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4078">Replace deployment's kernel arguments</doc>
+                 line="4083">Replace deployment's kernel arguments</doc>
             <array c:type="char**">
               <type name="utf8"/>
             </array>
@@ -16421,7 +16421,7 @@ values in @new_kargs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4079">Cancellable</doc>
+                 line="4084">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16431,7 +16431,7 @@ values in @new_kargs.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="4119">Replace the kernel arguments of @deployment with the values in @kargs_str.</doc>
+             line="4124">Replace the kernel arguments of @deployment with the values in @kargs_str.</doc>
         <source-position filename="ostree-sysroot.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -16440,13 +16440,13 @@ values in @new_kargs.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4121">Sysroot</doc>
+                 line="4126">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="deployment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4122">A deployment</doc>
+                 line="4127">A deployment</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="kargs_str"
@@ -16455,7 +16455,7 @@ values in @new_kargs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4123">Replace @deployment's kernel arguments</doc>
+                 line="4128">Replace @deployment's kernel arguments</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -16464,7 +16464,7 @@ values in @new_kargs.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4124">Cancellable</doc>
+                 line="4129">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16474,7 +16474,7 @@ values in @new_kargs.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="4189">By default, deployment directories are not mutable.  This function
+             line="4194">By default, deployment directories are not mutable.  This function
 will allow making them temporarily mutable, for example to allow
 layering additional non-OSTree content.</doc>
         <source-position filename="ostree-sysroot.h" line="226"/>
@@ -16485,19 +16485,19 @@ layering additional non-OSTree content.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4191">Sysroot</doc>
+                 line="4196">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="deployment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4192">A deployment</doc>
+                 line="4197">A deployment</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="is_mutable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4193">Whether or not deployment's files can be changed</doc>
+                 line="4198">Whether or not deployment's files can be changed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -16506,7 +16506,7 @@ layering additional non-OSTree content.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="4194">Cancellable</doc>
+                 line="4199">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16517,7 +16517,7 @@ layering additional non-OSTree content.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot.c"
-             line="2267">By default, deployments may be subject to garbage collection. Typical uses of
+             line="2268">By default, deployments may be subject to garbage collection. Typical uses of
 libostree only retain at most 2 deployments. If @is_pinned is `TRUE`, a
 metadata bit will be set causing libostree to avoid automatic GC of the
 deployment. However, this is really an "advisory" note; it's still possible
@@ -16534,19 +16534,19 @@ the staged deployment (as it's not in the bootloader entries).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot.c"
-                 line="2269">Sysroot</doc>
+                 line="2270">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="deployment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot.c"
-                 line="2270">A deployment</doc>
+                 line="2271">A deployment</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="is_pinned" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot.c"
-                 line="2271">Whether or not deployment will be automatically GC'd</doc>
+                 line="2272">Whether or not deployment will be automatically GC'd</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -17421,7 +17421,7 @@ later, instead.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3632">Stage an overlay initrd to be used in an upcoming deployment. Returns a checksum which
+             line="3637">Stage an overlay initrd to be used in an upcoming deployment. Returns a checksum which
 can be passed to ostree_sysroot_deploy_tree_with_options() or
 ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.</doc>
         <source-position filename="ostree-sysroot.h" line="176"/>
@@ -17432,13 +17432,13 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3634">Sysroot</doc>
+                 line="3639">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3635">File descriptor to overlay initrd</doc>
+                 line="3640">File descriptor to overlay initrd</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="out_checksum"
@@ -17447,7 +17447,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3636">Overlay initrd checksum</doc>
+                 line="3641">Overlay initrd checksum</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
           <parameter name="cancellable"
@@ -17456,7 +17456,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3637">Cancellable</doc>
+                 line="3642">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -17467,7 +17467,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3687">Older version of ostree_sysroot_stage_tree_with_options().</doc>
+             line="3692">Older version of ostree_sysroot_stage_tree_with_options().</doc>
         <source-position filename="ostree-sysroot.h" line="207"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -17476,7 +17476,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3689">Sysroot</doc>
+                 line="3694">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="osname"
@@ -17485,13 +17485,13 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3690">osname to use for merge deployment</doc>
+                 line="3695">osname to use for merge deployment</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="revision" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3691">Checksum to add</doc>
+                 line="3696">Checksum to add</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="origin"
@@ -17500,7 +17500,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3692">Origin to use for upgrades</doc>
+                 line="3697">Origin to use for upgrades</doc>
             <type name="GLib.KeyFile" c:type="GKeyFile*"/>
           </parameter>
           <parameter name="merge_deployment"
@@ -17509,7 +17509,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3693">Use this deployment for merge path</doc>
+                 line="3698">Use this deployment for merge path</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="override_kernel_argv"
@@ -17518,7 +17518,7 @@ ostree_sysroot_stage_tree_with_options() via the `overlay_initrds` array option.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3694">Use these as
+                 line="3699">Use these as
 kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
             <array c:type="char**">
               <type name="utf8"/>
@@ -17530,7 +17530,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3696">The new deployment path</doc>
+                 line="3701">The new deployment path</doc>
             <type name="Deployment" c:type="OstreeDeployment**"/>
           </parameter>
           <parameter name="cancellable"
@@ -17539,7 +17539,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3697">Cancellable</doc>
+                 line="3702">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -17550,7 +17550,7 @@ kernel arguments; if %NULL, inherit options from provided_merge_deployment</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="3715">Like ostree_sysroot_deploy_tree(), but "finalization" only occurs at OS
+             line="3720">Like ostree_sysroot_deploy_tree(), but "finalization" only occurs at OS
 shutdown time.</doc>
         <source-position filename="ostree-sysroot.h" line="214"/>
         <return-value transfer-ownership="none">
@@ -17560,7 +17560,7 @@ shutdown time.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3717">Sysroot</doc>
+                 line="3722">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="osname"
@@ -17569,13 +17569,13 @@ shutdown time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3718">osname to use for merge deployment</doc>
+                 line="3723">osname to use for merge deployment</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="revision" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3719">Checksum to add</doc>
+                 line="3724">Checksum to add</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="origin"
@@ -17584,7 +17584,7 @@ shutdown time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3720">Origin to use for upgrades</doc>
+                 line="3725">Origin to use for upgrades</doc>
             <type name="GLib.KeyFile" c:type="GKeyFile*"/>
           </parameter>
           <parameter name="merge_deployment"
@@ -17593,13 +17593,13 @@ shutdown time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3721">Use this deployment for merge path</doc>
+                 line="3726">Use this deployment for merge path</doc>
             <type name="Deployment" c:type="OstreeDeployment*"/>
           </parameter>
           <parameter name="opts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3722">Options</doc>
+                 line="3727">Options</doc>
             <type name="SysrootDeployTreeOpts"
                   c:type="OstreeSysrootDeployTreeOpts*"/>
           </parameter>
@@ -17609,7 +17609,7 @@ shutdown time.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3723">The new deployment path</doc>
+                 line="3728">The new deployment path</doc>
             <type name="Deployment" c:type="OstreeDeployment**"/>
           </parameter>
           <parameter name="cancellable"
@@ -17618,7 +17618,7 @@ shutdown time.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="3724">Cancellable</doc>
+                 line="3729">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -17769,7 +17769,7 @@ version will perform post-deployment cleanup by default.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ostree-sysroot-deploy.c"
-             line="2768">Assuming @new_deployments have already been deployed in place on disk via
+             line="2773">Assuming @new_deployments have already been deployed in place on disk via
 ostree_sysroot_deploy_tree(), atomically update bootloader configuration. By
 default, no post-transaction cleanup will be performed. You should invoke
 ostree_sysroot_cleanup() at some point after the transaction, or specify
@@ -17783,13 +17783,13 @@ if for example you want to control pruning of the repository.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="2770">Sysroot</doc>
+                 line="2775">Sysroot</doc>
             <type name="Sysroot" c:type="OstreeSysroot*"/>
           </instance-parameter>
           <parameter name="new_deployments" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="2771">List of new deployments</doc>
+                 line="2776">List of new deployments</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="Deployment"/>
             </array>
@@ -17797,7 +17797,7 @@ if for example you want to control pruning of the repository.</doc>
           <parameter name="opts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="2772">Options</doc>
+                 line="2777">Options</doc>
             <type name="SysrootWriteDeploymentsOpts"
                   c:type="OstreeSysrootWriteDeploymentsOpts*"/>
           </parameter>
@@ -17807,7 +17807,7 @@ if for example you want to control pruning of the repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ostree-sysroot-deploy.c"
-                 line="2773">Cancellable</doc>
+                 line="2778">Cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -18448,7 +18448,7 @@ users who had been using zero before.</doc>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VERSION"
-              value="2024.700000"
+              value="2024.800000"
               c:type="OSTREE_VERSION"
               version="2017.4">
       <doc xml:space="preserve"
@@ -18458,7 +18458,7 @@ users who had been using zero before.</doc>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
     <constant name="VERSION_S"
-              value="2024.7"
+              value="2024.8"
               c:type="OSTREE_VERSION_S"
               version="2017.4">
       <doc xml:space="preserve"

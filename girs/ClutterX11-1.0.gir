@@ -570,6 +570,9 @@ content from its source pixmap.</doc>
         <type name="Clutter.TextureClass" c:type="ClutterTextureClass"/>
       </field>
       <field name="update_area">
+        <doc xml:space="preserve"
+             filename="clutter-x11-texture-pixmap.h"
+             line="65">virtual function for updating the area of the texture</doc>
         <callback name="update_area">
           <source-position filename="clutter-x11-texture-pixmap.h" line="77"/>
           <return-value transfer-ownership="none">

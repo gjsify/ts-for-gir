@@ -159,7 +159,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="804">the creating date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">
@@ -314,7 +314,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="859">the date of the last printing as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">
@@ -336,7 +336,7 @@ specific use and intended audience. This is not the MIME-Type.</doc>
           <doc xml:space="preserve"
                filename="libgxps/gxps-core-properties.c"
                line="841">the modification date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="core_props" transfer-ownership="none">

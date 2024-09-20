@@ -186,6 +186,10 @@ and/or use gtk-doc annotations.  -->
                glib:type-struct="ColumnProviderIface">
       <source-position filename="caja-column-provider.h" line="61"/>
       <virtual-method name="get_columns" invoker="get_columns">
+        <doc xml:space="preserve"
+             filename="caja-column-provider.h"
+             line="51">Returns a #GList of #CajaColumn.
+  See caja_column_provider_get_columns() for details.</doc>
         <source-position filename="caja-column-provider.h" line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -239,6 +243,10 @@ and/or use gtk-doc annotations.  -->
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_columns">
+        <doc xml:space="preserve"
+             filename="caja-column-provider.h"
+             line="51">Returns a #GList of #CajaColumn.
+  See caja_column_provider_get_columns() for details.</doc>
         <callback name="get_columns">
           <source-position filename="caja-column-provider.h" line="60"/>
           <return-value transfer-ownership="full">
@@ -454,6 +462,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </function>
       <virtual-method name="add_emblem" invoker="add_emblem">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="68">Adds an emblem to this file.
+  See caja_file_info_add_emblem() for details.</doc>
         <source-position filename="caja-file-info.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -469,6 +481,10 @@ and/or use gtk-doc annotations.  -->
       </virtual-method>
       <virtual-method name="add_string_attribute"
                       invoker="add_string_attribute">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="72">Sets the specified string file attribute value.
+  See caja_file_info_add_string_attribute() for details.</doc>
         <source-position filename="caja-file-info.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -486,6 +502,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="can_write" invoker="can_write">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="88">Returns whether the file is writable.
+  See caja_file_info_can_write() for details.</doc>
         <source-position filename="caja-file-info.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -497,6 +517,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_activation_uri" invoker="get_activation_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="76">Returns the file activation URI as a string.
+  See caja_file_info_get_activation_uri() for details.</doc>
         <source-position filename="caja-file-info.h" line="119"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -508,6 +532,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_file_type" invoker="get_file_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="78">Returns the file type.
+  See caja_file_info_get_file_type() for details.</doc>
         <source-position filename="caja-file-info.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="Gio.FileType" c:type="GFileType"/>
@@ -519,6 +547,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_location" invoker="get_location">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="80">Returns the file location as a #GFile.
+  See caja_file_info_get_location() for details.</doc>
         <source-position filename="caja-file-info.h" line="122"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -536,6 +568,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_mime_type" invoker="get_mime_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="62">Returns the file mime type as a string.
+  See caja_file_info_get_mime_type() for details.</doc>
         <source-position filename="caja-file-info.h" line="105"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -547,6 +583,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_mount" invoker="get_mount">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="86">Returns the file mount as a #GMount.
+  See caja_file_info_get_mount() for details.</doc>
         <source-position filename="caja-file-info.h" line="125"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
@@ -565,6 +605,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_name" invoker="get_name">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="54">Returns the file name as a string.
+  See caja_file_info_get_name() for details.</doc>
         <source-position filename="caja-file-info.h" line="100"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -576,6 +620,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_parent_info" invoker="get_parent_info">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="84">Returns the file parent #CajaFileInfo.
+  See caja_file_info_get_parent_info() for details.</doc>
         <source-position filename="caja-file-info.h" line="124"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
@@ -594,6 +642,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_parent_location" invoker="get_parent_location">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="82">Returns the file parent location as a #GFile.
+  See caja_file_info_get_parent_location() for details.</doc>
         <source-position filename="caja-file-info.h" line="123"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
@@ -612,6 +664,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_parent_uri" invoker="get_parent_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="58">Returns the file parent URI as a string.
+  See caja_file_info_get_parent_uri() for details.</doc>
         <source-position filename="caja-file-info.h" line="102"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -624,6 +680,10 @@ and/or use gtk-doc annotations.  -->
       </virtual-method>
       <virtual-method name="get_string_attribute"
                       invoker="get_string_attribute">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="70">Returns the specified file attribute as a string.
+  See caja_file_info_get_string_attribute() for details.</doc>
         <source-position filename="caja-file-info.h" line="112"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -638,6 +698,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_uri" invoker="get_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="56">Returns the file URI as a string.
+  See caja_file_info_get_uri() for details.</doc>
         <source-position filename="caja-file-info.h" line="101"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -649,6 +713,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="get_uri_scheme" invoker="get_uri_scheme">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="60">Returns the file URI scheme as a string.
+  See caja_file_info_get_uri_scheme() for details.</doc>
         <source-position filename="caja-file-info.h" line="103"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
@@ -661,6 +729,10 @@ and/or use gtk-doc annotations.  -->
       </virtual-method>
       <virtual-method name="invalidate_extension_info"
                       invoker="invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="74">Invalidates information of the file provided by extensions.
+  See caja_file_info_invalidate_extension_info() for details.</doc>
         <source-position filename="caja-file-info.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -672,6 +744,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="is_directory" invoker="is_directory">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="66">Returns whether the file is a directory.
+  See caja_file_info_is_directory() for details.</doc>
         <source-position filename="caja-file-info.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -683,6 +759,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="is_gone" invoker="is_gone">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="52">Returns whether the file info is gone.
+  See caja_file_info_is_gone() for details.</doc>
         <source-position filename="caja-file-info.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -694,6 +774,10 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="is_mime_type" invoker="is_mime_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="64">Returns whether the file is the given mime type.
+  See caja_file_info_is_mime_type() for details.</doc>
         <source-position filename="caja-file-info.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -982,6 +1066,10 @@ about file objects.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="is_gone">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="52">Returns whether the file info is gone.
+  See caja_file_info_is_gone() for details.</doc>
         <callback name="is_gone">
           <source-position filename="caja-file-info.h" line="98"/>
           <return-value transfer-ownership="none">
@@ -995,6 +1083,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="54">Returns the file name as a string.
+  See caja_file_info_get_name() for details.</doc>
         <callback name="get_name">
           <source-position filename="caja-file-info.h" line="100"/>
           <return-value transfer-ownership="full">
@@ -1008,6 +1100,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="56">Returns the file URI as a string.
+  See caja_file_info_get_uri() for details.</doc>
         <callback name="get_uri">
           <source-position filename="caja-file-info.h" line="101"/>
           <return-value transfer-ownership="full">
@@ -1021,6 +1117,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_parent_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="58">Returns the file parent URI as a string.
+  See caja_file_info_get_parent_uri() for details.</doc>
         <callback name="get_parent_uri">
           <source-position filename="caja-file-info.h" line="102"/>
           <return-value transfer-ownership="full">
@@ -1034,6 +1134,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_uri_scheme">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="60">Returns the file URI scheme as a string.
+  See caja_file_info_get_uri_scheme() for details.</doc>
         <callback name="get_uri_scheme">
           <source-position filename="caja-file-info.h" line="103"/>
           <return-value transfer-ownership="full">
@@ -1047,6 +1151,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_mime_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="62">Returns the file mime type as a string.
+  See caja_file_info_get_mime_type() for details.</doc>
         <callback name="get_mime_type">
           <source-position filename="caja-file-info.h" line="105"/>
           <return-value transfer-ownership="full">
@@ -1060,6 +1168,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="is_mime_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="64">Returns whether the file is the given mime type.
+  See caja_file_info_is_mime_type() for details.</doc>
         <callback name="is_mime_type">
           <source-position filename="caja-file-info.h" line="106"/>
           <return-value transfer-ownership="none">
@@ -1076,6 +1188,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="is_directory">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="66">Returns whether the file is a directory.
+  See caja_file_info_is_directory() for details.</doc>
         <callback name="is_directory">
           <source-position filename="caja-file-info.h" line="108"/>
           <return-value transfer-ownership="none">
@@ -1089,6 +1205,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="add_emblem">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="68">Adds an emblem to this file.
+  See caja_file_info_add_emblem() for details.</doc>
         <callback name="add_emblem">
           <source-position filename="caja-file-info.h" line="110"/>
           <return-value transfer-ownership="none">
@@ -1105,6 +1225,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_string_attribute">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="70">Returns the specified file attribute as a string.
+  See caja_file_info_get_string_attribute() for details.</doc>
         <callback name="get_string_attribute">
           <source-position filename="caja-file-info.h" line="112"/>
           <return-value transfer-ownership="full">
@@ -1121,6 +1245,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="add_string_attribute">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="72">Sets the specified string file attribute value.
+  See caja_file_info_add_string_attribute() for details.</doc>
         <callback name="add_string_attribute">
           <source-position filename="caja-file-info.h" line="114"/>
           <return-value transfer-ownership="none">
@@ -1140,6 +1268,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="74">Invalidates information of the file provided by extensions.
+  See caja_file_info_invalidate_extension_info() for details.</doc>
         <callback name="invalidate_extension_info">
           <source-position filename="caja-file-info.h" line="117"/>
           <return-value transfer-ownership="none">
@@ -1153,6 +1285,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_activation_uri">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="76">Returns the file activation URI as a string.
+  See caja_file_info_get_activation_uri() for details.</doc>
         <callback name="get_activation_uri">
           <source-position filename="caja-file-info.h" line="119"/>
           <return-value transfer-ownership="full">
@@ -1166,6 +1302,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_file_type">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="78">Returns the file type.
+  See caja_file_info_get_file_type() for details.</doc>
         <callback name="get_file_type">
           <source-position filename="caja-file-info.h" line="121"/>
           <return-value transfer-ownership="none">
@@ -1179,6 +1319,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_location">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="80">Returns the file location as a #GFile.
+  See caja_file_info_get_location() for details.</doc>
         <callback name="get_location">
           <source-position filename="caja-file-info.h" line="122"/>
           <return-value transfer-ownership="full">
@@ -1198,6 +1342,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_parent_location">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="82">Returns the file parent location as a #GFile.
+  See caja_file_info_get_parent_location() for details.</doc>
         <callback name="get_parent_location">
           <source-position filename="caja-file-info.h" line="123"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -1218,6 +1366,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_parent_info">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="84">Returns the file parent #CajaFileInfo.
+  See caja_file_info_get_parent_info() for details.</doc>
         <callback name="get_parent_info">
           <source-position filename="caja-file-info.h" line="124"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -1238,6 +1390,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_mount">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="86">Returns the file mount as a #GMount.
+  See caja_file_info_get_mount() for details.</doc>
         <callback name="get_mount">
           <source-position filename="caja-file-info.h" line="125"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -1258,6 +1414,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="can_write">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="88">Returns whether the file is writable.
+  See caja_file_info_can_write() for details.</doc>
         <callback name="can_write">
           <source-position filename="caja-file-info.h" line="126"/>
           <return-value transfer-ownership="none">
@@ -1444,6 +1604,10 @@ about file objects.</doc>
         </parameters>
       </function>
       <virtual-method name="cancel_update" invoker="cancel_update">
+        <doc xml:space="preserve"
+             filename="caja-info-provider.h"
+             line="57">Cancels a previous call to caja_info_provider_update_file_info().
+  See caja_info_provider_cancel_update() for details.</doc>
         <source-position filename="caja-info-provider.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1458,6 +1622,10 @@ about file objects.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="update_file_info" invoker="update_file_info">
+        <doc xml:space="preserve"
+             filename="caja-info-provider.h"
+             line="55">Returns a #CajaOperationResult.
+  See caja_info_provider_update_file_info() for details.</doc>
         <source-position filename="caja-info-provider.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="OperationResult" c:type="CajaOperationResult"/>
@@ -1528,6 +1696,10 @@ about file objects.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="update_file_info">
+        <doc xml:space="preserve"
+             filename="caja-info-provider.h"
+             line="55">Returns a #CajaOperationResult.
+  See caja_info_provider_update_file_info() for details.</doc>
         <callback name="update_file_info">
           <source-position filename="caja-info-provider.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -1550,6 +1722,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="cancel_update">
+        <doc xml:space="preserve"
+             filename="caja-info-provider.h"
+             line="57">Cancels a previous call to caja_info_provider_update_file_info().
+  See caja_info_provider_cancel_update() for details.</doc>
         <callback name="cancel_update">
           <source-position filename="caja-info-provider.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -1617,6 +1793,10 @@ about file objects.</doc>
                glib:type-struct="LocationWidgetProviderIface">
       <source-position filename="caja-location-widget-provider.h" line="63"/>
       <virtual-method name="get_widget" invoker="get_widget">
+        <doc xml:space="preserve"
+             filename="caja-location-widget-provider.h"
+             line="52">Returns a #GtkWidget.
+  See caja_location_widget_provider_get_widget() for details.</doc>
         <source-position filename="caja-location-widget-provider.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1692,6 +1872,10 @@ about file objects.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_widget">
+        <doc xml:space="preserve"
+             filename="caja-location-widget-provider.h"
+             line="52">Returns a #GtkWidget.
+  See caja_location_widget_provider_get_widget() for details.</doc>
         <callback name="get_widget">
           <source-position filename="caja-location-widget-provider.h"
                            line="60"/>
@@ -2091,6 +2275,10 @@ about file objects.</doc>
       <source-position filename="caja-menu-provider.h" line="74"/>
       <virtual-method name="get_background_items"
                       invoker="get_background_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="54">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_background_items() for details.</doc>
         <source-position filename="caja-menu-provider.h" line="68"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2122,6 +2310,10 @@ about file objects.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_file_items" invoker="get_file_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="52">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_file_items() for details.</doc>
         <source-position filename="caja-menu-provider.h" line="65"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2155,6 +2347,10 @@ about file objects.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_toolbar_items" invoker="get_toolbar_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="56">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_toolbar_items() for details.</doc>
         <source-position filename="caja-menu-provider.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -2315,6 +2511,10 @@ about file objects.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_file_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="52">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_file_items() for details.</doc>
         <callback name="get_file_items">
           <source-position filename="caja-menu-provider.h" line="65"/>
           <return-value transfer-ownership="full">
@@ -2350,6 +2550,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_background_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="54">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_background_items() for details.</doc>
         <callback name="get_background_items">
           <source-position filename="caja-menu-provider.h" line="68"/>
           <return-value transfer-ownership="full">
@@ -2383,6 +2587,10 @@ about file objects.</doc>
         </callback>
       </field>
       <field name="get_toolbar_items">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="56">Returns a #GList of #CajaMenuItem.
+  See caja_menu_provider_get_toolbar_items() for details.</doc>
         <callback name="get_toolbar_items">
           <source-position filename="caja-menu-provider.h" line="71"/>
           <return-value transfer-ownership="full">
@@ -2674,6 +2882,10 @@ is shown, so it should return quickly.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_pages">
+        <doc xml:space="preserve"
+             filename="caja-property-page-provider.h"
+             line="52">Returns a #GList of #CajaPropertyPage.
+  See caja_property_page_provider_get_pages() for details.</doc>
         <callback name="get_pages">
           <source-position filename="caja-property-page-provider.h" line="61"/>
           <return-value transfer-ownership="full">
@@ -2798,6 +3010,9 @@ get the first visible file.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_item_count" invoker="get_item_count">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="49">Return the item count of this widget view.</doc>
         <source-position filename="caja-widget-view-provider.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -3122,6 +3337,9 @@ get the first visible file.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="supports_uri">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="43">Whether this extension works for this uri</doc>
         <callback name="supports_uri">
           <source-position filename="caja-widget-view-provider.h" line="58"/>
           <return-value transfer-ownership="none">
@@ -3160,6 +3378,10 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="get_widget" introspectable="0">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="44">Returns a #GtkWidget.
+  See caja_widget_view_provider_get_widget() for details.</doc>
         <callback name="get_widget" introspectable="0">
           <source-position filename="caja-widget-view-provider.h" line="62"/>
           <return-value>
@@ -3180,6 +3402,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="add_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="46">Adds a file to this widget view.</doc>
         <callback name="add_file">
           <source-position filename="caja-widget-view-provider.h" line="63"/>
           <return-value transfer-ownership="none">
@@ -3209,6 +3434,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="set_location">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="47">Set location to this widget view.</doc>
         <callback name="set_location">
           <source-position filename="caja-widget-view-provider.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -3229,6 +3457,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="set_window">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="48">Set the main window to this widget view.</doc>
         <callback name="set_window">
           <source-position filename="caja-widget-view-provider.h" line="65"/>
           <return-value transfer-ownership="none">
@@ -3252,6 +3483,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="get_item_count">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="49">Return the item count of this widget view.</doc>
         <callback name="get_item_count">
           <source-position filename="caja-widget-view-provider.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -3272,6 +3506,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="get_first_visible_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="50">Return the first visible file from this widget view.</doc>
         <callback name="get_first_visible_file">
           <source-position filename="caja-widget-view-provider.h" line="67"/>
           <return-value transfer-ownership="full">
@@ -3292,6 +3529,9 @@ get the first visible file.</doc>
         </callback>
       </field>
       <field name="clear">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.h"
+             line="51">Clear items in this widget view.</doc>
         <callback name="clear">
           <source-position filename="caja-widget-view-provider.h" line="68"/>
           <return-value transfer-ownership="none">

@@ -32382,7 +32382,9 @@ then this function does nothing.</doc>
                glib:get-type="gda_query_get_type"
                glib:type-struct="QueryIface">
       <source-position filename="libgda/gda-connection-model.h" line="269"/>
-      <virtual-method name="cancel" invoker="cancel">
+      <virtual-method name="cancel"
+                      invoker="cancel"
+                      glib:finish-func="cancel_finish">
         <source-position filename="libgda/gda-connection-model.h" line="267"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -32420,7 +32422,9 @@ then this function does nothing.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="execute" invoker="execute">
+      <virtual-method name="execute"
+                      invoker="execute"
+                      glib:finish-func="execute_finish">
         <source-position filename="libgda/gda-connection-model.h" line="265"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -32496,7 +32500,9 @@ then this function does nothing.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <method name="cancel" c:identifier="gda_query_cancel">
+      <method name="cancel"
+              c:identifier="gda_query_cancel"
+              glib:finish-func="cancel_finish">
         <source-position filename="libgda/gda-connection-model.h" line="532"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -32534,7 +32540,9 @@ then this function does nothing.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="execute" c:identifier="gda_query_execute">
+      <method name="execute"
+              c:identifier="gda_query_execute"
+              glib:finish-func="execute_finish">
         <source-position filename="libgda/gda-connection-model.h" line="526"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -38063,6 +38071,9 @@ for more information.</doc>
       <source-position filename="libgda/gda-server-provider-impl.h"
                        line="367"/>
       <field name="_info" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="179">information_schema_catalog_name</doc>
         <callback name="_info" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="232"/>
@@ -38086,6 +38097,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_btypes" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="180">builtin_data_types</doc>
         <callback name="_btypes" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="235"/>
@@ -38109,6 +38123,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_udt" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="181">user defined types</doc>
         <callback name="_udt" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="238"/>
@@ -38132,6 +38149,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="udt">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="182">user defined types</doc>
         <callback name="udt">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="239"/>
@@ -38164,6 +38184,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_udt_cols" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="183">user defined types columns</doc>
         <callback name="_udt_cols" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="243"/>
@@ -38187,6 +38210,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="udt_cols">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="184">user defined columns</doc>
         <callback name="udt_cols">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="244"/>
@@ -38222,6 +38248,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_enums" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="185">enumerations</doc>
         <callback name="_enums" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="248"/>
@@ -38245,6 +38274,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="enums">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="186">enumerations</doc>
         <callback name="enums">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="249"/>
@@ -38280,6 +38312,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_domains" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="187">domains</doc>
         <callback name="_domains" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="253"/>
@@ -38303,6 +38338,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="domains">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="188">domains</doc>
         <callback name="domains">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="254"/>
@@ -38335,6 +38373,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_constraints_dom" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="189">domain's constraints</doc>
         <callback name="_constraints_dom" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="258"/>
@@ -38358,6 +38399,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="constraints_dom">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="190">domain's constraints</doc>
         <callback name="constraints_dom">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="259"/>
@@ -38393,6 +38437,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_el_types" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="191">element_types</doc>
         <callback name="_el_types" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="263"/>
@@ -38416,6 +38463,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="el_types">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="192">element_types</doc>
         <callback name="el_types">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="264"/>
@@ -38445,6 +38495,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_collations" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="193">collations</doc>
         <callback name="_collations" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="268"/>
@@ -38468,6 +38521,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="collations">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="194">collations</doc>
         <callback name="collations">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="269"/>
@@ -38503,6 +38559,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_character_sets" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="195">character_sets</doc>
         <callback name="_character_sets" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="274"/>
@@ -38526,6 +38585,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="character_sets">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="196">character_sets</doc>
         <callback name="character_sets">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="275"/>
@@ -38561,6 +38623,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_schemata" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="197">schemata</doc>
         <callback name="_schemata" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="279"/>
@@ -38584,6 +38649,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="schemata">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="198">schemata</doc>
         <callback name="schemata">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="280"/>
@@ -38616,6 +38684,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_tables_views" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="199">table views</doc>
         <callback name="_tables_views" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="284"/>
@@ -38639,6 +38710,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="tables_views">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="200">table views</doc>
         <callback name="tables_views">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="285"/>
@@ -38674,6 +38748,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_columns" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="201">columns</doc>
         <callback name="_columns" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="289"/>
@@ -38697,6 +38774,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="columns">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="202">columns</doc>
         <callback name="columns">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="290"/>
@@ -38732,6 +38812,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_view_cols" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="203">view's columns</doc>
         <callback name="_view_cols" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="294"/>
@@ -38755,6 +38838,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="view_cols">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="204">view's columns</doc>
         <callback name="view_cols">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="295"/>
@@ -38790,6 +38876,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_constraints_tab" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="205">table's constrainsts</doc>
         <callback name="_constraints_tab" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="299"/>
@@ -38813,6 +38902,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="constraints_tab">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="206">table's constrainsts</doc>
         <callback name="constraints_tab">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="300"/>
@@ -38851,6 +38943,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_constraints_ref" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="207">table's constrainsts reference</doc>
         <callback name="_constraints_ref" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="305"/>
@@ -38874,6 +38969,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="constraints_ref">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="208">table's constrainsts reference</doc>
         <callback name="constraints_ref">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="306"/>
@@ -38912,6 +39010,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_key_columns" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="209">table's key columns</doc>
         <callback name="_key_columns" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="311"/>
@@ -38935,6 +39036,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="key_columns">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="210">table's key columns</doc>
         <callback name="key_columns">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="312"/>
@@ -38973,6 +39077,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_check_columns" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="211">table's check columns</doc>
         <callback name="_check_columns" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="317"/>
@@ -38996,6 +39103,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="check_columns">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="212">table's check columns</doc>
         <callback name="check_columns">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="318"/>
@@ -39034,6 +39144,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_triggers" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="213">table's triggers</doc>
         <callback name="_triggers" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="323"/>
@@ -39057,6 +39170,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="triggers">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="214">table's triggers</doc>
         <callback name="triggers">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="324"/>
@@ -39092,6 +39208,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_routines" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="215">database's routines</doc>
         <callback name="_routines" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="328"/>
@@ -39115,6 +39234,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="routines">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="216">database's routines</doc>
         <callback name="routines">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="329"/>
@@ -39150,6 +39272,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_routine_col" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="217">database's routine's columns</doc>
         <callback name="_routine_col" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="334"/>
@@ -39173,6 +39298,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="routine_col">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="218">database's routine's columns</doc>
         <callback name="routine_col">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="335"/>
@@ -39214,6 +39342,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_routine_par" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="219">database's routine's parameters</doc>
         <callback name="_routine_par" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="339"/>
@@ -39237,6 +39368,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="routine_par">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="220">database's routine's parameters</doc>
         <callback name="routine_par">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="340"/>
@@ -39272,6 +39406,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_indexes_tab" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="221">table's indexes</doc>
         <callback name="_indexes_tab" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="343"/>
@@ -39295,6 +39432,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="indexes_tab">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="222">table's indexes</doc>
         <callback name="indexes_tab">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="344"/>
@@ -39333,6 +39473,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="_index_cols" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="223">index column usage</doc>
         <callback name="_index_cols" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="349"/>
@@ -39356,6 +39499,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="index_cols">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="224">index column usage</doc>
         <callback name="index_cols">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="350"/>
@@ -39682,6 +39828,9 @@ for more information.</doc>
       <source-position filename="libgda/gda-server-provider-impl.h"
                        line="494"/>
       <field name="xa_start">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="468">start transaction</doc>
         <callback name="xa_start" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="478"/>
@@ -39702,6 +39851,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="xa_end">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="469">end transaction</doc>
         <callback name="xa_end" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="480"/>
@@ -39722,6 +39874,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="xa_prepare">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="470">prepare transaction</doc>
         <callback name="xa_prepare" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="481"/>
@@ -39742,6 +39897,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="xa_commit">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="471">commit transaction</doc>
         <callback name="xa_commit" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="483"/>
@@ -39762,6 +39920,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="xa_rollback">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="472">rollback transaction</doc>
         <callback name="xa_rollback" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="484"/>
@@ -39782,6 +39943,9 @@ for more information.</doc>
         </callback>
       </field>
       <field name="xa_recover" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libgda/gda-server-provider-impl.h"
+             line="473">recover transaction's session</doc>
         <callback name="xa_recover" introspectable="0" throws="1">
           <source-position filename="libgda/gda-server-provider-impl.h"
                            line="486"/>
@@ -56351,7 +56515,7 @@ Free-function: gda_value_free</doc>
           <doc xml:space="preserve"
                filename="libgda/gda-value.c"
                line="2052">value to set for the new #GValue.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>
@@ -56484,7 +56648,7 @@ Free-function: gda_value_free</doc>
           <doc xml:space="preserve"
                filename="libgda/gda-value.c"
                line="2083">value to set for the new #GValue.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
     </function>

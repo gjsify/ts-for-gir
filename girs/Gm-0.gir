@@ -1,0 +1,890 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="gmobile"/>
+  <c:include name="gmobile.h"/>
+  <namespace name="Gm"
+             version="0"
+             shared-library="libgmobile.so.0"
+             c:identifier-prefixes="Gm"
+             c:symbol-prefixes="gm">
+    <class name="Cutout"
+           c:symbol-prefix="cutout"
+           c:type="GmCutout"
+           version="0.0.2"
+           parent="GObject.Object"
+           glib:type-name="GmCutout"
+           glib:get-type="gm_cutout_get_type"
+           glib:type-struct="CutoutClass">
+      <doc xml:space="preserve"
+           filename="src/gm-cutout.c"
+           line="15">A display cutout or notch.
+
+A display cutout is an area of a display that is not usable for
+rendering e.g.  because a camera or speaker is placed there. This
+includes so called "notches".  The are needs to be avoided when
+rendering. It is described by a SVG path. Each cutouts coordinate
+systems is located at the top left display corner in the displays
+natural orientation. Applications can query the area to avoid
+for rendering via the `bounds` property so they don't need to
+deal with the SVG path themselves.</doc>
+      <source-position filename="src/gm-cutout.h" line="17"/>
+      <constructor name="new" c:identifier="gm_cutout_new" version="0.0.2">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="193">Create a new cutout based on the given SVG path.</doc>
+        <source-position filename="src/gm-cutout.h" line="19"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/gm-cutout.c"
+               line="199">The cutout.</doc>
+          <type name="Cutout" c:type="GmCutout*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-cutout.c"
+                 line="195">An svg path</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_bounds"
+              c:identifier="gm_cutout_get_bounds"
+              glib:get-property="bounds"
+              version="0.0.2">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="245">Gets the bounding box of the cutout.</doc>
+        <source-position filename="src/gm-cutout.h" line="22"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-cutout.c"
+               line="251">The bounding box.</doc>
+          <type name="Rect" c:type="const GmRect*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-cutout.c"
+                 line="247">A cutout</doc>
+            <type name="Cutout" c:type="GmCutout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="gm_cutout_get_name"
+              glib:get-property="name"
+              version="0.0.2">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="209">The name of the cutout.</doc>
+        <source-position filename="src/gm-cutout.h" line="20"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-cutout.c"
+               line="215">The cutout's name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-cutout.c"
+                 line="211">A cutout</doc>
+            <type name="Cutout" c:type="GmCutout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_path"
+              c:identifier="gm_cutout_get_path"
+              glib:get-property="path"
+              version="0.0.2">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="227">Gets the SVG path describing the shape of the cutout.</doc>
+        <source-position filename="src/gm-cutout.h" line="21"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-cutout.c"
+               line="233">The cutout's shape as SVG path</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-cutout.c"
+                 line="229">A cutout</doc>
+            <type name="Cutout" c:type="GmCutout*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="bounds"
+                version="0.0.2"
+                transfer-ownership="none"
+                getter="get_bounds">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="172">Rectangular bounds of the cutout</doc>
+        <type name="Rect"/>
+      </property>
+      <property name="name"
+                version="0.0.2"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="150">A name identifying the cutout.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="path"
+                version="0.0.2"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_path"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/gm-cutout.c"
+             line="161">The SVG path that describes the display cutout or notch.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="CutoutClass"
+            c:type="GmCutoutClass"
+            glib:is-gtype-struct-for="Cutout">
+      <source-position filename="src/gm-cutout.h" line="17"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="DeviceInfo"
+           c:symbol-prefix="device_info"
+           c:type="GmDeviceInfo"
+           version="0.0.1"
+           parent="GObject.Object"
+           glib:type-name="GmDeviceInfo"
+           glib:get-type="gm_device_info_get_type"
+           glib:type-struct="DeviceInfoClass">
+      <doc xml:space="preserve"
+           filename="src/gm-device-info.c"
+           line="17">Get device dependent information.
+
+Allows to query device dependent information from different
+sources (currently we only look a the built-in gresources).
+
+The lookups are currently based on device tree compatibles.
+See [func@device_tree_get_compatibles].</doc>
+      <source-position filename="src/gm-device-info.h" line="19"/>
+      <constructor name="new"
+                   c:identifier="gm_device_info_new"
+                   version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-device-info.c"
+             line="128">Gets device information based on the passed in device tree compatibles.</doc>
+        <source-position filename="src/gm-device-info.h" line="21"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/gm-device-info.c"
+               line="134">The known device information</doc>
+          <type name="DeviceInfo" c:type="GmDeviceInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="compatibles" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-device-info.c"
+                 line="130">device tree compatibles</doc>
+            <type name="utf8" c:type="const char* const*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_display_panel"
+              c:identifier="gm_device_info_get_display_panel"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-device-info.c"
+             line="146">Gets display panel information. Queries the database for the best
+matching panel based on the device's compatibles.</doc>
+        <source-position filename="src/gm-device-info.h" line="22"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-device-info.c"
+               line="153">The display panel information</doc>
+          <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-device-info.c"
+                 line="148">The device info</doc>
+            <type name="DeviceInfo" c:type="GmDeviceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="compatibles"
+                version="0.0.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/gm-device-info.c"
+             line="107">The compatibles to look up device information for.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+    </class>
+    <record name="DeviceInfoClass"
+            c:type="GmDeviceInfoClass"
+            glib:is-gtype-struct-for="DeviceInfo">
+      <source-position filename="src/gm-device-info.h" line="19"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="DisplayPanel"
+           c:symbol-prefix="display_panel"
+           c:type="GmDisplayPanel"
+           version="0.0.1"
+           parent="GObject.Object"
+           glib:type-name="GmDisplayPanel"
+           glib:get-type="gm_display_panel_get_type"
+           glib:type-struct="DisplayPanelClass">
+      <doc xml:space="preserve"
+           filename="src/gm-display-panel.c"
+           line="15">Physical properties of a display panel like size, cutouts and
+rounded corners.</doc>
+      <source-position filename="src/gm-display-panel.h" line="18"/>
+      <constructor name="new"
+                   c:identifier="gm_display_panel_new"
+                   version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="318">Constructs a new display panel object.</doc>
+        <source-position filename="src/gm-display-panel.h" line="20"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="323">The new display panel object</doc>
+          <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_data"
+                   c:identifier="gm_display_panel_new_from_data"
+                   version="0.0.1"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="333">Constructs a new display panel based on the given data. If that fails
+`NULL` is returned and `error` describes the error that occurred.</doc>
+        <source-position filename="src/gm-display-panel.h" line="21"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="341">The new display panel object</doc>
+          <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="335">The panel's data as JSON</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_resource"
+                   c:identifier="gm_display_panel_new_from_resource"
+                   version="0.0.1"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="355">Constructs a new display panel by fetching the data from the given
+GResource. If that fails `NULL` is returned and `error` describes
+the error that occurred.</doc>
+        <source-position filename="src/gm-display-panel.h" line="22"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="364">The new display panel object</doc>
+          <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="resource_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="357">A path to a gresource</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_border_radius"
+              c:identifier="gm_display_panel_get_border_radius"
+              glib:get-property="border-radius"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="457">Gets the panels border radius. 0 indicates rectangular corners.  If
+given applies to all corners of the panel.</doc>
+        <source-position filename="src/gm-display-panel.h" line="27"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="464">The panel's border radius.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="459">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cutouts"
+              c:identifier="gm_display_panel_get_cutouts"
+              glib:get-property="cutouts"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="403">Get the display cutouts.</doc>
+        <source-position filename="src/gm-display-panel.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="409">The display cutouts</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="405">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_height"
+              c:identifier="gm_display_panel_get_height"
+              glib:get-property="height"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="494">Gets the panels height in mm.</doc>
+        <source-position filename="src/gm-display-panel.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="500">The panel's height.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="496">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="gm_display_panel_get_name"
+              glib:get-property="name"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="386">Gets the panel's name.</doc>
+        <source-position filename="src/gm-display-panel.h" line="23"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="391">The panel's name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="gm_display_panel_get_width"
+              glib:get-property="width"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="476">Gets the panels width in mm.</doc>
+        <source-position filename="src/gm-display-panel.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="482">The panel's width.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="478">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_x_res"
+              c:identifier="gm_display_panel_get_x_res"
+              glib:get-property="x-res"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="421">Gets the panels resolution (in pixels) in the x direction</doc>
+        <source-position filename="src/gm-display-panel.h" line="25"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="427">The x resolution.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="423">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_y_res"
+              c:identifier="gm_display_panel_get_y_res"
+              glib:get-property="y-res"
+              version="0.0.1">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="439">Gets the panels resolution (in pixels) in the y direction.</doc>
+        <source-position filename="src/gm-display-panel.h" line="26"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-display-panel.c"
+               line="445">The y resolution.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/gm-display-panel.c"
+                 line="441">The display panel</doc>
+            <type name="DisplayPanel" c:type="GmDisplayPanel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="border-radius"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_border_radius"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="273">The border radius of the panel edges in device pixels
+If a single border radius isn't enough use multiple [type@Cutout].</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="cutouts"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_cutouts">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="240">The display cutouts as `GListModel` of [class@Cutout].</doc>
+        <type name="Gio.ListStore"/>
+      </property>
+      <property name="height"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_height"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="296">The display height in millimeters</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="name"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="228">The name of the display</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="width"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_width"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="285">The display width in millimeters</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="x-res"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_x_res"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="251">The panel resolution in pixels in the x direction</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="y-res"
+                version="0.0.1"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_y_res"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="src/gm-display-panel.c"
+             line="262">The panel resolution in pixels in the y direction</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="DisplayPanelClass"
+            c:type="GmDisplayPanelClass"
+            glib:is-gtype-struct-for="DisplayPanel">
+      <source-position filename="src/gm-display-panel.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="Error"
+                 version="0.0.1"
+                 c:type="GmError"
+                 glib:error-domain="gm-error-quark">
+      <doc xml:space="preserve"
+           filename="src/gm-error.h"
+           line="13">Error codes returned by gmobile functions.</doc>
+      <source-position filename="src/gm-error.h" line="23"/>
+      <member name="error_parsing_failed"
+              value="1"
+              c:identifier="GM_ERROR_PARSING_FAILED">
+        <doc xml:space="preserve"
+             filename="src/gm-error.h"
+             line="15">Parsing of the given data failed.</doc>
+      </member>
+    </enumeration>
+    <record name="Rect"
+            c:type="GmRect"
+            version="0.0.1"
+            glib:type-name="GmRect"
+            glib:get-type="gm_rect_get_type"
+            c:symbol-prefix="rect">
+      <doc xml:space="preserve"
+           filename="src/gm-rect.c"
+           line="11">A rectangle.
+
+Similar to GdkRectangle but we don't want to pull in gtk/gdk.</doc>
+      <source-position filename="src/gm-rect.h" line="22"/>
+      <field name="x" writable="1">
+        <doc xml:space="preserve"
+             filename="src/gm-rect.c"
+             line="13">x coordindate of the upper, left corner</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="y" writable="1">
+        <doc xml:space="preserve"
+             filename="src/gm-rect.c"
+             line="14">y coordindate of the upper, left corner</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="width" writable="1">
+        <doc xml:space="preserve"
+             filename="src/gm-rect.c"
+             line="15">the width of the rectangle</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="height" writable="1">
+        <doc xml:space="preserve"
+             filename="src/gm-rect.c"
+             line="16">the height of the rectangle</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+    </record>
+    <function name="device_tree_get_compatibles"
+              c:identifier="gm_device_tree_get_compatibles"
+              version="0.0.1"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/gm-device-tree.c"
+           line="27">Read compatible machine types from
+`sysfs_root/firmware/devicetree/base/compatible` on Linux.
+If the path doesn't exist or host is not Linux return %NULL.
+
+For debugging purposes `GMOBILE_DT_COMPATIBLES` can be set to a `:`
+separated list of compatibles which will be returned instead.</doc>
+      <source-position filename="src/gm-device-tree.h" line="19"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/gm-device-tree.c"
+             line="39">compatible machine types or %NULL</doc>
+        <array c:type="GStrv">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="sysfs_root" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-device-tree.c"
+               line="29">Path where /sys is mounted. Defaults to `/sys` if %NULL is passed.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_quark" c:identifier="gm_error_quark" version="0.0.1">
+      <doc xml:space="preserve"
+           filename="src/gm-error.c"
+           line="11">Gets the GM Error Quark.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/gm-error.c"
+             line="16">a #GQuark.</doc>
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="gm_init" version="0.0.1">
+      <doc xml:space="preserve"
+           filename="src/gm-main.c"
+           line="12">Call this function to initialize the library explicitly. This makes
+the embedded device information available.</doc>
+      <source-position filename="src/gm-main.h" line="19"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function-macro name="str_is_null_or_empty"
+                    c:identifier="gm_str_is_null_or_empty"
+                    version="0.0.5"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/gm-util.c"
+           line="11">Convenience macro to check if a given string is `NULL` or empty.
+Evaluates to a truth value if `x` is `NULL` or `x` is the empty string
+otherwise `FALSE`.</doc>
+      <source-position filename="src/gm-util.h" line="15"/>
+      <parameters>
+        <parameter name="x">
+          <doc xml:space="preserve"
+               filename="src/gm-util.c"
+               line="13">A null terminated string</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="strv_is_null_or_empty"
+                    c:identifier="gm_strv_is_null_or_empty"
+                    version="0.0.5"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/gm-util.c"
+           line="22">Convenience macro to check if a given `GStrv` is `NULL` or empty.
+Evaluates to a truth value if `x` is `NULL` or `x` has no elements otherwise
+`FALSE`.</doc>
+      <source-position filename="src/gm-util.h" line="17"/>
+      <parameters>
+        <parameter name="x">
+          <doc xml:space="preserve"
+               filename="src/gm-util.c"
+               line="24">A `NULL` terminated `GStrv`</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="svg_path_get_bounding_box"
+              c:identifier="gm_svg_path_get_bounding_box"
+              version="0.0.1"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="src/gm-svg-path.c"
+           line="339">Returns the bounding box of an SVG path. As this is meant for
+display cutouts we operate on integer (whole pixel) values.  When
+parsing fails, `FALSE` is returned and `error` contains the error
+information.</doc>
+      <source-position filename="src/gm-svg-path.h" line="19"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/gm-svg-path.c"
+             line="353">`TRUE` when parsing was successful, `FALSE` otherwise.
+
+See https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths for path syntax introduction.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-svg-path.c"
+               line="341">An SVG path</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="x1" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-svg-path.c"
+               line="342">The lower x coordinate</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="x2" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-svg-path.c"
+               line="343">The upper x coordinate</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="y1" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-svg-path.c"
+               line="344">The lower y coordinate</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="y2" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-svg-path.c"
+               line="345">The upper x coordinate</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="timeout_add_seconds_once"
+              c:identifier="gm_timeout_add_seconds_once"
+              shadowed-by="timeout_add_seconds_once_full"
+              version="0.0.1"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/gm-timeout.c"
+           line="178">Sets a function to be called after a timeout with the default
+priority, %G_PRIORITY_DEFAULT. Correctly calculates the timeout
+even when the system is suspended in between.
+
+This internally creates a main loop source using
+g_timeout_source_new_seconds() and attaches it to the main loop context
+using g_source_attach().
+
+The timeout given is in terms of `CLOCK_BOOTTIME` time, it hence is also
+correct across suspend and resume. If that doesn't matter use
+`g_timeout_add_seconds` instead.
+
+Note that glib's `g_timeout_add_seconds()` doesn't take system
+suspend/resume into account: https://gitlab.gnome.org/GNOME/glib/-/issues/2739</doc>
+      <source-position filename="src/gm-timeout.h" line="24"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/gm-timeout.c"
+             line="199">the ID (greater than 0) of the event source.</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="seconds" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="180">the timeout in seconds</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="function" transfer-ownership="none" closure="2">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="181">function to call</doc>
+          <type name="GLib.SourceOnceFunc" c:type="GSourceOnceFunc"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="182">data to pass to @function</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="timeout_add_seconds_once_full"
+              c:identifier="gm_timeout_add_seconds_once_full"
+              shadows="timeout_add_seconds_once"
+              version="0.0.1">
+      <doc xml:space="preserve"
+           filename="src/gm-timeout.c"
+           line="128">Sets a function to be called after a timeout with priority @priority.
+Correctly calculates the timeout even when the system is suspended in between.
+
+This internally creates a main loop source using
+g_timeout_source_new_seconds() and attaches it to the main loop context
+using g_source_attach().
+
+The timeout given is in terms of `CLOCK_BOOTTIME` time, it hence is also
+correct across suspend and resume. If that doesn't matter use
+`g_timeout_add_seconds_full` instead.
+
+Note that glib's `g_timeout_add_seconds()` doesn't take system
+suspend/resume into account: https://gitlab.gnome.org/GNOME/glib/-/issues/2739</doc>
+      <source-position filename="src/gm-timeout.h" line="19"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/gm-timeout.c"
+             line="151">the ID (greater than 0) of the event source.</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="priority" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="130">the priority of the timeout source. Typically this will be in
+  the range between %G_PRIORITY_DEFAULT and %G_PRIORITY_HIGH.</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="seconds" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="132">the timeout in seconds</doc>
+          <type name="gulong" c:type="gulong"/>
+        </parameter>
+        <parameter name="function"
+                   transfer-ownership="none"
+                   scope="notified"
+                   closure="3"
+                   destroy="4">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="133">function to call</doc>
+          <type name="GLib.SourceOnceFunc" c:type="GSourceOnceFunc"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="134">data to pass to @function</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="notify"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async">
+          <doc xml:space="preserve"
+               filename="src/gm-timeout.c"
+               line="135">function to call when the timeout is removed, or %NULL</doc>
+          <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -10386,25 +10386,25 @@ see_also: #IBusEngine</doc>
               c:identifier="ibus_engine_simple_add_compose_file">
         <doc xml:space="preserve"
              filename="ibusenginesimple.h"
-             line="155">Call ibus_engine_simple_add_table() internally by locale.</doc>
-        <source-position filename="ibusenginesimple.h" line="164"/>
+             line="158">Call ibus_engine_simple_add_table() internally by locale.</doc>
+        <source-position filename="ibusenginesimple.h" line="167"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusenginesimple.h"
-               line="162">%TRUE if the @file is loaded.</doc>
+               line="165">%TRUE if the @file is loaded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="simple" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="157">An IBusEngineSimple.</doc>
+                 line="160">An IBusEngineSimple.</doc>
             <type name="EngineSimple" c:type="IBusEngineSimple*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="158">The compose file.</doc>
+                 line="161">The compose file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10412,14 +10412,14 @@ see_also: #IBusEngine</doc>
       <method name="add_table" c:identifier="ibus_engine_simple_add_table">
         <doc xml:space="preserve"
              filename="ibusenginesimple.h"
-             line="119">Adds an additional table to search to the engine. Each row of the table
+             line="122">Adds an additional table to search to the engine. Each row of the table
 consists of max_seq_len key symbols followed by two guint16 interpreted as
 the high and low words of a gunicode value. Tables are searched starting from
 the last added.
 
 The table must be sorted in dictionary order on the numeric value of the key
 symbol fields. (Values beyond the length of the sequence should be zero.)</doc>
-        <source-position filename="ibusenginesimple.h" line="136"/>
+        <source-position filename="ibusenginesimple.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -10427,13 +10427,13 @@ symbol fields. (Values beyond the length of the sequence should be zero.)</doc>
           <instance-parameter name="simple" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="121">An IBusEngineSimple.</doc>
+                 line="124">An IBusEngineSimple.</doc>
             <type name="EngineSimple" c:type="IBusEngineSimple*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="122">The table which must be available
+                 line="125">The table which must be available
      during the whole life of the simple engine.</doc>
             <array zero-terminated="0" c:type="const guint16*">
               <type name="guint16"/>
@@ -10442,14 +10442,14 @@ symbol fields. (Values beyond the length of the sequence should be zero.)</doc>
           <parameter name="max_seq_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="124">Maximum length of a sequence in the table (cannot be greater
+                 line="127">Maximum length of a sequence in the table (cannot be greater
      than %IBUS_MAX_COMPOSE_LEN)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="n_seqs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="126">number of sequences in the table</doc>
+                 line="129">number of sequences in the table</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -10458,19 +10458,19 @@ symbol fields. (Values beyond the length of the sequence should be zero.)</doc>
               c:identifier="ibus_engine_simple_add_table_by_locale">
         <doc xml:space="preserve"
              filename="ibusenginesimple.h"
-             line="141">Call ibus_engine_simple_add_table() internally by locale.</doc>
-        <source-position filename="ibusenginesimple.h" line="151"/>
+             line="144">Call ibus_engine_simple_add_table() internally by locale.</doc>
+        <source-position filename="ibusenginesimple.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusenginesimple.h"
-               line="149">%TRUE if the @locale is matched to the table.</doc>
+               line="152">%TRUE if the @locale is matched to the table.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="simple" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="143">An IBusEngineSimple.</doc>
+                 line="146">An IBusEngineSimple.</doc>
             <type name="EngineSimple" c:type="IBusEngineSimple*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -10479,7 +10479,7 @@ symbol fields. (Values beyond the length of the sequence should be zero.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ibusenginesimple.h"
-                 line="144">The locale name. If the locale is %NULL,
+                 line="147">The locale name. If the locale is %NULL,
                        the current locale is used.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -27943,7 +27943,7 @@ non-numeric keys such as "asdfghjkl;".</doc>
       <source-position filename="ibusenginesimple.h" line="47"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="30" c:type="IBUS_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="31" c:type="IBUS_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="ibusversion.h"
            line="49">IBus micro version.</doc>
@@ -36657,7 +36657,7 @@ and return a corresponding XML tree.</doc>
     <function name="accelerator_name" c:identifier="ibus_accelerator_name">
       <doc xml:space="preserve"
            filename="ibusaccelgroup.c"
-           line="399">Converts an accelerator keyval and modifier mask into a string
+           line="401">Converts an accelerator keyval and modifier mask into a string
 parseable by gtk_accelerator_parse(). For example, if you pass in
 #IBUS_KEY_q and #IBUS_CONTROL_MASK, this function returns “&amp;lt;Control&amp;gt;q”.
 
@@ -36667,20 +36667,20 @@ see gtk_accelerator_get_label().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="ibusaccelgroup.c"
-             line="411">a newly-allocated accelerator name</doc>
+             line="413">a newly-allocated accelerator name</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="accelerator_key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusaccelgroup.c"
-               line="401">accelerator keyval</doc>
+               line="403">accelerator keyval</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="accelerator_mods" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusaccelgroup.c"
-               line="402">accelerator modifier mask</doc>
+               line="404">accelerator modifier mask</doc>
           <type name="ModifierType" c:type="IBusModifierType"/>
         </parameter>
       </parameters>
@@ -36690,7 +36690,7 @@ see gtk_accelerator_get_label().</doc>
               version="1.5.18">
       <doc xml:space="preserve"
            filename="ibusaccelgroup.c"
-           line="261">Parses a string representing an accelerator. The format looks like
+           line="263">Parses a string representing an accelerator. The format looks like
 “&amp;lt;Control&amp;gt;a” or “&amp;lt;Shift&amp;gt;&amp;lt;Alt&amp;gt;F1” or “&amp;lt;Release%gt;z”
 (the last one is for key release).
 
@@ -36710,7 +36710,7 @@ be set to 0 (zero).</doc>
         <parameter name="accelerator" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusaccelgroup.c"
-               line="263">string representing an accelerator</doc>
+               line="265">string representing an accelerator</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="accelerator_key"
@@ -36721,7 +36721,7 @@ be set to 0 (zero).</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="ibusaccelgroup.c"
-               line="264">return location for accelerator
+               line="266">return location for accelerator
     keyval, or %NULL</doc>
           <type name="guint" c:type="guint*"/>
         </parameter>
@@ -36733,7 +36733,7 @@ be set to 0 (zero).</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="ibusaccelgroup.c"
-               line="266">return location for accelerator
+               line="268">return location for accelerator
     modifier mask, %NULL</doc>
           <type name="ModifierType" c:type="IBusModifierType*"/>
         </parameter>

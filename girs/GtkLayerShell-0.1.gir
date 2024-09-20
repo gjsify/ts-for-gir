@@ -700,5 +700,27 @@ Default is "gtk-layer-shell" (which will be used if set to %NULL)</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="try_force_commit"
+              c:identifier="gtk_layer_try_force_commit"
+              version="0.9">
+      <doc xml:space="preserve"
+           filename="include/gtk-layer-shell.h"
+           line="390">Commits a surface state if there's no pending commit scheduled by the GTK.
+You almost never need to call this; the only known case is when the surface is in a state
+where it does not receive frame callbacks and the regular deferred commit mechanism
+is unavailable.</doc>
+      <source-position filename="include/gtk-layer-shell.h" line="401"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/gtk-layer-shell.h"
+               line="392">A layer surface.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
   </namespace>
 </repository>

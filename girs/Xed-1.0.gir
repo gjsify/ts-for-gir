@@ -675,7 +675,7 @@ a newly allocated list of #XedView objects</doc>
       <method name="get_file" c:identifier="xed_document_get_file">
         <doc xml:space="preserve"
              filename="xed/xed-document.c"
-             line="1640">Gets the associated #GtkSourceFile. You should use it only for reading
+             line="1647">Gets the associated #GtkSourceFile. You should use it only for reading
 purposes, not for creating a #GtkSourceFileLoader or #GtkSourceFileSaver,
 because xed does some extra work when loading or saving a file and
 maintains an internal state. If you use in a plugin a file loader or saver on
@@ -687,14 +687,14 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-document.c"
-               line="1653">the associated #GtkSourceFile.</doc>
+               line="1660">the associated #GtkSourceFile.</doc>
           <type name="GtkSource.File" c:type="GtkSourceFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1642">a #XedDocument.</doc>
+                 line="1649">a #XedDocument.</doc>
             <type name="Document" c:type="XedDocument*"/>
           </instance-parameter>
         </parameters>
@@ -730,25 +730,25 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
       <method name="get_metadata" c:identifier="xed_document_get_metadata">
         <doc xml:space="preserve"
              filename="xed/xed-document.c"
-             line="1470">Gets the metadata assigned to @key.</doc>
+             line="1477">Gets the metadata assigned to @key.</doc>
         <source-position filename="xed/xed-document.h" line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xed/xed-document.c"
-               line="1477">the value assigned to @key. Free with g_free().</doc>
+               line="1484">the value assigned to @key. Free with g_free().</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1472">a #XedDocument</doc>
+                 line="1479">a #XedDocument</doc>
             <type name="Document" c:type="XedDocument*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1473">name of the key</doc>
+                 line="1480">name of the key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -801,7 +801,7 @@ new #GtkSourceFile and use a #GtkSourceFileSaver.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xed/xed-document.c"
-               line="1625">the current search context of the document,
+               line="1632">the current search context of the document,
 or NULL if there is no search context</doc>
           <type name="GtkSource.SearchContext"
                 c:type="GtkSourceSearchContext*"/>
@@ -810,7 +810,7 @@ or NULL if there is no search context</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1623">a #XedDocument</doc>
+                 line="1630">a #XedDocument</doc>
             <type name="Document" c:type="XedDocument*"/>
           </instance-parameter>
         </parameters>
@@ -971,7 +971,7 @@ or NULL if there is no search context</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="xed/xed-document.c"
-             line="1513">Sets metadata on a document.</doc>
+             line="1520">Sets metadata on a document.</doc>
         <source-position filename="xed/xed-document.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -980,19 +980,19 @@ or NULL if there is no search context</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1515">a #XedDocument</doc>
+                 line="1522">a #XedDocument</doc>
             <type name="Document" c:type="XedDocument*"/>
           </instance-parameter>
           <parameter name="first_key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1516">name of the first key to set</doc>
+                 line="1523">name of the first key to set</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1517">value for the first key, followed optionally by more key/value pairs,
+                 line="1524">value for the first key, followed optionally by more key/value pairs,
 followed by %NULL.</doc>
             <varargs/>
           </parameter>
@@ -1002,7 +1002,7 @@ followed by %NULL.</doc>
               c:identifier="xed_document_set_search_context">
         <doc xml:space="preserve"
              filename="xed/xed-document.c"
-             line="1591">Sets the new search context for the document.</doc>
+             line="1598">Sets the new search context for the document.</doc>
         <source-position filename="xed/xed-document.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1011,7 +1011,7 @@ followed by %NULL.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1593">a #XedDocument</doc>
+                 line="1600">a #XedDocument</doc>
             <type name="Document" c:type="XedDocument*"/>
           </instance-parameter>
           <parameter name="search_context"
@@ -1020,7 +1020,7 @@ followed by %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="xed/xed-document.c"
-                 line="1594">the new #GtkSourceSearchContext</doc>
+                 line="1601">the new #GtkSourceSearchContext</doc>
             <type name="GtkSource.SearchContext"
                   c:type="GtkSourceSearchContext*"/>
           </parameter>
@@ -3775,12 +3775,12 @@ drops to 0, @message_type is destroyed.</doc>
       <method name="get_all_tabs" c:identifier="xed_notebook_get_all_tabs">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="969">Gets all #XedTab from @nb.</doc>
+             line="975">Gets all #XedTab from @nb.</doc>
         <source-position filename="xed/xed-notebook.h" line="113"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-notebook.c"
-               line="974">#GList of all tabs</doc>
+               line="980">#GList of all tabs</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Gtk.Widget"/>
           </type>
@@ -3789,7 +3789,7 @@ drops to 0, @message_type is destroyed.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="971">a #XedNotebook</doc>
+                 line="977">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
         </parameters>
@@ -3798,19 +3798,19 @@ drops to 0, @message_type is destroyed.</doc>
               c:identifier="xed_notebook_get_close_buttons_sensitive">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="1024">Whether the close buttons are sensitive.</doc>
+             line="1030">Whether the close buttons are sensitive.</doc>
         <source-position filename="xed/xed-notebook.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-notebook.c"
-               line="1030">%TRUE if the close buttons are sensitive</doc>
+               line="1036">%TRUE if the close buttons are sensitive</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1026">a #XedNotebook</doc>
+                 line="1032">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
         </parameters>
@@ -3819,19 +3819,19 @@ drops to 0, @message_type is destroyed.</doc>
               c:identifier="xed_notebook_get_tab_drag_and_drop_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="1063">Whether the drag and drop is enabled in the @nb.</doc>
+             line="1069">Whether the drag and drop is enabled in the @nb.</doc>
         <source-position filename="xed/xed-notebook.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-notebook.c"
-               line="1069">%TRUE if the drag and drop is enabled.</doc>
+               line="1075">%TRUE if the drag and drop is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1065">a #XedNotebook</doc>
+                 line="1071">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
         </parameters>
@@ -3840,19 +3840,19 @@ drops to 0, @message_type is destroyed.</doc>
               c:identifier="xed_notebook_get_tab_scrolling_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="1102">Whether notebook tab scrolling is enabled</doc>
+             line="1108">Whether notebook tab scrolling is enabled</doc>
         <source-position filename="xed/xed-notebook.h" line="140"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-notebook.c"
-               line="1108">%TRUE if tab scrolling is enabled</doc>
+               line="1114">%TRUE if tab scrolling is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1104">a #XedNotebook</doc>
+                 line="1110">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
         </parameters>
@@ -3899,7 +3899,7 @@ end of the tabs.</doc>
               c:identifier="xed_notebook_remove_all_tabs">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="952">Removes all #XedTab from @nb.</doc>
+             line="958">Removes all #XedTab from @nb.</doc>
         <source-position filename="xed/xed-notebook.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3908,7 +3908,7 @@ end of the tabs.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="954">a #XedNotebook</doc>
+                 line="960">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
         </parameters>
@@ -3916,7 +3916,7 @@ end of the tabs.</doc>
       <method name="remove_tab" c:identifier="xed_notebook_remove_tab">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="922">Removes @tab from @nb.</doc>
+             line="928">Removes @tab from @nb.</doc>
         <source-position filename="xed/xed-notebook.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3925,13 +3925,13 @@ end of the tabs.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="924">a #XedNotebook</doc>
+                 line="930">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="925">a #XedTab</doc>
+                 line="931">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </parameter>
         </parameters>
@@ -3972,7 +3972,7 @@ end of the tabs.</doc>
               c:identifier="xed_notebook_set_close_buttons_sensitive">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="999">Sets whether the close buttons in the tabs of @nb are sensitive.</doc>
+             line="1005">Sets whether the close buttons in the tabs of @nb are sensitive.</doc>
         <source-position filename="xed/xed-notebook.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3981,13 +3981,13 @@ end of the tabs.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1001">a #XedNotebook</doc>
+                 line="1007">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
           <parameter name="sensitive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1002">%TRUE to make the buttons sensitive</doc>
+                 line="1008">%TRUE to make the buttons sensitive</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3996,7 +3996,7 @@ end of the tabs.</doc>
               c:identifier="xed_notebook_set_tab_drag_and_drop_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="1040">Sets whether drag and drop of tabs in the @nb is enabled.</doc>
+             line="1046">Sets whether drag and drop of tabs in the @nb is enabled.</doc>
         <source-position filename="xed/xed-notebook.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4005,13 +4005,13 @@ end of the tabs.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1042">a #XedNotebook</doc>
+                 line="1048">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1043">%TRUE to enable the drag and drop</doc>
+                 line="1049">%TRUE to enable the drag and drop</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4020,7 +4020,7 @@ end of the tabs.</doc>
               c:identifier="xed_notebook_set_tab_scrolling_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-notebook.c"
-             line="1079">Sets whether tab scrolling in the @nb is enabled.</doc>
+             line="1085">Sets whether tab scrolling in the @nb is enabled.</doc>
         <source-position filename="xed/xed-notebook.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4029,13 +4029,13 @@ end of the tabs.</doc>
           <instance-parameter name="nb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1081">a #XedNotebook</doc>
+                 line="1087">a #XedNotebook</doc>
             <type name="Notebook" c:type="XedNotebook*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-notebook.c"
-                 line="1082">%TRUE to enable tab scrolling</doc>
+                 line="1088">%TRUE to enable tab scrolling</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5251,19 +5251,19 @@ instead.</doc>
               c:identifier="xed_tab_get_auto_save_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-tab.c"
-             line="2904">Gets the current state for the autosave feature</doc>
+             line="2913">Gets the current state for the autosave feature</doc>
         <source-position filename="xed/xed-tab.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-tab.c"
-               line="2910">%TRUE if the autosave is enabled, else %FALSE</doc>
+               line="2919">%TRUE if the autosave is enabled, else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2906">a #XedTab</doc>
+                 line="2915">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </instance-parameter>
         </parameters>
@@ -5272,19 +5272,19 @@ instead.</doc>
               c:identifier="xed_tab_get_auto_save_interval">
         <doc xml:space="preserve"
              filename="xed/xed-tab.c"
-             line="2948">Gets the current interval for the autosaves</doc>
+             line="2957">Gets the current interval for the autosaves</doc>
         <source-position filename="xed/xed-tab.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-tab.c"
-               line="2954">the value of the autosave</doc>
+               line="2963">the value of the autosave</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2950">a #XedTab</doc>
+                 line="2959">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </instance-parameter>
         </parameters>
@@ -5355,7 +5355,7 @@ instead.</doc>
               c:identifier="xed_tab_set_auto_save_enabled">
         <doc xml:space="preserve"
              filename="xed/xed-tab.c"
-             line="2922">Enables or disables the autosave feature. It does not install an
+             line="2931">Enables or disables the autosave feature. It does not install an
 autosave timeout if the document is new or is read-only</doc>
         <source-position filename="xed/xed-tab.h" line="95"/>
         <return-value transfer-ownership="none">
@@ -5365,13 +5365,13 @@ autosave timeout if the document is new or is read-only</doc>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2924">a #XedTab</doc>
+                 line="2933">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2925">enable (%TRUE) or disable (%FALSE) auto save</doc>
+                 line="2934">enable (%TRUE) or disable (%FALSE) auto save</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5380,7 +5380,7 @@ autosave timeout if the document is new or is read-only</doc>
               c:identifier="xed_tab_set_auto_save_interval">
         <doc xml:space="preserve"
              filename="xed/xed-tab.c"
-             line="2966">Sets the interval for the autosave feature.</doc>
+             line="2975">Sets the interval for the autosave feature.</doc>
         <source-position filename="xed/xed-tab.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5389,13 +5389,13 @@ autosave timeout if the document is new or is read-only</doc>
           <instance-parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2968">a #XedTab</doc>
+                 line="2977">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </instance-parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-tab.c"
-                 line="2969">the new interval</doc>
+                 line="2978">the new interval</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5691,6 +5691,24 @@ to the view and scroll to the cursor position.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="duplicate" c:identifier="xed_view_duplicate">
+        <doc xml:space="preserve"
+             filename="xed/xed-view.c"
+             line="757">Duplicates the text currently selected in the #GtkTextBuffer
+or duplicates the current line if nothing is selected</doc>
+        <source-position filename="xed/xed-view.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="759">a #XedView</doc>
+            <type name="View" c:type="XedView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="paste_clipboard" c:identifier="xed_view_paste_clipboard">
         <source-position filename="xed/xed-view.h" line="59"/>
         <return-value transfer-ownership="none">
@@ -5705,68 +5723,7 @@ to the view and scroll to the cursor position.</doc>
       <method name="scroll_to_cursor" c:identifier="xed_view_scroll_to_cursor">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="780">Scrolls the @view to the cursor position.</doc>
-        <source-position filename="xed/xed-view.h" line="62"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="782">a #XedView</doc>
-            <type name="View" c:type="XedView*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="select_all" c:identifier="xed_view_select_all">
-        <doc xml:space="preserve"
-             filename="xed/xed-view.c"
-             line="757">Selects all the text displayed in the @view.</doc>
-        <source-position filename="xed/xed-view.h" line="61"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="759">a #XedView</doc>
-            <type name="View" c:type="XedView*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_draw_whitespace"
-              c:identifier="xed_view_set_draw_whitespace">
-        <doc xml:space="preserve"
-             filename="xed/xed-view.c"
-             line="872">Enables or disables rendering of any whitespace.
-The locations and types of whitespace to render is set by
-xed_view_update_draw_whitespace_locations_and_types()</doc>
-        <source-position filename="xed/xed-view.h" line="64"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="874">a #XedView</doc>
-            <type name="View" c:type="XedView*"/>
-          </instance-parameter>
-          <parameter name="enable" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="875">whether whitespace should be drawn</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_font" c:identifier="xed_view_set_font">
-        <doc xml:space="preserve"
-             filename="xed/xed-view.c"
-             line="802">If @def is #TRUE, resets the font of the @view to the default font
-otherwise sets it to @font_name.</doc>
+             line="821">Scrolls the @view to the cursor position.</doc>
         <source-position filename="xed/xed-view.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5775,29 +5732,35 @@ otherwise sets it to @font_name.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="804">a #XedView</doc>
+                 line="823">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
-          <parameter name="def" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="805">whether to reset the default font</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-          <parameter name="font_name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xed/xed-view.c"
-                 line="806">the name of the font to use</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
         </parameters>
       </method>
-      <method name="update_draw_whitespace_locations_and_types"
-              c:identifier="xed_view_update_draw_whitespace_locations_and_types">
+      <method name="select_all" c:identifier="xed_view_select_all">
         <doc xml:space="preserve"
              filename="xed/xed-view.c"
-             line="893">Updates the view to render whitespace at the locations and for types
-set in the preferences</doc>
+             line="798">Selects all the text displayed in the @view.</doc>
+        <source-position filename="xed/xed-view.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="800">a #XedView</doc>
+            <type name="View" c:type="XedView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_draw_whitespace"
+              c:identifier="xed_view_set_draw_whitespace">
+        <doc xml:space="preserve"
+             filename="xed/xed-view.c"
+             line="913">Enables or disables rendering of any whitespace.
+The locations and types of whitespace to render is set by
+xed_view_update_draw_whitespace_locations_and_types()</doc>
         <source-position filename="xed/xed-view.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5806,7 +5769,62 @@ set in the preferences</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-view.c"
-                 line="895">a #XedView</doc>
+                 line="915">a #XedView</doc>
+            <type name="View" c:type="XedView*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="916">whether whitespace should be drawn</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font" c:identifier="xed_view_set_font">
+        <doc xml:space="preserve"
+             filename="xed/xed-view.c"
+             line="843">If @def is #TRUE, resets the font of the @view to the default font
+otherwise sets it to @font_name.</doc>
+        <source-position filename="xed/xed-view.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="845">a #XedView</doc>
+            <type name="View" c:type="XedView*"/>
+          </instance-parameter>
+          <parameter name="def" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="846">whether to reset the default font</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="847">the name of the font to use</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_draw_whitespace_locations_and_types"
+              c:identifier="xed_view_update_draw_whitespace_locations_and_types">
+        <doc xml:space="preserve"
+             filename="xed/xed-view.c"
+             line="934">Updates the view to render whitespace at the locations and for types
+set in the preferences</doc>
+        <source-position filename="xed/xed-view.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xed/xed-view.c"
+                 line="936">a #XedView</doc>
             <type name="View" c:type="XedView*"/>
           </instance-parameter>
         </parameters>
@@ -6117,7 +6135,7 @@ set in the preferences</doc>
       <method name="close_all_tabs" c:identifier="xed_window_close_all_tabs">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3779">Closes all opened tabs.</doc>
+             line="3771">Closes all opened tabs.</doc>
         <source-position filename="xed/xed-window.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6126,7 +6144,7 @@ set in the preferences</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3781">a #XedWindow</doc>
+                 line="3773">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6134,7 +6152,7 @@ set in the preferences</doc>
       <method name="close_tab" c:identifier="xed_window_close_tab">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3760">Closes the @tab.</doc>
+             line="3752">Closes the @tab.</doc>
         <source-position filename="xed/xed-window.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6143,13 +6161,13 @@ set in the preferences</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3762">a #XedWindow</doc>
+                 line="3754">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3763">the #XedTab to close</doc>
+                 line="3755">the #XedTab to close</doc>
             <type name="Tab" c:type="XedTab*"/>
           </parameter>
         </parameters>
@@ -6157,7 +6175,7 @@ set in the preferences</doc>
       <method name="close_tabs" c:identifier="xed_window_close_tabs">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3797">Closes all tabs specified by @tabs.</doc>
+             line="3789">Closes all tabs specified by @tabs.</doc>
         <source-position filename="xed/xed-window.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6166,13 +6184,13 @@ set in the preferences</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3799">a #XedWindow</doc>
+                 line="3791">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="tabs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3800">a list of #XedTab</doc>
+                 line="3792">a list of #XedTab</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="Tab"/>
             </type>
@@ -6182,26 +6200,26 @@ set in the preferences</doc>
       <method name="create_tab" c:identifier="xed_window_create_tab">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3564">Creates a new #XedTab and adds the new tab to the #XedNotebook.
+             line="3556">Creates a new #XedTab and adds the new tab to the #XedNotebook.
 In case @jump_to is %TRUE the #XedNotebook switches to that new #XedTab.</doc>
         <source-position filename="xed/xed-window.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3572">a new #XedTab</doc>
+               line="3564">a new #XedTab</doc>
           <type name="Tab" c:type="XedTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3566">a #XedWindow</doc>
+                 line="3558">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3567">%TRUE to set the new #XedTab as active</doc>
+                 line="3559">%TRUE to set the new #XedTab as active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6210,7 +6228,7 @@ In case @jump_to is %TRUE the #XedNotebook switches to that new #XedTab.</doc>
               c:identifier="xed_window_create_tab_from_location">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3617">Creates a new #XedTab loading the document specified by @uri.
+             line="3609">Creates a new #XedTab loading the document specified by @uri.
 In case @jump_to is %TRUE the #XedNotebook swithes to that new #XedTab.
 Whether @create is %TRUE, creates a new empty document if location does
 not refer to an existing file</doc>
@@ -6218,20 +6236,20 @@ not refer to an existing file</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3631">a new #XedTab</doc>
+               line="3623">a new #XedTab</doc>
           <type name="Tab" c:type="XedTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3619">a #XedWindow</doc>
+                 line="3611">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3620">the location of the document</doc>
+                 line="3612">the location of the document</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="encoding"
@@ -6240,25 +6258,25 @@ not refer to an existing file</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3621">a #GtkSourceEncoding</doc>
+                 line="3613">a #GtkSourceEncoding</doc>
             <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
           </parameter>
           <parameter name="line_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3622">the line position to visualize</doc>
+                 line="3614">the line position to visualize</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="create" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3623">%TRUE to create a new document in case @uri does exist</doc>
+                 line="3615">%TRUE to create a new document in case @uri does exist</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3624">%TRUE to set the new #XedTab as active</doc>
+                 line="3616">%TRUE to set the new #XedTab as active</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6269,38 +6287,38 @@ not refer to an existing file</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3659">the active #XedTab in the @window.</doc>
+               line="3651">the active #XedTab in the @window.</doc>
           <type name="Tab" c:type="XedTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3653">a #XedWindow</doc>
+                 line="3645">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3654">the #GInputStream</doc>
+                 line="3646">the #GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="encoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3655">the encoding to use in the stream</doc>
+                 line="3647">the encoding to use in the stream</doc>
             <type name="GtkSource.Encoding" c:type="const GtkSourceEncoding*"/>
           </parameter>
           <parameter name="line_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3656">the position</doc>
+                 line="3648">the position</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="jump_to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3657">whether to jump to the new tab</doc>
+                 line="3649">whether to jump to the new tab</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6309,19 +6327,19 @@ not refer to an existing file</doc>
               c:identifier="xed_window_get_active_document">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3529">Gets the active #XedDocument.</doc>
+             line="3521">Gets the active #XedDocument.</doc>
         <source-position filename="xed/xed-window.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3535">the active #XedDocument</doc>
+               line="3527">the active #XedDocument</doc>
           <type name="Document" c:type="XedDocument*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3531">a #XedWindow</doc>
+                 line="3523">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6329,19 +6347,19 @@ not refer to an existing file</doc>
       <method name="get_active_tab" c:identifier="xed_window_get_active_tab">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3678">Gets the active #XedTab in the @window.</doc>
+             line="3670">Gets the active #XedTab in the @window.</doc>
         <source-position filename="xed/xed-window.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3684">the active #XedTab in the @window.</doc>
+               line="3676">the active #XedTab in the @window.</doc>
           <type name="Tab" c:type="XedTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3680">a XedWindow</doc>
+                 line="3672">a XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6349,19 +6367,19 @@ not refer to an existing file</doc>
       <method name="get_active_view" c:identifier="xed_window_get_active_view">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3501">Gets the active #XedView.</doc>
+             line="3493">Gets the active #XedView.</doc>
         <source-position filename="xed/xed-window.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3507">the active #XedView</doc>
+               line="3499">the active #XedView</doc>
           <type name="View" c:type="XedView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3503">a #XedWindow</doc>
+                 line="3495">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6370,19 +6388,19 @@ not refer to an existing file</doc>
               c:identifier="xed_window_get_bottom_panel">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3926">Gets the bottom #XedPanel of the @window.</doc>
+             line="3918">Gets the bottom #XedPanel of the @window.</doc>
         <source-position filename="xed/xed-window.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3932">the bottom #XedPanel.</doc>
+               line="3924">the bottom #XedPanel.</doc>
           <type name="Panel" c:type="XedPanel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3928">a #XedWindow</doc>
+                 line="3920">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6390,13 +6408,13 @@ not refer to an existing file</doc>
       <method name="get_documents" c:identifier="xed_window_get_documents">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3712">Gets a newly allocated list with all the documents in the window.
+             line="3704">Gets a newly allocated list with all the documents in the window.
 This list must be freed.</doc>
         <source-position filename="xed/xed-window.h" line="72"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3719">a newly
+               line="3711">a newly
 allocated list with all the documents in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -6406,7 +6424,7 @@ allocated list with all the documents in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3714">a #XedWindow</doc>
+                 line="3706">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6414,19 +6432,19 @@ allocated list with all the documents in the window</doc>
       <method name="get_group" c:identifier="xed_window_get_group">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3874">Gets the #GtkWindowGroup in which @window resides.</doc>
+             line="3866">Gets the #GtkWindowGroup in which @window resides.</doc>
         <source-position filename="xed/xed-window.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3880">the #GtkWindowGroup</doc>
+               line="3872">the #GtkWindowGroup</doc>
           <type name="Gtk.WindowGroup" c:type="GtkWindowGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3876">a #XedWindow</doc>
+                 line="3868">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6434,20 +6452,20 @@ allocated list with all the documents in the window</doc>
       <method name="get_message_bus" c:identifier="xed_window_get_message_bus">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="4220">Gets the #XedMessageBus associated with @window. The returned reference
+             line="4212">Gets the #XedMessageBus associated with @window. The returned reference
 is owned by the window and should not be unreffed.</doc>
         <source-position filename="xed/xed-window.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="4227">the #XedMessageBus associated with @window</doc>
+               line="4219">the #XedMessageBus associated with @window</doc>
           <type name="MessageBus" c:type="XedMessageBus*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="4222">a #XedWindow</doc>
+                 line="4214">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6455,19 +6473,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_searchbar" c:identifier="xed_window_get_searchbar">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3956">Gets the #XedSearchbar of the @window.</doc>
+             line="3948">Gets the #XedSearchbar of the @window.</doc>
         <source-position filename="xed/xed-window.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3962">the #XedSearchbar of the @window.</doc>
+               line="3954">the #XedSearchbar of the @window.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3958">a #XedWindow</doc>
+                 line="3950">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6475,19 +6493,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_side_panel" c:identifier="xed_window_get_side_panel">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3911">Gets the side #XedPanel of the @window.</doc>
+             line="3903">Gets the side #XedPanel of the @window.</doc>
         <source-position filename="xed/xed-window.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3917">the side #XedPanel.</doc>
+               line="3909">the side #XedPanel.</doc>
           <type name="Panel" c:type="XedPanel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3913">a #XedWindow</doc>
+                 line="3905">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6497,19 +6515,19 @@ is owned by the window and should not be unreffed.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3971">Retrieves the state of the @window.</doc>
+             line="3963">Retrieves the state of the @window.</doc>
         <source-position filename="xed/xed-window.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3977">the current #XedWindowState of the @window.</doc>
+               line="3969">the current #XedWindowState of the @window.</doc>
           <type name="WindowState" c:type="XedWindowState"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3973">a #XedWindow</doc>
+                 line="3965">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6517,19 +6535,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_statusbar" c:identifier="xed_window_get_statusbar">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3941">Gets the #XedStatusbar of the @window.</doc>
+             line="3933">Gets the #XedStatusbar of the @window.</doc>
         <source-position filename="xed/xed-window.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3947">the #XedStatusbar of the @window.</doc>
+               line="3939">the #XedStatusbar of the @window.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3943">a #XedWindow</doc>
+                 line="3935">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6538,25 +6556,25 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="xed_window_get_tab_from_location">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="4169">Gets the #XedTab that matches with the given @location.</doc>
+             line="4161">Gets the #XedTab that matches with the given @location.</doc>
         <source-position filename="xed/xed-window.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="4176">the #XedTab that matches with the given @location.</doc>
+               line="4168">the #XedTab that matches with the given @location.</doc>
           <type name="Tab" c:type="XedTab*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="4171">a #XedWindow</doc>
+                 line="4163">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="4172">a #GFile</doc>
+                 line="4164">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -6564,19 +6582,19 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_ui_manager" c:identifier="xed_window_get_ui_manager">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3896">Gets the #GtkUIManager associated with the @window.</doc>
+             line="3888">Gets the #GtkUIManager associated with the @window.</doc>
         <source-position filename="xed/xed-window.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3902">the #GtkUIManager of the @window.</doc>
+               line="3894">the #GtkUIManager of the @window.</doc>
           <type name="Gtk.UIManager" c:type="GtkUIManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3898">a #XedWindow</doc>
+                 line="3890">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6585,12 +6603,12 @@ is owned by the window and should not be unreffed.</doc>
               c:identifier="xed_window_get_unsaved_documents">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="4020">Gets the list of documents that need to be saved before closing the window.</doc>
+             line="4012">Gets the list of documents that need to be saved before closing the window.</doc>
         <source-position filename="xed/xed-window.h" line="76"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="4026">a list of
+               line="4018">a list of
 #XedDocument that need to be saved before closing the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Document"/>
@@ -6600,7 +6618,7 @@ is owned by the window and should not be unreffed.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="4022">a #XedWindow</doc>
+                 line="4014">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6608,12 +6626,12 @@ is owned by the window and should not be unreffed.</doc>
       <method name="get_views" c:identifier="xed_window_get_views">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3741">Gets a list with all the views in the window. This list must be freed.</doc>
+             line="3733">Gets a list with all the views in the window. This list must be freed.</doc>
         <source-position filename="xed/xed-window.h" line="79"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="xed/xed-window.c"
-               line="3747">a newly allocated
+               line="3739">a newly allocated
 list with all the views in the window</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -6623,7 +6641,7 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3743">a #XedWindow</doc>
+                 line="3735">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
         </parameters>
@@ -6631,7 +6649,7 @@ list with all the views in the window</doc>
       <method name="set_active_tab" c:identifier="xed_window_set_active_tab">
         <doc xml:space="preserve"
              filename="xed/xed-window.c"
-             line="3850">Switches to the tab that matches with @tab.</doc>
+             line="3842">Switches to the tab that matches with @tab.</doc>
         <source-position filename="xed/xed-window.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6640,13 +6658,13 @@ list with all the views in the window</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3852">a #XedWindow</doc>
+                 line="3844">a #XedWindow</doc>
             <type name="Window" c:type="XedWindow*"/>
           </instance-parameter>
           <parameter name="tab" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xed/xed-window.c"
-                 line="3853">a #XedTab</doc>
+                 line="3845">a #XedTab</doc>
             <type name="Tab" c:type="XedTab*"/>
           </parameter>
         </parameters>

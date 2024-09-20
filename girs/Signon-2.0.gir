@@ -101,7 +101,9 @@ and/or use gtk-doc annotations.  -->
       </constructor>
       <method name="get_mechanisms"
               c:identifier="signon_auth_service_get_mechanisms"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="get_mechanisms_finish"
+              glib:sync-func="get_mechanisms_sync">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
              line="231">Lists all the available mechanisms.</doc>
@@ -189,7 +191,8 @@ mechanisms.</doc>
       <method name="get_mechanisms_sync"
               c:identifier="signon_auth_service_get_mechanisms_sync"
               version="2.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_mechanisms">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
              line="281">Lists all the available mechanisms.
@@ -231,7 +234,9 @@ mechanisms.</doc>
       </method>
       <method name="get_methods"
               c:identifier="signon_auth_service_get_methods"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="get_methods_finish"
+              glib:sync-func="get_methods_sync">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
              line="154">Lists all the available methods.</doc>
@@ -313,7 +318,8 @@ methods.</doc>
       <method name="get_methods_sync"
               c:identifier="signon_auth_service_get_methods_sync"
               version="2.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_methods">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-service.c"
              line="201">Lists all the available methods.
@@ -457,7 +463,8 @@ not bound to any stored identity.</doc>
       </method>
       <method name="process"
               c:identifier="signon_auth_session_process"
-              version="1.8">
+              version="1.8"
+              glib:finish-func="process_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-auth-session.c"
              line="431">Performs one step of the authentication process. If the #SignonAuthSession
@@ -1161,7 +1168,8 @@ registered.</doc>
       </method>
       <method name="query_info"
               c:identifier="signon_identity_query_info"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="query_info_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
              line="1343">Fetches the #SignonIdentityInfo associated with this identity.</doc>
@@ -1241,7 +1249,8 @@ signon_identity_query_info().</doc>
       </method>
       <method name="remove"
               c:identifier="signon_identity_remove"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="remove_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
              line="1162">Removes the corresponding credentials record from the database.</doc>
@@ -1307,7 +1316,8 @@ signon_identity_query_info().</doc>
       </method>
       <method name="sign_out"
               c:identifier="signon_identity_sign_out"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="sign_out_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
              line="1201">Asks signond to close all authentication sessions for this
@@ -1375,7 +1385,8 @@ authentication tokens).</doc>
       </method>
       <method name="store_info"
               c:identifier="signon_identity_store_info"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="store_info_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
              line="702">Stores the data from @info into the identity.</doc>
@@ -1461,7 +1472,8 @@ signon_identity_store_info().</doc>
       </method>
       <method name="verify_secret"
               c:identifier="signon_identity_verify_secret"
-              version="2.0">
+              version="2.0"
+              glib:finish-func="verify_secret_finish">
         <doc xml:space="preserve"
              filename="libsignon-glib/signon-identity.c"
              line="905">Verifies the given secret.</doc>

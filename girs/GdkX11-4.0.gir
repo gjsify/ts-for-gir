@@ -572,19 +572,19 @@ This function returns `NULL` if GDK is using GLX.</doc>
               c:identifier="gdk_x11_display_get_glx_version">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkglcontext-glx.c"
-             line="892">Retrieves the version of the GLX implementation.</doc>
+             line="910">Retrieves the version of the GLX implementation.</doc>
         <source-position filename="gdk/x11/gdkx11glcontext.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkglcontext-glx.c"
-               line="900">%TRUE if GLX is available</doc>
+               line="918">%TRUE if GLX is available</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkglcontext-glx.c"
-                 line="894">a `GdkDisplay`</doc>
+                 line="912">a `GdkDisplay`</doc>
             <type name="X11Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="major"
@@ -593,7 +593,7 @@ This function returns `NULL` if GDK is using GLX.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkglcontext-glx.c"
-                 line="895">return location for the GLX major version</doc>
+                 line="913">return location for the GLX major version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="minor"
@@ -602,7 +602,7 @@ This function returns `NULL` if GDK is using GLX.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkglcontext-glx.c"
-                 line="896">return location for the GLX minor version</doc>
+                 line="914">return location for the GLX minor version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -707,7 +707,7 @@ movements. See gdk_x11_surface_set_user_time().</doc>
       <method name="get_xcursor" c:identifier="gdk_x11_display_get_xcursor">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkcursor-x11.c"
-             line="337">Returns the X cursor belonging to a `GdkCursor`, potentially
+             line="348">Returns the X cursor belonging to a `GdkCursor`, potentially
 creating the cursor.
 
 Be aware that the returned cursor may not be unique to @cursor.
@@ -718,20 +718,20 @@ may even fall back to a few default cursors.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdkcursor-x11.c"
-               line="350">an Xlib Cursor.</doc>
+               line="361">an Xlib Cursor.</doc>
           <type name="xlib.Cursor" c:type="Cursor"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkcursor-x11.c"
-                 line="339">a `GdkDisplay`</doc>
+                 line="350">a `GdkDisplay`</doc>
             <type name="X11Display" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdkcursor-x11.c"
-                 line="340">a `GdkCursor`</doc>
+                 line="351">a `GdkCursor`</doc>
             <type name="Gdk.Cursor" c:type="GdkCursor*"/>
           </parameter>
         </parameters>
@@ -818,7 +818,9 @@ gdk_x11_display_grab()/gdk_x11_display_ungrab() calls can be nested.</doc>
         </parameters>
       </method>
       <method name="set_cursor_theme"
-              c:identifier="gdk_x11_display_set_cursor_theme">
+              c:identifier="gdk_x11_display_set_cursor_theme"
+              deprecated="1"
+              deprecated-version="4.16">
         <doc xml:space="preserve"
              filename="gdk/x11/gdkcursor-x11.c"
              line="261">Sets the cursor theme from which the images for cursor
@@ -830,6 +832,8 @@ change. Custom cursors constructed with [ctor@Gdk.Cursor.new_from_texture]
 will have to be handled by the application (GTK applications can learn
 about cursor theme changes by listening for change notification
 for the corresponding `GtkSetting`).</doc>
+        <doc-deprecated xml:space="preserve">Use the cursor-related properties of
+  [GtkSettings](../gtk4/class.Settings.html) to set the cursor theme</doc-deprecated>
         <source-position filename="gdk/x11/gdkx11display.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1524,19 +1528,19 @@ a window manager change.</doc>
       <method name="get_desktop" c:identifier="gdk_x11_surface_get_desktop">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2063">Gets the number of the workspace @surface is on.</doc>
+             line="2064">Gets the number of the workspace @surface is on.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdksurface-x11.c"
-               line="2069">the current workspace of @surface</doc>
+               line="2070">the current workspace of @surface</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2065">a `GdkSurface`</doc>
+                 line="2066">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -1544,19 +1548,19 @@ a window manager change.</doc>
       <method name="get_group" c:identifier="gdk_x11_surface_get_group">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="3494">Returns the group this surface belongs to.</doc>
+             line="3495">Returns the group this surface belongs to.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="121"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/x11/gdksurface-x11.c"
-               line="3500">The group of this surface;</doc>
+               line="3501">The group of this surface;</doc>
           <type name="Gdk.Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3496">The `GdkSurface`</doc>
+                 line="3497">The `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -1564,19 +1568,19 @@ a window manager change.</doc>
       <method name="get_xid" c:identifier="gdk_x11_surface_get_xid">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="4613">Returns the X resource (surface) belonging to a `GdkSurface`.</doc>
+             line="4614">Returns the X resource (surface) belonging to a `GdkSurface`.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdksurface-x11.c"
-               line="4619">the ID of @drawable’s X resource.</doc>
+               line="4620">the ID of @drawable’s X resource.</doc>
           <type name="xlib.Window" c:type="Window"/>
         </return-value>
         <parameters>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="4615">a native `GdkSurface`.</doc>
+                 line="4616">a native `GdkSurface`.</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -1585,7 +1589,7 @@ a window manager change.</doc>
               c:identifier="gdk_x11_surface_move_to_current_desktop">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2000">Moves the surface to the correct workspace when running under a
+             line="2001">Moves the surface to the correct workspace when running under a
 window manager that supports multiple workspaces, as described
 in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.
 Will not do anything if the surface is already on all workspaces.</doc>
@@ -1597,7 +1601,7 @@ Will not do anything if the surface is already on all workspaces.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2002">a `GdkSurface`</doc>
+                 line="2003">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -1606,7 +1610,7 @@ Will not do anything if the surface is already on all workspaces.</doc>
               c:identifier="gdk_x11_surface_move_to_desktop">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2079">Moves the surface to the given workspace when running unde a
+             line="2080">Moves the surface to the given workspace when running unde a
 window manager that supports multiple workspaces, as described
 in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="73"/>
@@ -1617,13 +1621,13 @@ in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-s
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2081">a `GdkSurface`</doc>
+                 line="2082">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="desktop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2082">the number of the workspace to move the surface to</doc>
+                 line="2083">the number of the workspace to move the surface to</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1632,7 +1636,7 @@ in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-s
               c:identifier="gdk_x11_surface_set_frame_sync_enabled">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="4635">This function can be used to disable frame synchronization for a surface.
+             line="4636">This function can be used to disable frame synchronization for a surface.
 Normally frame synchronziation will be enabled or disabled based on whether
 the system has a compositor that supports frame synchronization, but if
 the surface is not directly managed by the window manager, then frame
@@ -1646,13 +1650,13 @@ embedded via the XEMBED protocol.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="4637">a native `GdkSurface`</doc>
+                 line="4638">a native `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="frame_sync_enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="4638">whether frame-synchronization should be enabled</doc>
+                 line="4639">whether frame-synchronization should be enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1660,7 +1664,7 @@ embedded via the XEMBED protocol.</doc>
       <method name="set_group" c:identifier="gdk_x11_surface_set_group">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="3515">Sets the group leader of @surface to be @leader.
+             line="3516">Sets the group leader of @surface to be @leader.
 See the ICCCM for details.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="118"/>
         <return-value transfer-ownership="none">
@@ -1670,13 +1674,13 @@ See the ICCCM for details.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3517">a native `GdkSurface`</doc>
+                 line="3518">a native `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="leader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3518">a `GdkSurface`</doc>
+                 line="3519">a `GdkSurface`</doc>
             <type name="Gdk.Surface" c:type="GdkSurface*"/>
           </parameter>
         </parameters>
@@ -1685,7 +1689,7 @@ See the ICCCM for details.</doc>
               c:identifier="gdk_x11_surface_set_skip_pager_hint">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2308">Sets a hint on @surface that pagers should not
+             line="2309">Sets a hint on @surface that pagers should not
 display it. See the EWMH for details.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="111"/>
         <return-value transfer-ownership="none">
@@ -1695,13 +1699,13 @@ display it. See the EWMH for details.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2310">a `GdkSurface`</doc>
+                 line="2311">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="skips_pager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2311">%TRUE to skip pagers</doc>
+                 line="2312">%TRUE to skip pagers</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1710,7 +1714,7 @@ display it. See the EWMH for details.</doc>
               c:identifier="gdk_x11_surface_set_skip_taskbar_hint">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2282">Sets a hint on @surface that taskbars should not
+             line="2283">Sets a hint on @surface that taskbars should not
 display it. See the EWMH for details.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="108"/>
         <return-value transfer-ownership="none">
@@ -1720,13 +1724,13 @@ display it. See the EWMH for details.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2284">a native `GdkSurface`</doc>
+                 line="2285">a native `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="skips_taskbar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2285">%TRUE to skip taskbars</doc>
+                 line="2286">%TRUE to skip taskbars</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1735,7 +1739,7 @@ display it. See the EWMH for details.</doc>
               c:identifier="gdk_x11_surface_set_theme_variant">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="3043">GTK applications can request a dark theme variant. In order to
+             line="3044">GTK applications can request a dark theme variant. In order to
 make other applications - namely window managers using GTK for
 themeing - aware of this choice, GTK uses this function to
 export the requested theme variant as _GTK_THEME_VARIANT property
@@ -1752,13 +1756,13 @@ to create toplevel surfaces.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3045">a `GdkSurface`</doc>
+                 line="3046">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="variant" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3046">the theme variant to export</doc>
+                 line="3047">the theme variant to export</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1767,7 +1771,7 @@ to create toplevel surfaces.</doc>
               c:identifier="gdk_x11_surface_set_urgency_hint">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2334">Sets a hint on @surface that it needs user attention.
+             line="2335">Sets a hint on @surface that it needs user attention.
 See the ICCCM for details.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="114"/>
         <return-value transfer-ownership="none">
@@ -1777,13 +1781,13 @@ See the ICCCM for details.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2336">a native `GdkSurface`</doc>
+                 line="2337">a native `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="urgent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2337">%TRUE to indicate urgenct attention needed</doc>
+                 line="2338">%TRUE to indicate urgenct attention needed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1792,7 +1796,7 @@ See the ICCCM for details.</doc>
               c:identifier="gdk_x11_surface_set_user_time">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="2946">The application can use this call to update the _NET_WM_USER_TIME
+             line="2947">The application can use this call to update the _NET_WM_USER_TIME
 property on a toplevel surface.  This property stores an Xserver
 time which represents the time of the last user input event
 received for this surface.  This property may be used by the window
@@ -1812,13 +1816,13 @@ events bypassing GDK.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2948">A toplevel `GdkSurface`</doc>
+                 line="2949">A toplevel `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="2949">An XServer timestamp to which the property should be set</doc>
+                 line="2950">An XServer timestamp to which the property should be set</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1827,7 +1831,7 @@ events bypassing GDK.</doc>
               c:identifier="gdk_x11_surface_set_utf8_property">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="3008">This function modifies or removes an arbitrary X11 window
+             line="3009">This function modifies or removes an arbitrary X11 window
 property of type UTF8_STRING.  If the given @surface is
 not a toplevel surface, it is ignored.</doc>
         <source-position filename="gdk/x11/gdkx11surface.h" line="61"/>
@@ -1838,13 +1842,13 @@ not a toplevel surface, it is ignored.</doc>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3010">a `GdkSurface`</doc>
+                 line="3011">a `GdkSurface`</doc>
             <type name="X11Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3011">Property name, will be interned as an X atom</doc>
+                 line="3012">Property name, will be interned as an X atom</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value"
@@ -1853,7 +1857,7 @@ not a toplevel surface, it is ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/x11/gdksurface-x11.c"
-                 line="3012">Property value, or %NULL to delete</doc>
+                 line="3013">Property value, or %NULL to delete</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2190,19 +2194,19 @@ gdk_x11_display_text_property_to_text_list().</doc>
               c:identifier="gdk_x11_get_server_time">
       <doc xml:space="preserve"
            filename="gdk/x11/gdksurface-x11.c"
-           line="4575">Routine to get the current X server time stamp.</doc>
+           line="4576">Routine to get the current X server time stamp.</doc>
       <source-position filename="gdk/x11/gdkx11surface.h" line="101"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/x11/gdksurface-x11.c"
-             line="4583">the time stamp</doc>
+             line="4584">the time stamp</doc>
         <type name="guint32" c:type="guint32"/>
       </return-value>
       <parameters>
         <parameter name="surface" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/x11/gdksurface-x11.c"
-               line="4577">a `GdkSurface`, used for communication
+               line="4578">a `GdkSurface`, used for communication
   with the server. The surface must have `GDK_PROPERTY_CHANGE_MASK` in
   its events mask or a hang will result.</doc>
           <type name="X11Surface" c:type="GdkSurface*"/>

@@ -1535,6 +1535,9 @@ import to.</doc>
         </parameters>
       </constructor>
       <virtual-method name="imported">
+        <doc xml:space="preserve"
+             filename="ui/gcr-import-button.c"
+             line="55">Emitted when the import completes, or fails.</doc>
         <source-position filename="ui/gcr-import-button.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1552,6 +1555,9 @@ import to.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="importing">
+        <doc xml:space="preserve"
+             filename="ui/gcr-import-button.c"
+             line="54">Emitted when the import begins.</doc>
         <source-position filename="ui/gcr-import-button.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1647,6 +1653,9 @@ import to.</doc>
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
       <field name="importing">
+        <doc xml:space="preserve"
+             filename="ui/gcr-import-button.c"
+             line="54">Emitted when the import begins.</doc>
         <callback name="importing">
           <source-position filename="ui/gcr-import-button.h" line="52"/>
           <return-value transfer-ownership="none">
@@ -1663,6 +1672,9 @@ import to.</doc>
         </callback>
       </field>
       <field name="imported">
+        <doc xml:space="preserve"
+             filename="ui/gcr-import-button.c"
+             line="55">Emitted when the import completes, or fails.</doc>
         <callback name="imported">
           <source-position filename="ui/gcr-import-button.h" line="55"/>
           <return-value transfer-ownership="none">
@@ -2356,6 +2368,9 @@ Gcr library.</doc>
         </return-value>
       </function>
       <virtual-method name="data_changed">
+        <doc xml:space="preserve"
+             filename="ui/gcr-renderer.c"
+             line="52">signal emitted when data being rendered changes</doc>
         <source-position filename="ui/gcr-renderer.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2367,6 +2382,10 @@ Gcr library.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="populate_popup">
+        <doc xml:space="preserve"
+             filename="ui/gcr-renderer.c"
+             line="54">method invoked to populate a popup menu with additional
+                 renderer options</doc>
         <source-position filename="ui/gcr-renderer.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2569,6 +2588,9 @@ changed and should be rerendered.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="data_changed">
+        <doc xml:space="preserve"
+             filename="ui/gcr-renderer.c"
+             line="52">signal emitted when data being rendered changes</doc>
         <callback name="data_changed">
           <source-position filename="ui/gcr-renderer.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -2582,6 +2604,9 @@ changed and should be rerendered.</doc>
         </callback>
       </field>
       <field name="render_view">
+        <doc xml:space="preserve"
+             filename="ui/gcr-renderer.c"
+             line="53">method invoked to render the data into a viewer</doc>
         <callback name="render_view">
           <source-position filename="ui/gcr-renderer.h" line="46"/>
           <return-value transfer-ownership="none">
@@ -2604,6 +2629,10 @@ changed and should be rerendered.</doc>
         </callback>
       </field>
       <field name="populate_popup">
+        <doc xml:space="preserve"
+             filename="ui/gcr-renderer.c"
+             line="54">method invoked to populate a popup menu with additional
+                 renderer options</doc>
         <callback name="populate_popup">
           <source-position filename="ui/gcr-renderer.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -3573,6 +3602,9 @@ an index that is out of bounds.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="add_renderer">
+        <doc xml:space="preserve"
+             filename="ui/gcr-viewer.c"
+             line="42">Virtual method to add a renderer</doc>
         <callback name="add_renderer">
           <source-position filename="ui/gcr-viewer.h" line="40"/>
           <return-value transfer-ownership="none">
@@ -3595,6 +3627,9 @@ an index that is out of bounds.</doc>
         </callback>
       </field>
       <field name="insert_renderer">
+        <doc xml:space="preserve"
+             filename="ui/gcr-viewer.c"
+             line="43">Virtual method to insert a renderer</doc>
         <callback name="insert_renderer">
           <source-position filename="ui/gcr-viewer.h" line="43"/>
           <return-value transfer-ownership="none">
@@ -3626,6 +3661,9 @@ an index that is out of bounds.</doc>
         </callback>
       </field>
       <field name="remove_renderer">
+        <doc xml:space="preserve"
+             filename="ui/gcr-viewer.c"
+             line="44">Virtual method to remove a renderer</doc>
         <callback name="remove_renderer">
           <source-position filename="ui/gcr-viewer.h" line="47"/>
           <return-value transfer-ownership="none">
@@ -3648,6 +3686,9 @@ an index that is out of bounds.</doc>
         </callback>
       </field>
       <field name="count_renderers">
+        <doc xml:space="preserve"
+             filename="ui/gcr-viewer.c"
+             line="45">Virtual method to count renderers</doc>
         <callback name="count_renderers">
           <source-position filename="ui/gcr-viewer.h" line="50"/>
           <return-value transfer-ownership="none">
@@ -3667,6 +3708,9 @@ an index that is out of bounds.</doc>
         </callback>
       </field>
       <field name="get_renderer">
+        <doc xml:space="preserve"
+             filename="ui/gcr-viewer.c"
+             line="46">Virtual method to get a renderer</doc>
         <callback name="get_renderer">
           <source-position filename="ui/gcr-viewer.h" line="52"/>
           <return-value transfer-ownership="none">

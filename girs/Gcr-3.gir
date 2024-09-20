@@ -1151,7 +1151,8 @@ to %GCR_CERTIFICATE_CHAIN_UNKNOWN</doc>
       </method>
       <method name="build"
               c:identifier="gcr_certificate_chain_build"
-              throws="1">
+              throws="1"
+              glib:async-func="build_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-chain.c"
              line="659">Complete a certificate chain. Once a certificate chain has been built
@@ -1231,7 +1232,9 @@ asynchronous version.</doc>
         </parameters>
       </method>
       <method name="build_async"
-              c:identifier="gcr_certificate_chain_build_async">
+              c:identifier="gcr_certificate_chain_build_async"
+              glib:finish-func="build_finish"
+              glib:sync-func="build">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-chain.c"
              line="730">Complete a certificate chain. Once a certificate chain has been built
@@ -1626,6 +1629,9 @@ certificate. The anchored certificate is not necessarily self-signed.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_der_data">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-certificate.c"
+             line="67">a method which returns the RAW der data of the certificate</doc>
         <callback name="get_der_data">
           <source-position filename="gcr/gcr-certificate.h" line="59"/>
           <return-value transfer-ownership="none">
@@ -1696,7 +1702,8 @@ with [method@CertificateRequest.complete_async].</doc>
       <source-position filename="gcr/gcr-certificate-request.h" line="38"/>
       <function name="capable"
                 c:identifier="gcr_certificate_request_capable"
-                throws="1">
+                throws="1"
+                glib:async-func="capable_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="734">Check whether [class@CertificateRequest] is capable of creating a request
@@ -1727,7 +1734,9 @@ for the given @private_key.</doc>
         </parameters>
       </function>
       <function name="capable_async"
-                c:identifier="gcr_certificate_request_capable_async">
+                c:identifier="gcr_certificate_request_capable_async"
+                glib:finish-func="capable_finish"
+                glib:sync-func="capable">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="759">Asynchronously check whether [class@CertificateRequest] is capable of
@@ -1826,7 +1835,8 @@ capable of creating a request for the given @private_key.</doc>
       </function>
       <method name="complete"
               c:identifier="gcr_certificate_request_complete"
-              throws="1">
+              throws="1"
+              glib:async-func="complete_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="430">Complete and sign a certificate request, so that it can be encoded
@@ -1859,7 +1869,9 @@ This call may block as it signs the request using the private key.</doc>
         </parameters>
       </method>
       <method name="complete_async"
-              c:identifier="gcr_certificate_request_complete_async">
+              c:identifier="gcr_certificate_request_complete_async"
+              glib:finish-func="complete_finish"
+              glib:sync-func="complete">
         <doc xml:space="preserve"
              filename="gcr/gcr-certificate-request.c"
              line="619">Asynchronously complete and sign a certificate request, so that it can
@@ -2649,6 +2661,9 @@ also be used to sort the objects.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="compare">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-comparable.c"
+             line="35">Compare whether tow objects represent the same thing.</doc>
         <callback name="compare">
           <source-position filename="gcr/gcr-comparable.h" line="37"/>
           <return-value transfer-ownership="none">
@@ -3503,7 +3518,10 @@ the importer to ask the caller for further information about the import.
 It must be implemented on a derived class of [class@Gio.TlsInteraction]</doc>
       <source-position filename="gcr/gcr-import-interaction.h" line="68"/>
       <prerequisite name="Gio.TlsInteraction"/>
-      <virtual-method name="supplement" invoker="supplement" throws="1">
+      <virtual-method name="supplement"
+                      invoker="supplement"
+                      throws="1"
+                      glib:async-func="supplement_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="87">Supplement attributes before import. This means prompting the user for
@@ -3544,7 +3562,10 @@ cancellable cancels the operation the error should be set with %G_IO_ERROR_CANCE
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="supplement_async" invoker="supplement_async">
+      <virtual-method name="supplement_async"
+                      invoker="supplement_async"
+                      glib:finish-func="supplement_finish"
+                      glib:sync-func="supplement">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="123">Asynchronously supplement attributes before import. This means prompting the
@@ -3664,7 +3685,8 @@ interaction that these are the attributes that are needed.</doc>
       </virtual-method>
       <method name="supplement"
               c:identifier="gcr_import_interaction_supplement"
-              throws="1">
+              throws="1"
+              glib:async-func="supplement_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="87">Supplement attributes before import. This means prompting the user for
@@ -3706,7 +3728,9 @@ cancellable cancels the operation the error should be set with %G_IO_ERROR_CANCE
         </parameters>
       </method>
       <method name="supplement_async"
-              c:identifier="gcr_import_interaction_supplement_async">
+              c:identifier="gcr_import_interaction_supplement_async"
+              glib:finish-func="supplement_finish"
+              glib:sync-func="supplement">
         <doc xml:space="preserve"
              filename="gcr/gcr-import-interaction.c"
              line="123">Asynchronously supplement attributes before import. This means prompting the
@@ -3839,6 +3863,9 @@ interaction that these are the attributes that are needed.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="supplement_prep">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="38">method which prepares for supplementing the given attributes before import</doc>
         <callback name="supplement_prep">
           <source-position filename="gcr/gcr-import-interaction.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -3861,6 +3888,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="39">method which synchronously supplements attributes before import</doc>
         <callback name="supplement" throws="1">
           <source-position filename="gcr/gcr-import-interaction.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -3896,6 +3926,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="40">method which asynchronously supplements attributes before import</doc>
         <callback name="supplement_async">
           <source-position filename="gcr/gcr-import-interaction.h" line="56"/>
           <return-value transfer-ownership="none">
@@ -3949,6 +3982,9 @@ interaction that these are the attributes that are needed.</doc>
         </callback>
       </field>
       <field name="supplement_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-import-interaction.c"
+             line="41">method which completes @supplement_async</doc>
         <callback name="supplement_finish" throws="1">
           <source-position filename="gcr/gcr-import-interaction.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -4103,7 +4139,9 @@ If @attrs are a floating reference, then it is consumed.</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </function>
-      <virtual-method name="import_async" invoker="import_async">
+      <virtual-method name="import_async"
+                      invoker="import_async"
+                      glib:finish-func="import_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="442">Import the queued items in the importer. This function returns immediately
@@ -4178,6 +4216,9 @@ and completes asynchronously.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="import_sync" throws="1">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="60">optional implementation of [method@Importer.import]</doc>
         <source-position filename="gcr/gcr-importer.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4247,7 +4288,10 @@ importer.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="import" c:identifier="gcr_importer_import" throws="1">
+      <method name="import"
+              c:identifier="gcr_importer_import"
+              throws="1"
+              glib:async-func="import_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="363">Import the queued items in the importer. This call will block
@@ -4277,7 +4321,10 @@ until the operation completes.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="import_async" c:identifier="gcr_importer_import_async">
+      <method name="import_async"
+              c:identifier="gcr_importer_import_async"
+              glib:finish-func="import_finish"
+              glib:sync-func="import">
         <doc xml:space="preserve"
              filename="gcr/gcr-importer.c"
              line="442">Import the queued items in the importer. This function returns immediately
@@ -4452,6 +4499,9 @@ importer.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="create_for_parsed" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="58">implementation of gcr_importer_create_for_parsed(), required</doc>
         <callback name="create_for_parsed" introspectable="0">
           <source-position filename="gcr/gcr-importer.h" line="48"/>
           <return-value>
@@ -4467,6 +4517,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="queue_for_parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="59">implementation of gcr_importer_queue_for_parsed(), required</doc>
         <callback name="queue_for_parsed">
           <source-position filename="gcr/gcr-importer.h" line="50"/>
           <return-value transfer-ownership="none">
@@ -4492,6 +4545,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="import_sync">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="60">optional implementation of [method@Importer.import]</doc>
         <callback name="import_sync" throws="1">
           <source-position filename="gcr/gcr-importer.h" line="53"/>
           <return-value transfer-ownership="none">
@@ -4511,6 +4567,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="import_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="61">implementation of [method@Importer.import_async], required</doc>
         <callback name="import_async">
           <source-position filename="gcr/gcr-importer.h" line="57"/>
           <return-value transfer-ownership="none">
@@ -4558,6 +4617,9 @@ importer.</doc>
         </callback>
       </field>
       <field name="import_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="62">implementation of [method@Importer.import_finish]</doc>
         <callback name="import_finish" throws="1">
           <source-position filename="gcr/gcr-importer.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -4958,6 +5020,9 @@ currently parsed item can be retrieved using the
         </return-value>
       </constructor>
       <virtual-method name="authenticate">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="75">The default handler for the authenticate signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4972,6 +5037,9 @@ currently parsed item can be retrieved using the
         </parameters>
       </virtual-method>
       <virtual-method name="parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="76">The default handler for the parsed signal.</doc>
         <source-position filename="gcr/gcr-parser.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5345,7 +5413,8 @@ A copy of the data will be made. Use gcr_parser_parse_bytes() to avoid this.</do
       </method>
       <method name="parse_stream"
               c:identifier="gcr_parser_parse_stream"
-              throws="1">
+              throws="1"
+              glib:async-func="parse_stream_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
              line="3350">Parse items from the data in a #GInputStream. This function may block while
@@ -5386,7 +5455,9 @@ may fire during the parsing.</doc>
         </parameters>
       </method>
       <method name="parse_stream_async"
-              c:identifier="gcr_parser_parse_stream_async">
+              c:identifier="gcr_parser_parse_stream_async"
+              glib:finish-func="parse_stream_finish"
+              glib:sync-func="parse_stream">
         <doc xml:space="preserve"
              filename="gcr/gcr-parser.c"
              line="3389">Parse items from the data in a #GInputStream. This function completes
@@ -5584,6 +5655,9 @@ functions.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="authenticate">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="75">The default handler for the authenticate signal.</doc>
         <callback name="authenticate">
           <source-position filename="gcr/gcr-parser.h" line="59"/>
           <return-value transfer-ownership="none">
@@ -5600,6 +5674,9 @@ functions.</doc>
         </callback>
       </field>
       <field name="parsed">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-parser.c"
+             line="76">The default handler for the parsed signal.</doc>
         <callback name="parsed">
           <source-position filename="gcr/gcr-parser.h" line="61"/>
           <return-value transfer-ownership="none">
@@ -5641,7 +5718,8 @@ are available via gcr_pkcs11_certificate_get_attributes().</doc>
       <implements name="Comparable"/>
       <function name="lookup_issuer"
                 c:identifier="gcr_pkcs11_certificate_lookup_issuer"
-                throws="1">
+                throws="1"
+                glib:async-func="lookup_issuer_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="313">Lookup a the issuer of a @certificate in the PKCS#11 storage. The
@@ -5679,7 +5757,9 @@ if an error occurred.</doc>
         </parameters>
       </function>
       <function name="lookup_issuer_async"
-                c:identifier="gcr_pkcs11_certificate_lookup_issuer_async">
+                c:identifier="gcr_pkcs11_certificate_lookup_issuer_async"
+                glib:finish-func="lookup_issuer_finish"
+                glib:sync-func="lookup_issuer">
         <doc xml:space="preserve"
              filename="gcr/gcr-pkcs11-certificate.c"
              line="352">Lookup a the issuer of a @certificate in the PKCS#11 storage. The
@@ -5839,6 +5919,9 @@ property, but may choose not to display the [property@Prompt:description] or
 [property@Prompt:title] properties.</doc>
       <source-position filename="gcr/gcr-prompt.h" line="70"/>
       <virtual-method name="prompt_close">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="58">close a prompt</doc>
         <source-position filename="gcr/gcr-prompt.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5849,7 +5932,9 @@ property, but may choose not to display the [property@Prompt:description] or
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="prompt_confirm_async" invoker="confirm_async">
+      <virtual-method name="prompt_confirm_async"
+                      invoker="confirm_async"
+                      glib:finish-func="prompt_confirm_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="908">Prompts for confirmation asking a cancel/continue style question.
@@ -5932,7 +6017,9 @@ an error occurs. Check the @error argument to tell the difference.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="prompt_password_async" invoker="password_async">
+      <virtual-method name="prompt_password_async"
+                      invoker="password_async"
+                      glib:finish-func="prompt_password_finish">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="755">Prompts for password. Set the various properties on the prompt before calling
@@ -6039,7 +6126,10 @@ This emits the [signal@Prompt::prompt-close] signal on the prompt object.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="confirm" c:identifier="gcr_prompt_confirm" throws="1">
+      <method name="confirm"
+              c:identifier="gcr_prompt_confirm"
+              throws="1"
+              glib:async-func="confirm_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="969">Prompts for confirmation asking a cancel/continue style question.
@@ -6076,7 +6166,10 @@ an error occurs. Check the @error argument to tell the difference.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="confirm_async" c:identifier="gcr_prompt_confirm_async">
+      <method name="confirm_async"
+              c:identifier="gcr_prompt_confirm_async"
+              glib:finish-func="confirm_finish"
+              glib:sync-func="confirm">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="908">Prompts for confirmation asking a cancel/continue style question.
@@ -6484,7 +6577,10 @@ If this string is %NULL then no warning is displayed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="password" c:identifier="gcr_prompt_password" throws="1">
+      <method name="password"
+              c:identifier="gcr_prompt_password"
+              throws="1"
+              glib:async-func="password_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="818">Prompts for password. Set the various properties on the prompt before calling
@@ -6523,7 +6619,10 @@ to display another prompt.
           </parameter>
         </parameters>
       </method>
-      <method name="password_async" c:identifier="gcr_prompt_password_async">
+      <method name="password_async"
+              c:identifier="gcr_prompt_password_async"
+              glib:finish-func="password_finish"
+              glib:sync-func="password">
         <doc xml:space="preserve"
              filename="gcr/gcr-prompt.c"
              line="755">Prompts for password. Set the various properties on the prompt before calling
@@ -7152,6 +7251,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="prompt_password_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="54">begin a password prompt</doc>
         <callback name="prompt_password_async">
           <source-position filename="gcr/gcr-prompt.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -7199,6 +7301,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_password_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="55">complete a password prompt</doc>
         <callback name="prompt_password_finish" throws="1">
           <source-position filename="gcr/gcr-prompt.h" line="56"/>
           <return-value transfer-ownership="none">
@@ -7224,6 +7329,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_confirm_async">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="56">begin a confirm prompt</doc>
         <callback name="prompt_confirm_async">
           <source-position filename="gcr/gcr-prompt.h" line="60"/>
           <return-value transfer-ownership="none">
@@ -7271,6 +7379,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_confirm_finish">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="57">complete a confirm prompt</doc>
         <callback name="prompt_confirm_finish" throws="1">
           <source-position filename="gcr/gcr-prompt.h" line="65"/>
           <return-value transfer-ownership="none">
@@ -7296,6 +7407,9 @@ You can use the [method@Prompt.close] method to emit this signal.</doc>
         </callback>
       </field>
       <field name="prompt_close">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-prompt.c"
+             line="58">close a prompt</doc>
         <callback name="prompt_close">
           <source-position filename="gcr/gcr-prompt.h" line="69"/>
           <return-value transfer-ownership="none">
@@ -8271,7 +8385,10 @@ Use [method@SystemPrompt.close] to close the prompt when you're done with it.</d
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
-      <function name="open" c:identifier="gcr_system_prompt_open" throws="1">
+      <function name="open"
+                c:identifier="gcr_system_prompt_open"
+                throws="1"
+                glib:async-func="open_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1440">Opens a system prompt with the default prompter.
@@ -8308,7 +8425,10 @@ error.</doc>
           </parameter>
         </parameters>
       </function>
-      <function name="open_async" c:identifier="gcr_system_prompt_open_async">
+      <function name="open_async"
+                c:identifier="gcr_system_prompt_open_async"
+                glib:finish-func="open_finish"
+                glib:sync-func="open">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1334">Asynchronously open a system prompt with the default system prompter.
@@ -8497,7 +8617,10 @@ error.</doc>
           </parameter>
         </parameters>
       </function>
-      <method name="close" c:identifier="gcr_system_prompt_close" throws="1">
+      <method name="close"
+              c:identifier="gcr_system_prompt_close"
+              throws="1"
+              glib:async-func="close_async">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1512">Close this prompt. After calling this function, no further prompts will
@@ -8534,7 +8657,10 @@ still closed and may not be further used.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close_async" c:identifier="gcr_system_prompt_close_async">
+      <method name="close_async"
+              c:identifier="gcr_system_prompt_close_async"
+              glib:finish-func="close_finish"
+              glib:sync-func="close">
         <doc xml:space="preserve"
              filename="gcr/gcr-system-prompt.c"
              line="1554">Close this prompt asynchronously. After calling this function, no further
@@ -8762,6 +8888,9 @@ interface.</doc>
         </parameters>
       </constructor>
       <virtual-method name="new_prompt" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-system-prompter.c"
+             line="58">default handler for the #GcrSystemPrompter::new-prompt signal</doc>
         <source-position filename="gcr/gcr-system-prompter.h" line="65"/>
         <return-value>
           <type name="Prompt" c:type="GcrPrompt*"/>
@@ -8965,6 +9094,9 @@ gcr_system_prompter_get_prompt_type().</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="new_prompt" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-system-prompter.c"
+             line="58">default handler for the #GcrSystemPrompter::new-prompt signal</doc>
         <callback name="new_prompt" introspectable="0">
           <source-position filename="gcr/gcr-system-prompter.h" line="65"/>
           <return-value>

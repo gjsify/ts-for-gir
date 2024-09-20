@@ -1634,6 +1634,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_icon">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="1400">Getter for the #CloudProvidersDbusAccount:icon property.</doc>
         <callback name="get_icon">
           <source-position filename="src/cloudproviders-generated.h"
                            line="173"/>
@@ -1654,6 +1657,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="1401">Getter for the #CloudProvidersDbusAccount:name property.</doc>
         <callback name="get_name">
           <source-position filename="src/cloudproviders-generated.h"
                            line="175"/>
@@ -1674,6 +1680,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_path">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="1402">Getter for the #CloudProvidersDbusAccount:path property.</doc>
         <callback name="get_path">
           <source-position filename="src/cloudproviders-generated.h"
                            line="177"/>
@@ -1694,6 +1703,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_status">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="1403">Getter for the #CloudProvidersDbusAccount:status property.</doc>
         <callback name="get_status">
           <source-position filename="src/cloudproviders-generated.h"
                            line="179"/>
@@ -1714,6 +1726,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_status_details">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="1404">Getter for the #CloudProvidersDbusAccount:status-details property.</doc>
         <callback name="get_status_details">
           <source-position filename="src/cloudproviders-generated.h"
                            line="181"/>
@@ -1903,7 +1918,8 @@ See cloud_providers_dbus_account_proxy_new() for the asynchronous version of thi
         </parameters>
       </constructor>
       <function name="new"
-                c:identifier="cloud_providers_dbus_account_proxy_new">
+                c:identifier="cloud_providers_dbus_account_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="2004">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-freedesktop-CloudProviders-Account.top_of_page"&gt;org.freedesktop.CloudProviders.Account&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -1976,7 +1992,8 @@ See cloud_providers_dbus_account_proxy_new_sync() for the synchronous, blocking 
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="cloud_providers_dbus_account_proxy_new_for_bus">
+                c:identifier="cloud_providers_dbus_account_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="2094">Like cloud_providers_dbus_account_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -2486,7 +2503,8 @@ See cloud_providers_dbus_object_manager_client_new() for the asynchronous versio
         </parameters>
       </function>
       <function name="new"
-                c:identifier="cloud_providers_dbus_object_manager_client_new">
+                c:identifier="cloud_providers_dbus_object_manager_client_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="3172">Asynchronously creates #GDBusObjectManagerClient using cloud_providers_dbus_object_manager_client_get_proxy_type() as the #GDBusProxyTypeFunc. See g_dbus_object_manager_client_new() for more details.
@@ -2560,7 +2578,8 @@ See cloud_providers_dbus_object_manager_client_new_sync() for the synchronous, b
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="cloud_providers_dbus_object_manager_client_new_for_bus">
+                c:identifier="cloud_providers_dbus_object_manager_client_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="3262">Like cloud_providers_dbus_object_manager_client_new() but takes a #GBusType instead of a #GDBusConnection.
@@ -3031,6 +3050,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="src/cloudproviders-generated.c"
+             line="290">Getter for the #CloudProvidersDbusProvider:name property.</doc>
         <callback name="get_name">
           <source-position filename="src/cloudproviders-generated.h"
                            line="33"/>
@@ -3220,7 +3242,8 @@ See cloud_providers_dbus_provider_proxy_new() for the asynchronous version of th
         </parameters>
       </constructor>
       <function name="new"
-                c:identifier="cloud_providers_dbus_provider_proxy_new">
+                c:identifier="cloud_providers_dbus_provider_proxy_new"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="598">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-freedesktop-CloudProviders-Provider.top_of_page"&gt;org.freedesktop.CloudProviders.Provider&lt;/link&gt;. See g_dbus_proxy_new() for more details.
@@ -3293,7 +3316,8 @@ See cloud_providers_dbus_provider_proxy_new_sync() for the synchronous, blocking
         </parameters>
       </function>
       <function name="new_for_bus"
-                c:identifier="cloud_providers_dbus_provider_proxy_new_for_bus">
+                c:identifier="cloud_providers_dbus_provider_proxy_new_for_bus"
+                glib:finish-func="new_for_bus_finish">
         <doc xml:space="preserve"
              filename="src/cloudproviders-generated.c"
              line="688">Like cloud_providers_dbus_provider_proxy_new() but takes a #GBusType instead of a #GDBusConnection.

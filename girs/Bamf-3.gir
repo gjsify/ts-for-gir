@@ -18,16 +18,19 @@ and/or use gtk-doc annotations.  -->
     <constant name="APPLICATION_SIGNAL_DESKTOP_FILE_UPDATED"
               value="desktop-file-updated"
               c:type="BAMF_APPLICATION_SIGNAL_DESKTOP_FILE_UPDATED">
+      <source-position filename="bamf-application.h" line="39"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="APPLICATION_SIGNAL_WINDOW_ADDED"
               value="window-added"
               c:type="BAMF_APPLICATION_SIGNAL_WINDOW_ADDED">
+      <source-position filename="bamf-application.h" line="40"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="APPLICATION_SIGNAL_WINDOW_REMOVED"
               value="window-removed"
               c:type="BAMF_APPLICATION_SIGNAL_WINDOW_REMOVED">
+      <source-position filename="bamf-application.h" line="41"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <class name="Application"
@@ -37,38 +40,51 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="BamfApplication"
            glib:get-type="bamf_application_get_type"
            glib:type-struct="ApplicationClass">
+      <source-position filename="bamf-application.h" line="56"/>
       <method name="get_application_menu"
               c:identifier="bamf_application_get_application_menu"
               deprecated="1"
               deprecated-version="0.5.0">
-        <doc xml:space="preserve">Used to fetch the bus name and the object path of the remote application menu.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="150">Used to fetch the bus name and the object path of the remote application menu.</doc>
+        <source-position filename="bamf-application.h" line="78"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if found, %FALSE otherwise.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="159">%TRUE if found, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="152">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
           <parameter name="name"
                      direction="out"
                      caller-allocates="0"
                      transfer-ownership="full">
-            <doc xml:space="preserve">the bus name</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="153">the bus name</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="object_path"
                      direction="out"
                      caller-allocates="0"
                      transfer-ownership="full">
-            <doc xml:space="preserve">the object path</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="154">the object path</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_application_type"
               c:identifier="bamf_application_get_application_type">
+        <source-position filename="bamf-application.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -80,57 +96,81 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_desktop_file"
               c:identifier="bamf_application_get_desktop_file">
-        <doc xml:space="preserve">Used to fetch the path to the .desktop file associated with the passed application. If
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="105">Used to fetch the path to the .desktop file associated with the passed application. If
 none exists, the result is NULL.</doc>
+        <source-position filename="bamf-application.h" line="60"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A string representing the path to the desktop file.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="112">A string representing the path to the desktop file.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="107">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_focusable_child"
               c:identifier="bamf_application_get_focusable_child">
+        <source-position filename="bamf-application.h" line="68"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The focusable child for this application.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="429">The focusable child for this application.</doc>
           <type name="View" c:type="BamfView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="427">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_show_menu_stubs"
               c:identifier="bamf_application_get_show_menu_stubs">
-        <doc xml:space="preserve">Used to discover whether the application wants menu stubs shown.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="373">Used to discover whether the application wants menu stubs shown.</doc>
+        <source-position filename="bamf-application.h" line="70"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">Whether the stubs should be shown.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="379">Whether the stubs should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="375">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_supported_mime_types"
               c:identifier="bamf_application_get_supported_mime_types">
+        <source-position filename="bamf-application.h" line="62"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A string array containing the supported mime-types.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="75">A string array containing the supported mime-types.</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="73">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
@@ -138,57 +178,77 @@ none exists, the result is NULL.</doc>
       <method name="get_window_for_xid"
               c:identifier="bamf_application_get_window_for_xid"
               version="0.5.2">
-        <doc xml:space="preserve">Used to fetch the application contains a Window with given @xid.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="340">Used to fetch the application contains a Window with given @xid.</doc>
+        <source-position filename="bamf-application.h" line="72"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">a #BamfWindow for the passed @xid or %NULL if not found.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="348">a #BamfWindow for the passed @xid or %NULL if not found.</doc>
           <type name="Window" c:type="BamfWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="342">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
           <parameter name="xid" transfer-ownership="none">
-            <doc xml:space="preserve">an X11 Window ID</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="343">an X11 Window ID</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_windows" c:identifier="bamf_application_get_windows">
-        <doc xml:space="preserve">Used to fetch all #BamfWindow's associated with the passed #BamfApplication.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="306">Used to fetch all #BamfWindow's associated with the passed #BamfApplication.</doc>
+        <source-position filename="bamf-application.h" line="64"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfWindow's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="312">A list of #BamfWindow's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="308">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_xids" c:identifier="bamf_application_get_xids">
-        <doc xml:space="preserve">Used to fetch all #BamfWindow's xids associated with the passed #BamfApplication.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-application.c"
+             line="236">Used to fetch all #BamfWindow's xids associated with the passed #BamfApplication.</doc>
+        <source-position filename="bamf-application.h" line="66"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">An array of xids.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-application.c"
+               line="242">An array of xids.</doc>
           <array name="GLib.Array" c:type="GArray*">
             <type name="guint32"/>
           </array>
         </return-value>
         <parameters>
           <instance-parameter name="application" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfApplication</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-application.c"
+                 line="238">a #BamfApplication</doc>
             <type name="Application" c:type="BamfApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <field name="parent">
+      <field name="parent_instance">
         <type name="View" c:type="BamfView"/>
-      </field>
-      <field name="priv">
-        <type name="ApplicationPrivate" c:type="BamfApplicationPrivate*"/>
       </field>
       <glib:signal name="desktop-file-updated">
         <return-value transfer-ownership="none">
@@ -224,11 +284,13 @@ none exists, the result is NULL.</doc>
     <record name="ApplicationClass"
             c:type="BamfApplicationClass"
             glib:is-gtype-struct-for="Application">
+      <source-position filename="bamf-application.h" line="56"/>
       <field name="parent_class">
         <type name="ViewClass" c:type="BamfViewClass"/>
       </field>
       <field name="_application_padding1" introspectable="0">
         <callback name="_application_padding1">
+          <source-position filename="bamf-application.h" line="50"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -236,6 +298,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_application_padding2" introspectable="0">
         <callback name="_application_padding2">
+          <source-position filename="bamf-application.h" line="51"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -243,6 +306,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_application_padding3" introspectable="0">
         <callback name="_application_padding3">
+          <source-position filename="bamf-application.h" line="52"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -250,6 +314,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_application_padding4" introspectable="0">
         <callback name="_application_padding4">
+          <source-position filename="bamf-application.h" line="53"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -257,6 +322,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_application_padding5" introspectable="0">
         <callback name="_application_padding5">
+          <source-position filename="bamf-application.h" line="54"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -264,17 +330,42 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_application_padding6" introspectable="0">
         <callback name="_application_padding6">
+          <source-position filename="bamf-application.h" line="55"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
         </callback>
       </field>
     </record>
-    <record name="ApplicationPrivate"
-            c:type="BamfApplicationPrivate"
-            disguised="1">
-    </record>
+    <function-macro name="CONTROL"
+                    c:identifier="BAMF_CONTROL"
+                    introspectable="0">
+      <source-position filename="bamf-control.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTROL_CLASS"
+                    c:identifier="BAMF_CONTROL_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-control.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTROL_GET_CLASS"
+                    c:identifier="BAMF_CONTROL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-control.h" line="50"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <enumeration name="ClickBehavior" c:type="BamfClickBehavior">
+      <source-position filename="bamf-view.h" line="59"/>
       <member name="none" value="0" c:identifier="BAMF_CLICK_BEHAVIOR_NONE">
       </member>
       <member name="open" value="1" c:identifier="BAMF_CLICK_BEHAVIOR_OPEN">
@@ -309,14 +400,19 @@ none exists, the result is NULL.</doc>
            glib:type-name="BamfControl"
            glib:get-type="bamf_control_get_type"
            glib:type-struct="ControlClass">
+      <source-position filename="bamf-control.h" line="75"/>
       <function name="get_default" c:identifier="bamf_control_get_default">
+        <source-position filename="bamf-control.h" line="79"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">The default #BamfControl reference.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-control.c"
+               line="117">The default #BamfControl reference.</doc>
           <type name="Control" c:type="BamfControl*"/>
         </return-value>
       </function>
       <method name="create_local_desktop_file"
               c:identifier="bamf_control_create_local_desktop_file">
+        <source-position filename="bamf-control.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -331,6 +427,7 @@ none exists, the result is NULL.</doc>
       </method>
       <method name="insert_desktop_file"
               c:identifier="bamf_control_insert_desktop_file">
+        <source-position filename="bamf-control.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -345,6 +442,7 @@ none exists, the result is NULL.</doc>
       </method>
       <method name="register_application_for_pid"
               c:identifier="bamf_control_register_application_for_pid">
+        <source-position filename="bamf-control.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -362,6 +460,7 @@ none exists, the result is NULL.</doc>
       </method>
       <method name="set_approver_behavior"
               c:identifier="bamf_control_set_approver_behavior">
+        <source-position filename="bamf-control.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -384,11 +483,13 @@ none exists, the result is NULL.</doc>
     <record name="ControlClass"
             c:type="BamfControlClass"
             glib:is-gtype-struct-for="Control">
+      <source-position filename="bamf-control.h" line="75"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="_control_padding1" introspectable="0">
         <callback name="_control_padding1">
+          <source-position filename="bamf-control.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -396,6 +497,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_control_padding2" introspectable="0">
         <callback name="_control_padding2">
+          <source-position filename="bamf-control.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -403,6 +505,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_control_padding3" introspectable="0">
         <callback name="_control_padding3">
+          <source-position filename="bamf-control.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -410,6 +513,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_control_padding4" introspectable="0">
         <callback name="_control_padding4">
+          <source-position filename="bamf-control.h" line="72"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -417,6 +521,7 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_control_padding5" introspectable="0">
         <callback name="_control_padding5">
+          <source-position filename="bamf-control.h" line="73"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -424,37 +529,110 @@ none exists, the result is NULL.</doc>
       </field>
       <field name="_control_padding6" introspectable="0">
         <callback name="_control_padding6">
+          <source-position filename="bamf-control.h" line="74"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
         </callback>
       </field>
     </record>
-    <record name="ControlPrivate" c:type="BamfControlPrivate" disguised="1">
+    <record name="ControlPrivate"
+            c:type="BamfControlPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="bamf-control.h" line="55"/>
     </record>
+    <function-macro name="IS_CONTROL"
+                    c:identifier="BAMF_IS_CONTROL"
+                    introspectable="0">
+      <source-position filename="bamf-control.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CONTROL_CLASS"
+                    c:identifier="BAMF_IS_CONTROL_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-control.h" line="47"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MATCHER"
+                    c:identifier="BAMF_IS_MATCHER"
+                    introspectable="0">
+      <source-position filename="bamf-matcher.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MATCHER_CLASS"
+                    c:identifier="BAMF_IS_MATCHER_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-matcher.h" line="48"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MATCHER"
+                    c:identifier="BAMF_MATCHER"
+                    introspectable="0">
+      <source-position filename="bamf-matcher.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MATCHER_CLASS"
+                    c:identifier="BAMF_MATCHER_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-matcher.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MATCHER_GET_CLASS"
+                    c:identifier="BAMF_MATCHER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="bamf-matcher.h" line="51"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="MATCHER_SIGNAL_ACTIVE_APPLICATION_CHANGED"
               value="active-application-changed"
               c:type="BAMF_MATCHER_SIGNAL_ACTIVE_APPLICATION_CHANGED">
+      <source-position filename="bamf-matcher.h" line="56"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="MATCHER_SIGNAL_ACTIVE_WINDOW_CHANGED"
               value="active-window-changed"
               c:type="BAMF_MATCHER_SIGNAL_ACTIVE_WINDOW_CHANGED">
+      <source-position filename="bamf-matcher.h" line="57"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="MATCHER_SIGNAL_STACKING_ORDER_CHANGED"
               value="stacking-order-changed"
               c:type="BAMF_MATCHER_SIGNAL_STACKING_ORDER_CHANGED">
+      <source-position filename="bamf-matcher.h" line="58"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="MATCHER_SIGNAL_VIEW_CLOSED"
               value="view-closed"
               c:type="BAMF_MATCHER_SIGNAL_VIEW_CLOSED">
+      <source-position filename="bamf-matcher.h" line="55"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="MATCHER_SIGNAL_VIEW_OPENED"
               value="view-opened"
               c:type="BAMF_MATCHER_SIGNAL_VIEW_OPENED">
+      <source-position filename="bamf-matcher.h" line="54"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <class name="Matcher"
@@ -464,15 +642,22 @@ none exists, the result is NULL.</doc>
            glib:type-name="BamfMatcher"
            glib:get-type="bamf_matcher_get_type"
            glib:type-struct="MatcherClass">
+      <source-position filename="bamf-matcher.h" line="82"/>
       <function name="get_default" c:identifier="bamf_matcher_get_default">
-        <doc xml:space="preserve">Returns the default matcher. This matcher is owned by bamf and shared between other callers.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="338">Returns the default matcher. This matcher is owned by bamf and shared between other callers.</doc>
+        <source-position filename="bamf-matcher.h" line="86"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A new #BamfMatcher</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="343">A new #BamfMatcher</doc>
           <type name="Matcher" c:type="BamfMatcher*"/>
         </return-value>
       </function>
       <method name="application_is_running"
               c:identifier="bamf_matcher_application_is_running">
+        <source-position filename="bamf-matcher.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -487,206 +672,300 @@ none exists, the result is NULL.</doc>
       </method>
       <method name="get_active_application"
               c:identifier="bamf_matcher_get_active_application">
-        <doc xml:space="preserve">Used to fetch the active #BamfApplication.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="354">Used to fetch the active #BamfApplication.</doc>
+        <source-position filename="bamf-matcher.h" line="88"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The active #BamfApplication.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="360">The active #BamfApplication.</doc>
           <type name="Application" c:type="BamfApplication*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="356">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_active_window"
               c:identifier="bamf_matcher_get_active_window">
-        <doc xml:space="preserve">Used to fetch the active #BamfWindow.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="399">Used to fetch the active #BamfWindow.</doc>
+        <source-position filename="bamf-matcher.h" line="90"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The active #BamfWindow.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="405">The active #BamfWindow.</doc>
           <type name="Window" c:type="BamfWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="401">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_application_for_desktop_file"
               c:identifier="bamf_matcher_get_application_for_desktop_file">
+        <source-position filename="bamf-matcher.h" line="120"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A #BamfApplication for given desktop file.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="889">A #BamfApplication for given desktop file.</doc>
           <type name="Application" c:type="BamfApplication*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="885">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="desktop_file_path" transfer-ownership="none">
-            <doc xml:space="preserve">Path to the desktop file</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="886">Path to the desktop file</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="create_if_not_found" transfer-ownership="none">
-            <doc xml:space="preserve">Create a #BamfApplication if one isn't found</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="887">Create a #BamfApplication if one isn't found</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_application_for_window"
               c:identifier="bamf_matcher_get_application_for_window">
-        <doc xml:space="preserve">Used to fetch the #BamfApplication containing the passed window.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="474">Used to fetch the #BamfApplication containing the passed window.</doc>
+        <source-position filename="bamf-matcher.h" line="97"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #BamfApplication representing the xid passed, or NULL if none exists.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="481">The #BamfApplication representing the xid passed, or NULL if none exists.</doc>
           <type name="Application" c:type="BamfApplication*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="476">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
-            <doc xml:space="preserve">The window to look for</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="477">The window to look for</doc>
             <type name="Window" c:type="BamfWindow*"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_application_for_xid"
               c:identifier="bamf_matcher_get_application_for_xid">
-        <doc xml:space="preserve">Used to fetch the #BamfApplication containing the passed xid.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="490">Used to fetch the #BamfApplication containing the passed xid.</doc>
+        <source-position filename="bamf-matcher.h" line="95"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #BamfApplication representing the xid passed, or NULL if none exists.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="497">The #BamfApplication representing the xid passed, or NULL if none exists.</doc>
           <type name="Application" c:type="BamfApplication*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="492">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="xid" transfer-ownership="none">
-            <doc xml:space="preserve">The XID to search for</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="493">The XID to search for</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_applications"
               c:identifier="bamf_matcher_get_applications">
-        <doc xml:space="preserve">Used to fetch all #BamfApplication's running or not. Application authors who wish to only
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="564">Used to fetch all #BamfApplication's running or not. Application authors who wish to only
 see running applications should use bamf_matcher_get_running_applications instead. The reason
 this method is needed is bamf will occasionally track applications which are not currently
 running for nefarious purposes.</doc>
+        <source-position filename="bamf-matcher.h" line="103"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfApplication's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="573">A list of #BamfApplication's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Application"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="566">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_running_applications"
               c:identifier="bamf_matcher_get_running_applications">
-        <doc xml:space="preserve">Used to fetch all #BamfApplication's which are running.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="741">Used to fetch all #BamfApplication's which are running.</doc>
+        <source-position filename="bamf-matcher.h" line="108"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfApplication's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="747">A list of #BamfApplication's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Application"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="743">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_tabs" c:identifier="bamf_matcher_get_tabs">
-        <doc xml:space="preserve">Used to fetch all #BamfView's representing tabs. Currently unused.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="787">Used to fetch all #BamfView's representing tabs. Currently unused.</doc>
+        <source-position filename="bamf-matcher.h" line="110"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfTab's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="793">A list of #BamfTab's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Tab"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="789">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_window_for_xid"
               c:identifier="bamf_matcher_get_window_for_xid">
-        <doc xml:space="preserve">Used to fetch the #BamfWindow that wraps the given @window.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="444">Used to fetch the #BamfWindow that wraps the given @window.</doc>
+        <source-position filename="bamf-matcher.h" line="92"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #BamfWindow representing the xid passed, or NULL if none exists.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="451">The #BamfWindow representing the xid passed, or NULL if none exists.</doc>
           <type name="Window" c:type="BamfWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="446">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="xid" transfer-ownership="none">
-            <doc xml:space="preserve">The X11 Window ID to search for</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="447">The X11 Window ID to search for</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_window_stack_for_monitor"
               c:identifier="bamf_matcher_get_window_stack_for_monitor">
-        <doc xml:space="preserve">Used to fetch all windows that BAMF knows about in the requested screen,
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="662">Used to fetch all windows that BAMF knows about in the requested screen,
 in stacking bottom-to-top order. If the @monitor is set to a negative value,
 then it fetches all the available windows in all monitors.</doc>
+        <source-position filename="bamf-matcher.h" line="117"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfWindow's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="671">A list of #BamfWindow's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="664">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
-            <doc xml:space="preserve">the monitor you want the stack from, negative value to get all</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="665">the monitor you want the stack from, negative value to get all</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_windows" c:identifier="bamf_matcher_get_windows">
-        <doc xml:space="preserve">Used to fetch all windows that BAMF knows about.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="616">Used to fetch all windows that BAMF knows about.</doc>
+        <source-position filename="bamf-matcher.h" line="115"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">A list of #BamfWindow's.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="622">A list of #BamfWindow's.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="618">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_xids_for_application"
               c:identifier="bamf_matcher_get_xids_for_application">
-        <doc xml:space="preserve">Used to fetch all xid's associated with an application. Useful for performing window</doc>
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="832">Used to fetch all xid's associated with an application. Useful for performing window</doc>
+        <source-position filename="bamf-matcher.h" line="112"/>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A list of xids.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-matcher.c"
+               line="839">A list of xids.</doc>
           <array name="GLib.Array" c:type="GArray*">
             <type name="guint32"/>
           </array>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="834">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="desktop_file" transfer-ownership="none">
@@ -696,19 +975,26 @@ then it fetches all the available windows in all monitors.</doc>
       </method>
       <method name="register_favorites"
               c:identifier="bamf_matcher_register_favorites">
-        <doc xml:space="preserve">Used to effect how bamf performs matching. Desktop files passed to this method will
+        <doc xml:space="preserve"
+             filename="bamf-matcher.c"
+             line="714">Used to effect how bamf performs matching. Desktop files passed to this method will
 be prefered by bamf to system desktop files.</doc>
+        <source-position filename="bamf-matcher.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="matcher" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfMatcher</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="716">a #BamfMatcher</doc>
             <type name="Matcher" c:type="BamfMatcher*"/>
           </instance-parameter>
           <parameter name="favorites" transfer-ownership="none">
-            <doc xml:space="preserve">an array of strings, each containing an absolute path to a .desktop file</doc>
-            <array zero-terminated="0" c:type="gchar**">
+            <doc xml:space="preserve"
+                 filename="bamf-matcher.c"
+                 line="717">an array of strings, each containing an absolute path to a .desktop file</doc>
+            <array zero-terminated="0" c:type="const gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
           </parameter>
@@ -775,11 +1061,13 @@ be prefered by bamf to system desktop files.</doc>
     <record name="MatcherClass"
             c:type="BamfMatcherClass"
             glib:is-gtype-struct-for="Matcher">
+      <source-position filename="bamf-matcher.h" line="82"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="_matcher_padding1" introspectable="0">
         <callback name="_matcher_padding1">
+          <source-position filename="bamf-matcher.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -787,6 +1075,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_matcher_padding2" introspectable="0">
         <callback name="_matcher_padding2">
+          <source-position filename="bamf-matcher.h" line="77"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -794,6 +1083,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_matcher_padding3" introspectable="0">
         <callback name="_matcher_padding3">
+          <source-position filename="bamf-matcher.h" line="78"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -801,6 +1091,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_matcher_padding4" introspectable="0">
         <callback name="_matcher_padding4">
+          <source-position filename="bamf-matcher.h" line="79"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -808,6 +1099,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_matcher_padding5" introspectable="0">
         <callback name="_matcher_padding5">
+          <source-position filename="bamf-matcher.h" line="80"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -815,13 +1107,18 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_matcher_padding6" introspectable="0">
         <callback name="_matcher_padding6">
+          <source-position filename="bamf-matcher.h" line="81"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
         </callback>
       </field>
     </record>
-    <record name="MatcherPrivate" c:type="BamfMatcherPrivate" disguised="1">
+    <record name="MatcherPrivate"
+            c:type="BamfMatcherPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="bamf-matcher.h" line="62"/>
     </record>
     <class name="Tab"
            c:symbol-prefix="tab"
@@ -830,33 +1127,47 @@ be prefered by bamf to system desktop files.</doc>
            glib:type-name="BamfTab"
            glib:get-type="bamf_tab_get_type"
            glib:type-struct="TabClass">
+      <source-position filename="bamf-tab.h" line="53"/>
       <virtual-method name="get_desktop_name" invoker="get_desktop_name">
-        <doc xml:space="preserve">Returns the desktop file for the tab.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="328">Returns the desktop file for the tab.</doc>
+        <source-position filename="bamf-tab.h" line="43"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="334">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="330">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_is_foreground_tab"
                       invoker="get_is_foreground_tab">
+        <source-position filename="bamf-tab.h" line="46"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="376">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="374">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_location" invoker="get_location">
+        <source-position filename="bamf-tab.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -867,58 +1178,88 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_xid" invoker="get_xid">
-        <doc xml:space="preserve">The desktop file for the tab.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="350">The desktop file for the tab.</doc>
+        <source-position filename="bamf-tab.h" line="45"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The tab parent window XID id or 0 if not set or available.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="356">The tab parent window XID id or 0 if not set or available.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="352">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <method name="close" c:identifier="bamf_tab_close">
-        <doc xml:space="preserve">Closes the selected @self tab.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="220">Closes the selected @self tab.</doc>
+        <source-position filename="bamf-tab.h" line="58"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if success, %FALSE otherwise.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="226">%TRUE if success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="222">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_desktop_name" c:identifier="bamf_tab_get_desktop_name">
-        <doc xml:space="preserve">Returns the desktop file for the tab.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="328">Returns the desktop file for the tab.</doc>
+        <source-position filename="bamf-tab.h" line="62"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="334">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="330">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_is_foreground_tab"
-              c:identifier="bamf_tab_get_is_foreground_tab">
+              c:identifier="bamf_tab_get_is_foreground_tab"
+              glib:get-property="is-foreground-tab">
+        <source-position filename="bamf-tab.h" line="65"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="376">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="374">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_location" c:identifier="bamf_tab_get_location">
+      <method name="get_location"
+              c:identifier="bamf_tab_get_location"
+              glib:get-property="location">
+        <source-position filename="bamf-tab.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -928,46 +1269,67 @@ be prefered by bamf to system desktop files.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_xid" c:identifier="bamf_tab_get_xid">
-        <doc xml:space="preserve">The desktop file for the tab.</doc>
+      <method name="get_xid"
+              c:identifier="bamf_tab_get_xid"
+              glib:get-property="xid">
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="350">The desktop file for the tab.</doc>
+        <source-position filename="bamf-tab.h" line="64"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The tab parent window XID id or 0 if not set or available.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="356">The tab parent window XID id or 0 if not set or available.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="352">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="raise" c:identifier="bamf_tab_raise">
-        <doc xml:space="preserve">Selects the @self tab in the parent window.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-tab.c"
+             line="189">Selects the @self tab in the parent window.</doc>
+        <source-position filename="bamf-tab.h" line="57"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if success, %FALSE otherwise.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-tab.c"
+               line="195">%TRUE if success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">A #BamfTab.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="191">A #BamfTab.</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="request_preview" c:identifier="bamf_tab_request_preview">
+        <source-position filename="bamf-tab.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfTab</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="291">a #BamfTab</doc>
             <type name="Tab" c:type="BamfTab*"/>
           </instance-parameter>
           <parameter name="callback"
                      transfer-ownership="none"
                      scope="async"
                      closure="1">
-            <doc xml:space="preserve">a callback function to call when the result is ready</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="292">a callback function to call when the result is ready</doc>
             <type name="TabPreviewReadyCallback"
                   c:type="BamfTabPreviewReadyCallback"/>
           </parameter>
@@ -975,45 +1337,61 @@ be prefered by bamf to system desktop files.</doc>
                      transfer-ownership="none"
                      nullable="1"
                      allow-none="1">
-            <doc xml:space="preserve">data to be sent to the callback.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="293">data to be sent to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
-      <property name="desktop-id" transfer-ownership="none">
+      <property name="desktop-id"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="is-foreground-tab" transfer-ownership="none">
+      <property name="is-foreground-tab"
+                transfer-ownership="none"
+                getter="get_is_foreground_tab"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="location" transfer-ownership="none">
+      <property name="location"
+                transfer-ownership="none"
+                getter="get_location"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="xid" transfer-ownership="none">
+      <property name="xid"
+                transfer-ownership="none"
+                getter="get_xid"
+                default-value="0">
         <type name="guint64" c:type="guint64"/>
       </property>
-      <field name="parent">
+      <field name="parent_instance">
         <type name="View" c:type="BamfView"/>
-      </field>
-      <field name="priv">
-        <type name="TabPrivate" c:type="BamfTabPrivate*"/>
       </field>
     </class>
     <record name="TabClass"
             c:type="BamfTabClass"
             glib:is-gtype-struct-for="Tab">
+      <source-position filename="bamf-tab.h" line="53"/>
       <field name="parent_class">
         <type name="ViewClass" c:type="BamfViewClass"/>
       </field>
       <field name="get_desktop_name">
         <callback name="get_desktop_name">
+          <source-position filename="bamf-tab.h" line="43"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="334">The tab desktop id or %NULL if not set or available. Do not free the returned value, it belongs to @self.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
-              <doc xml:space="preserve">A #BamfTab.</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-tab.c"
+                   line="330">A #BamfTab.</doc>
               <type name="Tab" c:type="BamfTab*"/>
             </parameter>
           </parameters>
@@ -1021,6 +1399,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="get_location">
         <callback name="get_location">
+          <source-position filename="bamf-tab.h" line="44"/>
           <return-value transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
@@ -1033,13 +1412,18 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="get_xid">
         <callback name="get_xid">
+          <source-position filename="bamf-tab.h" line="45"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">The tab parent window XID id or 0 if not set or available.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="356">The tab parent window XID id or 0 if not set or available.</doc>
             <type name="guint64" c:type="guint64"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
-              <doc xml:space="preserve">A #BamfTab.</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-tab.c"
+                   line="352">A #BamfTab.</doc>
               <type name="Tab" c:type="BamfTab*"/>
             </parameter>
           </parameters>
@@ -1047,13 +1431,18 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="get_is_foreground_tab">
         <callback name="get_is_foreground_tab">
+          <source-position filename="bamf-tab.h" line="46"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-tab.c"
+                 line="376">%TRUE if the tab is the active one on parent window XID, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
-              <doc xml:space="preserve">A #BamfTab.</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-tab.c"
+                   line="374">A #BamfTab.</doc>
               <type name="Tab" c:type="BamfTab*"/>
             </parameter>
           </parameters>
@@ -1061,6 +1450,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_tab_padding1" introspectable="0">
         <callback name="_tab_padding1">
+          <source-position filename="bamf-tab.h" line="49"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1068,6 +1458,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_tab_padding2" introspectable="0">
         <callback name="_tab_padding2">
+          <source-position filename="bamf-tab.h" line="50"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1075,6 +1466,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_tab_padding3" introspectable="0">
         <callback name="_tab_padding3">
+          <source-position filename="bamf-tab.h" line="51"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1082,6 +1474,7 @@ be prefered by bamf to system desktop files.</doc>
       </field>
       <field name="_tab_padding4" introspectable="0">
         <callback name="_tab_padding4">
+          <source-position filename="bamf-tab.h" line="52"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1090,6 +1483,7 @@ be prefered by bamf to system desktop files.</doc>
     </record>
     <callback name="TabPreviewReadyCallback"
               c:type="BamfTabPreviewReadyCallback">
+      <source-position filename="bamf-tab.h" line="55"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1100,66 +1494,79 @@ be prefered by bamf to system desktop files.</doc>
         <parameter name="preview_data" transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
-        <parameter name="user_data" transfer-ownership="none" closure="2">
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
     </callback>
-    <record name="TabPrivate" c:type="BamfTabPrivate" disguised="1">
-    </record>
     <constant name="VIEW_SIGNAL_ACTIVE_CHANGED"
               value="active-changed"
               c:type="BAMF_VIEW_SIGNAL_ACTIVE_CHANGED">
+      <source-position filename="bamf-view.h" line="37"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_CHILD_ADDED"
               value="child-added"
               c:type="BAMF_VIEW_SIGNAL_CHILD_ADDED">
+      <source-position filename="bamf-view.h" line="44"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_CHILD_MOVED"
               value="child-moved"
               c:type="BAMF_VIEW_SIGNAL_CHILD_MOVED">
+      <source-position filename="bamf-view.h" line="46"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_CHILD_REMOVED"
               value="child-removed"
               c:type="BAMF_VIEW_SIGNAL_CHILD_REMOVED">
+      <source-position filename="bamf-view.h" line="45"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_CLOSED"
               value="closed"
               c:type="BAMF_VIEW_SIGNAL_CLOSED">
+      <source-position filename="bamf-view.h" line="47"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_ICON_CHANGED"
               value="icon-changed"
               c:type="BAMF_VIEW_SIGNAL_ICON_CHANGED">
+      <source-position filename="bamf-view.h" line="43"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_NAME_CHANGED"
               value="name-changed"
               c:type="BAMF_VIEW_SIGNAL_NAME_CHANGED">
+      <source-position filename="bamf-view.h" line="42"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_RUNNING_CHANGED"
               value="running-changed"
               c:type="BAMF_VIEW_SIGNAL_RUNNING_CHANGED">
+      <source-position filename="bamf-view.h" line="38"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_STARTING_CHANGED"
               value="starting-changed"
               c:type="BAMF_VIEW_SIGNAL_STARTING_CHANGED">
+      <source-position filename="bamf-view.h" line="39"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_URGENT_CHANGED"
               value="urgent-changed"
               c:type="BAMF_VIEW_SIGNAL_URGENT_CHANGED">
+      <source-position filename="bamf-view.h" line="40"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="VIEW_SIGNAL_USER_VISIBLE_CHANGED"
               value="user-visible-changed"
               c:type="BAMF_VIEW_SIGNAL_USER_VISIBLE_CHANGED">
+      <source-position filename="bamf-view.h" line="41"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <class name="View"
@@ -1169,7 +1576,9 @@ be prefered by bamf to system desktop files.</doc>
            glib:type-name="BamfView"
            glib:get-type="bamf_view_get_type"
            glib:type-struct="ViewClass">
+      <source-position filename="bamf-view.h" line="96"/>
       <virtual-method name="active_changed">
+        <source-position filename="bamf-view.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1183,6 +1592,7 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_added">
+        <source-position filename="bamf-view.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1196,6 +1606,7 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_moved">
+        <source-position filename="bamf-view.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1209,6 +1620,7 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_removed">
+        <source-position filename="bamf-view.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1222,6 +1634,7 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="click_behavior">
+        <source-position filename="bamf-view.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="ClickBehavior" c:type="BamfClickBehavior"/>
         </return-value>
@@ -1232,6 +1645,7 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="closed">
+        <source-position filename="bamf-view.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1242,9 +1656,14 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_children" invoker="get_children">
-        <doc xml:space="preserve">Note: Makes sever dbus calls the first time this is called on a view. Dbus messaging is reduced afterwards.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="95">Note: Makes sever dbus calls the first time this is called on a view. Dbus messaging is reduced afterwards.</doc>
+        <source-position filename="bamf-view.h" line="67"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">Returns a list of #BamfView which must be
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="101">Returns a list of #BamfView which must be
           freed after usage. Elements of the list are owned by bamf and should not be unreffed.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -1252,36 +1671,49 @@ be prefered by bamf to system desktop files.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="97">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_icon" invoker="get_icon">
-        <doc xml:space="preserve">Gets the icon of a view. This icon is used to visually represent the view.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="424">Gets the icon of a view. This icon is used to visually represent the view.</doc>
+        <source-position filename="bamf-view.h" line="73"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="426">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_name" invoker="get_name">
-        <doc xml:space="preserve">Gets the name of a view. This name is a short name best used to represent the view with text.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="447">Gets the name of a view. This name is a short name best used to represent the view with text.</doc>
+        <source-position filename="bamf-view.h" line="72"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="449">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="icon_changed">
+        <source-position filename="bamf-view.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1295,49 +1727,69 @@ be prefered by bamf to system desktop files.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="is_active" invoker="is_active">
-        <doc xml:space="preserve">Determines if the view is currently active and focused by the user. Useful for an active window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="216">Determines if the view is currently active and focused by the user. Useful for an active window indicator.</doc>
+        <source-position filename="bamf-view.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="218">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="is_running" invoker="is_running">
-        <doc xml:space="preserve">Determines if the view is currently running. Useful for a running window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="301">Determines if the view is currently running. Useful for a running window indicator.</doc>
+        <source-position filename="bamf-view.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="303">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="is_starting" invoker="is_starting">
-        <doc xml:space="preserve">Determines if the view is currently starting. Useful for the startup animation.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="278">Determines if the view is currently starting. Useful for the startup animation.</doc>
+        <source-position filename="bamf-view.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="280">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="is_urgent" invoker="is_urgent">
-        <doc xml:space="preserve">Determines if the view is currently requiring attention. Useful for a running window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="324">Determines if the view is currently requiring attention. Useful for a running window indicator.</doc>
+        <source-position filename="bamf-view.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="326">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
@@ -1345,19 +1797,25 @@ be prefered by bamf to system desktop files.</doc>
       <virtual-method name="is_user_visible"
                       invoker="is_user_visible"
                       version="0.4.0">
+        <source-position filename="bamf-view.h" line="71"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">a boolean useful for determining if a particular view is "user visible". User visible
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="241">a boolean useful for determining if a particular view is "user visible". User visible
 is a concept relating to whether or not a window should be shown in a launcher tasklist.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="239">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="name_changed">
+        <source-position filename="bamf-view.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1374,6 +1832,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="running_changed">
+        <source-position filename="bamf-view.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1387,6 +1846,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="set_path">
+        <source-position filename="bamf-view.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1400,6 +1860,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="set_sticky" invoker="set_sticky">
+        <source-position filename="bamf-view.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1413,6 +1874,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="starting_changed">
+        <source-position filename="bamf-view.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1426,6 +1888,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="urgent_changed">
+        <source-position filename="bamf-view.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1439,6 +1902,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="user_visible_changed">
+        <source-position filename="bamf-view.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1452,22 +1916,32 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="view_type" invoker="get_view_type">
-        <doc xml:space="preserve">The view type of a window is a short string used to represent all views of the same class. These
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="485">The view type of a window is a short string used to represent all views of the same class. These
 descriptions should not be used to do casting as they are not considered stable.</doc>
+        <source-position filename="bamf-view.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="487">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <method name="get_children" c:identifier="bamf_view_get_children">
-        <doc xml:space="preserve">Note: Makes sever dbus calls the first time this is called on a view. Dbus messaging is reduced afterwards.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="95">Note: Makes sever dbus calls the first time this is called on a view. Dbus messaging is reduced afterwards.</doc>
+        <source-position filename="bamf-view.h" line="98"/>
         <return-value transfer-ownership="container">
-          <doc xml:space="preserve">Returns a list of #BamfView which must be
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="101">Returns a list of #BamfView which must be
           freed after usage. Elements of the list are owned by bamf and should not be unreffed.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -1475,13 +1949,16 @@ descriptions should not be used to do casting as they are not considered stable.
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="97">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_click_suggestion"
               c:identifier="bamf_view_get_click_suggestion">
+        <source-position filename="bamf-view.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="ClickBehavior" c:type="BamfClickBehavior"/>
         </return-value>
@@ -1492,50 +1969,70 @@ descriptions should not be used to do casting as they are not considered stable.
         </parameters>
       </method>
       <method name="get_icon" c:identifier="bamf_view_get_icon">
-        <doc xml:space="preserve">Gets the icon of a view. This icon is used to visually represent the view.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="424">Gets the icon of a view. This icon is used to visually represent the view.</doc>
+        <source-position filename="bamf-view.h" line="118"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="426">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_name" c:identifier="bamf_view_get_name">
-        <doc xml:space="preserve">Gets the name of a view. This name is a short name best used to represent the view with text.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="447">Gets the name of a view. This name is a short name best used to represent the view with text.</doc>
+        <source-position filename="bamf-view.h" line="116"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="449">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_view_type" c:identifier="bamf_view_get_view_type">
-        <doc xml:space="preserve">The view type of a window is a short string used to represent all views of the same class. These
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="485">The view type of a window is a short string used to represent all views of the same class. These
 descriptions should not be used to do casting as they are not considered stable.</doc>
+        <source-position filename="bamf-view.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="487">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="has_child" c:identifier="bamf_view_has_child">
+        <source-position filename="bamf-view.h" line="102"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE whether the #BamfView @view has the specified @child.</doc>
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="180">%TRUE whether the #BamfView @view has the specified @child.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="178">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
@@ -1544,54 +2041,75 @@ descriptions should not be used to do casting as they are not considered stable.
         </parameters>
       </method>
       <method name="is_active" c:identifier="bamf_view_is_active">
-        <doc xml:space="preserve">Determines if the view is currently active and focused by the user. Useful for an active window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="216">Determines if the view is currently active and focused by the user. Useful for an active window indicator.</doc>
+        <source-position filename="bamf-view.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="218">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_closed" c:identifier="bamf_view_is_closed">
-        <doc xml:space="preserve">Determines if the view is closed or not.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="199">Determines if the view is closed or not.</doc>
+        <source-position filename="bamf-view.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="201">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_running" c:identifier="bamf_view_is_running">
-        <doc xml:space="preserve">Determines if the view is currently running. Useful for a running window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="301">Determines if the view is currently running. Useful for a running window indicator.</doc>
+        <source-position filename="bamf-view.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="303">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_starting" c:identifier="bamf_view_is_starting">
-        <doc xml:space="preserve">Determines if the view is currently starting. Useful for the startup animation.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="278">Determines if the view is currently starting. Useful for the startup animation.</doc>
+        <source-position filename="bamf-view.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="280">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_sticky" c:identifier="bamf_view_is_sticky">
+        <source-position filename="bamf-view.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1602,13 +2120,18 @@ descriptions should not be used to do casting as they are not considered stable.
         </parameters>
       </method>
       <method name="is_urgent" c:identifier="bamf_view_is_urgent">
-        <doc xml:space="preserve">Determines if the view is currently requiring attention. Useful for a running window indicator.</doc>
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="324">Determines if the view is currently requiring attention. Useful for a running window indicator.</doc>
+        <source-position filename="bamf-view.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="326">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
@@ -1616,14 +2139,19 @@ descriptions should not be used to do casting as they are not considered stable.
       <method name="is_user_visible"
               c:identifier="bamf_view_is_user_visible"
               version="0.4.0">
+        <source-position filename="bamf-view.h" line="114"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">a boolean useful for determining if a particular view is "user visible". User visible
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="241">a boolean useful for determining if a particular view is "user visible". User visible
 is a concept relating to whether or not a window should be shown in a launcher tasklist.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="239">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
@@ -1631,10 +2159,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       <method name="peek_children"
               c:identifier="bamf_view_peek_children"
               version="0.5.2">
-        <doc xml:space="preserve">Note: Makes sever dbus calls the first time this is called on a view.
+        <doc xml:space="preserve"
+             filename="bamf-view.c"
+             line="115">Note: Makes sever dbus calls the first time this is called on a view.
 Dbus messaging is reduced afterwards.</doc>
+        <source-position filename="bamf-view.h" line="100"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">Returns a list of #BamfView which
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="122">Returns a list of #BamfView which
           is owned by the #BamfView and should not freed or modified after usage.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="View"/>
@@ -1642,12 +2175,15 @@ Dbus messaging is reduced afterwards.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="117">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="set_sticky" c:identifier="bamf_view_set_sticky">
+        <source-position filename="bamf-view.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1662,44 +2198,52 @@ Dbus messaging is reduced afterwards.</doc>
       </method>
       <method name="user_visible"
               c:identifier="bamf_view_user_visible"
+              glib:get-property="user-visible"
               introspectable="0"
               deprecated="1"
               deprecated-version="0.4.0">
+        <source-position filename="bamf-view.h" line="131"/>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">a boolean useful for determining if a particular view is "user visible". User visible
+          <doc xml:space="preserve"
+               filename="bamf-view.c"
+               line="267">a boolean useful for determining if a particular view is "user visible". User visible
 is a concept relating to whether or not a window should be shown in a launcher tasklist.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfView</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="265">a #BamfView</doc>
             <type name="View" c:type="BamfView*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="active" transfer-ownership="none">
+      <property name="active" transfer-ownership="none" default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="path" transfer-ownership="none">
+      <property name="path" transfer-ownership="none" default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="running" transfer-ownership="none">
+      <property name="running" transfer-ownership="none" default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="starting" transfer-ownership="none">
+      <property name="starting"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="urgent" transfer-ownership="none">
+      <property name="urgent" transfer-ownership="none" default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="user-visible" transfer-ownership="none">
+      <property name="user-visible"
+                transfer-ownership="none"
+                getter="user_visible"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <field name="parent">
+      <field name="parent_instance">
         <type name="GObject.InitiallyUnowned" c:type="GInitiallyUnowned"/>
-      </field>
-      <field name="priv">
-        <type name="ViewPrivate" c:type="BamfViewPrivate*"/>
       </field>
       <glib:signal name="active-changed" when="first">
         <return-value transfer-ownership="none">
@@ -1813,14 +2357,18 @@ is a concept relating to whether or not a window should be shown in a launcher t
     <record name="ViewClass"
             c:type="BamfViewClass"
             glib:is-gtype-struct-for="View">
+      <source-position filename="bamf-view.h" line="96"/>
       <field name="parent_class">
         <type name="GObject.InitiallyUnownedClass"
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="get_children">
         <callback name="get_children">
+          <source-position filename="bamf-view.h" line="67"/>
           <return-value transfer-ownership="container">
-            <doc xml:space="preserve">Returns a list of #BamfView which must be
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="101">Returns a list of #BamfView which must be
           freed after usage. Elements of the list are owned by bamf and should not be unreffed.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="View"/>
@@ -1828,7 +2376,9 @@ is a concept relating to whether or not a window should be shown in a launcher t
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="97">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1836,12 +2386,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="is_active">
         <callback name="is_active">
+          <source-position filename="bamf-view.h" line="68"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="218">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1849,12 +2402,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="is_running">
         <callback name="is_running">
+          <source-position filename="bamf-view.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="303">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1862,12 +2418,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="is_urgent">
         <callback name="is_urgent">
+          <source-position filename="bamf-view.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="326">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1875,14 +2434,19 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="is_user_visible">
         <callback name="is_user_visible">
+          <source-position filename="bamf-view.h" line="71"/>
           <return-value transfer-ownership="none">
-            <doc xml:space="preserve">a boolean useful for determining if a particular view is "user visible". User visible
+            <doc xml:space="preserve"
+                 filename="bamf-view.c"
+                 line="241">a boolean useful for determining if a particular view is "user visible". User visible
 is a concept relating to whether or not a window should be shown in a launcher tasklist.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="239">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1890,12 +2454,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_name">
         <callback name="get_name">
+          <source-position filename="bamf-view.h" line="72"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="449">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1903,12 +2470,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_icon">
         <callback name="get_icon">
+          <source-position filename="bamf-view.h" line="73"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="426">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1916,12 +2486,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="view_type">
         <callback name="view_type">
+          <source-position filename="bamf-view.h" line="74"/>
           <return-value transfer-ownership="none">
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="487">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -1929,6 +2502,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="set_path">
         <callback name="set_path">
+          <source-position filename="bamf-view.h" line="75"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1944,6 +2518,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="set_sticky">
         <callback name="set_sticky">
+          <source-position filename="bamf-view.h" line="76"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1959,6 +2534,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="click_behavior">
         <callback name="click_behavior">
+          <source-position filename="bamf-view.h" line="77"/>
           <return-value transfer-ownership="none">
             <type name="ClickBehavior" c:type="BamfClickBehavior"/>
           </return-value>
@@ -1971,6 +2547,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="active_changed">
         <callback name="active_changed">
+          <source-position filename="bamf-view.h" line="80"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1986,6 +2563,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="closed">
         <callback name="closed">
+          <source-position filename="bamf-view.h" line="81"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -1998,6 +2576,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="child_added">
         <callback name="child_added">
+          <source-position filename="bamf-view.h" line="82"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2013,6 +2592,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="child_removed">
         <callback name="child_removed">
+          <source-position filename="bamf-view.h" line="83"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2028,6 +2608,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="running_changed">
         <callback name="running_changed">
+          <source-position filename="bamf-view.h" line="84"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2043,6 +2624,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="urgent_changed">
         <callback name="urgent_changed">
+          <source-position filename="bamf-view.h" line="85"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2058,6 +2640,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="user_visible_changed">
         <callback name="user_visible_changed">
+          <source-position filename="bamf-view.h" line="86"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2073,6 +2656,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="name_changed">
         <callback name="name_changed">
+          <source-position filename="bamf-view.h" line="87"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2091,6 +2675,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="icon_changed">
         <callback name="icon_changed">
+          <source-position filename="bamf-view.h" line="88"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2106,6 +2691,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="child_moved">
         <callback name="child_moved">
+          <source-position filename="bamf-view.h" line="89"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2121,12 +2707,15 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="is_starting">
         <callback name="is_starting">
+          <source-position filename="bamf-view.h" line="91"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="view" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfView</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-view.c"
+                   line="280">a #BamfView</doc>
               <type name="View" c:type="BamfView*"/>
             </parameter>
           </parameters>
@@ -2134,6 +2723,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="starting_changed">
         <callback name="starting_changed">
+          <source-position filename="bamf-view.h" line="92"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2149,22 +2739,23 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="_view_padding1" introspectable="0">
         <callback name="_view_padding1">
+          <source-position filename="bamf-view.h" line="95"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
         </callback>
       </field>
     </record>
-    <record name="ViewPrivate" c:type="BamfViewPrivate" disguised="1">
-    </record>
     <constant name="WINDOW_SIGNAL_MAXIMIZED_CHANGED"
               value="maximized-changed"
               c:type="BAMF_WINDOW_SIGNAL_MAXIMIZED_CHANGED">
+      <source-position filename="bamf-window.h" line="40"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="WINDOW_SIGNAL_MONITOR_CHANGED"
               value="monitor-changed"
               c:type="BAMF_WINDOW_SIGNAL_MONITOR_CHANGED">
+      <source-position filename="bamf-window.h" line="39"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <class name="Window"
@@ -2174,7 +2765,9 @@ is a concept relating to whether or not a window should be shown in a launcher t
            glib:type-name="BamfWindow"
            glib:get-type="bamf_window_get_type"
            glib:type-struct="WindowClass">
+      <source-position filename="bamf-window.h" line="87"/>
       <virtual-method name="get_monitor" invoker="get_monitor">
+        <source-position filename="bamf-window.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2185,6 +2778,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="get_pid" invoker="get_pid">
+        <source-position filename="bamf-window.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="guint32" c:type="guint32"/>
         </return-value>
@@ -2195,18 +2789,24 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="get_transient" invoker="get_transient">
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A transient for this #BamfWindow.</doc>
+        <source-position filename="bamf-window.h" line="69"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="bamf-window.c"
+               line="84">A transient for this #BamfWindow.</doc>
           <type name="Window" c:type="BamfWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfWindow</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-window.c"
+                 line="82">a #BamfWindow</doc>
             <type name="Window" c:type="BamfWindow*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="get_utf8_prop" invoker="get_utf8_prop">
+        <source-position filename="bamf-window.h" line="74"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2220,6 +2820,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="get_window_type" invoker="get_window_type">
+        <source-position filename="bamf-window.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="WindowType" c:type="BamfWindowType"/>
         </return-value>
@@ -2230,6 +2831,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="get_xid" invoker="get_xid">
+        <source-position filename="bamf-window.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="guint32" c:type="guint32"/>
         </return-value>
@@ -2240,8 +2842,9 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="last_active" invoker="last_active">
+        <source-position filename="bamf-window.h" line="76"/>
         <return-value transfer-ownership="none">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
@@ -2250,6 +2853,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="maximized" invoker="maximized">
+        <source-position filename="bamf-window.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="WindowMaximizationType"
                 c:type="BamfWindowMaximizationType"/>
@@ -2261,6 +2865,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="maximized_changed">
+        <source-position filename="bamf-window.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2277,6 +2882,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <virtual-method name="monitor_changed">
+        <source-position filename="bamf-window.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2293,6 +2899,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </virtual-method>
       <method name="get_monitor" c:identifier="bamf_window_get_monitor">
+        <source-position filename="bamf-window.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2303,6 +2910,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </method>
       <method name="get_pid" c:identifier="bamf_window_get_pid">
+        <source-position filename="bamf-window.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="guint32" c:type="guint32"/>
         </return-value>
@@ -2313,18 +2921,24 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </method>
       <method name="get_transient" c:identifier="bamf_window_get_transient">
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A transient for this #BamfWindow.</doc>
+        <source-position filename="bamf-window.h" line="89"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="bamf-window.c"
+               line="84">A transient for this #BamfWindow.</doc>
           <type name="Window" c:type="BamfWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">a #BamfWindow</doc>
+            <doc xml:space="preserve"
+                 filename="bamf-window.c"
+                 line="82">a #BamfWindow</doc>
             <type name="Window" c:type="BamfWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_utf8_prop" c:identifier="bamf_window_get_utf8_prop">
+        <source-position filename="bamf-window.h" line="99"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2339,6 +2953,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </method>
       <method name="get_window_type"
               c:identifier="bamf_window_get_window_type">
+        <source-position filename="bamf-window.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="WindowType" c:type="BamfWindowType"/>
         </return-value>
@@ -2349,6 +2964,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </method>
       <method name="get_xid" c:identifier="bamf_window_get_xid">
+        <source-position filename="bamf-window.h" line="93"/>
         <return-value transfer-ownership="none">
           <type name="guint32" c:type="guint32"/>
         </return-value>
@@ -2359,8 +2975,9 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </method>
       <method name="last_active" c:identifier="bamf_window_last_active">
+        <source-position filename="bamf-window.h" line="102"/>
         <return-value transfer-ownership="none">
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
@@ -2369,6 +2986,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
         </parameters>
       </method>
       <method name="maximized" c:identifier="bamf_window_maximized">
+        <source-position filename="bamf-window.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="WindowMaximizationType"
                 c:type="BamfWindowMaximizationType"/>
@@ -2379,11 +2997,8 @@ is a concept relating to whether or not a window should be shown in a launcher t
           </instance-parameter>
         </parameters>
       </method>
-      <field name="parent">
+      <field name="parent_instance">
         <type name="View" c:type="BamfView"/>
-      </field>
-      <field name="priv">
-        <type name="WindowPrivate" c:type="BamfWindowPrivate*"/>
       </field>
       <glib:signal name="maximized-changed" when="first">
         <return-value transfer-ownership="none">
@@ -2415,18 +3030,24 @@ is a concept relating to whether or not a window should be shown in a launcher t
     <record name="WindowClass"
             c:type="BamfWindowClass"
             glib:is-gtype-struct-for="Window">
+      <source-position filename="bamf-window.h" line="87"/>
       <field name="parent_class">
         <type name="ViewClass" c:type="BamfViewClass"/>
       </field>
       <field name="get_transient">
         <callback name="get_transient">
-          <return-value transfer-ownership="none">
-            <doc xml:space="preserve">A transient for this #BamfWindow.</doc>
+          <source-position filename="bamf-window.h" line="69"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="bamf-window.c"
+                 line="84">A transient for this #BamfWindow.</doc>
             <type name="Window" c:type="BamfWindow*"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
-              <doc xml:space="preserve">a #BamfWindow</doc>
+              <doc xml:space="preserve"
+                   filename="bamf-window.c"
+                   line="82">a #BamfWindow</doc>
               <type name="Window" c:type="BamfWindow*"/>
             </parameter>
           </parameters>
@@ -2434,6 +3055,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_window_type">
         <callback name="get_window_type">
+          <source-position filename="bamf-window.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="WindowType" c:type="BamfWindowType"/>
           </return-value>
@@ -2446,6 +3068,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_xid">
         <callback name="get_xid">
+          <source-position filename="bamf-window.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="guint32" c:type="guint32"/>
           </return-value>
@@ -2458,6 +3081,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_pid">
         <callback name="get_pid">
+          <source-position filename="bamf-window.h" line="72"/>
           <return-value transfer-ownership="none">
             <type name="guint32" c:type="guint32"/>
           </return-value>
@@ -2470,6 +3094,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_monitor">
         <callback name="get_monitor">
+          <source-position filename="bamf-window.h" line="73"/>
           <return-value transfer-ownership="none">
             <type name="gint" c:type="gint"/>
           </return-value>
@@ -2482,6 +3107,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="get_utf8_prop">
         <callback name="get_utf8_prop">
+          <source-position filename="bamf-window.h" line="74"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
           </return-value>
@@ -2497,6 +3123,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="maximized">
         <callback name="maximized">
+          <source-position filename="bamf-window.h" line="75"/>
           <return-value transfer-ownership="none">
             <type name="WindowMaximizationType"
                   c:type="BamfWindowMaximizationType"/>
@@ -2510,8 +3137,9 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="last_active">
         <callback name="last_active">
+          <source-position filename="bamf-window.h" line="76"/>
           <return-value transfer-ownership="none">
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
@@ -2522,6 +3150,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="monitor_changed">
         <callback name="monitor_changed">
+          <source-position filename="bamf-window.h" line="79"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2540,6 +3169,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="maximized_changed">
         <callback name="maximized_changed">
+          <source-position filename="bamf-window.h" line="80"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2558,6 +3188,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="_window_padding1" introspectable="0">
         <callback name="_window_padding1">
+          <source-position filename="bamf-window.h" line="83"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2565,6 +3196,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="_window_padding2" introspectable="0">
         <callback name="_window_padding2">
+          <source-position filename="bamf-window.h" line="84"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2572,6 +3204,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="_window_padding3" introspectable="0">
         <callback name="_window_padding3">
+          <source-position filename="bamf-window.h" line="85"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2579,6 +3212,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
       </field>
       <field name="_window_padding4" introspectable="0">
         <callback name="_window_padding4">
+          <source-position filename="bamf-window.h" line="86"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2587,6 +3221,7 @@ is a concept relating to whether or not a window should be shown in a launcher t
     </record>
     <enumeration name="WindowMaximizationType"
                  c:type="BamfWindowMaximizationType">
+      <source-position filename="bamf-window.h" line="63"/>
       <member name="floating" value="0" c:identifier="BAMF_WINDOW_FLOATING">
       </member>
       <member name="horizontal_maximized"
@@ -2600,9 +3235,8 @@ is a concept relating to whether or not a window should be shown in a launcher t
       <member name="maximized" value="3" c:identifier="BAMF_WINDOW_MAXIMIZED">
       </member>
     </enumeration>
-    <record name="WindowPrivate" c:type="BamfWindowPrivate" disguised="1">
-    </record>
     <enumeration name="WindowType" c:type="BamfWindowType">
+      <source-position filename="bamf-window.h" line="55"/>
       <member name="normal" value="0" c:identifier="BAMF_WINDOW_NORMAL">
       </member>
       <member name="desktop" value="1" c:identifier="BAMF_WINDOW_DESKTOP">
@@ -2624,5 +3258,35 @@ is a concept relating to whether or not a window should be shown in a launcher t
       <member name="unknown" value="8" c:identifier="BAMF_WINDOW_UNKNOWN">
       </member>
     </enumeration>
+    <docsection name="bamf-application">
+      <doc xml:space="preserve"
+           filename="bamf-application.c"
+           line="27">#BamfApplication is the base class that all applications need to derive from.</doc>
+    </docsection>
+    <docsection name="bamf-control">
+      <doc xml:space="preserve"
+           filename="bamf-control.c"
+           line="27">#BamfControl is the base class that all controls need to derive from.</doc>
+    </docsection>
+    <docsection name="bamf-factory">
+      <doc xml:space="preserve"
+           filename="bamf-factory.c"
+           line="27">#BamfFactory is the base class that all factorys need to derive from.</doc>
+    </docsection>
+    <docsection name="bamf-matcher">
+      <doc xml:space="preserve"
+           filename="bamf-matcher.c"
+           line="27">#BamfMatcher is the base class that all matchers need to derive from.</doc>
+    </docsection>
+    <docsection name="bamf-view">
+      <doc xml:space="preserve"
+           filename="bamf-view.c"
+           line="27">#BamfView is the base class that all views need to derive from.</doc>
+    </docsection>
+    <docsection name="bamf-window">
+      <doc xml:space="preserve"
+           filename="bamf-window.c"
+           line="27">#BamfWindow is the base class that all windows need to derive from.</doc>
+    </docsection>
   </namespace>
 </repository>

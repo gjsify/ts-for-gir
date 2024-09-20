@@ -1639,7 +1639,7 @@ daemon.</doc>
       <function name="get_default" c:identifier="act_user_manager_get_default">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2711">Returns the user manager singleton instance.  Calling this function will
+             line="2705">Returns the user manager singleton instance.  Calling this function will
 automatically being loading the user list if it isn't loaded already.
 The #ActUserManager:is-loaded property will be set to %TRUE when the users
 are finished loading and then act_user_manager_list_users() can be called.</doc>
@@ -1648,7 +1648,7 @@ are finished loading and then act_user_manager_list_users() can be called.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2719">user manager object</doc>
+               line="2713">user manager object</doc>
           <type name="UserManager" c:type="ActUserManager*"/>
         </return-value>
       </function>
@@ -1716,65 +1716,68 @@ are finished loading and then act_user_manager_list_users() can be called.</doc>
               c:identifier="act_user_manager_activate_user_session">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="414">Activate the session for a given user.</doc>
+             line="413">Activate the session for a given user.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="421">whether successfully activated</doc>
+               line="420">whether successfully activated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="416">the user manager</doc>
+                 line="415">the user manager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="417">the user to activate</doc>
+                 line="416">the user to activate</doc>
             <type name="User" c:type="ActUser*"/>
           </parameter>
         </parameters>
       </method>
       <method name="cache_user"
               c:identifier="act_user_manager_cache_user"
-              throws="1">
+              throws="1"
+              glib:async-func="cache_user_async">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2899">Caches a user account so it shows up via act_user_manager_list_users().</doc>
+             line="2893">Caches a user account so it shows up via act_user_manager_list_users().</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2907">user object</doc>
+               line="2901">user object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2901">a #ActUserManager</doc>
+                 line="2895">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2902">a user name</doc>
+                 line="2896">a user name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="cache_user_async"
               c:identifier="act_user_manager_cache_user_async"
-              version="0.6.27">
+              version="0.6.27"
+              glib:finish-func="cache_user_finish"
+              glib:sync-func="cache_user">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2940">Asynchronously caches a user account so it shows up via
+             line="2934">Asynchronously caches a user account so it shows up via
 act_user_manager_list_users().
 
 For more details, see act_user_manager_cache_user(), which
@@ -1788,13 +1791,13 @@ is the synchronous version of this call.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2942">a #ActUserManager</doc>
+                 line="2936">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2943">a unix user name</doc>
+                 line="2937">a unix user name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1803,7 +1806,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2944">optional #GCancellable object,
+                 line="2938">optional #GCancellable object,
     %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -1815,7 +1818,7 @@ is the synchronous version of this call.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2946">a #GAsyncReadyCallback to call
+                 line="2940">a #GAsyncReadyCallback to call
     when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1825,7 +1828,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2948">the data to pass to @callback</doc>
+                 line="2942">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1836,7 +1839,7 @@ is the synchronous version of this call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2985">Finishes an asynchronous user caching.
+             line="2979">Finishes an asynchronous user caching.
 
 See act_user_manager_cache_user_async().</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
@@ -1844,20 +1847,20 @@ See act_user_manager_cache_user_async().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2995">user object</doc>
+               line="2989">user object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2987">a #ActUserManager</doc>
+                 line="2981">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2988">a #GAsyncResult</doc>
+                 line="2982">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1865,71 +1868,74 @@ See act_user_manager_cache_user_async().</doc>
       <method name="can_switch" c:identifier="act_user_manager_can_switch">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="385">Check whether the user can switch to another session.</doc>
+             line="384">Check whether the user can switch to another session.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="391">whether we can switch to another session</doc>
+               line="390">whether we can switch to another session</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="387">the user manager</doc>
+                 line="386">the user manager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="create_user"
               c:identifier="act_user_manager_create_user"
-              throws="1">
+              throws="1"
+              glib:async-func="create_user_async">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2750">Creates a user account on the system.</doc>
+             line="2744">Creates a user account on the system.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="90"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2760">user object</doc>
+               line="2754">user object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2752">a #ActUserManager</doc>
+                 line="2746">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2753">a unix user name</doc>
+                 line="2747">a unix user name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="fullname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2754">a unix GECOS value</doc>
+                 line="2748">a unix GECOS value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="accounttype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2755">a #ActUserAccountType</doc>
+                 line="2749">a #ActUserAccountType</doc>
             <type name="UserAccountType" c:type="ActUserAccountType"/>
           </parameter>
         </parameters>
       </method>
       <method name="create_user_async"
               c:identifier="act_user_manager_create_user_async"
-              version="0.6.27">
+              version="0.6.27"
+              glib:finish-func="create_user_finish"
+              glib:sync-func="create_user">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2807">Asynchronously creates a user account on the system.
+             line="2801">Asynchronously creates a user account on the system.
 
 For more details, see act_user_manager_create_user(), which
 is the synchronous version of this call.</doc>
@@ -1942,25 +1948,25 @@ is the synchronous version of this call.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2809">a #ActUserManager</doc>
+                 line="2803">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2810">a unix user name</doc>
+                 line="2804">a unix user name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="fullname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2811">a unix GECOS value</doc>
+                 line="2805">a unix GECOS value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="accounttype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2812">a #ActUserAccountType</doc>
+                 line="2806">a #ActUserAccountType</doc>
             <type name="UserAccountType" c:type="ActUserAccountType"/>
           </parameter>
           <parameter name="cancellable"
@@ -1969,7 +1975,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2813">optional #GCancellable object,
+                 line="2807">optional #GCancellable object,
     %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -1981,7 +1987,7 @@ is the synchronous version of this call.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2815">a #GAsyncReadyCallback to call
+                 line="2809">a #GAsyncReadyCallback to call
     when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1991,7 +1997,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2817">the data to pass to @callback</doc>
+                 line="2811">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2002,7 +2008,7 @@ is the synchronous version of this call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2860">Finishes an asynchronous user creation.
+             line="2854">Finishes an asynchronous user creation.
 
 See act_user_manager_create_user_async().</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
@@ -2010,65 +2016,68 @@ See act_user_manager_create_user_async().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2870">user object</doc>
+               line="2864">user object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2862">a #ActUserManager</doc>
+                 line="2856">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2863">a #GAsyncResult</doc>
+                 line="2857">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
       <method name="delete_user"
               c:identifier="act_user_manager_delete_user"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_user_async">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="3150">Deletes a user account on the system.</doc>
+             line="3144">Deletes a user account on the system.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="3159">%TRUE if the user account was successfully deleted</doc>
+               line="3153">%TRUE if the user account was successfully deleted</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3152">a #ActUserManager</doc>
+                 line="3146">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3153">an #ActUser object</doc>
+                 line="3147">an #ActUser object</doc>
             <type name="User" c:type="ActUser*"/>
           </parameter>
           <parameter name="remove_files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3154">%TRUE to delete the users home directory</doc>
+                 line="3148">%TRUE to delete the users home directory</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
       <method name="delete_user_async"
               c:identifier="act_user_manager_delete_user_async"
-              version="0.6.27">
+              version="0.6.27"
+              glib:finish-func="delete_user_finish"
+              glib:sync-func="delete_user">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="3190">Asynchronously deletes a user account from the system.
+             line="3184">Asynchronously deletes a user account from the system.
 
 For more details, see act_user_manager_delete_user(), which
 is the synchronous version of this call.</doc>
@@ -2081,19 +2090,19 @@ is the synchronous version of this call.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3192">a #ActUserManager</doc>
+                 line="3186">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3193">a #ActUser object</doc>
+                 line="3187">a #ActUser object</doc>
             <type name="User" c:type="ActUser*"/>
           </parameter>
           <parameter name="remove_files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3194">%TRUE to delete the users home directory</doc>
+                 line="3188">%TRUE to delete the users home directory</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -2102,7 +2111,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3195">optional #GCancellable object,
+                 line="3189">optional #GCancellable object,
     %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -2114,7 +2123,7 @@ is the synchronous version of this call.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3197">a #GAsyncReadyCallback to call
+                 line="3191">a #GAsyncReadyCallback to call
     when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2124,7 +2133,7 @@ is the synchronous version of this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3199">the data to pass to @callback</doc>
+                 line="3193">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2135,7 +2144,7 @@ is the synchronous version of this call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="3237">Finishes an asynchronous user account deletion.
+             line="3231">Finishes an asynchronous user account deletion.
 
 See act_user_manager_delete_user_async().</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
@@ -2143,20 +2152,20 @@ See act_user_manager_delete_user_async().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="3247">%TRUE if the user account was successfully deleted</doc>
+               line="3241">%TRUE if the user account was successfully deleted</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3239">a #ActUserManager</doc>
+                 line="3233">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3240">a #GAsyncResult</doc>
+                 line="3234">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2164,7 +2173,7 @@ See act_user_manager_delete_user_async().</doc>
       <method name="get_user" c:identifier="act_user_manager_get_user">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="1962">Retrieves a pointer to the #ActUser object for the login @username
+             line="1956">Retrieves a pointer to the #ActUser object for the login @username
 from @manager. Trying to use this object before its
 #ActUser:is-loaded property is %TRUE will result in undefined
 behavior.</doc>
@@ -2173,20 +2182,20 @@ behavior.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="1972">#ActUser object</doc>
+               line="1966">#ActUser object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="1964">the manager to query.</doc>
+                 line="1958">the manager to query.</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="1965">the login name of the user to get.</doc>
+                 line="1959">the login name of the user to get.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2195,7 +2204,7 @@ behavior.</doc>
               c:identifier="act_user_manager_get_user_by_id">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2079">Retrieves a pointer to the #ActUser object for the user with the
+             line="2073">Retrieves a pointer to the #ActUser object for the user with the
 given uid from @manager. Trying to use this object before its
 #ActUser:is-loaded property is %TRUE will result in undefined
 behavior.</doc>
@@ -2204,20 +2213,20 @@ behavior.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2089">#ActUser object</doc>
+               line="2083">#ActUser object</doc>
           <type name="User" c:type="ActUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2081">the manager to query.</doc>
+                 line="2075">the manager to query.</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2082">the uid of the user to get.</doc>
+                 line="2076">the uid of the user to get.</doc>
             <type name="guint" c:type="uid_t"/>
           </parameter>
         </parameters>
@@ -2226,20 +2235,20 @@ behavior.</doc>
               c:identifier="act_user_manager_goto_login_session">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="338">Switch the display to the login manager.</doc>
+             line="337">Switch the display to the login manager.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="344">whether successful or not</doc>
+               line="343">whether successful or not</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="340">the user manager</doc>
+                 line="339">the user manager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
         </parameters>
@@ -2247,13 +2256,13 @@ behavior.</doc>
       <method name="list_users" c:identifier="act_user_manager_list_users">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2138">Get a list of system user accounts</doc>
+             line="2132">Get a list of system user accounts</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="77"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2144">List of #ActUser objects</doc>
+               line="2138">List of #ActUser objects</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="User"/>
           </type>
@@ -2262,7 +2271,7 @@ behavior.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2140">a #ActUserManager</doc>
+                 line="2134">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
         </parameters>
@@ -2270,30 +2279,31 @@ behavior.</doc>
       <method name="no_service" c:identifier="act_user_manager_no_service">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2734">Check whether or not the accounts service is running.</doc>
+             line="2728">Check whether or not the accounts service is running.</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="2740">whether or not accounts service is running</doc>
+               line="2734">whether or not accounts service is running</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2736">a #ActUserManager</doc>
+                 line="2730">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="uncache_user"
               c:identifier="act_user_manager_uncache_user"
-              throws="1">
+              throws="1"
+              glib:async-func="uncache_user_async">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="3024">Releases all metadata about a user account, including icon,
+             line="3018">Releases all metadata about a user account, including icon,
 language and session. If the user account is from a remote
 server and the user has never logged in before, then that
 account will no longer show up in ListCachedUsers() output.</doc>
@@ -2302,26 +2312,28 @@ account will no longer show up in ListCachedUsers() output.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="3035">%TRUE if successful, otherwise %FALSE</doc>
+               line="3029">%TRUE if successful, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3026">a #ActUserManager</doc>
+                 line="3020">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="username" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3027">a user name</doc>
+                 line="3021">a user name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <method name="uncache_user_async"
-              c:identifier="act_user_manager_uncache_user_async">
+              c:identifier="act_user_manager_uncache_user_async"
+              glib:finish-func="uncache_user_finish"
+              glib:sync-func="uncache_user">
         <source-position filename="src/libaccountsservice/act-user-manager.h"
                          line="121"/>
         <return-value transfer-ownership="none">
@@ -2362,7 +2374,7 @@ account will no longer show up in ListCachedUsers() output.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="3110">Finishes an asynchronous user uncaching.
+             line="3104">Finishes an asynchronous user uncaching.
 
 See act_user_manager_uncache_user_async().</doc>
         <source-position filename="src/libaccountsservice/act-user-manager.h"
@@ -2370,20 +2382,20 @@ See act_user_manager_uncache_user_async().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libaccountsservice/act-user-manager.c"
-               line="3120">%TRUE if the user account was successfully uncached</doc>
+               line="3114">%TRUE if the user account was successfully uncached</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3112">a #ActUserManager</doc>
+                 line="3106">a #ActUserManager</doc>
             <type name="UserManager" c:type="ActUserManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="3113">a #GAsyncResult</doc>
+                 line="3107">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2418,7 +2430,7 @@ See act_user_manager_uncache_user_async().</doc>
       <glib:signal name="user-added" when="last">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2435">Emitted when a user is added to the user manager.</doc>
+             line="2429">Emitted when a user is added to the user manager.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2426,7 +2438,7 @@ See act_user_manager_uncache_user_async().</doc>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2438">the #ActUser that was added</doc>
+                 line="2432">the #ActUser that was added</doc>
             <type name="User"/>
           </parameter>
         </parameters>
@@ -2434,7 +2446,7 @@ See act_user_manager_uncache_user_async().</doc>
       <glib:signal name="user-changed" when="last">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2480">One of the users has changed</doc>
+             line="2474">One of the users has changed</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2442,7 +2454,7 @@ See act_user_manager_uncache_user_async().</doc>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2483">the #ActUser that changed</doc>
+                 line="2477">the #ActUser that changed</doc>
             <type name="User"/>
           </parameter>
         </parameters>
@@ -2450,7 +2462,7 @@ See act_user_manager_uncache_user_async().</doc>
       <glib:signal name="user-is-logged-in-changed" when="last">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2465">One of the users has logged in or out.</doc>
+             line="2459">One of the users has logged in or out.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2458,7 +2470,7 @@ See act_user_manager_uncache_user_async().</doc>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2468">the #ActUser that changed login status</doc>
+                 line="2462">the #ActUser that changed login status</doc>
             <type name="User"/>
           </parameter>
         </parameters>
@@ -2466,7 +2478,7 @@ See act_user_manager_uncache_user_async().</doc>
       <glib:signal name="user-removed" when="last">
         <doc xml:space="preserve"
              filename="src/libaccountsservice/act-user-manager.c"
-             line="2450">Emitted when a user is removed from the user manager.</doc>
+             line="2444">Emitted when a user is removed from the user manager.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2474,7 +2486,7 @@ See act_user_manager_uncache_user_async().</doc>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libaccountsservice/act-user-manager.c"
-                 line="2453">the #ActUser that was removed</doc>
+                 line="2447">the #ActUser that was removed</doc>
             <type name="User"/>
           </parameter>
         </parameters>

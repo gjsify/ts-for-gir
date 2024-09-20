@@ -3752,7 +3752,9 @@ determine the position of the panel in the sidebar.</doc>
                glib:type-struct="ProviderInterface">
       <source-position filename="src/core/gtd-provider.h" line="121"/>
       <prerequisite name="Object"/>
-      <virtual-method name="create_task" invoker="create_task">
+      <virtual-method name="create_task"
+                      invoker="create_task"
+                      glib:finish-func="create_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="315">Creates the given task in @provider.</doc>
@@ -3842,7 +3844,9 @@ determine the position of the panel in the sidebar.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="create_task_list" invoker="create_task_list">
+      <virtual-method name="create_task_list"
+                      invoker="create_task_list"
+                      glib:finish-func="create_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="467">Creates the given list in @provider.</doc>
@@ -4116,7 +4120,9 @@ the "refresh" vfunc will be ignored.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="remove_task" invoker="remove_task">
+      <virtual-method name="remove_task"
+                      invoker="remove_task"
+                      glib:finish-func="remove_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="418">Removes the given task from @provider.</doc>
@@ -4197,7 +4203,9 @@ the "refresh" vfunc will be ignored.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="remove_task_list" invoker="remove_task_list">
+      <virtual-method name="remove_task_list"
+                      invoker="remove_task_list"
+                      glib:finish-func="remove_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="567">Removes the given list from @provider.</doc>
@@ -4279,7 +4287,9 @@ GtdProvider:list-removed signal after removing the task list.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="update_task" invoker="update_task">
+      <virtual-method name="update_task"
+                      invoker="update_task"
+                      glib:finish-func="update_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="369">Updates the given task in @provider.</doc>
@@ -4360,7 +4370,9 @@ GtdProvider:list-removed signal after removing the task list.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="update_task_list" invoker="update_task_list">
+      <virtual-method name="update_task_list"
+                      invoker="update_task_list"
+                      glib:finish-func="update_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="517">Updates the given list in @provider.</doc>
@@ -4457,7 +4469,9 @@ may change.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="create_task" c:identifier="gtd_provider_create_task">
+      <method name="create_task"
+              c:identifier="gtd_provider_create_task"
+              glib:finish-func="create_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="315">Creates the given task in @provider.</doc>
@@ -4547,7 +4561,8 @@ may change.</doc>
         </parameters>
       </method>
       <method name="create_task_list"
-              c:identifier="gtd_provider_create_task_list">
+              c:identifier="gtd_provider_create_task_list"
+              glib:finish-func="create_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="467">Creates the given list in @provider.</doc>
@@ -4832,7 +4847,9 @@ the "refresh" vfunc will be ignored.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="remove_task" c:identifier="gtd_provider_remove_task">
+      <method name="remove_task"
+              c:identifier="gtd_provider_remove_task"
+              glib:finish-func="remove_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="418">Removes the given task from @provider.</doc>
@@ -4913,7 +4930,8 @@ the "refresh" vfunc will be ignored.</doc>
         </parameters>
       </method>
       <method name="remove_task_list"
-              c:identifier="gtd_provider_remove_task_list">
+              c:identifier="gtd_provider_remove_task_list"
+              glib:finish-func="remove_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="567">Removes the given list from @provider.</doc>
@@ -4994,7 +5012,9 @@ GtdProvider:list-removed signal after removing the task list.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update_task" c:identifier="gtd_provider_update_task">
+      <method name="update_task"
+              c:identifier="gtd_provider_update_task"
+              glib:finish-func="update_task_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="369">Updates the given task in @provider.</doc>
@@ -5075,7 +5095,8 @@ GtdProvider:list-removed signal after removing the task list.</doc>
         </parameters>
       </method>
       <method name="update_task_list"
-              c:identifier="gtd_provider_update_task_list">
+              c:identifier="gtd_provider_update_task_list"
+              glib:finish-func="update_task_list_finish">
         <doc xml:space="preserve"
              filename="src/core/gtd-provider.c"
              line="517">Updates the given list in @provider.</doc>

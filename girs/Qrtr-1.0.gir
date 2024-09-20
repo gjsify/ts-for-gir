@@ -108,7 +108,10 @@ using the provided API.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <function name="new" c:identifier="qrtr_bus_new" version="1.0">
+      <function name="new"
+                c:identifier="qrtr_bus_new"
+                version="1.0"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libqrtr-glib/qrtr-bus.h"
              line="93">Asynchronously creates a #QrtrBus object.
@@ -278,7 +281,8 @@ the reference count on the returned object or the list.</doc>
       </method>
       <method name="wait_for_node"
               c:identifier="qrtr_bus_wait_for_node"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="wait_for_node_finish">
         <doc xml:space="preserve"
              filename="src/libqrtr-glib/qrtr-bus.h"
              line="199">Asynchronously waits for the node with ID @node_id.
@@ -1073,7 +1077,8 @@ reference count on the returned object.</doc>
       </method>
       <method name="wait_for_services"
               c:identifier="qrtr_node_wait_for_services"
-              version="1.0">
+              version="1.0"
+              glib:finish-func="wait_for_services_finish">
         <doc xml:space="preserve"
              filename="src/libqrtr-glib/qrtr-node.h"
              line="278">Asynchronously waits until all the services listed in @services are present

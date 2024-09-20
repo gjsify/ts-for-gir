@@ -1060,6 +1060,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </function>
       <virtual-method name="about">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="95">See #XfcePanelPlugin::about for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1071,6 +1074,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="configure_plugin">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="96">See #XfcePanelPlugin::configure-plugin for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1082,6 +1088,16 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="construct">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="82">This function is for object orientated plugins and
+                           triggered after the init function of the object.
+                           When this function is triggered, the plugin
+                           information like name, display name, comment and unique
+                           id are available. This is also the place where you would
+                           call functions like xfce_panel_plugin_menu_show_configure().
+                           You can see this as the replacement of #XfcePanelPluginFunc
+                           for object based plugins. Since 4.8.</doc>
         <source-position filename="xfce-panel-plugin.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1093,6 +1109,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="free_data">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="93">See #XfcePanelPlugin::free-data for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1104,6 +1123,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="mode_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="99">See #XfcePanelPlugin::mode-changed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1118,6 +1140,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="nrows_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="100">See #XfcePanelPlugin::nrows-changed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1132,6 +1157,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="orientation_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="92">See #XfcePanelPlugin::orientation-changed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1146,6 +1174,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="remote_event">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="98">See #XfcePanelPlugin::remote-event for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1163,6 +1194,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="removed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="97">See #XfcePanelPlugin::removed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1174,6 +1208,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="save">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="94">See #XfcePanelPlugin::save for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1185,6 +1222,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="screen_position_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="90">See #XfcePanelPlugin::screen-position-changed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1199,6 +1239,9 @@ See also: gtk_menu_popup().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="size_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="91">See #XfcePanelPlugin::size-changed for more information.</doc>
         <source-position filename="xfce-panel-plugin.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2569,6 +2612,16 @@ can be given as argument to one of the registration macros.</doc>
         <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
       </field>
       <field name="construct">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="82">This function is for object orientated plugins and
+                           triggered after the init function of the object.
+                           When this function is triggered, the plugin
+                           information like name, display name, comment and unique
+                           id are available. This is also the place where you would
+                           call functions like xfce_panel_plugin_menu_show_configure().
+                           You can see this as the replacement of #XfcePanelPluginFunc
+                           for object based plugins. Since 4.8.</doc>
         <callback name="construct">
           <source-position filename="xfce-panel-plugin.h" line="111"/>
           <return-value transfer-ownership="none">
@@ -2582,6 +2635,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="screen_position_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="90">See #XfcePanelPlugin::screen-position-changed for more information.</doc>
         <callback name="screen_position_changed">
           <source-position filename="xfce-panel-plugin.h" line="114"/>
           <return-value transfer-ownership="none">
@@ -2598,6 +2654,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="size_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="91">See #XfcePanelPlugin::size-changed for more information.</doc>
         <callback name="size_changed">
           <source-position filename="xfce-panel-plugin.h" line="116"/>
           <return-value transfer-ownership="none">
@@ -2614,6 +2673,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="orientation_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="92">See #XfcePanelPlugin::orientation-changed for more information.</doc>
         <callback name="orientation_changed">
           <source-position filename="xfce-panel-plugin.h" line="118"/>
           <return-value transfer-ownership="none">
@@ -2630,6 +2692,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="free_data">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="93">See #XfcePanelPlugin::free-data for more information.</doc>
         <callback name="free_data">
           <source-position filename="xfce-panel-plugin.h" line="120"/>
           <return-value transfer-ownership="none">
@@ -2643,6 +2708,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="save">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="94">See #XfcePanelPlugin::save for more information.</doc>
         <callback name="save">
           <source-position filename="xfce-panel-plugin.h" line="121"/>
           <return-value transfer-ownership="none">
@@ -2656,6 +2724,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="about">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="95">See #XfcePanelPlugin::about for more information.</doc>
         <callback name="about">
           <source-position filename="xfce-panel-plugin.h" line="122"/>
           <return-value transfer-ownership="none">
@@ -2669,6 +2740,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="configure_plugin">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="96">See #XfcePanelPlugin::configure-plugin for more information.</doc>
         <callback name="configure_plugin">
           <source-position filename="xfce-panel-plugin.h" line="123"/>
           <return-value transfer-ownership="none">
@@ -2682,6 +2756,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="removed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="97">See #XfcePanelPlugin::removed for more information.</doc>
         <callback name="removed">
           <source-position filename="xfce-panel-plugin.h" line="124"/>
           <return-value transfer-ownership="none">
@@ -2695,6 +2772,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="remote_event">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="98">See #XfcePanelPlugin::remote-event for more information.</doc>
         <callback name="remote_event">
           <source-position filename="xfce-panel-plugin.h" line="125"/>
           <return-value transfer-ownership="none">
@@ -2714,6 +2794,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="mode_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="99">See #XfcePanelPlugin::mode-changed for more information.</doc>
         <callback name="mode_changed">
           <source-position filename="xfce-panel-plugin.h" line="130"/>
           <return-value transfer-ownership="none">
@@ -2730,6 +2813,9 @@ can be given as argument to one of the registration macros.</doc>
         </callback>
       </field>
       <field name="nrows_changed">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="100">See #XfcePanelPlugin::nrows-changed for more information.</doc>
         <callback name="nrows_changed">
           <source-position filename="xfce-panel-plugin.h" line="132"/>
           <return-value transfer-ownership="none">

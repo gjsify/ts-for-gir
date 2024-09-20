@@ -20698,7 +20698,7 @@ New values may be added to this enumeration over time.</doc>
       <source-position filename="src/adw-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="7" c:type="ADW_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="6" c:type="ADW_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="24">Adwaita minor version component (e.g. 2 if the version is 1.2.3).</doc>
@@ -40964,7 +40964,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.7.alpha" c:type="ADW_VERSION_S">
+    <constant name="VERSION_S" value="1.6.0" c:type="ADW_VERSION_S">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="45">Adwaita version, encoded as a string, useful for printing and

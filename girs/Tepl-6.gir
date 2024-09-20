@@ -123,6 +123,11 @@ is created with a #TeplAbstractFactory instance.</doc>
         </return-value>
       </function>
       <virtual-method name="create_file" invoker="create_file" version="4.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="45">Virtual function pointer for
+  tepl_abstract_factory_create_file(). By default the #TeplFile is created
+  with tepl_file_new().</doc>
         <source-position filename="tepl/tepl-abstract-factory.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -194,6 +199,10 @@ not implemented.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_tab" invoker="create_tab" version="3.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="40">Virtual function pointer for tepl_abstract_factory_create_tab().
+  By default the #TeplTab is created with tepl_tab_new().</doc>
         <source-position filename="tepl/tepl-abstract-factory.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -453,6 +462,11 @@ Tepl takes ownership of the @factory reference.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="create_main_window">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="37">Virtual function pointer for
+  tepl_abstract_factory_create_main_window(). It is not implemented by
+  default.</doc>
         <callback name="create_main_window">
           <source-position filename="tepl/tepl-abstract-factory.h" line="59"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -479,6 +493,10 @@ Tepl takes ownership of the @factory reference.</doc>
         </callback>
       </field>
       <field name="create_tab">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="40">Virtual function pointer for tepl_abstract_factory_create_tab().
+  By default the #TeplTab is created with tepl_tab_new().</doc>
         <callback name="create_tab">
           <source-position filename="tepl/tepl-abstract-factory.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -498,6 +516,11 @@ Tepl takes ownership of the @factory reference.</doc>
         </callback>
       </field>
       <field name="create_tab_label">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="42">Virtual function pointer for
+  tepl_abstract_factory_create_tab_label(). By default the tab label is
+  created with tepl_tab_label_new().</doc>
         <callback name="create_tab_label">
           <source-position filename="tepl/tepl-abstract-factory.h" line="64"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -524,6 +547,11 @@ default tab label (“page N” with #GtkNotebook).</doc>
         </callback>
       </field>
       <field name="create_file">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="45">Virtual function pointer for
+  tepl_abstract_factory_create_file(). By default the #TeplFile is created
+  with tepl_file_new().</doc>
         <callback name="create_file">
           <source-position filename="tepl/tepl-abstract-factory.h" line="67"/>
           <return-value transfer-ownership="full">
@@ -543,6 +571,11 @@ default tab label (“page N” with #GtkNotebook).</doc>
         </callback>
       </field>
       <field name="create_metadata_manager_file">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="48">Virtual function pointer for
+  tepl_abstract_factory_create_metadata_manager_file(). It is not implemented
+  by default.</doc>
         <callback name="create_metadata_manager_file">
           <source-position filename="tepl/tepl-abstract-factory.h" line="69"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -563,6 +596,11 @@ not implemented.</doc>
         </callback>
       </field>
       <field name="fill_prefs_dialog">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-abstract-factory.h"
+             line="51">Virtual function pointer for
+  tepl_abstract_factory_fill_prefs_dialog(). It is not implemented by
+  default.</doc>
         <callback name="fill_prefs_dialog">
           <source-position filename="tepl/tepl-abstract-factory.h" line="71"/>
           <return-value transfer-ownership="none">
@@ -1865,6 +1903,9 @@ g_get_charset().</doc>
            line="36">The virtual function table of the #TeplEncoding interface.</doc>
       <source-position filename="tepl/tepl-encoding.h" line="50"/>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-encoding.h"
+             line="38">For tepl_encoding_get_name().</doc>
         <callback name="get_name">
           <source-position filename="tepl/tepl-encoding.h" line="47"/>
           <return-value transfer-ownership="none">
@@ -1878,6 +1919,9 @@ g_get_charset().</doc>
         </callback>
       </field>
       <field name="get_category_name">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-encoding.h"
+             line="39">For tepl_encoding_get_category_name().</doc>
         <callback name="get_category_name">
           <source-position filename="tepl/tepl-encoding.h" line="49"/>
           <return-value transfer-ownership="none">
@@ -2475,7 +2519,8 @@ into.</doc>
       </method>
       <method name="load_async"
               c:identifier="tepl_file_loader_load_async"
-              version="5.0">
+              version="5.0"
+              glib:finish-func="load_finish">
         <doc xml:space="preserve"
              filename="tepl/tepl-file-loader.c"
              line="389">Loads asynchronously the file content into the #TeplBuffer.
@@ -2808,7 +2853,8 @@ buffer for the first time.</doc>
       </method>
       <method name="save_async"
               c:identifier="tepl_file_saver_save_async"
-              version="5.0">
+              version="5.0"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="tepl/tepl-file-saver.c"
              line="559">Saves asynchronously the buffer into the file. See the #GAsyncResult
@@ -4655,6 +4701,10 @@ The content area of a #TeplInfoBar contains a vertical container containing:
                glib:type-struct="LanguageChooserInterface">
       <source-position filename="tepl/tepl-language-chooser.h" line="48"/>
       <virtual-method name="language_activated">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-language-chooser.h"
+             line="30">The function pointer for the
+  #TeplLanguageChooser::language-activated signal.</doc>
         <source-position filename="tepl/tepl-language-chooser.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4825,6 +4875,10 @@ The content area of a #TeplInfoBar contains a vertical container containing:
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="select_language">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-language-chooser.h"
+             line="28">The virtual function pointer for tepl_language_chooser_select_language().
+  By default, does nothing.</doc>
         <callback name="select_language">
           <source-position filename="tepl/tepl-language-chooser.h" line="42"/>
           <return-value transfer-ownership="none">
@@ -4850,6 +4904,10 @@ The content area of a #TeplInfoBar contains a vertical container containing:
         </callback>
       </field>
       <field name="language_activated">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-language-chooser.h"
+             line="30">The function pointer for the
+  #TeplLanguageChooser::language-activated signal.</doc>
         <callback name="language_activated">
           <source-position filename="tepl/tepl-language-chooser.h" line="46"/>
           <return-value transfer-ownership="none">
@@ -6542,6 +6600,10 @@ This function must be called when all components have been added to the
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="add">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.h"
+             line="27">The virtual function pointer for tepl_panel_add().
+  By default, returns %NULL.</doc>
         <callback name="add">
           <source-position filename="tepl/tepl-panel.h" line="42"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -6594,6 +6656,10 @@ This function must be called when all components have been added to the
         </callback>
       </field>
       <field name="remove">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.h"
+             line="29">The virtual function pointer for tepl_panel_remove().
+  By default, does nothing.</doc>
         <callback name="remove">
           <source-position filename="tepl/tepl-panel.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -6616,6 +6682,10 @@ This function must be called when all components have been added to the
         </callback>
       </field>
       <field name="set_active">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.h"
+             line="31">The virtual function pointer for tepl_panel_set_active().
+  By default, does nothing.</doc>
         <callback name="set_active">
           <source-position filename="tepl/tepl-panel.h" line="51"/>
           <return-value transfer-ownership="none">
@@ -6867,6 +6937,10 @@ UI to choose this item.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_widget">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.h"
+             line="28">The virtual function pointer for tepl_panel_item_get_widget().
+  By default, returns %NULL.</doc>
         <callback name="get_widget">
           <source-position filename="tepl/tepl-panel-item.h" line="45"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -6887,6 +6961,10 @@ UI to choose this item.</doc>
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.h"
+             line="30">The virtual function pointer for tepl_panel_item_get_name().
+  By default, returns %NULL.</doc>
         <callback name="get_name">
           <source-position filename="tepl/tepl-panel-item.h" line="47"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -6906,6 +6984,10 @@ UI to choose this item.</doc>
         </callback>
       </field>
       <field name="get_title">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.h"
+             line="32">The virtual function pointer for tepl_panel_item_get_title().
+  By default, returns %NULL.</doc>
         <callback name="get_title">
           <source-position filename="tepl/tepl-panel-item.h" line="49"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -6925,6 +7007,10 @@ UI to choose this item.</doc>
         </callback>
       </field>
       <field name="get_icon_name">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.h"
+             line="34">The virtual function pointer for tepl_panel_item_get_icon_name().
+  By default, returns %NULL.</doc>
         <callback name="get_icon_name">
           <source-position filename="tepl/tepl-panel-item.h" line="51"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -8083,6 +8169,9 @@ retrieved afterwards with tepl_tab_get_view().</doc>
         </parameters>
       </constructor>
       <virtual-method name="close_request">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="51">For the #TeplTab::close-request signal.</doc>
         <source-position filename="tepl/tepl-tab.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8094,6 +8183,11 @@ retrieved afterwards with tepl_tab_get_view().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pack_goto_line_bar">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="48">Virtual function pointer to add a #TeplGotoLineBar in
+  the #TeplTab container. By default the #TeplGotoLineBar is added at the
+  bottom.</doc>
         <source-position filename="tepl/tepl-tab.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8108,6 +8202,11 @@ retrieved afterwards with tepl_tab_get_view().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pack_info_bar">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="45">Virtual function pointer to add a #GtkInfoBar in the #TeplTab
+  container. By default the #GtkInfoBar is inserted just above the
+  #GtkScrolledWindow containing the #TeplView.</doc>
         <source-position filename="tepl/tepl-tab.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8122,6 +8221,13 @@ retrieved afterwards with tepl_tab_get_view().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pack_view">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="40">Virtual function pointer to add the #TeplView in the #TeplTab
+  container. Called only once at object construction time, when the
+  #TeplTab:view property is set. By default the #TeplView is added to a
+  #GtkScrolledWindow and the #GtkScrolledWindow is added to the #TeplTab with
+  gtk_container_add().</doc>
         <source-position filename="tepl/tepl-tab.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8258,7 +8364,8 @@ is finished.</doc>
       </method>
       <method name="save_as_async"
               c:identifier="tepl_tab_save_as_async"
-              version="4.0">
+              version="4.0"
+              glib:finish-func="save_as_finish">
         <doc xml:space="preserve"
              filename="tepl/tepl-tab-saving.c"
              line="250">Shows a #GtkFileChooser to save the @tab to a different location, creates an
@@ -8352,7 +8459,8 @@ This function is useful when you don't need to know:
       </method>
       <method name="save_async"
               c:identifier="tepl_tab_save_async"
-              version="4.0">
+              version="4.0"
+              glib:finish-func="save_finish">
         <doc xml:space="preserve"
              filename="tepl/tepl-tab-saving.c"
              line="114">Saves asynchronously the content of the @tab. The #TeplFile:location must not
@@ -8493,6 +8601,13 @@ call g_signal_stop_emission_by_name().</doc>
         <type name="Gtk.GridClass" c:type="GtkGridClass"/>
       </field>
       <field name="pack_view">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="40">Virtual function pointer to add the #TeplView in the #TeplTab
+  container. Called only once at object construction time, when the
+  #TeplTab:view property is set. By default the #TeplView is added to a
+  #GtkScrolledWindow and the #GtkScrolledWindow is added to the #TeplTab with
+  gtk_container_add().</doc>
         <callback name="pack_view">
           <source-position filename="tepl/tepl-tab.h" line="59"/>
           <return-value transfer-ownership="none">
@@ -8509,6 +8624,11 @@ call g_signal_stop_emission_by_name().</doc>
         </callback>
       </field>
       <field name="pack_info_bar">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="45">Virtual function pointer to add a #GtkInfoBar in the #TeplTab
+  container. By default the #GtkInfoBar is inserted just above the
+  #GtkScrolledWindow containing the #TeplView.</doc>
         <callback name="pack_info_bar">
           <source-position filename="tepl/tepl-tab.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -8525,6 +8645,11 @@ call g_signal_stop_emission_by_name().</doc>
         </callback>
       </field>
       <field name="pack_goto_line_bar">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="48">Virtual function pointer to add a #TeplGotoLineBar in
+  the #TeplTab container. By default the #TeplGotoLineBar is added at the
+  bottom.</doc>
         <callback name="pack_goto_line_bar">
           <source-position filename="tepl/tepl-tab.h" line="65"/>
           <return-value transfer-ownership="none">
@@ -8541,6 +8666,9 @@ call g_signal_stop_emission_by_name().</doc>
         </callback>
       </field>
       <field name="close_request">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab.h"
+             line="51">For the #TeplTab::close-request signal.</doc>
         <callback name="close_request">
           <source-position filename="tepl/tepl-tab.h" line="70"/>
           <return-value transfer-ownership="none">
@@ -8567,6 +8695,11 @@ call g_signal_stop_emission_by_name().</doc>
                glib:type-struct="TabGroupInterface">
       <source-position filename="tepl/tepl-tab-group.h" line="62"/>
       <virtual-method name="append_tab_vfunc">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="39">Virtual function pointer for tepl_tab_group_append_tab(),
+  without the @jump_to parameter. The default implementation prints a warning
+  about the operation not being supported.</doc>
         <source-position filename="tepl/tepl-tab-group.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8583,6 +8716,10 @@ call g_signal_stop_emission_by_name().</doc>
       <virtual-method name="get_active_tab"
                       invoker="get_active_tab"
                       version="3.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="35">Virtual function pointer for tepl_tab_group_get_active_tab().
+  By default, %NULL is returned.</doc>
         <source-position filename="tepl/tepl-tab-group.h" line="55"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
@@ -8904,6 +9041,13 @@ parameters are valid).</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_tabs">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="30">Virtual function pointer for tepl_tab_group_get_tabs(). By default,
+  %NULL is returned. When implementing this vfunc, #GList nodes must be
+  created only for #TeplTab children; if the #TeplTabGroup contains a
+  non-#TeplTab child, it must be skipped. See the documentation of
+  tepl_tab_group_get_tabs().</doc>
         <callback name="get_tabs">
           <source-position filename="tepl/tepl-tab-group.h" line="53"/>
           <return-value transfer-ownership="container">
@@ -8926,6 +9070,10 @@ parameters are valid).</doc>
         </callback>
       </field>
       <field name="get_active_tab">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="35">Virtual function pointer for tepl_tab_group_get_active_tab().
+  By default, %NULL is returned.</doc>
         <callback name="get_active_tab">
           <source-position filename="tepl/tepl-tab-group.h" line="55"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -8946,6 +9094,10 @@ parameters are valid).</doc>
         </callback>
       </field>
       <field name="set_active_tab">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="37">Virtual function pointer for
+  tepl_tab_group_set_active_tab(). Does nothing by default.</doc>
         <callback name="set_active_tab">
           <source-position filename="tepl/tepl-tab-group.h" line="57"/>
           <return-value transfer-ownership="none">
@@ -8968,6 +9120,11 @@ parameters are valid).</doc>
         </callback>
       </field>
       <field name="append_tab_vfunc">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-group.h"
+             line="39">Virtual function pointer for tepl_tab_group_append_tab(),
+  without the @jump_to parameter. The default implementation prints a warning
+  about the operation not being supported.</doc>
         <callback name="append_tab_vfunc">
           <source-position filename="tepl/tepl-tab-group.h" line="60"/>
           <return-value transfer-ownership="none">
@@ -9013,6 +9170,14 @@ parameters are valid).</doc>
         </parameters>
       </constructor>
       <virtual-method name="get_tooltip_markup">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-label.h"
+             line="38">Virtual function pointer to create the tooltip markup
+  string. %NULL must be returned if no tooltip is wanted. The result is
+  intended to be used as an argument to gtk_widget_set_tooltip_markup(). The
+  default implementation returns the full #TeplFile:location if non-%NULL, or
+  %NULL otherwise. The return value must be freed with g_free() when no
+  longer needed.</doc>
         <source-position filename="tepl/tepl-tab-label.h" line="49"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
@@ -9094,6 +9259,14 @@ gtk_widget_set_tooltip_markup().</doc>
         <type name="Gtk.GridClass" c:type="GtkGridClass"/>
       </field>
       <field name="get_tooltip_markup">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-tab-label.h"
+             line="38">Virtual function pointer to create the tooltip markup
+  string. %NULL must be returned if no tooltip is wanted. The result is
+  intended to be used as an argument to gtk_widget_set_tooltip_markup(). The
+  default implementation returns the full #TeplFile:location if non-%NULL, or
+  %NULL otherwise. The return value must be freed with g_free() when no
+  longer needed.</doc>
         <callback name="get_tooltip_markup">
           <source-position filename="tepl/tepl-tab-label.h" line="49"/>
           <return-value transfer-ownership="full">

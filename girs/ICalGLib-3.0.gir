@@ -21943,7 +21943,7 @@ Shorter arrays are terminated with I_CAL_RECURRENCE_ARRAY_MAX value, longer arra
             <doc xml:space="preserve"
                  filename="i-cal-time.c"
                  line="178">The seconds past since epoch time</doc>
-            <type name="glong" c:type="const time_t"/>
+            <type name="time_t" c:type="const time_t"/>
           </parameter>
           <parameter name="is_date" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -22231,7 +22231,7 @@ Shorter arrays are terminated with I_CAL_RECURRENCE_ARRAY_MAX value, longer arra
           <doc xml:space="preserve"
                filename="i-cal-time.c"
                line="244">The time as seconds past the UNIX epoch</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="tt" transfer-ownership="none">
@@ -22253,7 +22253,7 @@ Shorter arrays are terminated with I_CAL_RECURRENCE_ARRAY_MAX value, longer arra
           <doc xml:space="preserve"
                filename="i-cal-time.c"
                line="264">The time as seconds past the UNIX epoch</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="tt" transfer-ownership="none">
@@ -23409,13 +23409,13 @@ time.</doc>
             <doc xml:space="preserve"
                  filename="i-cal-time-span.c"
                  line="67">Start of the time span</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="i-cal-time-span.c"
                  line="68">End of the time span</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="is_busy" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -23486,7 +23486,7 @@ time.</doc>
           <doc xml:space="preserve"
                filename="i-cal-time-span.c"
                line="153">The end.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="timespan" transfer-ownership="none">
@@ -23530,7 +23530,7 @@ time.</doc>
           <doc xml:space="preserve"
                filename="i-cal-time-span.c"
                line="117">The start.</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="timespan" transfer-ownership="none">
@@ -23590,7 +23590,7 @@ time.</doc>
             <doc xml:space="preserve"
                  filename="i-cal-time-span.c"
                  line="168">The end</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -23640,7 +23640,7 @@ time.</doc>
             <doc xml:space="preserve"
                  filename="i-cal-time-span.c"
                  line="132">The start</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </method>
@@ -28413,7 +28413,7 @@ into local time before using them.</doc>
           <doc xml:space="preserve"
                filename="i-cal-recur.c"
                line="30">The start seconds past the POSIX epoch</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </parameter>
         <parameter name="count" transfer-ownership="none">
           <doc xml:space="preserve"

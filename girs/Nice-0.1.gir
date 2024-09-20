@@ -4296,6 +4296,9 @@ Note that the proxies will only be used with TCP TURN relaying.
         <type name="gpointer" c:type="gpointer"/>
       </field>
       <field name="PseudoTcpOpened">
+        <doc xml:space="preserve"
+             filename="agent/pseudotcp.h"
+             line="224">The #PseudoTcpSocket is now connected</doc>
         <callback name="PseudoTcpOpened">
           <source-position filename="agent/pseudotcp.h" line="238"/>
           <return-value transfer-ownership="none">
@@ -4312,6 +4315,9 @@ Note that the proxies will only be used with TCP TURN relaying.
         </callback>
       </field>
       <field name="PseudoTcpReadable">
+        <doc xml:space="preserve"
+             filename="agent/pseudotcp.h"
+             line="225">The socket is readable</doc>
         <callback name="PseudoTcpReadable">
           <source-position filename="agent/pseudotcp.h" line="239"/>
           <return-value transfer-ownership="none">
@@ -4328,6 +4334,9 @@ Note that the proxies will only be used with TCP TURN relaying.
         </callback>
       </field>
       <field name="PseudoTcpWritable">
+        <doc xml:space="preserve"
+             filename="agent/pseudotcp.h"
+             line="226">The socket is writable</doc>
         <callback name="PseudoTcpWritable">
           <source-position filename="agent/pseudotcp.h" line="240"/>
           <return-value transfer-ownership="none">
@@ -4344,6 +4353,9 @@ Note that the proxies will only be used with TCP TURN relaying.
         </callback>
       </field>
       <field name="PseudoTcpClosed">
+        <doc xml:space="preserve"
+             filename="agent/pseudotcp.h"
+             line="227">The socket was closed (both sides)</doc>
         <callback name="PseudoTcpClosed">
           <source-position filename="agent/pseudotcp.h" line="241"/>
           <return-value transfer-ownership="none">
@@ -4363,6 +4375,9 @@ Note that the proxies will only be used with TCP TURN relaying.
         </callback>
       </field>
       <field name="WritePacket">
+        <doc xml:space="preserve"
+             filename="agent/pseudotcp.h"
+             line="228">This callback is called when the socket needs to send data.</doc>
         <callback name="WritePacket">
           <source-position filename="agent/pseudotcp.h" line="242"/>
           <return-value transfer-ownership="none">

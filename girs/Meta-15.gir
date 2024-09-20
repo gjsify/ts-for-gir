@@ -5006,20 +5006,20 @@ with %NULL for @message.</doc>
       <function name="to_string" c:identifier="meta_frame_type_to_string">
         <doc xml:space="preserve"
              filename="src/x11/meta-x11-frame.c"
-             line="604">Converts a frame type enum value to the name string that would
+             line="597">Converts a frame type enum value to the name string that would
 appear in the theme definition file.</doc>
         <source-position filename="src/meta/util.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/x11/meta-x11-frame.c"
-               line="611">the string value</doc>
+               line="604">the string value</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-frame.c"
-                 line="606">a #MetaFrameType</doc>
+                 line="599">a #MetaFrameType</doc>
             <type name="FrameType" c:type="MetaFrameType"/>
           </parameter>
         </parameters>
@@ -12411,7 +12411,7 @@ by the client.</doc>
           <doc xml:space="preserve"
                filename="src/core/window.c"
                line="6714">the pid, or 0 if not known.</doc>
-          <type name="pid_t" c:type="pid_t"/>
+          <type name="gint" c:type="pid_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
@@ -12819,9 +12819,7 @@ always return %FALSE.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="is_above"
-              c:identifier="meta_window_is_above"
-              glib:get-property="above">
+      <method name="is_above" c:identifier="meta_window_is_above">
         <source-position filename="src/meta/window.h" line="412"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -12897,9 +12895,7 @@ always return %FALSE.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="is_fullscreen"
-              c:identifier="meta_window_is_fullscreen"
-              glib:get-property="fullscreen">
+      <method name="is_fullscreen" c:identifier="meta_window_is_fullscreen">
         <source-position filename="src/meta/window.h" line="265"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -12947,8 +12943,7 @@ always return %FALSE.</doc>
         </parameters>
       </method>
       <method name="is_on_all_workspaces"
-              c:identifier="meta_window_is_on_all_workspaces"
-              glib:get-property="on-all-workspaces">
+              c:identifier="meta_window_is_on_all_workspaces">
         <source-position filename="src/meta/window.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -13035,8 +13030,7 @@ different from the one running mutter.</doc>
         </parameters>
       </method>
       <method name="is_skip_taskbar"
-              c:identifier="meta_window_is_skip_taskbar"
-              glib:get-property="skip-taskbar">
+              c:identifier="meta_window_is_skip_taskbar">
         <doc xml:space="preserve"
              filename="src/core/window.c"
              line="6415">Gets whether this window should be ignored by task lists.</doc>
@@ -13549,22 +13543,19 @@ interface element displaying the icon, and is relative to the root window.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/x11/window-x11.c"
-               line="4820">the #MetaGroup of the window</doc>
+               line="4823">the #MetaGroup of the window</doc>
           <type name="Group" c:type="MetaGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/window-x11.c"
-                 line="4818">a #MetaWindow</doc>
+                 line="4821">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="above"
-                transfer-ownership="none"
-                getter="is_above"
-                default-value="FALSE">
+      <property name="above" transfer-ownership="none" default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="appears-focused"
@@ -13599,7 +13590,6 @@ interface element displaying the icon, and is relative to the root window.</doc>
       </property>
       <property name="fullscreen"
                 transfer-ownership="none"
-                getter="is_fullscreen"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -13673,7 +13663,6 @@ interface element displaying the icon, and is relative to the root window.</doc>
       </property>
       <property name="on-all-workspaces"
                 transfer-ownership="none"
-                getter="is_on_all_workspaces"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -13684,7 +13673,6 @@ interface element displaying the icon, and is relative to the root window.</doc>
       </property>
       <property name="skip-taskbar"
                 transfer-ownership="none"
-                getter="is_skip_taskbar"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -15307,20 +15295,20 @@ unredirected windows is undesirable like when recording a video.</doc>
               moved-to="FrameType.to_string">
       <doc xml:space="preserve"
            filename="src/x11/meta-x11-frame.c"
-           line="604">Converts a frame type enum value to the name string that would
+           line="597">Converts a frame type enum value to the name string that would
 appear in the theme definition file.</doc>
       <source-position filename="src/meta/util.h" line="86"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/x11/meta-x11-frame.c"
-             line="611">the string value</doc>
+             line="604">the string value</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/x11/meta-x11-frame.c"
-               line="606">a #MetaFrameType</doc>
+               line="599">a #MetaFrameType</doc>
           <type name="FrameType" c:type="MetaFrameType"/>
         </parameter>
       </parameters>

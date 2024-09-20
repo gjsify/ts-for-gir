@@ -7193,7 +7193,7 @@ could not be parsed.</doc>
             <doc xml:space="preserve"
                  filename="libsoup/soup-date.c"
                  line="528">a &lt;type&gt;time_t&lt;/type&gt;</doc>
-            <type name="glong" c:type="time_t"/>
+            <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
       </constructor>
@@ -7461,7 +7461,7 @@ expiration dates after "Y2.038k" (2038-01-19T03:14:07Z).)</doc>
           <doc xml:space="preserve"
                filename="libsoup/soup-date.c"
                line="690">@date as a &lt;type&gt;time_t&lt;/type&gt;</doc>
-          <type name="glong" c:type="time_t"/>
+          <type name="time_t" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="date" transfer-ownership="none">
@@ -7728,6 +7728,9 @@ does not support persistent storage of HSTS policies, see
         </return-value>
       </constructor>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-hsts-enforcer.h"
+             line="39">the class closure for the #SoupHSTSEnforcer::changed signal.</doc>
         <source-position filename="libsoup/soup-hsts-enforcer.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8055,6 +8058,10 @@ a HSTS policy.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="is_persistent">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-hsts-enforcer.h"
+             line="32">The @is_persistent function advertises whether the enforcer is persistent or
+whether changes made to it will be lost when the underlying #SoupSession is finished.</doc>
         <callback name="is_persistent">
           <source-position filename="libsoup/soup-hsts-enforcer.h" line="44"/>
           <return-value transfer-ownership="none">
@@ -8074,6 +8081,13 @@ a HSTS policy.</doc>
         </callback>
       </field>
       <field name="has_valid_policy">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-hsts-enforcer.h"
+             line="34">The @has_valid_policy function is called to check whether there is a valid
+policy for the given domain. This method should return %TRUE for #SoupHSTSEnforcer to
+change the scheme of the #SoupURI in the #SoupMessage to HTTPS. Implementations might want to
+chain up to the @has_valid_policy in the parent class to check, for instance, for runtime
+policies.</doc>
         <callback name="has_valid_policy">
           <source-position filename="libsoup/soup-hsts-enforcer.h" line="45"/>
           <return-value transfer-ownership="none">
@@ -8100,6 +8114,9 @@ otherwise.</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-hsts-enforcer.h"
+             line="39">the class closure for the #SoupHSTSEnforcer::changed signal.</doc>
         <callback name="changed">
           <source-position filename="libsoup/soup-hsts-enforcer.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -14719,7 +14736,8 @@ containing the headers for the part currently being processed or
       <method name="next_part"
               c:identifier="soup_multipart_input_stream_next_part"
               version="2.40"
-              throws="1">
+              throws="1"
+              glib:async-func="next_part_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
              line="440">Obtains an input stream for the next part. When dealing with a
@@ -14763,7 +14781,9 @@ to obtain the next part.</doc>
       </method>
       <method name="next_part_async"
               c:identifier="soup_multipart_input_stream_next_part_async"
-              version="2.40">
+              version="2.40"
+              glib:finish-func="next_part_finish"
+              glib:sync-func="next_part">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
              line="503">Obtains a #GInputStream for the next request. See
@@ -16244,7 +16264,11 @@ after the MIME type.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="send" invoker="send" version="2.42" throws="1">
+      <virtual-method name="send"
+                      invoker="send"
+                      version="2.42"
+                      throws="1"
+                      glib:async-func="send_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
              line="197">Synchronously requests the URI pointed to by @request, and returns
@@ -16278,7 +16302,11 @@ a #SoupSessionAsync.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="send_async" invoker="send_async" version="2.42">
+      <virtual-method name="send_async"
+                      invoker="send_async"
+                      version="2.42"
+                      glib:finish-func="send_finish"
+                      glib:sync-func="send">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
              line="223">Begins an asynchronously request for the URI pointed to by
@@ -16461,7 +16489,8 @@ after the MIME type.</doc>
       <method name="send"
               c:identifier="soup_request_send"
               version="2.42"
-              throws="1">
+              throws="1"
+              glib:async-func="send_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
              line="197">Synchronously requests the URI pointed to by @request, and returns
@@ -16497,7 +16526,9 @@ a #SoupSessionAsync.</doc>
       </method>
       <method name="send_async"
               c:identifier="soup_request_send_async"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="send_finish"
+              glib:sync-func="send">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
              line="223">Begins an asynchronously request for the URI pointed to by
@@ -20081,7 +20112,8 @@ returning to the main loop.</doc>
       </method>
       <method name="connect_async"
               c:identifier="soup_session_connect_async"
-              version="2.62">
+              version="2.62"
+              glib:finish-func="connect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="5073">Start a connection to @uri. The operation can be monitored by providing a @progress_callback
@@ -20782,7 +20814,8 @@ again.</doc>
       <method name="send"
               c:identifier="soup_session_send"
               version="2.42"
-              throws="1">
+              throws="1"
+              glib:async-func="send_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="4416">Synchronously sends @msg and waits for the beginning of a response.
@@ -20844,7 +20877,9 @@ response has been completely read.
       </method>
       <method name="send_async"
               c:identifier="soup_session_send_async"
-              version="2.42">
+              version="2.42"
+              glib:finish-func="send_finish"
+              glib:sync-func="send">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="4298">Asynchronously sends @msg and waits for the beginning of a
@@ -21056,7 +21091,8 @@ This may only be called for asynchronous messages (those sent on a
       </method>
       <method name="websocket_connect_async"
               c:identifier="soup_session_websocket_connect_async"
-              version="2.50">
+              version="2.50"
+              glib:finish-func="websocket_connect_finish">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
              line="4900">Asynchronously creates a #SoupWebsocketConnection to communicate
@@ -22241,6 +22277,9 @@ with subtypes of #SoupAuth.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="attach" invoker="attach">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="41">Perform setup when a feature is added to a session</doc>
         <source-position filename="libsoup/soup-session-feature.h" line="24"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22255,6 +22294,9 @@ with subtypes of #SoupAuth.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="detach" invoker="detach">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="42">Perform cleanup when a feature is removed from a session</doc>
         <source-position filename="libsoup/soup-session-feature.h" line="26"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22325,6 +22367,9 @@ soup_session_feature_add_feature().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="request_queued">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="43">Proxies the session's #SoupSession::request_queued signal</doc>
         <source-position filename="libsoup/soup-session-feature.h" line="29"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22342,6 +22387,9 @@ soup_session_feature_add_feature().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="request_started">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="44">Proxies the session's #SoupSession::request_started signal. Deprecated 2.50. Use #SoupMessage::starting instead.</doc>
         <source-position filename="libsoup/soup-session-feature.h" line="32"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22362,6 +22410,9 @@ soup_session_feature_add_feature().</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="request_unqueued">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="45">Proxies the session's #SoupSession::request_unqueued signal</doc>
         <source-position filename="libsoup/soup-session-feature.h" line="36"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22511,6 +22562,9 @@ soup_session_feature_add_feature().</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="attach">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="41">Perform setup when a feature is added to a session</doc>
         <callback name="attach">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="24"/>
@@ -22528,6 +22582,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="detach">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="42">Perform cleanup when a feature is removed from a session</doc>
         <callback name="detach">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="26"/>
@@ -22545,6 +22602,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="request_queued">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="43">Proxies the session's #SoupSession::request_queued signal</doc>
         <callback name="request_queued">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="29"/>
@@ -22565,6 +22625,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="request_started">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="44">Proxies the session's #SoupSession::request_started signal. Deprecated 2.50. Use #SoupMessage::starting instead.</doc>
         <callback name="request_started">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="32"/>
@@ -22588,6 +22651,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="request_unqueued">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="45">Proxies the session's #SoupSession::request_unqueued signal</doc>
         <callback name="request_unqueued">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="36"/>
@@ -22608,6 +22674,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="add_feature">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="46">adds a sub-feature to the main feature</doc>
         <callback name="add_feature">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="40"/>
@@ -22634,6 +22703,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="remove_feature">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="47">removes a sub-feature from the main feature</doc>
         <callback name="remove_feature">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="42"/>
@@ -22660,6 +22732,9 @@ soup_session_feature_add_feature().</doc>
         </callback>
       </field>
       <field name="has_feature">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-session-feature.c"
+             line="48">tests if the feature includes a sub-feature</doc>
         <callback name="has_feature">
           <source-position filename="libsoup/soup-session-feature.h"
                            line="44"/>
@@ -25897,6 +25972,9 @@ protocol.</doc>
         </parameters>
       </constructor>
       <virtual-method name="closed">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="70">default handler for the #SoupWebsocketConnection::closed signal</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="58"/>
         <return-value transfer-ownership="none">
@@ -25910,6 +25988,9 @@ protocol.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="closing">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="69">the default handler for the #SoupWebsocketConnection:closing signal</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="56"/>
         <return-value transfer-ownership="none">
@@ -25923,6 +26004,9 @@ protocol.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="error">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="68">default handler for the #SoupWebsocketConnection::error signal</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="53"/>
         <return-value transfer-ownership="none">
@@ -25939,6 +26023,9 @@ protocol.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="message">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="67">default handler for the #SoupWebsocketConnection::message signal</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="49"/>
         <return-value transfer-ownership="none">
@@ -25958,6 +26045,9 @@ protocol.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pong">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="71">default handler for the #SoupWebsocketConnection::pong signal</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="60"/>
         <return-value transfer-ownership="none">
@@ -26697,6 +26787,9 @@ the length count.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="message">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="67">default handler for the #SoupWebsocketConnection::message signal</doc>
         <callback name="message">
           <source-position filename="libsoup/soup-websocket-connection.h"
                            line="49"/>
@@ -26718,6 +26811,9 @@ the length count.</doc>
         </callback>
       </field>
       <field name="error">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="68">default handler for the #SoupWebsocketConnection::error signal</doc>
         <callback name="error">
           <source-position filename="libsoup/soup-websocket-connection.h"
                            line="53"/>
@@ -26736,6 +26832,9 @@ the length count.</doc>
         </callback>
       </field>
       <field name="closing">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="69">the default handler for the #SoupWebsocketConnection:closing signal</doc>
         <callback name="closing">
           <source-position filename="libsoup/soup-websocket-connection.h"
                            line="56"/>
@@ -26751,6 +26850,9 @@ the length count.</doc>
         </callback>
       </field>
       <field name="closed">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="70">default handler for the #SoupWebsocketConnection::closed signal</doc>
         <callback name="closed">
           <source-position filename="libsoup/soup-websocket-connection.h"
                            line="58"/>
@@ -26766,6 +26868,9 @@ the length count.</doc>
         </callback>
       </field>
       <field name="pong">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-connection.c"
+             line="71">default handler for the #SoupWebsocketConnection::pong signal</doc>
         <callback name="pong">
           <source-position filename="libsoup/soup-websocket-connection.h"
                            line="60"/>
@@ -27292,6 +27397,9 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         <type name="utf8" c:type="const char*"/>
       </field>
       <field name="configure">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-extension.c"
+             line="42">called to configure the extension with the given parameters</doc>
         <callback name="configure" throws="1">
           <source-position filename="libsoup/soup-websocket-extension.h"
                            line="47"/>
@@ -27332,6 +27440,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="get_request_params">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-extension.c"
+             line="43">called by the client to build the request header.
+   It should include the parameters string starting with ';'</doc>
         <callback name="get_request_params">
           <source-position filename="libsoup/soup-websocket-extension.h"
                            line="52"/>
@@ -27353,6 +27465,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="get_response_params">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-extension.c"
+             line="45">called by the server to build the response header.
+   It should include the parameters string starting with ';'</doc>
         <callback name="get_response_params">
           <source-position filename="libsoup/soup-websocket-extension.h"
                            line="54"/>
@@ -27374,6 +27490,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="process_outgoing_message">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-extension.c"
+             line="47">called to process the payload data of a message
+   before it's sent. Reserved bits of the header should be changed.</doc>
         <callback name="process_outgoing_message" throws="1">
           <source-position filename="libsoup/soup-websocket-extension.h"
                            line="56"/>
@@ -27410,6 +27530,10 @@ Extensions using reserved bits of the header will change them in @header.</doc>
         </callback>
       </field>
       <field name="process_incoming_message">
+        <doc xml:space="preserve"
+             filename="libsoup/soup-websocket-extension.c"
+             line="49">called to process the payload data of a message
+   after it's received. Reserved bits of the header should be cleared.</doc>
         <callback name="process_incoming_message" throws="1">
           <source-position filename="libsoup/soup-websocket-extension.h"
                            line="61"/>

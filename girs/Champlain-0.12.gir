@@ -77,6 +77,9 @@ public API.</doc>
         </parameters>
       </constructor>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-adjustment.h"
+             line="70">Class handler for the ::changed signal.</doc>
         <source-position filename="champlain/champlain-adjustment.h"
                          line="80"/>
         <return-value transfer-ownership="none">
@@ -272,6 +275,9 @@ public API.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-adjustment.h"
+             line="70">Class handler for the ::changed signal.</doc>
         <callback name="changed">
           <source-position filename="champlain/champlain-adjustment.h"
                            line="80"/>
@@ -1091,6 +1097,9 @@ and should be accessed using the provided API</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_surface">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-exportable.h"
+             line="52">virtual function for obtaining the cairo surface.</doc>
         <callback name="get_surface">
           <source-position filename="champlain/champlain-exportable.h"
                            line="63"/>
@@ -1111,6 +1120,9 @@ and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="set_surface">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-exportable.h"
+             line="53">virtual function for setting a cairo surface.</doc>
         <callback name="set_surface">
           <source-position filename="champlain/champlain-exportable.h"
                            line="64"/>
@@ -4050,6 +4062,9 @@ license will be added below it. Your text can have multiple lines, just use
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_latitude">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-location.h"
+             line="52">virtual function for obtaining latitude.</doc>
         <callback name="get_latitude">
           <source-position filename="champlain/champlain-location.h"
                            line="64"/>
@@ -4070,6 +4085,9 @@ license will be added below it. Your text can have multiple lines, just use
         </callback>
       </field>
       <field name="get_longitude">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-location.h"
+             line="53">virtual function for obtaining longitude.</doc>
         <callback name="get_longitude">
           <source-position filename="champlain/champlain-location.h"
                            line="65"/>
@@ -4090,6 +4108,9 @@ license will be added below it. Your text can have multiple lines, just use
         </callback>
       </field>
       <field name="set_location">
+        <doc xml:space="preserve"
+             filename="champlain/champlain-location.h"
+             line="54">virtual function for setting position.</doc>
         <callback name="set_location">
           <source-position filename="champlain/champlain-location.h"
                            line="66"/>
@@ -4499,7 +4520,7 @@ return any source.</doc-deprecated>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="22" c:type="CHAMPLAIN_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="21" c:type="CHAMPLAIN_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="champlain/champlain-version.h"
            line="47">The micro version of libchamplain (3, if %CHAMPLAIN_VERSION is 1.2.3)</doc>
@@ -7800,7 +7821,7 @@ or not.</doc>
                 writable="1"
                 transfer-ownership="none"
                 setter="set_user_agent"
-                default-value="libchamplain/0.12.22">
+                default-value="libchamplain/0.12.21">
         <doc xml:space="preserve"
              filename="champlain/champlain-network-bbox-tile-source.c"
              line="238">The HTTP user agent used for requests</doc>
@@ -8231,7 +8252,7 @@ your tile provider allows you to make.</doc>
                 writable="1"
                 transfer-ownership="none"
                 setter="set_user_agent"
-                default-value="libchamplain/0.12.22">
+                default-value="libchamplain/0.12.21">
         <doc xml:space="preserve"
              filename="champlain/champlain-network-tile-source.c"
              line="301">The HTTP user agent used for requests</doc>
@@ -11328,7 +11349,7 @@ and should be accessed using the provided API</doc>
       <source-position filename="champlain/champlain-version.h" line="74"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_S" value="0.12.22" c:type="CHAMPLAIN_VERSION_S">
+    <constant name="VERSION_S" value="0.12.21" c:type="CHAMPLAIN_VERSION_S">
       <doc xml:space="preserve"
            filename="champlain/champlain-version.h"
            line="61">The full version of libchamplain, in string form (suited for

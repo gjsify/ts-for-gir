@@ -9786,7 +9786,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="14"
+              value="13"
               c:type="GTK_SOURCE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
@@ -17327,7 +17327,7 @@ the default font set in CSS.</doc>
       <constructor name="new" c:identifier="gtk_source_view_new">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="2986">Creates a new `GtkSourceView`.
+             line="2982">Creates a new `GtkSourceView`.
 
 By default, an empty [class@Buffer] will be lazily created and can be
 retrieved with [method@Gtk.TextView.get_buffer].
@@ -17339,7 +17339,7 @@ If you want to specify your own buffer, either override the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="2998">a new #GtkSourceView.</doc>
+               line="2994">a new #GtkSourceView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -17347,21 +17347,21 @@ If you want to specify your own buffer, either override the
                    c:identifier="gtk_source_view_new_with_buffer">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3006">Creates a new #GtkSourceView widget displaying the buffer @buffer.
+             line="3002">Creates a new #GtkSourceView widget displaying the buffer @buffer.
 
 One buffer can be shared among many widgets.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="3014">a new #GtkSourceView.</doc>
+               line="3010">a new #GtkSourceView.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3008">a #GtkSourceBuffer.</doc>
+                 line="3004">a #GtkSourceBuffer.</doc>
             <type name="Buffer" c:type="GtkSourceBuffer*"/>
           </parameter>
         </parameters>
@@ -17420,7 +17420,7 @@ One buffer can be shared among many widgets.</doc>
       <virtual-method name="push_snippet" invoker="push_snippet">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5585">Inserts a new snippet at @location
+             line="5581">Inserts a new snippet at @location
 
 If another snippet was already active, it will be paused and the new
 snippet will become active. Once the focus positions of @snippet have
@@ -17433,13 +17433,13 @@ been exhausted, editing will return to the previous snippet.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5587">a #GtkSourceView</doc>
+                 line="5583">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="snippet" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5588">a #GtkSourceSnippet</doc>
+                 line="5584">a #GtkSourceSnippet</doc>
             <type name="Snippet" c:type="GtkSourceSnippet*"/>
           </parameter>
           <parameter name="location"
@@ -17448,7 +17448,7 @@ been exhausted, editing will return to the previous snippet.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5589">a #GtkTextIter or %NULL for the cursor position</doc>
+                 line="5585">a #GtkTextIter or %NULL for the cursor position</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -17469,19 +17469,19 @@ been exhausted, editing will return to the previous snippet.</doc>
               glib:get-property="auto-indent">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4494">Returns whether auto-indentation of text is enabled.</doc>
+             line="4490">Returns whether auto-indentation of text is enabled.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4500">%TRUE if auto indentation is enabled.</doc>
+               line="4496">%TRUE if auto indentation is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4496">a #GtkSourceView.</doc>
+                 line="4492">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17491,13 +17491,13 @@ been exhausted, editing will return to the previous snippet.</doc>
               glib:get-property="background-pattern">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5449">Returns the #GtkSourceBackgroundPatternType specifying if and how
+             line="5445">Returns the #GtkSourceBackgroundPatternType specifying if and how
 the background pattern should be displayed for this @view.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="210"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5456">the #GtkSourceBackgroundPatternType.</doc>
+               line="5452">the #GtkSourceBackgroundPatternType.</doc>
           <type name="BackgroundPatternType"
                 c:type="GtkSourceBackgroundPatternType"/>
         </return-value>
@@ -17505,7 +17505,7 @@ the background pattern should be displayed for this @view.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5451">a #GtkSourceView</doc>
+                 line="5447">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17515,7 +17515,7 @@ the background pattern should be displayed for this @view.</doc>
               glib:get-property="completion">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5243">Gets the [class@Completion] associated with @view.
+             line="5239">Gets the [class@Completion] associated with @view.
 
 The returned object is guaranteed to be the same for the lifetime of @view.
 Each `GtkSourceView` object has a different [class@Completion].</doc>
@@ -17523,14 +17523,14 @@ Each `GtkSourceView` object has a different [class@Completion].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5252">the #GtkSourceCompletion associated with @view.</doc>
+               line="5248">the #GtkSourceCompletion associated with @view.</doc>
           <type name="Completion" c:type="GtkSourceCompletion*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5245">a #GtkSourceView.</doc>
+                 line="5241">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17540,7 +17540,7 @@ Each `GtkSourceView` object has a different [class@Completion].</doc>
               glib:get-property="enable-snippets">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5639">Gets the [property@View:enable-snippets] property.
+             line="5635">Gets the [property@View:enable-snippets] property.
 
 If %TRUE, matching snippets found in the [class@SnippetManager]
 may be expanded when the user presses Tab after a word in the [class@View].</doc>
@@ -17548,14 +17548,14 @@ may be expanded when the user presses Tab after a word in the [class@View].</doc
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5648">%TRUE if enabled</doc>
+               line="5644">%TRUE if enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5641">a #GtkSourceView</doc>
+                 line="5637">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17563,7 +17563,7 @@ may be expanded when the user presses Tab after a word in the [class@View].</doc
       <method name="get_gutter" c:identifier="gtk_source_view_get_gutter">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5295">Returns the [class@Gutter] object associated with @window_type for @view.
+             line="5291">Returns the [class@Gutter] object associated with @window_type for @view.
 
 Only %GTK_TEXT_WINDOW_LEFT and %GTK_TEXT_WINDOW_RIGHT are supported,
 respectively corresponding to the left and right gutter. The line numbers
@@ -17572,20 +17572,20 @@ and mark category icons are rendered in the left gutter.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5306">the #GtkSourceGutter.</doc>
+               line="5302">the #GtkSourceGutter.</doc>
           <type name="Gutter" c:type="GtkSourceGutter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5297">a #GtkSourceView.</doc>
+                 line="5293">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="window_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5298">the gutter window type.</doc>
+                 line="5294">the gutter window type.</doc>
             <type name="Gtk.TextWindowType" c:type="GtkTextWindowType"/>
           </parameter>
         </parameters>
@@ -17595,19 +17595,19 @@ and mark category icons are rendered in the left gutter.</doc>
               glib:get-property="highlight-current-line">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4694">Returns whether the current line is highlighted.</doc>
+             line="4690">Returns whether the current line is highlighted.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4700">%TRUE if the current line is highlighted.</doc>
+               line="4696">%TRUE if the current line is highlighted.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4696">a #GtkSourceView.</doc>
+                 line="4692">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17615,7 +17615,7 @@ and mark category icons are rendered in the left gutter.</doc>
       <method name="get_hover" c:identifier="gtk_source_view_get_hover">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5269">Gets the [class@Hover] associated with @view.
+             line="5265">Gets the [class@Hover] associated with @view.
 
 The returned object is guaranteed to be the same for the lifetime of @view.
 Each [class@View] object has a different [class@Hover].</doc>
@@ -17623,14 +17623,14 @@ Each [class@View] object has a different [class@Hover].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5278">a #GtkSourceHover associated with @view.</doc>
+               line="5274">a #GtkSourceHover associated with @view.</doc>
           <type name="Hover" c:type="GtkSourceHover*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5271">a #GtkSourceView.</doc>
+                 line="5267">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17640,20 +17640,20 @@ Each [class@View] object has a different [class@Hover].</doc>
               glib:get-property="indent-on-tab">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4589">Returns whether when the tab key is pressed the current selection
+             line="4585">Returns whether when the tab key is pressed the current selection
 should get indented instead of replaced with the `\t` character.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4596">%TRUE if the selection is indented when tab is pressed.</doc>
+               line="4592">%TRUE if the selection is indented when tab is pressed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4591">a #GtkSourceView.</doc>
+                 line="4587">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17663,21 +17663,21 @@ should get indented instead of replaced with the `\t` character.</doc>
               glib:get-property="indent-width">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3298">Returns the number of spaces to use for each step of indent.
+             line="3294">Returns the number of spaces to use for each step of indent.
 
 See [method@View.set_indent_width] for details.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="3306">indent width.</doc>
+               line="3302">indent width.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3300">a #GtkSourceView.</doc>
+                 line="3296">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17687,19 +17687,19 @@ See [method@View.set_indent_width] for details.</doc>
               glib:get-property="indenter">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5690">Gets the [property@View:indenter] property.</doc>
+             line="5686">Gets the [property@View:indenter] property.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="199"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5696">a #GtkSourceIndenter or %NULL</doc>
+               line="5692">a #GtkSourceIndenter or %NULL</doc>
           <type name="Indenter" c:type="GtkSourceIndenter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5692">a #GtkSourceView</doc>
+                 line="5688">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17709,20 +17709,20 @@ See [method@View.set_indent_width] for details.</doc>
               glib:get-property="insert-spaces-instead-of-tabs">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4542">Returns whether when inserting a tabulator character it should
+             line="4538">Returns whether when inserting a tabulator character it should
 be replaced by a group of space characters.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4549">%TRUE if spaces are inserted instead of tabs.</doc>
+               line="4545">%TRUE if spaces are inserted instead of tabs.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4544">a #GtkSourceView.</doc>
+                 line="4540">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17731,12 +17731,12 @@ be replaced by a group of space characters.</doc>
               c:identifier="gtk_source_view_get_mark_attributes">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5385">Gets attributes and priority for the @category.</doc>
+             line="5381">Gets attributes and priority for the @category.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="173"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5393">#GtkSourceMarkAttributes for the @category.
+               line="5389">#GtkSourceMarkAttributes for the @category.
 The object belongs to @view, so it must not be unreffed.</doc>
           <type name="MarkAttributes" c:type="GtkSourceMarkAttributes*"/>
         </return-value>
@@ -17744,19 +17744,19 @@ The object belongs to @view, so it must not be unreffed.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5387">a #GtkSourceView.</doc>
+                 line="5383">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5388">the category.</doc>
+                 line="5384">the category.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5389">place where priority of the category will be stored.</doc>
+                 line="5385">place where priority of the category will be stored.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -17766,19 +17766,19 @@ The object belongs to @view, so it must not be unreffed.</doc>
               glib:get-property="right-margin-position">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4786">Gets the position of the right margin in the given @view.</doc>
+             line="4782">Gets the position of the right margin in the given @view.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="161"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4792">the position of the right margin.</doc>
+               line="4788">the position of the right margin.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4788">a #GtkSourceView.</doc>
+                 line="4784">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17788,19 +17788,19 @@ The object belongs to @view, so it must not be unreffed.</doc>
               glib:get-property="show-line-marks">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3092">Returns whether line marks are displayed beside the text.</doc>
+             line="3088">Returns whether line marks are displayed beside the text.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="3098">%TRUE if the line marks are displayed.</doc>
+               line="3094">%TRUE if the line marks are displayed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3094">a #GtkSourceView.</doc>
+                 line="3090">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17810,19 +17810,19 @@ The object belongs to @view, so it must not be unreffed.</doc>
               glib:get-property="show-line-numbers">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3026">Returns whether line numbers are displayed beside the text.</doc>
+             line="3022">Returns whether line numbers are displayed beside the text.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="3032">%TRUE if the line numbers are displayed.</doc>
+               line="3028">%TRUE if the line numbers are displayed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3028">a #GtkSourceView.</doc>
+                 line="3024">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17832,19 +17832,19 @@ The object belongs to @view, so it must not be unreffed.</doc>
               glib:get-property="show-right-margin">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4740">Returns whether a right margin is displayed.</doc>
+             line="4736">Returns whether a right margin is displayed.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4746">%TRUE if the right margin is shown.</doc>
+               line="4742">%TRUE if the right margin is shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4742">a #GtkSourceView.</doc>
+                 line="4738">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17854,20 +17854,20 @@ The object belongs to @view, so it must not be unreffed.</doc>
               glib:get-property="smart-backspace">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4858">Returns %TRUE if pressing the Backspace key will try to delete spaces
+             line="4854">Returns %TRUE if pressing the Backspace key will try to delete spaces
 up to the previous tab stop.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4865">%TRUE if smart Backspace handling is enabled.</doc>
+               line="4861">%TRUE if smart Backspace handling is enabled.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4860">a #GtkSourceView.</doc>
+                 line="4856">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17877,20 +17877,20 @@ up to the previous tab stop.</doc>
               glib:get-property="smart-home-end">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4901">Returns a [enum@SmartHomeEndType] end value specifying
+             line="4897">Returns a [enum@SmartHomeEndType] end value specifying
 how the cursor will move when HOME and END keys are pressed.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4908">a #GtkSourceSmartHomeEndType value.</doc>
+               line="4904">a #GtkSourceSmartHomeEndType value.</doc>
           <type name="SmartHomeEndType" c:type="GtkSourceSmartHomeEndType"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4903">a #GtkSourceView.</doc>
+                 line="4899">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17900,7 +17900,7 @@ how the cursor will move when HOME and END keys are pressed.</doc>
               glib:get-property="space-drawer">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5468">Gets the [class@SpaceDrawer] associated with @view.
+             line="5464">Gets the [class@SpaceDrawer] associated with @view.
 
 The returned object is guaranteed to be the same for the lifetime of @view.
 Each [class@View] object has a different [class@SpaceDrawer].</doc>
@@ -17908,14 +17908,14 @@ Each [class@View] object has a different [class@SpaceDrawer].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="5477">the #GtkSourceSpaceDrawer associated with @view.</doc>
+               line="5473">the #GtkSourceSpaceDrawer associated with @view.</doc>
           <type name="SpaceDrawer" c:type="GtkSourceSpaceDrawer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5470">a #GtkSourceView.</doc>
+                 line="5466">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17925,19 +17925,19 @@ Each [class@View] object has a different [class@SpaceDrawer].</doc>
               glib:get-property="tab-width">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3235">Returns the width of tabulation in characters.</doc>
+             line="3231">Returns the width of tabulation in characters.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="3241">width of tab.</doc>
+               line="3237">width of tab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3237">a #GtkSourceView.</doc>
+                 line="3233">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
         </parameters>
@@ -17946,26 +17946,26 @@ Each [class@View] object has a different [class@SpaceDrawer].</doc>
               c:identifier="gtk_source_view_get_visual_column">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4920">Determines the visual column at @iter taking into consideration the
+             line="4916">Determines the visual column at @iter taking into consideration the
 [property@View:tab-width] of @view.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="192"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceview.c"
-               line="4928">the visual column at @iter.</doc>
+               line="4924">the visual column at @iter.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4922">a #GtkSourceView.</doc>
+                 line="4918">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4923">a position in @view.</doc>
+                 line="4919">a position in @view.</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -17973,7 +17973,7 @@ Each [class@View] object has a different [class@SpaceDrawer].</doc>
       <method name="indent_lines" c:identifier="gtk_source_view_indent_lines">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3351">Inserts one indentation level at the beginning of the specified lines. The
+             line="3347">Inserts one indentation level at the beginning of the specified lines. The
 empty lines are not indented.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="140"/>
         <return-value transfer-ownership="none">
@@ -17983,19 +17983,19 @@ empty lines are not indented.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3353">a #GtkSourceView.</doc>
+                 line="3349">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3354">#GtkTextIter of the first line to indent</doc>
+                 line="3350">#GtkTextIter of the first line to indent</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3355">#GtkTextIter of the last line to indent</doc>
+                 line="3351">#GtkTextIter of the last line to indent</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -18003,7 +18003,7 @@ empty lines are not indented.</doc>
       <method name="push_snippet" c:identifier="gtk_source_view_push_snippet">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5585">Inserts a new snippet at @location
+             line="5581">Inserts a new snippet at @location
 
 If another snippet was already active, it will be paused and the new
 snippet will become active. Once the focus positions of @snippet have
@@ -18016,13 +18016,13 @@ been exhausted, editing will return to the previous snippet.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5587">a #GtkSourceView</doc>
+                 line="5583">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="snippet" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5588">a #GtkSourceSnippet</doc>
+                 line="5584">a #GtkSourceSnippet</doc>
             <type name="Snippet" c:type="GtkSourceSnippet*"/>
           </parameter>
           <parameter name="location"
@@ -18031,7 +18031,7 @@ been exhausted, editing will return to the previous snippet.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5589">a #GtkTextIter or %NULL for the cursor position</doc>
+                 line="5585">a #GtkTextIter or %NULL for the cursor position</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -18041,7 +18041,7 @@ been exhausted, editing will return to the previous snippet.</doc>
               glib:set-property="auto-indent">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4512">If %TRUE auto-indentation of text is enabled.
+             line="4508">If %TRUE auto-indentation of text is enabled.
 
 When Enter is pressed to create a new line, the auto-indentation inserts the
 same indentation as the previous line. This is **not** a
@@ -18055,13 +18055,13 @@ on the context.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4514">a #GtkSourceView.</doc>
+                 line="4510">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4515">whether to enable auto indentation.</doc>
+                 line="4511">whether to enable auto indentation.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18071,7 +18071,7 @@ on the context.</doc>
               glib:set-property="background-pattern">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5423">Set if and how the background pattern should be displayed.</doc>
+             line="5419">Set if and how the background pattern should be displayed.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="207"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18080,13 +18080,13 @@ on the context.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5425">a #GtkSourceView.</doc>
+                 line="5421">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="background_pattern" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5426">the #GtkSourceBackgroundPatternType.</doc>
+                 line="5422">the #GtkSourceBackgroundPatternType.</doc>
             <type name="BackgroundPatternType"
                   c:type="GtkSourceBackgroundPatternType"/>
           </parameter>
@@ -18097,7 +18097,7 @@ on the context.</doc>
               glib:set-property="enable-snippets">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5660">Sets the [property@View:enable-snippets] property.
+             line="5656">Sets the [property@View:enable-snippets] property.
 
 If @enable_snippets is %TRUE, matching snippets found in the
 [class@SnippetManager] may be expanded when the user presses
@@ -18110,13 +18110,13 @@ Tab after a word in the [class@View].</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5662">a #GtkSourceView</doc>
+                 line="5658">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="enable_snippets" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5663">if snippets should be enabled</doc>
+                 line="5659">if snippets should be enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18126,7 +18126,7 @@ Tab after a word in the [class@View].</doc>
               glib:set-property="highlight-current-line">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4712">If @highlight is %TRUE the current line will be highlighted.</doc>
+             line="4708">If @highlight is %TRUE the current line will be highlighted.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18135,13 +18135,13 @@ Tab after a word in the [class@View].</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4714">a #GtkSourceView.</doc>
+                 line="4710">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="highlight" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4715">whether to highlight the current line.</doc>
+                 line="4711">whether to highlight the current line.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18151,7 +18151,7 @@ Tab after a word in the [class@View].</doc>
               glib:set-property="indent-on-tab">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4608">If %TRUE, when the tab key is pressed when several lines are selected, the
+             line="4604">If %TRUE, when the tab key is pressed when several lines are selected, the
 selected lines are indented of one level instead of being replaced with a `\t`
 character. Shift+Tab unindents the selection.
 
@@ -18168,13 +18168,13 @@ the selection with a normal `\t` character.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4610">a #GtkSourceView.</doc>
+                 line="4606">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4611">whether to indent a block when tab is pressed.</doc>
+                 line="4607">whether to indent a block when tab is pressed.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18184,7 +18184,7 @@ the selection with a normal `\t` character.</doc>
               glib:set-property="indent-width">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3253">Sets the number of spaces to use for each step of indent when the tab key is
+             line="3249">Sets the number of spaces to use for each step of indent when the tab key is
 pressed.
 
 If @width is -1, the value of the [property@View:tab-width] property
@@ -18214,13 +18214,13 @@ drawing!).</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3255">a #GtkSourceView.</doc>
+                 line="3251">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3256">indent width in characters.</doc>
+                 line="3252">indent width in characters.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -18230,7 +18230,7 @@ drawing!).</doc>
               glib:set-property="indenter">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5708">Sets the indenter for @view to @indenter.
+             line="5704">Sets the indenter for @view to @indenter.
 
 Note that the indenter will not be used unless #GtkSourceView:auto-indent
 has been set to %TRUE.</doc>
@@ -18242,7 +18242,7 @@ has been set to %TRUE.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5710">a #GtkSourceView</doc>
+                 line="5706">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="indenter"
@@ -18251,7 +18251,7 @@ has been set to %TRUE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5711">a #GtkSourceIndenter or %NULL</doc>
+                 line="5707">a #GtkSourceIndenter or %NULL</doc>
             <type name="Indenter" c:type="GtkSourceIndenter*"/>
           </parameter>
         </parameters>
@@ -18261,7 +18261,7 @@ has been set to %TRUE.</doc>
               glib:set-property="insert-spaces-instead-of-tabs">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4561">If %TRUE a tab key pressed is replaced by a group of space characters.
+             line="4557">If %TRUE a tab key pressed is replaced by a group of space characters.
 
 Of course it is still possible to insert a real `\t` programmatically with the
 [class@Gtk.TextBuffer] API.</doc>
@@ -18273,13 +18273,13 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4563">a #GtkSourceView.</doc>
+                 line="4559">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="enable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4564">whether to insert spaces instead of tabs.</doc>
+                 line="4560">whether to insert spaces instead of tabs.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18288,7 +18288,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               c:identifier="gtk_source_view_set_mark_attributes">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="5356">Sets attributes and priority for the @category.</doc>
+             line="5352">Sets attributes and priority for the @category.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18297,25 +18297,25 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5358">a #GtkSourceView.</doc>
+                 line="5354">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5359">the category.</doc>
+                 line="5355">the category.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="attributes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5360">mark attributes.</doc>
+                 line="5356">mark attributes.</doc>
             <type name="MarkAttributes" c:type="GtkSourceMarkAttributes*"/>
           </parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="5361">priority of the category.</doc>
+                 line="5357">priority of the category.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -18325,7 +18325,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               glib:set-property="right-margin-position">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4804">Sets the position of the right margin in the given @view.</doc>
+             line="4800">Sets the position of the right margin in the given @view.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18334,13 +18334,13 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4806">a #GtkSourceView.</doc>
+                 line="4802">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4807">the width in characters where to position the right margin.</doc>
+                 line="4803">the width in characters where to position the right margin.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -18350,7 +18350,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               glib:set-property="show-line-marks">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3123">If %TRUE line marks will be displayed beside the text.</doc>
+             line="3119">If %TRUE line marks will be displayed beside the text.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18359,13 +18359,13 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3125">a #GtkSourceView.</doc>
+                 line="3121">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3126">whether line marks should be displayed.</doc>
+                 line="3122">whether line marks should be displayed.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18375,7 +18375,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               glib:set-property="show-line-numbers">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3044">If %TRUE line numbers will be displayed beside the text.</doc>
+             line="3040">If %TRUE line numbers will be displayed beside the text.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18384,13 +18384,13 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3046">a #GtkSourceView.</doc>
+                 line="3042">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3047">whether line numbers should be displayed.</doc>
+                 line="3043">whether line numbers should be displayed.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18400,7 +18400,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               glib:set-property="show-right-margin">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4758">If %TRUE a right margin is displayed.</doc>
+             line="4754">If %TRUE a right margin is displayed.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="153"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18409,13 +18409,13 @@ Of course it is still possible to insert a real `\t` programmatically with the
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4760">a #GtkSourceView.</doc>
+                 line="4756">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4761">whether to show a right margin.</doc>
+                 line="4757">whether to show a right margin.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18425,7 +18425,7 @@ Of course it is still possible to insert a real `\t` programmatically with the
               glib:set-property="smart-backspace">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4832">When set to %TRUE, pressing the Backspace key will try to delete spaces
+             line="4828">When set to %TRUE, pressing the Backspace key will try to delete spaces
 up to the previous tab stop.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="177"/>
         <return-value transfer-ownership="none">
@@ -18435,13 +18435,13 @@ up to the previous tab stop.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4834">a #GtkSourceView.</doc>
+                 line="4830">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="smart_backspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4835">whether to enable smart Backspace handling.</doc>
+                 line="4831">whether to enable smart Backspace handling.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18451,7 +18451,7 @@ up to the previous tab stop.</doc>
               glib:set-property="smart-home-end">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="4877">Set the desired movement of the cursor when HOME and END keys
+             line="4873">Set the desired movement of the cursor when HOME and END keys
 are pressed.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="182"/>
         <return-value transfer-ownership="none">
@@ -18461,13 +18461,13 @@ are pressed.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4879">a #GtkSourceView.</doc>
+                 line="4875">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="smart_home_end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="4880">the desired behavior among #GtkSourceSmartHomeEndType.</doc>
+                 line="4876">the desired behavior among #GtkSourceSmartHomeEndType.</doc>
             <type name="SmartHomeEndType" c:type="GtkSourceSmartHomeEndType"/>
           </parameter>
         </parameters>
@@ -18477,7 +18477,7 @@ are pressed.</doc>
               glib:set-property="tab-width">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3196">Sets the width of tabulation in characters.
+             line="3192">Sets the width of tabulation in characters.
 
 The #GtkTextBuffer still contains `\t` characters,
 but they can take a different visual width in a [class@View] widget.</doc>
@@ -18489,13 +18489,13 @@ but they can take a different visual width in a [class@View] widget.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3198">a #GtkSourceView.</doc>
+                 line="3194">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3199">width of tab in characters.</doc>
+                 line="3195">width of tab in characters.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -18504,7 +18504,7 @@ but they can take a different visual width in a [class@View] widget.</doc>
               c:identifier="gtk_source_view_unindent_lines">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceview.c"
-             line="3504">Removes one indentation level at the beginning of the
+             line="3500">Removes one indentation level at the beginning of the
 specified lines.</doc>
         <source-position filename="gtksourceview/gtksourceview.h" line="144"/>
         <return-value transfer-ownership="none">
@@ -18514,19 +18514,19 @@ specified lines.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3506">a #GtkSourceView.</doc>
+                 line="3502">a #GtkSourceView.</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3507">#GtkTextIter of the first line to indent</doc>
+                 line="3503">#GtkTextIter of the first line to indent</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceview.c"
-                 line="3508">#GtkTextIter of the last line to indent</doc>
+                 line="3504">#GtkTextIter of the last line to indent</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -19001,13 +19001,13 @@ home/end.</doc>
             <parameter name="view" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceview.c"
-                   line="5587">a #GtkSourceView</doc>
+                   line="5583">a #GtkSourceView</doc>
               <type name="View" c:type="GtkSourceView*"/>
             </parameter>
             <parameter name="snippet" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceview.c"
-                   line="5588">a #GtkSourceSnippet</doc>
+                   line="5584">a #GtkSourceSnippet</doc>
               <type name="Snippet" c:type="GtkSourceSnippet*"/>
             </parameter>
             <parameter name="location"
@@ -19016,7 +19016,7 @@ home/end.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceview.c"
-                   line="5589">a #GtkTextIter or %NULL for the cursor position</doc>
+                   line="5585">a #GtkTextIter or %NULL for the cursor position</doc>
               <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
             </parameter>
           </parameters>

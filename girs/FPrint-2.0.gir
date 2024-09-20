@@ -27,16 +27,19 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="fp_context_new">
         <doc xml:space="preserve"
              filename="libfprint/fp-context.c"
-             line="405">Create a new #FpContext.</doc>
+             line="399">Create a new #FpContext.</doc>
         <source-position filename="libfprint/fp-context.h" line="46"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-context.c"
-               line="410">a newly created #FpContext</doc>
+               line="404">a newly created #FpContext</doc>
           <type name="Context" c:type="FpContext*"/>
         </return-value>
       </constructor>
       <virtual-method name="device_added">
+        <doc xml:space="preserve"
+             filename="libfprint/fp-context.h"
+             line="31">Called when a new device is added</doc>
         <source-position filename="libfprint/fp-context.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -51,6 +54,9 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <virtual-method name="device_removed">
+        <doc xml:space="preserve"
+             filename="libfprint/fp-context.h"
+             line="32">Called when a device is removed</doc>
         <source-position filename="libfprint/fp-context.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -67,7 +73,7 @@ and/or use gtk-doc annotations.  -->
       <method name="enumerate" c:identifier="fp_context_enumerate">
         <doc xml:space="preserve"
              filename="libfprint/fp-context.c"
-             line="418">Enumerate all devices. You should call this function exactly once
+             line="412">Enumerate all devices. You should call this function exactly once
 at startup. Please note that it iterates the mainloop until all
 devices are enumerated.</doc>
         <source-position filename="libfprint/fp-context.h" line="48"/>
@@ -78,7 +84,7 @@ devices are enumerated.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-context.c"
-                 line="420">a #FpContext</doc>
+                 line="414">a #FpContext</doc>
             <type name="Context" c:type="FpContext*"/>
           </instance-parameter>
         </parameters>
@@ -86,12 +92,12 @@ devices are enumerated.</doc>
       <method name="get_devices" c:identifier="fp_context_get_devices">
         <doc xml:space="preserve"
              filename="libfprint/fp-context.c"
-             line="584">Get all devices. fp_context_enumerate() will be called as needed.</doc>
+             line="578">Get all devices. fp_context_enumerate() will be called as needed.</doc>
         <source-position filename="libfprint/fp-context.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-context.c"
-               line="590">a new #GPtrArray of #FpDevice's.</doc>
+               line="584">a new #GPtrArray of #FpDevice's.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Device"/>
           </array>
@@ -100,7 +106,7 @@ devices are enumerated.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-context.c"
-                 line="586">a #FpContext</doc>
+                 line="580">a #FpContext</doc>
             <type name="Context" c:type="FpContext*"/>
           </instance-parameter>
         </parameters>
@@ -111,7 +117,7 @@ devices are enumerated.</doc>
       <glib:signal name="device-added" when="last">
         <doc xml:space="preserve"
              filename="libfprint/fp-context.c"
-             line="315">This signal is emitted when a fingerprint reader is added.</doc>
+             line="309">This signal is emitted when a fingerprint reader is added.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -119,7 +125,7 @@ devices are enumerated.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-context.c"
-                 line="318">A #FpDevice</doc>
+                 line="312">A #FpDevice</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -127,7 +133,7 @@ devices are enumerated.</doc>
       <glib:signal name="device-removed" when="last">
         <doc xml:space="preserve"
              filename="libfprint/fp-context.c"
-             line="333">This signal is emitted when a fingerprint reader is removed.
+             line="327">This signal is emitted when a fingerprint reader is removed.
 
 It is guaranteed that the device has been closed before this signal
 is emitted. See the #FpDevice removed signal documentation for more
@@ -139,7 +145,7 @@ information.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-context.c"
-                 line="336">A #FpDevice</doc>
+                 line="330">A #FpDevice</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -156,6 +162,9 @@ information.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="device_added">
+        <doc xml:space="preserve"
+             filename="libfprint/fp-context.h"
+             line="31">Called when a new device is added</doc>
         <callback name="device_added">
           <source-position filename="libfprint/fp-context.h" line="40"/>
           <return-value transfer-ownership="none">
@@ -172,6 +181,9 @@ information.</doc>
         </callback>
       </field>
       <field name="device_removed">
+        <doc xml:space="preserve"
+             filename="libfprint/fp-context.h"
+             line="32">Called when a device is removed</doc>
         <callback name="device_removed">
           <source-position filename="libfprint/fp-context.h" line="42"/>
           <return-value transfer-ownership="none">
@@ -198,7 +210,10 @@ information.</doc>
            glib:type-struct="DeviceClass">
       <source-position filename="libfprint/fp-device.h" line="32"/>
       <implements name="Gio.AsyncInitable"/>
-      <method name="capture" c:identifier="fp_device_capture">
+      <method name="capture"
+              c:identifier="fp_device_capture"
+              glib:finish-func="capture_finish"
+              glib:sync-func="capture_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1513">Start an asynchronous operation to capture an image. The callback will
@@ -286,7 +301,8 @@ See fp_device_capture().</doc>
       </method>
       <method name="capture_sync"
               c:identifier="fp_device_capture_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="capture">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2022">Start an synchronous operation to capture an image.</doc>
@@ -321,7 +337,10 @@ See fp_device_capture().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="clear_storage" c:identifier="fp_device_clear_storage">
+      <method name="clear_storage"
+              c:identifier="fp_device_clear_storage"
+              glib:finish-func="clear_storage_finish"
+              glib:sync-func="clear_storage_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1758">Start an asynchronous operation to delete all prints from the device.
@@ -404,7 +423,8 @@ See fp_device_clear_storage().</doc>
       </method>
       <method name="clear_storage_sync"
               c:identifier="fp_device_clear_storage_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="clear_storage">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2113">Clear sensor storage.</doc>
@@ -433,7 +453,10 @@ See fp_device_clear_storage().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close" c:identifier="fp_device_close">
+      <method name="close"
+              c:identifier="fp_device_close"
+              glib:finish-func="close_finish"
+              glib:sync-func="close_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="888">Start an asynchronous operation to close the device. The callback will
@@ -510,7 +533,10 @@ See fp_device_close().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="close_sync" c:identifier="fp_device_close_sync" throws="1">
+      <method name="close_sync"
+              c:identifier="fp_device_close_sync"
+              throws="1"
+              glib:async-func="close">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1879">Close the device synchronously.</doc>
@@ -539,7 +565,10 @@ See fp_device_close().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="delete_print" c:identifier="fp_device_delete_print">
+      <method name="delete_print"
+              c:identifier="fp_device_delete_print"
+              glib:finish-func="delete_print_finish"
+              glib:sync-func="delete_print_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1601">Start an asynchronous operation to delete a print from the device.
@@ -628,7 +657,8 @@ See fp_device_delete_print().</doc>
       </method>
       <method name="delete_print_sync"
               c:identifier="fp_device_delete_print_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_print">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2053">Delete a given print from the device.</doc>
@@ -663,7 +693,10 @@ See fp_device_delete_print().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="enroll" c:identifier="fp_device_enroll">
+      <method name="enroll"
+              c:identifier="fp_device_enroll"
+              glib:finish-func="enroll_finish"
+              glib:sync-func="enroll_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1101">Start an asynchronous operation to enroll a print. The callback will
@@ -789,7 +822,8 @@ See fp_device_enroll().</doc>
       </method>
       <method name="enroll_sync"
               c:identifier="fp_device_enroll_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="enroll">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1905">Enroll a new print. See fp_device_enroll(). It is undefined whether
@@ -1065,7 +1099,10 @@ fp_device_delete_print().</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="identify" c:identifier="fp_device_identify">
+      <method name="identify"
+              c:identifier="fp_device_identify"
+              glib:finish-func="identify_finish"
+              glib:sync-func="identify_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1372">Start an asynchronous operation to identify prints. The callback will
@@ -1210,7 +1247,8 @@ See fp_device_identify().</doc>
       </method>
       <method name="identify_sync"
               c:identifier="fp_device_identify_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="identify">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1981">Identify a print synchronously.</doc>
@@ -1305,7 +1343,10 @@ See fp_device_identify().</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="list_prints" c:identifier="fp_device_list_prints">
+      <method name="list_prints"
+              c:identifier="fp_device_list_prints"
+              glib:finish-func="list_prints_finish"
+              glib:sync-func="list_prints_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1683">Start an asynchronous operation to list all prints stored on the device.
@@ -1388,7 +1429,8 @@ See fp_device_list_prints().</doc>
       </method>
       <method name="list_prints_sync"
               c:identifier="fp_device_list_prints_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="list_prints">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2084">List device stored prints synchronously.</doc>
@@ -1421,7 +1463,9 @@ See fp_device_list_prints().</doc>
       </method>
       <method name="open"
               c:identifier="fp_device_open"
-              glib:get-property="open">
+              glib:get-property="open"
+              glib:finish-func="open_finish"
+              glib:sync-func="open_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="802">Start an asynchronous operation to open the device. The callback will
@@ -1498,7 +1542,10 @@ See fp_device_open().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open_sync" c:identifier="fp_device_open_sync" throws="1">
+      <method name="open_sync"
+              c:identifier="fp_device_open_sync"
+              throws="1"
+              glib:async-func="open">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1853">Open the device synchronously.</doc>
@@ -1527,7 +1574,10 @@ See fp_device_open().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="resume" c:identifier="fp_device_resume">
+      <method name="resume"
+              c:identifier="fp_device_resume"
+              glib:finish-func="resume_finish"
+              glib:sync-func="resume_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1026">Resume device after system suspend. Retrieve the result with
@@ -1611,7 +1661,8 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
       </method>
       <method name="resume_sync"
               c:identifier="fp_device_resume_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="resume">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2167">Resume device after suspend.</doc>
@@ -1688,7 +1739,10 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="suspend" c:identifier="fp_device_suspend">
+      <method name="suspend"
+              c:identifier="fp_device_suspend"
+              glib:finish-func="suspend_finish"
+              glib:sync-func="suspend_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="952">Prepare the device for system suspend. Retrieve the result with
@@ -1781,7 +1835,8 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
       </method>
       <method name="suspend_sync"
               c:identifier="fp_device_suspend_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="suspend">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="2141">Prepare device for suspend.</doc>
@@ -1810,7 +1865,10 @@ The API user should accept an error of #FP_DEVICE_ERROR_NOT_SUPPORTED.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="verify" c:identifier="fp_device_verify">
+      <method name="verify"
+              c:identifier="fp_device_verify"
+              glib:finish-func="verify_finish"
+              glib:sync-func="verify_sync">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1246">Start an asynchronous operation to verify a print. The callback will
@@ -1951,7 +2009,8 @@ See fp_device_verify().</doc>
       </method>
       <method name="verify_sync"
               c:identifier="fp_device_verify_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="verify">
         <doc xml:space="preserve"
              filename="libfprint/fp-device.c"
              line="1941">Verify a given print synchronously.</doc>
@@ -2701,10 +2760,12 @@ retry.</doc>
           </parameter>
         </parameters>
       </constructor>
-      <method name="detect_minutiae" c:identifier="fp_image_detect_minutiae">
+      <method name="detect_minutiae"
+              c:identifier="fp_image_detect_minutiae"
+              glib:finish-func="detect_minutiae_finish">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="433">Detects the minutiae found in an image.</doc>
+             line="451">Detects the minutiae found in an image.</doc>
         <source-position filename="libfprint/fp-image.h" line="42"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2713,7 +2774,7 @@ retry.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="435">A #FpImage</doc>
+                 line="453">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -2722,7 +2783,7 @@ retry.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="436">a #GCancellable, or %NULL</doc>
+                 line="454">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2733,7 +2794,7 @@ retry.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="437">the function to call on completion</doc>
+                 line="455">the function to call on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2742,7 +2803,7 @@ retry.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="438">the data to pass to @callback</doc>
+                 line="456">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2752,25 +2813,25 @@ retry.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="465">Finish minutiae detection in an image</doc>
+             line="487">Finish minutiae detection in an image</doc>
         <source-position filename="libfprint/fp-image.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="473">%TRUE on success</doc>
+               line="495">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="467">A #FpImage</doc>
+                 line="489">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="468">A #GAsyncResult</doc>
+                 line="490">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2778,14 +2839,14 @@ retry.</doc>
       <method name="get_binarized" c:identifier="fp_image_get_binarized">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="397">Gets the binarized data for an image. This data must not be modified or
+             line="415">Gets the binarized data for an image. This data must not be modified or
 freed. You need to first detect the minutiae using
 fp_image_detect_minutiae().</doc>
         <source-position filename="libfprint/fp-image.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="406">The binarized image data</doc>
+               line="424">The binarized image data</doc>
           <array length="0" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
@@ -2794,7 +2855,7 @@ fp_image_detect_minutiae().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="399">A #FpImage</doc>
+                 line="417">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
           <parameter name="len"
@@ -2805,7 +2866,7 @@ fp_image_detect_minutiae().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="400">Return location for length or %NULL</doc>
+                 line="418">Return location for length or %NULL</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -2813,13 +2874,13 @@ fp_image_detect_minutiae().</doc>
       <method name="get_data" c:identifier="fp_image_get_data">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="378">Gets the greyscale data for an image. This data must not be modified or
+             line="396">Gets the greyscale data for an image. This data must not be modified or
 freed.</doc>
         <source-position filename="libfprint/fp-image.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="386">The image data</doc>
+               line="404">The image data</doc>
           <array length="0" zero-terminated="0" c:type="const guchar*">
             <type name="guint8" c:type="guchar"/>
           </array>
@@ -2828,7 +2889,7 @@ freed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="380">A #FpImage</doc>
+                 line="398">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
           <parameter name="len"
@@ -2839,7 +2900,7 @@ freed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="381">Return location for length or %NULL</doc>
+                 line="399">Return location for length or %NULL</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -2849,19 +2910,19 @@ freed.</doc>
               glib:get-property="height">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="335">Gets the pixel height of an image.</doc>
+             line="353">Gets the pixel height of an image.</doc>
         <source-position filename="libfprint/fp-image.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="341">the height of the image</doc>
+               line="359">the height of the image</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="337">A #FpImage</doc>
+                 line="355">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
         </parameters>
@@ -2869,14 +2930,14 @@ freed.</doc>
       <method name="get_minutiae" c:identifier="fp_image_get_minutiae">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="417">Gets the minutiae for an image. This data must not be modified or
+             line="435">Gets the minutiae for an image. This data must not be modified or
 freed. You need to first detect the minutiae using
 fp_image_detect_minutiae().</doc>
         <source-position filename="libfprint/fp-image.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="425">The detected minutiae</doc>
+               line="443">The detected minutiae</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Minutia"/>
           </array>
@@ -2885,7 +2946,7 @@ fp_image_detect_minutiae().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="419">A #FpImage</doc>
+                 line="437">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
         </parameters>
@@ -2893,20 +2954,20 @@ fp_image_detect_minutiae().</doc>
       <method name="get_ppmm" c:identifier="fp_image_get_ppmm">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="363">Gets the resolution of the image. Note that this is assumed to
+             line="381">Gets the resolution of the image. Note that this is assumed to
 be fixed to 500 points per inch (~19.685 p/mm) for most drivers.</doc>
         <source-position filename="libfprint/fp-image.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="370">the resolution of the image in points per millimeter</doc>
+               line="388">the resolution of the image in points per millimeter</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="365">A #FpImage</doc>
+                 line="383">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
         </parameters>
@@ -2916,19 +2977,19 @@ be fixed to 500 points per inch (~19.685 p/mm) for most drivers.</doc>
               glib:get-property="width">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="349">Gets the pixel width of an image.</doc>
+             line="367">Gets the pixel width of an image.</doc>
         <source-position filename="libfprint/fp-image.h" line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libfprint/fp-image.c"
-               line="355">the width of the image</doc>
+               line="373">the width of the image</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="351">A #FpImage</doc>
+                 line="369">A #FpImage</doc>
             <type name="Image" c:type="FpImage*"/>
           </instance-parameter>
         </parameters>
@@ -3085,7 +3146,7 @@ no need to make the user wait.</doc>
       <method name="get_coords" c:identifier="fp_minutia_get_coords">
         <doc xml:space="preserve"
              filename="libfprint/fp-image.c"
-             line="483">Returns the coordinates of the found minutia. This is only useful for
+             line="525">Returns the coordinates of the found minutia. This is only useful for
 debugging purposes and the API is not considered stable for production.</doc>
         <source-position filename="libfprint/fp-image.h" line="55"/>
         <return-value transfer-ownership="none">
@@ -3095,7 +3156,7 @@ debugging purposes and the API is not considered stable for production.</doc>
           <instance-parameter name="min" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="485">A #FpMinutia</doc>
+                 line="527">A #FpMinutia</doc>
             <type name="Minutia" c:type="FpMinutia*"/>
           </instance-parameter>
           <parameter name="x"
@@ -3104,7 +3165,7 @@ debugging purposes and the API is not considered stable for production.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="486">x position in image</doc>
+                 line="528">x position in image</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="y"
@@ -3113,7 +3174,7 @@ debugging purposes and the API is not considered stable for production.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libfprint/fp-image.c"
-                 line="487">y position in image</doc>
+                 line="529">y position in image</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -3155,19 +3216,19 @@ enrollment.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="libfprint/fp-print.c"
-             line="749">Deserialize a print definition from permanent storage.</doc>
+             line="748">Deserialize a print definition from permanent storage.</doc>
         <source-position filename="libfprint/fp-print.h" line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfprint/fp-print.c"
-               line="757">A newly created #FpPrint on success</doc>
+               line="756">A newly created #FpPrint on success</doc>
           <type name="Print" c:type="FpPrint*"/>
         </return-value>
         <parameters>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-print.c"
-                 line="751">The binary data</doc>
+                 line="750">The binary data</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -3175,7 +3236,7 @@ enrollment.</doc>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfprint/fp-print.c"
-                 line="752">Length of the data</doc>
+                 line="751">Length of the data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>

@@ -10915,11 +10915,9 @@ range", referring to the last -@start bytes of the resource body.
            glib:type-struct="ServerClass">
       <doc xml:space="preserve"
            filename="libsoup/server/soup-server.c"
-           line="28">#SoupServer provides a basic implementation of an HTTP server. The
-recommended usage of this server is for internal use, tasks like
-a mock server for tests, a private service for IPC, etc. It is not
-recommended to be exposed to untrusted clients as it may be vulnerable
-to denial of service attacks or other exploits.
+           line="28">A HTTP server.
+
+#SoupServer implements a simple HTTP server.
 
 To begin, create a server using [ctor@Server.new]. Add at least one
 handler by calling [method@Server.add_handler] or
@@ -11007,7 +11005,7 @@ to (or start) the main loop for the current thread-default
                    introspectable="0">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="545">Creates a new #SoupServer.
+             line="543">Creates a new #SoupServer.
 
 This is exactly equivalent to calling [ctor@GObject.Object.new] and
 specifying %SOUP_TYPE_SERVER as the type.</doc>
@@ -11015,7 +11013,7 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="555">a new #SoupServer. If you are using
+               line="553">a new #SoupServer. If you are using
   certain legacy properties, this may also return %NULL if an error
   occurs.</doc>
           <type name="Server" c:type="SoupServer*"/>
@@ -11024,13 +11022,13 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
           <parameter name="optname1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="547">name of first property to set</doc>
+                 line="545">name of first property to set</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="548">value of @optname1, followed by additional property/value pairs</doc>
+                 line="546">value of @optname1, followed by additional property/value pairs</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -11096,12 +11094,12 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1104">Adds a new client stream to the @server.</doc>
+             line="1102">Adds a new client stream to the @server.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1116">%TRUE on success, %FALSE if the stream could not be
+               line="1114">%TRUE on success, %FALSE if the stream could not be
   accepted or any other error occurred (in which case @error will be
   set).</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11110,13 +11108,13 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1106">a #SoupServer</doc>
+                 line="1104">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1107">a #GIOStream</doc>
+                 line="1105">a #GIOStream</doc>
             <type name="Gio.IOStream" c:type="GIOStream*"/>
           </parameter>
           <parameter name="local_addr"
@@ -11125,7 +11123,7 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1108">the local #GSocketAddress associated with the
+                 line="1106">the local #GSocketAddress associated with the
   @stream</doc>
             <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
           </parameter>
@@ -11135,7 +11133,7 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1110">the remote #GSocketAddress associated with the
+                 line="1108">the remote #GSocketAddress associated with the
   @stream</doc>
             <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
           </parameter>
@@ -11145,7 +11143,7 @@ specifying %SOUP_TYPE_SERVER as the type.</doc>
               c:identifier="soup_server_add_auth_domain">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1837">Adds an authentication domain to @server.
+             line="1835">Adds an authentication domain to @server.
 
 Each auth domain will have the chance to require authentication for each
 request that comes in; normally auth domains will require authentication for
@@ -11164,13 +11162,13 @@ request body is sent.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1839">a #SoupServer</doc>
+                 line="1837">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="auth_domain" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1840">a #SoupAuthDomain</doc>
+                 line="1838">a #SoupAuthDomain</doc>
             <type name="AuthDomain" c:type="SoupAuthDomain*"/>
           </parameter>
         </parameters>
@@ -11179,7 +11177,7 @@ request body is sent.</doc>
               c:identifier="soup_server_add_early_handler">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1683">Adds an "early" handler to @server for requests prefixed by @path.
+             line="1681">Adds an "early" handler to @server for requests prefixed by @path.
 
 Note that "normal" and "early" handlers are matched up together, so if you
 add a normal handler for "/foo" and an early handler for "/foo/bar", then a
@@ -11213,7 +11211,7 @@ run as well.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1685">a #SoupServer</doc>
+                 line="1683">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="path"
@@ -11222,7 +11220,7 @@ run as well.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1686">the toplevel path for the handler</doc>
+                 line="1684">the toplevel path for the handler</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="callback"
@@ -11232,7 +11230,7 @@ run as well.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1687">callback to invoke for
+                 line="1685">callback to invoke for
   requests under @path</doc>
             <type name="ServerCallback" c:type="SoupServerCallback"/>
           </parameter>
@@ -11242,13 +11240,13 @@ run as well.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1689">data for @callback</doc>
+                 line="1687">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1690">destroy notifier to free @user_data</doc>
+                 line="1688">destroy notifier to free @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -11256,7 +11254,7 @@ run as well.</doc>
       <method name="add_handler" c:identifier="soup_server_add_handler">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1619">Adds a handler to @server for requests prefixed by @path.
+             line="1617">Adds a handler to @server for requests prefixed by @path.
 
 If @path is %NULL or "/", then this will be the default handler for all
 requests that don't have a more specific handler. (Note though that if you
@@ -11297,7 +11295,7 @@ more chunks are available.) When you are done, call
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1621">a #SoupServer</doc>
+                 line="1619">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="path"
@@ -11306,7 +11304,7 @@ more chunks are available.) When you are done, call
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1622">the toplevel path for the handler</doc>
+                 line="1620">the toplevel path for the handler</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="callback"
@@ -11316,7 +11314,7 @@ more chunks are available.) When you are done, call
                      destroy="3">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1623">callback to invoke for
+                 line="1621">callback to invoke for
   requests under @path</doc>
             <type name="ServerCallback" c:type="SoupServerCallback"/>
           </parameter>
@@ -11326,13 +11324,13 @@ more chunks are available.) When you are done, call
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1625">data for @callback</doc>
+                 line="1623">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1626">destroy notifier to free @user_data</doc>
+                 line="1624">destroy notifier to free @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -11341,7 +11339,7 @@ more chunks are available.) When you are done, call
               c:identifier="soup_server_add_websocket_extension">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1940">Add support for a WebSocket extension of the given @extension_type.
+             line="1938">Add support for a WebSocket extension of the given @extension_type.
 
 When a WebSocket client requests an extension of @extension_type,
 a new [class@WebsocketExtension] of type @extension_type will be created
@@ -11357,13 +11355,13 @@ Note that [class@WebsocketExtensionDeflate] is supported by default, use
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1942">a #SoupServer</doc>
+                 line="1940">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1943">a #GType</doc>
+                 line="1941">a #GType</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -11372,7 +11370,7 @@ Note that [class@WebsocketExtensionDeflate] is supported by default, use
               c:identifier="soup_server_add_websocket_handler">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1757">Adds a WebSocket handler to @server for requests prefixed by @path.
+             line="1755">Adds a WebSocket handler to @server for requests prefixed by @path.
 
 If @path is %NULL or "/", then this will be the default handler for all
 requests that don't have a more specific handler.
@@ -11398,7 +11396,7 @@ setting a failure status code if the handshake should be rejected.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1759">a #SoupServer</doc>
+                 line="1757">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="path"
@@ -11407,7 +11405,7 @@ setting a failure status code if the handshake should be rejected.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1760">the toplevel path for the handler</doc>
+                 line="1758">the toplevel path for the handler</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="origin"
@@ -11416,7 +11414,7 @@ setting a failure status code if the handshake should be rejected.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1761">the origin of the connection</doc>
+                 line="1759">the origin of the connection</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="protocols"
@@ -11425,7 +11423,7 @@ setting a failure status code if the handshake should be rejected.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1762">the protocols
+                 line="1760">the protocols
   supported by this handler</doc>
             <array c:type="char**">
               <type name="utf8" c:type="char*"/>
@@ -11438,7 +11436,7 @@ setting a failure status code if the handshake should be rejected.</doc>
                      destroy="5">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1764">callback to invoke for
+                 line="1762">callback to invoke for
   successful WebSocket requests under @path</doc>
             <type name="ServerWebsocketCallback"
                   c:type="SoupServerWebsocketCallback"/>
@@ -11449,13 +11447,13 @@ setting a failure status code if the handshake should be rejected.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1766">data for @callback</doc>
+                 line="1764">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy" transfer-ownership="none" scope="async">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1767">destroy notifier to free @user_data</doc>
+                 line="1765">destroy notifier to free @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -11463,7 +11461,7 @@ setting a failure status code if the handshake should be rejected.</doc>
       <method name="disconnect" c:identifier="soup_server_disconnect">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1147">Closes and frees @server's listening sockets.
+             line="1145">Closes and frees @server's listening sockets.
 
 Note that if there are currently requests in progress on @server, that they
 will continue to be processed if @server's [struct@GLib.MainContext] is still
@@ -11479,7 +11477,7 @@ if you want to start listening again.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1149">a #SoupServer</doc>
+                 line="1147">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11487,7 +11485,7 @@ if you want to start listening again.</doc>
       <method name="get_listeners" c:identifier="soup_server_get_listeners">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="732">Gets @server's list of listening sockets.
+             line="730">Gets @server's list of listening sockets.
 
 You should treat these sockets as read-only; writing to or
 modifiying any of these sockets may cause @server to malfunction.</doc>
@@ -11495,7 +11493,7 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="741">a
+               line="739">a
   list of listening sockets.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Gio.Socket"/>
@@ -11505,7 +11503,7 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="734">a #SoupServer</doc>
+                 line="732">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11516,12 +11514,12 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
         <attribute name="org.gtk.Method.get_property" value="tls-auth-mode"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="682">Gets the @server SSL/TLS client authentication mode.</doc>
+             line="680">Gets the @server SSL/TLS client authentication mode.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="688">a #GTlsAuthenticationMode</doc>
+               line="686">a #GTlsAuthenticationMode</doc>
           <type name="Gio.TlsAuthenticationMode"
                 c:type="GTlsAuthenticationMode"/>
         </return-value>
@@ -11529,7 +11527,7 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="684">a #SoupServer</doc>
+                 line="682">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11540,19 +11538,19 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
         <attribute name="org.gtk.Method.get_property" value="tls-certificate"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="597">Gets the @server SSL/TLS certificate.</doc>
+             line="595">Gets the @server SSL/TLS certificate.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="603">a #GTlsCertificate or %NULL</doc>
+               line="601">a #GTlsCertificate or %NULL</doc>
           <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="599">a #SoupServer</doc>
+                 line="597">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11563,19 +11561,19 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
         <attribute name="org.gtk.Method.get_property" value="tls-database"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="640">Gets the @server SSL/TLS database.</doc>
+             line="638">Gets the @server SSL/TLS database.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="54"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="646">a #GTlsDatabase</doc>
+               line="644">a #GTlsDatabase</doc>
           <type name="Gio.TlsDatabase" c:type="GTlsDatabase*"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="642">a #SoupServer</doc>
+                 line="640">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11583,7 +11581,7 @@ modifiying any of these sockets may cause @server to malfunction.</doc>
       <method name="get_uris" c:identifier="soup_server_get_uris">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1514">Gets a list of URIs corresponding to the interfaces @server is
+             line="1512">Gets a list of URIs corresponding to the interfaces @server is
 listening on.
 
 These will contain IP addresses, not hostnames, and will also indicate
@@ -11596,7 +11594,7 @@ URIs for each interface on the system.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1528">a list of #GUris, which you
+               line="1526">a list of #GUris, which you
   must free when you are done with it.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="GLib.Uri"/>
@@ -11606,7 +11604,7 @@ URIs for each interface on the system.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1516">a #SoupServer</doc>
+                 line="1514">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11614,7 +11612,7 @@ URIs for each interface on the system.</doc>
       <method name="is_https" c:identifier="soup_server_is_https">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="701">Checks whether @server is capable of https.
+             line="699">Checks whether @server is capable of https.
 
 In order for a server to run https, you must call
 [method@Server.set_tls_certificate], or set the
@@ -11631,14 +11629,14 @@ any https listeners.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="719">%TRUE if @server is configured to serve https.</doc>
+               line="717">%TRUE if @server is configured to serve https.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="703">a #SoupServer</doc>
+                 line="701">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
         </parameters>
@@ -11646,7 +11644,7 @@ any https listeners.</doc>
       <method name="listen" c:identifier="soup_server_listen" throws="1">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1245">Attempts to set up @server to listen for connections on @address.
+             line="1243">Attempts to set up @server to listen for connections on @address.
 
 If @options includes %SOUP_SERVER_LISTEN_HTTPS, and @server has
 been configured for TLS, then @server will listen for https
@@ -11666,7 +11664,7 @@ You must configure IPv4 listening separately.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1269">%TRUE on success, %FALSE if @address could not be
+               line="1267">%TRUE on success, %FALSE if @address could not be
   bound or any other error occurred (in which case @error will be
   set).</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11675,19 +11673,19 @@ You must configure IPv4 listening separately.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1247">a #SoupServer</doc>
+                 line="1245">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1248">the address of the interface to listen on</doc>
+                 line="1246">the address of the interface to listen on</doc>
             <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1249">listening options for this server</doc>
+                 line="1247">listening options for this server</doc>
             <type name="ServerListenOptions" c:type="SoupServerListenOptions"/>
           </parameter>
         </parameters>
@@ -11697,7 +11695,7 @@ You must configure IPv4 listening separately.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1369">Attempts to set up @server to listen for connections on all interfaces
+             line="1367">Attempts to set up @server to listen for connections on all interfaces
 on the system.
 
 That is, it listens on the addresses `0.0.0.0` and/or `::`, depending on
@@ -11712,7 +11710,7 @@ See [method@Server.listen] for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1388">%TRUE on success, %FALSE if @port could not be bound
+               line="1386">%TRUE on success, %FALSE if @port could not be bound
   or any other error occurred (in which case @error will be set).</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11720,19 +11718,19 @@ See [method@Server.listen] for more details.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1371">a #SoupServer</doc>
+                 line="1369">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1372">the port to listen on, or 0</doc>
+                 line="1370">the port to listen on, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1373">listening options for this server</doc>
+                 line="1371">listening options for this server</doc>
             <type name="ServerListenOptions" c:type="SoupServerListenOptions"/>
           </parameter>
         </parameters>
@@ -11742,7 +11740,7 @@ See [method@Server.listen] for more details.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1422">Attempts to set up @server to listen for connections on "localhost".
+             line="1420">Attempts to set up @server to listen for connections on "localhost".
 
 That is, `127.0.0.1` and/or `::1`, depending on whether @options includes
 %SOUP_SERVER_LISTEN_IPV4_ONLY, %SOUP_SERVER_LISTEN_IPV6_ONLY, or neither). If
@@ -11755,7 +11753,7 @@ See [method@Server.listen] for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1439">%TRUE on success, %FALSE if @port could not be bound
+               line="1437">%TRUE on success, %FALSE if @port could not be bound
   or any other error occurred (in which case @error will be set).</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11763,19 +11761,19 @@ See [method@Server.listen] for more details.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1424">a #SoupServer</doc>
+                 line="1422">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1425">the port to listen on, or 0</doc>
+                 line="1423">the port to listen on, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1426">listening options for this server</doc>
+                 line="1424">listening options for this server</doc>
             <type name="ServerListenOptions" c:type="SoupServerListenOptions"/>
           </parameter>
         </parameters>
@@ -11785,14 +11783,14 @@ See [method@Server.listen] for more details.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1473">Attempts to set up @server to listen for connections on @socket.
+             line="1471">Attempts to set up @server to listen for connections on @socket.
 
 See [method@Server.listen] for more details.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1484">%TRUE on success, %FALSE if an error occurred (in
+               line="1482">%TRUE on success, %FALSE if an error occurred (in
   which case @error will be set).</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11800,19 +11798,19 @@ See [method@Server.listen] for more details.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1475">a #SoupServer</doc>
+                 line="1473">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="socket" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1476">a listening #GSocket</doc>
+                 line="1474">a listening #GSocket</doc>
             <type name="Gio.Socket" c:type="GSocket*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1477">listening options for this server</doc>
+                 line="1475">listening options for this server</doc>
             <type name="ServerListenOptions" c:type="SoupServerListenOptions"/>
           </parameter>
         </parameters>
@@ -11823,7 +11821,7 @@ See [method@Server.listen] for more details.</doc>
               deprecated-version="3.2">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1885">Pauses I/O on @msg.
+             line="1883">Pauses I/O on @msg.
 
 This can be used when you need to return from the server handler without
 having the full response ready yet. Use [method@Server.unpause_message] to
@@ -11842,13 +11840,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1887">a #SoupServer</doc>
+                 line="1885">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1888">a #SoupServerMessage associated with @server.</doc>
+                 line="1886">a #SoupServerMessage associated with @server.</doc>
             <type name="ServerMessage" c:type="SoupServerMessage*"/>
           </parameter>
         </parameters>
@@ -11857,7 +11855,7 @@ signal.</doc>
               c:identifier="soup_server_remove_auth_domain">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1866">Removes @auth_domain from @server.</doc>
+             line="1864">Removes @auth_domain from @server.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11866,13 +11864,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1868">a #SoupServer</doc>
+                 line="1866">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="auth_domain" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1869">a #SoupAuthDomain</doc>
+                 line="1867">a #SoupAuthDomain</doc>
             <type name="AuthDomain" c:type="SoupAuthDomain*"/>
           </parameter>
         </parameters>
@@ -11880,7 +11878,7 @@ signal.</doc>
       <method name="remove_handler" c:identifier="soup_server_remove_handler">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1819">Removes all handlers (early and normal) registered at @path.</doc>
+             line="1817">Removes all handlers (early and normal) registered at @path.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11889,13 +11887,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1821">a #SoupServer</doc>
+                 line="1819">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1822">the toplevel path for the handler</doc>
+                 line="1820">the toplevel path for the handler</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -11904,7 +11902,7 @@ signal.</doc>
               c:identifier="soup_server_remove_websocket_extension">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1970">Removes support for WebSocket extension of type @extension_type (or any subclass of
+             line="1968">Removes support for WebSocket extension of type @extension_type (or any subclass of
 @extension_type) from @server.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="138"/>
         <return-value transfer-ownership="none">
@@ -11914,13 +11912,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1972">a #SoupServer</doc>
+                 line="1970">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="extension_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1973">a #GType</doc>
+                 line="1971">a #GType</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -11931,7 +11929,7 @@ signal.</doc>
         <attribute name="org.gtk.Method.set_property" value="tls-auth-mode"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="659">Sets @server's #GTlsAuthenticationMode to use for SSL/TLS client authentication.</doc>
+             line="657">Sets @server's #GTlsAuthenticationMode to use for SSL/TLS client authentication.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11940,13 +11938,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="661">a #SoupServer</doc>
+                 line="659">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="662">a #GTlsAuthenticationMode</doc>
+                 line="660">a #GTlsAuthenticationMode</doc>
             <type name="Gio.TlsAuthenticationMode"
                   c:type="GTlsAuthenticationMode"/>
           </parameter>
@@ -11958,7 +11956,7 @@ signal.</doc>
         <attribute name="org.gtk.Method.set_property" value="tls-certificate"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="573">Sets @server up to do https, using the given SSL/TLS @certificate.</doc>
+             line="571">Sets @server up to do https, using the given SSL/TLS @certificate.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11967,13 +11965,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="575">a #SoupServer</doc>
+                 line="573">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="certificate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="576">a #GTlsCertificate</doc>
+                 line="574">a #GTlsCertificate</doc>
             <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
           </parameter>
         </parameters>
@@ -11984,7 +11982,7 @@ signal.</doc>
         <attribute name="org.gtk.Method.set_property" value="tls-database"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="616">Sets @server's #GTlsDatabase to use for validating SSL/TLS client certificates.</doc>
+             line="614">Sets @server's #GTlsDatabase to use for validating SSL/TLS client certificates.</doc>
         <source-position filename="libsoup/server/soup-server.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11993,13 +11991,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="618">a #SoupServer</doc>
+                 line="616">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="tls_database" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="619">a #GTlsDatabase</doc>
+                 line="617">a #GTlsDatabase</doc>
             <type name="Gio.TlsDatabase" c:type="GTlsDatabase*"/>
           </parameter>
         </parameters>
@@ -12010,7 +12008,7 @@ signal.</doc>
               deprecated-version="3.2">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1912">Resumes I/O on @msg.
+             line="1910">Resumes I/O on @msg.
 
 Use this to resume after calling [method@Server.pause_message], or after
 adding a new chunk to a chunked response.
@@ -12030,13 +12028,13 @@ signal.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1914">a #SoupServer</doc>
+                 line="1912">a #SoupServer</doc>
             <type name="Server" c:type="SoupServer*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="1915">a #SoupServerMessage associated with @server.</doc>
+                 line="1913">a #SoupServerMessage associated with @server.</doc>
             <type name="ServerMessage" c:type="SoupServerMessage*"/>
           </parameter>
         </parameters>
@@ -12048,7 +12046,7 @@ signal.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="489">If %TRUE, percent-encoding in the Request-URI path will not be
+             line="487">If %TRUE, percent-encoding in the Request-URI path will not be
 automatically decoded.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -12059,7 +12057,7 @@ automatically decoded.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="504">Server header.
+             line="502">Server header.
 
 If non-%NULL, the value to use for the "Server" header on
 [class@ServerMessage]s processed by this server.
@@ -12099,7 +12097,7 @@ whitespace, #SoupServer will append its own product token (eg,
                    value="soup_server_set_tls_auth_mode"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="474">A [enum@Gio.TlsAuthenticationMode] for SSL/TLS client authentication.</doc>
+             line="472">A [enum@Gio.TlsAuthenticationMode] for SSL/TLS client authentication.</doc>
         <type name="Gio.TlsAuthenticationMode"/>
       </property>
       <property name="tls-certificate"
@@ -12114,7 +12112,7 @@ whitespace, #SoupServer will append its own product token (eg,
                    value="soup_server_set_tls_certificate"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="441">A [class@Gio.TlsCertificate[] that has a
+             line="439">A [class@Gio.TlsCertificate[] that has a
 [property@Gio.TlsCertificate:private-key] set.
 
 If this is set, then the server will be able to speak
@@ -12133,7 +12131,7 @@ https in addition to (or instead of) plain http.</doc>
                    value="soup_server_set_tls_database"/>
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="459">A [class@Gio.TlsDatabase] to use for validating SSL/TLS client
+             line="457">A [class@Gio.TlsDatabase] to use for validating SSL/TLS client
 certificates.</doc>
         <type name="Gio.TlsDatabase"/>
       </property>
@@ -12143,7 +12141,7 @@ certificates.</doc>
       <glib:signal name="request-aborted" when="first">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="413">Emitted when processing has failed for a message.
+             line="411">Emitted when processing has failed for a message.
 
 This could mean either that it could not be read (if
 [signal@Server::request-read] has not been emitted for it yet), or that
@@ -12161,7 +12159,7 @@ free any state that it may have allocated in
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="416">the message</doc>
+                 line="414">the message</doc>
             <type name="ServerMessage"/>
           </parameter>
         </parameters>
@@ -12169,7 +12167,7 @@ free any state that it may have allocated in
       <glib:signal name="request-finished" when="first">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="395">Emitted when the server has finished writing a response to
+             line="393">Emitted when the server has finished writing a response to
 a request.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12178,7 +12176,7 @@ a request.</doc>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="398">the message</doc>
+                 line="396">the message</doc>
             <type name="ServerMessage"/>
           </parameter>
         </parameters>
@@ -12186,7 +12184,7 @@ a request.</doc>
       <glib:signal name="request-read" when="first">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="371">Emitted when the server has successfully read a request.
+             line="369">Emitted when the server has successfully read a request.
 
 @message will have all of its request-side information
 filled in, and if the message was authenticated, @client
@@ -12201,7 +12199,7 @@ handler processing will be skipped.</doc>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="374">the message</doc>
+                 line="372">the message</doc>
             <type name="ServerMessage"/>
           </parameter>
         </parameters>
@@ -12209,7 +12207,7 @@ handler processing will be skipped.</doc>
       <glib:signal name="request-started" when="first">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="343">Emitted when the server has started reading a new request.
+             line="341">Emitted when the server has started reading a new request.
 
 @message will be completely blank; not even the
 Request-Line will have been read yet. About the only thing
@@ -12228,7 +12226,7 @@ occurs, the processing will instead end with
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/server/soup-server.c"
-                 line="346">the new message</doc>
+                 line="344">the new message</doc>
             <type name="ServerMessage"/>
           </parameter>
         </parameters>
@@ -12237,7 +12235,7 @@ occurs, the processing will instead end with
     <callback name="ServerCallback" c:type="SoupServerCallback">
       <doc xml:space="preserve"
            filename="libsoup/server/soup-server.c"
-           line="1568">A callback used to handle requests to a [class@Server].
+           line="1566">A callback used to handle requests to a [class@Server].
 
 @path and @query contain the likewise-named components of the
 Request-URI, subject to certain assumptions. By default,
@@ -12265,19 +12263,19 @@ for details of what handlers can/should do.</doc>
         <parameter name="server" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1570">the #SoupServer</doc>
+               line="1568">the #SoupServer</doc>
           <type name="Server" c:type="SoupServer*"/>
         </parameter>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1571">the message being processed</doc>
+               line="1569">the message being processed</doc>
           <type name="ServerMessage" c:type="SoupServerMessage*"/>
         </parameter>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1572">the path component of @msg's Request-URI</doc>
+               line="1570">the path component of @msg's Request-URI</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="query"
@@ -12286,7 +12284,7 @@ for details of what handlers can/should do.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1573">the parsed query
+               line="1571">the parsed query
   component of @msg's Request-URI</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="utf8"/>
@@ -12300,7 +12298,7 @@ for details of what handlers can/should do.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1575">the data passed to [method@Server.add_handler] or
+               line="1573">the data passed to [method@Server.add_handler] or
   [method@Server.add_early_handler].</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
@@ -12389,7 +12387,7 @@ for details of what handlers can/should do.</doc>
               c:type="SoupServerListenOptions">
       <doc xml:space="preserve"
            filename="libsoup/server/soup-server.c"
-           line="1190">Options to pass to [method@Server.listen], etc.
+           line="1188">Options to pass to [method@Server.listen], etc.
 
 %SOUP_SERVER_LISTEN_IPV4_ONLY and %SOUP_SERVER_LISTEN_IPV6_ONLY
 only make sense with [method@Server.listen_all] and
@@ -12403,7 +12401,7 @@ cannot specify both of them in a single call.</doc>
               glib:name="SOUP_SERVER_LISTEN_HTTPS">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1192">Listen for https connections rather
+             line="1190">Listen for https connections rather
   than plain http.</doc>
       </member>
       <member name="ipv4_only"
@@ -12413,7 +12411,7 @@ cannot specify both of them in a single call.</doc>
               glib:name="SOUP_SERVER_LISTEN_IPV4_ONLY">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1194">Only listen on IPv4 interfaces.</doc>
+             line="1192">Only listen on IPv4 interfaces.</doc>
       </member>
       <member name="ipv6_only"
               value="4"
@@ -12422,7 +12420,7 @@ cannot specify both of them in a single call.</doc>
               glib:name="SOUP_SERVER_LISTEN_IPV6_ONLY">
         <doc xml:space="preserve"
              filename="libsoup/server/soup-server.c"
-             line="1195">Only listen on IPv6 interfaces.</doc>
+             line="1193">Only listen on IPv6 interfaces.</doc>
       </member>
     </bitfield>
     <class name="ServerMessage"
@@ -12552,7 +12550,7 @@ of a connection.</doc>
                filename="libsoup/server/soup-server-message.c"
                line="1019">the #GSocketAddress
   associated with the remote end of a connection, it may be
-  %NULL if you used [method@Server.accept_iostream].</doc>
+  %NULL if you used [class@Server.accept_iostream].</doc>
           <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
         </return-value>
         <parameters>
@@ -13238,7 +13236,7 @@ message.</doc>
               c:type="SoupServerWebsocketCallback">
       <doc xml:space="preserve"
            filename="libsoup/server/soup-server.c"
-           line="1740">A callback used to handle WebSocket requests to a #SoupServer.
+           line="1738">A callback used to handle WebSocket requests to a #SoupServer.
 
 The callback will be invoked after sending the handshake response back to the
 client (and is only invoked if the handshake was successful).
@@ -13253,25 +13251,25 @@ rules as [callback@ServerCallback] `(qv)`.</doc>
         <parameter name="server" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1742">the #SoupServer</doc>
+               line="1740">the #SoupServer</doc>
           <type name="Server" c:type="SoupServer*"/>
         </parameter>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1745">the #SoupServerMessage</doc>
+               line="1743">the #SoupServerMessage</doc>
           <type name="ServerMessage" c:type="SoupServerMessage*"/>
         </parameter>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1743">the path component of @msg's Request-URI</doc>
+               line="1741">the path component of @msg's Request-URI</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1744">the newly created WebSocket connection</doc>
+               line="1742">the newly created WebSocket connection</doc>
           <type name="WebsocketConnection" c:type="SoupWebsocketConnection*"/>
         </parameter>
         <parameter name="user_data"
@@ -13281,7 +13279,7 @@ rules as [callback@ServerCallback] `(qv)`.</doc>
                    closure="4">
           <doc xml:space="preserve"
                filename="libsoup/server/soup-server.c"
-               line="1746">the data passed to @soup_server_add_handler</doc>
+               line="1744">the data passed to @soup_server_add_handler</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -18607,7 +18605,7 @@ Note that this can't be used with lists that have qvalues.</doc>
               c:identifier="soup_header_free_param_list">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="876">Frees @param_list.</doc>
+           line="874">Frees @param_list.</doc>
       <source-position filename="libsoup/soup-headers.h" line="65"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -18616,7 +18614,7 @@ Note that this can't be used with lists that have qvalues.</doc>
         <parameter name="param_list" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="878">a #GHashTable returned from
+               line="876">a #GHashTable returned from
   [func@header_parse_param_list] or [func@header_parse_semi_param_list]</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="utf8"/>
@@ -18629,7 +18627,7 @@ Note that this can't be used with lists that have qvalues.</doc>
               c:identifier="soup_header_g_string_append_param">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="980">Appends something like `name=value` to @string, taking care to quote @value
+           line="978">Appends something like `name=value` to @string, taking care to quote @value
 if needed, and if so, to escape any quotes or backslashes in @value.
 
 Alternatively, if @value is a non-ASCII UTF-8 string, it will be
@@ -18647,13 +18645,13 @@ If @value is %NULL, this will just append @name to @string.</doc>
         <parameter name="string" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="982">a #GString being used to construct an HTTP header value</doc>
+               line="980">a #GString being used to construct an HTTP header value</doc>
           <type name="GLib.String" c:type="GString*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="983">a parameter name</doc>
+               line="981">a parameter name</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="value"
@@ -18662,7 +18660,7 @@ If @value is %NULL, this will just append @name to @string.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="984">a parameter value, or %NULL</doc>
+               line="982">a parameter value, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -18671,7 +18669,7 @@ If @value is %NULL, this will just append @name to @string.</doc>
               c:identifier="soup_header_g_string_append_param_quoted">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="956">Appends something like `name="value"` to
+           line="954">Appends something like `name="value"` to
 @string, taking care to escape any quotes or backslashes in @value.
 
 If @value is (non-ASCII) UTF-8, this will instead use RFC 5987
@@ -18684,19 +18682,19 @@ encoding, just like [func@header_g_string_append_param].</doc>
         <parameter name="string" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="958">a #GString being used to construct an HTTP header value</doc>
+               line="956">a #GString being used to construct an HTTP header value</doc>
           <type name="GLib.String" c:type="GString*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="959">a parameter name</doc>
+               line="957">a parameter name</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="960">a parameter value</doc>
+               line="958">a parameter value</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -18730,7 +18728,7 @@ encoding, just like [func@header_g_string_append_param].</doc>
               c:identifier="soup_header_parse_param_list">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="772">Parses a header which is a comma-delimited list of something like:
+           line="770">Parses a header which is a comma-delimited list of something like:
 `token [ "=" ( token | quoted-string ) ]`.
 
 Tokens that don't have an associated value will still be added to
@@ -18743,7 +18741,7 @@ header).</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-headers.c"
-             line="786">a
+             line="784">a
   #GHashTable of list elements, which can be freed with
   [func@header_free_param_list].</doc>
         <type name="GLib.HashTable" c:type="GHashTable*">
@@ -18755,7 +18753,7 @@ header).</doc>
         <parameter name="header" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="774">a header value</doc>
+               line="772">a header value</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -18764,7 +18762,7 @@ header).</doc>
               c:identifier="soup_header_parse_param_list_strict">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="824">A strict version of [func@header_parse_param_list]
+           line="822">A strict version of [func@header_parse_param_list]
 that bails out if there are duplicate parameters.
 
 Note that this function will treat RFC5987-encoded
@@ -18776,7 +18774,7 @@ RFC5987-encoded parameters, use
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-headers.c"
-             line="837">
+             line="835">
   a #GHashTable of list elements, which can be freed with
   [func@header_free_param_list] or %NULL if there are duplicate
   elements.</doc>
@@ -18789,7 +18787,7 @@ RFC5987-encoded parameters, use
         <parameter name="header" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="826">a header value</doc>
+               line="824">a header value</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -18842,7 +18840,7 @@ the main list.</doc>
               c:identifier="soup_header_parse_semi_param_list">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="798">Parses a header which is a semicolon-delimited list of something
+           line="796">Parses a header which is a semicolon-delimited list of something
 like: `token [ "=" ( token | quoted-string ) ]`.
 
 Tokens that don't have an associated value will still be added to
@@ -18855,7 +18853,7 @@ header).</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-headers.c"
-             line="812">a
+             line="810">a
   #GHashTable of list elements, which can be freed with
   [func@header_free_param_list].</doc>
         <type name="GLib.HashTable" c:type="GHashTable*">
@@ -18867,7 +18865,7 @@ header).</doc>
         <parameter name="header" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="800">a header value</doc>
+               line="798">a header value</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -18876,7 +18874,7 @@ header).</doc>
               c:identifier="soup_header_parse_semi_param_list_strict">
       <doc xml:space="preserve"
            filename="libsoup/soup-headers.c"
-           line="850">A strict version of [func@header_parse_semi_param_list]
+           line="848">A strict version of [func@header_parse_semi_param_list]
 that bails out if there are duplicate parameters.
 
 Note that this function will treat RFC5987-encoded
@@ -18888,7 +18886,7 @@ RFC5987-encoded parameters, use
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-headers.c"
-             line="863">
+             line="861">
   a #GHashTable of list elements, which can be freed with
   [func@header_free_param_list] or %NULL if there are duplicate
   elements.</doc>
@@ -18901,7 +18899,7 @@ RFC5987-encoded parameters, use
         <parameter name="header" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-headers.c"
-               line="852">a header value</doc>
+               line="850">a header value</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

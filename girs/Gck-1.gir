@@ -2700,7 +2700,9 @@ using g_object_unref, or %NULL.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="next_async" c:identifier="gck_enumerator_next_async">
+      <method name="next_async"
+              c:identifier="gck_enumerator_next_async"
+              glib:finish-func="next_finish">
         <doc xml:space="preserve"
              filename="gck/gck-enumerator.c"
              line="1272">Get the next set of objects from the enumerator. This operation completes
@@ -3363,7 +3365,8 @@ finalized when complete.</doc>
       </constructor>
       <function name="initialize"
                 c:identifier="gck_module_initialize"
-                throws="1">
+                throws="1"
+                glib:async-func="initialize_async">
         <doc xml:space="preserve"
              filename="gck/gck-module.c"
              line="359">Load and initialize a PKCS#11 module represented by a GckModule object.</doc>
@@ -3393,7 +3396,9 @@ finalized when complete.</doc>
         </parameters>
       </function>
       <function name="initialize_async"
-                c:identifier="gck_module_initialize_async">
+                c:identifier="gck_module_initialize_async"
+                glib:finish-func="initialize_finish"
+                glib:sync-func="initialize">
         <doc xml:space="preserve"
              filename="gck/gck-module.c"
              line="396">Asynchronously load and initialize a PKCS#11 module represented by a
@@ -4019,7 +4024,8 @@ objects.</doc>
       </constructor>
       <method name="cache_lookup"
               c:identifier="gck_object_cache_lookup"
-              throws="1">
+              throws="1"
+              glib:async-func="cache_lookup_async">
         <doc xml:space="preserve"
              filename="gck/gck-object-cache.c"
              line="313">Lookup attributes in the cache, or retrieve them from the object if necessary.
@@ -4072,7 +4078,9 @@ This may block, use the asynchronous version when this is not desirable</doc>
         </parameters>
       </method>
       <method name="cache_lookup_async"
-              c:identifier="gck_object_cache_lookup_async">
+              c:identifier="gck_object_cache_lookup_async"
+              glib:finish-func="cache_lookup_finish"
+              glib:sync-func="cache_lookup">
         <doc xml:space="preserve"
              filename="gck/gck-object-cache.c"
              line="368">Lookup attributes in the cache, or retrieve them from the object if necessary.
@@ -4170,7 +4178,10 @@ from the object if necessary.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="destroy" c:identifier="gck_object_destroy" throws="1">
+      <method name="destroy"
+              c:identifier="gck_object_destroy"
+              throws="1"
+              glib:async-func="destroy_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="396">Destroy a PKCS#11 object, deleting it from storage or the session.
@@ -4200,7 +4211,10 @@ This call may block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="destroy_async" c:identifier="gck_object_destroy_async">
+      <method name="destroy_async"
+              c:identifier="gck_object_destroy_async"
+              glib:finish-func="destroy_finish"
+              glib:sync-func="destroy">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="420">Destroy a PKCS#11 object, deleting it from storage or the session.
@@ -4304,7 +4318,10 @@ underlying PKCS#11 object.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get" c:identifier="gck_object_get" introspectable="0">
+      <method name="get"
+              c:identifier="gck_object_get"
+              introspectable="0"
+              glib:async-func="get_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="644">Get the specified attributes from the object. This call may
@@ -4348,7 +4365,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_async" c:identifier="gck_object_get_async">
+      <method name="get_async"
+              c:identifier="gck_object_get_async"
+              glib:finish-func="get_finish"
+              glib:sync-func="get">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="734">Get the specified attributes from the object. The attributes will be cleared
@@ -4413,7 +4433,10 @@ This call returns immediately and completes asynchronously.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_data" c:identifier="gck_object_get_data" throws="1">
+      <method name="get_data"
+              c:identifier="gck_object_get_data"
+              throws="1"
+              glib:async-func="get_data_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="865">Get the data for the specified attribute from the object. For convenience
@@ -4463,7 +4486,10 @@ This call may block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_data_async" c:identifier="gck_object_get_data_async">
+      <method name="get_data_async"
+              c:identifier="gck_object_get_data_async"
+              glib:finish-func="get_data_finish"
+              glib:sync-func="get_data">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="944">Get the data for the specified attribute from the object.
@@ -4777,7 +4803,8 @@ appropriate for its calls.</doc>
       </method>
       <method name="get_template"
               c:identifier="gck_object_get_template"
-              throws="1">
+              throws="1"
+              glib:async-func="get_template_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="1220">Get an attribute template from the object. The attr_type must be for
@@ -4817,7 +4844,9 @@ This call may block for an indefinite period.</doc>
         </parameters>
       </method>
       <method name="get_template_async"
-              c:identifier="gck_object_get_template_async">
+              c:identifier="gck_object_get_template_async"
+              glib:finish-func="get_template_finish"
+              glib:sync-func="get_template">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="1260">Get an attribute template from the object. The @attr_type must be for
@@ -4925,7 +4954,10 @@ a GHashTable or similar data structure.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="set" c:identifier="gck_object_set" throws="1">
+      <method name="set"
+              c:identifier="gck_object_set"
+              throws="1"
+              glib:async-func="set_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="497">Set PKCS#11 attributes on an object. This call may block for an indefinite period.
@@ -4962,7 +4994,10 @@ If the @attrs #GckAttributes is floating, it is consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_async" c:identifier="gck_object_set_async">
+      <method name="set_async"
+              c:identifier="gck_object_set_async"
+              glib:finish-func="set_finish"
+              glib:sync-func="set">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="534">Set PKCS#11 attributes on an object. This call will return
@@ -5048,7 +5083,8 @@ begun with gck_object_set_async().</doc>
       </method>
       <method name="set_template"
               c:identifier="gck_object_set_template"
-              throws="1">
+              throws="1"
+              glib:async-func="set_template_async">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="1055">Set an attribute template on the object. The attr_type must be for
@@ -5095,7 +5131,9 @@ This call may block for an indefinite period.</doc>
         </parameters>
       </method>
       <method name="set_template_async"
-              c:identifier="gck_object_set_template_async">
+              c:identifier="gck_object_set_template_async"
+              glib:finish-func="set_template_finish"
+              glib:sync-func="set_template">
         <doc xml:space="preserve"
              filename="gck/gck-object.c"
              line="1097">Set an attribute template on the object. The attr_type must be for
@@ -5358,7 +5396,10 @@ If the @attrs #GckAttributes is floating, it is consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update" c:identifier="gck_object_cache_update" throws="1">
+      <method name="update"
+              c:identifier="gck_object_cache_update"
+              throws="1"
+              glib:async-func="update_async">
         <doc xml:space="preserve"
              filename="gck/gck-object-cache.c"
              line="145">Update the object cache with given attributes. If an attribute already
@@ -5404,7 +5445,10 @@ This may block, use the asynchronous version when this is not desirable</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="update_async" c:identifier="gck_object_cache_update_async">
+      <method name="update_async"
+              c:identifier="gck_object_cache_update_async"
+              glib:finish-func="update_finish"
+              glib:sync-func="update">
         <doc xml:space="preserve"
              filename="gck/gck-object-cache.c"
              line="221">Update the object cache with given attributes. If an attribute already
@@ -5542,6 +5586,9 @@ cache. It must be thread safe.</doc>
         <type name="gint" c:type="gint"/>
       </field>
       <field name="fill">
+        <doc xml:space="preserve"
+             filename="gck/gck-object-cache.c"
+             line="45">virtual method to add attributes to the cache</doc>
         <callback name="fill">
           <source-position filename="gck/gck.h" line="1443"/>
           <return-value transfer-ownership="none">
@@ -5880,7 +5927,10 @@ create a session.</doc>
           </parameter>
         </parameters>
       </function>
-      <function name="open" c:identifier="gck_session_open" throws="1">
+      <function name="open"
+                c:identifier="gck_session_open"
+                throws="1"
+                glib:async-func="open_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="803">Open a session on the slot. This call may block for an indefinite period.</doc>
@@ -5924,7 +5974,10 @@ create a session.</doc>
           </parameter>
         </parameters>
       </function>
-      <function name="open_async" c:identifier="gck_session_open_async">
+      <function name="open_async"
+                c:identifier="gck_session_open_async"
+                glib:finish-func="open_finish"
+                glib:sync-func="open">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="829">Open a session on the slot. This call will return immediately and complete
@@ -6024,7 +6077,8 @@ asynchronously.</doc>
       </virtual-method>
       <method name="create_object"
               c:identifier="gck_session_create_object"
-              throws="1">
+              throws="1"
+              glib:async-func="create_object_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1403">Create a new PKCS#11 object. This call may block for an
@@ -6063,7 +6117,9 @@ If the @attrs #GckAttributes is floating, it is consumed.</doc>
         </parameters>
       </method>
       <method name="create_object_async"
-              c:identifier="gck_session_create_object_async">
+              c:identifier="gck_session_create_object_async"
+              glib:finish-func="create_object_finish"
+              glib:sync-func="create_object">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1437">Create a new PKCS#11 object. This call will return immediately
@@ -6146,7 +6202,10 @@ If @attrs is a floating reference, it is consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="decrypt" c:identifier="gck_session_decrypt" throws="1">
+      <method name="decrypt"
+              c:identifier="gck_session_decrypt"
+              throws="1"
+              glib:async-func="decrypt_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2881">Decrypt data in a mechanism specific manner. This call may
@@ -6214,7 +6273,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="decrypt_async" c:identifier="gck_session_decrypt_async">
+      <method name="decrypt_async"
+              c:identifier="gck_session_decrypt_async"
+              glib:finish-func="decrypt_finish"
+              glib:sync-func="decrypt">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2944">Decrypt data in a mechanism specific manner. This call will
@@ -6399,7 +6461,8 @@ block for an indefinite period.</doc>
       </method>
       <method name="derive_key"
               c:identifier="gck_session_derive_key"
-              throws="1">
+              throws="1"
+              glib:async-func="derive_key_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2444">Derive a key from another key. This call may block for an
@@ -6451,7 +6514,9 @@ If the @attrs #GckAttributes is floating, it is consumed.</doc>
         </parameters>
       </method>
       <method name="derive_key_async"
-              c:identifier="gck_session_derive_key_async">
+              c:identifier="gck_session_derive_key_async"
+              glib:finish-func="derive_key_finish"
+              glib:sync-func="derive_key">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2516">Derive a key from another key. This call will
@@ -6600,7 +6665,10 @@ If the @attrs #GckAttributes is floating, it is consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="encrypt" c:identifier="gck_session_encrypt" throws="1">
+      <method name="encrypt"
+              c:identifier="gck_session_encrypt"
+              throws="1"
+              glib:async-func="encrypt_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2760">Encrypt data in a mechanism specific manner. This call may
@@ -6668,7 +6736,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="encrypt_async" c:identifier="gck_session_encrypt_async">
+      <method name="encrypt_async"
+              c:identifier="gck_session_encrypt_async"
+              glib:finish-func="encrypt_finish"
+              glib:sync-func="encrypt">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2824">Encrypt data in a mechanism specific manner. This call will
@@ -6884,7 +6955,8 @@ This call will not block but will return an enumerator immediately.</doc>
       </method>
       <method name="find_handles"
               c:identifier="gck_session_find_handles"
-              throws="1">
+              throws="1"
+              glib:async-func="find_handles_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1570">Find the objects matching the passed attributes. This call may
@@ -6935,7 +7007,9 @@ If @match is a floating reference, it is consumed.</doc>
         </parameters>
       </method>
       <method name="find_handles_async"
-              c:identifier="gck_session_find_handles_async">
+              c:identifier="gck_session_find_handles_async"
+              glib:finish-func="find_handles_finish"
+              glib:sync-func="find_handles">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1614">Find the objects matching the passed attributes. This call will
@@ -7032,7 +7106,8 @@ If @match is a floating reference, it is consumed.</doc>
       </method>
       <method name="find_objects"
               c:identifier="gck_session_find_objects"
-              throws="1">
+              throws="1"
+              glib:async-func="find_objects_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1683">Find the objects matching the passed attributes. This call may
@@ -7074,7 +7149,9 @@ If @match is a floating reference, it is consumed.</doc>
         </parameters>
       </method>
       <method name="find_objects_async"
-              c:identifier="gck_session_find_objects_async">
+              c:identifier="gck_session_find_objects_async"
+              glib:finish-func="find_objects_finish"
+              glib:sync-func="find_objects">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1722">Find the objects matching the passed attributes. This call will
@@ -7162,7 +7239,8 @@ If the @match #GckAttributes is floating, it is consumed.</doc>
       </method>
       <method name="generate_key_pair"
               c:identifier="gck_session_generate_key_pair"
-              throws="1">
+              throws="1"
+              glib:async-func="generate_key_pair_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1849">Generate a new key pair of public and private keys. This call may block for
@@ -7236,7 +7314,9 @@ consumed.</doc>
         </parameters>
       </method>
       <method name="generate_key_pair_async"
-              c:identifier="gck_session_generate_key_pair_async">
+              c:identifier="gck_session_generate_key_pair_async"
+              glib:finish-func="generate_key_pair_finish"
+              glib:sync-func="generate_key_pair">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1936">Generate a new key pair of public and private keys. This call will
@@ -7581,7 +7661,10 @@ for pins and the like.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="init_pin" c:identifier="gck_session_init_pin" throws="1">
+      <method name="init_pin"
+              c:identifier="gck_session_init_pin"
+              throws="1"
+              glib:async-func="init_pin_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="905">Initialize the user's pin on this slot that this session is opened on.
@@ -7632,7 +7715,10 @@ This call may block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="init_pin_async" c:identifier="gck_session_init_pin_async">
+      <method name="init_pin_async"
+              c:identifier="gck_session_init_pin_async"
+              glib:finish-func="init_pin_finish"
+              glib:sync-func="init_pin">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="931">Initialize the user's pin on this slot that this session is opened on.
@@ -7727,7 +7813,10 @@ This call will return immediately and completes asynchronously.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="login" c:identifier="gck_session_login" throws="1">
+      <method name="login"
+              c:identifier="gck_session_login"
+              throws="1"
+              glib:async-func="login_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1112">Login the user on the session. This call may block for
@@ -7781,7 +7870,10 @@ an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="login_async" c:identifier="gck_session_login_async">
+      <method name="login_async"
+              c:identifier="gck_session_login_async"
+              glib:finish-func="login_finish"
+              glib:sync-func="login">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1136">Login the user on the session. This call will return
@@ -7882,7 +7974,8 @@ immediately and completes asynchronously.</doc>
       </method>
       <method name="login_interactive"
               c:identifier="gck_session_login_interactive"
-              throws="1">
+              throws="1"
+              glib:async-func="login_interactive_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1207">Login the user on the session requesting the password interactively
@@ -7928,7 +8021,9 @@ when necessary. This call may block for an indefinite period.</doc>
         </parameters>
       </method>
       <method name="login_interactive_async"
-              c:identifier="gck_session_login_interactive_async">
+              c:identifier="gck_session_login_interactive_async"
+              glib:finish-func="login_interactive_finish"
+              glib:sync-func="login_interactive">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1242">Login the user on the session prompting for passwords interactively when
@@ -8018,7 +8113,10 @@ necessary. This call will return immediately and completes asynchronously.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="logout" c:identifier="gck_session_logout" throws="1">
+      <method name="logout"
+              c:identifier="gck_session_logout"
+              throws="1"
+              glib:async-func="logout_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1310">Log out of the session. This call may block for an indefinite period.</doc>
@@ -8047,7 +8145,10 @@ necessary. This call will return immediately and completes asynchronously.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="logout_async" c:identifier="gck_session_logout_async">
+      <method name="logout_async"
+              c:identifier="gck_session_logout_async"
+              glib:finish-func="logout_finish"
+              glib:sync-func="logout">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1327">Log out of the session. This call returns immediately and completes
@@ -8151,7 +8252,10 @@ pins and the like.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_pin" c:identifier="gck_session_set_pin" throws="1">
+      <method name="set_pin"
+              c:identifier="gck_session_set_pin"
+              throws="1"
+              glib:async-func="set_pin_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1007">Change the user's pin on this slot that this session is opened on.
@@ -8218,7 +8322,10 @@ This call may block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_pin_async" c:identifier="gck_session_set_pin_async">
+      <method name="set_pin_async"
+              c:identifier="gck_session_set_pin_async"
+              glib:finish-func="set_pin_finish"
+              glib:sync-func="set_pin">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="1034">Change the user's pin on this slot that this session is opened on.
@@ -8330,7 +8437,10 @@ This call will return immediately and completes asynchronously.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="sign" c:identifier="gck_session_sign" throws="1">
+      <method name="sign"
+              c:identifier="gck_session_sign"
+              throws="1"
+              glib:async-func="sign_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="3000">Sign data in a mechanism specific manner. This call may
@@ -8398,7 +8508,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="sign_async" c:identifier="gck_session_sign_async">
+      <method name="sign_async"
+              c:identifier="gck_session_sign_async"
+              glib:finish-func="sign_finish"
+              glib:sync-func="sign">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="3062">Sign data in a mechanism specific manner. This call will
@@ -8575,7 +8688,8 @@ block for an indefinite period.</doc>
       </method>
       <method name="unwrap_key"
               c:identifier="gck_session_unwrap_key"
-              throws="1">
+              throws="1"
+              glib:async-func="unwrap_key_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2244">Unwrap a key from a byte stream. This call may block for an
@@ -8641,7 +8755,9 @@ If @attrs is a floating reference, it is consumed.</doc>
         </parameters>
       </method>
       <method name="unwrap_key_async"
-              c:identifier="gck_session_unwrap_key_async">
+              c:identifier="gck_session_unwrap_key_async"
+              glib:finish-func="unwrap_key_finish"
+              glib:sync-func="unwrap_key">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2332">Unwrap a key from a byte stream. This call will
@@ -8818,7 +8934,10 @@ If @attrs is a floating reference, it is consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="verify" c:identifier="gck_session_verify" throws="1">
+      <method name="verify"
+              c:identifier="gck_session_verify"
+              throws="1"
+              glib:async-func="verify_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="3177">Verify data in a mechanism specific manner. This call may
@@ -8888,7 +9007,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="verify_async" c:identifier="gck_session_verify_async">
+      <method name="verify_async"
+              c:identifier="gck_session_verify_async"
+              glib:finish-func="verify_finish"
+              glib:sync-func="verify">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="3254">Verify data in a mechanism specific manner. This call returns
@@ -9075,7 +9197,10 @@ block for an indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="wrap_key" c:identifier="gck_session_wrap_key" throws="1">
+      <method name="wrap_key"
+              c:identifier="gck_session_wrap_key"
+              throws="1"
+              glib:async-func="wrap_key_async">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2059">Wrap a key into a byte stream. This call may block for an
@@ -9135,7 +9260,10 @@ indefinite period.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="wrap_key_async" c:identifier="gck_session_wrap_key_async">
+      <method name="wrap_key_async"
+              c:identifier="gck_session_wrap_key_async"
+              glib:finish-func="wrap_key_finish"
+              glib:sync-func="wrap_key">
         <doc xml:space="preserve"
              filename="gck/gck-session.c"
              line="2130">Wrap a key into a byte stream. This call will
@@ -9880,7 +10008,8 @@ a GHashTable or similar data structure.</doc>
       </method>
       <method name="open_session"
               c:identifier="gck_slot_open_session"
-              throws="1">
+              throws="1"
+              glib:async-func="open_session_async">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="950">Open a session on the slot. If the 'auto reuse' setting is set,
@@ -9919,7 +10048,9 @@ This call may block for an indefinite period.</doc>
         </parameters>
       </method>
       <method name="open_session_async"
-              c:identifier="gck_slot_open_session_async">
+              c:identifier="gck_slot_open_session_async"
+              glib:finish-func="open_session_finish"
+              glib:sync-func="open_session">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="1007">Open a session on the slot. If the 'auto reuse' setting is set,

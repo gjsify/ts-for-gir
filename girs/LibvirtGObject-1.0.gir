@@ -221,7 +221,8 @@ after its elements have been unreffed with g_object_unref().</doc>
       </method>
       <method name="fetch_domains"
               c:identifier="gvir_connection_fetch_domains"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_domains_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="699">Use this method to fetch all domains managed by connection
@@ -252,7 +253,9 @@ domains.</doc>
         </parameters>
       </method>
       <method name="fetch_domains_async"
-              c:identifier="gvir_connection_fetch_domains_async">
+              c:identifier="gvir_connection_fetch_domains_async"
+              glib:finish-func="fetch_domains_finish"
+              glib:sync-func="fetch_domains">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="114"/>
         <return-value transfer-ownership="none">
@@ -321,7 +324,8 @@ domains.</doc>
       </method>
       <method name="fetch_interfaces"
               c:identifier="gvir_connection_fetch_interfaces"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_interfaces_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="1471">Use this method to fetch information on all network interfaces
@@ -355,7 +359,9 @@ to query the fetched interfaces.</doc>
         </parameters>
       </method>
       <method name="fetch_interfaces_async"
-              c:identifier="gvir_connection_fetch_interfaces_async">
+              c:identifier="gvir_connection_fetch_interfaces_async"
+              glib:finish-func="fetch_interfaces_finish"
+              glib:sync-func="fetch_interfaces">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="149"/>
         <return-value transfer-ownership="none">
@@ -424,7 +430,8 @@ to query the fetched interfaces.</doc>
       </method>
       <method name="fetch_networks"
               c:identifier="gvir_connection_fetch_networks"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_networks_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="1731">Use this method to fetch all networks managed by connection
@@ -455,7 +462,9 @@ domains.</doc>
         </parameters>
       </method>
       <method name="fetch_networks_async"
-              c:identifier="gvir_connection_fetch_networks_async">
+              c:identifier="gvir_connection_fetch_networks_async"
+              glib:finish-func="fetch_networks_finish"
+              glib:sync-func="fetch_networks">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="165"/>
         <return-value transfer-ownership="none">
@@ -524,7 +533,8 @@ domains.</doc>
       </method>
       <method name="fetch_storage_pools"
               c:identifier="gvir_connection_fetch_storage_pools"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_storage_pools_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="787">Use this method to fetch all storage pools managed by connection
@@ -555,7 +565,9 @@ pools.</doc>
         </parameters>
       </method>
       <method name="fetch_storage_pools_async"
-              c:identifier="gvir_connection_fetch_storage_pools_async">
+              c:identifier="gvir_connection_fetch_storage_pools_async"
+              glib:finish-func="fetch_storage_pools_finish"
+              glib:sync-func="fetch_storage_pools">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="199"/>
         <return-value transfer-ownership="none">
@@ -762,7 +774,8 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="get_capabilities"
               c:identifier="gvir_connection_get_capabilities"
-              throws="1">
+              throws="1"
+              glib:async-func="get_capabilities_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="226"/>
         <return-value transfer-ownership="full">
@@ -784,7 +797,9 @@ needed.</doc>
         </parameters>
       </method>
       <method name="get_capabilities_async"
-              c:identifier="gvir_connection_get_capabilities_async">
+              c:identifier="gvir_connection_get_capabilities_async"
+              glib:finish-func="get_capabilities_finish"
+              glib:sync-func="get_capabilities">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="228"/>
         <return-value transfer-ownership="none">
@@ -884,7 +899,8 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="get_domain_capabilities"
               c:identifier="gvir_connection_get_domain_capabilities"
-              throws="1">
+              throws="1"
+              glib:async-func="get_domain_capabilities_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="258"/>
         <return-value transfer-ownership="full">
@@ -948,7 +964,9 @@ needed.</doc>
         </parameters>
       </method>
       <method name="get_domain_capabilities_async"
-              c:identifier="gvir_connection_get_domain_capabilities_async">
+              c:identifier="gvir_connection_get_domain_capabilities_async"
+              glib:finish-func="get_domain_capabilities_finish"
+              glib:sync-func="get_domain_capabilities">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="265"/>
         <return-value transfer-ownership="none">
@@ -1384,7 +1402,10 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="open" c:identifier="gvir_connection_open" throws="1">
+      <method name="open"
+              c:identifier="gvir_connection_open"
+              throws="1"
+              glib:async-func="open_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="87"/>
         <return-value transfer-ownership="none">
@@ -1408,7 +1429,10 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="open_async" c:identifier="gvir_connection_open_async">
+      <method name="open_async"
+              c:identifier="gvir_connection_open_async"
+              glib:finish-func="open_finish"
+              glib:sync-func="open">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="93"/>
         <return-value transfer-ownership="none">
@@ -1477,7 +1501,8 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="open_read_only"
               c:identifier="gvir_connection_open_read_only"
-              throws="1">
+              throws="1"
+              glib:async-func="open_read_only_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="90"/>
         <return-value transfer-ownership="none">
@@ -1496,7 +1521,9 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="open_read_only_async"
-              c:identifier="gvir_connection_open_read_only_async">
+              c:identifier="gvir_connection_open_read_only_async"
+              glib:finish-func="open_read_only_finish"
+              glib:sync-func="open_read_only">
         <source-position filename="libvirt-gobject/libvirt-gobject-connection.h"
                          line="100"/>
         <return-value transfer-ownership="none">
@@ -1565,7 +1592,8 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
       </method>
       <method name="restore_domain_from_file"
               c:identifier="gvir_connection_restore_domain_from_file"
-              throws="1">
+              throws="1"
+              glib:async-func="restore_domain_from_file_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="2355">Restores the domain saved with #gvir_domain_save_to_file</doc>
@@ -1608,7 +1636,9 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="restore_domain_from_file_async"
-              c:identifier="gvir_connection_restore_domain_from_file_async">
+              c:identifier="gvir_connection_restore_domain_from_file_async"
+              glib:finish-func="restore_domain_from_file_finish"
+              glib:sync-func="restore_domain_from_file">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-connection.c"
              line="2441">Asynchronous variant of #gvir_connection_restore_domain_from_file</doc>
@@ -2132,7 +2162,8 @@ when no longer needed.</doc>
       </virtual-method>
       <method name="create_snapshot"
               c:identifier="gvir_domain_create_snapshot"
-              throws="1">
+              throws="1"
+              glib:async-func="create_snapshot_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="365"/>
         <return-value transfer-ownership="full">
@@ -2168,7 +2199,9 @@ unreffed when no longer needed</doc>
         </parameters>
       </method>
       <method name="create_snapshot_async"
-              c:identifier="gvir_domain_create_snapshot_async">
+              c:identifier="gvir_domain_create_snapshot_async"
+              glib:finish-func="create_snapshot_finish"
+              glib:sync-func="create_snapshot">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="370"/>
         <return-value transfer-ownership="none">
@@ -2277,7 +2310,8 @@ unreffed when no longer needed</doc>
       </method>
       <method name="fetch_snapshots"
               c:identifier="gvir_domain_fetch_snapshots"
-              throws="1">
+              throws="1"
+              glib:async-func="fetch_snapshots_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="382"/>
         <return-value transfer-ownership="none">
@@ -2311,7 +2345,9 @@ unreffed when no longer needed</doc>
         </parameters>
       </method>
       <method name="fetch_snapshots_async"
-              c:identifier="gvir_domain_fetch_snapshots_async">
+              c:identifier="gvir_domain_fetch_snapshots_async"
+              glib:finish-func="fetch_snapshots_finish"
+              glib:sync-func="fetch_snapshots">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="389"/>
         <return-value transfer-ownership="none">
@@ -2490,7 +2526,10 @@ has a current snapshot and to %FALSE otherwise.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_info" c:identifier="gvir_domain_get_info" throws="1">
+      <method name="get_info"
+              c:identifier="gvir_domain_get_info"
+              throws="1"
+              glib:async-func="get_info_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="301"/>
         <return-value transfer-ownership="full">
@@ -2510,7 +2549,10 @@ when no longer needed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_info_async" c:identifier="gvir_domain_get_info_async">
+      <method name="get_info_async"
+              c:identifier="gvir_domain_get_info_async"
+              glib:finish-func="get_info_finish"
+              glib:sync-func="get_info">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="997">Asynchronous variant of #gvir_domain_get_info.</doc>
@@ -2822,7 +2864,10 @@ will determine which one is opened, starting from @idx 0.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="resume" c:identifier="gvir_domain_resume" throws="1">
+      <method name="resume"
+              c:identifier="gvir_domain_resume"
+              throws="1"
+              glib:async-func="resume_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="250"/>
         <return-value transfer-ownership="none">
@@ -2840,7 +2885,10 @@ will determine which one is opened, starting from @idx 0.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="resume_async" c:identifier="gvir_domain_resume_async">
+      <method name="resume_async"
+              c:identifier="gvir_domain_resume_async"
+              glib:finish-func="resume_finish"
+              glib:sync-func="resume">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="467">Asynchronous variant of #gvir_domain_resume.</doc>
@@ -2904,7 +2952,10 @@ will determine which one is opened, starting from @idx 0.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save" c:identifier="gvir_domain_save" throws="1">
+      <method name="save"
+              c:identifier="gvir_domain_save"
+              throws="1"
+              glib:async-func="save_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="1264">Saves the state of the domain on disk and stops it. Use #gvir_domain_start
@@ -2933,7 +2984,10 @@ even after shutdown/reboot of host machine.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_async" c:identifier="gvir_domain_save_async">
+      <method name="save_async"
+              c:identifier="gvir_domain_save_async"
+              glib:finish-func="save_finish"
+              glib:sync-func="save">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="1309">Asynchronous variant of #gvir_domain_save.</doc>
@@ -3017,7 +3071,8 @@ even after shutdown/reboot of host machine.</doc>
       </method>
       <method name="save_to_file"
               c:identifier="gvir_domain_save_to_file"
-              throws="1">
+              throws="1"
+              glib:async-func="save_to_file_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="283"/>
         <return-value transfer-ownership="none">
@@ -3057,7 +3112,9 @@ even after shutdown/reboot of host machine.</doc>
         </parameters>
       </method>
       <method name="save_to_file_async"
-              c:identifier="gvir_domain_save_to_file_async">
+              c:identifier="gvir_domain_save_to_file_async"
+              glib:finish-func="save_to_file_finish"
+              glib:sync-func="save_to_file">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="776">Asynchronous variant of #gvir_domain_save_to_file</doc>
@@ -3222,7 +3279,10 @@ affect until domain reboots.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_time" c:identifier="gvir_domain_set_time" throws="1">
+      <method name="set_time"
+              c:identifier="gvir_domain_set_time"
+              throws="1"
+              glib:async-func="set_time_async">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="1797">This function tries to set guest time to the given value. The passed
@@ -3264,7 +3324,10 @@ and running in order for this function to work.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_time_async" c:identifier="gvir_domain_set_time_async">
+      <method name="set_time_async"
+              c:identifier="gvir_domain_set_time_async"
+              glib:finish-func="set_time_finish"
+              glib:sync-func="set_time">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="1873">Asynchronous variant of #gvir_domain_set_time.</doc>
@@ -3376,7 +3439,10 @@ and running in order for this function to work.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start" c:identifier="gvir_domain_start" throws="1">
+      <method name="start"
+              c:identifier="gvir_domain_start"
+              throws="1"
+              glib:async-func="start_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="238"/>
         <return-value transfer-ownership="none">
@@ -3397,7 +3463,10 @@ and running in order for this function to work.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start_async" c:identifier="gvir_domain_start_async">
+      <method name="start_async"
+              c:identifier="gvir_domain_start_async"
+              glib:finish-func="start_finish"
+              glib:sync-func="start">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="385">Asynchronous variant of #gvir_domain_start.</doc>
@@ -3547,7 +3616,10 @@ level will stay allocated. Use gvir_domain_resume() to reactivate the domain.</d
           </parameter>
         </parameters>
       </method>
-      <method name="wakeup" c:identifier="gvir_domain_wakeup" throws="1">
+      <method name="wakeup"
+              c:identifier="gvir_domain_wakeup"
+              throws="1"
+              glib:async-func="wakeup_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain.h"
                          line="259"/>
         <return-value transfer-ownership="none">
@@ -3571,7 +3643,10 @@ level will stay allocated. Use gvir_domain_resume() to reactivate the domain.</d
           </parameter>
         </parameters>
       </method>
-      <method name="wakeup_async" c:identifier="gvir_domain_wakeup_async">
+      <method name="wakeup_async"
+              c:identifier="gvir_domain_wakeup_async"
+              glib:finish-func="wakeup_finish"
+              glib:sync-func="wakeup">
         <doc xml:space="preserve"
              filename="libvirt-gobject/libvirt-gobject-domain.c"
              line="549">Asynchronous variant of #gvir_domain_wakeup.</doc>
@@ -4276,7 +4351,8 @@ needed.</doc>
                        line="58"/>
       <method name="delete"
               c:identifier="gvir_domain_snapshot_delete"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain-snapshot.h"
                          line="96"/>
         <return-value transfer-ownership="none">
@@ -4301,7 +4377,9 @@ needed.</doc>
         </parameters>
       </method>
       <method name="delete_async"
-              c:identifier="gvir_domain_snapshot_delete_async">
+              c:identifier="gvir_domain_snapshot_delete_async"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain-snapshot.h"
                          line="100"/>
         <return-value transfer-ownership="none">
@@ -4455,7 +4533,8 @@ of its domain, %FALSE otherwise.</doc>
       </method>
       <method name="revert_to"
               c:identifier="gvir_domain_snapshot_revert_to"
-              throws="1">
+              throws="1"
+              glib:async-func="revert_to_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain-snapshot.h"
                          line="115"/>
         <return-value transfer-ownership="none">
@@ -4482,7 +4561,9 @@ reverted to the given snapshot, FALSE otherwise, in which case
         </parameters>
       </method>
       <method name="revert_to_async"
-              c:identifier="gvir_domain_snapshot_revert_to_async">
+              c:identifier="gvir_domain_snapshot_revert_to_async"
+              glib:finish-func="revert_to_finish"
+              glib:sync-func="revert_to">
         <source-position filename="libvirt-gobject/libvirt-gobject-domain-snapshot.h"
                          line="119"/>
         <return-value transfer-ownership="none">
@@ -6737,7 +6818,10 @@ unreffed with g_object_unref() when no longer needed.</doc>
            glib:type-struct="StoragePoolClass">
       <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                        line="59"/>
-      <method name="build" c:identifier="gvir_storage_pool_build" throws="1">
+      <method name="build"
+              c:identifier="gvir_storage_pool_build"
+              throws="1"
+              glib:async-func="build_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="113"/>
         <return-value transfer-ownership="none">
@@ -6761,7 +6845,10 @@ unreffed with g_object_unref() when no longer needed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="build_async" c:identifier="gvir_storage_pool_build_async">
+      <method name="build_async"
+              c:identifier="gvir_storage_pool_build_async"
+              glib:finish-func="build_finish"
+              glib:sync-func="build">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="116"/>
         <return-value transfer-ownership="none">
@@ -6865,7 +6952,10 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="delete" c:identifier="gvir_storage_pool_delete" throws="1">
+      <method name="delete"
+              c:identifier="gvir_storage_pool_delete"
+              throws="1"
+              glib:async-func="delete_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="157"/>
         <return-value transfer-ownership="none">
@@ -6890,7 +6980,9 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameters>
       </method>
       <method name="delete_async"
-              c:identifier="gvir_storage_pool_delete_async">
+              c:identifier="gvir_storage_pool_delete_async"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="160"/>
         <return-value transfer-ownership="none">
@@ -7135,7 +7227,8 @@ g_object_unref().</doc>
       </method>
       <method name="refresh"
               c:identifier="gvir_storage_pool_refresh"
-              throws="1">
+              throws="1"
+              glib:async-func="refresh_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="94"/>
         <return-value transfer-ownership="none">
@@ -7160,7 +7253,9 @@ g_object_unref().</doc>
         </parameters>
       </method>
       <method name="refresh_async"
-              c:identifier="gvir_storage_pool_refresh_async">
+              c:identifier="gvir_storage_pool_refresh_async"
+              glib:finish-func="refresh_finish"
+              glib:sync-func="refresh">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="97"/>
         <return-value transfer-ownership="none">
@@ -7256,7 +7351,10 @@ g_object_unref().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start" c:identifier="gvir_storage_pool_start" throws="1">
+      <method name="start"
+              c:identifier="gvir_storage_pool_start"
+              throws="1"
+              glib:async-func="start_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="135"/>
         <return-value transfer-ownership="none">
@@ -7280,7 +7378,10 @@ g_object_unref().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="start_async" c:identifier="gvir_storage_pool_start_async">
+      <method name="start_async"
+              c:identifier="gvir_storage_pool_start_async"
+              glib:finish-func="start_finish"
+              glib:sync-func="start">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="138"/>
         <return-value transfer-ownership="none">
@@ -7356,7 +7457,10 @@ g_object_unref().</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="stop" c:identifier="gvir_storage_pool_stop" throws="1">
+      <method name="stop"
+              c:identifier="gvir_storage_pool_stop"
+              throws="1"
+              glib:async-func="stop_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="147"/>
         <return-value transfer-ownership="none">
@@ -7374,7 +7478,10 @@ g_object_unref().</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="stop_async" c:identifier="gvir_storage_pool_stop_async">
+      <method name="stop_async"
+              c:identifier="gvir_storage_pool_stop_async"
+              glib:finish-func="stop_finish"
+              glib:sync-func="stop">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="149"/>
         <return-value transfer-ownership="none">
@@ -7446,7 +7553,8 @@ g_object_unref().</doc>
       </method>
       <method name="undefine"
               c:identifier="gvir_storage_pool_undefine"
-              throws="1">
+              throws="1"
+              glib:async-func="undefine_async">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="125"/>
         <return-value transfer-ownership="none">
@@ -7465,7 +7573,9 @@ g_object_unref().</doc>
         </parameters>
       </method>
       <method name="undefine_async"
-              c:identifier="gvir_storage_pool_undefine_async">
+              c:identifier="gvir_storage_pool_undefine_async"
+              glib:finish-func="undefine_finish"
+              glib:sync-func="undefine">
         <source-position filename="libvirt-gobject/libvirt-gobject-storage-pool.h"
                          line="127"/>
         <return-value transfer-ownership="none">

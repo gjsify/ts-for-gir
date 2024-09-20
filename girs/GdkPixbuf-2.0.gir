@@ -504,7 +504,7 @@ interpolation is just as fast and results in higher quality.</doc>
       <source-position filename="gdk-pixbuf/gdk-pixbuf-features.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="PIXBUF_MICRO" value="10" c:type="GDK_PIXBUF_MICRO">
+    <constant name="PIXBUF_MICRO" value="12" c:type="GDK_PIXBUF_MICRO">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixbuf-features.h"
            line="22">Micro version of gdk-pixbuf library, that is the "2" in
@@ -551,7 +551,7 @@ interpolation is just as fast and results in higher quality.</doc>
       </parameters>
     </function-macro>
     <constant name="PIXBUF_VERSION"
-              value="2.42.10"
+              value="2.42.12"
               c:type="GDK_PIXBUF_VERSION">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixbuf-features.h"
@@ -1358,7 +1358,7 @@ gdk_pixbuf_new_from_stream_async().</doc>
 This data is commonly the result of including an XPM file into a
 program's C source.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-core.h" line="294"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="2157">A newly-created pixbuf</doc>
@@ -1427,7 +1427,8 @@ image values without needing to create a `GdkPixbuf`.</doc>
       </function>
       <function name="get_file_info"
                 c:identifier="gdk_pixbuf_get_file_info"
-                version="2.4">
+                version="2.4"
+                glib:async-func="get_file_info_async">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="1964">Parses an image file far enough to determine its format and size.</doc>
@@ -1472,7 +1473,9 @@ image values without needing to create a `GdkPixbuf`.</doc>
       </function>
       <function name="get_file_info_async"
                 c:identifier="gdk_pixbuf_get_file_info_async"
-                version="2.32">
+                version="2.32"
+                glib:finish-func="get_file_info_finish"
+                glib:sync-func="get_file_info">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="2062">Asynchronously parses an image file far enough to determine its
@@ -1621,7 +1624,8 @@ provided modules.</doc>
       </function>
       <function name="new_from_stream_async"
                 c:identifier="gdk_pixbuf_new_from_stream_async"
-                version="2.24">
+                version="2.24"
+                glib:finish-func="new_from_stream_finish">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="1872">Creates a new pixbuf by asynchronously loading an image from an input stream.
@@ -1787,7 +1791,7 @@ pixels will become fully transparent.
 If `substitute_color` is `FALSE`, then the (`r`, `g`, `b`) arguments
 will be ignored.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-core.h" line="482"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-util.c"
                line="51">A newly-created pixbuf</doc>
@@ -4176,7 +4180,8 @@ The stream is not closed.</doc>
       </constructor>
       <function name="new_from_stream_async"
                 c:identifier="gdk_pixbuf_animation_new_from_stream_async"
-                version="2.28">
+                version="2.28"
+                glib:finish-func="new_from_stream_finish">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixbuf-animation.c"
              line="443">Creates a new animation by asynchronously loading an image from an input stream.
@@ -4294,6 +4299,9 @@ A delay time of -1 is possible, indicating "infinite".</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_size">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="128">fills @width and @height with the frame size of the animation.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                          line="157"/>
         <return-value transfer-ownership="none">
@@ -4602,6 +4610,9 @@ virtual functions.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="is_static_image">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="126">returns whether the given animation is just a static image.</doc>
         <callback name="is_static_image">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="153"/>
@@ -4622,6 +4633,9 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="get_static_image">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="127">returns a static image representing the given animation.</doc>
         <callback name="get_static_image">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="155"/>
@@ -4642,6 +4656,9 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="get_size">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="128">fills @width and @height with the frame size of the animation.</doc>
         <callback name="get_size">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="157"/>
@@ -4662,6 +4679,9 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="get_iter">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="129">returns an iterator for the given animation.</doc>
         <callback name="get_iter">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="161"/>
@@ -5009,6 +5029,10 @@ virtual functions.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="get_delay_time">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="171">returns the time in milliseconds that the current frame
+ should be shown.</doc>
         <callback name="get_delay_time">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="200"/>
@@ -5030,6 +5054,9 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="get_pixbuf">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="173">returns the current frame.</doc>
         <callback name="get_pixbuf">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="202"/>
@@ -5051,6 +5078,10 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="on_currently_loading_frame">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="174">returns whether the current frame of @iter is
+ being loaded.</doc>
         <callback name="on_currently_loading_frame">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="204"/>
@@ -5072,6 +5103,10 @@ virtual functions.</doc>
         </callback>
       </field>
       <field name="advance">
+        <doc xml:space="preserve"
+             filename="gdk-pixbuf/gdk-pixbuf-animation.h"
+             line="176">advances the iterator to @current_time, possibly changing the
+ current frame.</doc>
         <callback name="advance">
           <source-position filename="gdk-pixbuf/gdk-pixbuf-animation.h"
                            line="206"/>
@@ -5298,7 +5333,7 @@ use the `gdk_pixbuf_format_*` family of functions.</doc>
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="3452">Creates a copy of `format`.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="92"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3458">the newly allocated copy of a `GdkPixbufFormat`. Use
@@ -5339,7 +5374,7 @@ using gdk_pixbuf_format_copy()</doc>
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="3249">Returns a description of the format.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="56"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3255">a description of the format.</doc>
@@ -5362,7 +5397,7 @@ using gdk_pixbuf_format_copy()</doc>
              line="3293">Returns the filename extensions typically used for files in the
 given format.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="60"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3300">an array of
@@ -5390,7 +5425,7 @@ given format.</doc>
 The returned string should be a shorthand for a well known license, e.g.
 "LGPL", "GPL", "QPL", "GPL/QPL", or "other" to indicate some other license.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="74"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3406">a string describing the license of the pixbuf format</doc>
@@ -5412,7 +5447,7 @@ The returned string should be a shorthand for a well known license, e.g.
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="3275">Returns the mime types supported by the format.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="58"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3281">an array of mime types</doc>
@@ -5436,7 +5471,7 @@ The returned string should be a shorthand for a well known license, e.g.
              filename="gdk-pixbuf/gdk-pixbuf-io.c"
              line="3231">Returns the name of the format.</doc>
         <source-position filename="gdk-pixbuf/gdk-pixbuf-io.h" line="54"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixbuf-io.c"
                line="3237">the name of the format.</doc>

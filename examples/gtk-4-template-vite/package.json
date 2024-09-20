@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.5.4",
-    "vite": "^5.4.2"
+    "vite": "^5.4.6"
   },
   "dependencies": {
     "@girs/gdk-4.0": "workspace:^",

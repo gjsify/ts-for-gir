@@ -48,7 +48,7 @@ export const programArgs: string[]
  * @param o Any Object
  * @returns A hexadecimal string (e.g. `0xb4f170f0`)
  */
-export function addressOf(o: any): string
+export function addressOf(o: object): string
 
 /**
  * Return the memory address of any GObject as a string.
@@ -141,7 +141,7 @@ export function dumpHeap(path?: string): void
  *   }
  * }
  * ```
- * 
+ *
  */
 export function dumpMemoryInfo(path?: string): void
 
@@ -149,18 +149,18 @@ export function dumpMemoryInfo(path?: string): void
  * This works the same as C's exit() function; exits the program, passing a
  * certain error code to the shell. The shell expects the error code to be zero if
  * there was no error, or non-zero (any value you please) to indicate an error.
- * 
+ *
  * This value is used by other tools such as `make`; if `make` calls a program that
  * returns a non-zero error code, then `make` aborts the build.
  * @param code An exit code
  */
-export function exit(code: number): void
+export function exit(code: number): never
 
 /**
  * The System module provides common low-level facilities such as access to
  * process arguments and exit(), as well as a number of useful functions and
  * properties for debugging.
- * 
+ *
  * Note that the majority of the functions and properties in this module should not
  * be used in normal operation of a GJS application.
  */

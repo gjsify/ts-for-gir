@@ -19,6 +19,7 @@ import {
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedRecord } from "../gir/class.js";
+import { JSField } from "../gir/property.js";
 
 export default {
     namespace: "GLib",
@@ -96,6 +97,13 @@ export default {
 
             Error.constructors = Error.constructors.map(c => fixQuark(c));
             Error.members = Error.members.map(m => fixQuark(m));
+            Error.fields.push(
+                new JSField({
+                    name: "stack",
+                    parent: Error,
+                    type: StringType
+                })
+            );
         }
 
         {
